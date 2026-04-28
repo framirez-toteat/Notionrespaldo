@@ -1,0 +1,132 @@
+{
+  "order_detail": {
+    "discounts": [
+      {
+        "value": 2000.0,
+        "description": "Disfruta de 9,5 % de descuento en productos seleccionados. Verás el descuento reflejado los productos seleccionados.",
+        "title": "BOWL DEL DIA",
+        "product_id": 2097686956,
+        "type": "offer_by_product",
+        "raw_value": 9.5,
+        "value_type": "percentage",
+        "max_value": null,
+        "includes_toppings": false,
+        "percentage_by_rappi": 0.0,
+        "percentage_by_partners": 100.0,
+        "amount_by_rappi": 0.0,
+        "amount_by_partner": 2000.0,
+        "discount_product_units": 1,
+        "discount_product_unit_value": 2000.0,
+        "sku": "1300"
+      },
+      {
+        "value": 3500.0,
+        "description": "Envíos GRATIS en compras mayores a $15000 pagando con tarjeta de crédito",
+        "title": "Envíos GRATIS en compras mayores a $15000 pagando con tarjeta de crédito",
+        "product_id": null,
+        "type": "prime_discount_shipping",
+        "raw_value": 100,
+        "value_type": "percentage",
+        "max_value": null,
+        "includes_toppings": false,
+        "percentage_by_rappi": 100,
+        "percentage_by_partners": 0,
+        "amount_by_rappi": 3500.0,
+        "amount_by_partner": 0.0,
+        "discount_product_units": 0,
+        "discount_product_unit_value": null,
+        "sku": null
+      },
+      {
+        "value": 550.0,
+        "description": "30%OFF Service Fee",
+        "title": "30%OFF Service Fee Prime",
+        "product_id": null,
+        "type": "service_fee",
+        "raw_value": 30,
+        "value_type": "percentage",
+        "max_value": 171000.0,
+        "includes_toppings": false,
+        "percentage_by_rappi": 100.0,
+        "percentage_by_partners": 0.0,
+        "amount_by_rappi": 550.0,
+        "amount_by_partner": 0.0,
+        "discount_product_units": 0,
+        "discount_product_unit_value": null,
+        "sku": null
+      }
+    ],
+    "order_id": "2246090599",
+    "cooking_time": 21,
+    "delivery_operation_type": "regular",
+    "min_cooking_time": 21,
+    "max_cooking_time": 21,
+    "created_at": "2024-06-24 15:56:09",
+    "delivery_method": "delivery",
+    "payment_method": "cash",
+    "billing_information": null,
+    "delivery_information": null,
+    "totals": {
+      "total_products": 20900.0,
+      "total_discounts": 6050.0,
+      "total_products_with_discount": 18900,
+      "total_products_without_discount": 20900,
+      "total_other_discounts": 0,
+      "total_order": 18900,
+      "total_to_pay": 0,
+      "discount_by_support": 0.0,
+      "total_discount_by_partner": 2000.0,
+      "charges": {
+        "shipping": 3500,
+        "service_fee": 1900
+      },
+      "other_totals": {
+        "total_rappi_credits": 0,
+        "total_rappi_pay": 0,
+        "tip": 0
+      }
+    },
+    "items": [
+      {
+        "price": 20900,
+        "categoryDescription": null,
+        "toppingId": null,
+        "sku": "1300",
+        "id": "2097686956",
+        "name": "Bowl Del Día",
+        "type": "product",
+        "comments": null,
+        "unit_price_with_discount": 18915,
+        "unit_price_without_discount": 20900,
+        "percentage_discount": 10,
+        "quantity": 1,
+        "toppingCategoryId": null,
+        "subitems": [
+          {
+            "price": 0,
+            "categoryDescription": "Cubiertos",
+            "toppingId": "12437312",
+            "sku": "330",
+            "id": "24114187",
+            "name": "Cubiertos",
+            "type": "topping",
+            "comments": null,
+            "unit_price_with_discount": 0,
+            "unit_price_without_discount": 0,
+            "percentage_discount": 0,
+            "quantity": 1,
+            "toppingCategoryId": "12437312",
+            "subitems": []
+          }
+        ]
+      }
+    ],
+    "delivery_discount": null
+  },
+  "customer": null,
+  "store": {
+    "internal_id": "900374612",
+    "external_id": "900374612",
+    "name": "Stankov Plaza Claro"
+  }
+}

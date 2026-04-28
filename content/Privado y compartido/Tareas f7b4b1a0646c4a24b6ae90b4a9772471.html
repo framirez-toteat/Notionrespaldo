@@ -1,0 +1,748 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Tareas</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f7b4b1a0-646c-4a24-b6ae-90b4a9772471" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1544816565-c199d6f5d2d3?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checkmark-square_green.svg"/></div><h1 class="page-title" dir="auto">Tareas</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="074480ac-8cbb-4f24-9efd-e0d7e1e1bc59" class="">
+</p></div><div style="display:contents" dir="ltr"><div id="4708719b-cb0b-44a5-a561-36c2981d11bc" class="collection-content"><h4 class="collection-title">Tareas</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/database_gray.svg" style="width:14px;height:14px;display:block"/></span>Nombre tarea</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha límite</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Prioridad</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Resumen generado por la IA</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Solicitante</th></tr></thead><tbody><tr id="c471f29b-ce7a-4385-8d9a-716b16e4112e"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20Temario%20Notion%20Integraci%C3%B3n%20c471f29bce7a43858d9a716b16e4112e.html"><span class="icon">🚚</span>Revisión Temario Notion Integración</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>16 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="7c6cbb2b-8615-49b7-b23e-87c5be164e8b"><td class="cell-title"><a href="Tareas/Tareas/Documento%20excepciones%20implementaci%C3%B3n%207c6cbb2b861549b7b23e87c5be164e8b.html"><span class="icon">💻</span>Documento excepciones implementación</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jeremy Araujo</span></td><td class="cell-EyuH"><time>16 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY">Este documento enumera los procesadores de Intel y AMD que no cumplen con los requisitos mínimos, así como las excepciones para procesadores de 4 núcleos. También se mencionan algunos problemas como la lentitud en el uso de toteat, problemas de impresiones (TPS), mesas confirmadas ocultas y fallas en la memoria RAM y Google Chrome para la reportería.</td><td class="cell-:WL;"></td></tr><tr id="9a9b14aa-98ac-49b7-91fc-c99cfafe5413"><td class="cell-title"><a href="Tareas/Tareas/Formato%20grabaci%C3%B3n%20integraciones%209a9b14aa98ac49b791fcc99cfafe5413.html"><span class="icon">🚚</span>Formato grabación integraciones</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-EyuH"><time>16 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="6ffed45d-8f12-4f1d-a1d5-d9cd22577b2f"><td class="cell-title"><a href="Tareas/Tareas/Definici%C3%B3n%20clientes%20estrat%C3%A9gicos%20operaciones%206ffed45d8f124f1da1d5d9cd22577b2f.html"><span class="icon">🌐</span>Definición clientes estratégicos operaciones</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-EyuH"><time>31 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="a5dff75a-8993-43d0-8acd-7a87123a0655"><td class="cell-title"><a href="Tareas/Tareas/Temario%20capacitaci%C3%B3n%20Stock%20Control%20a5dff75a899343d08acd7a87123a0655.html"><span class="icon">🧑🏻‍🍳</span>Temario capacitación Stock Control</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-EyuH"><time>16 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="fb77d724-e407-46a1-804e-811d1ea4adc2"><td class="cell-title"><a href="Tareas/Tareas/Extracci%C3%B3n%20datos%20Intercom%20reinstalaciones%20fb77d724e40746a1804e811d1ea4adc2.html"><span class="icon">💻</span>Extracción datos Intercom reinstalaciones </a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-EyuH"><time>8 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="d9ab5ce8-1c46-4ffb-990d-e9ad75728332"><td class="cell-title"><a href="Tareas/Tareas/Temario%20Stock%20control%20Notions%20d9ab5ce81c464ffb990de9ad75728332.html"><span class="icon">🧑🏻‍🍳</span>Temario Stock control Notions</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-EyuH"><time>17 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="74782d5d-58c3-4f59-b207-a78d2a8c862a"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20arrastre%20Stock%20Control%2074782d5d58c34f59b207a78d2a8c862a.html"><span class="icon">🧑🏻‍🍳</span>Revisión arrastre Stock Control</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-EyuH"><time>16 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="27d749b2-eefd-48a3-9e23-e0880a4ee8ca"><td class="cell-title"><a href="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE%2027d749b2eefd48a39e23e0880a4ee8ca.html"><span class="icon">💼</span>Temario Capacitación DTE </a></td><td class="cell-NRdW"><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-EyuH"><time>21 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="732043ee-e35e-4bac-b863-774ddc8a66dc"><td class="cell-title"><a href="Tareas/Tareas/Seguimiento%20minuta%20DTE%20(Compromisos%20Diego)%20732043eee35e4bacb863774ddc8a66dc.html"><span class="icon">💼</span>Seguimiento minuta DTE (Compromisos Diego)</a></td><td class="cell-NRdW"><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-EyuH"><time>16 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="ecae372d-356c-4db5-86e0-cc753fb743b3"><td class="cell-title"><a href="Tareas/Tareas/Formato%20Standar%20texto%20procesos%20ecae372d356c4db586e0cc753fb743b3.html"><span class="icon">🌐</span>Formato  Standar texto procesos</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-EyuH"><time>19 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="9aa8dbf2-a608-4dc3-b73e-efd3aa95d1c9"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20Temario%20Notion%20Stock%209aa8dbf2a6084dc3b73eefd3aa95d1c9.html"><span class="icon">🧑🏻‍🍳</span>Revisión Temario Notion Stock</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-EyuH"><time>16 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="5ffb6e98-11e3-4412-bfc3-242925a6370b"><td class="cell-title"><a href="Tareas/Tareas/Determinar%20diferido%20Argentina%20DTE%205ffb6e9811e34412bfc3242925a6370b.html"><span class="icon">💼</span>Determinar diferido Argentina DTE</a></td><td class="cell-NRdW"><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-EyuH"><time>23 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="5071e4ca-0f4b-4f15-b096-be1904bfd20f"><td class="cell-title"><a href="Tareas/Tareas/Documento%20Diferido%20PEND%20reproceso%205071e4ca0f4b4f15b096be1904bfd20f.html"><span class="icon">💼</span>Documento Diferido PEND reproceso</a></td><td class="cell-NRdW"><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-EyuH"><time>27 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="d2b5779c-ce39-4f45-876c-04790a21380c"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20documento%20qu%C3%A9%20est%C3%A1%20pasando%201%20d2b5779cce394f45876c04790a21380c.html"><span class="icon">💼</span>Revisión documento qué está pasando 1</a></td><td class="cell-NRdW"><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">P</span></span>Pao Rodríguez</span></td><td class="cell-EyuH"><time>27 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="0ea605a8-776b-4b01-854e-c3f88766dce3"><td class="cell-title"><a href="Tareas/Tareas/Prueba%20inventario%20en%20Linea%20y%20Stock%20Control%200ea605a8776b4b01854ec3f88766dce3.html">Prueba inventario en Linea y Stock Control</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-EyuH"><time>27 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="c8a58b86-f96a-467e-810e-d439cb2ffa36"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20casos%20comunes%20semana%2022%20con%20datos%20para%20re%20c8a58b86f96a467e810ed439cb2ffa36.html"><span class="icon">🚚</span>Revisión casos comunes semana 22 con datos para revisión</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>3 de junio de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="94f53846-dcf5-45cb-bdc0-619c3658e39d"><td class="cell-title"><a href="Tareas/Tareas/Cuadro%20de%20carga%20de%20internet%2094f53846dcf545cbbdc0619c3658e39d.html"><span class="icon">💻</span>Cuadro de carga de internet</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jeremy Araujo</span></td><td class="cell-EyuH"><time>16 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="fa810306-9ae1-45c3-9664-08f7e15d6534"><td class="cell-title"><a href="Tareas/Tareas/Crear%20Procesos%201%201%20y%201%202%20flujo%20capacitaci%C3%B3n%20fa8103069ae145c3966408f7e15d6534.html"><span class="icon">💼</span>Crear Procesos 1.1 y 1.2 flujo capacitación</a></td><td class="cell-NRdW"><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-EyuH"><time>4 de junio de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="f7658e3a-ddd4-4d76-87f8-e1485417f158"><td class="cell-title"><a href="Tareas/Tareas/Activaci%C3%B3n%20perfiles%20para%20agentes%20en%20migraci%C3%B3n%20f7658e3addd44d7687f8e1485417f158.html"><span class="icon">🌐</span>Activación perfiles para agentes en migración</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Fernanda Soto</span></td><td class="cell-EyuH"><time>29 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="5b759f74-4378-45fe-bf84-da4b0e56a266"><td class="cell-title"><a href="Tareas/Tareas/Revision%20de%20Caso%20Peya%20(Tiempo%20de%20la%20inyeccion%20de%20l%205b759f74437845febf84da4b0e56a266.html"><span class="icon">📝</span>Revision de Caso Peya (Tiempo de la inyeccion de la orden)</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>28 de mayo de 2024</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="d72c3593-9862-44bf-890d-1d8302882123"><td class="cell-title"><a href="Tareas/Tareas/Respuesta%20de%20correo%20No%20Way%20d72c3593986244bf890d1d8302882123.html"><span class="icon">📨</span>Respuesta de correo No Way </a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>29 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="4be91482-71c4-4b2f-91db-ad1f0cc0d4cb"><td class="cell-title"><a href="Tareas/Tareas/RFP%20de%20Justo%20Timeout%20Envio%20de%20menu%204be9148271c44b2f91dbad1f0cc0d4cb.html"><span class="icon">🧗🏽</span>RFP de Justo Timeout Envio de menu</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>29 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="f3ce93c4-22c7-46a8-a916-b8489d936024"><td class="cell-title"><a href="Tareas/Tareas/Caso%20de%20cluvi%20f3ce93c422c746a8a916b8489d936024.html">Caso de cluvi </a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>29 de mayo de 2024</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="53e88b5a-2d10-4d34-8cb0-92ce8af59a3a"><td class="cell-title"><a href="Tareas/Tareas/Pruebas%20de%20herbivoro%20(JUSTO)%2053e88b5a2d104d348cb092ce8af59a3a.html">Pruebas de herbivoro (JUSTO)</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="7d505f2d-bc15-4526-ba4a-01682ebe5a9d"><td class="cell-title"><a href="Tareas/Tareas/Revision%20de%20Diapositivas%20de%20las%20integraciones%207d505f2dbc154526ba4a01682ebe5a9d.html">Revision de Diapositivas de las integraciones</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="63b0feaa-7053-4738-927c-fe61382bd62c"><td class="cell-title"><a href="Tareas/Tareas/Respuesta%20a%20correo%20de%20Tecnopac%20(Momo)%2063b0feaa70534738927cfe61382bd62c.html"><span class="icon">💻</span>Respuesta a correo de Tecnopac (Momo)</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>28 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="4e8c34e8-c311-425d-95d5-2c442e91b48f"><td class="cell-title"><a href="Tareas/Tareas/Consultar%20comisiones%20de%20delivery%20(formula%20o%20calcul%204e8c34e8c311425d95d52c442e91b48f.html"><span class="icon">🔎</span>Consultar comisiones de delivery (formula o calculo y si habilitado)</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="1a211a9c-5f89-48c3-acc2-9c319ebf6590"><td class="cell-title"><a href="Tareas/Tareas/20%20RFP%20FE%20Factura%20Electronica%20Colombia%201a211a9c5f8948c3acc29c319ebf6590.html"><span class="icon">🧗🏽</span>20. RFP FE /Factura Electronica Colombia</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>28 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="52c93ac4-430f-4e17-a577-b9677993b12f"><td class="cell-title"><a href="Tareas/Tareas/Revision%20Temario%20Notio%20Integracion%2052c93ac4430f4e17a577b9677993b12f.html"><span class="icon">🚚</span>Revision Temario Notio Integracion</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>16 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="0aebb0e2-3aa1-416b-a9e1-61ab61261fe7"><td class="cell-title"><a href="Tareas/Tareas/Validacion%20de%20menu%20en%20Rappi%20del%20mismo%20cliente%20Kevi%200aebb0e23aa1416ba9e161ab61261fe7.html"><span class="icon">📝</span>Validacion de menu en Rappi del mismo cliente Kevin Bacon</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="50923190-a230-4176-a584-eadff605981d"><td class="cell-title"><a href="Tareas/Tareas/Validacion%20de%20caso%20solicitado%20pro%20Uber%20Kevin%20Bacon%2050923190a2304176a584eadff605981d.html"><span class="icon">📝</span>Validacion de caso solicitado pro Uber: Kevin Bacon (store ID: 70afc60c-0700-5535-89f0-a5ff4fc7265a)</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="00543a54-e168-4735-a835-09bdec3898ba"><td class="cell-title"><a href="Tareas/Tareas/Revision%20de%20correo%20de%20Jaka%2000543a54e1684735a83509bdec3898ba.html"><span class="icon">📝</span>Revision de correo de Jaka</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>29 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="6d2239b5-cf8c-47fc-9294-e2f65cf60911"><td class="cell-title"><a href="Tareas/Tareas/Solicitud%20a%20Sergio%20sobre%20ambientes%20Peya%20(se%20emigra%206d2239b5cf8c47fc9294e2f65cf60911.html">Solicitud a Sergio sobre ambientes Peya (se emigraron a unos nuevos ambientes)</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>11 de junio de 2024</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="7cf9dd7d-0a8a-4cbb-8e35-24a4b9064c13"><td class="cell-title"><a href="Tareas/Tareas/Revisar%20solcitud%20de%20Didi%20(Whatsapp)%207cf9dd7d0a8a4cbb8e3524a4b9064c13.html"><span class="icon">📝</span>Revisar solcitud de Didi (Whatsapp)</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>29 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="4764d172-6322-4860-8899-b68d6d9c6c43"><td class="cell-title"><a href="Tareas/Tareas/Levantamiento%20RPF%20Buin%20Zoo%204764d172632248608899b68d6d9c6c43.html"><span class="icon">🧑🏻‍🍳</span>Levantamiento RPF Buin Zoo</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-EyuH"><time>30 de mayo de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="1a644d62-f324-45c9-9bb2-15bd7943e891"><td class="cell-title"><a href="Tareas/Tareas/Caso%20de%20Tucan%20validacion%20con%20Desarrollo%201a644d62f32445c99bb215bd7943e891.html">Caso de Tucan validacion con Desarrollo</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="f9cb13b1-622f-460f-8dd7-84e1d9f162cf"><td class="cell-title"><a href="Tareas/Tareas/Rfp%20para%20lo%20de%20los%20metodos%20de%20pago%20cuando%20las%20orde%20f9cb13b1622f460f8dd784e1d9f162cf.html">Rfp para lo de los metodos de pago cuando las ordenes se le agregan productos Caso Cluvi</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="11cd1cfd-e725-4524-8f67-8e0bbbed4f74"><td class="cell-title"><a href="Tareas/Tareas/RFpp%20com%20metodo%20de%20pago%20MarketMix%2011cd1cfde72545248f678e0bbbed4f74.html">RFpp com metodo de pago MarketMix</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="c4203658-046a-4834-9787-c85654decb34"><td class="cell-title"><a href="Tareas/Tareas/Cambio%20resoluci%C3%B3n%20SD%20a%20POS%20para%20control%20resolucion%20c4203658046a48349787c85654decb34.html"><span class="icon">✳️</span>Cambio resolución SD a POS para control resoluciones</a></td><td class="cell-NRdW"><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="ed391d21-aebd-45d2-b9de-0304dd4a970d"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20ca%C3%ADda%20plataforma%20DTE%20ed391d21aebd45d2b9de0304dd4a970d.html"><span class="icon">✳️</span>Revisión caída plataforma DTE</a></td><td class="cell-NRdW"><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="a114d630-2880-4ee9-81e0-d439f4e965e0"><td class="cell-title"><a href="Tareas/Tareas/Levantar%20RFP%20a%20DTE%20sobre%20Buin%20Zoo%20a114d63028804ee981e0d439f4e965e0.html"><span class="icon">📗</span>Levantar RFP a DTE sobre Buin Zoo</a></td><td class="cell-NRdW"><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="26c68957-6114-4468-8076-56d7282c7181"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20proceso%20factura%201%20FDS%201%20junio%2026c6895761144468807656d7282c7181.html"><span class="icon">🚨</span>Revisión proceso factura 1 FDS 1 junio </a></td><td class="cell-NRdW"><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="18a73d47-96e3-4dc3-a479-2d01582f53a3"><td class="cell-title"><a href="Tareas/Tareas/ideas%20sobre%20cadenas%2018a73d4796e34dc3a4792d01582f53a3.html">ideas sobre cadenas</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="1a815116-b297-44cb-9edb-1f1f56280632"><td class="cell-title"><a href="Tareas/Tareas/Resumen%20de%20Estrategia%20de%20Desarrollo%20para%20uso%20de%20la%201a815116b29744cb9edb1f1f56280632.html">Resumen de Estrategia de Desarrollo para uso de la nueva Api de Peya y SDK</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="2fe73448-467b-407c-827f-b048a1c7d0ef"><td class="cell-title"><a href="Tareas/Tareas/Resumen%20de%20Validaciones%20realizadas%20en%20Peya%20sobre%20l%202fe73448467b407c827fb048a1c7d0ef.html">Resumen de Validaciones realizadas en Peya sobre las campañas</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="e1458b95-1e3c-4dda-a703-3bcc13327705"><td class="cell-title"><a href="Tareas/Tareas/Llenar%20campo%20de%20RFP%20en%20Notion%20e1458b951e3c4ddaa7033bcc13327705.html">Llenar campo de RFP en Notion</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="17cf53fc-9560-4c45-bcce-5a39a11593ec"><td class="cell-title"><a href="Tareas/Tareas/RFpConsultas%20a%20Sergio%20(Desarrollo)%2017cf53fc95604c45bcce5a39a11593ec.html">RFpConsultas a Sergio (Desarrollo)</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="b3ae60f9-0634-4814-bc45-dc8b33c81307"><td class="cell-title"><a href="Tareas/Tareas/Revision%20con%20Delivery%20Gourmet%20por%20horarios%20en%20Uber%20b3ae60f906344814bc45dc8b33c81307.html">Revision con Delivery Gourmet por horarios en Uber</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="9bb1f91f-dcd7-481f-b310-dede722e6d25"><td class="cell-title"><a href="Tareas/Tareas/Revision%20con%20Peya%20de%20casos%20por%20modificacion%20de%20pre%209bb1f91fdcd7481fb310dede722e6d25.html">Revision con Peya de casos por modificacion de precios</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="2cda7617-d34b-4700-ba3c-d6408c075faa"><td class="cell-title"><a href="Tareas/Tareas/Revisar%20puntos%20con%20Pao%202cda7617d34b4700ba3cd6408c075faa.html">Revisar puntos con Pao</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="e7a92049-5452-4aff-8ffb-0855e757373d"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20version%20944%20transformaciones%20variables%20e7a9204954524aff8ffb0855e757373d.html"><span class="icon">🧑🏻‍🍳</span>Revisión version 944 transformaciones variables</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="984411bc-9cbf-4191-91d3-c2d72a0a9532"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20RFP%20Regeneraci%C3%B3n%20de%20inventarios%20antiguos%20984411bc9cbf419191d3c2d72a0a9532.html"><span class="icon">🧑🏻‍🍳</span>Revisión RFP Regeneración de inventarios antiguos</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="551151df-9f4d-472b-9c66-4bc424ddf010"><td class="cell-title"><a href="Tareas/Tareas/Diagn%C3%B3stico%20Facturante%20Marzo-Junio%20551151df9f4d472b9c664bc424ddf010.html">Diagnóstico Facturante Marzo-Junio</a></td><td class="cell-NRdW"><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-EyuH"><time>20 de junio de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="54fe0cc1-9ed5-48b9-a7c8-f506e2e107b9"><td class="cell-title"><a href="Tareas/Tareas/Check%20list%20proceso%20activaci%C3%B3n%20factura%201%2054fe0cc19ed548b9a7c8f506e2e107b9.html">Check list proceso activación factura 1</a></td><td class="cell-NRdW"><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-EyuH"><time>11 de junio de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="1a6af41b-64d2-4ba0-88c0-d785c17066d6"><td class="cell-title"><a href="Tareas/Tareas/https%20www%20notion%20so%20Revisi-n-Caso-puntual-Argentin%201a6af41b64d24ba088c0d785c17066d6.html"><span class="icon">⚠️</span>https://www.notion.so/Revisi-n-Caso-puntual-Argentina-APP-NIGTH-S-A-S-564b4774aae9401f88b799cc036f1a58?pvs=4</a></td><td class="cell-NRdW"><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="98f2c701-629b-465c-ae7b-a309c6850345"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20error%20Colombia%20con%20Notas%20de%20cr%C3%A9dito,%20por%20%2098f2c701629b465cae7ba309c6850345.html">Revisión error Colombia con Notas de crédito, por controles en resolución</a></td><td class="cell-NRdW"><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-EyuH"><time>11 de junio de 2024 → 11 de junio de 2024</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="d9713ca6-d592-49d5-b446-792eae914d92"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20ayuda%20toteat%20com%20corregido%20Implementacion%20d9713ca6d59249d5b446792eae914d92.html"><span class="icon">💻</span>Revisión ayuda.toteat.com corregido Implementaciones</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jeremy Araujo</span></td><td class="cell-EyuH"><time>20 de junio de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="088578b9-d562-4bb4-8e59-eb936058ed6f"><td class="cell-title"><a href="Tareas/Tareas/Consulta%20de%20Rappi%20turbo%20088578b9d5624bb48e59eb936058ed6f.html">Consulta de Rappi turbo</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>12 de junio de 2024</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="eaa9af7d-3c90-44b9-bccc-38bbd2690318"><td class="cell-title"><a href="Tareas/Tareas/revision%20de%20api%20standard%20eaa9af7d3c9044b9bccc38bbd2690318.html"><span class="icon">🪁</span>revision de api standard</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span><span class="user"><img src="https://lh3.googleusercontent.com/a/AATXAJy-GTHbzlcRVtzvOmDU2SPFl-oyjNJhGu0NXj9J=s100" class="icon user-icon"/>Sergio Zarate</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="62524c96-6b6c-45e2-9e9b-ec25c23a6ef3"><td class="cell-title"><a href="Tareas/Tareas/Monitoreo%20Voucher%2062524c966b6c45e29e9bec25c23a6ef3.html">Monitoreo Voucher </a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="01e8aa83-3b06-4bec-b5db-21c69292b8af"><td class="cell-title"><a href="Tareas/Tareas/Monitoreo%20para%20el%20caso%20de%20Peya%20Precios%2001e8aa833b064becb5db21c69292b8af.html">Monitoreo para el caso de Peya Precios</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="7e960297-4d9d-4653-b88a-7a159972ec69"><td class="cell-title"><a href="Tareas/Tareas/Status%20de%20Jaka%20Peya%20no%20sincroniza%20menu%207e9602974d9d4653b88a7a159972ec69.html">Status de Jaka Peya no sincroniza menu</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>11 de junio de 2024</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="a9f9e6e2-b26a-46f9-bb4b-08ef5ba9333b"><td class="cell-title"><a href="Tareas/Tareas/Validacion%20de%20Honesto%20Mike,%20status%20de%20error%20con%20Pe%20a9f9e6e2b26a46f9bb4b08ef5ba9333b.html">Validacion de Honesto Mike, status de error con Peya que lo estaba validando Jose Tomas@</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>11 de junio de 2024</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="f86cd85d-54e2-4908-a983-b7745b59a24d"><td class="cell-title"><a href="Tareas/Tareas/Revisar%20caso%20de%20redelcom%20(no%20tengo%20info%20al%20respect%20f86cd85d54e24908a983b7745b59a24d.html">Revisar caso de redelcom (no tengo info al respecto) pero es algo de los tiempos</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>José Matías </span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="85be23e4-1da5-4547-9630-67b64d44bd0a"><td class="cell-title"><a href="Tareas/Tareas/Caso%20de%20FBH%2085be23e41da54547963067b64d44bd0a.html">Caso de FBH</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="40562ba1-aae5-47ab-97d2-0a898314cf8c"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20Gu%C3%ADas%20ayuda%20toteat%20com%20actualizaci%C3%B3n%20form%2040562ba1aae547ab97d20a898314cf8c.html">Revisión Guías ayuda.toteat.com actualización formato</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-EyuH"><time>27 de junio de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="598ca90d-3065-43a9-b75c-f079a8ecc25c"><td class="cell-title"><a href="Tareas/Tareas/5%20Casos%20forms%20598ca90d306543a9b75cf079a8ecc25c.html">5. Casos forms</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="68b9b46f-e529-4078-b2fe-25aade1a2549"><td class="cell-title"><a href="Tareas/Tareas/aicardy%2068b9b46fe5294078b2fe25aade1a2549.html">aicardy</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="68a8a4c4-cca9-49db-8d77-245d9bd08f93"><td class="cell-title"><a href="Tareas/Tareas/Reunion%20Jaka%20Tea%20Connection%2068a8a4c4cca949db8d77245d9bd08f93.html">Reunion Jaka Tea Connection</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="1b56ae32-cb25-4716-a6b5-b694259f0a09"><td class="cell-title"><a href="Tareas/Tareas/1%20CALENDARIO%20ANDREA%20RUIZ%201b56ae32cb254716a6b5b694259f0a09.html"><span class="icon">🗓️</span>1. CALENDARIO ANDREA RUIZ</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="bfed8187-4f3b-418d-aadb-1be5aafe9b37"><td class="cell-title"><a href="Tareas/Tareas/Caso%20facturacion%20muncher%20URGENTE%20bfed81874f3b418daadb1be5aafe9b37.html">Caso facturacion muncher URGENTE</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>11 de julio de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="622bb670-a6db-4b64-b7cc-b151e9f8ea5a"><td class="cell-title"><a href="Tareas/Tareas/Revision%20de%20uber%20comentarios%20622bb670a6db4b64b7ccb151e9f8ea5a.html">Revision de uber comentarios</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="c502ab50-3ba1-4c6d-8ee4-7324e54b43ea"><td class="cell-title"><a href="Tareas/Tareas/Comparacion%20ordenes%20Voucher%20Peya%20Uruguay-%20Chile%20c502ab503ba14c6d8ee47324e54b43ea.html">Comparacion ordenes Voucher Peya Uruguay- Chile</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="32ae47ba-5497-4c0f-aabc-54260a53979a"><td class="cell-title"><a href="Tareas/Tareas/Revision%20Api%20standard%20Fernanda%20Albuja%2032ae47ba54974c0faabc54260a53979a.html">Revision Api standard Fernanda Albuja</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="770589a1-f2c5-424c-ae07-1a44c21e4746"><td class="cell-title"><a href="Tareas/Tareas/Caso%20de%20Fernanda%20Herrer%20770589a1f2c5424cae071a44c21e4746.html">Caso de Fernanda Herrer</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="e6002f72-8056-4d7f-9f0c-a298f7f0a49b"><td class="cell-title"><a href="Tareas/Tareas/Formulario%20para%20el%20correo%20e6002f7280564d7f9f0ca298f7f0a49b.html">Formulario para el correo</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="5271f699-605d-4a1d-ae66-d7324ec0b9b8"><td class="cell-title"><a href="Tareas/Tareas/Formulario%20para%20configuracion%20de%20didi%205271f699605d4a1dae66d7324ec0b9b8.html">Formulario para configuracion de didi</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="e0f90ffa-d66c-47f0-a744-39736d5591f1"><td class="cell-title"><a href="Tareas/Tareas/Revision%20de%20casos%20de%20Jaka%20Voucher%20con%20la%20info%20soli%20e0f90ffad66c47f0a74439736d5591f1.html">Revision de casos de Jaka Voucher con la info solicitada a Peya</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="490a9c88-2dfd-4c24-9f12-3afcfb0bc323"><td class="cell-title"><a href="Tareas/Tareas/Marca%20Fiesta%20Americana%20reforma%20490a9c882dfd4c249f123afcfb0bc323.html">Marca Fiesta Americana reforma</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="4aea8b46-c53e-47ce-8deb-e0cf8a17a4cd"><td class="cell-title"><a href="Tareas/Tareas/Revision%20deRappi%20con%20Katherine%20Boscan%204aea8b46c53e47ce8debe0cf8a17a4cd.html">Revision deRappi con Katherine Boscan</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="864d12b0-864c-42b5-b3e8-b61f807b2131"><td class="cell-title"><a href="Tareas/Tareas/revision%20caso%20de%20Trinidad%20de%20Uber%20Migracion%20864d12b0864c42b5b3e8b61f807b2131.html">revision caso de Trinidad de Uber Migracion</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>27 de junio de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="62a535b6-636c-466d-8f4f-ff22b69c27dd"><td class="cell-title"><a href="Tareas/Tareas/Minuta%20Reunion%20de%20peya%2062a535b6636c466d8f4fff22b69c27dd.html">Minuta Reunion de peya </a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="edfd849b-fc5a-480b-99cc-30b4028b30f7"><td class="cell-title"><a href="Tareas/Tareas/Revision%20factura%20Rappi%20edfd849bfc5a480b99cc30b4028b30f7.html">Revision factura Rappi</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span><span class="user"><img src="Tareas/Tareas/Temario%20Capacitaci%C3%B3n%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="1b1cbbb2-5b38-4e24-962d-b486b7cc422f"><td class="cell-title"><a href="Tareas/Tareas/Revision%20PEYA%20STreet%20Wrap%201b1cbbb25b384e24962db486b7cc422f.html">Revision PEYA STreet Wrap</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="c274edab-cefa-48a6-87ff-6ba7a9ff1ebb"><td class="cell-title"><a href="Tareas/Tareas/Enviar%20nota%20al%20grupo%20de%20Slack%20CS%20sobre%20las%20integra%20c274edabcefa48a687ff6ba7a9ff1ebb.html">Enviar nota al grupo de Slack CS sobre las integraciones  Rappi Turbo</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="f7cdced4-fac4-4653-b54a-853a3c55c25f"><td class="cell-title"><a href="Tareas/Tareas/Json%20para%20MarketMIx%20con%20Extras%20(Api%20standard)%20f7cdced4fac44653b54a853a3c55c25f.html">Json para MarketMIx con Extras (Api standard)</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>21 de junio de 2024</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="86e802d5-0b20-4821-89e7-c6cf3e7e03eb"><td class="cell-title"><a href="Tareas/Tareas/Logs%20de%20delivery%20Gourmet%20(Precios%20por%20lista)%2086e802d50b20482189e7c6cf3e7e03eb.html">Logs de delivery Gourmet (Precios por lista)</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span><span class="user"><img src="https://lh3.googleusercontent.com/a/AATXAJy-GTHbzlcRVtzvOmDU2SPFl-oyjNJhGu0NXj9J=s100" class="icon user-icon"/>Sergio Zarate</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">C</span></span>Camila Fischer</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="bc317d79-3844-43ee-a1a2-b3116de4acc8"><td class="cell-title"><a href="Tareas/Tareas/Preguntas%20Api%20standard%20bc317d79384443eea1a2b3116de4acc8.html">Preguntas Api standard</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="f0930ea0-3f71-4f47-823f-0dd35b0572ea"><td class="cell-title"><a href="Tareas/Tareas/Logs%20de%20delivery%20Gourmet%20(Precios%20por%20lista)%20f0930ea03f714f47823f0dd35b0572ea.html">Logs de delivery Gourmet (Precios por lista)</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span><span class="user"><img src="https://lh3.googleusercontent.com/a/AATXAJy-GTHbzlcRVtzvOmDU2SPFl-oyjNJhGu0NXj9J=s100" class="icon user-icon"/>Sergio Zarate</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">C</span></span>Camila Fischer</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="9385b972-9da5-419e-b648-1ecf79fa2308"><td class="cell-title"><a href="Tareas/Tareas/Tres22%20Api%20Standard%209385b9729da5419eb6481ecf79fa2308.html">Tres22 Api Standard</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="1a344ec3-08b8-434f-a410-56d2e44e6baf"><td class="cell-title"><a href="Tareas/Tareas/Verificaci%C3%B3n%20Perfiles%20Dunkin%201a344ec308b8434fa41056d2e44e6baf.html">Verificación Perfiles Dunkin </a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-EyuH"><time>12 de julio de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="db1ecadc-f24d-41f0-9d5e-41da9fe0b5d0"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20detalles%20KDS%20db1ecadcf24d41f09d5e41da9fe0b5d0.html">Revisión detalles KDS</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-EyuH"><time>12 de julio de 2024</time></td><td class="cell-iLP?"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="ded1cca1-0104-40f2-aefa-1b8ba3b14e49"><td class="cell-title"><a href="Tareas/Tareas/Ingresos%20Implementaciones%20ded1cca1010440f2aefa1b8ba3b14e49.html">Ingresos Implementaciones</a></td><td class="cell-NRdW"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="1d639073-1e23-8004-b2a6-ccac69322d77"><td class="cell-title"><a href="Tareas/Tareas/Sin%20t%C3%ADtulo%201d6390731e238004b2a6ccac69322d77.html">Sin título</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="15b39073-1e23-8041-8f7e-dccc01e5b541"><td class="cell-title"><a href="Tareas/Tareas/Tareas%2013%20de%20diciembre%2015b390731e2380418f7edccc01e5b541.html">Tareas 13 de diciembre</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="15b39073-1e23-800a-b780-f1aa060f0939"><td class="cell-title"><a href="Tareas/Tareas/Sin%20t%C3%ADtulo%2015b390731e23800ab780f1aa060f0939.html">Sin título</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="14239073-1e23-8096-b092-fb5ae13ccb60"><td class="cell-title"><a href="Tareas/Tareas/Aplicacion%20de%20Voucher%20en%20JAka%20142390731e238096b092fb5ae13ccb60.html">Aplicacion de Voucher en JAka</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="a0405fd9-8b1b-419d-82e0-5e6be8ad3a86"><td class="cell-title"><a href="Tareas/Tareas/Grabaci%C3%B3n%20de%20video%20Mercat%20a0405fd98b1b419d82e05e6be8ad3a86.html">Grabación de video Mercat</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"><time>18 de noviembre de 2024 14:00 (GMT-5) → 14:30</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="0238ecfa-f7da-45b7-90bf-18801b5a5172"><td class="cell-title"><a href="Tareas/Tareas/Grabaci%C3%B3n%20de%20video%20Mercat%200238ecfaf7da45b790bf18801b5a5172.html">Grabación de video Mercat</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="22439073-1e23-80eb-84ef-c3ec8daea51b"><td class="cell-title"><a href="Tareas/Tareas/Caso%20Pr%C3%A1ctico%20DTE%20Chile%20224390731e2380eb84efc3ec8daea51b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/new-badge_gray.svg"/>Caso Práctico DTE Chile</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="22439073-1e23-80e1-b993-ecf00082e366"><td class="cell-title"><a href="Tareas/Tareas/Caso%20practico%20DTE%20COL%20224390731e2380e1b993ecf00082e366.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/new-badge_gray.svg"/>Caso practico DTE COL</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="506d20df-706d-40bc-8a0d-fc64257ca048"><td class="cell-title"><a href="Tareas/Tareas/6%20Caso%20de%20cencosud%20506d20df706d40bc8a0dfc64257ca048.html">6. Caso de cencosud</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="a10e031d-a082-4f74-8f3a-cbf4e6c23dff"><td class="cell-title"><a href="Tareas/Tareas/Caso%20de%20DK%20Jaka%20a10e031da0824f748f3acbf4e6c23dff.html">Caso de DK Jaka</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="9eee2106-39bc-4725-874e-9d4e50ccdb98"><td class="cell-title"><a href="Tareas/Tareas/RFP%20precios%20x%20lista%20Herb%C3%ADvoro%209eee210639bc4725874e9d4e50ccdb98.html">RFP precios x lista Herbívoro</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="1d5a4268-71b5-4854-acf1-0b4a4c98c2bc"><td class="cell-title"><a href="Tareas/Tareas/Revision%20solicitud%20Ramen%20One%201d5a426871b54854acf10b4a4c98c2bc.html">Revision solicitud Ramen One</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="156918d1-21ec-4033-bebe-49bee44e9b91"><td class="cell-title"><a href="Tareas/Tareas/Revision%20caso%20de%20correo%20enviado%20por%20jeremy%20156918d121ec4033bebe49bee44e9b91.html">Revision caso de correo enviado por jeremy</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>24 de julio de 2024</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"><time>23 de julio de 2024</time></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="41cc6e09-f9e0-4140-9bfd-9e814679779d"><td class="cell-title"><a href="Tareas/Tareas/Revision%20de%20forms%2041cc6e09f9e041409bfd9e814679779d.html">Revision de forms</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>24 de julio de 2024 14:00 (GMT-5) → 15:00</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="60df7755-2169-4837-a562-4eca46fcda6b"><td class="cell-title"><a href="Tareas/Tareas/Solicitudes%20de%20Incidencias%20(Sin%20Form)%2060df775521694837a5624eca46fcda6b.html"><span class="icon">🔎</span>Solicitudes de Incidencias (Sin Form)</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="a31e49ac-fe1f-4beb-a603-cbe57e79948f"><td class="cell-title"><a href="Tareas/Tareas/Revision%20de%20correos%20y%20caso%20de%20quinoa%20nuevamente%20a31e49acfe1f4beba603cbe57e79948f.html">Revision de correos y caso de quinoa nuevamente</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>1 de agosto de 2024 9:00 (GMT-5) → 10:00</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="288d73cd-7f3c-437b-9c6a-efb8c8c1caf4"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20de%20Diapositivas%20y%20pruebas%20288d73cd7f3c437b9c6aefb8c8c1caf4.html">Revisión de Diapositivas y pruebas</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>2 de agosto de 2024 11:30 (GMT-5) → 12:30</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="4861c0f1-57e4-4a20-b1b8-f33c45dc528f"><td class="cell-title"><a href="Tareas/Tareas/Documentaci%C3%B3n%20Notion%20Modulo%203%204861c0f157e44a20b1b8f33c45dc528f.html">Documentación Notion Modulo 3</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>1 de agosto de 2024 16:30 (GMT-5) → 17:45</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="173bea9f-06de-40b2-9c6e-2c41f8781c7c"><td class="cell-title"><a href="Tareas/Tareas/Posible%20reu%20con%20Fukai%20173bea9f06de40b29c6e2c41f8781c7c.html">Posible reu con Fukai</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>2 de agosto de 2024 8:30 (GMT-5) → 9:30</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="cdb0b636-1577-4665-94fc-3da84c0376cb"><td class="cell-title"><a href="Tareas/Tareas/Revision%20Form%20cdb0b6361577466594fc3da84c0376cb.html">Revision Form </a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>1 de agosto de 2024 16:00 (GMT-5) → 16:30</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="ae9112f4-a848-41eb-ae83-f2dcbfe5d692"><td class="cell-title"><a href="Tareas/Tareas/12%20Casos%20peya%20ae9112f4a84841ebae83f2dcbfe5d692.html">12. Casos peya</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"><time>5 de agosto de 2024 16:00 (GMT-5) → 17:00</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="67bff358-890e-4046-894d-f30579aeb1d9"><td class="cell-title"><a href="Tareas/Tareas/Revisi%C3%B3n%20de%20caso%20Turbo%20Hubster%2067bff358890e4046894df30579aeb1d9.html">Revisión de caso Turbo Hubster </a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>6 de agosto de 2024 9:15 (GMT-5) → 9:45</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="e2007f31-a7ec-4bae-9090-902dcbc51d00"><td class="cell-title"><a href="Tareas/Tareas/Revisar%20casos%20de%20Atrium%20e2007f31a7ec4bae9090902dcbc51d00.html">Revisar casos de Atrium</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="3a2a0c26-3eb8-416c-8828-736b6a7d9058"><td class="cell-title"><a href="Tareas/Tareas/Validacion%20de%20informacion%20solicitada%20por%20Sergio%20de%203a2a0c263eb8416c8828736b6a7d9058.html">Validacion de informacion solicitada por Sergio de Uber</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="5fd5dbe2-6f64-4c71-9d0b-88e662fa9d58"><td class="cell-title"><a href="Tareas/Tareas/Mensaje%20a%20los%20grupos%20sobre%20la%20activacion%20de%20Rappi%20%205fd5dbe26f644c719d0b88e662fa9d58.html">Mensaje a los grupos sobre la activacion de Rappi y los stores id por pais</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="63b3cb60-a957-407b-af39-02bf0f7bada8"><td class="cell-title"><a href="Tareas/Tareas/Solicitud%20de%20Jeremy%20Correo%2063b3cb60a957407baf3902bf0f7bada8.html">Solicitud de Jeremy Correo </a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="f68d5d58-268e-4fa1-8d7b-823e907ecfca"><td class="cell-title"><a href="Tareas/Tareas/Jose%20Tomas%20-Andrea%20Honesto%20Mike%20f68d5d58268e4fa18d7b823e907ecfca.html">Jose Tomas.-Andrea Honesto Mike</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"><time>28 de agosto de 2024 14:30 (GMT-5) → 15:00</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="b3665944-1b37-43b6-a17a-b224742a8167"><td class="cell-title"><a href="Tareas/Tareas/https%20mail%20google%20com%20mail%20u%200%20ogbl#search%20pimento%20b36659441b3743b6a17ab224742a8167.html">https://mail.google.com/mail/u/0/?ogbl#search/pimenton/FMfcgzQVzNxnwmshmMxLFltFlFHXBfdD, Caso de Lo De Jesus (Pimenton)</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"><time>5 de septiembre de 2024</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"><time>5 de septiembre de 2024</time></td><td class="cell-`AOY"></td><td class="cell-:WL;">Pimenton</td></tr><tr id="79c0d95b-f27a-489b-b6ca-c4d9ff14496a"><td class="cell-title"><a href="Tareas/Tareas/Caso%20de%20Bayside%20(Pimenton)%20https%20mail%20google%20com%20m%2079c0d95bf27a489bb6cac4d9ff14496a.html">Caso de Bayside (Pimenton) https://mail.google.com/mail/u/0/?ogbl#search/pimenton/FMfcgzQVzPCGrVlSPSXBfQQNrNKMfkTq</a></td><td class="cell-NRdW"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;">Pimenton</td></tr><tr id="eeda3d10-1121-4f4d-bac5-4986f1bcda58"><td class="cell-title"><a href="Tareas/Tareas/Preguntar%20a%20Fran%20porceso%20de%20activacion,%20Salesforce%20eeda3d1011214f4dbac54986f1bcda58.html">Preguntar a Fran porceso de activacion, Salesforce? registro interno de Toteat</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="10739073-1e23-8014-b823-e28693c40f91"><td class="cell-title"><a href="Tareas/Tareas/10%20Integraciones%20inactivas%20107390731e238014b823e28693c40f91.html">10. Integraciones inactivas</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="4ff1877f-80f8-4c76-8966-ad78d122cfeb"><td class="cell-title"><a href="Tareas/Tareas/solicitud%20de%20Tucan%204ff1877f80f84c768966ad78d122cfeb.html">solicitud de Tucan</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="1bf2e1d5-c6b9-4df5-b179-5b894baece25"><td class="cell-title"><a href="Tareas/Tareas/Caso%20de%20peya%201bf2e1d5c6b94df5b1795b894baece25.html">Caso de peya</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"><time>27 de septiembre de 2024 9:30 (GMT-5) → 10:00</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="113c1d95-149a-4b2e-b7d6-3d0111e0ceb9"><td class="cell-title"><a href="Tareas/Tareas/caso%20Cocina%209%20113c1d95149a4b2eb7d63d0111e0ceb9.html">caso Cocina 9</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"><time>4 de octubre de 2024 9:30 (GMT-5) → 10:00</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="e8bcf70a-17bf-45f7-8a66-b61289729697"><td class="cell-title"><a href="Tareas/Tareas/3%20Casos%20correos%20e8bcf70a17bf45f78a66b61289729697.html">3. Casos correos</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"><time>4 de octubre de 2024 10:00 (GMT-5) → 10:30</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="711f1e41-7248-4d63-988b-3876574f6e21"><td class="cell-title"><a href="Tareas/Tareas/rappi%20711f1e4172484d63988b3876574f6e21.html">rappi</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"><time>24 de octubre de 2024 11:45 (GMT-5) → 12:15</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="3df2bc2d-5ebb-4050-b02f-0ed06474d07e"><td class="cell-title"><a href="Tareas/Tareas/Peya%20delivery%203df2bc2d5ebb4050b02f0ed06474d07e.html">Peya delivery</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"><time>24 de octubre de 2024 12:15 (GMT-5) → 12:30</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="12a39073-1e23-8086-9613-ff8281ba4fe5"><td class="cell-title"><a href="Tareas/Tareas/2%20An%C3%A1lisis%20de%20CS%20Notion%2012a390731e2380869613ff8281ba4fe5.html">2. Análisis de CS Notion</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="12a39073-1e23-807a-b2c4-e3b47874e399"><td class="cell-title"><a href="Tareas/Tareas/13%20Casos%20de%20Rappi%2012a390731e23807ab2c4e3b47874e399.html">13. Casos de Rappi</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="12a39073-1e23-80ba-9ec9-cb03b41397d0"><td class="cell-title"><a href="Tareas/Tareas/8%20Reuniones%2012a390731e2380ba9ec9cb03b41397d0.html">8. Reuniones</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="781c31b0-3406-48d0-93f4-baf4c3772426"><td class="cell-title"><a href="Tareas/Tareas/Modulo%207%205,%207%206%20y%207%207%20781c31b0340648d093f4baf4c3772426.html">Modulo 7.5, 7.6 y 7.7</a></td><td class="cell-NRdW"></td><td class="cell-EyuH"><time>28 de octubre de 2024 14:00 (GMT-5) → 15:00</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr><tr id="2779a9c4-8591-4fe6-9897-28d146b2bef3"><td class="cell-title"><a href="Tareas/Tareas/Revision%20de%20Correos%202779a9c485914fe6989728d146b2bef3.html">Revision de Correos </a></td><td class="cell-NRdW"></td><td class="cell-EyuH"><time>18 de noviembre de 2024 10:00 (GMT-5) → 11:00</time></td><td class="cell-iLP?"></td><td class="cell-b36c246f-16a9-4351-9485-24a07b4ac491"></td><td class="cell-`AOY"></td><td class="cell-:WL;"></td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><p id="2a62905f-4b9d-4ffe-a6c5-8c03ecb7e065" class="">
+</p></div><div style="display:contents" dir="auto"><p id="dd95ec12-9f6a-4cbb-b9ec-d5206554d478" class="">
+</p></div><div style="display:contents" dir="auto"><p id="c2f1cf60-ce3b-4c32-aa4d-90d3018ccf2d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="e92c92d5-7db5-4f80-b2fc-5108243d8f62" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="d77e3a77-a950-43f0-aba6-8ab3b5e0f270" class="link-to-page"><a href="Tareas/TRM%20CapaToteat%20d77e3a77a95043f0aba68ab3b5e0f270.html">TRM CapaToteat</a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

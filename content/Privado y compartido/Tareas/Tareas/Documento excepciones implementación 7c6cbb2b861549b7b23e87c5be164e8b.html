@@ -1,0 +1,748 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Documento excepciones implementación</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7c6cbb2b-8615-49b7-b23e-87c5be164e8b" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">💻</span></div><h1 class="page-title" dir="auto">Documento excepciones implementación</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha límite</th><td><time>16 de mayo de 2024</time></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Prioridad</th><td><span class="selected-value select-value-color-yellow">Media</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jeremy Araujo</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Resumen generado por la IA</th><td>Este documento enumera los procesadores de Intel y AMD que no cumplen con los requisitos mínimos, así como las excepciones para procesadores de 4 núcleos. También se mencionan algunos problemas como la lentitud en el uso de toteat, problemas de impresiones (TPS), mesas confirmadas ocultas y fallas en la memoria RAM y Google Chrome para la reportería.</td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="fd094c38-3812-469a-b3ca-5a2a6ac71b79" class=""><strong>1.- INTEL</strong></p></div><div style="display:contents" dir="auto"><p id="7cbdca2d-7b0f-4b3f-94d6-e99120e7698e" class=""><strong>Procesadores Intel que NO cumplen con el mínimo</strong></p></div><div style="display:contents" dir="auto"><p id="8b915fc5-f2f7-4bd8-b681-653d60b11c09" class="">(1 y 2 núcleos – GHz 1.1 hasta 1.4GHz gama baja o antigua)</p></div><div style="display:contents" dir="auto"><p id="3dc29271-7b30-4392-8bd6-fbadfd0e30d8" class="">1.- Atom 200/300-Series</p></div><div style="display:contents" dir="auto"><p id="d25a12c0-f574-411e-9a40-e37ec5c36331" class="">2.- Legacy Celeron</p></div><div style="display:contents" dir="auto"><p id="90d192b2-784e-4892-9624-cb7c11779f83" class="">3.- Legacy Celeron Processors</p></div><div style="display:contents" dir="auto"><p id="ecd91c21-9051-4c13-9c3e-084b506dfce2" class="">4.- Celeron 200/300/400-Series</p></div><div style="display:contents" dir="auto"><p id="a99df499-5427-462a-90f3-c5c8f7f28ada" class="">5.- Celeron 700/800/900-Series</p></div><div style="display:contents" dir="auto"><p id="b974e8df-6b1e-4029-b4b1-9ead1068da23" class="">6.- Celeron S-Series</p></div><div style="display:contents" dir="auto"><p id="0bbc03c1-0069-4613-8ac7-bcf3bea1adf1" class="">7.- Celeron U-Series</p></div><div style="display:contents" dir="auto"><p id="818b21f7-af70-4145-ac9d-99f126a2ac63" class="">8.- Pentium 500/600/700/800/900 (Series)</p></div><div style="display:contents" dir="auto"><p id="1e9e6b86-5b2f-4fc7-9e50-b550acbc531e" class="">10.- Pentium U-Series</p></div><div style="display:contents" dir="auto"><p id="728463b3-2729-4a47-b9eb-2196c1806493" class="">11.- Core Solo</p></div><div style="display:contents" dir="auto"><p id="de85087c-60d9-4382-b756-76e51a1d3030" class="">12.- Legacy Xeon Processors</p></div><div style="display:contents" dir="auto"><p id="028c5b87-d514-4f17-b348-6a6eebef7f56" class="">13.- Core 2 Solo</p></div><div style="display:contents" dir="auto"><p id="36f39ce7-7be3-4b89-b991-2bdd4456ce2a" class="">14.- Xeon 3000-Series</p></div><div style="display:contents" dir="auto"><p id="879bf319-d6c4-41ea-9553-6f0117b17f9f" class="">15.- Atom Z-Series</p></div><div style="display:contents" dir="auto"><p id="cc33de1b-71af-4210-9edc-c4bc7db2645e" class="">16.- Celeron N-Series</p></div><div style="display:contents" dir="auto"><p id="7e1107d5-c6d7-409f-a109-6cb677672f2e" class="">16.- Celeron P-Series</p></div><div style="display:contents" dir="auto"><p id="d6977d8b-cf11-4bd7-bef4-6f1761a1f73d" class="">18.- Celeron T-Series</p></div><div style="display:contents" dir="auto"><p id="906ad79a-93ab-4925-86a0-754b530eff15" class="">18.- Core Duo</p></div><div style="display:contents" dir="auto"><p id="af06f7e5-066e-45f4-9f9b-f428015ceb56" class="">20.- Atom D-Series</p></div><div style="display:contents" dir="auto"><p id="95d004b1-4749-43d5-8955-a0a797e94d6b" class="">21.- Atom C-Series</p></div><div style="display:contents" dir="auto"><p id="6ab8d623-a45a-4535-b0fb-6f5ee44c4963" class="">22.- Pentium 1000-Series<div class="indented"><div style="display:contents" dir="auto"><p id="36e412b1-2aa6-47f8-957b-74d1d7219536" class="">Pentium 1405</p></div><div style="display:contents" dir="auto"><p id="c8151f5a-d59e-47f6-ae87-257c664299ad" class="">Pentium A1018</p></div><div style="display:contents" dir="auto"><p id="442e0200-052c-4a43-b2ae-f7e4b4eb0598" class="">Pentium A1018</p></div><div style="display:contents" dir="auto"><p id="5ee94e4c-e61c-4195-9d5d-1bd6b66dbfaf" class="">Pentium A1018</p></div><div style="display:contents" dir="auto"><p id="94c6a1b0-3891-49f8-9318-90150ba88021" class="">Pentium 1405 v2</p></div></div></p></div><div style="display:contents" dir="auto"><p id="06fb090a-e608-44d7-b37d-e97ffecef38f" class="">23.- Pentium E-Series</p></div><div style="display:contents" dir="auto"><p id="15117ef6-32e3-4dc6-b911-298bdf3c3a8f" class="">24.- Pentium B-Series</p></div><div style="display:contents" dir="auto"><p id="cec50f9c-51b3-4250-9497-33996e40a4c7" class="">25.- Pentium 2000-Series</p></div><div style="display:contents" dir="auto"><p id="e612d1ed-908f-45e7-abe5-4de33e7ca3dd" class="">26.- Pentium 3000-Series</p></div><div style="display:contents" dir="auto"><p id="e6b24551-32b9-4545-8342-47dcc54ab8f3" class="">27.- Pentium 4000-Series</p></div><div style="display:contents" dir="auto"><p id="82d7e473-b27b-4dfa-b576-c6f0f4811e42" class="">28.- Pentium G-Series</p></div><div style="display:contents" dir="auto"><p id="1a472279-3992-4f87-9c23-ce3c379497cb" class="">29.- Pentium P-Series</p></div><div style="display:contents" dir="auto"><p id="734611f1-4cb0-4a08-aa82-b2ace5119b90" class="">30.- Pentium T-Series</p></div><div style="display:contents" dir="auto"><p id="a9c35871-cae3-4867-9297-37207bfe0838" class="">31.- Itanium 9000-Series</p></div><div style="display:contents" dir="auto"><p id="b0b68604-f85e-4002-9676-23f6539fde30" class="">32.- Itanium 9100-Series</p></div><div style="display:contents" dir="auto"><p id="74f906ed-7126-417d-b0e1-1745f5ef014d" class="">33.- Xeon 5000-Series</p></div><div style="display:contents" dir="auto"><p id="55e5b479-7a82-4ffb-b41e-febbdf948601" class="">34.- Xeon 7000-Series</p></div><div style="display:contents" dir="auto"><p id="649d7d08-a783-4c86-b2ba-cc7f5b8e2684" class="">35.- Atom X-Series<div class="indented"><div style="display:contents" dir="auto"><p id="1b29f55e-3d51-4f7b-87a4-c1d402e81b61" class="">Atom x5-E3930</p></div><div style="display:contents" dir="auto"><p id="1fda4363-039b-4ade-a59d-af460032280b" class="">Atom x5-E3930</p></div><div style="display:contents" dir="auto"><p id="43a3c2d7-55c5-4cff-a647-b7ca751f8b47" class="">Atom x5-E8000</p></div></div></p></div><div style="display:contents" dir="auto"><p id="faaa9883-fcda-4e74-b872-34611aae63a0" class="">36.- Atom S-Series</p></div><div style="display:contents" dir="auto"><p id="fc2362f6-3698-4a75-af2d-ef56a2fc4e8b" class="">37.- Atom N-Series</p></div><div style="display:contents" dir="auto"><p id="79df789b-711b-4c28-90d7-5746e4a060af" class="">38.- Atom E-Series</p></div><div style="display:contents" dir="auto"><p id="0f34d040-425c-42de-9a3b-44405b43a6f6" class="">39.- Intel Core M</p></div><div style="display:contents" dir="auto"><p id="0eb20cca-7d58-48f9-b85a-1a0d77269299" class="">40.- Intel Celeron J-Series</p></div><div style="display:contents" dir="auto"><p id="aa0ab8d6-3f27-42ec-bbca-8fe1fe8664cd" class="">41.-Celeron J3355</p></div><div style="display:contents" dir="auto"><p id="1f2e4011-d1be-416f-98fa-276a582fdf07" class="">42.-Celeron J1750</p></div><div style="display:contents" dir="auto"><p id="e8e914fa-955c-4e00-822c-ca708414ea07" class="">43.-Celeron J1800</p></div><div style="display:contents" dir="auto"><p id="273990b9-51ac-4aff-bd90-ecdc88bebe8e" class="">44.-Celeron J1800</p></div><div style="display:contents" dir="auto"><p id="538943b9-4c9e-4c65-99b0-9561cee4a659" class="">45.-Celeron J1800</p></div><div style="display:contents" dir="auto"><p id="4cb37709-d2ad-4813-9f54-35f024503a5a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="b1c04499-b1c7-413d-bc43-82b7b461e16a" class=""><strong>Procesadores Intel Excepciones (4 núcleos – 1.5GHz hasta 2.0GHz)</strong></p></div><div style="display:contents" dir="auto"><p id="b297a1ca-66c4-4e09-a6ca-cfe285eaa1e6" class="">1.- Atom X-Series<div class="indented"><div style="display:contents" dir="auto"><p id="8985c5f2-f884-4858-b8d2-5a80fdf648ff" class="">Atom x7-E3950</p></div><div style="display:contents" dir="auto"><p id="cc1eb9a6-9160-473b-b4eb-dca1da2dd6b2" class="">Atom x7-E3950</p></div><div style="display:contents" dir="auto"><p id="ba017e98-7046-4003-ae19-7c4d50b95f1f" class="">Atom x5-E3940</p></div><div style="display:contents" dir="auto"><p id="d85c7910-51d6-44d6-8ab5-1b5222da4dcc" class="">Atom x5-E3940</p></div></div></p></div><div style="display:contents" dir="auto"><p id="4552aaf2-f1df-4e64-bb4e-dd2683bb6df4" class="">2.- Pentium 1000-Series<div class="indented"><div style="display:contents" dir="auto"><p id="d8e9e031-9a8b-45e8-9169-f2bc8f2e7859" class="">Pentium A1020</p></div></div></p></div><div style="display:contents" dir="auto"><p id="cc6a8493-8963-4684-8fb1-d50a3540139e" class="">3.- Intel Celeron J-Series<div class="indented"><div style="display:contents" dir="auto"><p id="c8ad621e-1668-4079-88eb-092fc1718a0c" class="">Celeron J3455</p></div><div style="display:contents" dir="auto"><p id="b0bd98f9-d25c-4b20-8020-01afb1e0a065" class="">Celeron J3455E</p></div><div style="display:contents" dir="auto"><p id="1e84cebc-36d6-48a2-a8cf-290fccaeab98" class="">Celeron J1850</p></div><div style="display:contents" dir="auto"><p id="12366f49-3640-4f96-b596-4e3bd04bae17" class="">Celeron J1900</p></div><div style="display:contents" dir="auto"><p id="80d93a7a-4c19-4b47-aad1-b564e1507145" class="">Celeron J1900</p></div></div></p></div><div style="display:contents" dir="auto"><p id="262dea29-c5f8-4c08-9634-e1cdfdafde5d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="891d1d3e-ec91-4222-aed7-42bdd8a8e293" class=""><strong>AMD</strong></p></div><div style="display:contents" dir="auto"><p id="7aa5a705-2fde-40f8-8b1b-8420aa315241" class=""><strong>Procesadores AMD que NO cumplen con el mínimo (1 y 2 núcleos)</strong></p></div><div style="display:contents" dir="auto"><p id="57dbed77-bb44-499f-9fd9-60985d8db19f" class="">1.- Athlon II</p></div><div style="display:contents" dir="auto"><p id="8dd91262-9b35-4bf0-9d87-74ea2dd9bb87" class="">2.- Sempron</p></div><div style="display:contents" dir="auto"><p id="bec2ce58-a0b3-4731-a6a3-c815ca85c437" class="">3.- AMD E1</p></div><div style="display:contents" dir="auto"><p id="0950f32c-f64d-4f92-9ad7-6141d3fe4a51" class="">4.- AMD A4</p></div><div style="display:contents" dir="auto"><p id="b536a2c2-d079-47b0-a05f-cc61e335793c" class="">5.- Athlon II X2</p></div><div style="display:contents" dir="auto"><p id="e571cbe4-2ca3-4c52-abb5-584c9e9eec78" class="">6.- Phenom II X2</p></div><div style="display:contents" dir="auto"><p id="72605a4e-777d-446b-9ea8-c33cc49a70d4" class="">7.- E-Series<div class="indented"><div style="display:contents" dir="auto"><p id="e38fd7a0-4d41-45d0-b9bf-f1825e7a6cfd" class="">E2-3800</p></div><div style="display:contents" dir="auto"><p id="c8d54b67-21fb-45e7-b632-b723ebc5f071" class="">E1 Micro-6200T</p></div><div style="display:contents" dir="auto"><p id="42b0b6e6-f770-44bc-955f-09b593840533" class="">E1-6010</p></div><div style="display:contents" dir="auto"><p id="b3fb74ad-3564-401b-82dc-37027f0dface" class="">E1-2500</p></div><div style="display:contents" dir="auto"><p id="11601388-66d5-492c-b223-acba7393c429" class="">E1-2200</p></div><div style="display:contents" dir="auto"><p id="a03de0bd-7079-4d73-868e-a57b115d1ddd" class="">E1-2100</p></div><div style="display:contents" dir="auto"><p id="a51fa35e-a7cb-4550-a547-7499d0a41200" class="">E2-3000</p></div><div style="display:contents" dir="auto"><p id="3d1494ca-d1e9-4722-83cd-49b0ddb9d6e4" class="">E2-9010</p></div></div></p></div><div style="display:contents" dir="auto"><p id="f0e0e224-8c46-45b4-9c79-a51fec6fab6f" class="">8.- AMD A6<div class="indented"><div style="display:contents" dir="auto"><p id="cd1c8bb9-ac14-4f4a-9694-9dca306d2254" class="">A6-8500P</p></div><div style="display:contents" dir="auto"><p id="8ff37169-7dc4-4127-af69-18b441626b4b" class="">A6-7000</p></div></div></p></div><div style="display:contents" dir="auto"><p id="1305cef8-fbea-468e-8238-ed6ac8452a92" class=""><strong>Procesadores AMD Excepciones (4 núcleos 1.5GHz hasta 2.0GHz)</strong></p></div><div style="display:contents" dir="auto"><p id="f55df60c-3450-4a45-b400-49450b7285c2" class="">1.- Athlon II X3</p></div><div style="display:contents" dir="auto"><p id="9cea56d0-4042-423c-952c-d7424f13b081" class="">2.- Phenom II X3</p></div><div style="display:contents" dir="auto"><p id="efb36e3e-0379-416b-98b9-b62c4465e9ee" class="">3.- E-Series<div class="indented"><div style="display:contents" dir="auto"><p id="7006c9b0-03ef-4938-9b18-4cfb94c10395" class="">E2-7110</p></div><div style="display:contents" dir="auto"><p id="26c05b71-11a6-430a-8e08-9f25a47dfd86" class="">E2-6110</p></div><div style="display:contents" dir="auto"><p id="a7c3c6d3-733e-451a-8dbc-4b4516248363" class="">E2-3800</p></div></div></p></div><div style="display:contents" dir="auto"><p id="9fe08706-dc49-4a38-8543-0b2008f24142" class="">4.- A4-Series<div class="indented"><div style="display:contents" dir="auto"><p id="f8aeb22b-a32a-4106-a214-85f55c000e6e" class="">A4-5000</p></div><div style="display:contents" dir="auto"><p id="bfbbb04a-9cc3-4555-bda8-9e380e23209c" class="">A4 Micro-6400T</p></div><div style="display:contents" dir="auto"><p id="f86ec055-5e13-4e38-91b6-6aec9390b321" class="">A4-5100</p></div><div style="display:contents" dir="auto"><p id="659561ac-5570-4c5f-920a-0890236dc2b6" class="">A4-6210</p></div><div style="display:contents" dir="auto"><p id="174fa49f-77d6-4895-9ac2-de3de300b3df" class="">A4-7210</p></div></div></p></div><div style="display:contents" dir="auto"><p id="a539ed2f-5fdc-4c3b-aaec-8c1a8aeb16d9" class="">5.- AMD A6<div class="indented"><div style="display:contents" dir="auto"><p id="d7624deb-cd2c-41a2-9b8b-1b0565952986" class="">A6-7310</p></div><div style="display:contents" dir="auto"><p id="e126867d-de29-4510-b7d3-705ccdad8df0" class="">A6-5200M</p></div></div></p></div><div style="display:contents" dir="auto"><p id="67ba117c-b670-49e9-86a8-f07e638abd2e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="ab06e0bf-e5ac-4d6e-8e65-26249f525df0" class=""><strong>Exepciones Problemas</strong></p></div><div style="display:contents" dir="auto"><hr id="13251808-0a4e-4ccd-95eb-cec6121e267f"/></div><div style="display:contents" dir="auto"><p id="85c113e0-e8e8-4220-a282-1c8f0899a3a3" class="">           1.- Lentitud en usar toteat</p></div><div style="display:contents" dir="auto"><p id="f5279c8d-513c-4e27-943b-b477664332b3" class="">           2.- Problemas de impresiones (TPS)</p></div><div style="display:contents" dir="auto"><p id="04dbba8c-9b32-4964-8881-7ce50f36f88e" class="">           3.- Mesas confirmadas ocultas</p></div><div style="display:contents" dir="auto"><p id="13ac6399-ed01-4ae2-b41c-deaf74fd654f" class="">           4.- Fallas en memoria ram y google chrome para reporteria<div class="indented"><div style="display:contents" dir="auto"><p id="1e97fd51-5cca-4a00-82e9-e533f2c48a06" class="">      </p></div><div style="display:contents" dir="auto"><p id="d47b67ae-b14f-4dc0-a17f-ae1c91e17d7c" class="">
+</p></div></div></p></div><div style="display:contents" dir="auto"><p id="7e964691-9a42-4097-8607-3fd6a3e65b5a" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

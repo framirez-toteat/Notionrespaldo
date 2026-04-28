@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Json para MarketMIx con Extras (Api standard)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f7cdced4-fac4-4653-b54a-853a3c55c25f" class="page sans"><header><h1 class="page-title" dir="auto">Json para MarketMIx con Extras (Api standard)</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha límite</th><td><time>21 de junio de 2024</time></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2ec9c337-fee0-456d-9c5f-0805ad4d1ec9" class="">{</p></div><div style="display:contents" dir="auto"><p id="8dbb39a6-4edb-4e37-807d-17d12e3675cc" class="">&quot;restaurantId&quot;: 6604359126220800,</p></div><div style="display:contents" dir="auto"><p id="9888006c-db74-4832-90dc-21726b6117a4" class="">&quot;localNumber&quot;: 1,</p></div><div style="display:contents" dir="auto"><p id="d60d7818-0ab8-40bb-9ea8-0c2ef8534d5c" class="">&quot;orderId&quot;: 0,</p></div><div style="display:contents" dir="auto"><p id="6e702617-3307-463d-a09b-763dd1c992f6" class="">&quot;orderReference&quot;: 0,</p></div><div style="display:contents" dir="auto"><p id="ffa196e5-fccd-4f69-ad07-61ebbf9e4116" class="">&quot;status&quot;: &quot;new&quot;,</p></div><div style="display:contents" dir="auto"><p id="cff05c29-2e32-452e-b9a7-e6ce8525b646" class="">&quot;type&quot;: &quot;takeway&quot;,</p></div><div style="display:contents" dir="auto"><p id="74bc7169-d581-45e7-9eec-c21ecf25a74f" class="">&quot;channel&quot;: &quot;webstore&quot;,</p></div><div style="display:contents" dir="auto"><p id="0bda4230-1142-4ec6-9b66-5098495a63cf" class="">&quot;vendorName&quot;: &quot;EXAMPLE&quot;,</p></div><div style="display:contents" dir="auto"><p id="ee23ea71-901f-4f42-a4e3-101933044a32" class="">&quot;comment&quot;: &quot;Comentario de orden&quot;,</p></div><div style="display:contents" dir="auto"><p id="76c90581-0349-46cc-a056-36262e0c4a6a" class="">&quot;document&quot;: {</p></div><div style="display:contents" dir="auto"><p id="5802bdbc-2324-43d5-ac86-f7a93396b678" class="">&quot;deliveryDate&quot;: &quot;2023-03-30T11:30:00&quot;,</p></div><div style="display:contents" dir="auto"><p id="d9aaeff5-6a2c-458e-8a27-674124ea3a8c" class="">&quot;comment&quot;: &quot;Comentario de delivery&quot;,</p></div><div style="display:contents" dir="auto"><p id="87c323f3-56f2-4a72-ad8a-e3039a03434e" class="">&quot;payments&quot;: [</p></div><div style="display:contents" dir="auto"><p id="f8350d8d-e378-4662-ae35-b2d4a6965fd7" class="">{</p></div><div style="display:contents" dir="auto"><p id="938bb6f6-6066-4b39-88cc-a5a22f056749" class="">&quot;id&quot;: 0,</p></div><div style="display:contents" dir="auto"><p id="2ebe49c7-f52e-4b73-88ca-0227f5390cb0" class="">&quot;ref&quot;: 0,</p></div><div style="display:contents" dir="auto"><p id="b7f5281c-9231-4cb0-922f-860ff8c044f1" class="">&quot;amount&quot;: 1200,</p></div><div style="display:contents" dir="auto"><p id="b3548614-bc7e-4102-b737-bfab75a45cd7" class="">&quot;amountPaid&quot;: 1700,</p></div><div style="display:contents" dir="auto"><p id="faf21f6d-6510-4ae3-9721-9b00a795be24" class="">&quot;tip&quot;: 0,</p></div><div style="display:contents" dir="auto"><p id="32e22ea5-9cc8-4da0-8625-d9021bdcd0b4" class="">&quot;commission&quot;: [</p></div><div style="display:contents" dir="auto"><p id="7149efc5-ce79-4752-9902-dd106e915277" class="">{</p></div><div style="display:contents" dir="auto"><p id="ecd89d84-5b12-4fc5-b1ce-ef08db44e7e2" class="">&quot;name&quot;: &quot;deliveryCharge&quot;,</p></div><div style="display:contents" dir="auto"><p id="909a821d-b6e2-43b4-bee2-c9dceeb3de24" class="">&quot;value&quot;: 0</p></div><div style="display:contents" dir="auto"><p id="34a715f0-b23e-49ce-a0ac-d972a72cdbd5" class="">}</p></div><div style="display:contents" dir="auto"><p id="679ca916-5d88-4732-a2db-4405b8420afa" class="">],</p></div><div style="display:contents" dir="auto"><p id="07a351b9-77ad-46c6-84d3-02c8ade0f07a" class="">&quot;paymentType&quot;: 0,</p></div><div style="display:contents" dir="auto"><p id="1f8d840e-3a62-4796-9a7a-77d13d533f00" class="">&quot;operationDate&quot;: &quot;2023-03-30T11:30:00&quot;,</p></div><div style="display:contents" dir="auto"><p id="b932259a-e4c4-42d7-8cfe-ec26332b12fa" class="">&quot;discount&quot;: [</p></div><div style="display:contents" dir="auto"><p id="8b5743d1-ce45-4606-84ea-0822ccd8eeae" class="">{</p></div><div style="display:contents" dir="auto"><p id="88872b13-5854-4339-b8c7-f8e63a2d4bf7" class="">&quot;amount&quot;: 0,</p></div><div style="display:contents" dir="auto"><p id="841ca26a-d26c-44d3-821f-d6b4cc8ae0d6" class="">&quot;amountString&quot;: &quot;0&quot;,</p></div><div style="display:contents" dir="auto"><p id="0ef01ddf-1ff1-4c2d-afcc-1c965bf080e6" class="">&quot;comment&quot;: &quot;&quot;</p></div><div style="display:contents" dir="auto"><p id="b6f26bb8-e068-40e0-9666-31cb5bfb0924" class="">}</p></div><div style="display:contents" dir="auto"><p id="4c330757-156c-478d-8e18-aebf08091074" class="">]</p></div><div style="display:contents" dir="auto"><p id="6d8d53ad-bf50-4ce2-806a-eccfb19b871d" class="">}</p></div><div style="display:contents" dir="auto"><p id="05537a28-1a9c-4717-876c-d6cddb32d597" class="">],</p></div><div style="display:contents" dir="auto"><p id="c42b1d95-38c9-441d-84d4-304b08710aea" class="">&quot;line&quot;: [</p></div><div style="display:contents" dir="auto"><p id="b89ce580-915f-44a8-ba0f-a3ec3a434927" class="">{</p></div><div style="display:contents" dir="auto"><p id="857986d0-acd2-490a-90c5-b01ac7b52644" class="">&quot;lineNumber&quot;: 1,</p></div><div style="display:contents" dir="auto"><p id="b1cb50a1-8870-4e49-afaf-852320dff315" class="">&quot;quantity&quot;: 1,</p></div><div style="display:contents" dir="auto"><p id="0a6bbe48-7556-401c-8016-1cb75c1c65c4" class="">&quot;comment&quot;: &quot;&quot;,</p></div><div style="display:contents" dir="auto"><p id="9566f778-41aa-47ea-a3f0-ac967a1fa5f3" class="">&quot;amountBeforeTax&quot;: 1176.47,</p></div><div style="display:contents" dir="auto"><p id="d5ec87b1-5a1a-4f99-97db-0067978a84e5" class="">&quot;tax&quot;: [</p></div><div style="display:contents" dir="auto"><p id="daf1377d-5dec-46a2-adbb-01d148670fa9" class="">{</p></div><div style="display:contents" dir="auto"><p id="d2ce95f8-841b-4042-8187-68952be94b79" class="">&quot;name&quot;: &quot;IVA&quot;,</p></div><div style="display:contents" dir="auto"><p id="2af15031-2cef-47e9-a7df-ceac29914fba" class="">&quot;value&quot;: 0</p></div><div style="display:contents" dir="auto"><p id="e954c61c-3e00-47c4-8965-7442bcbb378b" class="">}</p></div><div style="display:contents" dir="auto"><p id="0d532c6b-a0fd-4089-8ad3-b7027681b457" class="">],</p></div><div style="display:contents" dir="auto"><p id="bb35e5a5-23e0-47ff-8ed1-179e16c781d7" class="">&quot;amountAfterTax&quot;: 1400,</p></div><div style="display:contents" dir="auto"><p id="5f8ac226-7dcf-438f-90e8-d64199958a6c" class="">&quot;productCode&quot;: &quot;EAT1010&quot;,</p></div><div style="display:contents" dir="auto"><p id="f00623b5-02bc-4202-a3d6-e05182bf64e9" class="">&quot;productName&quot;: &quot;Lomito justo&quot;,</p></div><div style="display:contents" dir="auto"><p id="5ddab4d5-c40a-4476-9ead-58a1a2c42663" class="">&quot;category&quot;: &quot;Carnes&quot;</p></div><div style="display:contents" dir="auto"><p id="42cf1ce5-03d8-471f-b087-369a4bb0fa13" class="">},</p></div><div style="display:contents" dir="auto"><p id="e2e99412-413f-4c0b-babd-77976bac0ea8" class="">{</p></div><div style="display:contents" dir="auto"><p id="39a60d49-20ee-46d5-b607-5712d5114f22" class="">&quot;lineNumber&quot;: 2,</p></div><div style="display:contents" dir="auto"><p id="10a6cc6c-e4e6-409e-a28b-71d2fc45784c" class="">&quot;quantity&quot;: 1,</p></div><div style="display:contents" dir="auto"><p id="40e7c803-3ebe-4c10-ac06-868d3c55a590" class="">&quot;comment&quot;: &quot;&quot;,</p></div><div style="display:contents" dir="auto"><p id="f7523c3a-cf60-42b6-bef2-73569b076955" class="">&quot;amountBeforeTax&quot;: 1176.47,</p></div><div style="display:contents" dir="auto"><p id="412f56f0-64c9-4879-a469-f4ca87ca3f98" class="">&quot;tax&quot;: [</p></div><div style="display:contents" dir="auto"><p id="51fa02a4-823f-46be-bbb6-afd70c524ec7" class="">{</p></div><div style="display:contents" dir="auto"><p id="33f449ce-8ef6-4333-aeaa-f014534ef693" class="">&quot;name&quot;: &quot;IVA&quot;,</p></div><div style="display:contents" dir="auto"><p id="19a4d922-d313-4c7e-b8e0-6b983de260f1" class="">&quot;value&quot;: 0</p></div><div style="display:contents" dir="auto"><p id="4fdac6b1-2725-4000-8f71-b4cea3cf9be4" class="">}</p></div><div style="display:contents" dir="auto"><p id="f12c742f-dceb-4808-a0c8-c84929578593" class="">],</p></div><div style="display:contents" dir="auto"><p id="69dabe1e-e320-419f-9c8e-3b37df689ff6" class="">&quot;amountAfterTax&quot;: 1400,</p></div><div style="display:contents" dir="auto"><p id="a3de309c-bb16-47fc-b265-3fc81d0f6281" class="">&quot;productCode&quot;: &quot;10060&quot;,</p></div><div style="display:contents" dir="auto"><p id="d3a6f0f1-2bc1-4acc-b921-af9dd597dfc2" class="">&quot;productName&quot;: &quot;Tocino&quot;,</p></div><div style="display:contents" dir="auto"><p id="a972443e-f860-48cc-886a-8d27e06410da" class="">&quot;category&quot;: &quot;asado&quot;</p></div><div style="display:contents" dir="auto"><p id="472adac3-ed27-4a1c-bdf0-fd86dd8baa80" class="">},</p></div><div style="display:contents" dir="auto"><p id="9dd3fcfe-dc1a-4927-8165-7345e6b808e0" class="">{</p></div><div style="display:contents" dir="auto"><p id="a8fb4b0d-90f6-4741-8ec3-ce25e9a2d730" class="">&quot;lineNumber&quot;: 3,</p></div><div style="display:contents" dir="auto"><p id="50d03bd9-1c97-43e2-9c8f-d3f937219385" class="">&quot;quantity&quot;: 1,</p></div><div style="display:contents" dir="auto"><p id="500e1ecb-17b3-4ced-8a6f-7fd909857480" class="">&quot;comment&quot;: &quot;&quot;,</p></div><div style="display:contents" dir="auto"><p id="f080d838-ad28-484b-8237-61e686bc9259" class="">&quot;amountBeforeTax&quot;: 1176.47,</p></div><div style="display:contents" dir="auto"><p id="6767314a-3cd3-475e-8c52-ada7a9772a11" class="">&quot;tax&quot;: [</p></div><div style="display:contents" dir="auto"><p id="714d6d3f-35ad-4213-a289-8c01ab1a4052" class="">{</p></div><div style="display:contents" dir="auto"><p id="1a978306-3522-46ae-b3e3-0a31b63504e9" class="">&quot;name&quot;: &quot;IVA&quot;,</p></div><div style="display:contents" dir="auto"><p id="caf1ed31-e42c-48bf-b2a6-8db89026b552" class="">&quot;value&quot;: 0</p></div><div style="display:contents" dir="auto"><p id="4a0177cc-d67f-4b75-abf6-c627b5e203f4" class="">}</p></div><div style="display:contents" dir="auto"><p id="59b92430-a811-4631-ab34-ed922ddd460b" class="">],</p></div><div style="display:contents" dir="auto"><p id="b7c19626-560e-4237-888e-defffc2e429a" class="">&quot;amountAfterTax&quot;: 1400,</p></div><div style="display:contents" dir="auto"><p id="61f454c8-1ba1-4599-a563-2be07f097da2" class="">&quot;productCode&quot;: &quot;1000&quot;,</p></div><div style="display:contents" dir="auto"><p id="6ca7b9a2-1ca1-4a97-a458-10fe1fc4ef34" class="">&quot;productName&quot;: &quot;Ensalada Cesar&quot;,</p></div><div style="display:contents" dir="auto"><p id="209388c2-5fec-4b26-95e2-c5b750dc6052" class="">&quot;category&quot;: &quot;Ensaladas&quot;</p></div><div style="display:contents" dir="auto"><p id="97652c06-0500-45ae-b009-311097712117" class="">},</p></div><div style="display:contents" dir="auto"><p id="d272ec8b-0da2-40ae-b9af-6ad6aa834f8d" class="">{</p></div><div style="display:contents" dir="auto"><p id="9d8c45a3-0b13-4056-8db1-06afd2dd4183" class="">&quot;lineNumber&quot;: 4,</p></div><div style="display:contents" dir="auto"><p id="9a666ca3-89aa-49e0-8b89-359d5241873e" class="">&quot;quantity&quot;: 1,</p></div><div style="display:contents" dir="auto"><p id="37cd6165-b9bd-4659-bd09-e20c9df1125b" class="">&quot;comment&quot;: &quot;&quot;,</p></div><div style="display:contents" dir="auto"><p id="80b8a8a0-9b53-4113-8c8e-4292d40dbd0f" class="">&quot;amountBeforeTax&quot;: 1176.47,</p></div><div style="display:contents" dir="auto"><p id="59e2409a-ce12-40fe-8438-1415d659a119" class="">&quot;tax&quot;: [</p></div><div style="display:contents" dir="auto"><p id="ad079571-c825-48dd-ba9e-e0a91de990da" class="">{</p></div><div style="display:contents" dir="auto"><p id="71261c72-57ef-48e7-99c7-b3ad70fbacd4" class="">&quot;name&quot;: &quot;IVA&quot;,</p></div><div style="display:contents" dir="auto"><p id="e408ff16-ec5f-48af-a12b-1981120e8d3c" class="">&quot;value&quot;: 0</p></div><div style="display:contents" dir="auto"><p id="2579dffe-3080-404b-a0f1-fe6ef6e50703" class="">}</p></div><div style="display:contents" dir="auto"><p id="ac61f818-c4d7-4bcc-85d1-e794699f6bcc" class="">],</p></div><div style="display:contents" dir="auto"><p id="b11aaf83-9946-4e31-acf0-2b8dbe592260" class="">&quot;amountAfterTax&quot;: 1400,</p></div><div style="display:contents" dir="auto"><p id="d9d47c84-e53d-4841-8391-b62a694e725f" class="">&quot;productCode&quot;: &quot;10000&quot;,</p></div><div style="display:contents" dir="auto"><p id="319a6a09-fdc9-4b76-b4cf-0b7ec274a92c" class="">&quot;productName&quot;: &quot;Camaron&quot;,</p></div><div style="display:contents" dir="auto"><p id="2e0b6088-5b73-4f83-bdcc-64749b051787" class="">&quot;category&quot;: &quot;selecciona tu proteina&quot;</p></div><div style="display:contents" dir="auto"><p id="ed5133c5-da66-4718-8789-d3eac6a4236c" class="">}</p></div><div style="display:contents" dir="auto"><p id="df128947-ccc0-4b8b-98e1-b619b7ebde87" class="">],</p></div><div style="display:contents" dir="auto"><p id="dc1d4f2a-5598-4896-b066-5eb36e059648" class="">&quot;customer&quot;: {</p></div><div style="display:contents" dir="auto"><p id="883d8996-1dd5-4b93-9f3a-942ca3cbee6d" class="">&quot;name&quot;: &quot;Andrea Ruiz&quot;,</p></div><div style="display:contents" dir="auto"><p id="f42ab516-ecb1-4965-9dff-a0061f9c5446" class="">&quot;phoneNumber&quot;: 3022339177,</p></div><div style="display:contents" dir="auto"><p id="be31cf45-dd59-4454-a8ff-7cbab1d10ea8" class="">&quot;phoneNumber2&quot;: 3022339177,</p></div><div style="display:contents" dir="auto"><p id="8af1405e-98b9-4810-89a6-94ecb08efe21" class="">&quot;email&quot;: &quot;</p></div><div style="display:contents" dir="auto"><p id="10fea1ea-bbfa-47f5-811c-11edfa656143" class=""><a href="mailto:andrea@gmail.com">andrea@gmail.com</a></p></div><div style="display:contents" dir="auto"><p id="885e4bd8-7379-4aa0-8940-56f9655b6e79" class="">&quot;,</p></div><div style="display:contents" dir="auto"><p id="3929c6de-58d0-4749-8f81-d8faa9e1df71" class="">&quot;delivery&quot;: {</p></div><div style="display:contents" dir="auto"><p id="60842b7b-fbe0-4fc4-99b1-2f8d83c8951e" class="">&quot;address&quot;: &quot;&quot;,</p></div><div style="display:contents" dir="auto"><p id="b41294d1-26f6-444b-8723-976fb570714a" class="">&quot;city&quot;: &quot;&quot;,</p></div><div style="display:contents" dir="auto"><p id="e86844cc-6df8-421b-b25d-7c7b14b1595d" class="">&quot;country&quot;: &quot;&quot;,</p></div><div style="display:contents" dir="auto"><p id="08647f4d-fdda-4ec3-983c-1945b662673f" class="">&quot;postalCode&quot;: 0</p></div><div style="display:contents" dir="auto"><p id="2beb3711-2ee5-4989-aa1f-cd449b90ca7e" class="">}</p></div><div style="display:contents" dir="auto"><p id="b08f312e-10cc-427e-a15e-1b9dae06ee90" class="">},</p></div><div style="display:contents" dir="auto"><p id="8dc66813-79ea-45f9-b664-dc5fabdeabff" class="">&quot;dispatcher&quot;: {</p></div><div style="display:contents" dir="auto"><p id="73dcf51c-b636-4bd8-acca-3115a0e836e8" class="">&quot;name&quot;: null,</p></div><div style="display:contents" dir="auto"><p id="b573dd9e-6e94-49f4-89c6-7c11c99863f4" class="">&quot;phoneNumber&quot;: null,</p></div><div style="display:contents" dir="auto"><p id="4d323bb6-bfc4-42c8-8898-5fb8e8137b02" class="">&quot;phoneNumber2&quot;: null,</p></div><div style="display:contents" dir="auto"><p id="7a67c94d-9c3e-4191-abce-b585a722fbd0" class="">&quot;email&quot;: null,</p></div><div style="display:contents" dir="auto"><p id="1f9ddcd0-74e4-4502-94d2-db92862e58a6" class="">&quot;vehicle&quot;: null</p></div><div style="display:contents" dir="auto"><p id="ebf4f02c-2044-4c1d-b6a9-8b25d33b7c6a" class="">}</p></div><div style="display:contents" dir="auto"><p id="b7489bd5-c429-41e8-817c-95e4987c118a" class="">},</p></div><div style="display:contents" dir="auto"><p id="e9b7703f-b7dc-41bb-a037-1d4f8b575f16" class="">&quot;operationDate&quot;: &quot;2023-03-30T11:30:00&quot;,</p></div><div style="display:contents" dir="auto"><p id="754154bb-3d52-4893-88f1-b8a65f526f62" class="">&quot;modifiedDate&quot;: &quot;2023-03-30T11:30:00&quot;</p></div><div style="display:contents" dir="auto"><p id="21e468b4-4d99-49c2-96de-4ed5df3d676f" class="">}</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

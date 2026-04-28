@@ -15,6 +15,11 @@
     "folder": "Privado y compartido"
   },
   {
+    "title": "Tareas",
+    "path": "content/Privado y compartido/Tareas f7b4b1a0646c4a24b6ae90b4a9772471.html",
+    "folder": "Privado y compartido"
+  },
+  {
     "title": "Activación",
     "path": "content/Privado y compartido/Procesos/Activación ade7f9d567cc4fc9b96034fb86bb82b5.html",
     "folder": "Privado y compartido/Procesos"
@@ -7138,5 +7143,870 @@
     "title": "TPS Nivel 2",
     "path": "content/Privado y compartido/Proyectos/Tareas/Soporte Sodexo SAC/Soporte SAC SODEXO/TPS Nivel 2 18b390731e2380f9a98fe1065cdfc147.html",
     "folder": "Privado y compartido/Proyectos/Tareas/Soporte Sodexo SAC/Soporte SAC SODEXO"
+  },
+  {
+    "title": "TRM CapaToteat",
+    "path": "content/Privado y compartido/Tareas/TRM CapaToteat d77e3a77a95043f0aba68ab3b5e0f270.html",
+    "folder": "Privado y compartido/Tareas"
+  },
+  {
+    "title": "1 CALENDARIO ANDREA RUIZ",
+    "path": "content/Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ 1b56ae32cb254716a6b5b694259f0a09.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "10 Integraciones inactivas",
+    "path": "content/Privado y compartido/Tareas/Tareas/10 Integraciones inactivas 107390731e238014b823e28693c40f91.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "12 Casos peya",
+    "path": "content/Privado y compartido/Tareas/Tareas/12 Casos peya ae9112f4a84841ebae83f2dcbfe5d692.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "13 Casos de Rappi",
+    "path": "content/Privado y compartido/Tareas/Tareas/13 Casos de Rappi 12a390731e23807ab2c4e3b47874e399.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "2 Análisis de CS Notion",
+    "path": "content/Privado y compartido/Tareas/Tareas/2 Análisis de CS Notion 12a390731e2380869613ff8281ba4fe5.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "20 RFP FE Factura Electronica Colombia",
+    "path": "content/Privado y compartido/Tareas/Tareas/20 RFP FE Factura Electronica Colombia 1a211a9c5f8948c3acc29c319ebf6590.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "3 Casos correos",
+    "path": "content/Privado y compartido/Tareas/Tareas/3 Casos correos e8bcf70a17bf45f78a66b61289729697.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "5 Casos forms",
+    "path": "content/Privado y compartido/Tareas/Tareas/5 Casos forms 598ca90d306543a9b75cf079a8ecc25c.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "6 Caso de cencosud",
+    "path": "content/Privado y compartido/Tareas/Tareas/6 Caso de cencosud 506d20df706d40bc8a0dfc64257ca048.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "8 Reuniones",
+    "path": "content/Privado y compartido/Tareas/Tareas/8 Reuniones 12a390731e2380ba9ec9cb03b41397d0.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Activación perfiles para agentes en migración",
+    "path": "content/Privado y compartido/Tareas/Tareas/Activación perfiles para agentes en migración f7658e3addd44d7687f8e1485417f158.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "aicardy",
+    "path": "content/Privado y compartido/Tareas/Tareas/aicardy 68b9b46fe5294078b2fe25aade1a2549.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Aplicacion de Voucher en JAka",
+    "path": "content/Privado y compartido/Tareas/Tareas/Aplicacion de Voucher en JAka 142390731e238096b092fb5ae13ccb60.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Cambio resolución SD a POS para control resolucion",
+    "path": "content/Privado y compartido/Tareas/Tareas/Cambio resolución SD a POS para control resolucion c4203658046a48349787c85654decb34.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "caso Cocina 9",
+    "path": "content/Privado y compartido/Tareas/Tareas/caso Cocina 9 113c1d95149a4b2eb7d63d0111e0ceb9.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Caso de Bayside (Pimenton) https mail google com m",
+    "path": "content/Privado y compartido/Tareas/Tareas/Caso de Bayside (Pimenton) https mail google com m 79c0d95bf27a489bb6cac4d9ff14496a.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Caso de cluvi",
+    "path": "content/Privado y compartido/Tareas/Tareas/Caso de cluvi f3ce93c422c746a8a916b8489d936024.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Caso de DK Jaka",
+    "path": "content/Privado y compartido/Tareas/Tareas/Caso de DK Jaka a10e031da0824f748f3acbf4e6c23dff.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Caso de FBH",
+    "path": "content/Privado y compartido/Tareas/Tareas/Caso de FBH 85be23e41da54547963067b64d44bd0a.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Caso de Fernanda Herrer",
+    "path": "content/Privado y compartido/Tareas/Tareas/Caso de Fernanda Herrer 770589a1f2c5424cae071a44c21e4746.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Caso de peya",
+    "path": "content/Privado y compartido/Tareas/Tareas/Caso de peya 1bf2e1d5c6b94df5b1795b894baece25.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Caso de Tucan validacion con Desarrollo",
+    "path": "content/Privado y compartido/Tareas/Tareas/Caso de Tucan validacion con Desarrollo 1a644d62f32445c99bb215bd7943e891.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Caso facturacion muncher URGENTE",
+    "path": "content/Privado y compartido/Tareas/Tareas/Caso facturacion muncher URGENTE bfed81874f3b418daadb1be5aafe9b37.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Caso practico DTE COL",
+    "path": "content/Privado y compartido/Tareas/Tareas/Caso practico DTE COL 224390731e2380e1b993ecf00082e366.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Caso Práctico DTE Chile",
+    "path": "content/Privado y compartido/Tareas/Tareas/Caso Práctico DTE Chile 224390731e2380eb84efc3ec8daea51b.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Check list proceso activación factura 1",
+    "path": "content/Privado y compartido/Tareas/Tareas/Check list proceso activación factura 1 54fe0cc19ed548b9a7c8f506e2e107b9.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Comparacion ordenes Voucher Peya Uruguay- Chile",
+    "path": "content/Privado y compartido/Tareas/Tareas/Comparacion ordenes Voucher Peya Uruguay- Chile c502ab503ba14c6d8ee47324e54b43ea.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Consulta de Rappi turbo",
+    "path": "content/Privado y compartido/Tareas/Tareas/Consulta de Rappi turbo 088578b9d5624bb48e59eb936058ed6f.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Consultar comisiones de delivery (formula o calcul",
+    "path": "content/Privado y compartido/Tareas/Tareas/Consultar comisiones de delivery (formula o calcul 4e8c34e8c311425d95d52c442e91b48f.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Crear Procesos 1 1 y 1 2 flujo capacitación",
+    "path": "content/Privado y compartido/Tareas/Tareas/Crear Procesos 1 1 y 1 2 flujo capacitación fa8103069ae145c3966408f7e15d6534.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Cuadro de carga de internet",
+    "path": "content/Privado y compartido/Tareas/Tareas/Cuadro de carga de internet 94f53846dcf545cbbdc0619c3658e39d.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Definición clientes estratégicos operaciones",
+    "path": "content/Privado y compartido/Tareas/Tareas/Definición clientes estratégicos operaciones 6ffed45d8f124f1da1d5d9cd22577b2f.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Determinar diferido Argentina DTE",
+    "path": "content/Privado y compartido/Tareas/Tareas/Determinar diferido Argentina DTE 5ffb6e9811e34412bfc3242925a6370b.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Diagnóstico Facturante Marzo-Junio",
+    "path": "content/Privado y compartido/Tareas/Tareas/Diagnóstico Facturante Marzo-Junio 551151df9f4d472b9c664bc424ddf010.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Documentación Notion Modulo 3",
+    "path": "content/Privado y compartido/Tareas/Tareas/Documentación Notion Modulo 3 4861c0f157e44a20b1b8f33c45dc528f.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Documento Diferido PEND reproceso",
+    "path": "content/Privado y compartido/Tareas/Tareas/Documento Diferido PEND reproceso 5071e4ca0f4b4f15b096be1904bfd20f.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Documento excepciones implementación",
+    "path": "content/Privado y compartido/Tareas/Tareas/Documento excepciones implementación 7c6cbb2b861549b7b23e87c5be164e8b.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Enviar nota al grupo de Slack CS sobre las integra",
+    "path": "content/Privado y compartido/Tareas/Tareas/Enviar nota al grupo de Slack CS sobre las integra c274edabcefa48a687ff6ba7a9ff1ebb.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Extracción datos Intercom reinstalaciones",
+    "path": "content/Privado y compartido/Tareas/Tareas/Extracción datos Intercom reinstalaciones fb77d724e40746a1804e811d1ea4adc2.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Formato grabación integraciones",
+    "path": "content/Privado y compartido/Tareas/Tareas/Formato grabación integraciones 9a9b14aa98ac49b791fcc99cfafe5413.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Formato Standar texto procesos",
+    "path": "content/Privado y compartido/Tareas/Tareas/Formato Standar texto procesos ecae372d356c4db586e0cc753fb743b3.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Formulario para configuracion de didi",
+    "path": "content/Privado y compartido/Tareas/Tareas/Formulario para configuracion de didi 5271f699605d4a1dae66d7324ec0b9b8.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Formulario para el correo",
+    "path": "content/Privado y compartido/Tareas/Tareas/Formulario para el correo e6002f7280564d7f9f0ca298f7f0a49b.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Grabación de video Mercat",
+    "path": "content/Privado y compartido/Tareas/Tareas/Grabación de video Mercat 0238ecfaf7da45b790bf18801b5a5172.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Grabación de video Mercat",
+    "path": "content/Privado y compartido/Tareas/Tareas/Grabación de video Mercat a0405fd98b1b419d82e05e6be8ad3a86.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "https mail google com mail u 0 ogbl#search pimento",
+    "path": "content/Privado y compartido/Tareas/Tareas/https mail google com mail u 0 ogbl#search pimento b36659441b3743b6a17ab224742a8167.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "https www notion so Revisi-n-Caso-puntual-Argentin",
+    "path": "content/Privado y compartido/Tareas/Tareas/https www notion so Revisi-n-Caso-puntual-Argentin 1a6af41b64d24ba088c0d785c17066d6.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "ideas sobre cadenas",
+    "path": "content/Privado y compartido/Tareas/Tareas/ideas sobre cadenas 18a73d4796e34dc3a4792d01582f53a3.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Ingresos Implementaciones",
+    "path": "content/Privado y compartido/Tareas/Tareas/Ingresos Implementaciones ded1cca1010440f2aefa1b8ba3b14e49.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Jose Tomas -Andrea Honesto Mike",
+    "path": "content/Privado y compartido/Tareas/Tareas/Jose Tomas -Andrea Honesto Mike f68d5d58268e4fa18d7b823e907ecfca.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Json para MarketMIx con Extras (Api standard)",
+    "path": "content/Privado y compartido/Tareas/Tareas/Json para MarketMIx con Extras (Api standard) f7cdced4fac44653b54a853a3c55c25f.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Levantamiento RPF Buin Zoo",
+    "path": "content/Privado y compartido/Tareas/Tareas/Levantamiento RPF Buin Zoo 4764d172632248608899b68d6d9c6c43.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Levantar RFP a DTE sobre Buin Zoo",
+    "path": "content/Privado y compartido/Tareas/Tareas/Levantar RFP a DTE sobre Buin Zoo a114d63028804ee981e0d439f4e965e0.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Llenar campo de RFP en Notion",
+    "path": "content/Privado y compartido/Tareas/Tareas/Llenar campo de RFP en Notion e1458b951e3c4ddaa7033bcc13327705.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Logs de delivery Gourmet (Precios por lista)",
+    "path": "content/Privado y compartido/Tareas/Tareas/Logs de delivery Gourmet (Precios por lista) 86e802d50b20482189e7c6cf3e7e03eb.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Logs de delivery Gourmet (Precios por lista)",
+    "path": "content/Privado y compartido/Tareas/Tareas/Logs de delivery Gourmet (Precios por lista) f0930ea03f714f47823f0dd35b0572ea.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Marca Fiesta Americana reforma",
+    "path": "content/Privado y compartido/Tareas/Tareas/Marca Fiesta Americana reforma 490a9c882dfd4c249f123afcfb0bc323.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Mensaje a los grupos sobre la activacion de Rappi",
+    "path": "content/Privado y compartido/Tareas/Tareas/Mensaje a los grupos sobre la activacion de Rappi  5fd5dbe26f644c719d0b88e662fa9d58.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Minuta Reunion de peya",
+    "path": "content/Privado y compartido/Tareas/Tareas/Minuta Reunion de peya 62a535b6636c466d8f4fff22b69c27dd.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Modulo 7 5, 7 6 y 7 7",
+    "path": "content/Privado y compartido/Tareas/Tareas/Modulo 7 5, 7 6 y 7 7 781c31b0340648d093f4baf4c3772426.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Monitoreo para el caso de Peya Precios",
+    "path": "content/Privado y compartido/Tareas/Tareas/Monitoreo para el caso de Peya Precios 01e8aa833b064becb5db21c69292b8af.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Monitoreo Voucher",
+    "path": "content/Privado y compartido/Tareas/Tareas/Monitoreo Voucher 62524c966b6c45e29e9bec25c23a6ef3.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Peya delivery",
+    "path": "content/Privado y compartido/Tareas/Tareas/Peya delivery 3df2bc2d5ebb4050b02f0ed06474d07e.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Posible reu con Fukai",
+    "path": "content/Privado y compartido/Tareas/Tareas/Posible reu con Fukai 173bea9f06de40b29c6e2c41f8781c7c.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Preguntar a Fran porceso de activacion, Salesforce",
+    "path": "content/Privado y compartido/Tareas/Tareas/Preguntar a Fran porceso de activacion, Salesforce eeda3d1011214f4dbac54986f1bcda58.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Preguntas Api standard",
+    "path": "content/Privado y compartido/Tareas/Tareas/Preguntas Api standard bc317d79384443eea1a2b3116de4acc8.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Prueba inventario en Linea y Stock Control",
+    "path": "content/Privado y compartido/Tareas/Tareas/Prueba inventario en Linea y Stock Control 0ea605a8776b4b01854ec3f88766dce3.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Pruebas de herbivoro (JUSTO)",
+    "path": "content/Privado y compartido/Tareas/Tareas/Pruebas de herbivoro (JUSTO) 53e88b5a2d104d348cb092ce8af59a3a.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "rappi",
+    "path": "content/Privado y compartido/Tareas/Tareas/rappi 711f1e4172484d63988b3876574f6e21.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Respuesta a correo de Tecnopac (Momo)",
+    "path": "content/Privado y compartido/Tareas/Tareas/Respuesta a correo de Tecnopac (Momo) 63b0feaa70534738927cfe61382bd62c.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Respuesta de correo No Way",
+    "path": "content/Privado y compartido/Tareas/Tareas/Respuesta de correo No Way d72c3593986244bf890d1d8302882123.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Resumen de Estrategia de Desarrollo para uso de la",
+    "path": "content/Privado y compartido/Tareas/Tareas/Resumen de Estrategia de Desarrollo para uso de la 1a815116b29744cb9edb1f1f56280632.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Resumen de Validaciones realizadas en Peya sobre l",
+    "path": "content/Privado y compartido/Tareas/Tareas/Resumen de Validaciones realizadas en Peya sobre l 2fe73448467b407c827fb048a1c7d0ef.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Reunion Jaka Tea Connection",
+    "path": "content/Privado y compartido/Tareas/Tareas/Reunion Jaka Tea Connection 68a8a4c4cca949db8d77245d9bd08f93.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisar caso de redelcom (no tengo info al respect",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisar caso de redelcom (no tengo info al respect f86cd85d54e24908a983b7745b59a24d.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisar casos de Atrium",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisar casos de Atrium e2007f31a7ec4bae9090902dcbc51d00.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisar puntos con Pao",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisar puntos con Pao 2cda7617d34b4700ba3cd6408c075faa.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisar solcitud de Didi (Whatsapp)",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisar solcitud de Didi (Whatsapp) 7cf9dd7d0a8a4cbb8e3524a4b9064c13.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision Api standard Fernanda Albuja",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision Api standard Fernanda Albuja 32ae47ba54974c0faabc54260a53979a.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision caso de correo enviado por jeremy",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision caso de correo enviado por jeremy 156918d121ec4033bebe49bee44e9b91.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "revision caso de Trinidad de Uber Migracion",
+    "path": "content/Privado y compartido/Tareas/Tareas/revision caso de Trinidad de Uber Migracion 864d12b0864c42b5b3e8b61f807b2131.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision con Delivery Gourmet por horarios en Uber",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision con Delivery Gourmet por horarios en Uber b3ae60f906344814bc45dc8b33c81307.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision con Peya de casos por modificacion de pre",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision con Peya de casos por modificacion de pre 9bb1f91fdcd7481fb310dede722e6d25.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "revision de api standard",
+    "path": "content/Privado y compartido/Tareas/Tareas/revision de api standard eaa9af7d3c9044b9bccc38bbd2690318.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision de Caso Peya (Tiempo de la inyeccion de l",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision de Caso Peya (Tiempo de la inyeccion de l 5b759f74437845febf84da4b0e56a266.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision de casos de Jaka Voucher con la info soli",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision de casos de Jaka Voucher con la info soli e0f90ffad66c47f0a74439736d5591f1.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision de correo de Jaka",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision de correo de Jaka 00543a54e1684735a83509bdec3898ba.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision de Correos",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision de Correos 2779a9c485914fe6989728d146b2bef3.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision de correos y caso de quinoa nuevamente",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision de correos y caso de quinoa nuevamente a31e49acfe1f4beba603cbe57e79948f.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision de Diapositivas de las integraciones",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision de Diapositivas de las integraciones 7d505f2dbc154526ba4a01682ebe5a9d.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision de forms",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision de forms 41cc6e09f9e041409bfd9e814679779d.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision de uber comentarios",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision de uber comentarios 622bb670a6db4b64b7ccb151e9f8ea5a.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision deRappi con Katherine Boscan",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision deRappi con Katherine Boscan 4aea8b46c53e47ce8debe0cf8a17a4cd.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision factura Rappi",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision factura Rappi edfd849bfc5a480b99cc30b4028b30f7.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision Form",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision Form cdb0b6361577466594fc3da84c0376cb.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision PEYA STreet Wrap",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision PEYA STreet Wrap 1b1cbbb25b384e24962db486b7cc422f.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision solicitud Ramen One",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision solicitud Ramen One 1d5a426871b54854acf10b4a4c98c2bc.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revision Temario Notio Integracion",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision Temario Notio Integracion 52c93ac4430f4e17a577b9677993b12f.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión arrastre Stock Control",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión arrastre Stock Control 74782d5d58c34f59b207a78d2a8c862a.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión ayuda toteat com corregido Implementacion",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión ayuda toteat com corregido Implementacion d9713ca6d59249d5b446792eae914d92.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión casos comunes semana 22 con datos para re",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión casos comunes semana 22 con datos para re c8a58b86f96a467e810ed439cb2ffa36.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión caída plataforma DTE",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión caída plataforma DTE ed391d21aebd45d2b9de0304dd4a970d.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión de caso Turbo Hubster",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión de caso Turbo Hubster 67bff358890e4046894df30579aeb1d9.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión de Diapositivas y pruebas",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión de Diapositivas y pruebas 288d73cd7f3c437b9c6aefb8c8c1caf4.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión detalles KDS",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión detalles KDS db1ecadcf24d41f09d5e41da9fe0b5d0.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión documento qué está pasando 1",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión documento qué está pasando 1 d2b5779cce394f45876c04790a21380c.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión error Colombia con Notas de crédito, por",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión error Colombia con Notas de crédito, por  98f2c701629b465cae7ba309c6850345.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión Guías ayuda toteat com actualización form",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión Guías ayuda toteat com actualización form 40562ba1aae547ab97d20a898314cf8c.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión proceso factura 1 FDS 1 junio",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión proceso factura 1 FDS 1 junio 26c6895761144468807656d7282c7181.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión RFP Regeneración de inventarios antiguos",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión RFP Regeneración de inventarios antiguos 984411bc9cbf419191d3c2d72a0a9532.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión Temario Notion Integración",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión Temario Notion Integración c471f29bce7a43858d9a716b16e4112e.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión Temario Notion Stock",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión Temario Notion Stock 9aa8dbf2a6084dc3b73eefd3aa95d1c9.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Revisión version 944 transformaciones variables",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión version 944 transformaciones variables e7a9204954524aff8ffb0855e757373d.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "RFP de Justo Timeout Envio de menu",
+    "path": "content/Privado y compartido/Tareas/Tareas/RFP de Justo Timeout Envio de menu 4be9148271c44b2f91dbad1f0cc0d4cb.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Rfp para lo de los metodos de pago cuando las orde",
+    "path": "content/Privado y compartido/Tareas/Tareas/Rfp para lo de los metodos de pago cuando las orde f9cb13b1622f460f8dd784e1d9f162cf.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "RFP precios x lista Herbívoro",
+    "path": "content/Privado y compartido/Tareas/Tareas/RFP precios x lista Herbívoro 9eee210639bc4725874e9d4e50ccdb98.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "RFpConsultas a Sergio (Desarrollo)",
+    "path": "content/Privado y compartido/Tareas/Tareas/RFpConsultas a Sergio (Desarrollo) 17cf53fc95604c45bcce5a39a11593ec.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "RFpp com metodo de pago MarketMix",
+    "path": "content/Privado y compartido/Tareas/Tareas/RFpp com metodo de pago MarketMix 11cd1cfde72545248f678e0bbbed4f74.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Seguimiento minuta DTE (Compromisos Diego)",
+    "path": "content/Privado y compartido/Tareas/Tareas/Seguimiento minuta DTE (Compromisos Diego) 732043eee35e4bacb863774ddc8a66dc.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Sin título",
+    "path": "content/Privado y compartido/Tareas/Tareas/Sin título 15b390731e23800ab780f1aa060f0939.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Sin título",
+    "path": "content/Privado y compartido/Tareas/Tareas/Sin título 1658c7979ba54b34ad8c2ef1ddab958f.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Sin título",
+    "path": "content/Privado y compartido/Tareas/Tareas/Sin título 1d6390731e238004b2a6ccac69322d77.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Sin título",
+    "path": "content/Privado y compartido/Tareas/Tareas/Sin título 4414806084814a0098f588a14dc0b26b.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Sin título",
+    "path": "content/Privado y compartido/Tareas/Tareas/Sin título a9de4058a86343f8ab877f7738f6c6e3.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Sin título",
+    "path": "content/Privado y compartido/Tareas/Tareas/Sin título bd48d8c3de634fa29950fd65f500528e.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Solicitud a Sergio sobre ambientes Peya (se emigra",
+    "path": "content/Privado y compartido/Tareas/Tareas/Solicitud a Sergio sobre ambientes Peya (se emigra 6d2239b5cf8c47fc9294e2f65cf60911.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Solicitud de Jeremy Correo",
+    "path": "content/Privado y compartido/Tareas/Tareas/Solicitud de Jeremy Correo 63b3cb60a957407baf3902bf0f7bada8.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "solicitud de Tucan",
+    "path": "content/Privado y compartido/Tareas/Tareas/solicitud de Tucan 4ff1877f80f84c768966ad78d122cfeb.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Solicitudes de Incidencias (Sin Form)",
+    "path": "content/Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form) 60df775521694837a5624eca46fcda6b.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Status de Jaka Peya no sincroniza menu",
+    "path": "content/Privado y compartido/Tareas/Tareas/Status de Jaka Peya no sincroniza menu 7e9602974d9d4653b88a7a159972ec69.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Tareas 13 de diciembre",
+    "path": "content/Privado y compartido/Tareas/Tareas/Tareas 13 de diciembre 15b390731e2380418f7edccc01e5b541.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Temario Capacitación DTE",
+    "path": "content/Privado y compartido/Tareas/Tareas/Temario Capacitación DTE 27d749b2eefd48a39e23e0880a4ee8ca.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Temario capacitación Stock Control",
+    "path": "content/Privado y compartido/Tareas/Tareas/Temario capacitación Stock Control a5dff75a899343d08acd7a87123a0655.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Temario Stock control Notions",
+    "path": "content/Privado y compartido/Tareas/Tareas/Temario Stock control Notions d9ab5ce81c464ffb990de9ad75728332.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Tres22 Api Standard",
+    "path": "content/Privado y compartido/Tareas/Tareas/Tres22 Api Standard 9385b9729da5419eb6481ecf79fa2308.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Validacion de caso solicitado pro Uber Kevin Bacon",
+    "path": "content/Privado y compartido/Tareas/Tareas/Validacion de caso solicitado pro Uber Kevin Bacon 50923190a2304176a584eadff605981d.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Validacion de Honesto Mike, status de error con Pe",
+    "path": "content/Privado y compartido/Tareas/Tareas/Validacion de Honesto Mike, status de error con Pe a9f9e6e2b26a46f9bb4b08ef5ba9333b.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Validacion de informacion solicitada por Sergio de",
+    "path": "content/Privado y compartido/Tareas/Tareas/Validacion de informacion solicitada por Sergio de 3a2a0c263eb8416c8828736b6a7d9058.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Validacion de menu en Rappi del mismo cliente Kevi",
+    "path": "content/Privado y compartido/Tareas/Tareas/Validacion de menu en Rappi del mismo cliente Kevi 0aebb0e23aa1416ba9e161ab61261fe7.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "Verificación Perfiles Dunkin",
+    "path": "content/Privado y compartido/Tareas/Tareas/Verificación Perfiles Dunkin 1a344ec308b8434fa41056d2e44e6baf.html",
+    "folder": "Privado y compartido/Tareas/Tareas"
+  },
+  {
+    "title": "caso Cocina 9",
+    "path": "content/Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ/Calendario AR/caso Cocina 9 eae6b047703840fb886df1a7f7a60c6d.html",
+    "folder": "Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ/Calendario AR"
+  },
+  {
+    "title": "Caso de peya",
+    "path": "content/Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ/Calendario AR/Caso de peya 7cce5321ec164af3b595c463773f9ed5.html",
+    "folder": "Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ/Calendario AR"
+  },
+  {
+    "title": "Notion",
+    "path": "content/Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ/Calendario AR/Notion 35d81cdd5171477c9ddaf6b1ef41b89b.html",
+    "folder": "Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ/Calendario AR"
+  },
+  {
+    "title": "revision caso de correo enviado por jeremy",
+    "path": "content/Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ/Calendario AR/revision caso de correo enviado por jeremy b06dc5f004e5481db77de107755a4c29.html",
+    "folder": "Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ/Calendario AR"
+  },
+  {
+    "title": "Revision con el cliente caso Cluvi",
+    "path": "content/Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ/Calendario AR/Revision con el cliente caso Cluvi 0d9de65a959643cebd7fe7e2bbe997bc.html",
+    "folder": "Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ/Calendario AR"
+  },
+  {
+    "title": "Revision de forms",
+    "path": "content/Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ/Calendario AR/Revision de forms d43d8e6d7373466c9d5d675bcd67a4b7.html",
+    "folder": "Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ/Calendario AR"
+  },
+  {
+    "title": "Revision solicitud Ramen One",
+    "path": "content/Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ/Calendario AR/Revision solicitud Ramen One 7e866671350d4874a74fec1ed438b770.html",
+    "folder": "Privado y compartido/Tareas/Tareas/1 CALENDARIO ANDREA RUIZ/Calendario AR"
+  },
+  {
+    "title": "Revisión de Cash Collection",
+    "path": "content/Privado y compartido/Tareas/Tareas/12 Casos peya/Revisión de Cash Collection 12a390731e23809b9a94f368b5206041.html",
+    "folder": "Privado y compartido/Tareas/Tareas/12 Casos peya"
+  },
+  {
+    "title": "Jose Matias",
+    "path": "content/Privado y compartido/Tareas/Tareas/12 Casos peya/Revisión de Cash Collection/Jose Matias 2ed9869299b84d0bb561b6675da11204.html",
+    "folder": "Privado y compartido/Tareas/Tareas/12 Casos peya/Revisión de Cash Collection"
+  },
+  {
+    "title": "Sin título",
+    "path": "content/Privado y compartido/Tareas/Tareas/12 Casos peya/Revisión de Cash Collection/Sin título 4146ecd037244b679ea16dc0e94072c3.html",
+    "folder": "Privado y compartido/Tareas/Tareas/12 Casos peya/Revisión de Cash Collection"
+  },
+  {
+    "title": "Sin título",
+    "path": "content/Privado y compartido/Tareas/Tareas/12 Casos peya/Revisión de Cash Collection/Sin título 79e6a74f85d84a13ba27ae2fd18c1865.html",
+    "folder": "Privado y compartido/Tareas/Tareas/12 Casos peya/Revisión de Cash Collection"
+  },
+  {
+    "title": "Tarjeta 2",
+    "path": "content/Privado y compartido/Tareas/Tareas/3 Casos correos/Sin título/Tarjeta 2 f4744df72d374d90b1987675e83d1f4a.html",
+    "folder": "Privado y compartido/Tareas/Tareas/3 Casos correos/Sin título"
+  },
+  {
+    "title": "Tarjeta 3",
+    "path": "content/Privado y compartido/Tareas/Tareas/3 Casos correos/Sin título/Tarjeta 3 7728e477d2024ddbbd9838ff7e264545.html",
+    "folder": "Privado y compartido/Tareas/Tareas/3 Casos correos/Sin título"
+  },
+  {
+    "title": "Tucan Casa Saenz",
+    "path": "content/Privado y compartido/Tareas/Tareas/3 Casos correos/Sin título/Tucan Casa Saenz 7ed9241bbffc426681a84196b8a4b335.html",
+    "folder": "Privado y compartido/Tareas/Tareas/3 Casos correos/Sin título"
+  },
+  {
+    "title": "@Reunión 25 de Octubre (GeoVictoria)",
+    "path": "content/Privado y compartido/Tareas/Tareas/8 Reuniones/@Reunión 25 de Octubre (GeoVictoria) 12a390731e2380f9b3a5d100c4256982.html",
+    "folder": "Privado y compartido/Tareas/Tareas/8 Reuniones"
+  },
+  {
+    "title": "Reunión Tomas Drapela Francisco Ramirez Api Standa",
+    "path": "content/Privado y compartido/Tareas/Tareas/8 Reuniones/Reunión Tomas Drapela Francisco Ramirez Api Standa 12a390731e23802386dff8013c1d5e44.html",
+    "folder": "Privado y compartido/Tareas/Tareas/8 Reuniones"
+  },
+  {
+    "title": "Customer Success",
+    "path": "content/Privado y compartido/Tareas/Tareas/Ingresos Implementaciones/Fuente origen/Customer Success a542bb27993c4819b6ac22107e5cc39b.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Ingresos Implementaciones/Fuente origen"
+  },
+  {
+    "title": "Onboarding",
+    "path": "content/Privado y compartido/Tareas/Tareas/Ingresos Implementaciones/Fuente origen/Onboarding 12b528c1126d480ea1a52e2b825f34fa.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Ingresos Implementaciones/Fuente origen"
+  },
+  {
+    "title": "Servicio Al Cliente",
+    "path": "content/Privado y compartido/Tareas/Tareas/Ingresos Implementaciones/Fuente origen/Servicio Al Cliente fc33f793205640a28b8c17e96030defd.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Ingresos Implementaciones/Fuente origen"
+  },
+  {
+    "title": "Caso de Jaka Argentina",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revision de correo de Jaka/Caso de Jaka Argentina 15c04d6feac74ccab07fecb0c61858f4.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Revision de correo de Jaka"
+  },
+  {
+    "title": "Aca dejo el RFP que se solicito para la regeneraci",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión RFP Regeneración de inventarios antiguos/Aca dejo el RFP que se solicito para la regeneraci 5a7fae463cf040638d0169efae71e60c.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Revisión RFP Regeneración de inventarios antiguos"
+  },
+  {
+    "title": "En la nueva version 944, se modifica el modulo de",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión version 944 transformaciones variables/En la nueva version 944, se modifica el modulo de  c5bc9052d4f2444da486857c741a296c.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Revisión version 944 transformaciones variables"
+  },
+  {
+    "title": "Revisión",
+    "path": "content/Privado y compartido/Tareas/Tareas/Revisión version 944 transformaciones variables/Revisión 67b472bac950448ea3a58909523caffc.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Revisión version 944 transformaciones variables"
+  },
+  {
+    "title": "Caso de hubster-RappiTurbo y Danubio",
+    "path": "content/Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)/Caso de hubster-RappiTurbo y Danubio 29ff1a6f2c5c45c8b677901134fd08cb.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)"
+  },
+  {
+    "title": "Caso de Justo conflicto de Apis",
+    "path": "content/Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)/Caso de Justo conflicto de Apis c87a6ca46e534759877880cf4e08a176.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)"
+  },
+  {
+    "title": "Caso del Sr MAriano https mail google com mail u 0",
+    "path": "content/Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)/Caso del Sr MAriano https mail google com mail u 0 2503e7eed5c342a5b8a742c30b615243.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)"
+  },
+  {
+    "title": "Pimenton Bayside",
+    "path": "content/Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)/Pimenton Bayside 740475d2e8f24b63b052da834ac0d257.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)"
+  },
+  {
+    "title": "Resincronización PEYA 28-8-2024",
+    "path": "content/Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)/Resincronización PEYA 28-8-2024 ee85a23918db45baabae0222e83e6c03.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)"
+  },
+  {
+    "title": "Resvion de correo de Jeremy",
+    "path": "content/Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)/Resvion de correo de Jeremy 4b068f4e14824de8a8f41196536cbd34.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)"
+  },
+  {
+    "title": "Revision caso peya Grupo Jaka",
+    "path": "content/Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)/Revision caso peya Grupo Jaka 413fc8ba91dc4bbc89adeb49af845f3c.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)"
+  },
+  {
+    "title": "Revision de nuevo Caso de Quinoa",
+    "path": "content/Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)/Revision de nuevo Caso de Quinoa 73ba1ecf0795496aa5edd034f6c884a6.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)"
+  },
+  {
+    "title": "Revisión de Comunicación id 496046 Peya",
+    "path": "content/Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)/Revisión de Comunicación id 496046 Peya 4912545697ff4e75aa0b05a6885f859d.html",
+    "folder": "Privado y compartido/Tareas/Tareas/Solicitudes de Incidencias (Sin Form)/Solicitudes de Incidencias (Sin Form)"
   }
 ]
