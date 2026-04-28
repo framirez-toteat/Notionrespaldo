@@ -172,6 +172,13 @@
   }
   #logout-btn:hover { border-color: #ff6b6b; color: #ff6b6b; }
 
+  #role-badge {
+    font-size: 11px; padding: 3px 8px; border-radius: 10px;
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  #role-badge.admin  { background: #ede9ff; color: #7c6af7; }
+  #role-badge.general { background: #e8f5e9; color: #2e7d32; }
+
   #content-frame {
     flex: 1; border: none; background: #fff;
   }
@@ -223,6 +230,7 @@
     <div id="topbar">
       <div id="breadcrumb">Selecciona una página</div>
       <button id="open-btn" style="display:none" onclick="openInNewTab()">Abrir en nueva pestaña ↗</button>
+      <span id="role-badge"></span>
       <button id="logout-btn" onclick="logout()" title="Cerrar sesión">🔒 Salir</button>
     </div>
     <div id="welcome">
@@ -282,6 +290,9 @@ function init() {
     : all.filter(p => !p.folder.includes('Proyectos') && !p.path.includes('Proyectos'));
   document.getElementById('page-count').textContent = `${pages.length} páginas disponibles`;
   buildTree(pages);
+  const badge = document.getElementById('role-badge');
+  if (accessLevel === 2) { badge.textContent = 'Admin'; badge.className = 'admin'; }
+  else { badge.textContent = 'General'; badge.className = 'general'; }
 }
 
 function buildTree(list) {
