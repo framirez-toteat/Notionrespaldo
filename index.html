@@ -300,8 +300,8 @@ function buildTree(list, searchMode = false) {
   [...nav.querySelectorAll('.folder-item, .page-link')].forEach(el => el.remove());
 
   // Sin búsqueda: solo mostrar páginas índice (las 4 secciones principales)
-  // Solo páginas índice de primer nivel (sin subcarpetas en su folder)
-  const toShow = searchMode ? list : list.filter(p => p.is_index && !p.folder.includes('/'));
+  // Solo páginas que están en el primer nivel (folder sin subcarpetas)
+  const toShow = searchMode ? list : list.filter(p => !p.folder.includes('/'));
 
   if (toShow.length === 0) {
     document.getElementById('no-results').style.display = 'block';
