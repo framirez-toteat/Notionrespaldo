@@ -283,11 +283,55 @@ function openParents(el) {
   }
 }
 
+function injectMediaFallbacks(frame) {
+  try {
+    const doc = frame.contentDocument;
+    if (!doc) return;
+
+    const style = doc.createElement('style');
+    style.textContent = `
+      .media-missing {
+        display: flex; align-items: center; gap: 10px;
+        background: #fff8e1; border: 1px dashed #f0b429;
+        border-radius: 6px; padding: 12px 16px; margin: 8px 0;
+        font-family: sans-serif; font-size: 13px; color: #7a5c00;
+      }
+      .media-missing-icon { font-size: 20px; flex-shrink: 0; }
+    `;
+    doc.head.appendChild(style);
+
+    const placeholder = (type, name) => {
+      const div = doc.createElement('div');
+      div.className = 'media-missing';
+      div.innerHTML = `<span class="media-missing-icon">${type === 'video' ? '🎬' : '🖼️'}</span>
+        <span><strong>Archivo no disponible</strong><br>${name || 'Este archivo supera el límite de GitHub y no fue incluido.'}</span>`;
+      return div;
+    };
+
+    doc.querySelectorAll('img').forEach(img => {
+      img.addEventListener('error', () => {
+        img.replaceWith(placeholder('img', img.src.split('/').pop()));
+      });
+    });
+
+    doc.querySelectorAll('video, source').forEach(el => {
+      const tag = el.tagName === 'VIDEO' ? el : el.closest('video');
+      if (!tag) return;
+      tag.addEventListener('error', () => {
+        const src = tag.querySelector('source')?.src || tag.src || '';
+        tag.replaceWith(placeholder('video', src.split('/').pop()));
+      });
+      if (tag.readyState === 0) tag.dispatchEvent(new Event('error'));
+    });
+  } catch (e) {}
+}
+
 function loadPage(path, title, folder) {
   currentPath = path;
   document.getElementById('welcome').style.display = 'none';
   const frame = document.getElementById('content-frame');
   frame.style.display = 'block';
+  frame.onload = () => injectMediaFallbacks(frame);
   frame.src = path.split('/').map(encodeURIComponent).join('/');
 
   // Breadcrumb
