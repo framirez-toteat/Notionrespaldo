@@ -228,19 +228,29 @@
 </div>
 
 <script>
-const PASSWORD = "SACTECH2025";
+const PASSWORD_TEAM  = "SACTECH2025";
+const PASSWORD_ADMIN = "AdminSACTECH2025";
+
+let accessLevel = 0; // 0 = sin acceso, 1 = equipo, 2 = admin
 
 (function checkAuth() {
-  if (sessionStorage.getItem('sac_auth') === '1') {
+  const stored = sessionStorage.getItem('sac_level');
+  if (stored === '1' || stored === '2') {
+    accessLevel = parseInt(stored);
     document.getElementById('login-screen').style.display = 'none';
     return;
   }
-  const btn = document.getElementById('login-btn');
+  const btn   = document.getElementById('login-btn');
   const input = document.getElementById('login-input');
   const error = document.getElementById('login-error');
   function attempt() {
-    if (input.value === PASSWORD) {
-      sessionStorage.setItem('sac_auth', '1');
+    if (input.value === PASSWORD_ADMIN) {
+      accessLevel = 2;
+      sessionStorage.setItem('sac_level', '2');
+      document.getElementById('login-screen').style.display = 'none';
+    } else if (input.value === PASSWORD_TEAM) {
+      accessLevel = 1;
+      sessionStorage.setItem('sac_level', '1');
       document.getElementById('login-screen').style.display = 'none';
     } else {
       error.style.display = 'block';
@@ -256,7 +266,10 @@ let pages = [];
 let currentPath = null;
 
 function init() {
-  pages = window.PAGES || [];
+  const all = window.PAGES || [];
+  pages = accessLevel === 2
+    ? all
+    : all.filter(p => !p.folder.includes('Proyectos') && !p.path.includes('Proyectos'));
   document.getElementById('page-count').textContent = `${pages.length} páginas disponibles`;
   buildTree(pages);
 }
