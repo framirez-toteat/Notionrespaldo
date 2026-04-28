@@ -1,0 +1,17 @@
+﻿Titulo,Comentarios,Status,Toteat
+"
+1. Probablemente esto quede para la próxima semana, pero depende del avance de los anteriores puntos) Ingresar detalle de las Facturas electrónicas
+
+    1. Agregar las FE una por una a Asiento Ventas. https://github.com/toteat/sap_b1_middleware/issues/82
+    2. Agregar las FE una por una a Asiento Métodos de pago. https://github.com/toteat/sap_b1_middleware/issues/81
+    3. Mandar aviso a Dunkin por correo si falla un ingreso de asiento contable en SAP. https://github.com/toteat/sap_b1_middleware/issues/83
+    4. Permitir re-ejecutar un asiento por local/fecha/asiento específico de manera interna (soporte). https://github.com/toteat/sap_b1_middleware/issues/84
+    5. Permitir re-ejecutar un asiento por local/fecha/asiento específico para que el equipo de Dunkin lo pueda hacer y no dependa de soporte. https://github.com/toteat/backend_gcr_py3/issues/4444",Desarrollo para dunkin,Produccion,
+"1. Informar detalle de Métodos de pago ""hijos""
+
+    1. Edenred y Sodexo por separado de Redelcom. https://github.com/toteat/sap_b1_middleware/issues/74",api standard,Produccion,
+"Notas de credito
+1. Agregar referencia de documento original que dio origen a la NC en API estándar. https://github.com/toteat/backend_gcr_py3/issues/4434
+2. Agregar referencia de documento original de las NC en asiento Ventas. https://github.com/toteat/sap_b1_middleware/issues/76
+3. Diferenciar entre NC con documento original BE o FE. https://github.com/toteat/sap_b1_middleware/issues/78
+4. Corregir cuentas contables de las NC e informar el n° de folio de la misma. https://github.com/toteat/sap_b1_middleware/issues/75, https://github.com/toteat/sap_b1_middleware/issues/79",api standard,Produccion,

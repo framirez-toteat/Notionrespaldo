@@ -1,0 +1,744 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>IQQ_Estacion_Cerveceria.</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1c839073-1e23-8012-90fa-d33477df4a34" class="page sans"><header><h1 class="page-title" dir="auto">IQQ_Estacion_Cerveceria.</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="selected-value select-value-color-green">Solucionado</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha</th><td><time>1 de abril de 2025</time></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>ID Local</th><td>4997053360635904-00001</td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>KAM</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a-/ALV-UjXxxToDSj84GdqTyLYY-IGS2QSkfzhePH8UW_nsW9K2ZjoTcncQr8mVxWyjz2Od_uGq9o9u9sP3qslqO01YgwlaBOqMfmlc2Im7woZCzKVM6KtMv58JfHHClTQfvfSb0TVTMHSztkoL3GLZvbe7wOQ7ff3QmaSWgegh7A4wdjU5ofcOrxETwpTrLLcosj_BUcSD6bglwj6p_ppUP4TyP4xXxahF9JyIi4Yp3J2mFC8Nc8-6DAQSbdKpNS3y8WqKj1WRzmHmsguWl42cYmZfLLlC5zBqCp-LK8QYEiHareElzpAtTO1JoF8KkTysK51tXfZqLKeX4tEHHsVeKELC9eT4lqjZZUgJl7_db0sodsV1VBvkyjEIqFnaklZvc0eMjufZ60pmK2IZrsLDvEi_HEGc569Z8_LHnjolBs1DdQd7vidsM1b9N6xB95jwYfOOtX9g4bv-FByNyv5qj1jAlCHGEOWLHCbQ8IMLdfXhW7MvDjSc4nNGEDWSaQQbBsPDBDi2yJNU3KC8Nsq6sFDG4ScCVECYlyFBxRMPFEp0o1y4YQggslNAppbmUMdejDBb-UH1wwauwoDthfb4U2sn5Cmc-erSWF4MV31Q0H8sdvutDohUgEpcLYeEzfK8gVv4iA9v898m7xUPlmlEkpIrPRu-NAp4u_C8JpFRu-BzYzzv-MQRqZx_DbHXW3Z7JJKGbKSciQZmeUGMr3X9kOE3FQpYWNVtuq9T0CmY5JN1hlmN-yMn4tiPGW0tf7xbr92q8fLRPxF0m_zNO_DdPpILMrgQ1fuBrFxtUpJmJPKj3aP1A3QEAXSwdhm6RHdYIBhqxjIYH8uyxm46JwtLchm_23lHheHPFumtN_XR6-LQV4n55Vdbt7ubljl1S8NcAmmvkY4IjxjJEySO3WX2ocTUahGj3brX3YPQ01Vh0BMQt3-i13yt8cR5ok6TB0e9jjNrPH1HTbYWEhoQIPVq6ZAzxz1Qo7mv=s100" class="icon user-icon"/>America Garcia</span></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>ítem principal</th><td><a href="Semana%2014%20(31%2003%20-%2004%2004)%201c8390731e23801c9fc0c2696c5f82b4.html">Semana 14 (31/03 - 04/04)</a></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="1c839073-1e23-8091-b62b-cb86215cc9df" class=""><strong>El cliente se comunica con las siguientes consultas:<br/><br/><br/>Consulta 1:</strong></p></div><div style="display:contents" dir="auto"><p id="1ca39073-1e23-8000-8aea-d33ec7ec2b23" class="">Buenas tardes<br/><br/>En beercode el precio x kilo de la papa pre frita esta mal dice $ 8384 y el valor es de $1.804  el kilo  ,no pudimos modificar de ninguna forma .por favor puede ayudarnos.</p></div><div style="display:contents" dir="ltr"><figure id="1ca39073-1e23-8010-930b-cd5a5b25d6b4" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.2&amp;permmsgid=msg-f:1828221534747126221&amp;th=195f25ccad5269cd&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-f:1828221534747126221&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_jDtAsaqIkgfaZKqWUpSJobM-FNPbI5cW69URao2goZPvZn-VXk4iSp6FIw2x02UURzqJM9gIoIh6B2tclBeaC6eIldV2mlg0DD0wsbt9E2mz24iT7pz_fTkA&amp;disp=emb&amp;realattid=ii_195f2539622cb971f162&amp;zw"><img src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.2&amp;permmsgid=msg-f:1828221534747126221&amp;th=195f25ccad5269cd&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-f:1828221534747126221&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_jDtAsaqIkgfaZKqWUpSJobM-FNPbI5cW69URao2goZPvZn-VXk4iSp6FIw2x02UURzqJM9gIoIh6B2tclBeaC6eIldV2mlg0DD0wsbt9E2mz24iT7pz_fTkA&amp;disp=emb&amp;realattid=ii_195f2539622cb971f162&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1ca39073-1e23-809b-b6b6-fc4954ed5b4a" class="">saludos</p></div><div style="display:contents" dir="auto"><p id="1ca39073-1e23-8004-9c01-e99f1281a454" class="">Luis Escobar<br/><br/><br/><strong>Consulta 2:</strong></p></div><div style="display:contents" dir="auto"><p id="1c839073-1e23-8004-966f-cfd194818dca" class="">Buenos días</p></div><div style="display:contents" dir="auto"><p id="1c839073-1e23-8004-9efd-c5c192ad31ad" class="">necesito de su ayuda tengo problemas con los traspasos. cuando reviso el inventario final no concuerda con con traspasos realizado.<br/></p></div><div style="display:contents" dir="auto"><p id="1c839073-1e23-809f-93ae-f3dcf2e2473e" class="">ejemplo en el inv. final sale que traspase  :</p></div><div style="display:contents" dir="auto"><p id="1c839073-1e23-8045-bd6c-d266b3819f66" class="">Heineken barril 30lt                     = 1 barril, pero en las guías de traspaso me suman 4</p></div><div style="display:contents" dir="auto"><p id="1c839073-1e23-8058-97cd-d2d8ff396562" class="">Kunsmann toro bayo barril 30lt   = 4 barriles, pero en las guías de traspaso suman 8 barriles</p></div><div style="display:contents" dir="auto"><p id="1c839073-1e23-803b-98f4-fece04dce548" class="">Austral calafate barril 30lt             = 5 barriles, pero en traspasos me aparecen 6 .</p></div><div style="display:contents" dir="auto"><p id="1c839073-1e23-80f2-8743-f6a1ce65c851" class=""><br/>solicito por favor su ayuda con suma urgencia.</p></div><div style="display:contents" dir="auto"><p id="1c839073-1e23-80ba-9a37-cd8fd0ec85e8" class="">saludos</p></div><div style="display:contents" dir="auto"><p id="1c839073-1e23-806d-a3e1-e9624dc4e797" class="">Luis Escobar<br/><br/><br/><strong>La respuesta luego de hacer la revisión a la consulta 1 fue:<br/><br/></strong></p></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-8069-bb1b-fb9ed1874516" class="">Hola Luis buenas tardes, Tras hacer la revisión del ingrediente <strong>Tot42 - Papas pre fritas </strong>en el local <strong>IQQ_Beercode. </strong>y validar los últimos movimientos contables de las facturas en las cuales cargaron ese insumo, encontramos que el error en el costo fue causado porque la persona encargada de inventarios, le cambio la unidad de medida al ingrediente, la pasó de <strong>CAJA </strong>a <strong>KILOGRAMO </strong>y esto disparó el costo.<br/></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-803b-babc-c1ec2c0cc151" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.4&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-EHgF82iAURbO4Th3rozqokVqWFTzTsv_T-4W_wISnYTaMOltKgxOEN8tZoBe5M2vyZEpvjMDJEMnqlUZktzrFYMjiAdbrag_FJ3jm2YQ7PAtzNfQARE_dGhY&amp;disp=emb&amp;realattid=ii_m91vdypn3&amp;zw"><img style="width:529px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.4&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-EHgF82iAURbO4Th3rozqokVqWFTzTsv_T-4W_wISnYTaMOltKgxOEN8tZoBe5M2vyZEpvjMDJEMnqlUZktzrFYMjiAdbrag_FJ3jm2YQ7PAtzNfQARE_dGhY&amp;disp=emb&amp;realattid=ii_m91vdypn3&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-8049-93a6-e1756f45f048" class=""><br/>Es importante señalar que cambiar la <strong>Unidad de Medida Base </strong>a los ingredientes una vez ya existen movimientos de inventario y compras de estos es contraproducente y puede causar ese tipo de errores. Por lo tanto, si tienen que hacer ese tipo de cambios, es mejor que creen un nuevo ingrediente con el mismo nombre, diferente ID y la nueva <strong>Unidad de Medida Base </strong>siempre y cuando sea <strong>Kilogramo, Litro o Unidad; </strong>luego lo asignen a las recetas y así no habrá errores en los costos.<br/></p></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-807a-a64c-d5a2c8939cf3" class="">En retrospectiva no deben cambiar la <strong>Unidad de Medida Base </strong>por ningún motivo. Para efectos de cambios en las presentaciones de los insumos, no es necesario cambiar la <strong>Unidad de Medida Base</strong>, ya que pueden agregar una <strong>Unidad de Medida de Conversión </strong>dentro del ingrediente, esto permitirá asignar esas variables en las presentaciones de estos, sin modificar la <strong>Unidad de Medida Base </strong>que para este caso es <strong>Kilogramos</strong>, es decir; el ingrediente <strong>Tot42 - Papas pre fritas </strong>está configurado en <strong>Kilogramos </strong>pero hay varios proveedores que lo venden por <strong>Caja, </strong>en ese caso pueden crear el factor de conversión de <strong>Kilogramos </strong>a <strong>Caja </strong>y designar que por ejemplo <strong>1 Caja equivale </strong>a <strong>10 Kilogramos, </strong>así al ingresar las facturas con esas presentaciones el sistema verá la conversión correspondiente y cargará así las cantidades correspondientes.<br/></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-80bf-b39c-df16d25afbf2" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.5&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-Co5INeGaO60yHUNi1SxNZBFWQr-7U30nLJv3O-I0Na6uCY-_FuneMclw7OS0828i27K27v-2hSRBu2o3xziJjvTIWvRJUQZok5DHa1kx11worbD0aejAeWVU&amp;disp=emb&amp;realattid=ii_m91vis3v4&amp;zw"><img style="width:529px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.5&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-Co5INeGaO60yHUNi1SxNZBFWQr-7U30nLJv3O-I0Na6uCY-_FuneMclw7OS0828i27K27v-2hSRBu2o3xziJjvTIWvRJUQZok5DHa1kx11worbD0aejAeWVU&amp;disp=emb&amp;realattid=ii_m91vis3v4&amp;zw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-8001-b7b1-da98d94f902b" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.6&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_BDBjgFolOwpDNUNDr7auW0gSAR710m-MbnhkrMPjjI3EPwM3d1VlU2oSFOTPWeiJ6cM0-qEKnIfh83ZtPhIfsyYjHvEyhGEOx5UWk9LUIAuaZITOlSX2yNj8&amp;disp=emb&amp;realattid=ii_m91vl3oc5&amp;zw"><img style="width:450px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.6&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_BDBjgFolOwpDNUNDr7auW0gSAR710m-MbnhkrMPjjI3EPwM3d1VlU2oSFOTPWeiJ6cM0-qEKnIfh83ZtPhIfsyYjHvEyhGEOx5UWk9LUIAuaZITOlSX2yNj8&amp;disp=emb&amp;realattid=ii_m91vl3oc5&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-80d1-a18c-dc1d39c72354" class=""><br/>El Costo Promedio Ponderado de el ingrediente <strong>Tot42 Papas pre fritas </strong>ya quedó corregido mediante un proceso interno, sin embargo deben tener en consideración los puntos anteriormente expuestos para evitar estos errores que afectan los costos de sus insumos ya que no en todos los casos es posible corregir los costos como en esta ocasión, dado que estos son sensibles a cualquier cambio en los parámetros de configuración de los productos. <br/></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-8049-b951-e3e723596c5e" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.3&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ9uuLhzi0GLkHIOziOglvP530z4gVSADS7fso4JSXRPw4qWRz79G2YrQlr2Y4f5vB6uqaoSm3wIshwp1Q5nNj0TCuC42Cp4UcM2eZ2ZZkQlMz6aqM6ZDQQkFt0&amp;disp=emb&amp;realattid=ii_m91vaf252&amp;zw"><img style="width:513px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.3&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ9uuLhzi0GLkHIOziOglvP530z4gVSADS7fso4JSXRPw4qWRz79G2YrQlr2Y4f5vB6uqaoSm3wIshwp1Q5nNj0TCuC42Cp4UcM2eZ2ZZkQlMz6aqM6ZDQQkFt0&amp;disp=emb&amp;realattid=ii_m91vaf252&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-80b6-858f-c79e59a88efc" class=""><br/><br/><strong>Conclusión: Consulta resuelta.<br/><br/><br/><br/>La respuesta luego de hacer la revisión a la consulta 2 fue:<br/><br/></strong></p></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-80c9-aec9-e7e0a5362e4e" class="">Con respecto a las transferencias entre locales, el producto <strong>Bar01 </strong>- <strong>Heineken barril 30lt </strong>está configurado en <strong>L (Litros) </strong>para reportes y sistemas de stock; por lo tanto así en <strong>L (Litros) </strong>se verán reflejadas las cantidades en el reporte de <strong>Inv. Final </strong>y <strong>KARDEX.<br/></strong></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-8030-a690-cebae67aa06a" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.7&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-D-TcftPcr2IzegxpowT09FWEhBDRTDqzL8t-Um78ewy22j0n_u_fh7VeNUApBc9pWgBRyUS_G1Ws8aKCuIsET0lPno9of1MFmyYh9cJ-s_I4f0giVDmXRQqE&amp;disp=emb&amp;realattid=ii_m937kg5a6&amp;zw"><img style="width:472px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.7&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-D-TcftPcr2IzegxpowT09FWEhBDRTDqzL8t-Um78ewy22j0n_u_fh7VeNUApBc9pWgBRyUS_G1Ws8aKCuIsET0lPno9of1MFmyYh9cJ-s_I4f0giVDmXRQqE&amp;disp=emb&amp;realattid=ii_m937kg5a6&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-80e4-ae86-d2c97fec0b9c" class=""><br/>Habiendo hecho la salvedad de la <strong>Unidad de Medida </strong>en los reportes del producto <strong>Bar01 </strong>- <strong>Heineken barril 30lt</strong>, puedo verificar para este, se hicieron las <strong>últimas 2 transferencias </strong>entre locales el <strong>21-03-25, </strong>la primera con <strong>ID 4586524016771072 </strong>y la última con <strong>ID 5632809524133888.<br/></strong></p></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-8002-ba6f-e65f0bada56f" class="">Estas <strong>2 transferencias </strong>se hicieron por la cantidad de <strong>30 L (Litros), </strong>es decir <strong>1 Barril </strong>cada una. Lo que a su vez mostrará en el reporte Del día <strong>21-03-25 </strong>la salida de <strong>60 L (Litros). <br/><br/><br/>Transferencia 4586524016771072 IQQ_Estacion_Cerveceria</strong>.<strong>:</strong></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-80e9-b70b-e734ee487686" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.11&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ8d_908Z5pWRaTdCPFo1-HVGI23uui8ZM6YdqFPKaTbu_SRvahQ_YSMQSUTFymliMpFfeGPopy4LODcDNp5fufsokiWTRRegIRASQLzpj5KBs3QwLvvSYZIt9Q&amp;disp=emb&amp;realattid=ii_m939ltfg14&amp;zw"><img style="width:472px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.11&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ8d_908Z5pWRaTdCPFo1-HVGI23uui8ZM6YdqFPKaTbu_SRvahQ_YSMQSUTFymliMpFfeGPopy4LODcDNp5fufsokiWTRRegIRASQLzpj5KBs3QwLvvSYZIt9Q&amp;disp=emb&amp;realattid=ii_m939ltfg14&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-80ae-bc46-d9cab61e4f52" class=""><strong><br/><br/>Transferencia 5632809524133888 IQQ_Estacion_Cerveceria</strong>.<strong>:</strong></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-8017-ad34-c3d4bc39edc4" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.8&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-qsDml1q5Ztjg-9Z8wkUcJpuPI3bbygwOkoCcGAslMMbRQJTT56_I66ac4AzIs14adoL5egyeGTTKc4im-wc3kHauJ9yw4gzOMXOBFgI3P-5ZogdTElzWsjMs&amp;disp=emb&amp;realattid=ii_m937w4nv7&amp;zw"><img style="width:472px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.8&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-qsDml1q5Ztjg-9Z8wkUcJpuPI3bbygwOkoCcGAslMMbRQJTT56_I66ac4AzIs14adoL5egyeGTTKc4im-wc3kHauJ9yw4gzOMXOBFgI3P-5ZogdTElzWsjMs&amp;disp=emb&amp;realattid=ii_m937w4nv7&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-805d-bb77-c7df755d4529" class=""><strong><br/>Reporte de Inv. Final IQQ_Estacion_Cerveceria</strong>.<strong>:</strong></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-805a-b065-cfca1c11c513" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.12&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-r_vJMN8PbwIzE4ruCjbleNYO7a5B0bKx0S48y5VMFluadTFH3vIFvd3GrD9PD2_IXYGBNEd6v6C3tAgRS0Y6YCHaIMGXgeJzcnzqWyB5CuurGE--464bC0kM&amp;disp=emb&amp;realattid=ii_m939pi5b15&amp;zw"><img style="width:472px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.12&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-r_vJMN8PbwIzE4ruCjbleNYO7a5B0bKx0S48y5VMFluadTFH3vIFvd3GrD9PD2_IXYGBNEd6v6C3tAgRS0Y6YCHaIMGXgeJzcnzqWyB5CuurGE--464bC0kM&amp;disp=emb&amp;realattid=ii_m939pi5b15&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-8067-a308-d53ab4e47bd7" class=""><strong><br/>Reporte KARDEX IQQ_Estacion_Cerveceria</strong>.<strong>:</strong></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-8014-854c-e196aa42e11e" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.13&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ8HxyhrPlhhaCPZLhM1_oToS7vkgULb-BS8WY0uHzOC4znf-G_pBUzNyvuhSK5SK3GJDZ5-Ej6mXkc_WXWYV8y0ACBlmXQ4QCqixiad4HthFeY-RRfJPSCOeG8&amp;disp=emb&amp;realattid=ii_m939u3xy16&amp;zw"><img style="width:472px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.13&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ8HxyhrPlhhaCPZLhM1_oToS7vkgULb-BS8WY0uHzOC4znf-G_pBUzNyvuhSK5SK3GJDZ5-Ej6mXkc_WXWYV8y0ACBlmXQ4QCqixiad4HthFeY-RRfJPSCOeG8&amp;disp=emb&amp;realattid=ii_m939u3xy16&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-80ef-b4e7-c72268af1c93" class=""><br/>Se enviaron otros <strong>30 L (Litros) </strong>desde <strong>IQQ_Estacion_Cerveceria. </strong>hacia <strong>IQQ_Beercode </strong>en la transferencia <strong>4586524016771072:<br/></strong></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-807f-b03b-ebbbc50e74a0" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.14&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ9_-7i1h01B4I4py9UdBoVj7Ll98q1O4EyPYnKKUf3Wra3R2HH61sk3y5HsG7CREAnSa7sBLZmnXsEUazHb7YVD_EmlEWTB-AhgbcxsyCYhB0mHzS7ZAt2vkwg&amp;disp=emb&amp;realattid=ii_m93a10zq17&amp;zw"><img style="width:472px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.14&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ9_-7i1h01B4I4py9UdBoVj7Ll98q1O4EyPYnKKUf3Wra3R2HH61sk3y5HsG7CREAnSa7sBLZmnXsEUazHb7YVD_EmlEWTB-AhgbcxsyCYhB0mHzS7ZAt2vkwg&amp;disp=emb&amp;realattid=ii_m93a10zq17&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-8071-99e3-c7dcdbdcf5e3" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-80d0-a8be-edae90d47cae" class="">Se enviaron otros <strong>30 L (Litros) </strong>desde <strong>IQQ_Estacion_Cerveceria</strong>. hacia <strong>IQQ_Beercode </strong>en la transferencia <strong>5632809524133888:<br/></strong></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-804a-8918-cff56f73c23a" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.9&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ9BIZyK3gwzqOYSUeRgLaxaq6Ij7Q4m2udVJKcoQnTqWicSbhh5TT6_7MwZ5H2kksMAxDLY1sykyZTg-HdDlhmHQ6gf_CvvJDUIInjPszhyAApb5O3vrWJs6gc&amp;disp=emb&amp;realattid=ii_m93885t310&amp;zw"><img style="width:472px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.9&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ9BIZyK3gwzqOYSUeRgLaxaq6Ij7Q4m2udVJKcoQnTqWicSbhh5TT6_7MwZ5H2kksMAxDLY1sykyZTg-HdDlhmHQ6gf_CvvJDUIInjPszhyAApb5O3vrWJs6gc&amp;disp=emb&amp;realattid=ii_m93885t310&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-80d6-b7b7-c3d4e24e582b" class=""><br/>Como se puede validar en las imágenes previas del reporte de <strong>Inv. Final </strong>y <strong>KARDEX, </strong>el <strong>21-03-25 </strong>se descontaron de forma correcta los <strong>60 L (Litros) </strong>en la <strong>Bodega CDN IQQ </strong>de <strong>IQQ_Estacion_Cerveceria</strong>. que corresponden a <strong>2 Barriles.<br/></strong></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-809b-bdae-f5cc6bbd89fc" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.15&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ96IVNBmfHlMdWdMaNIe5dd_WiYnI_oWIKw89y-DfxYJkB5PMthEgyA7idxSF8URdpqh7ZD-elhBRKStlq5z2V6C-vbi8NuOZXTNZtJ71RREFjmYxb73niXyuE&amp;disp=emb&amp;realattid=ii_m93a6cd618&amp;zw"><img style="width:472px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.15&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ96IVNBmfHlMdWdMaNIe5dd_WiYnI_oWIKw89y-DfxYJkB5PMthEgyA7idxSF8URdpqh7ZD-elhBRKStlq5z2V6C-vbi8NuOZXTNZtJ71RREFjmYxb73niXyuE&amp;disp=emb&amp;realattid=ii_m93a6cd618&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-8065-b9ee-d7b5b0b927e9" class=""><br/>También haciendo la verificación correspondiente en el local <strong>IQQ_Beercode. </strong>de las <strong>2 transferencias entre locales </strong>con <strong>ID 4586524016771072 </strong>y <strong>5632809524133888 </strong>del <strong>21-03-25, </strong>comprobamos que fueron recibidas en las mismas cantidades y estas se sumaron al inventario de la <strong>Bodega Beercode IQQ: <br/><br/>Transferencia 4586524016771072 IQQ_Beercode.:</strong></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-8058-80a4-f97aedf72ea1" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.16&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-rghghwWYBrne-ntXpJBfDSXStWon2wqHCRpvk6xrfFsOCfBM_2Umot-QXZtAgwuqeh2QWZLMUDR32VvKC2viM_vlKhom1QIaNHpMRsUgQiDeoV1GGVAkA4V4&amp;disp=emb&amp;realattid=ii_m93a9rqs19&amp;zw"><img style="width:472px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.16&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-rghghwWYBrne-ntXpJBfDSXStWon2wqHCRpvk6xrfFsOCfBM_2Umot-QXZtAgwuqeh2QWZLMUDR32VvKC2viM_vlKhom1QIaNHpMRsUgQiDeoV1GGVAkA4V4&amp;disp=emb&amp;realattid=ii_m93a9rqs19&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-80ed-9d2b-f9e58792ae4a" class=""><strong><br/>Transferencia 5632809524133888 IQQ_Beercode.:</strong></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-80cb-9ec9-f28f91719662" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.10&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ88Vj1uIkKnVn7zd8vu8MUcE1ZW7uwxoBmK0_boBbS2la05S-P00Z6Glb1dd9IpIN64hmdqYjm1lWBcMQctwbJ1xNtBnFuO6QYyApxvtqRBYCu0Q4RGq4Xm2KY&amp;disp=emb&amp;realattid=ii_m938hb7n12&amp;zw"><img style="width:472px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.10&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ88Vj1uIkKnVn7zd8vu8MUcE1ZW7uwxoBmK0_boBbS2la05S-P00Z6Glb1dd9IpIN64hmdqYjm1lWBcMQctwbJ1xNtBnFuO6QYyApxvtqRBYCu0Q4RGq4Xm2KY&amp;disp=emb&amp;realattid=ii_m938hb7n12&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-804b-844f-e470391fdedb" class=""><strong><br/>Reporte de Inv. Final IQQ_Beercode.:</strong></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-8093-976d-e9fc77c449f7" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.17&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ8yczy6kw_-JQf5uh2v51k2DKSc4QZwd_dQ4CpFkKUprWxMvJt66E2CJUGnmum-f-xvahhLcvpSlemDp0OtC_lNXtvL_JY8CReCsFixPmgCrgnXQJYngrhS1Pk&amp;disp=emb&amp;realattid=ii_m93af4gs20&amp;zw"><img style="width:472px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.17&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ8yczy6kw_-JQf5uh2v51k2DKSc4QZwd_dQ4CpFkKUprWxMvJt66E2CJUGnmum-f-xvahhLcvpSlemDp0OtC_lNXtvL_JY8CReCsFixPmgCrgnXQJYngrhS1Pk&amp;disp=emb&amp;realattid=ii_m93af4gs20&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-8019-badb-c61aa2320f1e" class=""><strong><br/>Reporte KARDEX IQQ_Beercode.:</strong></p></div><div style="display:contents" dir="ltr"><figure id="1cb39073-1e23-8077-8743-d55abf5c80dd" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.18&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_uMTfbq-S7OUlVm806Vj1iSKoVuwab5_MUe_biGYkGbcbCxuQgzYol5tzZTmJUzzW5DDO7-bt8V2mNR0Gj4iWtCJhrZnCrxv7CzQ2_VjXFsZIg40K4UJUnCOo&amp;disp=emb&amp;realattid=ii_m93aitjq21&amp;zw"><img style="width:472px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.18&amp;permmsgid=msg-a:r-2647752169285953716&amp;th=19602c355628f2cb&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r-2647752169285953716&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_uMTfbq-S7OUlVm806Vj1iSKoVuwab5_MUe_biGYkGbcbCxuQgzYol5tzZTmJUzzW5DDO7-bt8V2mNR0Gj4iWtCJhrZnCrxv7CzQ2_VjXFsZIg40K4UJUnCOo&amp;disp=emb&amp;realattid=ii_m93aitjq21&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-806a-83ff-faf38997d1db" class=""><br/>Al igual que con <strong>IQQ_Estacion_Cerveceria., </strong>aquí también se puede validar con las imágenes extraidas del reporte de <strong>Inv. Final </strong>y <strong>KARDEX, </strong>que el <strong>21-03-25 </strong>se ingresaron de forma correcta los <strong>60 L (Litros) </strong>en la <strong>Bodega Beercode IQQ. </strong>del local <strong>IQQ_Beercode.: </strong>que corresponden a <strong>2 Barriles.<br/></strong></p></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-806b-b73f-e313ecb3919d" class="">Por lo tanto no hay evidencia que nos pueda sugerir que las transferencias entre locales están generando diferencias de inventario, de lo enviado <strong>VS</strong> lo recibido y las cantidades descontadas y cargadas respectivamente en el stock de cada local.<br/></p></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-8000-b290-c2b179e184c0" class="">Lo anterior, también aplica para los otros productos que se indicaron en la solicitud de revisión:<br/></p></div><div style="display:contents" dir="auto"><p id="1cb39073-1e23-80a7-94e9-cd47c1fc86a9" class=""><strong>Bar03 - Kunsmann torobayo barril 30lt<br/>Bar02 - Austral calafate berril 30lt<br/><br/></strong>Sin embargo, si tienen algún caso puntual con los datos e imágenes que demuestran algún tipo de error, por favor no duden en comunicarlo a través de su KAM y con gusto se pasará a revisión para analizar esa información y ayudarles con su consulta.</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

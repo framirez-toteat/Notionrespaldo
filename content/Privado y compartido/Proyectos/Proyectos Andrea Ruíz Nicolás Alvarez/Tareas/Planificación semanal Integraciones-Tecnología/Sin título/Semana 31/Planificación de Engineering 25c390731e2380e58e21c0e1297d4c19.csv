@@ -1,0 +1,27 @@
+﻿Titulo,Comentarios,Status,Toteat
+"https://github.com/toteat/sap_b1_middleware/issues/94
+https://github.com/toteat/backend_gcr_py3/issues/3806
+https://github.com/toteat/backend_gcr_py3/issues/3565
+https://github.com/toteat/sap_b1_middleware/issues/86
+https://github.com/toteat/backend_gcr_py3/issues/4350
+https://github.com/toteat/backend_delivery_integrations_ms/issues/405
+https://github.com/toteat/backend_gcr_py3/issues/4477
+https://github.com/toteat/frontend_angular/issues/2810
+","Flujo de activar/desactivar:
+PR en aprobación del código
+este va a trabajar con menú base, y la disponibilidad será por sede.
+
+La agrupacion de tiendas se va a mejorar el flujo, se unificara el que se seleccionen las tiendas  desde padre y se vea en la api como estan.
+
+Didi ya quedo okey
+
+Tax Api ya quedo
+
+Justo ya esta okey.",Sin empezar,
+"Para QA:
+https://github.com/toteat/sap_b1_middleware/issues/84
+https://github.com/toteat/sap_b1_middleware/issues/83
+https://github.com/toteat/sap_b1_middleware/issues/94
+https://github.com/toteat/backend_gae_py2/issues/600
+https://github.com/toteat/backend_gcr_py3/issues/4307
+https://github.com/toteat/backend_gcr_py3/issues/3469",,Sin empezar,

@@ -1,0 +1,25 @@
+﻿Recomendación o Novedad,Archivos multimedia,Comentarios,Descripción,Link
+Costo de delivery en Justo,Nuevas%20recomendaciones%20Integraciones/Sin%20t%C3%ADtulo/Costo%20de%20delivery%20en%20Justo/Json_caso_de_delivery_Justo_Nuevo.json,"Orden de prueba realizada al ambiente de Café Diario:
+4924972021710848-00001
+ #25870952-47 
+18 de agosto:
+","A partir del día miércoles 20 de Agosto, comenzaremos a activar progresivamente una nueva modalidad de facturación EN CHILE para el servicio de despacho cuando este sea realizado por Justo.¿Qué cambia? En esta nueva modalidad:
+• El restaurante no debe incluir el valor del delivery en la boleta cuando el delivery lo realiza JUSTO.
+• Justo será responsable de facturar directamente el servicio de despacho.
+• Se incorporará un nuevo campo en el payload:  deliveryInvoicing: ""justo""",https://toteat-espacio.slack.com/archives/C04S3J3LYQ2/p1755114754311879
+Check in de Rappi,,,,
+Deliverys en los json,,,"Justo:
+deliveryInvoicing= Justo Chile no es asumido por el rest o si es de Colombia
+hasManagedDelivery: true  tomado por la plataforma
+
+Peya:
+Identificar el tipo de orden
+• Para identificar el tipo de pedido, el complemento POS primero debe verificar el expeditionTypecampo.
+• Si el tipo de expedición contiene pickup, entonces el pedido es un pedido de recogida .
+• Si expeditionType es deliveryasí, la orden es una Orden de Entrega Propia o una Orden de Entrega del Proveedor .
+Distinguir entre orden de entrega propia y orden de entrega del proveedor
+• El complemento debe verificar si el delivery.riderPickupTimecampo contiene null.
+• Si delivery.riderPickupTimees null, entonces es una orden de entrega del proveedor .
+• Si contiene un riderPickupTime , entonces es una orden de entrega propia .
+• Para pedidos de entrega propios, el campo ""delivery.address"" será null, pero estará disponible para pedidos de entrega de proveedores .",
+Cash collection,,,,

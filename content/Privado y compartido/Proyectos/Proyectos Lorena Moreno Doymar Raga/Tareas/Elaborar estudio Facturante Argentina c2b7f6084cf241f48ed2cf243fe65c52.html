@@ -1,0 +1,751 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Elaborar estudio Facturante Argentina</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c2b7f608-4cf2-41f4-8ed2-cf243fe65c52" class="page sans"><header><div class="page-header-icon undefined"><img class="icon notion-static-icon" src="https://www.notion.so/icons/binoculars_green.svg"/></div><h1 class="page-title" dir="auto">Elaborar estudio Facturante Argentina</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><td><span class="user"><img src="Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha límite</th><td><time>15 de julio de 2024</time></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/target_gray.svg" style="width:14px;height:14px;display:block"/></span>Proyecto</th><td><a href="../Proyectos/Estudio%20de%20investigaci%C3%B3n%20d041dc52fdc64da2ad92c1837434de39.html"><span class="icon">📑</span>Estudio de investigación</a></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Prioridad</th><td><span class="selected-value select-value-color-yellow">Media</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td><span class="selected-value select-value-color-gray">Investigación</span></td></tr><tr class="property-row property-row-auto_increment_id"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/numero_gray.svg" style="width:14px;height:14px;display:block"/></span>ID</th><td>12</td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="8b82179e-91be-49a6-ad91-94b2e9a9f15c"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">El CAEA se utiliza principalmente en situaciones donde el contribuyente puede tener problemas para conectarse a internet o cuando se espera una alta demanda de emisión de comprobantes que podría causar demoras.</div></figure></div><div style="display:contents" dir="auto"><h1 id="76778861-7a34-4bae-90a4-d2cbb1b3caaf" class="">Análisis Marzo </h1></div><div style="display:contents" dir="ltr"><table id="0d75b392-14c4-41ca-afc1-f532df41751e" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="6565be71-3980-4674-a690-fb7536ba5098"><th id="bZlL" class="block-color-blue_background simple-table-header">Fecha</th><th id="=@Zw" class="block-color-blue_background simple-table-header">ID RESTAURANTE</th><th id="RRHO" class="block-color-blue_background simple-table-header">NOMBRE</th><th id="R{ie" class="block-color-blue_background simple-table-header">FACTURANTE </th><th id="rXVB" class="block-color-blue_background simple-table-header">IMP FISCAL</th><th id=";Ue`" class="block-color-blue_background simple-table-header">CAEA</th><th id="Qbfd" class="block-color-blue_background simple-table-header">SEGUNDOS EN EL CHAT</th><th id="@ouF" class="block-color-blue_background simple-table-header">MINUTOS</th><th id="RRvQ" class="block-color-blue_background simple-table-header">HORAS</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="11e98a2f-03de-4642-8870-668ea77ff243"><td id="bZlL" class="">5/03/2024</td><td id="=@Zw" class="">5062388609187840-00009</td><td id="RRHO" class="">SAO Tienda Leon</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">1152</td><td id="@ouF" class="">19</td><td id="RRvQ" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="a7979b42-2f7e-414b-bcf4-2028de11fb18"><td id="bZlL" class="">5/03/2024</td><td id="=@Zw" class="">5062388609187840-00009</td><td id="RRHO" class="">SAO Tienda Leon</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">5833</td><td id="@ouF" class="">97</td><td id="RRvQ" class="">1,6</td></tr></div><div style="display:contents" dir="ltr"><tr id="e7a32c00-7ad3-452b-86f0-5e81881a82e9"><td id="bZlL" class="">5/03/2024</td><td id="=@Zw" class="">5286852731338752-00005</td><td id="RRHO" class="">INNAMORATO PLANTA UNO</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">1433</td><td id="@ouF" class="">24</td><td id="RRvQ" class="">0,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="541a08e4-bc35-4da9-aa4b-a1ac924dfef6"><td id="bZlL" class="">5/03/2024</td><td id="=@Zw" class="">4637335996203008-00001</td><td id="RRHO" class="">EL SHAMI</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">909</td><td id="@ouF" class="">15</td><td id="RRvQ" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="05663203-56dc-46d7-b5bd-021758f7721f"><td id="bZlL" class="">5/03/2024</td><td id="=@Zw" class="">5123421874421760-00001</td><td id="RRHO" class="">Fran Coffe</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">2101</td><td id="@ouF" class="">35</td><td id="RRvQ" class="">0,6</td></tr></div><div style="display:contents" dir="ltr"><tr id="ecf16fd0-3c8f-4412-8782-ee13cd1accc2"><td id="bZlL" class="">5/03/2024</td><td id="=@Zw" class="">5543611022966784-00004</td><td id="RRHO" class="">Shelby planta uno</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">3301</td><td id="@ouF" class="">55</td><td id="RRvQ" class="">0,9</td></tr></div><div style="display:contents" dir="ltr"><tr id="933f3c74-8ffc-42f8-a78c-eb21438ee2ac"><td id="bZlL" class="">5/03/2024</td><td id="=@Zw" class="">5696100481761280-00001</td><td id="RRHO" class="">Yoko Sushi Nikkei Godoy Cruz</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">3350</td><td id="@ouF" class="">56</td><td id="RRvQ" class="">0,9</td></tr></div><div style="display:contents" dir="ltr"><tr id="b1054d78-f398-478c-9864-957cad89b88f"><td id="bZlL" class="">5/03/2024</td><td id="=@Zw" class="">4637335996203008-00001</td><td id="RRHO" class="">EL SHAMI</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">6786</td><td id="@ouF" class="">113</td><td id="RRvQ" class="">1,9</td></tr></div><div style="display:contents" dir="ltr"><tr id="82c789da-0271-45c2-b33c-59cef26cd7f8"><td id="bZlL" class="">5/03/2024</td><td id="=@Zw" class="">5062388609187840-00014</td><td id="RRHO" class="">SAO SAN ISIDRO</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">10534</td><td id="@ouF" class="">176</td><td id="RRvQ" class="">2,9</td></tr></div><div style="display:contents" dir="ltr"><tr id="575e35f5-b93b-4019-b8e5-d9a5c93059d9"><td id="bZlL" class="">5/03/2024</td><td id="=@Zw" class="">5332081468768256-00001</td><td id="RRHO" class="">CASA SAENZ</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">5431</td><td id="@ouF" class="">91</td><td id="RRvQ" class="">1,5</td></tr></div><div style="display:contents" dir="ltr"><tr id="055061fe-6fd5-4732-b438-54eba65143a5"><td id="bZlL" class="">5/03/2024</td><td id="=@Zw" class="">4675954333712384-00001</td><td id="RRHO" class="">Data Pizza</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">18937</td><td id="@ouF" class="">316</td><td id="RRvQ" class="">5,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="419baeae-d279-47f0-934f-3bd24f3681fb"><td id="bZlL" class="">5/03/2024</td><td id="=@Zw" class="">5543611022966784-00004</td><td id="RRHO" class="">Shelby planta uno</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">1872</td><td id="@ouF" class="">31</td><td id="RRvQ" class="">0,5</td></tr></div><div style="display:contents" dir="ltr"><tr id="5d8504ce-4483-4179-abc7-1bcd71f4f037"><td id="bZlL" class="">5/03/2024</td><td id="=@Zw" class="">4637335996203008-00001</td><td id="RRHO" class="">EL SHAMI</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">299067</td><td id="@ouF" class="">4984</td><td id="RRvQ" class="">83,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="57ad01ff-2083-4647-97a8-49771f60e6a0"><td id="bZlL" class="">5/03/2024</td><td id="=@Zw" class="">4675954333712384-00002</td><td id="RRHO" class="">Pizza Data Belgrano</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">18937</td><td id="@ouF" class="">316</td><td id="RRvQ" class="">5,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="abd1a4ab-b314-4b0b-9e1f-8a64c9e1df46"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">5696100481761280-00001</td><td id="RRHO" class="">Yoko Sushi Nikkei Godoy Cruz</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">2436</td><td id="@ouF" class="">41</td><td id="RRvQ" class="">0,7</td></tr></div><div style="display:contents" dir="ltr"><tr id="88b512a2-b86f-4416-92c8-52168ffc151e"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">5543611022966784-00004</td><td id="RRHO" class="">Shelby planta uno</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">308</td><td id="@ouF" class="">5</td><td id="RRvQ" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="5176a540-faa5-4e06-a393-d0fdc435ef73"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">6371534211645440-00001</td><td id="RRHO" class="">Estación de panes</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">477</td><td id="@ouF" class="">8</td><td id="RRvQ" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="3d89d887-24a5-4bb6-9710-288abb49f72d"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">6144393604104192-00001</td><td id="RRHO" class="">ANANA</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">898</td><td id="@ouF" class="">15</td><td id="RRvQ" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="1f773735-34ff-4b6f-a01a-ee05663e8d7b"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">6576763920580608-00003</td><td id="RRHO" class="">Bonito Luján</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">753</td><td id="@ouF" class="">13</td><td id="RRvQ" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="bcdaa20e-11e1-4198-8de0-72b5947019a2"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">4920450761883648-00002</td><td id="RRHO" class="">Capres Morfi Argento Maipu</td><td id="R{ie" class="">FALSE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">266</td><td id="@ouF" class="">4</td><td id="RRvQ" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="3f6321a5-6022-4c8e-8cff-cf87972c7b4b"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">5462392915623936-00001</td><td id="RRHO" class="">Mellis Pizza</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">277</td><td id="@ouF" class="">5</td><td id="RRvQ" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="fc33cee6-3706-4288-86e4-1a35314351c4"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">4867657415786496-00003</td><td id="RRHO" class="">Yoko Sushi NovaMarket</td><td id="R{ie" class="">FALSE</td><td id="rXVB" class="">TRUE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">676</td><td id="@ouF" class="">11</td><td id="RRvQ" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="1ed5c7a0-c450-4c0e-acf1-b8634dc45766"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">5062388609187840-00009</td><td id="RRHO" class="">SAO Tienda Leon</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">1865</td><td id="@ouF" class="">31</td><td id="RRvQ" class="">0,5</td></tr></div><div style="display:contents" dir="ltr"><tr id="e9299ace-39b6-43a3-a7fd-4aef2b27ef6e"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">4574999922999296-00001</td><td id="RRHO" class="">Greta Friendly Coffee</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">1029</td><td id="@ouF" class="">17</td><td id="RRvQ" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="56112572-e54a-4e50-9ec3-19cf26a798f7"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">5226756747427840-00003</td><td id="RRHO" class="">MODESTO ALVEAR</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">290</td><td id="@ouF" class="">5</td><td id="RRvQ" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="c2214a59-1222-4b02-b583-1a4e32617e67"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">5062388609187840-00009</td><td id="RRHO" class="">SAO Tienda Leon</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">1952</td><td id="@ouF" class="">33</td><td id="RRvQ" class="">0,5</td></tr></div><div style="display:contents" dir="ltr"><tr id="c166eb0d-1316-4c04-972b-508d60eaf2ee"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">5984894761172992-00001</td><td id="RRHO" class="">LA SOCIAL GODOY CRUZ</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">997</td><td id="@ouF" class="">17</td><td id="RRvQ" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="8a6fec97-bbba-44af-b70e-f4c270de7ed0"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">5062388609187840-00009</td><td id="RRHO" class="">SAO Tienda Leon</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">1522</td><td id="@ouF" class="">25</td><td id="RRvQ" class="">0,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="6313e631-e528-4321-9ba3-6e298a6d7f92"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">6170146448211968-00001</td><td id="RRHO" class="">Clapton Café</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">71049</td><td id="@ouF" class="">1184</td><td id="RRvQ" class="">19,7</td></tr></div><div style="display:contents" dir="ltr"><tr id="68cccd08-c44f-49ad-b8c1-10aa9aae45cc"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">4867657415786496-00006</td><td id="RRHO" class="">Yoko Sushi Nikkei Guaymallén</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">676</td><td id="@ouF" class="">11</td><td id="RRvQ" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="3791e98c-f75a-492c-8aad-c11dac2ed222"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">5984894761172992-00002</td><td id="RRHO" class="">LA SOCIAL CHACRAS</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">997</td><td id="@ouF" class="">17</td><td id="RRvQ" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="a1c51a0f-9918-40cf-8fbf-e19d504e71ed"><td id="bZlL" class="">6/03/2024</td><td id="=@Zw" class="">6170146448211968-00002</td><td id="RRHO" class="">Clapton Planta Superior</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">71049</td><td id="@ouF" class="">1184</td><td id="RRvQ" class="">19,7</td></tr></div><div style="display:contents" dir="ltr"><tr id="d4e962d8-bf50-4d24-b1ba-fead770944e4"><td id="bZlL" class="">7/03/2024</td><td id="=@Zw" class="">5062388609187840-00009</td><td id="RRHO" class="">SAO Tienda Leon</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">712</td><td id="@ouF" class="">12</td><td id="RRvQ" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="637ebf31-b1e8-464e-86fd-1e40aa2356b1"><td id="bZlL" class="">7/03/2024</td><td id="=@Zw" class="">6576763920580608-00007</td><td id="RRHO" class="">BONITO MAIPU</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">156</td><td id="@ouF" class="">3</td><td id="RRvQ" class="">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="36fcdf81-ad7f-4e30-9b7a-c558a7fe8081"><td id="bZlL" class="">7/03/2024</td><td id="=@Zw" class="">5226756747427840-00002</td><td id="RRHO" class="">MODESTO GODOY CRUZ</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">1226</td><td id="@ouF" class="">20</td><td id="RRvQ" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="2dd27518-20a6-42c6-acac-58a5b55f39fd"><td id="bZlL" class="">7/03/2024</td><td id="=@Zw" class="">5696100481761280-00001</td><td id="RRHO" class="">Yoko Sushi Nikkei Godoy Cruz</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">880</td><td id="@ouF" class="">15</td><td id="RRvQ" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="a6cdcdbe-36c0-48a9-873c-38ed814a58d2"><td id="bZlL" class="">7/03/2024</td><td id="=@Zw" class="">5543611022966784-00004</td><td id="RRHO" class="">Shelby planta uno</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">10082</td><td id="@ouF" class="">168</td><td id="RRvQ" class="">2,8</td></tr></div><div style="display:contents" dir="ltr"><tr id="251dfbc0-5d1a-48c0-be12-2689cc89a90b"><td id="bZlL" class="">7/03/2024</td><td id="=@Zw" class="">6576763920580608-00002</td><td id="RRHO" class="">Bonito Colón</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">1177</td><td id="@ouF" class="">20</td><td id="RRvQ" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="31b0db70-b82a-43fb-af0c-3f12cde70f4a"><td id="bZlL" class="">7/03/2024</td><td id="=@Zw" class="">5062388609187840-00007</td><td id="RRHO" class="">SAO Mar de las Pampas</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">77</td><td id="@ouF" class="">1</td><td id="RRvQ" class="">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="6bc13075-3a99-4169-a272-d405b326edbf"><td id="bZlL" class="">7/03/2024</td><td id="=@Zw" class="">5226756747427840-00002</td><td id="RRHO" class="">MODESTO GODOY CRUZ</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">3214</td><td id="@ouF" class="">54</td><td id="RRvQ" class="">0,9</td></tr></div><div style="display:contents" dir="ltr"><tr id="25e2643f-e36a-41fe-8553-a1b8a177408e"><td id="bZlL" class="">7/03/2024</td><td id="=@Zw" class="">5984894761172992-00002</td><td id="RRHO" class="">LA SOCIAL CHACRAS</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">1211</td><td id="@ouF" class="">20</td><td id="RRvQ" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="7ffb7ac7-adaf-427a-a522-ac6b5d7532db"><td id="bZlL" class="">7/03/2024</td><td id="=@Zw" class="">5226756747427840-00003</td><td id="RRHO" class="">MODESTO ALVEAR</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">1226</td><td id="@ouF" class="">20</td><td id="RRvQ" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="6778db55-7fc9-4d83-a7a9-3cb44de575c0"><td id="bZlL" class="">7/03/2024</td><td id="=@Zw" class="">5226756747427840-00003</td><td id="RRHO" class="">MODESTO ALVEAR</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">3214</td><td id="@ouF" class="">54</td><td id="RRvQ" class="">0,9</td></tr></div><div style="display:contents" dir="ltr"><tr id="0895fd1b-88f2-43df-83bc-a81d7a177882"><td id="bZlL" class="">10/03/2024</td><td id="=@Zw" class="">4920450761883648-00002</td><td id="RRHO" class="">Capres Morfi Argento Maipu</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">382</td><td id="@ouF" class="">6</td><td id="RRvQ" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="f151e3a1-691c-4046-bf2a-600f7ebede7e"><td id="bZlL" class="">10/03/2024</td><td id="=@Zw" class="">4675954333712384-00001</td><td id="RRHO" class="">Data Pizza</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">4001</td><td id="@ouF" class="">67</td><td id="RRvQ" class="">1,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="e888976b-c672-4940-93c9-b1c99b942c0e"><td id="bZlL" class="">10/03/2024</td><td id="=@Zw" class="">6576763920580608-00004</td><td id="RRHO" class="">Bonito San Juan</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">341</td><td id="@ouF" class="">6</td><td id="RRvQ" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d9c4386-ec0a-46f1-bdb8-6a604547ba18"><td id="bZlL" class="">10/03/2024</td><td id="=@Zw" class="">5286852731338752-00004</td><td id="RRHO" class="">INNAMORATO MORENO</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">5021</td><td id="@ouF" class="">84</td><td id="RRvQ" class="">1,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="6196416c-4666-4f16-aab8-ffccc56e1b8f"><td id="bZlL" class="">10/03/2024</td><td id="=@Zw" class="">4920450761883648-00002</td><td id="RRHO" class="">Capres Morfi Argento Maipu</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">125</td><td id="@ouF" class="">2</td><td id="RRvQ" class="">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="f871f325-2cd8-4f39-897c-6e182a2555ce"><td id="bZlL" class="">10/03/2024</td><td id="=@Zw" class="">6627139633938432-00015</td><td id="RRHO" class="">URITEAAR</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">869</td><td id="@ouF" class="">14</td><td id="RRvQ" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="0ee2f460-4c1a-4297-b97c-b7077eaed125"><td id="bZlL" class="">10/03/2024</td><td id="=@Zw" class="">6627139633938432-00005</td><td id="RRHO" class="">CONTEAAR</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">768</td><td id="@ouF" class="">13</td><td id="RRvQ" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="5fa0a190-d692-4690-acbe-1940fc98c374"><td id="bZlL" class="">10/03/2024</td><td id="=@Zw" class="">4920450761883648-00002</td><td id="RRHO" class="">Capres Morfi Argento Maipu</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">767</td><td id="@ouF" class="">13</td><td id="RRvQ" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="def83072-9ffe-4afc-9310-66b00ebe8126"><td id="bZlL" class="">10/03/2024</td><td id="=@Zw" class="">6416788372979712-00001</td><td id="RRHO" class="">EL MIRADOR</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">2269</td><td id="@ouF" class="">38</td><td id="RRvQ" class="">0,6</td></tr></div><div style="display:contents" dir="ltr"><tr id="f37e5f14-4af9-4d5c-8e31-fe319fc9c5ef"><td id="bZlL" class="">10/03/2024</td><td id="=@Zw" class="">5292338475958272-00001</td><td id="RRHO" class="">ROMA</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">5169</td><td id="@ouF" class="">86</td><td id="RRvQ" class="">1,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="42ae519a-85fe-4703-a24f-ce00bad9fbd9"><td id="bZlL" class="">10/03/2024</td><td id="=@Zw" class="">5691179096211456-00001</td><td id="RRHO" class="">La Condesa</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">2209</td><td id="@ouF" class="">37</td><td id="RRvQ" class="">0,6</td></tr></div><div style="display:contents" dir="ltr"><tr id="e750762c-7e24-4fec-8c83-a5347fe844a5"><td id="bZlL" class="">10/03/2024</td><td id="=@Zw" class="">4675954333712384-00002</td><td id="RRHO" class="">Pizza Data Belgrano</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">4001</td><td id="@ouF" class="">67</td><td id="RRvQ" class="">1,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="b97bda76-14b4-416e-8362-f8dd8111c612"><td id="bZlL" class="">13/03/2024</td><td id="=@Zw" class="">5123421874421760-00003</td><td id="RRHO" class="">Fran Coffee Makers Yrigoyen</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">2494</td><td id="@ouF" class="">42</td><td id="RRvQ" class="">0,7</td></tr></div><div style="display:contents" dir="ltr"><tr id="b197e351-ccf4-4e25-80f9-d08d0faa8121"><td id="bZlL" class="">13/03/2024</td><td id="=@Zw" class="">6627139633938432-00013</td><td id="RRHO" class="">LIBTEAAR</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">802</td><td id="@ouF" class="">13</td><td id="RRvQ" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="169e3d4c-f997-41b4-aa9e-e9fb22472187"><td id="bZlL" class="">13/03/2024</td><td id="=@Zw" class="">5984894761172992-00001</td><td id="RRHO" class="">LA SOCIAL GODOY CRUZ</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">3364</td><td id="@ouF" class="">56</td><td id="RRvQ" class="">0,9</td></tr></div><div style="display:contents" dir="ltr"><tr id="0a41cf2f-5e8a-4a81-95c0-e038632bf6f7"><td id="bZlL" class="">13/03/2024</td><td id="=@Zw" class="">6627139633938432-00015</td><td id="RRHO" class="">URITEAAR</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">730</td><td id="@ouF" class="">12</td><td id="RRvQ" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="c10d4148-5914-4250-9a2f-0c23a7357047"><td id="bZlL" class="">13/03/2024</td><td id="=@Zw" class="">4920450761883648-00002</td><td id="RRHO" class="">Capres Morfi Argento Maipu</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">680</td><td id="@ouF" class="">11</td><td id="RRvQ" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="852f25fd-17d5-422b-ba55-9969ad0646d7"><td id="bZlL" class="">13/03/2024</td><td id="=@Zw" class="">4637335996203008-00001</td><td id="RRHO" class="">EL SHAMI</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">12654</td><td id="@ouF" class="">211</td><td id="RRvQ" class="">3,5</td></tr></div><div style="display:contents" dir="ltr"><tr id="1d27b774-6301-4af9-8292-e5f42d5b06ca"><td id="bZlL" class="">13/03/2024</td><td id="=@Zw" class="">6489064620163072-00001</td><td id="RRHO" class="">Amore Pizza</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">1061</td><td id="@ouF" class="">18</td><td id="RRvQ" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="b9a1b54f-70fb-4ae6-8b5e-d61e21e86c38"><td id="bZlL" class="">13/03/2024</td><td id="=@Zw" class="">6416788372979712-00001</td><td id="RRHO" class="">EL MIRADOR</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">2080</td><td id="@ouF" class="">35</td><td id="RRvQ" class="">0,6</td></tr></div><div style="display:contents" dir="ltr"><tr id="61c54435-c934-4ff9-a503-95eb408a6b84"><td id="bZlL" class="">13/03/2024</td><td id="=@Zw" class="">6627139633938432-00011</td><td id="RRHO" class="">VUETEAAR</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">1275</td><td id="@ouF" class="">21</td><td id="RRvQ" class="">0,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="1babdf76-9f64-41a1-8d59-3099fcb08009"><td id="bZlL" class="">13/03/2024</td><td id="=@Zw" class="">5233290723983360-00003</td><td id="RRHO" class="">Tarantino Parque</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">108</td><td id="@ouF" class="">2</td><td id="RRvQ" class="">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="79894c76-b284-4fac-8cf9-f331ad019be7"><td id="bZlL" class="">13/03/2024</td><td id="=@Zw" class="">5905617552277504-00001</td><td id="RRHO" class="">Spoon Ranelagh</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">946</td><td id="@ouF" class="">16</td><td id="RRvQ" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="42b6297a-477d-4955-80db-23bbad409d87"><td id="bZlL" class="">13/03/2024</td><td id="=@Zw" class="">5984894761172992-00002</td><td id="RRHO" class="">LA SOCIAL CHACRAS</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">FALSE</td><td id="Qbfd" class="">3364</td><td id="@ouF" class="">56</td><td id="RRvQ" class="">0,9</td></tr></div><div style="display:contents" dir="ltr"><tr id="a0691056-0884-4c32-912a-0eb0f79dd766"><td id="bZlL" class="">13/03/2024</td><td id="=@Zw" class="">6627139633938432-00007</td><td id="RRHO" class="">FORTEAAR</td><td id="R{ie" class="">TRUE</td><td id="rXVB" class="">FALSE</td><td id=";Ue`" class="">TRUE</td><td id="Qbfd" class="">1275</td><td id="@ouF" class="">21</td><td id="RRvQ" class="">0,4</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="26cf115d-e427-4f95-b669-14bfe3a86386" class="">De los 41 Locales que ingresaron al Chat en Marzo con el TAG Facturación Argentina, Solo 17 tienen CAEA activo</p></div><div style="display:contents" dir="auto"><p id="6547189b-38eb-4556-8872-2332bd5d50ae" class="">Probabilidades de caída de las plataformas analizando los locales que tienen CAEA:</p></div><div style="display:contents" dir="auto"><h3 id="9d02816c-5ddf-4e39-8625-e40a36a66a1b" class="">5 de Marzo </h3></div><div style="display:contents" dir="auto"><p id="42963f51-1b24-4eac-a932-59e1aa18071a" class="">De los 10 locales que ingresaron:</p></div><div style="display:contents" dir="auto"><ul id="ed776688-ede4-47df-8be2-2458229da1f1" class="bulleted-list"><li style="list-style-type:disc">Solo 2 locales tienen el CAEA activo.</li></ul></div><div style="display:contents" dir="auto"><p id="3ac5097a-9f13-4b5f-beea-8ed261928ad7" class="">Esto nos lleva a inferir que puede haber habido una caída en los sistemas de la AFIP, ya que el promedio de locales afectados es significativo.</p></div><div style="display:contents" dir="auto"><h3 id="e5debcd6-dffa-4463-affe-552e7f681e20" class="">6 de Marzo</h3></div><div style="display:contents" dir="auto"><p id="db7a4fcf-80bc-4fa9-85b4-166802adac3a" class="">De los 16 locales que ingresaron:</p></div><div style="display:contents" dir="auto"><ul id="db396227-f6ee-4dec-8a9e-d210d6e4abe7" class="bulleted-list"><li style="list-style-type:disc">Solo 2 locales tienen el CAEA activo.</li></ul></div><div style="display:contents" dir="auto"><p id="162fca57-73fc-4d28-93f7-e855e52ebac0" class="">Esto nos lleva a inferir que puede haber habido una caída en los sistemas de la AFIP.</p></div><div style="display:contents" dir="auto"><h3 id="957bdfc1-45cf-49c6-b0d6-e10c26ad196a" class="">7 de Marzo</h3></div><div style="display:contents" dir="auto"><p id="a77cff2a-427e-4aa5-8cc3-f0e27e5cd996" class="">De los 9 locales que ingresaron:</p></div><div style="display:contents" dir="auto"><ul id="86302f1a-51e9-4a1c-892e-548dcb20f86e" class="bulleted-list"><li style="list-style-type:disc">3 locales tienen el CAEA activo.</li></ul></div><div style="display:contents" dir="auto"><p id="a23d0a0a-4acc-47cc-8ead-ef395cc0fd38" class="">Esto nos lleva a inferir que puede haber habido una caída en los sistemas de la AFIP.</p></div><div style="display:contents" dir="auto"><h3 id="4d6741f5-3b64-4d7f-8a99-96a988ef1d54" class="">10 de Marzo</h3></div><div style="display:contents" dir="auto"><p id="7bc16755-c7d4-4820-8a3a-e332cac66187" class="">De los 10 locales que ingresaron:</p></div><div style="display:contents" dir="auto"><ul id="e9178197-6db8-4f67-b261-87f801ee14a0" class="bulleted-list"><li style="list-style-type:disc">6 locales tenían el CAEA activo.</li></ul></div><div style="display:contents" dir="auto"><p id="043af6ec-3acf-4c19-af71-5b3b32f02101" class="">Esto nos lleva a inferir que pudo haber habido una caída en los sistemas de la AFIP y Facturante.</p></div><div style="display:contents" dir="auto"><h3 id="b0114164-47d7-466b-b100-44b21b2756e3" class="">13 de Marzo</h3></div><div style="display:contents" dir="auto"><p id="a6f79db7-4b64-4317-885c-682feeec1201" class="">De los 13 locales que ingresaron:</p></div><div style="display:contents" dir="auto"><ul id="34f9cb6d-039e-4ee7-9a35-427b98f8ec20" class="bulleted-list"><li style="list-style-type:disc">7 locales tenían el CAEA activo.</li></ul></div><div style="display:contents" dir="auto"><p id="646564d5-5b5b-404b-9dcb-90fd92893b79" class="">Esto nos lleva a inferir que puede haber habido una caída en el sistema de Facturante.</p></div><div style="display:contents" dir="auto"><p id="50cf0a29-518a-4590-8674-41af7884858a" class="">Los locales que entraron con mas frecuencia son:</p></div><div style="display:contents" dir="ltr"><table id="180ae3f7-11f3-4902-a684-f695b5a426d4" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="5cf30dcc-953a-4e42-96af-705a6a6319aa"><th id="_pP~" class="block-color-blue_background simple-table-header" style="width:209px">ID</th><th id="wW{H" class="block-color-blue_background simple-table-header">LOCAL</th><th id="xWrV" class="block-color-blue_background simple-table-header" style="width:162px">CANTIDAD DE VECES QUE INGRESO</th><th id="\\E&lt;" class="block-color-blue_background simple-table-header">CAEA</th><th id="QTeA" class="block-color-blue_background simple-table-header" style="width:161px">TIEMPO PROMEDIO RESPUESTA MINUTOS</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="c0100e98-089b-4d01-8ab0-74b2ed5703e9"><td id="_pP~" class="" style="width:209px">5062388609187840-00009</td><td id="wW{H" class="">SAO Tienda Leon</td><td id="xWrV" class="" style="width:162px">6</td><td id="\\E&lt;" class="">NO</td><td id="QTeA" class="" style="width:161px">36.2</td></tr></div><div style="display:contents" dir="ltr"><tr id="747bc890-4d1f-488e-8e72-eaaab31567d7"><td id="_pP~" class="" style="width:209px">4920450761883648-00002</td><td id="wW{H" class="">Capres Morfi<br/>  Argento Maipu</td><td id="xWrV" class="" style="width:162px">5</td><td id="\\E&lt;" class="">NO</td><td id="QTeA" class="" style="width:161px">7.4</td></tr></div><div style="display:contents" dir="ltr"><tr id="bb7cb711-bffa-4198-8f50-93dc187c7e0f"><td id="_pP~" class="" style="width:209px">4637335996203008-00001</td><td id="wW{H" class="">EL SHAMI</td><td id="xWrV" class="" style="width:162px">4</td><td id="\\E&lt;" class="">NO</td><td id="QTeA" class="" style="width:161px">1330.9</td></tr></div><div style="display:contents" dir="ltr"><tr id="019988c0-f689-4fd5-807e-25f29ca8a18a"><td id="_pP~" class="" style="width:209px">5543611022966784-00004</td><td id="wW{H" class="">Shelby planta<br/>  uno</td><td id="xWrV" class="" style="width:162px">4</td><td id="\\E&lt;" class="">NO</td><td id="QTeA" class="" style="width:161px">64.8</td></tr></div><div style="display:contents" dir="ltr"><tr id="3e051870-8cda-42eb-9cb3-72d1b8816ec8"><td id="_pP~" class="" style="width:209px">5226756747427840-00003</td><td id="wW{H" class="">MODESTO ALVEAR</td><td id="xWrV" class="" style="width:162px">3</td><td id="\\E&lt;" class="">NO</td><td id="QTeA" class="" style="width:161px">78.8</td></tr></div><div style="display:contents" dir="ltr"><tr id="2abaf463-153b-494e-ba1d-e8d45ed728e5"><td id="_pP~" class="" style="width:209px">5696100481761280-00001</td><td id="wW{H" class="">Yoko Sushi<br/>  Nikkei Godoy Cruz</td><td id="xWrV" class="" style="width:162px">3</td><td id="\\E&lt;" class="">NO</td><td id="QTeA" class="" style="width:161px">37.7</td></tr></div><div style="display:contents" dir="ltr"><tr id="ff0dd9cc-84c2-49e3-bf3c-4dc7f42a4be7"><td id="_pP~" class="" style="width:209px">5984894761172992-00002</td><td id="wW{H" class="">LA SOCIAL<br/>  CHACRAS</td><td id="xWrV" class="" style="width:162px">3</td><td id="\\E&lt;" class="">NO</td><td id="QTeA" class="" style="width:161px">92.86</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><blockquote id="b8b6a104-c98b-455a-be86-b482abdba3a2" class="">Conclusiones: <br/><div style="display:contents" dir="auto"><ul id="f17553cc-1152-48c1-9a53-f30dbe2dfaec" class="bulleted-list"><li style="list-style-type:disc">En marzo predominaron las caídas en el servicio de la AFIP. La mayoría de los locales no cuentan con el CAEA activo, lo que genera que no tengan un respaldo para la emisión de documentos en esta situación.</li></ul></div><div style="display:contents" dir="auto"><ul id="ea32961d-773f-4eec-9984-61711df74be4" class="bulleted-list"><li style="list-style-type:disc">En los casos en que se cayó Facturante - AFIP, tiende a ser un colapso provocado por el servicio de AFIP, que empieza a afectar el servicio de Facturante debido a la cantidad de documentos encolados.</li></ul></div></blockquote></div><div style="display:contents" dir="auto"><p id="3a127ef9-1d8e-4669-ae37-b7d77d7e93e0" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="0e102f54-fae0-4a59-a0bb-269793446517" class="">Análisis Abril </h1></div><div style="display:contents" dir="ltr"><table id="86c09511-bfd4-45a6-844e-0e32b429c4b2" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="55de2f6e-03a5-4765-860a-14beb85994d8"><th id=":IUu" class="block-color-blue_background simple-table-header">Fecha</th><th id="MYR~" class="block-color-blue_background simple-table-header">ID RESTAURANTE</th><th id="PQew" class="block-color-blue_background simple-table-header">NOMBRE</th><th id="CNgR" class="block-color-blue_background simple-table-header">FACTURANTE </th><th id="UAu|" class="block-color-blue_background simple-table-header">IMP FISCAL</th><th id="Bajw" class="block-color-blue_background simple-table-header">CAEA</th><th id="js`q" class="block-color-blue_background simple-table-header">SEGUNDOS EN EL CHAT</th><th id=":M?V" class="block-color-blue_background simple-table-header">MINUTOS</th><th id="p[mA" class="block-color-blue_background simple-table-header">HORAS</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="6337f3e4-db38-4f77-b907-1954481c436f"><td id=":IUu" class="">10/04/2024</td><td id="MYR~" class="">5324913258921984-00002</td><td id="PQew" class="">JEBBS PLAZA PORTEZUELO</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">1756</td><td id=":M?V" class="">29,3</td><td id="p[mA" class="">0,49</td></tr></div><div style="display:contents" dir="ltr"><tr id="97ca42ea-0008-4ef4-a350-06c2154d83d8"><td id=":IUu" class="">10/04/2024</td><td id="MYR~" class="">6238469323227136-00001</td><td id="PQew" class="">Sentite Listo</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">297</td><td id=":M?V" class="">5</td><td id="p[mA" class="">0,08</td></tr></div><div style="display:contents" dir="ltr"><tr id="701d7c8b-84d4-4ad7-8f53-3ee04b8e3d05"><td id=":IUu" class="">10/04/2024</td><td id="MYR~" class="">5062388609187840-00015</td><td id="PQew" class="">SAO PINAMAR</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">3652</td><td id=":M?V" class="">60,9</td><td id="p[mA" class="">1,01</td></tr></div><div style="display:contents" dir="ltr"><tr id="966ca2a4-bbc4-4832-b390-ca7d3c75f2ff"><td id=":IUu" class="">10/04/2024</td><td id="MYR~" class="">6136759548903424-00006</td><td id="PQew" class="">Green Eat Dot</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">1569</td><td id=":M?V" class="">26,2</td><td id="p[mA" class="">0,44</td></tr></div><div style="display:contents" dir="ltr"><tr id="ae3071e2-f5ce-46a4-9508-f318035cb87f"><td id=":IUu" class="">15/04/2024</td><td id="MYR~" class="">6627139633938432-00011</td><td id="PQew" class="">VUETEAAR</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">13699</td><td id=":M?V" class="">228,3</td><td id="p[mA" class="">3,81</td></tr></div><div style="display:contents" dir="ltr"><tr id="14da6624-06e7-45f9-95c7-c240ed3a5640"><td id=":IUu" class="">15/04/2024</td><td id="MYR~" class="">6627139633938432-00017</td><td id="PQew" class="">MONTEAAR</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">13699</td><td id=":M?V" class="">228,3</td><td id="p[mA" class="">3,81</td></tr></div><div style="display:contents" dir="ltr"><tr id="4d5a214d-9600-43aa-ac7c-5063855945ff"><td id=":IUu" class="">15/04/2024</td><td id="MYR~" class="">5062388609187840-00009</td><td id="PQew" class="">SAO Tienda Leon</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">13058</td><td id=":M?V" class="">217,6</td><td id="p[mA" class="">3,63</td></tr></div><div style="display:contents" dir="ltr"><tr id="ea0c7d99-8faa-4b8b-9b6c-f19f72f3b129"><td id=":IUu" class="">15/04/2024</td><td id="MYR~" class="">6170146448211968-00001</td><td id="PQew" class="">Clapton Café</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">82017</td><td id=":M?V" class="">1367</td><td id="p[mA" class="">22,78</td></tr></div><div style="display:contents" dir="ltr"><tr id="bb80870c-7282-42ec-b0c1-102f1ff7d303"><td id=":IUu" class="">15/04/2024</td><td id="MYR~" class="">6170146448211968-00002</td><td id="PQew" class="">Clapton Planta Superior</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">82017</td><td id=":M?V" class="">1367</td><td id="p[mA" class="">22,78</td></tr></div><div style="display:contents" dir="ltr"><tr id="29b6bac4-17d8-41bd-8fde-c938b40096ae"><td id=":IUu" class="">15/04/2024</td><td id="MYR~" class="">5226756747427840-00003</td><td id="PQew" class="">MODESTO ALVEAR</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">14766</td><td id=":M?V" class="">246,1</td><td id="p[mA" class="">4,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="0087c418-1f77-4336-9d34-186eb73c33bb"><td id=":IUu" class="">15/04/2024</td><td id="MYR~" class="">5226756747427840-00002</td><td id="PQew" class="">MODESTO GODOY CRUZ</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">14766</td><td id=":M?V" class="">246,1</td><td id="p[mA" class="">4,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="27c181d3-bca6-44a4-b1c5-526e6c7571f1"><td id=":IUu" class="">15/04/2024</td><td id="MYR~" class="">6576763920580608-00004</td><td id="PQew" class="">Bonito San Juan</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">12431</td><td id=":M?V" class="">207,2</td><td id="p[mA" class="">3,45</td></tr></div><div style="display:contents" dir="ltr"><tr id="a4bad12e-321c-49c5-a2d7-010f905fb0a6"><td id=":IUu" class="">15/04/2024</td><td id="MYR~" class="">5332081468768256-00001</td><td id="PQew" class="">CASA SAENZ</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">27139</td><td id=":M?V" class="">452,3</td><td id="p[mA" class="">7,54</td></tr></div><div style="display:contents" dir="ltr"><tr id="3d38f256-1e7f-4594-8e0c-be29362b4a3f"><td id=":IUu" class="">15/04/2024</td><td id="MYR~" class="">6576763920580608-00002</td><td id="PQew" class="">Bonito Colón</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">661</td><td id=":M?V" class="">11</td><td id="p[mA" class="">0,18</td></tr></div><div style="display:contents" dir="ltr"><tr id="2351f97e-3710-44fa-ab0c-ded51bbdcc4d"><td id=":IUu" class="">15/04/2024</td><td id="MYR~" class="">6576763920580608-00006</td><td id="PQew" class="">Bonito España</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">661</td><td id=":M?V" class="">11</td><td id="p[mA" class="">0,18</td></tr></div><div style="display:contents" dir="ltr"><tr id="339891f6-0c24-41d4-9797-4e22acc06f42"><td id=":IUu" class="">15/04/2024</td><td id="MYR~" class="">6746572893323264-00001</td><td id="PQew" class="">JOCKEY CLUB</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">661</td><td id=":M?V" class="">11</td><td id="p[mA" class="">0,18</td></tr></div><div style="display:contents" dir="ltr"><tr id="8d64a545-2b7f-4faf-bac6-605130309149"><td id=":IUu" class="">15/04/2024</td><td id="MYR~" class="">6708812354551808-00002</td><td id="PQew" class="">WHITE SHARK COFFEE 2</td><td id="CNgR" class="">FALSO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">661</td><td id=":M?V" class="">11</td><td id="p[mA" class="">0,18</td></tr></div><div style="display:contents" dir="ltr"><tr id="8b27f541-77fe-42a4-bbb6-469e90935ecd"><td id=":IUu" class="">15/04/2024</td><td id="MYR~" class="">4551061805858816-00002</td><td id="PQew" class="">Burgery- Guaymallén</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">449</td><td id=":M?V" class="">7,5</td><td id="p[mA" class="">0,12</td></tr></div><div style="display:contents" dir="ltr"><tr id="49f358e2-1c35-4064-b9c9-24d68ad657ad"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">6627139633938432-00009</td><td id="PQew" class="">LOMTEAAR</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">934</td><td id=":M?V" class="">15,6</td><td id="p[mA" class="">0,26</td></tr></div><div style="display:contents" dir="ltr"><tr id="b7e14529-500c-4867-8a75-aacfde4327e5"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">5123421874421760-00001</td><td id="PQew" class="">Fran Coffe</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">927</td><td id=":M?V" class="">15,5</td><td id="p[mA" class="">0,26</td></tr></div><div style="display:contents" dir="ltr"><tr id="d8b4b91b-3361-42e6-a60b-a732f74002ae"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">4551061805858816-00003</td><td id="PQew" class="">Burguery- Maipú</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">2819</td><td id=":M?V" class="">47</td><td id="p[mA" class="">0,78</td></tr></div><div style="display:contents" dir="ltr"><tr id="5d074149-6051-4826-85bb-94fa8760d02b"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">5286852731338752-00004</td><td id="PQew" class="">INNAMORATO MORENO</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">2251</td><td id=":M?V" class="">37,5</td><td id="p[mA" class="">0,63</td></tr></div><div style="display:contents" dir="ltr"><tr id="e66529f2-0419-4d8a-9e8a-6210caf07a6c"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">5783447478730752-00001</td><td id="PQew" class="">Le Birra</td><td id="CNgR" class="">FALSO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">9655</td><td id=":M?V" class="">160,9</td><td id="p[mA" class="">2,68</td></tr></div><div style="display:contents" dir="ltr"><tr id="d63c3dd0-bc5b-411b-9a61-041822b25fc1"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">5696100481761280-00001</td><td id="PQew" class="">Yoko Sushi Nikkei Godoy Cruz</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">723</td><td id=":M?V" class="">12,1</td><td id="p[mA" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="99d0063f-5089-4fca-98b1-d64d8a43c267"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">6516405397356544-00001</td><td id="PQew" class="">Colores Pizza</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">439</td><td id=":M?V" class="">7,3</td><td id="p[mA" class="">0,12</td></tr></div><div style="display:contents" dir="ltr"><tr id="7a61f84d-c3d2-466d-8d31-f5b93bb6cbd0"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">4675954333712384-00001</td><td id="PQew" class="">Data Pizza</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">282</td><td id=":M?V" class="">4,7</td><td id="p[mA" class="">0,08</td></tr></div><div style="display:contents" dir="ltr"><tr id="7606654a-948e-4e5c-8d22-a6e59a4acf5e"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">5984894761172992-00001</td><td id="PQew" class="">LA SOCIAL GODOY CRUZ</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">492</td><td id=":M?V" class="">8,2</td><td id="p[mA" class="">0,14</td></tr></div><div style="display:contents" dir="ltr"><tr id="ab0f7772-cd52-46a1-a12c-280eab160fc5"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">4551061805858816-00001</td><td id="PQew" class="">Burgery Arístides</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">4405</td><td id=":M?V" class="">73,4</td><td id="p[mA" class="">1,22</td></tr></div><div style="display:contents" dir="ltr"><tr id="76dfdf37-180d-4e43-8189-7885f6fdd4bf"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">4675954333712384-00001</td><td id="PQew" class="">Data Pizza</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">3263</td><td id=":M?V" class="">54,4</td><td id="p[mA" class="">0,91</td></tr></div><div style="display:contents" dir="ltr"><tr id="7f8b1a41-5e94-48fc-a156-6851f9c48fcb"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">5984894761172992-00001</td><td id="PQew" class="">LA SOCIAL GODOY CRUZ</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">VERDADERO</td><td id="js`q" class="">5751</td><td id=":M?V" class="">95,9</td><td id="p[mA" class="">1,6</td></tr></div><div style="display:contents" dir="ltr"><tr id="6142550c-1826-475c-9433-8554c88fd2be"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">4990688342835200-00001</td><td id="PQew" class="">Soufle Devoto</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">204</td><td id=":M?V" class="">3,4</td><td id="p[mA" class="">0,06</td></tr></div><div style="display:contents" dir="ltr"><tr id="b8125788-0052-45dd-a142-286a8e707f61"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">4867657415786496-00002</td><td id="PQew" class="">Yoko Sushi Ciudad</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">118</td><td id=":M?V" class="">2</td><td id="p[mA" class="">0,03</td></tr></div><div style="display:contents" dir="ltr"><tr id="0d00034b-e64f-43e7-8e2f-ce315ade1126"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">4675954333712384-00002</td><td id="PQew" class="">Pizza Data Belgrano</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">282</td><td id=":M?V" class="">4,7</td><td id="p[mA" class="">0,08</td></tr></div><div style="display:contents" dir="ltr"><tr id="dd380e24-9089-4657-b40c-cabaffbd614f"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">5984894761172992-00002</td><td id="PQew" class="">LA SOCIAL CHACRAS</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">492</td><td id=":M?V" class="">8,2</td><td id="p[mA" class="">0,14</td></tr></div><div style="display:contents" dir="ltr"><tr id="fc9dcc1f-59f6-4a94-b205-5909c38c51fa"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">4551061805858816-00002</td><td id="PQew" class="">Burgery- Guaymallén</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">4405</td><td id=":M?V" class="">73,4</td><td id="p[mA" class="">1,22</td></tr></div><div style="display:contents" dir="ltr"><tr id="0f7d7281-d143-4b89-952c-b1b1e3fe411c"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">4675954333712384-00002</td><td id="PQew" class="">Pizza Data Belgrano</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">3263</td><td id=":M?V" class="">54,4</td><td id="p[mA" class="">0,91</td></tr></div><div style="display:contents" dir="ltr"><tr id="2efe5a19-ff9f-441f-8a4b-f06239e3572c"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">5984894761172992-00002</td><td id="PQew" class="">LA SOCIAL CHACRAS</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">5751</td><td id=":M?V" class="">95,9</td><td id="p[mA" class="">1,6</td></tr></div><div style="display:contents" dir="ltr"><tr id="0e0cca3c-a372-4de9-b1cb-a6826658fde8"><td id=":IUu" class="">25/04/2024</td><td id="MYR~" class="">4867657415786496-00008</td><td id="PQew" class="">Yoko Sushi Nikkei Ciudad</td><td id="CNgR" class="">VERDADERO</td><td id="UAu|" class="">FALSO</td><td id="Bajw" class="">FALSO</td><td id="js`q" class="">118</td><td id=":M?V" class="">2</td><td id="p[mA" class="">0,03</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="d6527dcc-bdd6-471a-9965-7a73d28d3fca" class="">De los 33 locales que ingresaron al Chat en Abril con el TAG Facturación Argentina 14 tienen el CAEA activo</p></div><div style="display:contents" dir="auto"><p id="e654e63e-7114-43be-add9-af8e382e9858" class="">Probabilidades de caída de las plataformas analizando los locales que tienen CAEA:</p></div><div style="display:contents" dir="auto"><h3 id="3885126e-081f-4797-9ea3-51e08f166f4d" class="">10 de Abril</h3></div><div style="display:contents" dir="auto"><p id="3fe87d87-8ad7-416c-9bca-21f2e059ed43" class="">De los 4 locales que ingresaron, los 4 tienen CAEA. Esto nos lleva a inferir que hubo una caída en el servicio de Facturante, afectando la emisión de los comprobantes en estos locales.</p></div><div style="display:contents" dir="auto"><h3 id="7fe7b1c3-c1a8-478b-a8c7-f9a7a8ad36f0" class="">15 de Abril</h3></div><div style="display:contents" dir="auto"><p id="f7eb0d1d-dd08-4abe-b3d9-215ec677200c" class="">De los 14 locales que ingresaron:</p></div><div style="display:contents" dir="auto"><ul id="d64d852d-9c7f-48cd-ac8f-7f46f2151653" class="bulleted-list"><li style="list-style-type:disc">1 local no tiene servicio de DTE-FACTURANTE: 6708812354551808-00002 WHITE SHARK COFFEE 2.</li></ul></div><div style="display:contents" dir="auto"><ul id="01746541-3a25-42cf-a8a8-fc12acef7126" class="bulleted-list"><li style="list-style-type:disc">De los 13 restantes, 8 tienen CAEA.</li></ul></div><div style="display:contents" dir="auto"><p id="2a1e8897-265c-480f-b331-e3f214d17d43" class="">Esto nos lleva a inferir que hubo una caída en el servicio de Facturante, afectando la emisión de los comprobantes en estos locales.</p></div><div style="display:contents" dir="auto"><h3 id="29d8565f-970b-4d9f-8a62-ac8b7e675ab1" class="">25 de Abril</h3></div><div style="display:contents" dir="auto"><p id="8eb2dc9b-0e5d-441a-b9cd-ef04be824286" class="">De los 16 locales que ingresaron:</p></div><div style="display:contents" dir="auto"><ul id="8cdd8d5a-04b9-4fa9-ad91-5c014c061630" class="bulleted-list"><li style="list-style-type:disc">1 local está mal filtrado: 5783447478730752-00001 Le Birra es de Chile.</li></ul></div><div style="display:contents" dir="auto"><ul id="ab740515-7f7f-46c6-a471-e4e0b1affcc6" class="bulleted-list"><li style="list-style-type:disc">De los 15 restantes, solo 3 tienen CAEA.</li></ul></div><div style="display:contents" dir="auto"><p id="2bb4fe53-6e9e-4550-adb6-af65e0a5700c" class="">Esto nos lleva a inferir que hubo una caída en el servicio de la AFIP, afectando la emisión de los comprobantes en estos locales.</p></div><div style="display:contents" dir="auto"><p id="ed67b941-c808-48d1-908c-835c05002cd5" class="">Los locales que entraron con mas frecuencia son:</p></div><div style="display:contents" dir="ltr"><table id="47614c6a-00a6-41d9-8567-a9fa5d04e84c" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="94e9c87b-995f-4e25-8e0a-14521f5e13c4"><th id="chsj" class="block-color-blue_background simple-table-header" style="width:189.890625px">ID</th><th id="JzXY" class="block-color-blue_background simple-table-header">LOCAL</th><th id="KHhc" class="block-color-blue_background simple-table-header">CANTIDAD DE VECES QUE INGRESO</th><th id="SZXQ" class="block-color-blue_background simple-table-header">CAEA</th><th id="bby[" class="block-color-blue_background simple-table-header" style="width:174.875px">TIEMPO PROMEDIO RESPUESTA (MINUTOS)</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="303d1b20-d982-4c67-b072-b211fbed6787"><td id="chsj" class="" style="width:189.890625px">4551061805858816-00002</td><td id="JzXY" class="">Burgery- Guaymallén</td><td id="KHhc" class="">2</td><td id="SZXQ" class="">NO</td><td id="bby[" class="" style="width:174.875px">40.4</td></tr></div><div style="display:contents" dir="ltr"><tr id="c4498e7e-04f5-43cc-95cb-f6f93ee8c866"><td id="chsj" class="" style="width:189.890625px">4675954333712384-00001</td><td id="JzXY" class="">Data Pizza</td><td id="KHhc" class="">2</td><td id="SZXQ" class="">NO</td><td id="bby[" class="" style="width:174.875px">29.5</td></tr></div><div style="display:contents" dir="ltr"><tr id="fa86b40f-6f3f-4e51-840f-e0a1d8b589c6"><td id="chsj" class="" style="width:189.890625px">4675954333712384-00002</td><td id="JzXY" class="">Pizza Data Belgrano</td><td id="KHhc" class="">2</td><td id="SZXQ" class="">NO</td><td id="bby[" class="" style="width:174.875px">29.5</td></tr></div><div style="display:contents" dir="ltr"><tr id="3d5b5627-83a9-40ce-8e0f-7f0d69a520cb"><td id="chsj" class="" style="width:189.890625px">5984894761172992-00001</td><td id="JzXY" class="">LA SOCIAL GODOY CRUZ</td><td id="KHhc" class="">2</td><td id="SZXQ" class="">NO</td><td id="bby[" class="" style="width:174.875px">52</td></tr></div><div style="display:contents" dir="ltr"><tr id="204d7043-4a36-4f65-b383-13b4ec655396"><td id="chsj" class="" style="width:189.890625px">5984894761172992-00002</td><td id="JzXY" class="">LA SOCIAL CHACRAS</td><td id="KHhc" class="">2</td><td id="SZXQ" class="">NO</td><td id="bby[" class="" style="width:174.875px">52</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="a75a1201-b2fc-4893-ab96-3d921dcf0c21" class="">
+</p></div><div style="display:contents" dir="auto"><blockquote id="bd9909a9-45e8-4bee-b8f5-16e9d84f6286" class="">Conclusiones: <br/><br/><div style="display:contents" dir="auto"><ul id="2124d4d7-594c-46b0-ac14-c37eddfcc7b4" class="bulleted-list"><li style="list-style-type:disc">Todos los locales con entrada frecuente al Chat no cuentan con el CAEA activo</li></ul></div><div style="display:contents" dir="auto"><ul id="dca5d996-85b1-4272-a02c-c2b012e367bf" class="bulleted-list"><li style="list-style-type:disc">En abril se visualiza que tanto el servicio de la AFIP como el de Facturante presentaron caídas. Las caídas en el servicio de la AFIP pudieron mitigar su impacto si los locales tuvieran el CAEA activo.</li></ul></div><div style="display:contents" dir="auto"><p id="0dfc557c-896b-4f4d-aca7-6203cdde3916" class="">
+</p></div></blockquote></div><div style="display:contents" dir="auto"><h1 id="91a42900-6328-4c67-a882-92b98e1b24ac" class="">Análisis Mayo</h1></div><div style="display:contents" dir="ltr"><table id="3f572b9e-4df5-41d2-8ffb-67bf8ca74201" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="d285de04-4cb7-4c1f-b2fd-e90031bd912a"><th id="^AaB" class="block-color-blue_background simple-table-header">FECHA</th><th id=";Xfu" class="block-color-blue_background simple-table-header">ID RESTAURANTE</th><th id="`KjX" class="block-color-blue_background simple-table-header">NOMBRE</th><th id="OvO~" class="block-color-blue_background simple-table-header">FACTURANTE </th><th id=";f?&gt;" class="block-color-blue_background simple-table-header">IMP FISCAL</th><th id="HhX:" class="block-color-blue_background simple-table-header">CAEA</th><th id="WzE~" class="block-color-blue_background simple-table-header">SEGUNDOS EN EL CHAT</th><th id="soc^" class="block-color-blue_background simple-table-header">MINUTOS</th><th id="]hcY" class="block-color-blue_background simple-table-header">HORAS</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="eb88b137-a752-404d-9381-383b48607810"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">6170146448211968-00001</td><td id="`KjX" class="">Clapton Café</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">10103</td><td id="soc^" class="">168,4</td><td id="]hcY" class="">2,8</td></tr></div><div style="display:contents" dir="ltr"><tr id="37fec9bc-8aa6-472f-95d2-49a62f9c7eef"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">6708812354551808-00001</td><td id="`KjX" class="">WHITE SHARK COFFEE</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">2757</td><td id="soc^" class="">46,0</td><td id="]hcY" class="">0,8</td></tr></div><div style="display:contents" dir="ltr"><tr id="2b0ea5b4-a8be-4acc-b57e-cbbf363a23fa"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">6371534211645440-00001</td><td id="`KjX" class="">Estación de panes</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">990</td><td id="soc^" class="">16,5</td><td id="]hcY" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="a45319ba-700e-46b6-b028-742f5af5b2b8"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5233290723983360-00001</td><td id="`KjX" class="">Tarantino</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">365</td><td id="soc^" class="">6,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="def8da61-19a2-4ccf-9607-79a80bcf0234"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5123421874421760-00001</td><td id="`KjX" class="">Fran Coffe</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">9990</td><td id="soc^" class="">166,5</td><td id="]hcY" class="">2,8</td></tr></div><div style="display:contents" dir="ltr"><tr id="d7812cd3-947b-4f8f-aea4-b4295dd06a03"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5062388609187840-00009</td><td id="`KjX" class="">SAO Tienda Leon</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">590</td><td id="soc^" class="">9,8</td><td id="]hcY" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="186d747c-dc8f-4f59-8f77-5f59eb2b5115"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5177101078626304-00001</td><td id="`KjX" class="">Sygla Tucumán</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">9516</td><td id="soc^" class="">158,6</td><td id="]hcY" class="">2,6</td></tr></div><div style="display:contents" dir="ltr"><tr id="13d9425f-5faf-47e8-af33-0af12372b794"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5543611022966784-00004</td><td id="`KjX" class="">Shelby planta uno</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">9091</td><td id="soc^" class="">151,5</td><td id="]hcY" class="">2,5</td></tr></div><div style="display:contents" dir="ltr"><tr id="57588bcf-edb0-461e-8633-67c96655dee4"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5062388609187840-00001</td><td id="`KjX" class="">SAO PEATONAL</td><td id="OvO~" class="">FALSE</td><td id=";f?&gt;" class="">TRUE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">260</td><td id="soc^" class="">4,3</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="1a67f653-c5bb-4fc3-b4c9-1cc42515d473"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5543611022966784-00001</td><td id="`KjX" class="">Shelby Café</td><td id="OvO~" class="">FALSE</td><td id=";f?&gt;" class="">TRUE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">5142</td><td id="soc^" class="">85,7</td><td id="]hcY" class="">1,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e07062e-d83e-4cf9-84a8-75c5a8237df7"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">6576763920580608-00004</td><td id="`KjX" class="">Bonito San Juan</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">7382</td><td id="soc^" class="">123,0</td><td id="]hcY" class="">2,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="dd862c9f-1070-4b91-9c4c-41140f762e89"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">6170146448211968-00002</td><td id="`KjX" class="">Clapton Planta Superior</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">10103</td><td id="soc^" class="">168,4</td><td id="]hcY" class="">2,8</td></tr></div><div style="display:contents" dir="ltr"><tr id="31dc5b49-7af7-4637-a896-edc4190a4b26"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">6708812354551808-00002</td><td id="`KjX" class="">WHITE SHARK COFFEE 2</td><td id="OvO~" class="">FALSE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">2757</td><td id="soc^" class="">46,0</td><td id="]hcY" class="">0,8</td></tr></div><div style="display:contents" dir="ltr"><tr id="6c594f3b-7298-41bb-8bd5-c9b6fabf9457"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5233290723983360-00003</td><td id="`KjX" class="">Tarantino Parque</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">365</td><td id="soc^" class="">6,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="0bbec09c-2150-40e8-9c5f-bdb6eb10a48d"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5177101078626304-00002</td><td id="`KjX" class="">Sygla Cleto</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">9516</td><td id="soc^" class="">158,6</td><td id="]hcY" class="">2,6</td></tr></div><div style="display:contents" dir="ltr"><tr id="fa3fdb55-f264-47bb-9004-eeb78ddf941a"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5062388609187840-00002</td><td id="`KjX" class="">SAO OLAVARRIA</td><td id="OvO~" class="">FALSE</td><td id=";f?&gt;" class="">TRUE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">260</td><td id="soc^" class="">4,3</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="1d0752ea-516e-41d5-86ae-e8e7b69c8126"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5543611022966784-00002</td><td id="`KjX" class="">Shelby Darragueira</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">5142</td><td id="soc^" class="">85,7</td><td id="]hcY" class="">1,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="b2d461b1-bfe9-4439-a92c-42601db33806"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5062388609187840-00003</td><td id="`KjX" class="">SAO ALFAR</td><td id="OvO~" class="">FALSE</td><td id=";f?&gt;" class="">TRUE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">260</td><td id="soc^" class="">4,3</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="76ef5818-c335-4cc1-8375-5607a56eb512"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5543611022966784-00003</td><td id="`KjX" class="">Shelby Juan B. Justo</td><td id="OvO~" class="">FALSE</td><td id=";f?&gt;" class="">TRUE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">5142</td><td id="soc^" class="">85,7</td><td id="]hcY" class="">1,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="5ab1412c-94e2-44c9-8c4d-0c1feed0125e"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5062388609187840-00005</td><td id="`KjX" class="">SAO CONSTITUCION</td><td id="OvO~" class="">FALSE</td><td id=";f?&gt;" class="">TRUE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">260</td><td id="soc^" class="">4,3</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="212746d5-9a0b-4220-99e3-018376396f80"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5543611022966784-00004</td><td id="`KjX" class="">Shelby planta uno</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">5142</td><td id="soc^" class="">85,7</td><td id="]hcY" class="">1,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="8cb82507-a0cd-4616-b093-19346d08343e"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5062388609187840-00013</td><td id="`KjX" class="">SAO EDISON</td><td id="OvO~" class="">FALSE</td><td id=";f?&gt;" class="">TRUE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">260</td><td id="soc^" class="">4,3</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="f86e43f6-5ec6-4e28-9ec3-07c4d0f6d513"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5062388609187840-00014</td><td id="`KjX" class="">SAO SAN ISIDRO</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">260</td><td id="soc^" class="">4,3</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="46e3ae80-9a25-4736-bcea-dec29b83ecb5"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5062388609187840-00015</td><td id="`KjX" class="">SAO PINAMAR</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">260</td><td id="soc^" class="">4,3</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="148a2649-0118-471c-aa70-cb2eea0cd705"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5062388609187840-00017</td><td id="`KjX" class="">SAO VILLA URQUIZA</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">260</td><td id="soc^" class="">4,3</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="db8e7e3a-9508-4d09-99e9-4c2a9307421c"><td id="^AaB" class="">07/05/2024</td><td id=";Xfu" class="">5062388609187840-00018</td><td id="`KjX" class="">SAO CITY BELL</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">260</td><td id="soc^" class="">4,3</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="9ddccfa9-9f17-4e8c-84b4-75b8d849c514"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">4867657415786496-00002</td><td id="`KjX" class="">Yoko Sushi Ciudad</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">4250</td><td id="soc^" class="">70,8</td><td id="]hcY" class="">1,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="293f7f67-f117-46a2-b1ad-5fb6b303b190"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">4675954333712384-00001</td><td id="`KjX" class="">Data Pizza</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">2635</td><td id="soc^" class="">43,9</td><td id="]hcY" class="">0,7</td></tr></div><div style="display:contents" dir="ltr"><tr id="eadef728-d7b1-427f-8ebb-3758916a2ed4"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">6136759548903424-00002</td><td id="`KjX" class="">Green Eat Abasto</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">1146</td><td id="soc^" class="">19,1</td><td id="]hcY" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="ecc3a495-7cb7-48cc-8137-602ceac1cce8"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">6136759548903424-00004</td><td id="`KjX" class="">Green Eat Pueyrredon</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">299</td><td id="soc^" class="">5,0</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="e254a340-9773-4376-bf24-2297d4b8bf88"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">5332081468768256-00001</td><td id="`KjX" class="">CASA SAENZ</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">484</td><td id="soc^" class="">8,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a01ec20-cc78-4980-9bff-23bcc7497b98"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">4867657415786496-00008</td><td id="`KjX" class="">Yoko Sushi Nikkei Ciudad</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">4250</td><td id="soc^" class="">70,8</td><td id="]hcY" class="">1,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="35a0ff5b-34f2-4657-880b-5651d6a86894"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">4675954333712384-00002</td><td id="`KjX" class="">Pizza Data Belgrano</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">2635</td><td id="soc^" class="">43,9</td><td id="]hcY" class="">0,7</td></tr></div><div style="display:contents" dir="ltr"><tr id="a8d3a96f-3b02-41fe-a4fb-02bcc1d9c492"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">6136759548903424-00007</td><td id="`KjX" class="">Green Eat Billingurst</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">1146</td><td id="soc^" class="">19,1</td><td id="]hcY" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="19074399-3093-470c-9a25-b2a22391e723"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">6136759548903424-00007</td><td id="`KjX" class="">Green Eat Billingurst</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">299</td><td id="soc^" class="">5,0</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="bc0e0f14-ae66-461d-9f27-f171bba25443"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">6136759548903424-00001</td><td id="`KjX" class="">Green Eat Florida</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">484</td><td id="soc^" class="">8,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="45fa652f-b333-40db-9a0d-4fe35bb9fc46"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">6136759548903424-00003</td><td id="`KjX" class="">Green Eat Cabildo</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">484</td><td id="soc^" class="">8,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="ff1e18f4-dec0-4df4-a7ff-1fd481c6ca31"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">6136759548903424-00004</td><td id="`KjX" class="">Green Eat Pueyrredon</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">484</td><td id="soc^" class="">8,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="e3413b78-c700-4229-b831-72c96c3dcc5e"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">6136759548903424-00002</td><td id="`KjX" class="">Green Eat Abasto</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">484</td><td id="soc^" class="">8,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="330a5bc8-a2ba-44b9-81b1-a1e034578b7d"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">6136759548903424-00005</td><td id="`KjX" class="">Green Eat Unicenter</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">484</td><td id="soc^" class="">8,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="b1d2cd42-0a2f-4182-b9c4-c3e9b70c318d"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">6136759548903424-00006</td><td id="`KjX" class="">Green Eat Dot</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">484</td><td id="soc^" class="">8,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="a8dc9267-6dc4-461a-9e70-15fe879ac452"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">6136759548903424-00007</td><td id="`KjX" class="">Green Eat Billingurst</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">484</td><td id="soc^" class="">8,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="ad809cae-b799-4b97-9ab7-33068a5a30cb"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">6136759548903424-00008</td><td id="`KjX" class="">Green Eat Santa Fe</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">484</td><td id="soc^" class="">8,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="6ae89e3e-0d3f-47c9-8be3-edbdf46290ab"><td id="^AaB" class="">08/05/2024</td><td id=";Xfu" class="">6136759548903424-00009</td><td id="`KjX" class="">Green Eat Rivadavia</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">484</td><td id="soc^" class="">8,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="ad9b51e7-c7f8-448e-bb61-6ef352d3e878"><td id="^AaB" class="">28/05/2024</td><td id=";Xfu" class="">6627139633938432-00010</td><td id="`KjX" class="">SINTEAAR</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">14497</td><td id="soc^" class="">241,6</td><td id="]hcY" class="">4,0</td></tr></div><div style="display:contents" dir="ltr"><tr id="62b733fa-133b-4899-ad12-6765bbd0e5d1"><td id="^AaB" class="">28/05/2024</td><td id=";Xfu" class="">5984894761172992-00002</td><td id="`KjX" class="">LA SOCIAL CHACRAS</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">921</td><td id="soc^" class="">15,4</td><td id="]hcY" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="7010d8a0-1ef7-4b5c-a2d4-249f784daab0"><td id="^AaB" class="">28/05/2024</td><td id=";Xfu" class="">5543611022966784-00004</td><td id="`KjX" class="">Shelby planta uno</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">503</td><td id="soc^" class="">8,4</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="ac9e0c54-a666-45a4-8085-2b9a51e41c55"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">5862845152100352-00001</td><td id="`KjX" class="">Feriado Vermú</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">16645</td><td id="soc^" class="">277,4</td><td id="]hcY" class="">4,6</td></tr></div><div style="display:contents" dir="ltr"><tr id="1d8a9eae-c441-4215-ade3-a875373e3af9"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">6516405397356544-00001</td><td id="`KjX" class="">Colores Pizza</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">107</td><td id="soc^" class="">1,8</td><td id="]hcY" class="">0,0</td></tr></div><div style="display:contents" dir="ltr"><tr id="52e3d4e6-83b1-41a4-b96b-14cb30f35ef9"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">5123421874421760-00003</td><td id="`KjX" class="">Fran Coffee Makers Yrigoyen</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">478</td><td id="soc^" class="">8,0</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="258681ae-8c5a-400a-9091-90464eaf9521"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">4551061805858816-00003</td><td id="`KjX" class="">Burguery- Maipú</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">140</td><td id="soc^" class="">2,3</td><td id="]hcY" class="">0,0</td></tr></div><div style="display:contents" dir="ltr"><tr id="c144a4d4-6665-434d-b7cc-5817d1140006"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">6068901371314176-00001</td><td id="`KjX" class="">Almacén de Pizzas Recoleta</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">100</td><td id="soc^" class="">1,7</td><td id="]hcY" class="">0,0</td></tr></div><div style="display:contents" dir="ltr"><tr id="d63a2b0d-856d-4c33-97e1-544e3b0b91a5"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">4551061805858816-00002</td><td id="`KjX" class="">Burgery- Guaymallén</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">587</td><td id="soc^" class="">9,8</td><td id="]hcY" class="">0,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="8b2862f4-21cf-47fe-a0d4-79facebeea97"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">4675954333712384-00001</td><td id="`KjX" class="">Data Pizza</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">5293</td><td id="soc^" class="">88,2</td><td id="]hcY" class="">1,5</td></tr></div><div style="display:contents" dir="ltr"><tr id="b456ca59-efce-44cd-8231-500c2c5ea941"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">5238342565494784-00001</td><td id="`KjX" class="">GASTRONOMICA SANTO REMEDIO SPA</td><td id="OvO~" class="">FALSE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">2457</td><td id="soc^" class="">41,0</td><td id="]hcY" class="">0,7</td></tr></div><div style="display:contents" dir="ltr"><tr id="220ae624-2dcf-486d-af37-b82e3c43c9a0"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">6627139633938432-00011</td><td id="`KjX" class="">VUETEAAR</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">185</td><td id="soc^" class="">3,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="f16272c9-2726-4e57-bf8a-15ad2ca25ecb"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">5531532947357696-00001</td><td id="`KjX" class="">878 BAR</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">451</td><td id="soc^" class="">7,5</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="7a61c8e5-ddfb-43d8-8ebc-83ea9da376c6"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">5292338475958272-00001</td><td id="`KjX" class="">ROMA</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">1160</td><td id="soc^" class="">19,3</td><td id="]hcY" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="b3c1ccbc-10b8-4526-8168-219b770d59aa"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">5691179096211456-00001</td><td id="`KjX" class="">La Condesa</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">1115</td><td id="soc^" class="">18,6</td><td id="]hcY" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="1b6eb06d-4571-4d45-894b-34565d7254d1"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">5233290723983360-00003</td><td id="`KjX" class="">Tarantino Parque</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">315</td><td id="soc^" class="">5,3</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="ecbdab93-da11-49d4-8f88-bc5b14e0514b"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">4920450761883648-00001</td><td id="`KjX" class="">Capres Morfi Argento Lujan</td><td id="OvO~" class="">FALSE</td><td id=";f?&gt;" class="">TRUE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">228</td><td id="soc^" class="">3,8</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="a64a460e-2469-4b0e-957a-12c06e23d3a4"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">5862845152100352-00001</td><td id="`KjX" class="">Feriado Vermú</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">1092</td><td id="soc^" class="">18,2</td><td id="]hcY" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a23d1c1-5a12-4694-8249-be6f507cfde9"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">6109513357459456-00001</td><td id="`KjX" class="">TAZIO</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">299</td><td id="soc^" class="">5,0</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="0ea42ea5-4a79-4e17-8003-11ef91928bc9"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">4675954333712384-00002</td><td id="`KjX" class="">Pizza Data Belgrano</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">5293</td><td id="soc^" class="">88,2</td><td id="]hcY" class="">1,5</td></tr></div><div style="display:contents" dir="ltr"><tr id="b4b20a88-a48a-4643-b453-7f7badc2cff1"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">6627139633938432-00017</td><td id="`KjX" class="">MONTEAAR</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">185</td><td id="soc^" class="">3,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="04f5121e-c681-41c5-bd32-79392368c9fa"><td id="^AaB" class="">30/05/2024</td><td id=";Xfu" class="">4920450761883648-00002</td><td id="`KjX" class="">Capres Morfi Argento Maipu</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">228</td><td id="soc^" class="">3,8</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="b5277c1d-9de9-4900-abea-cc34559ace4b"><td id="^AaB" class="">31/05/2024</td><td id=";Xfu" class="">4675954333712384-00001</td><td id="`KjX" class="">Data Pizza</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">184</td><td id="soc^" class="">3,1</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="4c3cf46e-5c86-430d-9492-0e9e1e454d41"><td id="^AaB" class="">31/05/2024</td><td id=";Xfu" class="">5062388609187840-00011</td><td id="`KjX" class="">SAO ALDREY</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">169</td><td id="soc^" class="">2,8</td><td id="]hcY" class="">0,0</td></tr></div><div style="display:contents" dir="ltr"><tr id="c5a0549b-a387-4076-bf75-8cf0b6a37d89"><td id="^AaB" class="">31/05/2024</td><td id=";Xfu" class="">4850012266299392-00001</td><td id="`KjX" class="">Obrador Resto</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">160</td><td id="soc^" class="">2,7</td><td id="]hcY" class="">0,0</td></tr></div><div style="display:contents" dir="ltr"><tr id="f685407f-3e73-4811-9ba0-5f13832009c9"><td id="^AaB" class="">31/05/2024</td><td id=";Xfu" class="">4850012266299392-00001</td><td id="`KjX" class="">Obrador Resto</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">TRUE</td><td id="WzE~" class="">1024</td><td id="soc^" class="">17,1</td><td id="]hcY" class="">0,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="38e90c4e-06f9-463d-8ff4-c3371c25ead6"><td id="^AaB" class="">31/05/2024</td><td id=";Xfu" class="">5221584840294400-00001</td><td id="`KjX" class="">Cerveza Ancestral</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">259</td><td id="soc^" class="">4,3</td><td id="]hcY" class="">0,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="1a00db1b-b55a-4090-a692-871b57265767"><td id="^AaB" class="">31/05/2024</td><td id=";Xfu" class="">4675954333712384-00002</td><td id="`KjX" class="">Pizza Data Belgrano</td><td id="OvO~" class="">TRUE</td><td id=";f?&gt;" class="">FALSE</td><td id="HhX:" class="">FALSE</td><td id="WzE~" class="">184</td><td id="soc^" class="">3,1</td><td id="]hcY" class="">0,1</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="30335a68-a279-4572-98a8-1f5b598f6e3b" class="">De los 59 locales que ingresaron al Chat en Mayo con el TAG Facturación Argentina 30 tienen el CAEA activo</p></div><div style="display:contents" dir="auto"><p id="a056c766-8d00-45a0-9abb-ec301a1a0ac2" class="">Probabilidades de caída de las plataformas analizando los locales que tienen CAEA:</p></div><div style="display:contents" dir="auto"><h3 id="eb565945-c77f-4ff6-bcb6-ace88c6a830a" class="">7 de Mayo:</h3></div><div style="display:contents" dir="auto"><p id="945b99dd-32a3-4f2b-bc3b-31b38f9eb7dc" class="">De los 25 locales que ingresaron:</p></div><div style="display:contents" dir="auto"><ul id="f10b7784-ccee-4d97-a033-f0450bd52fa6" class="bulleted-list"><li style="list-style-type:disc">1 local no tiene servicio de DTE-FACTURANTE: 6708812354551808-00002 WHITE SHARK COFFEE 2.</li></ul></div><div style="display:contents" dir="auto"><ul id="9948cd23-35ba-4219-bffb-ae23e9ff3fc5" class="bulleted-list"><li style="list-style-type:disc">7 Locales tienen impresora fiscal </li></ul></div><div style="display:contents" dir="auto"><ul id="e5ccee9a-04a2-44b7-a0b7-0e2d92ef41b0" class="bulleted-list"><li style="list-style-type:disc">de los 17 locales restantes, 10 locales tienen el CAEA activo.</li></ul></div><div style="display:contents" dir="auto"><p id="00a52ce2-0d53-4ddc-971c-422c5882c971" class="">Esto nos lleva a inferir que hubo una caída en los sistemas de Facturante, afectando la emisión de los comprobantes en estos locales.</p></div><div style="display:contents" dir="auto"><h3 id="75948659-1908-495f-9a6e-837e270c1124" class="">8 de Mayo:</h3></div><div style="display:contents" dir="auto"><p id="797126d3-f042-4c46-97ac-bbcf485ebff1" class="">De los 14 locales que ingresaron:</p></div><div style="display:contents" dir="auto"><ul id="b73a5340-80c1-4f76-8857-5b80fff8dd64" class="bulleted-list"><li style="list-style-type:disc">9 locales tienen el CAEA activo.</li></ul></div><div style="display:contents" dir="auto"><p id="63ffced4-5df2-477e-9f90-01820e1b1ba6" class="">Esto nos lleva a inferir que hubo una caída en el servicio de Facturante, afectando la emisión de los comprobantes en estos locales.</p></div><div style="display:contents" dir="auto"><h3 id="8e5277b1-7bc6-4697-968a-482181b5c096" class="">28 de Mayo</h3></div><div style="display:contents" dir="auto"><p id="dadb1927-d379-4537-80c3-99d868fec872" class="">De los 3 locales que ingresaron:</p></div><div style="display:contents" dir="auto"><ul id="b679f273-8957-4f32-875c-361429db75af" class="bulleted-list"><li style="list-style-type:disc">Solo 1 local tiene el CAEA activo.</li></ul></div><div style="display:contents" dir="auto"><p id="8c40afdb-54df-4604-82bd-4458d41e6a00" class="">No se infiere una caída en el servicio, ya que fueron pocos los locales que ingresaron al chat.</p></div><div style="display:contents" dir="auto"><h3 id="4ea49023-bd96-4598-9917-90bb1cebbab4" class="">30 de Mayo</h3></div><div style="display:contents" dir="auto"><p id="c1f837f9-434e-40c2-91c2-fe2fbdd93706" class="">De los 18 locales que ingresaron:</p></div><div style="display:contents" dir="auto"><ul id="334198c3-b9a4-4d5a-ad09-650293a14c87" class="bulleted-list"><li style="list-style-type:disc">1 local está mal filtrado: 5238342565494784-00001	GASTRONOMICA SANTO REMEDIO SPA  es de Chile</li></ul></div><div style="display:contents" dir="auto"><ul id="ff2aa77c-7708-45e0-93cc-5b76fa96137e" class="bulleted-list"><li style="list-style-type:disc">1 Local tiene impresora fiscal</li></ul></div><div style="display:contents" dir="auto"><ul id="41a68885-0fb8-4c95-bce5-a513a02487b4" class="bulleted-list"><li style="list-style-type:disc">De los 16 restantes, 9 locales tienen el CAE activo.</li></ul></div><div style="display:contents" dir="auto"><p id="78b008fe-2d64-4bfc-8230-7e1d51543e3b" class="">Esto nos lleva a inferir que hubo una caída en los sistemas de AFIP y Facturante, afectando la emisión de los comprobantes en estos locales.</p></div><div style="display:contents" dir="auto"><h3 id="bb98f03a-f81e-44a9-b2c3-12436108f5d8" class="">31 de Mayo</h3></div><div style="display:contents" dir="auto"><p id="f7e576bd-e477-4296-8642-1ac0d3b5f2ea" class="">De los 5 locales que ingresaron:</p></div><div style="display:contents" dir="auto"><ul id="acaa7a0a-da19-403f-8d42-9ba91f50e8f2" class="bulleted-list"><li style="list-style-type:disc">Solo 2 locales tienen el CAEA activo.</li></ul></div><div style="display:contents" dir="auto"><p id="fabafaad-c67b-4a58-9a53-0ee0e254d571" class="">Esto nos lleva a inferir que hubo problemas de conexión con AFIP, afectando la emisión de los comprobantes en estos locales.</p></div><div style="display:contents" dir="auto"><p id="1128a1fd-f17c-4775-84d1-496ab26a526e" class="">Los locales que ingresaron con más frecuencia son:</p></div><div style="display:contents" dir="ltr"><table id="a897f1c8-1a55-4ebe-a732-da15309fd98b" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="5e08a95e-5c96-4944-987d-d654c4851550"><th id="q@;S" class="block-color-blue_background simple-table-header">ID</th><th id="?M;S" class="block-color-blue_background simple-table-header">LOCAL</th><th id="BW]?" class="block-color-blue_background simple-table-header">CANTIDAD DE VECES QUE INGRESO</th><th id="z|`\" class="block-color-blue_background simple-table-header">CAEA</th><th id="|WJb" class="block-color-blue_background simple-table-header">TIEMPO PROMEDIO RESPUESTA (MINUTOS)</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="d7c0602e-ab2c-497f-90dd-e304dfbf2299"><td id="q@;S" class="">4675954333712384-00001</td><td id="?M;S" class="">Data Pizza</td><td id="BW]?" class="">3</td><td id="z|`\" class="">NO</td><td id="|WJb" class="">45</td></tr></div><div style="display:contents" dir="ltr"><tr id="3257bf9e-6ba7-4713-9724-22fac62dc647"><td id="q@;S" class="">4675954333712384-00002</td><td id="?M;S" class="">Pizza Data<br/>  Belgrano</td><td id="BW]?" class="">3</td><td id="z|`\" class="">NO</td><td id="|WJb" class="">45</td></tr></div><div style="display:contents" dir="ltr"><tr id="556d4eaa-1142-4619-8989-63bf29080e82"><td id="q@;S" class="">5543611022966784-00004</td><td id="?M;S" class="">Shelby planta<br/>  uno</td><td id="BW]?" class="">3</td><td id="z|`\" class="">NO</td><td id="|WJb" class="">81.8</td></tr></div><div style="display:contents" dir="ltr"><tr id="fa1def2c-ac50-4f8e-b7eb-a5e15c20a65c"><td id="q@;S" class="">6136759548903424-00007</td><td id="?M;S" class="">Green Eat<br/>  Billingurst</td><td id="BW]?" class="">3</td><td id="z|`\" class="">NO</td><td id="|WJb" class="">10.7</td></tr></div><div style="display:contents" dir="ltr"><tr id="f1a68d13-712a-4598-845e-1f2d4e6614f1"><td id="q@;S" class="">5233290723983360-00003</td><td id="?M;S" class="">Tarantino<br/>  Parque</td><td id="BW]?" class="">2</td><td id="z|`\" class="">SI</td><td id="|WJb" class="">5.7</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><blockquote id="00db937b-961c-4890-9311-4383fb1a9cc2" class="">Conclusiones: <br/><br/><div style="display:contents" dir="auto"><ul id="b2eef3f7-0e27-4c7f-91b1-1e2bef9128bb" class="bulleted-list"><li style="list-style-type:disc">No se esta filtrando la información de los locales por TAG de manera correcta</li></ul></div><div style="display:contents" dir="auto"><ul id="c07efd3e-6a69-4783-ab63-76510a1b131e" class="bulleted-list"><li style="list-style-type:disc">En mayo, predominó la caída del servicio de Facturante, lo que nos imposibilitó brindar una respuesta ágil y solucionar el problema con nuestros clientes.</li></ul></div><div style="display:contents" dir="auto"><p id="e1f76cfb-a288-4136-b411-db3879176f63" class="">
+</p></div></blockquote></div><div style="display:contents" dir="auto"><h2 id="b8cc53ee-2115-46ee-84e2-b00c3925b955" class="">Locales con ingresos Frecuentes en el Trimestre</h2></div><div style="display:contents" dir="ltr"><table id="1896401a-0488-408f-99aa-ca4fa6056cf6" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="57e1162c-eb3e-46f5-b301-bfc9d62baa56"><th id="Au&gt;E" class="block-color-blue_background simple-table-header">ID</th><th id="@trL" class="block-color-blue_background simple-table-header">LOCAL</th><th id="lr:e" class="block-color-blue_background simple-table-header">CANTIDAD DE VECES QUE INGRESO</th><th id="RRAa" class="block-color-blue_background simple-table-header">CAEA</th><th id="qV}V" class="block-color-blue_background simple-table-header">TIEMPO PROEMDIO RESPUESTA (MINUTOS)</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="8d506949-4935-4c85-9728-4c063f2f78fb"><td id="Au&gt;E" class="">5062388609187840-00009</td><td id="@trL" class="">SAO Tienda Leon</td><td id="lr:e" class="">8</td><td id="RRAa" class="">NO</td><td id="qV}V" class="">55</td></tr></div><div style="display:contents" dir="ltr"><tr id="ac805fc6-ff8f-404f-8c20-4b817b743fc4"><td id="Au&gt;E" class="">5543611022966784-00004</td><td id="@trL" class="">Shelby planta<br/>  uno</td><td id="lr:e" class="">7</td><td id="RRAa" class="">NO</td><td id="qV}V" class="">72</td></tr></div><div style="display:contents" dir="ltr"><tr id="958da658-1c1d-4cd3-980a-9b408d4f3c8c"><td id="Au&gt;E" class="">4675954333712384-00001</td><td id="@trL" class="">Data Pizza</td><td id="lr:e" class="">7</td><td id="RRAa" class="">NO</td><td id="qV}V" class="">82</td></tr></div><div style="display:contents" dir="ltr"><tr id="184c52ad-e225-41d6-a3cc-70d3932be5b0"><td id="Au&gt;E" class="">4675954333712384-00002</td><td id="@trL" class="">Pizza Data<br/>  Belgrano</td><td id="lr:e" class="">7</td><td id="RRAa" class="">NO</td><td id="qV}V" class="">82</td></tr></div><div style="display:contents" dir="ltr"><tr id="4020a846-8f64-4591-b2c6-92c1d43ed28e"><td id="Au&gt;E" class="">5984894761172992-00002</td><td id="@trL" class="">LA SOCIAL<br/>  CHACRAS</td><td id="lr:e" class="">6</td><td id="RRAa" class="">NO</td><td id="qV}V" class="">35.4</td></tr></div><div style="display:contents" dir="ltr"><tr id="c2f01f4e-6a4b-400a-ae2d-42e6c9a185e7"><td id="Au&gt;E" class="">5984894761172992-00001</td><td id="@trL" class="">LA SOCIAL GODOY<br/>  CRUZ</td><td id="lr:e" class="">4</td><td id="RRAa" class="">SI</td><td id="qV}V" class="">44</td></tr></div><div style="display:contents" dir="ltr"><tr id="06ac2662-d555-4a97-9e1b-720f93c1c04b"><td id="Au&gt;E" class="">5696100481761280-00001</td><td id="@trL" class="">Yoko Sushi<br/>  Nikkei Godoy Cruz</td><td id="lr:e" class="">4</td><td id="RRAa" class="">NO</td><td id="qV}V" class="">31</td></tr></div><div style="display:contents" dir="ltr"><tr id="8c2668af-fee2-44e4-8e77-48c099d0ae52"><td id="Au&gt;E" class="">5226756747427840-00003</td><td id="@trL" class="">MODESTO ALVEAR</td><td id="lr:e" class="">4</td><td id="RRAa" class="">NO</td><td id="qV}V" class="">81.2</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="d918b67a-6ade-4f8e-9e41-8efa1ab74e37"><div style="font-size:1.5em"><span class="icon">✅</span></div><div style="width:100%">Conclusiones Generales:<br/><div style="display:contents" dir="auto"><ul id="70f1c0ed-c521-4347-b019-308b53a62b64" class="bulleted-list"><li style="list-style-type:disc">De los 128 locales activos con DTE-Facturante, solo 88 cuentan con CAEA activo. (El 31.25% de los locales aún no tiene CAEA activo), lo que representa una proporción significativa.</li></ul></div><div style="display:contents" dir="auto"><ul id="81fcbd99-a84f-4e8f-91f3-1ec1fc9ee9bd" class="bulleted-list"><li style="list-style-type:disc">Los locales con ingresos más frecuentes son los que carecen de CAEA, lo que incrementa la vulnerabilidad ante caídas en el servicio.</li></ul></div><div style="display:contents" dir="auto"><ul id="ed02c1d7-ae76-4a8f-9d84-2f602cea9d4a" class="bulleted-list"><li style="list-style-type:disc">La activación del CAEA en todos los locales permitiría emitir documentos incluso durante caídas del servicio de AFIP, asegurando la continuidad operativa al evitar colapsos por documentos encolados en Facturante.</li></ul></div><div style="display:contents" dir="auto"><ul id="98ca83d4-c5c8-4042-a20f-d51cbc292b46" class="bulleted-list"><li style="list-style-type:disc">Se recomienda la creación de un CAEA de contingencia desde DTE para respaldar la emisión de documentos en casos de intermitencia en el servicio de Facturante.</li></ul></div><div style="display:contents" dir="auto"><ul id="c5c9f5e6-b430-49da-b754-9f15255c9314" class="bulleted-list"><li style="list-style-type:disc">Gestionar una clasificación adecuada de filtros en las conversaciones que ingresan por el chat con el fin de reducir estadísticas erróneas.</li></ul></div></div></figure></div><div style="display:contents" dir="auto"><p id="32b9b799-7d52-4c6f-bfbd-3b80848ec5f8" class="">
+</p></div><div style="display:contents" dir="auto"><p id="9df5ad54-f56e-40e1-80f2-55573f3034e2" class="">
+</p></div><div style="display:contents" dir="auto"><p id="7d094ecb-33b3-48e3-b4a1-3b9dad3607d8" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1630ad9d-de1c-434d-860d-bdd97f8ed609" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

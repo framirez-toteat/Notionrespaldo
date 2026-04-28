@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Coliseo Live - CEDI</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1b239073-1e23-80e3-9738-cc7fe0fb415f" class="page sans"><header><h1 class="page-title" dir="auto"><strong>Coliseo Live - CEDI</strong></h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="selected-value select-value-color-green">Solucionado</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha</th><td><time>11 de marzo de 2025</time></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>ID Local</th><td>5391384816910336-00001</td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>KAM</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIMPyAf_X1JeennR5jkS780Sgd0xcoB3tYTR3HdKUzJ_2pX4Q=s100" class="icon user-icon"/>Nataly Andrea Cardona Enciso</span></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>ítem principal</th><td><a href="Semana%2011%20(10%2003%20-%2014%2003)%201b2390731e23801fadcfefaf722c5353.html">Semana 11 (10/03 - 14/03)</a></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="1b539073-1e23-8035-8c87-f61922b6cc87" class=""><strong>El cliente se comunica con la siguiente consulta:</strong><br/><br/></p></div><div style="display:contents" dir="auto"><p id="5c6e7388-4324-46ad-8a37-3222fec14989" class="">Por medio de este correo, informo una inconsistencia detectada en el registro de movimientos de inventario, específicamente con el producto <strong>Coca-Cola PET </strong>y con <strong>Coca-Cola Zero PET.</strong></p></div><div style="display:contents" dir="auto"><p id="ad56afc9-f44c-48ea-b9cb-021f6448b488" class="">Al analizar los registros, se evidencia que aunque solo se realizó una transferencia, la cantidad del producto aparece duplicada en el sistema.</p></div><div style="display:contents" dir="auto"><p id="03e081a3-6e25-4e5f-91a2-eacdc56d3c2e" class=""><strong>Errores identificados:</strong></p></div><div style="display:contents" dir="auto"><ul id="8c2699d7-cd35-43bb-89a4-c4c1834bbe62" class="bulleted-list"><li style="list-style-type:disc">En los movimientos del producto, aparecen <strong>dos salidas desde hacia &quot;Cedi&quot;</strong>, con la misma cantidad.</li></ul></div><div style="display:contents" dir="ltr"><figure id="a3db08b8-a7ce-4330-8c75-e99bcbdbc02e" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.6&amp;permmsgid=msg-f:1826328040672516591&amp;th=19586bad3b9ed9ef&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-f:1826328040672516591&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ8FSiBhd7QdDN7qLpFoFFrtSyQ7NeRIAkh6wwc52Ij4afNhAjnU-6BzNuKSqEsaTosoixOjVg_hGSTiDfBuKsN6E_ueHkpxz9-GEI3jB1-2XFqFa9h1UmEQQTA&amp;disp=emb&amp;realattid=ii_1958680bbae9374b66&amp;zw"><img style="width:700px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.6&amp;permmsgid=msg-f:1826328040672516591&amp;th=19586bad3b9ed9ef&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-f:1826328040672516591&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ8FSiBhd7QdDN7qLpFoFFrtSyQ7NeRIAkh6wwc52Ij4afNhAjnU-6BzNuKSqEsaTosoixOjVg_hGSTiDfBuKsN6E_ueHkpxz9-GEI3jB1-2XFqFa9h1UmEQQTA&amp;disp=emb&amp;realattid=ii_1958680bbae9374b66&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><ul id="66962fd0-c6ec-47b1-8b32-291e9e33b7ad" class="bulleted-list"><li style="list-style-type:disc"><strong>Solo una de estas salidas tiene un &quot;ID Mov&quot;</strong>, el cual coincide con el ID de la transferencia efectuada.</li></ul></div><div style="display:contents" dir="ltr"><figure id="5f99f600-4af5-4575-832e-46f69b80e4ad" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.7&amp;permmsgid=msg-f:1826328040672516591&amp;th=19586bad3b9ed9ef&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-f:1826328040672516591&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ8TX8F61-4cnXz2kKobJQyKxf-Z-UnOEprTpiigQHtSry_kiIF1P9bPGwRsznoUFBgsypabKnWkcvKZPX6Eq7QyQ0-66GwnembUilikTR13t88WYiJalM0iN9c&amp;disp=emb&amp;realattid=ii_1958680bbaea18c377&amp;zw"><img style="width:700px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.7&amp;permmsgid=msg-f:1826328040672516591&amp;th=19586bad3b9ed9ef&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-f:1826328040672516591&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ8TX8F61-4cnXz2kKobJQyKxf-Z-UnOEprTpiigQHtSry_kiIF1P9bPGwRsznoUFBgsypabKnWkcvKZPX6Eq7QyQ0-66GwnembUilikTR13t88WYiJalM0iN9c&amp;disp=emb&amp;realattid=ii_1958680bbaea18c377&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><ul id="f4a513cc-0f17-48aa-8051-4bfdf137f332" class="bulleted-list"><li style="list-style-type:disc"><strong>La otra salida no tiene &quot;ID Mov&quot;, pero sí está afectando el inventario</strong>, lo que genera una reducción incorrecta en la cantidad final disponible.<br/><br/><br/><br/><strong>El caso lo esta llevando directamente Nataly Cardona por lo cual mediante la siguiente respuesta se explico porque sucedió esto y se confirmo la corrección del problema para que el cliente pueda seguir operando con normalidad. <br/><br/><br/></strong></li></ul></div><div style="display:contents" dir="auto"><p id="2131c630-ed7f-43c8-a2da-59ffb9048f1c" class="">En este correo les presentare la causa del error en el movimiento de inventario generado a partir de la transferencia entre locales del local GAITA y COLISEO LIVE - CEDI y la posterior corrección de este. Datos de relevancia sobre los locales:<br/><br/>• ID Local <strong>GAITA:</strong> 5391384816910336-000011<br/>• ID Local  <strong>COLISEO LIVE - CEDI:</strong> 5391384816910336-00001<br/>• ID del <strong>movimiento correcto:</strong> 5529199620521984<br/>• ID del <strong>movimiento errado:</strong> 6335374377222144<br/><br/>Los insumos de la transferencia son estos 4:<br/><br/><strong>COCA COLA ZEROCOCA <br/>COLA PET <br/>SPRITE PET<br/>TEMPRANILLO ALTO LOS CARNEROS<br/><br/></strong>Estos se duplicaron en el ID del <strong>movimiento errado </strong>con las siguientes variables:<br/></p></div><div style="display:contents" dir="ltr"><figure id="447d0ff8-eb6c-47af-8e59-88e79ea75637" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.7&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_jW-T4nblSUxLXs14UVcJGhki8HfF70d93ss0jdor0rxb8gzeqctRULc5eVQzNEsybNo2Hpt8mPi_pNmE53mocF6WtdmdTrUXd__GwD3UxlVAbfON4QQc-ofk&amp;disp=emb&amp;realattid=ii_m87f5gkk8&amp;zw"><img style="width:562px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.7&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_jW-T4nblSUxLXs14UVcJGhki8HfF70d93ss0jdor0rxb8gzeqctRULc5eVQzNEsybNo2Hpt8mPi_pNmE53mocF6WtdmdTrUXd__GwD3UxlVAbfON4QQc-ofk&amp;disp=emb&amp;realattid=ii_m87f5gkk8&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="5f42a1c1-3387-4772-9002-1c07591f5b6f" class=""><br/>Para <strong>COCA COLA ZERO</strong>, existe otro movimiento con la misma cantidad, 42 UN en cada uno.</p></div><div style="display:contents" dir="ltr"><figure id="d7f46b72-fea3-4cfe-b6ee-f66bfb1abd5a" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.1&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ9HzN-vrkMDW0tl41HTCcIT12MwQH88MEVw_ZvZxt99LZ1P_GTIBOxF8GxtBgV0PxseBBhCj3X4Z8Odoy4jqdo4w9WS-FEjc36xVTp2heUpDFRozX2YDqv7EOc&amp;disp=emb&amp;realattid=ii_m87nu8tu0&amp;zw"><img style="width:562px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.1&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ9HzN-vrkMDW0tl41HTCcIT12MwQH88MEVw_ZvZxt99LZ1P_GTIBOxF8GxtBgV0PxseBBhCj3X4Z8Odoy4jqdo4w9WS-FEjc36xVTp2heUpDFRozX2YDqv7EOc&amp;disp=emb&amp;realattid=ii_m87nu8tu0&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="385f3186-395d-496e-827e-8da65ac00af5" class=""><br/>Para <strong>COCA COLA PET, </strong>existe otro movimiento con la misma cantidad 135 en cada uno:</p></div><div style="display:contents" dir="ltr"><figure id="de4623a4-c010-44a8-ac68-9c56eb84582a" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.8&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_Mkt3HlTRibOl1lf3TCVP-LLYqHNnKz-58q5NcxuSM-IuWtCupnH8z71sw4tVSnRUwnPO-PRPeZ-M_tG_OPkcqa6MISa8wromZNrmbgLFbvsE-0zwJzYjsjEA&amp;disp=emb&amp;realattid=ii_m87fc2sm11&amp;zw"><img style="width:562px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.8&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_Mkt3HlTRibOl1lf3TCVP-LLYqHNnKz-58q5NcxuSM-IuWtCupnH8z71sw4tVSnRUwnPO-PRPeZ-M_tG_OPkcqa6MISa8wromZNrmbgLFbvsE-0zwJzYjsjEA&amp;disp=emb&amp;realattid=ii_m87fc2sm11&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="8b8bcca0-ae5e-47c1-b54c-b6c67ef14409" class=""><br/>Para <strong>SPRITE PET </strong>existe un segundo movimiento pero en este hay solo 2 UN, no las 12 con respecto al otro movimiento.</p></div><div style="display:contents" dir="ltr"><figure id="922329b9-b25a-4a0e-95f7-7ac39bf96b31" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.9&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-1LJ2QQfkM7HtK7oa9oFOWBV15Vi24-raj0v2yIwIr3WpSG8mjyz0GZyiPA6EAyO-tHvlt3x-CNgxNKDk8Emqros8ALWDCzV43lmEmJN18qMFhJG70x-3Hc1M&amp;disp=emb&amp;realattid=ii_m87ffsfx12&amp;zw"><img style="width:562px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.9&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-1LJ2QQfkM7HtK7oa9oFOWBV15Vi24-raj0v2yIwIr3WpSG8mjyz0GZyiPA6EAyO-tHvlt3x-CNgxNKDk8Emqros8ALWDCzV43lmEmJN18qMFhJG70x-3Hc1M&amp;disp=emb&amp;realattid=ii_m87ffsfx12&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="73a662b7-911b-4b34-9468-791052c0ed9a" class=""><br/>Para <strong>TEMPRANILLO ALTO LOS CARNEROS </strong>existe otro movimiento con la misma cantidad, 15 en cada uno:</p></div><div style="display:contents" dir="ltr"><figure id="5fec46a2-15a9-44f9-9627-6b632138e8d6" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.6&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ8Uw_kKATwsL05b4ryu0ipUeZiqNGVVvp7BSOpynCm0nk6h4qfReJj_LgbkM8WdebvnLjfQE-hAVQza14gk3UtyvBpWngew9MtfEaxYyhM0nwBueXF7FAQTYxk&amp;disp=emb&amp;realattid=ii_m87fm4eu13&amp;zw"><img style="width:562px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.6&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ8Uw_kKATwsL05b4ryu0ipUeZiqNGVVvp7BSOpynCm0nk6h4qfReJj_LgbkM8WdebvnLjfQE-hAVQza14gk3UtyvBpWngew9MtfEaxYyhM0nwBueXF7FAQTYxk&amp;disp=emb&amp;realattid=ii_m87fm4eu13&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="606c15a7-9bc8-438c-b7e6-a7cf098e623f" class=""><br/>Luego de la revisión, encontramos que la transferencia con ID <strong>6335374377222144 </strong>que generaba el error de inventario, estaba aplicando descuentos sobre los mismos ítems y en las mismas cantidades para tres de los cuatro artículos y una diferencia de +2 UN el ultimo con respecto al movimiento con ID <strong>5529199620521984, </strong>ya que para el ítem <strong>SPRITE PET </strong>en la <strong>6335374377222144 </strong>hay 2 UN mientras que en la <strong>5529199620521984 </strong>hay 12 UN.Con esta información, confirmamos que la transferencia con ID <strong>6335374377222144</strong> correspondía a una transferencia entre locales, la cual luego de ser confirmada,  posteriormente se reverso y eliminó del sistema.Es importante destacar que, tras reversar este movimiento, <strong>no se realizó la regeneración del inventario</strong> y este paso es crucial luego de eliminar un movimiento de inventario, ya que permite que el sistema actualice, valide y aplique correctamente los datos del inventario. La regeneración elimina los registros de la transferencia reversada, y actualiza los datos de la nueva transferencia realizada ese mismo día, es decir, la ID <strong>5529199620521984</strong>.</p></div><div style="display:contents" dir="auto"><p id="5c0ab679-298d-4110-8258-c9c113674055" class=""><strong>Ya este proceso de regeneración fue realizado de forma exitosa, también se revisó uno a uno por lo que se concluye la corrección del problema; el cliente podrá continuar con su gestión y proceso de inventarios en general, incluidas las transferencias entre locales. A continuación adjunto las imágenes que corroboran y verifican la corrección de ese movimiento con esos ingredientes:</strong><br/></p></div><div style="display:contents" dir="auto"><p id="22ac2c1c-c327-45aa-b36b-301104324cbf" class=""><strong>COCA COLA ZERO</strong></p></div><div style="display:contents" dir="ltr"><figure id="de6c66ca-6c81-42b3-9251-468b5a9e473a" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.3&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_91PXzs51Bz2DEe6A8vsSVWeNbJA2ae2_beymycjgrkQK4z53oocggscdpgf_I9XdNZCpFRpbnZTZOc46S4UtQlGXlblYQZiJYAvuoVYrLk_bvNqPLxS0yMB8&amp;disp=emb&amp;realattid=ii_m87q6h9h5&amp;zw"><img style="width:562px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.3&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_91PXzs51Bz2DEe6A8vsSVWeNbJA2ae2_beymycjgrkQK4z53oocggscdpgf_I9XdNZCpFRpbnZTZOc46S4UtQlGXlblYQZiJYAvuoVYrLk_bvNqPLxS0yMB8&amp;disp=emb&amp;realattid=ii_m87q6h9h5&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="c9810361-492e-48e6-95d1-eefc0ca68697" class=""><strong>COCA COLA PET</strong></p></div><div style="display:contents" dir="ltr"><figure id="050470c3-83cd-4c30-9a16-9b418e35e371" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.2&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_PiK5Its5pgwSz2beQWovHQF2ETP5H89ajtgSI6l4OkXD5_Efq17FxO6xh6JQwUdGxFaaYzf_RCyRg77tjUd4rzSCBu_scnhiEIvu7Az339gyfP8TCfLNvI7c&amp;disp=emb&amp;realattid=ii_m87q5r9f4&amp;zw"><img style="width:562px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.2&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_PiK5Its5pgwSz2beQWovHQF2ETP5H89ajtgSI6l4OkXD5_Efq17FxO6xh6JQwUdGxFaaYzf_RCyRg77tjUd4rzSCBu_scnhiEIvu7Az339gyfP8TCfLNvI7c&amp;disp=emb&amp;realattid=ii_m87q5r9f4&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="afac1a23-b38d-46c4-a10e-5816917f5a82" class=""><strong>SPRITE PET</strong></p></div><div style="display:contents" dir="ltr"><figure id="824c51ee-d7f7-460b-b646-ac3438a11779" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.4&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-EA-YJf3NUB2qBoU_NbNqFguPfL0ulgCzU7Xxic41yHbYJ2R4xytyJ30fCMcZkGSGc0tyxQEtJKkCY-hD06Bnr9554redbGhMBOdXK4EQstHcxojSfvOfzbvA&amp;disp=emb&amp;realattid=ii_m87q7d2z6&amp;zw"><img style="width:562px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.4&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ-EA-YJf3NUB2qBoU_NbNqFguPfL0ulgCzU7Xxic41yHbYJ2R4xytyJ30fCMcZkGSGc0tyxQEtJKkCY-hD06Bnr9554redbGhMBOdXK4EQstHcxojSfvOfzbvA&amp;disp=emb&amp;realattid=ii_m87q7d2z6&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="da86de7c-6ef6-4423-ab29-3d6e3be6d7af" class=""><strong>TEMPRANILLO ALTO LOS CARNEROS</strong></p></div><div style="display:contents" dir="ltr"><figure id="df7a47f7-5d85-485e-98cf-7b8cf3d264b4" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.5&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ9Iw0IuEefdLjmQriyRiylu3ZgmNOmex-lr68X-biUN4SfpnE61ud8Nu-r4kPFtujpO51IJyPyqQvtLFo5IHgV6VW1zdDU4BZyti30n_1Fcs9gO9Tx1-j8Bmbc&amp;disp=emb&amp;realattid=ii_m87qambh7&amp;zw"><img style="width:562px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.5&amp;permmsgid=msg-a:r704274480072250791&amp;th=1959107649037b11&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-a:r704274480072250791&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ9Iw0IuEefdLjmQriyRiylu3ZgmNOmex-lr68X-biUN4SfpnE61ud8Nu-r4kPFtujpO51IJyPyqQvtLFo5IHgV6VW1zdDU4BZyti30n_1Fcs9gO9Tx1-j8Bmbc&amp;disp=emb&amp;realattid=ii_m87qambh7&amp;zw"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

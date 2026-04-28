@@ -1,0 +1,746 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Proyectos Sergio Muñoz</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6e32fed3-67ab-4722-963b-0e09d298b250" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">💼</span></div><h1 class="page-title" dir="auto">Proyectos Sergio Muñoz</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1f776bb6-4e06-4feb-98b8-638b001fe7a8"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Consejo de Notion:</strong> te damos la bienvenida a tu gestor de proyectos, donde podrás gestionar los proyectos y tareas de todo tu equipo. Esta página contiene dos bases de datos conectadas:<div style="display:contents" dir="auto"><ul id="0de9c650-cb2a-44df-923a-c96033812315" class="bulleted-list"><li style="list-style-type:disc"><strong>:</strong> el desglose detallado de cada tarea vinculada a tus proyectos. Es donde puedes realizar un seguimiento del estado de la tarea, las fechas límite, la prioridad, las dependencias y el miembro del equipo responsable.</li></ul></div><div style="display:contents" dir="auto"><ul id="7207d921-1653-4d27-8924-190ca50da55b" class="bulleted-list"><li style="list-style-type:disc">: esta es tu perspectiva general de todos los proyectos en curso. Haz clic en cada proyecto para ver más detalles sobre periodos, miembros del equipo asignados, actualizaciones de estado y sus tareas vinculadas.</li></ul></div><div style="display:contents" dir="auto"><p id="85a3cfc1-ff26-4f76-9bbd-7117853f14c7" class=""><br/>Para aprender a usar esta plantilla, echa un vistazo a <a href="https://www.notion.so/es-la/help/guides/accomplish-more-with-connected-project-management">esta guía</a>.</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="9c64cb70-7c34-4e4f-88f6-48a05af6e75c" class="">
+</p></div><div style="display:contents" dir="auto"><p id="cfab2dfa-fb19-4e1e-b130-bec71aa47385" class=""><mark class="highlight-gray">↓ Haz clic en las distintas pestañas de la base de datos para ver los mismos datos de distintas formas. Empieza haciendo clic en “📬 Campaña de marketing” para ver un proyecto de ejemplo y sus tareas asociadas.</mark></p></div><div style="display:contents" dir="ltr"><div id="3442a133-86b3-474a-a60a-03d72eb553ed" class="collection-content"><h4 class="collection-title">Tareas</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Nombre de la tarea</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha límite</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Prioridad</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/no-entry_gray.svg" style="width:14px;height:14px;display:block"/></span>Bloqueado por</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>Bloqueando</th></tr></thead><tbody><tr id="a7f76acd-2384-4582-98dd-1ca673162b48"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Seguimiento%20Sprint%2041%20a7f76acd2384458298dd1ca673162b48.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Seguimiento Sprint 41</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://tasks/due_date_property"><time>4 de julio de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Seguimiento</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="c6ced405-a2b9-4c29-a8ab-a509e593a5ff"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Redactar%20M%C3%B3dulo%201%20c6ced405a2b94c29a8aba509e593a5ff.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Redactar Módulo 1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://tasks/due_date_property"><time>5 de julio de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="30ef193d-7e85-4253-8eb6-d94ccb49abef"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Seguimiento%20Sprint%2042%2030ef193d7e8542538eb6d94ccb49abef.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Seguimiento Sprint 42</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://tasks/due_date_property"><time>18 de julio de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Seguimiento</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="93140205-6caa-4c83-aca5-a1646e79ff96"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Redactar%20M%C3%B3dulo%202%20931402056caa4c83aca5a1646e79ff96.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Redactar Módulo 2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://tasks/due_date_property"><time>19 de julio de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="26c7dc64-20b2-4ce2-b200-aa7c7a227a30"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Redactar%20M%C3%B3dulo%203%2026c7dc6420b24ce2b200aa7c7a227a30.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Redactar Módulo 3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://tasks/due_date_property"><time>2 de agosto de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="455a8662-927e-4cf1-92e9-5c7d78a5858a"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Casos%20frecuentes%20levantados%20por%20SAC%20455a8662927e4cf192e95c7d78a5858a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Casos frecuentes levantados por SAC</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://tasks/due_date_property"><time>14 de agosto de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Investigación</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="58e5eb5d-fd5f-4295-bfe6-0ddd3a718803"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Seguimiento%20Sprint%2044%2058e5eb5dfd5f4295bfe60ddd3a718803.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Seguimiento Sprint 44</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://tasks/due_date_property"><time>18 de agosto de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Seguimiento</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="92a62212-4c1c-48ba-be68-4938df40132f"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Seguimiento%20Sprint%2043%2092a622124c1c48babe684938df40132f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Seguimiento Sprint 43</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://tasks/due_date_property"><time>18 de agosto de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Seguimiento</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="d40f6658-88f3-4816-b2ea-c5dc8ea4cf2b"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Redactar%20M%C3%B3dulo%204%20d40f665888f34816b2eac5dc8ea4cf2b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Redactar Módulo 4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://tasks/due_date_property"><time>5 de septiembre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="4f9942fc-f439-4fc5-8c4d-fc69d38711d9"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Redactar%20M%C3%B3dulo%205%204f9942fcf4394fc58c4dfc69d38711d9.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Redactar Módulo 5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://tasks/due_date_property"><time>5 de septiembre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="b2eac8b7-ad8e-44dd-8a5b-604c8c621170"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Redactar%20M%C3%B3dulo%206%20b2eac8b7ad8e44dd8a5b604c8c621170.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Redactar Módulo 6</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://tasks/due_date_property"><time>10 de octubre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="12239073-1e23-80ff-afb7-de3efb32db43"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Protocolo%20atenci%C3%B3n%20CS%20122390731e2380ffafb7de3efb32db43.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Protocolo atención CS</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://tasks/due_date_property"><time>24 de octubre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="ec2110bb-3fb7-460a-a9ee-869919fbd345"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Redactar%20M%C3%B3dulo%207%20ec2110bb3fb7460aa9ee869919fbd345.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Redactar Módulo 7</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://tasks/due_date_property"><time>24 de octubre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="fa8ee403-5ffc-4b01-bed5-08f5315eae9e"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Redactar%20M%C3%B3dulo%208%20fa8ee4035ffc4b01bed508f5315eae9e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Redactar Módulo 8</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://tasks/due_date_property"><time>31 de octubre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="19739073-1e23-801a-8f09-d06f74bc9313"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Quiz%20Stock%20Control%20197390731e23801a8f09d06f74bc9313.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Quiz Stock Control</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIfdmQa1sU9RSIBpwRErslZNIx8VnartZED4-xTi-itsXoFpu8=s100" class="icon user-icon"/>Sergio Muñoz</span></td><td class="cell-notion://tasks/due_date_property"><time>15 de febrero de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Investigación</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="18b39073-1e23-8028-b356-d58e83428da4"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Clientes%20en%20revisi%C3%B3n%202025%2018b390731e238028b356d58e83428da4.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Clientes en revisión 2025</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIfdmQa1sU9RSIBpwRErslZNIx8VnartZED4-xTi-itsXoFpu8=s100" class="icon user-icon"/>Sergio Muñoz</span></td><td class="cell-notion://tasks/due_date_property"><time>28 de febrero de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Seguimiento</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="22539073-1e23-8017-a436-c29163419e9e"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Tarea%20225390731e238017a436c29163419e9e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Tarea</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="1dc39073-1e23-80e9-bf27-e0010b6e005a"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Check%20list%20Revisiones%20SF%20(KAM%20OB)%201dc390731e2380e9bf27e0010b6e005a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Check list Revisiones SF (KAM OB)</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="19739073-1e23-8086-980b-c84ebdce237c"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Tarea%20197390731e238086980bc84ebdce237c.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Tarea</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="19739073-1e23-806d-9ddc-ed85d9f3854e"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Tarea%20197390731e23806d9ddced85d9f3854e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Tarea</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="19739073-1e23-8019-9e91-f021e500569f"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Sin%20t%C3%ADtulo%20197390731e2380199e91f021e500569f.html">Sin título</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="18b39073-1e23-8089-98e3-cc5c7d2424ac"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Caso%20migraci%C3%B3n%2018b390731e23808998e3cc5c7d2424ac.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Caso migración</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="f93d4a44-0ea8-45ea-bf6e-6974bce8f0c2"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Imagenes%20f93d4a440ea845eabf6e6974bce8f0c2.html">Imagenes</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="482a6a61-dafd-4669-ac40-bb957707fbfe"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/An%C3%A1lisis%20de%20causas%20frecuentes%20482a6a61dafd4669ac40bb957707fbfe.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Análisis de causas frecuentes</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="3fdfc2d5-2091-41a5-92dd-663184981dd4"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Identificar%20causas%20frecuentes%203fdfc2d5209141a592dd663184981dd4.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Identificar causas frecuentes</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="6de6c354-4318-4686-aecf-09f92568801b"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Identificar%20n%C3%BAmero%20incidencias%20Slack%206de6c35443184686aecf09f92568801b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Identificar número incidencias Slack</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="4b5a4f82-a400-4ba9-a74b-9dc5f481ed24"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/Identificar%20n%C3%BAmero%20incidencias%20Intercom%204b5a4f82a4004ba9a74b9dc5f481ed24.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Identificar número incidencias Intercom</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="4e56cc27-f19b-4a60-a7da-3800e4c9791a"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%207%204%204e56cc27f19b4a60a7da3800e4c9791a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="7a538748-15d3-435d-8132-8f57bd4ef13e"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%205%205%207a53874815d3435d81328f57bd4ef13e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="bef0aa09-bbc8-480c-ac88-104557222451"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%206%205%20bef0aa09bbc8480cac88104557222451.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="e348490f-a4a8-4419-b2f1-b22dc0a8143e"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%205%206%20e348490fa4a84419b2f1b22dc0a8143e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.6</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="0a0b0837-141a-4b93-8910-48355aab521c"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%207%201%200a0b0837141a4b93891048355aab521c.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="1393d93f-5f5c-4fca-9fed-f6d9c988c8e9"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%204%202%201393d93f5f5c4fca9fedf6d9c988c8e9.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="5b9adfb3-69a5-4678-a039-731d03f2c8c4"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%203%206%205b9adfb369a54678a039731d03f2c8c4.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.6</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="ae50dafc-4614-4f2e-b77c-2d70a216eba9"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%204%203%20ae50dafc46144f2eb77c2d70a216eba9.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="c8d5c7cd-a3ae-4336-9a5e-7886c71e34bd"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%205%203%20c8d5c7cda3ae43369a5e7886c71e34bd.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="f0428807-cfb8-4c02-9e12-e3e824358290"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%202%201%20f0428807cfb84c029e12e3e824358290.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="01e69d4a-a197-46dd-b6fc-a58fd083ae7b"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%205%202%2001e69d4aa19746ddb6fca58fd083ae7b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="0800187d-a4e1-463e-a830-5143565730cf"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%203%204%200800187da4e1463ea8305143565730cf.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="39fc18dd-d252-428d-a154-af1deacf155d"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%201%203%2039fc18ddd252428da154af1deacf155d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 1.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="6b7f8136-1b1a-46f6-9334-0fca2f202191"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%208%201%206b7f81361b1a46f693340fca2f202191.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 8.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="aba14985-0d67-4e5f-b860-0814631a13be"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%204%204%20aba149850d674e5fb8600814631a13be.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="abc06346-fd68-4b94-a4b1-41c5dad8740e"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%206%202%20abc06346fd684b94a4b141c5dad8740e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="b3bfdf1d-4e67-4ad0-b7ba-7bedaab26372"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%205%204%20b3bfdf1d4e674ad0b7ba7bedaab26372.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="cdf93bae-2603-421c-b8bd-ed46da5df468"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%207%203%20cdf93bae2603421cb8bded46da5df468.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="e02e3e5e-f462-4e1c-8836-ec475f1b8b71"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%208%203%20e02e3e5ef4624e1c8836ec475f1b8b71.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 8.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="ed62b1b5-fcbd-4c54-a8bf-24154ccea1d4"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%208%202%20ed62b1b5fcbd4c54a8bf24154ccea1d4.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 8.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="01f50319-7796-4e28-91e1-27225352dbf1"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%207%205%2001f5031977964e2891e127225352dbf1.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="62c7369c-34a3-407e-8c51-bbaa1ffa1b1e"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%203%202%2062c7369c34a3407e8c51bbaa1ffa1b1e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="c50ea38d-8411-490b-abe6-420d9b62b59e"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%202%205%20c50ea38d8411490babe6420d9b62b59e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="e881e302-3239-4b3a-abfa-f8ab367fd9d7"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%207%206%20e881e30232394b3aabfaf8ab367fd9d7.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.6</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="eeb9cf9f-c773-4d78-8c98-9dba7c42aa7f"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%207%202%20eeb9cf9fc7734d788c989dba7c42aa7f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="f3c37413-c1d6-4206-8df1-ff27ca7cf65c"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%202%204%20f3c37413c1d642068df1ff27ca7cf65c.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="04d8135c-f45e-48b6-88a4-e22d0bf55f18"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%206%201%2004d8135cf45e48b688a4e22d0bf55f18.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="8c4f11c6-365c-468c-a493-5e67b0ebfd51"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%206%204%208c4f11c6365c468ca4935e67b0ebfd51.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="c228fc8e-86e5-4a8a-8cb3-3b9dce30a6ad"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%203%205%20c228fc8e86e54a8a8cb33b9dce30a6ad.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="4388e6b3-a01d-4e8c-be32-21f7c447e5f0"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%201%201%204388e6b3a01d4e8cbe3221f7c447e5f0.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 1.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="5bcc3a7a-b51e-467f-8ba3-c5a57b5f1da3"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%202%203%205bcc3a7ab51e467f8ba3c5a57b5f1da3.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="e3910a9b-c538-45a7-937d-ca099d09bb7c"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%204%205%20e3910a9bc53845a7937dca099d09bb7c.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="ed327493-3d24-44d1-8579-d5ac277d9ed7"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%204%201%20ed3274933d2444d18579d5ac277d9ed7.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="0d52214f-df07-4f15-8ee5-6725f230a5e8"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%201%202%200d52214fdf074f158ee56725f230a5e8.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 1.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="3a0a36c2-57da-4306-96ed-649dc106d07c"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%203%203%203a0a36c257da430696ed649dc106d07c.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="6080f089-e642-4975-9a38-91b11d099d1b"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%203%201%206080f089e64249759a3891b11d099d1b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="77922647-b181-41bd-93d3-ae55557734e9"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%206%203%2077922647b18141bd93d3ae55557734e9.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="df751e38-8420-4969-beb4-41e4df97c1c4"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%205%201%20df751e3884204969beb441e4df97c1c4.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="eaabcd13-92e7-478d-b899-7ba53d794a68"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Tareas/M%C3%B3dulo%202%202%20eaabcd1392e7478db8997ba53d794a68.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><p id="f9cc9bc3-7d75-4f0d-9bfe-9563531d23c6" class="">
+</p></div><div style="display:contents" dir="auto"><p id="eb36aa79-723b-4c9f-bfa7-de9f7dfe650a" class=""><mark class="highlight-gray">↓ Haz clic en las distintas pestañas de la base de datos para ver los mismos datos de distintas formas. Pasa el cursor por encima de cualquier nombre de proyecto y haz clic en </mark><mark class="highlight-gray"><code>◨ ABRIR</code></mark><mark class="highlight-gray"> para ver más información y sus tareas asociadas.</mark></p></div><div style="display:contents" dir="ltr"><div id="0daa2a89-e69c-411c-b981-48ecf82c0d3f" class="collection-content"><h4 class="collection-title">Proyectos</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Project name</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Periodo</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Prioridad</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/activity_gray.svg" style="width:14px;height:14px;display:block"/></span>% completado</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/no-entry_gray.svg" style="width:14px;height:14px;display:block"/></span>Bloqueado por</th></tr></thead><tbody><tr id="c71eeec3-433e-4a50-aff8-05460cd8ef54"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Proyectos/Estudio%20de%20investigaci%C3%B3n%20c71eeec3433e4a50aff805460cd8ef54.html"><span class="icon">📑</span>Estudio de investigación</a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>En curso</span></td><td class="cell-notion://projects/people_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://projects/project_dates_property"><time>23 de abril de 2023 → 22 de mayo de 2023</time></td><td class="cell-notion://projects/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://projects/completion_rollup">0.5</td><td class="cell-notion://projects/project_blocked_by_relation"></td></tr><tr id="ca77fe1b-4261-48a7-a9d5-23fddb05513c"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Proyectos/Seguimiento%20RFP%20ca77fe1b426148a7a9d523fddb05513c.html"><span class="icon">📋</span>Seguimiento RFP</a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>En curso</span></td><td class="cell-notion://projects/people_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://projects/project_dates_property"><time>24 de abril de 2023 → 7 de mayo de 2023</time></td><td class="cell-notion://projects/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://projects/completion_rollup">0</td><td class="cell-notion://projects/project_blocked_by_relation"></td></tr><tr id="91e906e8-2223-4769-9a23-2edd79c5feec"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Proyectos/Realizaci%C3%B3n%20Contenido%20Flujo%20de%20Capacitaci%C3%B3n%20Stock%20%2091e906e8222347699a232edd79c5feec.html"><span class="icon">🎨</span>Realización Contenido Flujo de Capacitación Stock Control</a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>En curso</span></td><td class="cell-notion://projects/people_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Marcelo Sepulveda</span></td><td class="cell-notion://projects/project_dates_property"><time>10 de mayo de 2023 → 30 de noviembre de 2023</time></td><td class="cell-notion://projects/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://projects/completion_rollup">1</td><td class="cell-notion://projects/project_blocked_by_relation"></td></tr><tr id="11f39073-1e23-800c-bdc4-cf6bf9eb4535"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Proyectos/Guia%20Protocolo%20Stock%20Control%2011f390731e23800cbdc4cf6bf9eb4535.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/target_lightgray.svg"/>Guia Protocolo Stock Control</a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>En curso</span></td><td class="cell-notion://projects/people_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">P</span></span>Pao Rodríguez</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">L</span></span>Luciano Elizondo</span></td><td class="cell-notion://projects/project_dates_property"></td><td class="cell-notion://projects/priority_property"></td><td class="cell-notion://projects/completion_rollup"></td><td class="cell-notion://projects/project_blocked_by_relation"></td></tr><tr id="14939073-1e23-801b-a1f2-d48bcac27dcb"><td class="cell-title"><a href="Proyectos%20Sergio%20Mu%C3%B1oz/Proyectos/Bajada%20Sac%20Inventarios%20149390731e23801ba1f2d48bcac27dcb.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/target_lightgray.svg"/>Bajada Sac Inventarios</a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>En curso</span></td><td class="cell-notion://projects/people_property"></td><td class="cell-notion://projects/project_dates_property"></td><td class="cell-notion://projects/priority_property"></td><td class="cell-notion://projects/completion_rollup"></td><td class="cell-notion://projects/project_blocked_by_relation"></td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><p id="c46aa423-2bfa-46dd-8b41-0b84380f59ee" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

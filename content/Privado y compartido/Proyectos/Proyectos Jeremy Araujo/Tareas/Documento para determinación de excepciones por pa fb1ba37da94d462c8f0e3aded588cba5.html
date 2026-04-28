@@ -1,0 +1,744 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Documento para determinación de excepciones por país</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="fb1ba37d-a94d-462c-8f0e-3aded588cba5" class="page sans"><header><div class="page-header-icon undefined"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/></div><h1 class="page-title" dir="auto">Documento para determinación de excepciones por país</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jeremy Araujo</span></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha límite</th><td><time>18 de julio de 2024</time></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/target_gray.svg" style="width:14px;height:14px;display:block"/></span>Proyecto</th><td><a href="../Proyectos/Estudio%20de%20investigaci%C3%B3n%205ad19fb1b9f141339ddce29be6172176.html"><span class="icon">📑</span>Estudio de investigación</a></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list-indent_gray.svg" style="width:14px;height:14px;display:block"/></span>Subtareas</th><td><a href="Obtener%20informaci%C3%B3n%20asociada%20las%20excepciones%20reali%202e40da05ed924111b739df1678d98f6b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Obtener información asociada las excepciones realizadas</a>, <a href="Realizar%20comparaci%C3%B3n%20mensual%20por%20pa%C3%ADs%20e0c147b2b606420ead30c28aff810663.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Realizar comparación mensual por país</a>, <a href="An%C3%A1lisis%20de%20resultados%206db78c89170e4e528e02d153dd5b0c36.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Análisis de resultados</a></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Prioridad</th><td><span class="selected-value select-value-color-yellow">Media</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td><span class="selected-value select-value-color-gray">Investigación</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><table id="04de666d-3b29-4e65-b268-1f2ebb9ae1dd" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="8347af7e-423a-4331-877d-18d19dea4094"><td id="PET_" class="">LINEAMIENTOS PARA EXCEPCIONES DE <br/>PC PRINCIPAL EN LOCALES</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1b6100d7-14bf-4681-ba4a-c09df417380c" class=""><strong>Introducción</strong></p></div><div style="display:contents" dir="auto"><p id="294b4a8b-67c0-4730-81d9-0fe5dab236e7" class="">El presente informe tiene como objetivo detallar las excepciones que se pueden realizar al momento de implementar un PC principal en un local. Este documento busca clarificar los escenarios en los cuales se podrían realizar ajustes o desviaciones del plan estándar de implementación, con el fin de asegurar una operación eficiente y adaptada a las necesidades específicas de cada local.</p></div><div style="display:contents" dir="auto"><p id="2343ec31-3ef3-4a84-a15c-44efbb72ab6e" class=""><strong>1.- Compatibilidad de Hardware</strong></p></div><div style="display:contents" dir="auto"><p id="34f0e0f9-d3bf-4d4d-a828-b7e2d21df724" class="">Actualmente existen una gran cantidad de modelos de procesadores en las diferentes marcas, como lo son Intel y Amd, y a su vez estos pueden ser diferenciados por gama baja, media o alto rendimiento, a continuaron se detallarán los procesadores que no cumplen como equipo principal para Toteat y estos son de gama baja y que a su vez no pueden ser utilizados en equipos con actualizaciones recientes como lo es Windows 10 y 11.</p></div><div style="display:contents" dir="auto"><p id="2a1c9e70-e42c-45c9-8949-0cc7c5cbe86f" class="">INTEL</p></div><div style="display:contents" dir="auto"><hr id="260bff21-38b4-4096-9197-c990a65bd4ab"/></div><div style="display:contents" dir="auto"><p id="e4abf087-4686-4f26-a9ca-c97fd4b00fd3" class="">Procesadores Intel que <strong>NO</strong> cumplen con el mínimo</p></div><div style="display:contents" dir="auto"><hr id="3918c8ba-6ac9-4472-a358-bdcafc63d34d"/></div><div style="display:contents" dir="auto"><p id="03823a74-6d5c-4872-9e23-35f2568af1d4" class=""><strong>(1 y 2 núcleos – GHz 1.1 hasta 1.5GHz gama baja o antigua)</strong></p></div><div style="display:contents" dir="auto"><hr id="ba32ab8f-8865-47c8-8dc3-2730bedfc7b9"/></div><div style="display:contents" dir="auto"><hr id="36e2d2db-c436-497e-8c35-ac827ee6844b"/></div><div style="display:contents" dir="auto"><p id="e268772b-9b81-4031-a867-adf00c23bc6f" class="">1.- Atom 200/300-Series</p></div><div style="display:contents" dir="auto"><hr id="25f8e277-87e5-4253-8e37-c846ded0b526"/></div><div style="display:contents" dir="auto"><p id="89a97f34-4b85-4228-96af-b634624a661e" class="">2.- Legacy Celeron</p></div><div style="display:contents" dir="auto"><hr id="943d3acd-70dc-45a6-aed3-b146547e79a2"/></div><div style="display:contents" dir="auto"><p id="28ea1cac-e4d3-4ecb-8049-241c737abcf3" class="">3.- Legacy Celeron Processors</p></div><div style="display:contents" dir="auto"><hr id="f4ea6ccf-5143-4db4-8c89-91f357dbd4ad"/></div><div style="display:contents" dir="auto"><p id="9d541b48-4845-417d-8170-13b79093ab1d" class="">4.- Celeron 200/300/400-Series</p></div><div style="display:contents" dir="auto"><hr id="6ccd6e2e-11af-4011-b487-843882456962"/></div><div style="display:contents" dir="auto"><p id="8325797e-ad10-4f98-9ef9-ea0ce1d0ebae" class="">5.- Celeron 700/800/900-Series</p></div><div style="display:contents" dir="auto"><hr id="91578808-5693-4b06-84d7-24e71446a4d6"/></div><div style="display:contents" dir="auto"><p id="3de3a2f2-36dd-48b2-8795-623afcc3faeb" class="">6.- Celeron S-Series</p></div><div style="display:contents" dir="auto"><hr id="f1e07de9-37f7-4395-9cb2-7d13a8434356"/></div><div style="display:contents" dir="auto"><p id="5409eaa3-4a23-4f34-8927-9ef66ceebb35" class="">7.- Celeron U-Series</p></div><div style="display:contents" dir="auto"><hr id="45f92700-f227-4ad6-978d-e756ee8f9b49"/></div><div style="display:contents" dir="auto"><p id="d6715fd9-a7c6-4ee0-ba6b-425bcc072cad" class="">8.- Pentium 500/600/700/800/900 (Series)</p></div><div style="display:contents" dir="auto"><hr id="5d0ed827-e934-4927-88cf-f3229eb43c7f"/></div><div style="display:contents" dir="auto"><p id="41553de0-e206-4f08-b454-2cbcf4e1dc59" class="">10.- Pentium U-Series</p></div><div style="display:contents" dir="auto"><hr id="7a196578-cdf0-4f02-9e53-418c7813bc56"/></div><div style="display:contents" dir="auto"><p id="0504681d-bc4f-46bb-94ae-e5ed6f71b5b0" class="">11.- Core Solo</p></div><div style="display:contents" dir="auto"><hr id="4eb67121-c566-4420-9c78-4a65af681de2"/></div><div style="display:contents" dir="auto"><p id="edfecee1-0498-4b62-9078-a98ffb90ecdc" class="">12.- Legacy Xeon Processors</p></div><div style="display:contents" dir="auto"><hr id="2a405ca4-d1dc-4566-8907-8632aad8b006"/></div><div style="display:contents" dir="auto"><p id="6266b4fd-7113-4432-99bb-b433160ecdc3" class="">13.- Core 2 Solo</p></div><div style="display:contents" dir="auto"><hr id="43ecbe64-6525-4ced-b330-5118075a94da"/></div><div style="display:contents" dir="auto"><p id="dea54780-a6d3-46d7-aab0-2e4549f2d2a6" class="">14.- Xeon 3000-Series</p></div><div style="display:contents" dir="auto"><hr id="c3d413cb-06c6-46bc-a5d0-d64179d204e2"/></div><div style="display:contents" dir="auto"><p id="c2291e3f-22b9-42a5-b363-4d02ca8a4ee8" class="">15.- Atom Z-Series</p></div><div style="display:contents" dir="auto"><hr id="32823db8-6dda-4884-8584-5f8bf50270a4"/></div><div style="display:contents" dir="auto"><p id="793c6800-308f-4aed-a847-ab3e8f5a5c82" class="">16.- Celeron N-Series</p></div><div style="display:contents" dir="auto"><hr id="cab25614-423a-481a-8f0a-1ad51e8041d3"/></div><div style="display:contents" dir="auto"><p id="f85c824c-bb9d-489f-8a1a-ee09b41af497" class="">16.- Celeron P-Series</p></div><div style="display:contents" dir="auto"><hr id="f298ca27-f4de-4c4c-81d6-f191e47d7377"/></div><div style="display:contents" dir="auto"><p id="3f73f9a7-5d8d-4a97-871d-fea84613cf57" class="">18.- Celeron T-Series</p></div><div style="display:contents" dir="auto"><hr id="5d463b85-03ae-4d64-98b4-fec619dd0f23"/></div><div style="display:contents" dir="auto"><p id="313347cb-7e64-4e09-aaf4-2b41a492f7e4" class="">18.- Core Duo</p></div><div style="display:contents" dir="auto"><hr id="9b0e82f8-a19d-439e-ad8e-1af9eb7e76a1"/></div><div style="display:contents" dir="auto"><p id="b46060a8-9028-4a35-a5a2-9e61704c515c" class="">20.- Atom D-Series</p></div><div style="display:contents" dir="auto"><hr id="a4353dc6-1f4c-4f72-a388-b70fd5135478"/></div><div style="display:contents" dir="auto"><p id="3e01fc60-2f46-4a18-a521-ab848f8a90a7" class="">21.- Atom C-Series</p></div><div style="display:contents" dir="auto"><hr id="4b1da546-a700-42f9-987b-52c9e30bc7b6"/></div><div style="display:contents" dir="auto"><p id="dd75809f-90a3-4503-8856-e18987927ebc" class="">22.- Pentium 1000-Series</p></div><div style="display:contents" dir="auto"><hr id="927570f1-ddd5-49ca-8acb-6d47e72c5b72"/></div><div style="display:contents" dir="auto"><p id="d5cae2ab-205a-490b-8959-fb108796bc02" class="">Pentium 1405</p></div><div style="display:contents" dir="auto"><hr id="4ce7218f-fc39-42f1-989b-7bb3f251adad"/></div><div style="display:contents" dir="auto"><p id="3b790239-82f2-4a27-86f4-0eab1e649490" class="">Pentium A1018</p></div><div style="display:contents" dir="auto"><hr id="4a8b2908-02bc-4ac7-89a2-4db389d3cd68"/></div><div style="display:contents" dir="auto"><p id="94306de0-26ca-4906-bcc6-a54ae6a4feab" class="">Pentium A1018</p></div><div style="display:contents" dir="auto"><hr id="889aba6b-7cc3-4314-ba2d-01d40bbcb50b"/></div><div style="display:contents" dir="auto"><p id="6e4ac9af-bb83-4b2f-9ca5-352ae9141d79" class="">Pentium A1018</p></div><div style="display:contents" dir="auto"><hr id="a9ee89b2-25ca-4360-9a26-4ef38e556e2b"/></div><div style="display:contents" dir="auto"><p id="fe16f8d6-e3b0-4008-babb-0bee0e6ab0ab" class="">Pentium 1405 v2</p></div><div style="display:contents" dir="auto"><hr id="6a796914-4c7c-407f-844e-90122864accb"/></div><div style="display:contents" dir="auto"><p id="3c412da8-8640-4fde-87f5-dbb076621451" class="">23.- Pentium E-Series</p></div><div style="display:contents" dir="auto"><hr id="1c06b4e6-2cea-43dc-98c7-9aa522d26a46"/></div><div style="display:contents" dir="auto"><p id="68553771-2e6e-461c-bdc0-d527dc57ed9a" class="">24.- Pentium B-Series</p></div><div style="display:contents" dir="auto"><hr id="53c06ce6-9917-4617-8643-3bcc4fe4d14d"/></div><div style="display:contents" dir="auto"><p id="3ae61f9f-69ba-4712-96ee-7cc846ceb913" class="">25.- Pentium 2000-Series</p></div><div style="display:contents" dir="auto"><hr id="95463982-1a05-4bc1-8337-aaf2249f0280"/></div><div style="display:contents" dir="auto"><p id="bd37936b-7a30-41fe-b795-c8af67f02beb" class="">26.- Pentium 3000-Series</p></div><div style="display:contents" dir="auto"><hr id="d899500d-439b-4a1d-9537-629612c01cd9"/></div><div style="display:contents" dir="auto"><p id="230ac589-d4dd-49b0-ac6b-3eb21d9d5009" class="">27.- Pentium 4000-Series</p></div><div style="display:contents" dir="auto"><hr id="6c2626d2-f4f1-48a9-b0ca-1c4303407ab7"/></div><div style="display:contents" dir="auto"><p id="b2b11f64-c745-492a-98a1-b0d556ade565" class="">28.- Pentium G-Series</p></div><div style="display:contents" dir="auto"><hr id="50793d50-e248-47f8-a126-1a6771fcbea0"/></div><div style="display:contents" dir="auto"><p id="ec1aa591-19c4-4e33-a098-9eb0397e6bd2" class="">29.- Pentium P-Series</p></div><div style="display:contents" dir="auto"><hr id="3fb146dd-8b87-450f-80a7-62b41142324d"/></div><div style="display:contents" dir="auto"><p id="791a43cf-fca8-4156-b410-808c3969a917" class="">30.- Pentium T-Series</p></div><div style="display:contents" dir="auto"><hr id="a29d76a9-c806-4896-9671-3f849edc09cc"/></div><div style="display:contents" dir="auto"><p id="e41ceba9-c2ed-4bc5-80d6-21c8ac39de81" class="">31.- Itanium 9000-Series</p></div><div style="display:contents" dir="auto"><hr id="77b00622-ea3e-4ce9-89a0-b258c0e73979"/></div><div style="display:contents" dir="auto"><p id="cc4df29e-f472-435d-a6e2-886b88476e32" class="">32.- Itanium 9100-Series</p></div><div style="display:contents" dir="auto"><hr id="6e68f0a6-cdab-45c4-9165-4afa1c878442"/></div><div style="display:contents" dir="auto"><p id="cb71e9fb-c680-4e2a-812a-4e587831d0c2" class="">33.- Xeon 5000-Series</p></div><div style="display:contents" dir="auto"><hr id="9a0dc801-d9e0-4c6c-8cd9-d8895bd8bfe0"/></div><div style="display:contents" dir="auto"><p id="40af9ad4-b4c6-4829-a156-d18798e1db34" class="">34.- Xeon 7000-Series</p></div><div style="display:contents" dir="auto"><hr id="d6fe83e6-89f1-443a-9e03-c7e8c4298867"/></div><div style="display:contents" dir="auto"><p id="f034fa39-28d9-48bd-a83f-11c05b85f18e" class="">35.- Atom X-Series</p></div><div style="display:contents" dir="auto"><hr id="4d6ed5e5-88ad-4b90-893b-30a713526255"/></div><div style="display:contents" dir="auto"><p id="96ac54d1-5f21-4bfc-b09b-6e18a357c843" class="">Atom x5-E3930</p></div><div style="display:contents" dir="auto"><hr id="316dbfc8-35a5-449b-a993-8eba57c2fd82"/></div><div style="display:contents" dir="auto"><p id="10e97a04-1bbd-40d7-877a-7861fb912214" class="">Atom x5-E3930</p></div><div style="display:contents" dir="auto"><hr id="32623a50-0aca-492e-b62f-920e59a2aa68"/></div><div style="display:contents" dir="auto"><p id="762ebdbd-a765-4290-8ac6-b12ae474f004" class="">Atom x5-E8000</p></div><div style="display:contents" dir="auto"><hr id="6f55edc8-921b-4ce5-ba24-195be6d1894e"/></div><div style="display:contents" dir="auto"><p id="95cd042d-a349-4809-9ff2-08ce41dc8e50" class="">36.- Atom S-Series</p></div><div style="display:contents" dir="auto"><hr id="22b4d3ab-7803-47a0-a792-fbbaab02711e"/></div><div style="display:contents" dir="auto"><p id="e1bff52b-5e6f-40f0-b3e1-3c9c0cfb37fa" class="">37.- Atom N-Series</p></div><div style="display:contents" dir="auto"><hr id="cf217ce2-7187-4a70-acc3-e84509080e29"/></div><div style="display:contents" dir="auto"><p id="cafaa3e4-55a5-4864-bb7d-3849f341e2f7" class="">38.- Atom E-Series</p></div><div style="display:contents" dir="auto"><hr id="c8014e94-f292-4f3d-83e5-e994cf4b6f17"/></div><div style="display:contents" dir="auto"><p id="c18a3e37-2ae0-4d38-8747-afa9601431e7" class="">39.- Intel Core M</p></div><div style="display:contents" dir="auto"><hr id="ab7842a1-4857-4ad3-a923-f32711033a65"/></div><div style="display:contents" dir="auto"><p id="93de60ff-fde4-4aa2-999c-85bd92cf4463" class="">40.- Intel Celeron J-Series</p></div><div style="display:contents" dir="auto"><hr id="5bd2f25a-9484-47b7-88ab-351cb253915d"/></div><div style="display:contents" dir="auto"><p id="33e18371-6b9b-4022-96bd-52e8cf38fa96" class="">Celeron J3355</p></div><div style="display:contents" dir="auto"><hr id="3518c93c-8265-41b2-a6b3-40c689cae3eb"/></div><div style="display:contents" dir="auto"><p id="d7ac196a-75b5-484a-8e20-ba0243ec0cb4" class="">Celeron J1750</p></div><div style="display:contents" dir="auto"><hr id="1ccb4ee0-a0e0-410b-bad7-2e44431761e3"/></div><div style="display:contents" dir="auto"><p id="9ba44f06-aec4-4fac-a885-c71507bec297" class="">Celeron J1800</p></div><div style="display:contents" dir="auto"><hr id="0a1389bc-11f6-49f1-83d9-29e6369e400b"/></div><div style="display:contents" dir="auto"><p id="1e38611e-cf8e-44e8-902a-5f4f427deeae" class="">Celeron J1800</p></div><div style="display:contents" dir="auto"><hr id="5fde9b06-2c62-4c61-aeaf-fee6bf6be031"/></div><div style="display:contents" dir="auto"><p id="0bb6a780-c0e6-4283-b913-0c1c5153908d" class="">Celeron J1800</p></div><div style="display:contents" dir="auto"><hr id="5a7c2a76-ed82-407f-b4ac-795eeb9e3779"/></div><div style="display:contents" dir="auto"><p id="dc544aec-c0e9-4c56-8c30-2f0a4f95f481" class="">AMD</p></div><div style="display:contents" dir="auto"><hr id="24a6bca1-2a8b-4b36-888f-7fc4d3db9793"/></div><div style="display:contents" dir="auto"><p id="5f889897-f35d-48ed-8776-44b208b29426" class="">Procesadores AMD que <strong>NO</strong> cumplen con el mínimo (1 y 2 núcleos)</p></div><div style="display:contents" dir="auto"><hr id="645c470d-f771-4f72-b357-94877fbf0683"/></div><div style="display:contents" dir="auto"><hr id="6fed53cf-7274-450b-9f37-5b53e1fc5033"/></div><div style="display:contents" dir="auto"><p id="83bb8fc0-42ad-4b54-af8b-cb13229fb034" class="">1.- Athlon II</p></div><div style="display:contents" dir="auto"><hr id="7651c0cc-7120-432e-ace4-68dc4435e5d0"/></div><div style="display:contents" dir="auto"><p id="3b0042d7-ea73-4e76-9582-75cf05d5a771" class="">2.- Sempron</p></div><div style="display:contents" dir="auto"><hr id="7bb2550c-b627-49d2-ab60-bc79147ed39b"/></div><div style="display:contents" dir="auto"><p id="d170f341-06f4-400f-819d-a4198c6eac2f" class="">3.- AMD E1</p></div><div style="display:contents" dir="auto"><hr id="3001414c-42d7-47dc-ba95-e5f441fa8b12"/></div><div style="display:contents" dir="auto"><p id="d54c8172-ce70-4e2a-8f54-e9d2fc552a4d" class="">4.- AMD A4</p></div><div style="display:contents" dir="auto"><hr id="75a584cc-60a4-4c46-a6fd-d0124da3950e"/></div><div style="display:contents" dir="auto"><p id="622910e3-58c6-4b44-96b5-9cbe3ffe6512" class="">5.- Athlon II X2</p></div><div style="display:contents" dir="auto"><hr id="db03128a-f1a7-41e5-920c-2551e5a2306e"/></div><div style="display:contents" dir="auto"><p id="5f534729-aad7-4415-84ce-8aa334d0a189" class="">6.- Phenom II X2</p></div><div style="display:contents" dir="auto"><hr id="3d043e7a-4fee-4a7f-9af0-e158eb816209"/></div><div style="display:contents" dir="auto"><p id="93e9bb07-c6f0-4183-93dd-5d3641b5e0d9" class="">7.- E-Series</p></div><div style="display:contents" dir="auto"><hr id="9cf01a30-1f52-4a85-b7a1-1cddcd33ac02"/></div><div style="display:contents" dir="auto"><p id="5753b2f1-e1c6-432b-b7f3-67c64fdfff91" class="">E2-3800</p></div><div style="display:contents" dir="auto"><hr id="69e0ae0b-3058-4db7-b175-ace8e720a2a0"/></div><div style="display:contents" dir="auto"><p id="2bf15edf-d38b-4408-8bec-8f62a060d6da" class="">E1 Micro-6200T</p></div><div style="display:contents" dir="auto"><hr id="4eeac228-677b-4c4f-bb60-dfe615e131ec"/></div><div style="display:contents" dir="auto"><p id="881d4cc8-9aed-4c59-86dd-f5aa23ceb9b4" class="">E1-6010</p></div><div style="display:contents" dir="auto"><hr id="13957968-737f-4f73-a337-ef4a38f72b71"/></div><div style="display:contents" dir="auto"><p id="8a298019-4684-456b-8315-6b2ab394a403" class="">E1-2500</p></div><div style="display:contents" dir="auto"><hr id="a1e47417-686e-48de-aa06-b06af78a94c0"/></div><div style="display:contents" dir="auto"><p id="d6fd53f1-1cef-4f55-9385-85080170955d" class="">E1-2200</p></div><div style="display:contents" dir="auto"><hr id="2a533ab3-7eee-4e44-9219-dbb4c05b4464"/></div><div style="display:contents" dir="auto"><p id="ab373aed-e7b1-44b9-813f-38a0e5bcb21d" class="">E1-2100</p></div><div style="display:contents" dir="auto"><hr id="d66cfef2-8c1d-416c-b799-8b08ee46e9ea"/></div><div style="display:contents" dir="auto"><p id="861eb97b-8dd4-4f33-b509-0fa68312f313" class="">E2-3000</p></div><div style="display:contents" dir="auto"><hr id="01f89d97-2067-4813-96d6-b1e93c039a7f"/></div><div style="display:contents" dir="auto"><p id="d4342c3e-fa80-40e6-b00c-e7f4178509cf" class="">E2-9010</p></div><div style="display:contents" dir="auto"><hr id="fc531461-1480-4e90-83dd-24e88ead6165"/></div><div style="display:contents" dir="auto"><p id="b13a8334-766c-41f2-a8be-a9a7a434076a" class="">8.- AMD A6</p></div><div style="display:contents" dir="auto"><hr id="da4af74f-0819-4410-ba5c-d3f00f38396c"/></div><div style="display:contents" dir="auto"><p id="b9b47aa7-304a-478c-a256-e46aa40c058a" class="">A6-8500P</p></div><div style="display:contents" dir="auto"><hr id="a1bf96f8-793b-4248-8aba-687dd8686283"/></div><div style="display:contents" dir="auto"><p id="63fb91e9-1a88-4850-ae7b-8fe8f1ad52b2" class="">A6-7000</p></div><div style="display:contents" dir="auto"><hr id="6c336226-9a52-4dd7-8832-5e54d4552987"/></div><div style="display:contents" dir="auto"><p id="6150976a-519a-4b44-9808-ecf5f95487f0" class=""><strong>2.- Limitantes</strong></p></div><div style="display:contents" dir="auto"><p id="8a3405e4-62dd-474c-89b5-6d1a08512594" class="">Debemos tomar en cuenta que, en equipos con procesadores de Gama Baja, no podemos tener un software actualizado, esto debido a que con el paso del tiempo los sistemas operativos y programas son más exigentes y necesitan realizar múltiples procesos, los cuales hacen obsoletos el hardware y generan una deficiencia y lentitud al ser utilizados, por lo tanto, no son equipos con rendimiento óptimo para ser utilizados como equipo principal por Toteat en el local del cliente.</p></div><div style="display:contents" dir="auto"><p id="765cbc48-f3e7-4b58-9eb2-7905fd9611c5" class=""><strong>2.- Hardware para Excepción (Procesador)</strong></p></div><div style="display:contents" dir="auto"><p id="585abfac-79b9-4501-a2b5-12d482d080a4" class="">En caso de tener procesadores de gama media-baja, podemos determinar que los mostrados a continuación pueden ser utilizados como equipo principal determinando que estos son aprobados de forma excepcional.</p></div><div style="display:contents" dir="auto"><p id="28fdfef7-1b72-4c46-af22-f31cf61785f4" class="">Intel</p></div><div style="display:contents" dir="auto"><hr id="61bc1a15-087a-4b25-a619-0e7ee68a9298"/></div><div style="display:contents" dir="auto"><p id="75949106-cffa-44d1-906e-477404a9acfb" class=""><strong>Procesadores Intel Excepciones (4 núcleos – 1.5GHz hasta 2.0GHz)</strong></p></div><div style="display:contents" dir="auto"><hr id="c270f27a-2674-4f37-af23-3acc4661fb07"/></div><div style="display:contents" dir="auto"><hr id="2556dfb0-66b9-4ba9-87e3-738a097b42ba"/></div><div style="display:contents" dir="auto"><p id="eb7ce5de-4ca0-4691-8cf0-155c7224bb71" class="">1.- Atom X-Series</p></div><div style="display:contents" dir="auto"><hr id="1953b50d-7716-4a96-9669-508098a71440"/></div><div style="display:contents" dir="auto"><p id="42a4e6cd-a1fa-4817-85b4-1e028325fe35" class="">Atom x7-E3950</p></div><div style="display:contents" dir="auto"><hr id="ca2605c3-49f7-4a6b-ac49-ca4cd7cc87ab"/></div><div style="display:contents" dir="auto"><p id="bdcff55a-084d-4ef3-8612-d8e7b2b2ef0e" class="">Atom x7-E3950</p></div><div style="display:contents" dir="auto"><hr id="5ff6430b-e1e0-45df-b778-d3be37da096e"/></div><div style="display:contents" dir="auto"><p id="3b36ec9c-bc79-405d-8b43-29c9ea5c706c" class="">Atom x5-E3940</p></div><div style="display:contents" dir="auto"><hr id="d8dd5ffe-57dd-4888-b812-d8bcdced0d26"/></div><div style="display:contents" dir="auto"><p id="eefa6883-ec6f-442b-bb61-76683e8806c6" class="">Atom x5-E3940</p></div><div style="display:contents" dir="auto"><hr id="ec0e165a-5fa3-4cd6-987a-c73849963700"/></div><div style="display:contents" dir="auto"><hr id="892999f4-8c30-400d-96d9-7ba966ee2858"/></div><div style="display:contents" dir="auto"><p id="fa92ebed-ac71-436c-9927-80bf86421a6d" class="">2.- Pentium 1000-Series</p></div><div style="display:contents" dir="auto"><hr id="9694c745-a26d-42ad-8b80-9646650064b6"/></div><div style="display:contents" dir="auto"><p id="5e520e92-263c-4424-bad5-5cd6f1d63c36" class="">Pentium A1020</p></div><div style="display:contents" dir="auto"><hr id="2fb9f8c0-9977-400a-a2fb-5054a7820577"/></div><div style="display:contents" dir="auto"><hr id="42839915-50a6-44ca-9358-7cc0796c3eaa"/></div><div style="display:contents" dir="auto"><p id="f40b137a-1db9-4b5f-943f-e2d601a702fe" class="">3.- Intel Celeron J-Series</p></div><div style="display:contents" dir="auto"><hr id="2a2373fe-6d84-4c8b-9a8f-5e2a41a64394"/></div><div style="display:contents" dir="auto"><p id="fa5adb48-c654-4682-9cfd-8a8255748d04" class="">Celeron J3455</p></div><div style="display:contents" dir="auto"><hr id="f894ad55-9071-4f15-b04d-aca3086bb670"/></div><div style="display:contents" dir="auto"><p id="9999aa22-e967-47f0-893a-b0b90a9f0425" class="">Celeron J3455E</p></div><div style="display:contents" dir="auto"><hr id="02b61770-e753-4456-8c36-1c14106c694a"/></div><div style="display:contents" dir="auto"><p id="c58d1b03-8dd1-4f15-96cc-9c939f87e949" class="">Celeron J1850</p></div><div style="display:contents" dir="auto"><hr id="3ad9d467-2ee5-43d9-be19-2c7b1932e2a5"/></div><div style="display:contents" dir="auto"><p id="10c0005b-f2ed-4ca8-b9ce-2e2f92b9cdaa" class="">Celeron J1900</p></div><div style="display:contents" dir="auto"><hr id="8b5bef8e-c3b9-4c22-b066-822cf74d0829"/></div><div style="display:contents" dir="auto"><p id="f002c3f5-f6e1-4521-8ad8-cf9bb272b26d" class="">Celeron J1900</p></div><div style="display:contents" dir="auto"><hr id="4fde4174-5174-482f-bc92-be077869a6fe"/></div><div style="display:contents" dir="auto"><p id="b1ba6203-0570-4a42-9a45-86d8bbdf068a" class="">AMD</p></div><div style="display:contents" dir="auto"><hr id="1ba7d232-5eaf-438f-aeca-1bb8cb7566d2"/></div><div style="display:contents" dir="auto"><p id="27da95b7-e5d1-4f2e-a075-93dd95c1137d" class=""><strong>Procesadores AMD Excepciones (4 núcleos 1.5GHz hasta 2.0GHz)</strong></p></div><div style="display:contents" dir="auto"><hr id="ffc327d4-ca15-4a91-aee0-e74623b8f665"/></div><div style="display:contents" dir="auto"><p id="33487872-afbc-41ff-851f-45ccca0249f7" class="">1.- Athlon II X3</p></div><div style="display:contents" dir="auto"><hr id="c3508a24-b1fb-47c8-aee3-19d35182c97d"/></div><div style="display:contents" dir="auto"><p id="94efcd43-bae0-496c-a206-7c43dff92f46" class="">2.- Phenom II X3</p></div><div style="display:contents" dir="auto"><hr id="db021f53-a0a7-42ef-b8f5-46afd4cfbf43"/></div><div style="display:contents" dir="auto"><p id="4e422c7f-b614-454e-91be-18657b390e06" class="">3.- E-Series</p></div><div style="display:contents" dir="auto"><hr id="c2419bc5-8757-47db-b384-f865807d9050"/></div><div style="display:contents" dir="auto"><p id="c058e77f-5211-46e9-a0ca-69ffe5602549" class="">E2-7110</p></div><div style="display:contents" dir="auto"><hr id="d8f2ec69-1896-4033-9c2f-63f614a02951"/></div><div style="display:contents" dir="auto"><p id="acc7eb1b-5207-4260-bfb6-22f49ede8ee8" class="">E2-6110</p></div><div style="display:contents" dir="auto"><hr id="eaad9f50-b485-42bf-a970-1f287c5d7b39"/></div><div style="display:contents" dir="auto"><p id="5a9f0248-c2d7-4f7f-8d47-73a14daf1bbc" class="">E2-3800</p></div><div style="display:contents" dir="auto"><hr id="14486935-4055-4fa5-9436-e34ea68eec99"/></div><div style="display:contents" dir="auto"><p id="508f06a5-f996-4ee3-a05c-781dbe496ab3" class="">4.- A4-Series</p></div><div style="display:contents" dir="auto"><hr id="806f2c99-d633-4d6b-9eac-7cc362dd304e"/></div><div style="display:contents" dir="auto"><p id="de25283d-a769-4e51-83f5-2a4897895ee0" class="">A4-5000</p></div><div style="display:contents" dir="auto"><hr id="67b5aebe-a963-4faa-81a8-671a9d17ca31"/></div><div style="display:contents" dir="auto"><p id="150ffe36-aff2-40fb-9e8b-bd8924b41243" class="">A4 Micro-6400T</p></div><div style="display:contents" dir="auto"><hr id="104e2808-a2c9-459b-8cc1-a2c90259dc3e"/></div><div style="display:contents" dir="auto"><p id="0c2c956e-2eea-4a13-8e1c-c7d367b4b540" class="">A4-5100</p></div><div style="display:contents" dir="auto"><hr id="2ff6e422-f969-4fd9-bafa-3c2ada1e55df"/></div><div style="display:contents" dir="auto"><p id="50efcb0b-bd8d-439b-b28e-1887013830c5" class="">A4-6210</p></div><div style="display:contents" dir="auto"><hr id="f92951aa-e37c-4e97-abee-498c90c23202"/></div><div style="display:contents" dir="auto"><p id="ae58ad8d-8f3f-46e6-9f5f-63640a541546" class="">A4-7210</p></div><div style="display:contents" dir="auto"><hr id="052fd6e5-a92a-4af3-b523-62fc6ac32b2e"/></div><div style="display:contents" dir="auto"><hr id="9bbd3450-d250-4918-a4e4-6bb5774b3703"/></div><div style="display:contents" dir="auto"><p id="878d6339-468f-4e24-8466-569c330a0e5a" class="">5.- AMD A6</p></div><div style="display:contents" dir="auto"><hr id="1bf2b475-abc2-4e26-878e-2d97c0fe1daa"/></div><div style="display:contents" dir="auto"><p id="dfb19b7e-c681-4256-a759-886b6dd79e78" class="">A6-7310</p></div><div style="display:contents" dir="auto"><hr id="b1b2534b-9ae0-4374-b306-e98d643a2710"/></div><div style="display:contents" dir="auto"><p id="18a667e0-4ea8-4fd2-a627-95bd82454942" class="">A6-5200M</p></div><div style="display:contents" dir="auto"><hr id="f0729300-7c93-4159-b482-8ef8b01f9611"/></div><div style="display:contents" dir="auto"><p id="d7c955e3-c53a-410c-9639-95cb42cc893d" class=""><strong>3.- Inconvenientes o problemas</strong></p></div><div style="display:contents" dir="auto"><p id="dee369de-b85e-47c9-bb1a-dc534cba09bb" class="">Al tener un equipo de gama baja o gama media baja, la operación del local se podrá ver comprometida, tomando en cuenta los siguientes aspectos:</p></div><div style="display:contents" dir="auto"><p id="99ee2e2d-6ae0-4648-8ce2-e822f4bdf4e7" class="">1.- El PC servidor controla la informacion de las mesas y las impresiones</p></div><div style="display:contents" dir="auto"><p id="78c13319-0761-47e1-a256-c959d8bc3c0d" class="">2.- El TPS almacena informacion en la ram del equipo</p></div><div style="display:contents" dir="auto"><p id="3fbe3e32-3975-4801-84d6-2cf859b1e687" class="">3.- TPS carga informacion al disco duro</p></div><div style="display:contents" dir="auto"><p id="586b4b24-701b-4a85-a5db-907883f28e1f" class="">Por lo tanto, si TPS no se ejecuta o se ven afectado por el bajo rendimiento del equipo se presentarían los siguientes problemas:</p></div><div style="display:contents" dir="auto"><p id="9750750d-018d-4f96-90eb-ecde11ce5594" class="">1.- Si TPS no se inicia el sistema quedaría offline.</p></div><div style="display:contents" dir="auto"><p id="d46399ab-990b-46fb-9bfa-b7fba72658fa" class="">2.- Las impresoras pueden dejar de imprimir debido a que el PC servidor no tiene conexión con la RED o no está bien configurado. (Adaptadores WiFi)</p></div><div style="display:contents" dir="auto"><p id="6ab2ff2a-be5b-418a-8288-abb4cbaf44f9" class="">3.- Si el PC servidor queda sin memoria ram por el uso de apps como (Spotify- Youtube - Facebook - Twitter) el TPS dejará de funcionar y no podrá enviar impresiones.</p></div><div style="display:contents" dir="auto"><p id="af47a5cf-cf89-46bb-9c9b-32e88db4d3e7" class="">4.- Se presentará lentitud en el uso de Toteat si posee un procesador de gama baja, (Sucede con frecuencia cuando el mismo PC servidor es el PC de caja).</p></div><div style="display:contents" dir="auto"><p id="d1784db0-ce56-4327-ac8c-1d02e93625d5" class="">5.- Si el local tiene horarios de peaks muy alto y la memora ram del equipo está en el minimo fallaría la impresión y TPS y no se podria verificar la reportaría de forma adecuada en el PC con poca ram.</p></div><div style="display:contents" dir="auto"><p id="fd9230da-5836-486f-a322-ad79f7b6140f" class="">6.- Fallas o intermitencias en la operatividad</p></div><div style="display:contents" dir="auto"><p id="505d532e-230b-482b-b2f3-501398ed8331" class=""><strong>4.- Excepciones</strong></p></div><div style="display:contents" dir="auto"><p id="0d694657-1e9b-4473-a994-1e88a0d0f922" class="">En el dado caso de que se realice una excepción a un local, este procesador debe estar mencionado en el listado de Hardware Excepciones (Procesadores), se debe realizar lo siguiente:</p></div><div style="display:contents" dir="auto"><p id="9a1ae268-31b7-4c50-8196-5697b02a4c7c" class=""><strong>4.1.- Notificar al cliente</strong></p></div><div style="display:contents" dir="auto"><p id="3b33a48f-05b5-47aa-958b-916e2a882aac" class="">El cliente debe permanecer al tanto de que su equipo no cumple con el minimo y se está realizando una excepción, por lo tanto, el cliente debe comprometerse a cambiar el equipo por uno de mejor rendimiento para que su local no tenga problemas operativos.</p></div><div style="display:contents" dir="auto"><p id="6b61835c-77a1-4414-a101-ff7df0bde92e" class=""><strong>Ejemplo:</strong></p></div><div style="display:contents" dir="auto"><p id="f3d6ca72-5a5b-4e3d-bbd0-491da28aea8d" class=""><em>Estimado cliente,</em></p></div><div style="display:contents" dir="auto"><p id="88995f51-b5d6-42cd-8b70-a59435e46a9e" class=""><em>Queremos informarle que existe una excepción de hardware para la implementacion del PC principal en su local, esto podría afectar el rendimiento de sus operaciones en un corto y mediano plazo.</em></p></div><div style="display:contents" dir="auto"><p id="b6543a86-17e9-4591-b4ea-696a94d21d47" class=""><em>Para garantizar que su sistema continúe operando de manera óptima, recomendamos encarecidamente la sustitución del hardware afectado dentro de un plazo razonable. Esto no solo ayudará a evitar posibles interrupciones en sus actividades diarias, sino que también optimizará el rendimiento de su infraestructura.</em></p></div><div style="display:contents" dir="auto"><p id="11b22c08-dcda-4985-ab73-c79c3b692663" class=""><em>Entendemos la importancia de mantener la continuidad del negocio y estamos comprometidos a proporcionarle todo el apoyo necesario durante este proceso de transición.</em></p></div><div style="display:contents" dir="auto"><p id="64e91575-186f-4f1b-9bb4-a2530ac14b89" class=""><em>Agradecemos su comprensión y colaboración. No dude en comunicarse con nosotros si tiene alguna pregunta o necesita más información. Estamos aquí para ayudarle en cualquier momento.</em></p></div><div style="display:contents" dir="auto"><p id="e88e2c4d-958e-4b07-931e-33611f3309f3" class=""><strong>4.2.- Informe</strong></p></div><div style="display:contents" dir="auto"><p id="8e19c045-ccc0-4c78-8cc4-9bddc5ec8d66" class="">Se debe generar un registro en SF para estar al tanto de esta excepción.</p></div><div style="display:contents" dir="auto"><p id="009745ee-d224-4f42-8eb6-9fa22c37d41b" class=""><strong>4.3.- Solicitud a Implementaciones</strong></p></div><div style="display:contents" dir="auto"><p id="67189bea-12d1-4bf9-873c-54cd6996b221" class="">Se debe notificar al departamento de implementaciones para que pueda ser verificado y se pueda dar avance a la siguiente etapa en SalesForce.</p></div><div style="display:contents" dir="auto"><p id="98250c4b-d7cd-452e-9e27-c0501a9d5678" class=""><strong>5.- Cantidad de excepciones</strong></p></div><div style="display:contents" dir="auto"><p id="5517c7a2-f1cf-4159-832c-f0e26a07e8d0" class="">Según las evaluaciones realizadas, se tomaron los meses en el año que se dieron peaks de implementaciones más altos, se tomaron en cuenta los siguientes meses</p></div><div style="display:contents" dir="ltr"><table id="f15d7560-f4c9-47e9-bb5f-15015943c320" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="0373f796-62b5-47cb-9b74-7a3157bfe2f8"><td id="i^~S" class="">2023- 2024</td><td id="NmyM" class=""><strong>SEPTIEMBRE</strong></td><td id="];_@" class=""><strong>OCTUBRE</strong></td><td id="l?H[" class=""><strong>NOVIEMBRE</strong></td><td id="=TSU" class=""><strong>DICIEMBRE</strong></td><td id="^fiV" class=""><strong>ENERO</strong></td><td id="CwAG" class=""><strong>FEBRERO</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="d652d2f8-9e58-49c7-9f59-7cdb2ba98ba8"><td id="i^~S" class=""></td><td id="NmyM" class=""></td><td id="];_@" class=""></td><td id="l?H[" class=""></td><td id="=TSU" class=""></td><td id="^fiV" class=""></td><td id="CwAG" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="0ed712be-6c0e-4213-8ef8-df763bb7a321"><td id="i^~S" class=""></td><td id="NmyM" class=""></td><td id="];_@" class=""></td><td id="l?H[" class=""></td><td id="=TSU" class=""></td><td id="^fiV" class=""></td><td id="CwAG" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="f6b573c9-a193-45e6-a3fb-1344dbbcd5d6"><td id="i^~S" class=""><strong>CHILE</strong></td><td id="NmyM" class="">56</td><td id="];_@" class="">70</td><td id="l?H[" class="">77</td><td id="=TSU" class="">78</td><td id="^fiV" class="">65</td><td id="CwAG" class="">40</td></tr></div><div style="display:contents" dir="ltr"><tr id="467b878d-e69b-433a-964f-2ae801019b56"><td id="i^~S" class=""><strong>COLOMBIA</strong></td><td id="NmyM" class="">23</td><td id="];_@" class="">24</td><td id="l?H[" class="">34</td><td id="=TSU" class="">24</td><td id="^fiV" class="">25</td><td id="CwAG" class="">30</td></tr></div><div style="display:contents" dir="ltr"><tr id="cb695d3e-f4a1-48b6-bbab-6b42c2a49000"><td id="i^~S" class=""><strong>MEXICO</strong></td><td id="NmyM" class="">24</td><td id="];_@" class="">23</td><td id="l?H[" class="">32</td><td id="=TSU" class="">55</td><td id="^fiV" class="">29</td><td id="CwAG" class="">23</td></tr></div><div style="display:contents" dir="ltr"><tr id="5bd6d428-33e9-4faf-9235-d0f4bf72cd33"><td id="i^~S" class=""><strong>PERU</strong></td><td id="NmyM" class="">13</td><td id="];_@" class="">3</td><td id="l?H[" class="">2</td><td id="=TSU" class="">4</td><td id="^fiV" class="">3</td><td id="CwAG" class="">8</td></tr></div><div style="display:contents" dir="ltr"><tr id="f6b8d2f4-a9db-4591-ae9d-1aaf7e639444"><td id="i^~S" class=""><strong>ARGENTINA</strong></td><td id="NmyM" class="">5</td><td id="];_@" class="">6</td><td id="l?H[" class="">6</td><td id="=TSU" class="">8</td><td id="^fiV" class="">6</td><td id="CwAG" class="">1</td></tr></div><div style="display:contents" dir="ltr"><tr id="91461d0a-37d4-4ae9-8a13-7fdd6400b2d2"><td id="i^~S" class=""><strong>ESPAÑA</strong></td><td id="NmyM" class="">0</td><td id="];_@" class="">1</td><td id="l?H[" class="">0</td><td id="=TSU" class="">1</td><td id="^fiV" class="">0</td><td id="CwAG" class="">0</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="e635cb9f-b337-4b19-9cb5-0223fbc56976" class="">Luego a estos se le aplico un porcentaje para poder llegar a un resultado de implementaciones mensuales por mes y según país.</p></div><div style="display:contents" dir="ltr"><table id="1643a8b1-c081-4630-a1c4-80761e5fac62" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="21fc3e60-c469-43ba-9a8a-d7291ddc5158"><td id="I=Uj" class="">5%</td><td id="Mmt~" class="">POR MES</td><td id="gzsR" class=""></td><td id="dLqy" class=""></td><td id="BH_Z" class=""></td><td id="_C[p" class=""></td><td id="g~`K" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="ed02b4d5-006e-44d8-9665-a84ed461a88a"><td id="I=Uj" class=""><strong>CHILE</strong></td><td id="Mmt~" class="">3</td><td id="gzsR" class="">4</td><td id="dLqy" class="">4</td><td id="BH_Z" class="">4</td><td id="_C[p" class="">3</td><td id="g~`K" class="">2</td></tr></div><div style="display:contents" dir="ltr"><tr id="810804d6-90cf-44cc-acf9-3a3d798f971b"><td id="I=Uj" class=""><strong>COLOMBIA</strong></td><td id="Mmt~" class="">1</td><td id="gzsR" class="">1</td><td id="dLqy" class="">2</td><td id="BH_Z" class="">1</td><td id="_C[p" class="">1</td><td id="g~`K" class="">2</td></tr></div><div style="display:contents" dir="ltr"><tr id="14b3dccf-350a-4ddd-be23-9e6faa7a7ea7"><td id="I=Uj" class=""><strong>MEXICO</strong></td><td id="Mmt~" class="">1</td><td id="gzsR" class="">1</td><td id="dLqy" class="">2</td><td id="BH_Z" class="">3</td><td id="_C[p" class="">1</td><td id="g~`K" class="">1</td></tr></div><div style="display:contents" dir="ltr"><tr id="74a3363c-aeb4-4ef0-82dd-780191ff460d"><td id="I=Uj" class=""><strong>PERU</strong></td><td id="Mmt~" class="">1</td><td id="gzsR" class="">0</td><td id="dLqy" class="">0</td><td id="BH_Z" class="">0</td><td id="_C[p" class="">0</td><td id="g~`K" class="">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="c5a4d712-3ead-4359-8277-44890560f955"><td id="I=Uj" class=""><strong>ARGENTINA</strong></td><td id="Mmt~" class="">0</td><td id="gzsR" class="">0</td><td id="dLqy" class="">0</td><td id="BH_Z" class="">0</td><td id="_C[p" class="">0</td><td id="g~`K" class="">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="bb5cf480-055e-4112-afbd-2ece4702a197"><td id="I=Uj" class=""><strong>ESPAÑA</strong></td><td id="Mmt~" class="">0</td><td id="gzsR" class="">0</td><td id="dLqy" class="">0</td><td id="BH_Z" class="">0</td><td id="_C[p" class="">0</td><td id="g~`K" class="">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e087cd5-81b5-41d8-92b0-84834a1fea92"><td id="I=Uj" class=""></td><td id="Mmt~" class=""></td><td id="gzsR" class=""></td><td id="dLqy" class=""></td><td id="BH_Z" class=""></td><td id="_C[p" class=""></td><td id="g~`K" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="60ca5084-05c4-42fe-9f5c-44a4091a5de2"><td id="I=Uj" class="">7%</td><td id="Mmt~" class="">POR MES</td><td id="gzsR" class=""></td><td id="dLqy" class=""></td><td id="BH_Z" class=""></td><td id="_C[p" class=""></td><td id="g~`K" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="a95cdddb-b000-44d0-95ea-365d8e1bd282"><td id="I=Uj" class=""><strong>CHILE</strong></td><td id="Mmt~" class="">4</td><td id="gzsR" class="">5</td><td id="dLqy" class="">5</td><td id="BH_Z" class="">5</td><td id="_C[p" class="">5</td><td id="g~`K" class="">3</td></tr></div><div style="display:contents" dir="ltr"><tr id="01cd1163-0912-41dd-9c94-38f7057780b9"><td id="I=Uj" class=""><strong>COLOMBIA</strong></td><td id="Mmt~" class="">2</td><td id="gzsR" class="">2</td><td id="dLqy" class="">2</td><td id="BH_Z" class="">2</td><td id="_C[p" class="">2</td><td id="g~`K" class="">2</td></tr></div><div style="display:contents" dir="ltr"><tr id="8b24f162-d195-4563-9ff3-ff5620cea155"><td id="I=Uj" class=""><strong>MEXICO</strong></td><td id="Mmt~" class="">2</td><td id="gzsR" class="">2</td><td id="dLqy" class="">2</td><td id="BH_Z" class="">4</td><td id="_C[p" class="">2</td><td id="g~`K" class="">2</td></tr></div><div style="display:contents" dir="ltr"><tr id="02372553-9407-45ab-80bb-3428aaa76d67"><td id="I=Uj" class=""><strong>PERU</strong></td><td id="Mmt~" class="">1</td><td id="gzsR" class="">0</td><td id="dLqy" class="">0</td><td id="BH_Z" class="">0</td><td id="_C[p" class="">0</td><td id="g~`K" class="">1</td></tr></div><div style="display:contents" dir="ltr"><tr id="48b8305c-13d2-44c0-8aaf-433b2e31e848"><td id="I=Uj" class=""><strong>ARGENTINA</strong></td><td id="Mmt~" class="">0</td><td id="gzsR" class="">0</td><td id="dLqy" class="">0</td><td id="BH_Z" class="">1</td><td id="_C[p" class="">0</td><td id="g~`K" class="">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="0d5c25cd-1b69-479f-821c-ff9bb249b7a4"><td id="I=Uj" class=""><strong>ESPAÑA</strong></td><td id="Mmt~" class="">0</td><td id="gzsR" class="">0</td><td id="dLqy" class="">0</td><td id="BH_Z" class="">0</td><td id="_C[p" class="">0</td><td id="g~`K" class="">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="445267c5-b1cc-470e-ab82-8a9d99ef9e47"><td id="I=Uj" class=""></td><td id="Mmt~" class=""></td><td id="gzsR" class=""></td><td id="dLqy" class=""></td><td id="BH_Z" class=""></td><td id="_C[p" class=""></td><td id="g~`K" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><table id="e12ef853-4925-4cbf-b0d7-586f643df40c" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="eaa1110c-8c38-4b92-8290-002328cb4363"><td id="s^Hj" class="">10%</td><td id="Qjnp" class="">POR MES</td><td id="n:{N" class=""></td><td id="aH}:" class=""></td><td id="OEuC" class=""></td><td id="w@Ra" class=""></td><td id="?SRG" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="c510587d-df85-4934-83ca-98ca66109d1d"><td id="s^Hj" class=""><strong>CHILE</strong></td><td id="Qjnp" class="">6</td><td id="n:{N" class="">7</td><td id="aH}:" class="">8</td><td id="OEuC" class="">8</td><td id="w@Ra" class="">7</td><td id="?SRG" class="">4</td></tr></div><div style="display:contents" dir="ltr"><tr id="9915b256-f0e1-4cc9-8986-5fd0e3b4c1db"><td id="s^Hj" class=""><strong>COLOMBIA</strong></td><td id="Qjnp" class="">2</td><td id="n:{N" class="">2</td><td id="aH}:" class="">3</td><td id="OEuC" class="">2</td><td id="w@Ra" class="">3</td><td id="?SRG" class="">3</td></tr></div><div style="display:contents" dir="ltr"><tr id="230cc8cf-5240-4070-9732-9fb9e78ebca9"><td id="s^Hj" class=""><strong>MEXICO</strong></td><td id="Qjnp" class="">2</td><td id="n:{N" class="">2</td><td id="aH}:" class="">3</td><td id="OEuC" class="">6</td><td id="w@Ra" class="">3</td><td id="?SRG" class="">2</td></tr></div><div style="display:contents" dir="ltr"><tr id="f238a4e3-5756-4d81-8310-b8d60fc7988e"><td id="s^Hj" class=""><strong>PERU</strong></td><td id="Qjnp" class="">1</td><td id="n:{N" class="">0</td><td id="aH}:" class="">0</td><td id="OEuC" class="">0</td><td id="w@Ra" class="">0</td><td id="?SRG" class="">1</td></tr></div><div style="display:contents" dir="ltr"><tr id="40468f77-b2ca-48eb-a3f9-f6a4788d1ff1"><td id="s^Hj" class=""><strong>ARGENTINA</strong></td><td id="Qjnp" class="">1</td><td id="n:{N" class="">1</td><td id="aH}:" class="">1</td><td id="OEuC" class="">1</td><td id="w@Ra" class="">1</td><td id="?SRG" class="">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="71707317-bbdc-401a-99b7-344483536329"><td id="s^Hj" class=""><strong>ESPAÑA</strong></td><td id="Qjnp" class="">0</td><td id="n:{N" class="">0</td><td id="aH}:" class="">0</td><td id="OEuC" class="">0</td><td id="w@Ra" class="">0</td><td id="?SRG" class="">0</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="90296623-2911-4c7e-aac9-047cf22255bb" class="">Tomando en cuenta los valores, el 10% sería la cantidad aceptable para poder realizar excepciones mensuales por cada país.</p></div><div style="display:contents" dir="auto"><p id="eba4e436-4aa7-4ba9-81b1-dbccfe35bdbc" class=""><strong>Conclusiones:</strong></p></div><div style="display:contents" dir="auto"><p id="64315608-70b0-4deb-a501-560c53b16a6e" class="">Este informe destaca la importancia crítica de utilizar procesadores compatibles y adecuados en los locales que estarán utilizando Toteat y de esa forma asegurar operaciones eficientes. </p></div><div style="display:contents" dir="auto"><p id="ad32a4ef-66f1-4356-b8dd-99966a8c0e6e" class="">Procesadores de gama baja y obsoletos pueden resultar en rendimiento insuficiente y problemas de compatibilidad con sistemas operativos modernos como Windows 10 y 11. Se recomienda utilizar excepciones específicamente identificadas en el informe, asegurando una comunicación clara con el cliente sobre las limitaciones y la necesidad de posibles actualizaciones futuras. </p></div><div style="display:contents" dir="auto"><p id="1506bcc2-067e-4d89-a2a9-89eb0f155aec" class="">La gestión formal de estas excepciones mediante registros en Salesforce y coordinación con el departamento de implementaciones optimiza la respuesta y la calidad del servicio.</p></div><div style="display:contents" dir="auto"><p id="932ab331-eddc-4348-92de-7bd57e20c0ee" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

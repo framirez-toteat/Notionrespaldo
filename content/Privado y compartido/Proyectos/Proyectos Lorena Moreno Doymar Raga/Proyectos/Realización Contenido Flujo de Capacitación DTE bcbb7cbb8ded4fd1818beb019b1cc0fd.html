@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Realización Contenido Flujo de Capacitación DTE</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="bcbb7cbb-8ded-4fd1-818b-eb019b1cc0fd" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🎨</span></div><h1 class="page-title" dir="auto">Realización Contenido Flujo de Capacitación DTE</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>En curso</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><td><span class="user"><img src="../Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td></tr><tr class="property-row property-row-rollup"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/activity_gray.svg" style="width:14px;height:14px;display:block"/></span>% completado</th><td>1</td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Periodo</th><td><time>10 de mayo de 2024 → 31 de octubre de 2024</time></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>Bloqueando</th><td><a href="Capacitaciones%2003b16f38e86d4e10bc8322c94e788c59.html"><span class="icon">👩🏻‍🏫</span>Capacitaciones</a></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Prioridad</th><td><span class="selected-value select-value-color-yellow">Media</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Resumen</th><td>El equipo de formación de usuarios está planeando un rediseño integral del proceso de incorporación de la aplicación para aumentar la retención a los 7 días en un 25 %. El proyecto está programado para realizarse del 10 de mayo al 26 de mayo de 2023 y es responsabilidad de Nate Martins.</td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="0d08c996-8d1e-4b31-a5d6-046052666918" class="">Dado que nuestra aplicación tiene tantas funciones y sirve para tantas personas y casos de uso, muchos usuarios consideran que el actual proceso de incorporación es abrumador y no experimentan su momento &quot;a ha&quot; lo suficientemente rápido.</p></div><div style="display:contents" dir="auto"><p id="4661c5b7-5227-4b40-b47b-d714bf58366d" class="">Este trimestre, el equipo de formación de usuarios está invirtiendo en un flujo de incorporación integralmente rediseñado, con el objetivo de aumentar la retención a los 7 días en un 25 %.</p></div><div style="display:contents" dir="auto"><h2 id="5bfa3c9a-48c5-4c6b-b85c-5306df894a5d" class="">Propuesta de recorrido del usuario</h2></div><div style="display:contents" dir="auto"><h2 id="135317ac-213b-45d3-bee9-45399b6a53fd" class="">Tareas del proyecto</h2></div><div style="display:contents" dir="ltr"><div id="4fe4dda1-3bde-4241-b864-9d5b0addf063" class="collection-content"><h4 class="collection-title">Tareas</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Nombre de la tarea</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha límite</th></tr></thead><tbody><tr id="5f0a10c0-1ed7-4284-a4e8-c8cd9e76bed4"><td class="cell-title"><a href="../Tareas/Redactar%20M%C3%B3dulo%202%205f0a10c01ed74284a4e8c8cd9e76bed4.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 2</a></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="../Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>18 de julio de 2024</time></td></tr><tr id="7f0d07c7-d497-42fc-9afe-67fb5599c920"><td class="cell-title"><a href="../Tareas/Redactar%20M%C3%B3dulo%201%207f0d07c7d49742fc9afe67fb5599c920.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 1</a></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="../Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>5 de julio de 2024</time></td></tr><tr id="d532cc9c-c767-46fc-a81d-b1d5ed5174a6"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%201%201%20d532cc9cc76746fca81db1d5ed5174a6.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 1.1</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="afa4ead6-e976-411b-ba3a-eebe64994c94"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%201%202%20afa4ead6e976411bba3aeebe64994c94.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 1.2</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="5d526373-8f1e-4631-9742-f9d85822c214"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%201%203%205d5263738f1e46319742f9d85822c214.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 1.3</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="73640f7b-286f-454b-a582-c3d4121b72c5"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%201%204%2073640f7b286f454ba582c3d4121b72c5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 1.4</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="b81647a3-7696-4b33-9cc1-4dcdcac0f77e"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%201%205%20b81647a376964b339cc14dcdcac0f77e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 1.5</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="333abe25-e37e-4a30-a20f-f298e9ea5495"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%202%201%20333abe25e37e4a30a20ff298e9ea5495.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.1</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="2567c3f4-ee79-4946-bbcd-70c929a47d0f"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%202%202%202567c3f4ee794946bbcd70c929a47d0f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.2</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="8124a83b-216c-4ca2-abe9-415b9f04d917"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%202%203%208124a83b216c4ca2abe9415b9f04d917.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.3</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="9ed6ecf4-503e-42d3-be94-3afad72e8c25"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%202%204%209ed6ecf4503e42d3be943afad72e8c25.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.4</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="9837c186-6faa-437d-98cf-5db6687bfb1f"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%202%205%209837c1866faa437d98cf5db6687bfb1f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.5</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="93298061-5011-4067-933a-e746ebf1cad5"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%202%206%209329806150114067933ae746ebf1cad5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.6</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="a64d98eb-3875-4a60-b3a2-d8b944ba50ab"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%202%207%20a64d98eb38754a60b3a2d8b944ba50ab.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.7</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="0759c370-1e64-46f2-bac3-e71f2c25b56e"><td class="cell-title"><a href="../Tareas/Redactar%20M%C3%B3dulo%203%200759c3701e6446f2bac3e71f2c25b56e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 3</a></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="../Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>2 de septiembre de 2024</time></td></tr><tr id="157e0258-ba6e-4597-8988-46ef0839fa5e"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%203%201%20157e0258ba6e4597898846ef0839fa5e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.1</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="166d678c-e3b2-40b8-a85b-f146c6828d8b"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%203%202%20166d678ce3b240b8a85bf146c6828d8b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.2</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="258ade8e-71f1-42b4-a918-f1f0815041e0"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%203%203%20258ade8e71f142b4a918f1f0815041e0.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.3</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="1146ddee-cab5-4953-8d37-16d88783409d"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%203%204%201146ddeecab549538d3716d88783409d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.4</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="937731dd-6b3a-4993-ab55-490bb7d9a859"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%203%205%20937731dd6b3a4993ab55490bb7d9a859.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.5</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="1bf4e185-a32c-4164-9738-87478a6b790a"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%203%206%201bf4e185a32c4164973887478a6b790a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.6</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="633132f6-282d-4f41-9218-76c596fb6335"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%203%207%20633132f6282d4f41921876c596fb6335.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.7</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="694c1c90-3ab0-41b9-9576-9a659ac3e371"><td class="cell-title"><a href="../Tareas/Redactar%20M%C3%B3dulo%204%20694c1c903ab041b995769a659ac3e371.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 4</a></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="../Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>2 de septiembre de 2024</time></td></tr><tr id="1121daab-6d06-46a1-88d6-924ccbb3dacc"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%204%201%201121daab6d0646a188d6924ccbb3dacc.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.1</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="85af1651-e2d9-4462-a688-856512fe4203"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%204%202%2085af1651e2d94462a688856512fe4203.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.2</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="79884849-011b-473c-9967-aa6ec8a16cce"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%204%203%2079884849011b473c9967aa6ec8a16cce.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.3</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="d7a41587-df1e-4c85-bf9f-32454b837431"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%204%204%20d7a41587df1e4c85bf9f32454b837431.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.4</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="0492ce25-7351-4979-9e92-e816830c9f69"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%204%205%200492ce25735149799e92e816830c9f69.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.5</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="58fa3c81-18ee-44b4-9587-31ec55b30400"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%204%206%2058fa3c8118ee44b4958731ec55b30400.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.6</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="60e4fbeb-1c63-4f41-8ade-9b4c16bb637d"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%204%207%2060e4fbeb1c634f418ade9b4c16bb637d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.7</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="c9e1c21e-7e7d-432c-a5fe-5bb0ecb796a4"><td class="cell-title"><a href="../Tareas/Redactar%20M%C3%B3dulo%205%20c9e1c21e7e7d432ca5fe5bb0ecb796a4.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 5</a></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="../Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>23 de septiembre de 2024</time></td></tr><tr id="679da6be-c4db-4d4c-ba71-76f68a5eb86d"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%205%201%20679da6bec4db4d4cba7176f68a5eb86d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.1</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="932159cb-d1ad-407a-a9e3-f36dd64649fd"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%205%202%20932159cbd1ad407aa9e3f36dd64649fd.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.2</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="3c008790-4962-4f96-b070-6df2144cb8f7"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%205%203%203c00879049624f96b0706df2144cb8f7.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.3</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="0477b2bd-c9bc-47dd-90bb-247631d8aa21"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%205%204%200477b2bdc9bc47dd90bb247631d8aa21.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.4</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="24cfe949-4f5f-4e7e-adde-38df1a6a7ef8"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%205%205%2024cfe9494f5f4e7eadde38df1a6a7ef8.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.5</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="aafd9126-3baa-4bb7-8e7f-4d7a403e1053"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%205%206%20aafd91263baa4bb78e7f4d7a403e1053.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.6</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="839dedca-fe5f-4d98-aea4-89465c24d980"><td class="cell-title"><a href="../Tareas/Redactar%20M%C3%B3dulo%206%20839dedcafe5f4d98aea489465c24d980.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 6</a></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="../Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>26 de septiembre de 2024</time></td></tr><tr id="12a1c21e-8d2f-41cf-9cab-fca8d412eda1"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%206%201%2012a1c21e8d2f41cf9cabfca8d412eda1.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.1</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="fe14d9ae-ffab-466c-af7f-79561904c08f"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%206%202%20fe14d9aeffab466caf7f79561904c08f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.2</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="df530a42-c488-4d34-958c-530e6b26ad0b"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%206%203%20df530a42c4884d34958c530e6b26ad0b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.3</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="6c7ff9ca-db79-4d8e-a22b-9e761f3e7726"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%206%204%206c7ff9cadb794d8ea22b9e761f3e7726.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.4</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="bf95b44e-c256-41c8-b75f-a2386c220dbd"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%206%205%20bf95b44ec25641c8b75fa2386c220dbd.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.5</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="10009a73-1aac-4f5e-9635-67ea177996ee"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%206%206%2010009a731aac4f5e963567ea177996ee.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.6</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="760ac9f4-33ab-4ddf-8ae9-d6adaf64ed21"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%206%207%20760ac9f433ab4ddf8ae9d6adaf64ed21.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.7</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="065a2222-67f0-401e-ad4d-25eea6169c0e"><td class="cell-title"><a href="../Tareas/Redactar%20M%C3%B3dulo%207%20065a222267f0401ead4d25eea6169c0e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 7</a></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="../Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>3 de octubre de 2024</time></td></tr><tr id="291c3361-f47c-4e4d-bca2-c00f27149cf3"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%207%201%20291c3361f47c4e4dbca2c00f27149cf3.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.1</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="491f7fb4-44cd-4133-a77c-20c7be0825c9"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%207%202%20491f7fb444cd4133a77c20c7be0825c9.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.2</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="6c800d71-dbb4-4ef6-acf9-266169ed6328"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%207%204%206c800d71dbb44ef6acf9266169ed6328.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.4</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="d2f1ce9d-4236-4363-a70f-fab6540b9052"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%207%203%20d2f1ce9d42364363a70ffab6540b9052.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.3</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="96373fd5-8ffa-4975-8624-1d4c58d2046b"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%207%205%2096373fd58ffa497586241d4c58d2046b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.5</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="0d4ab6a5-02c7-4408-8d1b-73666672cb5a"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%207%206%200d4ab6a502c744088d1b73666672cb5a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.6</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="7e9d0cd8-5673-449d-ad8c-eef3d9506e8f"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%207%207%207e9d0cd85673449dad8ceef3d9506e8f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.7</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="cf1a7ad3-de69-47af-aa2a-e37f5bf8c5ed"><td class="cell-title"><a href="../Tareas/Redactar%20M%C3%B3dulo%208%20cf1a7ad3de6947afaa2ae37f5bf8c5ed.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 8</a></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="../Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>10 de octubre de 2024</time></td></tr><tr id="b4635fd3-df5e-430f-bc98-044aaa92180f"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%208%201%20b4635fd3df5e430fbc98044aaa92180f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 8.1</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="2ce09386-e429-4404-91df-32ed2cc8430c"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%208%202%202ce09386e429440491df32ed2cc8430c.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 8.2</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr><tr id="da401b15-1bb2-4fbd-a00f-c7d1bc11211f"><td class="cell-title"><a href="../Tareas/M%C3%B3dulo%208%203%20da401b151bb24fbda00fc7d1bc11211f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 8.3</a></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td></tr></tbody></table></div><br/><br/></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

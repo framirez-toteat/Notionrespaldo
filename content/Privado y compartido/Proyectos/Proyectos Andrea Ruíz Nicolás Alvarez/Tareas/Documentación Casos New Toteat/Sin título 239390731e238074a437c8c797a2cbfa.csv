@@ -1,0 +1,3 @@
+﻿Novedad,Descripción,Fecha,Tipo
+Dark Kitchen,"Cuando la marca posee varios locales y se realiza la configuración de la Dark Kitchen, esta no es tomada sino que por defecto toma el nombre del ambiente Local 1, y esto es lo que se visualiza en la comanda.",23 de julio de 2025,Bug
+Ordenamiento del menú en la api standard,La información que se extrae en el menú de la pai standard no es muy específica en el campo de sorting,23 de julio de 2025,Bug

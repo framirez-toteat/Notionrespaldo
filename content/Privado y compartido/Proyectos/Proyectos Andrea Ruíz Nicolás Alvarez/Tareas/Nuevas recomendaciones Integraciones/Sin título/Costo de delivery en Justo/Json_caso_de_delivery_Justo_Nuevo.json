@@ -1,0 +1,313 @@
+{
+  "data": {
+    "order": {
+      "_id": "E8v2NykTWt6YshRCP",
+      "orderStatus": "pending",
+      "isScheduled": false,
+      "isConfirmed": false,
+      "websiteId": "hRd6LojXwKfKwADqe",
+      "code": "25870952",
+      "createdAt": "2025-08-18T16:19:59.047Z",
+      "fullCode": "#25870952-47",
+      "userId": "pfJYDyR52LA2sQcEp",
+      "storeId": "ZJgdn6x62JosqpnQK",
+      "address": {
+        "_id": "6xvHmL5jk5nXx3sZ6",
+        "placeId": "justo:Y0rZynrobGTvoRkMPAzOicWJCn6HNhhZGhvIMDiWpeZlpiQqBBSlFmempOaVpCo4JebkJianpiTyMgSWZuaVJCr45RflJuagcRUZglLTMw9vzlPwTS0pyi/Iz8ksScxLVEhJVQhOzCvJTEzPZ2ewMDUAAQYGAA:68a3511bb6a223603bae3e13",
+        "address": "Avenida Presidente Balmaceda",
+        "addressLine2": "Casa N°2930",
+        "addressSecondary": "8500000, Quinta Normal, Región Metropolitana de Santiago, Chile",
+        "location": {
+          "lat": -33.42713928222656,
+          "lng": -70.6753921508789
+        },
+        "streetAddress": "Avenida Presidente Balmaceda",
+        "extendedAddress": "Casa N°2930",
+        "locality": "Quinta Normal",
+        "region": "Región Metropolitana de Santiago",
+        "postalCode": "8500000",
+        "countryCode": "CL",
+        "countryName": "Chile"
+      },
+      "directions": {
+        "duration": 17.21666666666667,
+        "distance": 7891
+      },
+      "menuId": "AGTXkat78b3eJyFfp",
+      "deliveryType": "delivery",
+      "deliverAt": "2025-08-18T16:29:58.645Z",
+      "timeText": "12:55 - 13:35",
+      "paymentType": "kushkiWebpay",
+      "paymentTypeLabel": "Webpay / Onepay",
+      "paymentTypeIsIntegration": true,
+      "otherPaymentType": null,
+      "tipAmount": 0,
+      "amountToPay": 25000,
+      "deliveryFee": 0,
+      "serviceFee": 0,
+      "itemsPrice": 25000,
+      "totalPrice": 25000,
+      "baseItemsPrice": 25000,
+      "baseTotalPrice": 25000,
+      "itemsPriceBeforeDiscountsAfterProductDiscount": 25000,
+      "totalPriceBeforeDiscountsAfterProductDiscount": 25000,
+      "discountedAmountAfterProductDiscount": 0,
+      "justoCoinsDiscount": 0,
+      "invoiceTotalPrice": 25000,
+      "amountToPayWithoutTip": 25000,
+      "totalDiscount": 0,
+      "amountFinancedByWebsite": 0,
+      "amountFinancedByJusto": 0,
+      "expectedPreparationDuration": 10,
+      "deliveryDuration": 25,
+      "cashAmount": 0,
+      "cardId": null,
+      "channel": "web-delivery",
+      "source": "web",
+      "buyerName": "Francisca Torres",
+      "phone": "+56984579827",
+      "email": "ftorres@vantazgroup.com",
+      "couponId": null,
+      "couponName": null,
+      "couponDiscount": null,
+      "store": {
+        "_id": "ZJgdn6x62JosqpnQK",
+        "websiteId": "hRd6LojXwKfKwADqe",
+        "name": "Las Condes",
+        "acceptDelivery": true,
+        "acceptServe": false,
+        "acceptGo": true,
+        "currentPreparationDuration": 10,
+        "currentDeliveryDuration": 10,
+        "phone": "+56985989005",
+        "address": {
+          "placeId": "justo:Yzq9ivXQXJPeQzMYGBgEGFzzkvNzU/NSUovyixWMDAy4GHwSixWc8/NSUov5GJwSi4oy8xVccxTc83PSRBmCUtMzD2/OU/BNLSnKL8jPySxJzEtkAAIA:",
+          "address": "Encomenderos 200",
+          "addressLine2": null,
+          "addressSecondary": "Las Condes, Región Metropolitana, Chile",
+          "location": {
+            "lat": -33.41679000854492,
+            "lng": -70.6027603149414
+          },
+          "streetAddress": "Encomenderos 200",
+          "extendedAddress": null,
+          "locality": "Las Condes",
+          "subLocality": "Barrio El Golf",
+          "region": "Región Metropolitana",
+          "countryCode": "CL",
+          "countryName": "Chile"
+        },
+        "externalId": null,
+        "schedule": {
+          "closedDays": [],
+          "availableAtPeriods": true,
+          "openPeriods": [
+            {
+              "daysOfWeek": [
+                1,
+                2,
+                3,
+                6
+              ],
+              "fromMinute": 465,
+              "toMinute": 990
+            },
+            {
+              "daysOfWeek": [
+                4,
+                5
+              ],
+              "fromMinute": 465,
+              "toMinute": 1050
+            },
+            {
+              "daysOfWeek": [
+                7
+              ],
+              "fromMinute": 465,
+              "toMinute": 810
+            }
+          ],
+          "specialPeriods": [],
+          "timezone": "America/Santiago",
+          "availableStateValidUntil": "2025-08-18T16:59:59.999Z",
+          "isAvailableNow": true,
+          "updatedCacheAt": "2025-08-18T16:00:15.178Z"
+        }
+      },
+      "items": [
+        {
+          "_id": "y7GXJnEn9MfmgFYxZ",
+          "product": {
+            "_id": "3oj9KaBNM94aXQgko",
+            "name": "Desayuno de cumpleaños simple",
+            "externalId": "2570"
+          },
+          "unitPrice": 25000,
+          "baseUnitPrice": 25000,
+          "productPrice": 25000,
+          "baseProductPrice": 25000,
+          "amount": 1,
+          "comment": null,
+          "modifiers": [
+            {
+              "modifierId": "ZWdcuBwtm226BNvj9",
+              "externalId": "BA.010",
+              "name": "Elige tu café o té favorito",
+              "shortName": "Elige tu café o té favorito",
+              "description": [
+                "Cafe De Grano Para Preparar"
+              ],
+              "countById": {
+                "ZHyc3jKYq8o7P4wkM": 1
+              },
+              "countByExternalId": {
+                "10000": 1
+              },
+              "options": [
+                {
+                  "optionId": "ZHyc3jKYq8o7P4wkM",
+                  "externalId": "10000",
+                  "name": "Cafe De Grano Para Preparar",
+                  "price": 0
+                }
+              ]
+            },
+            {
+              "modifierId": "hm4wA5rtKbE5FTvRF",
+              "externalId": "BA.020",
+              "name": "Elige tu jugo natural de fruta",
+              "shortName": "Elige tu jugo natural de fruta",
+              "description": [
+                "Jugo de Naranja"
+              ],
+              "countById": {
+                "cHXPxQddcA3a9RD9C": 1
+              },
+              "countByExternalId": {
+                "10050": 1
+              },
+              "options": [
+                {
+                  "optionId": "cHXPxQddcA3a9RD9C",
+                  "externalId": "10050",
+                  "name": "Jugo de Naranja",
+                  "price": 0
+                }
+              ]
+            },
+            {
+              "modifierId": "9Sz74pZfXMs4EzKKn",
+              "externalId": "BA.080",
+              "name": "Elige porción de torta",
+              "shortName": "Elige porción de torta",
+              "description": [
+                "Carrot Cake"
+              ],
+              "countById": {
+                "nC3EtwodLQkZBrDQE": 1
+              },
+              "countByExternalId": {
+                "10370": 1
+              },
+              "options": [
+                {
+                  "optionId": "nC3EtwodLQkZBrDQE",
+                  "externalId": "10370",
+                  "name": "Carrot Cake",
+                  "price": 0
+                }
+              ]
+            }
+          ],
+          "options": [
+            {
+              "optionId": "ZWdcuBwtm226BNvj9",
+              "title": "Elige tu café o té favorito",
+              "internalName": "BA.010",
+              "selections": [
+                "Cafe De Grano Para Preparar"
+              ],
+              "selectionsPrices": [
+                0
+              ],
+              "externalId": "BA.010",
+              "selectionsExternalIds": [
+                "10000"
+              ]
+            },
+            {
+              "optionId": "hm4wA5rtKbE5FTvRF",
+              "title": "Elige tu jugo natural de fruta",
+              "internalName": "BA.020",
+              "selections": [
+                "Jugo de Naranja"
+              ],
+              "selectionsPrices": [
+                0
+              ],
+              "externalId": "BA.020",
+              "selectionsExternalIds": [
+                "10050"
+              ]
+            },
+            {
+              "optionId": "9Sz74pZfXMs4EzKKn",
+              "title": "Elige porción de torta",
+              "internalName": "BA.080",
+              "selections": [
+                "Carrot Cake"
+              ],
+              "selectionsPrices": [
+                0
+              ],
+              "externalId": "BA.080",
+              "selectionsExternalIds": [
+                "10370"
+              ]
+            }
+          ]
+        }
+      ],
+      "transaction": {
+        "_id": "uJcE58uE73wbGqJdf",
+        "totalPrice": 30400,
+        "paymentType": "kushkiWebpay",
+        "cardType": "credit",
+        "cardLast4": "7933",
+        "status": "paid",
+        "fee": 1067,
+        "feeWithoutTax": 897
+      },
+      "devolutions": null,
+      "deliveries": [],
+      "charges": {
+        "paymentFee": {
+          "_id": null,
+          "amount": 897,
+          "totalAmount": 1067.43,
+          "tax": 170.43,
+          "count": 1
+        }
+      },
+      "orderParams": null,
+      "billing": null,
+      "clonedOrder": null,
+      "parentOrder": null,
+      "hasManagedDelivery": true,
+      "loyaltyTransaction": null,
+      "cancellationInfo": {},
+      "gift": {
+        "sender": "Chicolinas",
+        "receiver": "Dani Bowie",
+        "receiverPhone": "+56945616505",
+        "message": "Para que este cumpleaños sea especial. Recuerda que estamos para ti. \nTe queremos mucho. \n\nTe mandamos un abracito. \n- Isis, Caro y Pachi."
+      },
+      "websiteCoinsDiscount": 0,
+      "usesNewDeliveryBilling": true,
+      "deliveryInvoicing": "justo"
+    }
+  },
+  "date": "2025-08-18T16:21:01.290Z",
+  "type": "newOrder"
+}

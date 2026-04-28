@@ -1,0 +1,748 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Casos Frecuentes levantados en Integraciones (Delivery-Api Standard)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="45c2d47a-80a9-4aae-a155-2166ed7daa7f" class="page sans"><header><div class="page-header-icon undefined"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/></div><h1 class="page-title" dir="auto">Casos Frecuentes levantados en Integraciones (Delivery-Api Standard)</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha límite</th><td><time>18 de julio de 2024</time></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/target_gray.svg" style="width:14px;height:14px;display:block"/></span>Proyecto</th><td><a href="../Proyectos/Estudio%20de%20investigaci%C3%B3n%201037f0d05f3e4113967f4a755f0f745c.html"><span class="icon">📑</span>Estudio de investigación</a></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list-indent_gray.svg" style="width:14px;height:14px;display:block"/></span>Subtareas</th><td><a href="Identificar%20incidencias%20levantadas%20por%20Slack%20be5bd9a5a1314b9aafc51309e659eb97.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Identificar incidencias levantadas por Slack</a>, <a href="Identificar%20causas%20frecuentes%202c442d867eb0461c85cf092b3b8543ef.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Identificar causas frecuentes</a>, <a href="An%C3%A1lisis%20de%20causas%20frecuentes%20ba27eda61b184ed1a93e5241f122b01b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Análisis de causas frecuentes </a></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Prioridad</th><td><span class="selected-value select-value-color-yellow">Media</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td><span class="selected-value select-value-color-gray">Investigación</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="a18b20b7-f7f5-4a7f-b345-0d205bd9e0be" class="">El análisis se realiza basado en la data obtenida desde el mes de Junio de 2023 hasta el mes de Agosto 2024.<br/></p></div><div style="display:contents" dir="ltr"><table id="fe9d7974-6a93-4539-99f5-a6d9820ffbbc" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="5d9d7a62-030d-4147-bdba-e9fa426ab2fa"><th id="Y;Lv" class="simple-table-header-color simple-table-header" style="width:140px">Total de Casos: </th><th id="UJR:" class="simple-table-header-color simple-table-header" style="width:79px">714</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="5615c2b0-31d4-423c-bb0f-3011f1fccce0"><th id="Y;Lv" class="simple-table-header-color simple-table-header" style="width:140px">Sac:</th><td id="UJR:" class="" style="width:79px">377</td></tr></div><div style="display:contents" dir="ltr"><tr id="6a324dff-7485-4470-8ba1-5ece7fadd3b0"><th id="Y;Lv" class="simple-table-header-color simple-table-header" style="width:140px">CS:</th><td id="UJR:" class="" style="width:79px">268</td></tr></div><div style="display:contents" dir="ltr"><tr id="746a972c-90c7-4a20-90d0-86c6871fdb4f"><th id="Y;Lv" class="simple-table-header-color simple-table-header" style="width:140px">Onboarding</th><td id="UJR:" class="" style="width:79px">69</td></tr></div><div style="display:contents" dir="ltr"><tr id="ec44e20e-b784-4fbe-be15-eab277edd27a"><th id="Y;Lv" class="simple-table-header-color simple-table-header" style="width:140px">Otros:</th><td id="UJR:" class="" style="width:79px">0</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure id="d2ac1215-9875-4768-bfe5-10dc9f4b899a" class="image" style="text-align:left"><a href="Casos%20Frecuentes%20levantados%20en%20Integraciones%20(Deli/reas_que_Reportan_Casos_de_Integraciones_(1).png"><img style="width:547.96875px" src="Casos%20Frecuentes%20levantados%20en%20Integraciones%20(Deli/reas_que_Reportan_Casos_de_Integraciones_(1).png"/></a></figure></div><div style="display:contents" dir="auto"><p id="e6c934b2-bfb5-4e7c-97e1-67b37daaa36c" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="037dbb76-5b11-49b8-9659-aa04f7ce5695" class="toggle"><li><details open=""><summary>Casos Levantados por SAC</summary><div style="display:contents" dir="auto"><div id="bf1dada7-10a6-49f2-b12a-635849133a39" class="column-list"><div style="display:contents" dir="auto"><div id="3b86e222-2eef-46fa-ad62-1da019217a29" style="width:93.75%" class="column"><div style="display:contents" dir="ltr"><table id="40620fbf-e77e-4d7c-a36f-0afce9b76294" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="81fcf4fa-de0f-4206-b1cd-7d95cfe5d5e7"><th id="M|&lt;K" class="simple-table-header-color simple-table-header" style="width:406px">Total de casos reportados por SAC</th><th id="AwAe" class="simple-table-header-color simple-table-header" style="width:51px">377</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="0e6f5429-8325-42d8-a19c-fe774760d780"><td id="M|&lt;K" class="" style="width:406px">Horarios (Solo Uber): Sincronización de horario, apertura y cierre de tienda, etc.</td><td id="AwAe" class="" style="width:51px">10</td></tr></div><div style="display:contents" dir="ltr"><tr id="9f1b33a3-1bcd-4a07-b349-d78027d0b2de"><td id="M|&lt;K" class="" style="width:406px">Órdenes no integradas, incongruencia de información, etc.</td><td id="AwAe" class="" style="width:51px">153</td></tr></div><div style="display:contents" dir="ltr"><tr id="4d18dade-410d-4de8-a546-3a60929be75f"><td id="M|&lt;K" class="" style="width:406px">Configuraciones de la integración</td><td id="AwAe" class="" style="width:51px">47</td></tr></div><div style="display:contents" dir="ltr"><tr id="56dc5315-0d4c-4d5c-9291-1069e581023a"><td id="M|&lt;K" class="" style="width:406px">Errores de envío, actualización de carta, visualización de productos, extras y/o imágenes, ordenamiento.</td><td id="AwAe" class="" style="width:51px">167</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><table id="ca01578c-bd2f-4309-89ea-442bc96cc4e3" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="f58aa8cb-dcaf-453b-ad4d-2f6c8935556f"><th id="=KFO" class="simple-table-header-color simple-table-header" style="width:407px">Errores de envío, actualización de carta, visualización de productos, extras y/o imágenes, ordenamiento.</th><th id="p=&lt;&gt;" class="simple-table-header-color simple-table-header" style="width:54px">167</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="933d3e2b-667f-445b-9484-d9a8971a9169"><td id="=KFO" class="" style="width:407px">Justo</td><td id="p=&lt;&gt;" class="" style="width:54px">19</td></tr></div><div style="display:contents" dir="ltr"><tr id="029703bb-95fb-472b-ad78-0fc3204e627c"><td id="=KFO" class="" style="width:407px">Rappi</td><td id="p=&lt;&gt;" class="" style="width:54px">37</td></tr></div><div style="display:contents" dir="ltr"><tr id="4ed8d405-5fad-4249-bce0-6c557e0527fb"><td id="=KFO" class="" style="width:407px">PedidosYa</td><td id="p=&lt;&gt;" class="" style="width:54px">95</td></tr></div><div style="display:contents" dir="ltr"><tr id="54ed7944-e3e6-4f84-a593-baefd56cbc5c"><td id="=KFO" class="" style="width:407px">Uber</td><td id="p=&lt;&gt;" class="" style="width:54px">8</td></tr></div><div style="display:contents" dir="ltr"><tr id="08ba55c7-a5c2-4de6-90ea-8342269de62f"><td id="=KFO" class="" style="width:407px">Mercat</td><td id="p=&lt;&gt;" class="" style="width:54px">8</td></tr></div><div style="display:contents" dir="ltr"><tr id="3a555af7-db57-4a23-83ef-3b37ae5af355"><td id="=KFO" class="" style="width:407px">Didi</td><td id="p=&lt;&gt;" class="" style="width:54px">1</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure id="c28f261c-a91f-4984-8a78-d8f5db258c5c" class="image"><a href="Casos%20Frecuentes%20levantados%20en%20Integraciones%20(Deli/Errores_de_envio_actualizacion_de_carta__visualizacion_de_productos_extras_y_o_imgenes_ordenamiento._(Reportados_SAC).png"><img style="width:428.75px" src="Casos%20Frecuentes%20levantados%20en%20Integraciones%20(Deli/Errores_de_envio_actualizacion_de_carta__visualizacion_de_productos_extras_y_o_imgenes_ordenamiento._(Reportados_SAC).png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2817fe46-06a7-4d4f-9fb7-e7c6d03f7e98" style="width:6.25%" class="column"><div style="display:contents" dir="auto"><p id="a14b194e-30d0-4d35-9a7d-851e8b3210d7" class="">
+</p></div></div></div></div></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="2051b2c7-29da-4928-bfad-1fc936cfd893" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="24bc513a-5478-4e0b-9e98-d83b7fbae5f7" class="toggle"><li><details open=""><summary>Casos Levantados por CS</summary><div style="display:contents" dir="auto"><div id="c7a455b1-e0a6-47fd-8dd4-ab179b3a4839" class="column-list"><div style="display:contents" dir="auto"><div id="d1739eb4-d556-4356-a887-0381e198f98b" style="width:50%" class="column"><div style="display:contents" dir="ltr"><table id="63e85f77-013c-4207-b838-7379d4c96685" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="03c9d2d5-58c8-4f84-8865-8529922cec1f"><th id="&gt;csu" class="simple-table-header-color simple-table-header">Total de Casos Levantados por CS</th><th id="\Wrx" class="simple-table-header-color simple-table-header">268</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="aa7162eb-51fa-4de6-8c37-b8e14d6d04f2"><th id="&gt;csu" class="simple-table-header-color simple-table-header">Incidencias</th><td id="\Wrx" class="">135</td></tr></div><div style="display:contents" dir="ltr"><tr id="1dbe6dea-8837-494d-b429-4b4b9448b041"><th id="&gt;csu" class="simple-table-header-color simple-table-header">Solicitud de Baja</th><td id="\Wrx" class="">133</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure id="b8abcb86-142d-499b-a349-3c64f55ba3b8" class="image"><a href="Casos%20Frecuentes%20levantados%20en%20Integraciones%20(Deli/Bajas_de_Integraciones.png"><img style="width:382.57501220703125px" src="Casos%20Frecuentes%20levantados%20en%20Integraciones%20(Deli/Bajas_de_Integraciones.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="0d6b7831-590b-430a-877d-4d0ac56e445e" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="f1e95f21-85ff-4637-bf98-317deb6237b7" style="width:50%" class="column"><div style="display:contents" dir="ltr"><table id="ca5e650d-bb70-4226-97a4-75640d813e30" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="99545488-8e31-42ca-80e5-e720f2c1e122"><th id="lThT" class="simple-table-header-color simple-table-header" style="width:292px">Total de Incidencias reportados por CS</th><th id="\BHP" class="simple-table-header-color simple-table-header">136</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="9704a593-ff75-404d-a4e1-63fc2bccc81d"><td id="lThT" class="" style="width:292px">Horarios (Solo Uber): Sincronización de horario, Apertura y cierre de tienda, etc.</td><td id="\BHP" class="">5</td></tr></div><div style="display:contents" dir="ltr"><tr id="2b5b8cb9-eb9d-4bf0-8541-ad4684835332"><td id="lThT" class="" style="width:292px">Ordenes no integradas, incongruencia de información, etc. Tienda: Configuraciones de la integración</td><td id="\BHP" class="">56</td></tr></div><div style="display:contents" dir="ltr"><tr id="ef9db9b6-4884-4b7d-9c45-6ecc5e8f14d9"><td id="lThT" class="" style="width:292px">Configuraciones de la integración</td><td id="\BHP" class="">18</td></tr></div><div style="display:contents" dir="ltr"><tr id="b3785cae-d4ad-4c1b-9d36-9064a4be122d"><td id="lThT" class="" style="width:292px">Errores de envío, actualización de carta,  visualización de productos, extras y/o imágenes, ordenamiento.</td><td id="\BHP" class="">57</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><table id="240c6466-2a62-4af5-a28a-2a962d2448f3" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="68f007a7-89f5-46ca-bd50-54901702e580"><th id="H|nF" class="simple-table-header-color simple-table-header" style="width:296px">Errores de envío, actualización de carta, visualización de productos, extras y/o imágenes, ordenamiento.</th><th id="U;zq" class="simple-table-header-color simple-table-header">57</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="344df0d2-74db-424d-9ee8-70db727d3658"><td id="H|nF" class="" style="width:296px">Justo</td><td id="U;zq" class="">17</td></tr></div><div style="display:contents" dir="ltr"><tr id="5d77b111-29c7-40cc-9ce2-8519bad97f13"><td id="H|nF" class="" style="width:296px">Rappi</td><td id="U;zq" class="">15</td></tr></div><div style="display:contents" dir="ltr"><tr id="1249cf91-52cf-401f-9603-44e1ccbb4f2b"><td id="H|nF" class="" style="width:296px">PedidosYa</td><td id="U;zq" class="">16</td></tr></div><div style="display:contents" dir="ltr"><tr id="2b2ef5ee-8d85-40aa-ba4b-79f2c7b43b71"><td id="H|nF" class="" style="width:296px">Uber</td><td id="U;zq" class="">7</td></tr></div><div style="display:contents" dir="ltr"><tr id="786254c2-61b5-4d5e-8be3-52edb842eedb"><td id="H|nF" class="" style="width:296px">Mercat</td><td id="U;zq" class="">2</td></tr></div><div style="display:contents" dir="ltr"><tr id="17c4bc38-f742-4a89-a344-5bebdbb5bb47"><td id="H|nF" class="" style="width:296px">Didi</td><td id="U;zq" class="">2</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure id="d27ad73a-39b5-4ff2-bdca-92cc286187a4" class="image"><a href="Casos%20Frecuentes%20levantados%20en%20Integraciones%20(Deli/Errores_de_envio_actualizacion_de_carta__visualizacion_de_productos_extras_y_o_imgenes_ordenamiento._(Reportados_CS).png"><img style="width:382.5874938964844px" src="Casos%20Frecuentes%20levantados%20en%20Integraciones%20(Deli/Errores_de_envio_actualizacion_de_carta__visualizacion_de_productos_extras_y_o_imgenes_ordenamiento._(Reportados_CS).png"/></a></figure></div></div></div></div></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="fa436e02-c718-4a26-bce3-2edb2c588190" class="toggle"><li><details open=""><summary>Casos Levantados por OB</summary><div style="display:contents" dir="ltr"><table id="770d5fd8-ed4a-40fe-8a08-3f35d8aaf8cb" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="9ecb9c24-46c0-49c8-a304-e5d4cbe382c8"><th id="|PpA" class="simple-table-header-color simple-table-header" style="width:415px">Total de incidencias</th><th id="negU" class="simple-table-header-color simple-table-header" style="width:35px"></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="e00ce4fa-e26b-4ce3-b53f-0b32324ef8b3"><td id="|PpA" class="" style="width:415px">Horarios (Solo Uber): Sincronización de horario, apertura y cierre de tienda, etc.</td><td id="negU" class="" style="width:35px">1</td></tr></div><div style="display:contents" dir="ltr"><tr id="4ba9219c-a472-47cf-8846-9067d59f7380"><td id="|PpA" class="" style="width:415px">Órdenes no integradas, incongruencia de información, etc. Tienda: Configuraciones de la integración</td><td id="negU" class="" style="width:35px">14</td></tr></div><div style="display:contents" dir="ltr"><tr id="08389906-e0ec-4ec8-b662-eafb83759214"><td id="|PpA" class="" style="width:415px">Configuraciones de la integración</td><td id="negU" class="" style="width:35px">11</td></tr></div><div style="display:contents" dir="ltr"><tr id="57c4ec12-4a10-4435-9cec-91e0670a187e"><td id="|PpA" class="" style="width:415px">Errores de envío, actualización de carta, visualización de productos, extras y/o imágenes, ordenamiento.</td><td id="negU" class="" style="width:35px">24</td></tr></div></tbody></table></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="8b7c9c13-f610-4742-837d-038a5bae19f3" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

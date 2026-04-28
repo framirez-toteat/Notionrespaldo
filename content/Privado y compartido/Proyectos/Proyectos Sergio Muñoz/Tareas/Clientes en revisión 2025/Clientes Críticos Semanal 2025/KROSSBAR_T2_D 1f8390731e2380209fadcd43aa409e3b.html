@@ -1,0 +1,749 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>KROSSBAR_T2_D</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1f839073-1e23-8020-9fad-cd43aa409e3b" class="page sans"><header><h1 class="page-title" dir="auto">KROSSBAR_T2_D</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="selected-value select-value-color-green">Solucionado</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha</th><td><time>13 de mayo de 2025</time></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>ID Local</th><td>5549869293633536-00001</td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>KAM</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIIVSjJEdC_fsTKRHCbxX9HIO3JOwbxU7VPO-PT3V_jjnHSWQ=s100" class="icon user-icon"/>Katherine Boscan</span></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>ítem principal</th><td><a href="Semana%2018%20(12%2005%20-%2016%2005)%201f8390731e2380ce8af5e50a9849da5f.html">Semana 18 (12/05 - 16/05)</a></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="1f839073-1e23-8039-85f4-ee073e922c63" class=""><strong>El cliente se comunica con la siguiente consulta:<br/><br/></strong></p></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-80bf-94c1-e696ef4e76d8" class="">Buenos días America solicito de su buenos oficios,  en que me ayudes con la siguiente consulta  yo desde bodega solo puedo ver en historial de envió el monto de la guía de despacho, que se genera en bodega pero no coincide con lo que recibió el local, dejo correo arrastres de lo que sucedió el día de ayer con un local donde en la guía fue facturado cuchillo pero no se envió el local en la confirmación del pedido coloco 0   a nivel de inventario esta perfecto pero a nivel de costo existe una diferencia en la guía de despacho numero 27883  es por un monto de 80.645 y lo que recibió el local en realidad es de 26.695.</p></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-80e1-9674-f5a734d35e68" class="">Guía de despacho emitida por bodega</p></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-8009-b5bd-d9b001abac86" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1f839073-1e23-808e-bdfc-e1ca3594f682" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.7&amp;permmsgid=msg-f:1832022190680457220&amp;th=196ca679d8244004&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-f:1832022190680457220&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_GpDj1itIX6D1ZOk4Buqk_rICFN7OqoJTe8X4p2pHe005XTcagURVAjBVt6-bu0l3hV2y0doOMyUaYwtJbzy0QZuSusVflPhcL7FKRn8MERbmwvL7RF49KB6o&amp;disp=emb&amp;realattid=ii_196ca64e55d692e337&amp;zw"><img style="width:700px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.7&amp;permmsgid=msg-f:1832022190680457220&amp;th=196ca679d8244004&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-f:1832022190680457220&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_GpDj1itIX6D1ZOk4Buqk_rICFN7OqoJTe8X4p2pHe005XTcagURVAjBVt6-bu0l3hV2y0doOMyUaYwtJbzy0QZuSusVflPhcL7FKRn8MERbmwvL7RF49KB6o&amp;disp=emb&amp;realattid=ii_196ca64e55d692e337&amp;zw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1f839073-1e23-803c-957b-e2df99752629" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.6&amp;permmsgid=msg-f:1832022190680457220&amp;th=196ca679d8244004&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-f:1832022190680457220&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ8Yj2QN0wSPf0qxe3eR6p0Ty-KSWfZu4bKOsrK3Vg1kVG6JYqTOCxAiXI8ilsTm78e8L-zT8106y1UUrios1oLkFAK21k9snmtTcjp-hoPnI3yRvif5HBWCOx8&amp;disp=emb&amp;realattid=ii_196ca64e55d5b16b26&amp;zw"><img style="width:21px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.6&amp;permmsgid=msg-f:1832022190680457220&amp;th=196ca679d8244004&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-f:1832022190680457220&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ8Yj2QN0wSPf0qxe3eR6p0Ty-KSWfZu4bKOsrK3Vg1kVG6JYqTOCxAiXI8ilsTm78e8L-zT8106y1UUrios1oLkFAK21k9snmtTcjp-hoPnI3yRvif5HBWCOx8&amp;disp=emb&amp;realattid=ii_196ca64e55d5b16b26&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-805c-9fc4-d18dc1371bfa" class="">Confirmación de recepción del local.</p></div><div style="display:contents" dir="ltr"><table id="1f839073-1e23-80e1-a8c7-d67ed5f34f05" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="1f839073-1e23-80d1-80bf-d2e25464eaaf"><td id=";WRp" class="">Código</td><td id="}V|W" class="">Nombre producto</td><td id="&gt;C~R" class="">Cantidad</td><td id="pmjz" class="">Un. de Medida</td><td id="]h^U" class="">Costo Neto/U</td><td id="a{bj" class="">Costo</td><td id="KcYS" class="">Tipo de Producto</td><td id="@efI" class="">Bodega</td></tr></div><div style="display:contents" dir="ltr"><tr id="1f839073-1e23-8017-a37c-f98ad9efc4f9"><td id=";WRp" class="">VIXCLOR4272</td><td id="}V|W" class="">VIXCLOR Espuma clorada función</td><td id="&gt;C~R" class="">11</td><td id="pmjz" class="">L</td><td id="]h^U" class="">10</td><td id="a{bj" class=""><strong>110</strong></td><td id="KcYS" class="">INGR</td><td id="@efI" class="">Colacion KB D</td></tr></div><div style="display:contents" dir="ltr"><tr id="1f839073-1e23-805a-9e7d-d51affdc4bcb"><td id=";WRp" class="">CUDEMA005</td><td id="}V|W" class="">CUCHILLO DE MADERA</td><td id="&gt;C~R" class="">0</td><td id="pmjz" class="">UN</td><td id="]h^U" class="">10</td><td id="a{bj" class=""><strong>0</strong></td><td id="KcYS" class="">INGR</td><td id="@efI" class="">Colacion KB D</td></tr></div><div style="display:contents" dir="ltr"><tr id="1f839073-1e23-8056-b948-c3330491f8a1"><td id=";WRp" class="">49777034FVP</td><td id="}V|W" class="">FIBRA PARRILLERA VERDE ABRASIVA PAQ 10 UNID</td><td id="&gt;C~R" class="">10</td><td id="pmjz" class="">UN</td><td id="]h^U" class="">10</td><td id="a{bj" class=""><strong>100</strong></td><td id="KcYS" class="">INGR</td><td id="@efI" class="">Colacion KB D</td></tr></div><div style="display:contents" dir="ltr"><tr id="1f839073-1e23-8046-916b-d539b31defec"><td id=";WRp" class="">TO55004</td><td id="}V|W" class="">TOALLA JUMBO</td><td id="&gt;C~R" class="">4</td><td id="pmjz" class="">UN</td><td id="]h^U" class="">10</td><td id="a{bj" class=""><strong>40</strong></td><td id="KcYS" class="">INGR</td><td id="@efI" class="">Colacion KB D</td></tr></div><div style="display:contents" dir="ltr"><tr id="1f839073-1e23-8063-9d2e-f1089e9bf411"><td id=";WRp" class="">wypall</td><td id="}V|W" class="">paños wypall rollo de 60 unidad</td><td id="&gt;C~R" class="">1</td><td id="pmjz" class="">UN</td><td id="]h^U" class="">8.790</td><td id="a{bj" class=""><strong>8.790</strong></td><td id="KcYS" class="">INGR</td><td id="@efI" class="">Colacion KB D</td></tr></div><div style="display:contents" dir="ltr"><tr id="1f839073-1e23-80bf-b546-e3e8f45a845d"><td id=";WRp" class="">CUDEMA006</td><td id="}V|W" class="">TENEDOR MADERA</td><td id="&gt;C~R" class="">1,000,0000</td><td id="pmjz" class="">UN</td><td id="]h^U" class="">10</td><td id="a{bj" class=""><strong>10.000</strong></td><td id="KcYS" class="">INGR</td><td id="@efI" class="">Colacion KB D</td></tr></div><div style="display:contents" dir="ltr"><tr id="1f839073-1e23-80b0-9729-feff07399efa"><td id=";WRp" class="">GNITRILLOL033</td><td id="}V|W" class="">GUANTE NITRILLO NEGRO TALLA M</td><td id="&gt;C~R" class="">200</td><td id="pmjz" class="">UN</td><td id="]h^U" class="">38</td><td id="a{bj" class=""><strong>7.605</strong></td><td id="KcYS" class="">INGR</td><td id="@efI" class="">Colacion KB D</td></tr></div><div style="display:contents" dir="ltr"><tr id="1f839073-1e23-80bd-8a37-d24ed3e46b48"><td id=";WRp" class="">8503302CL</td><td id="}V|W" class="">ASEPCOL 5 LITROS</td><td id="&gt;C~R" class="">5</td><td id="pmjz" class="">L</td><td id="]h^U" class="">10</td><td id="a{bj" class=""><strong>50</strong></td><td id="KcYS" class="">INGR</td><td id="@efI" class="">Colacion KB D</td></tr></div><div style="display:contents" dir="ltr"><tr id="1f839073-1e23-8007-8698-c718324d44ac"><td id=";WRp" class=""></td><td id="}V|W" class=""></td><td id="&gt;C~R" class=""></td><td id="pmjz" class=""></td><td id="]h^U" class=""></td><td id="a{bj" class=""><strong>26.695</strong></td><td id="KcYS" class=""></td><td id="@efI" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-803e-a283-e610de61209b" class="">Historial de envio desde bodega</p></div><div style="display:contents" dir="ltr"><table id="1f839073-1e23-80e6-8afc-f7f1f9236bdb" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="1f839073-1e23-8023-b01a-dd86c86649b9"><td id="uB:s" class="">id</td><td id="{C_@" class="">fecha_modificacion</td><td id="gKk;" class="">fecha_creacion</td><td id="YY?b" class="">fecha_entrega</td><td id="bFH`" class="">fecha_recepcion</td><td id="\kEu" class="">proveedor</td><td id="&lt;jg}" class="">receptor</td><td id="W=b&lt;" class="">status</td><td id="N{aT" class="">usuario_creador</td><td id="Q[\R" class="">documento_despacho</td><td id="G~pt" class="">costo_total</td></tr></div><div style="display:contents" dir="ltr"><tr id="1f839073-1e23-800e-af16-d0e5b8435c74"><td id="uB:s" class="">6425231332081664</td><td id="{C_@" class="">2025-05-12 14:49:58</td><td id="gKk;" class="">2025-05-10 11:09:07</td><td id="YY?b" class="">2025-05-12</td><td id="bFH`" class="">2025-05-12T00:00:00</td><td id="\kEu" class="">BODEGA_CHILE</td><td id="&lt;jg}" class="">KROSSBAR_T2_D</td><td id="W=b&lt;" class="">Pedido Recepcionado</td><td id="N{aT" class="">Diego Oyarzun Baez</td><td id="Q[\R" class="">GD 27883</td><td id="G~pt" class="">80644,78</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-8044-85fd-d5e3e1d6c3bb" class="">Existe la posibilidad que en el  reporte  de transferencia multilocal en historial de envio me indique el costo de lo que recibió el local?</p></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-802d-ba63-dec0351d3568" class="">Estimado,</p></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-807c-8c1d-ee746c2ff5b2" class="">Esperando se encuentre bien, quiero hacer una consulta con respecto a los productos que se recepcionan en 0, dejo un ejercicio</p></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-8004-b2a8-e2e037a66ab3" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1f839073-1e23-804f-a325-f3c27299070b" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.1&amp;permmsgid=msg-f:1832022190680457220&amp;th=196ca679d8244004&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-f:1832022190680457220&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ9jYB4L8itH-7_JT0w8o5o81D9X9JrFbqdL50U87Hsm_fWxznH41ASiX7jS5gdPJVuCGTq8G76PRpFeXPZGWd60tS7I5OQ8GhA2FgQOF3BXyyg4m01YyOO54g4&amp;disp=emb&amp;realattid=ii_196ca64e55ccb971f161&amp;zw"><img style="width:700px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.1&amp;permmsgid=msg-f:1832022190680457220&amp;th=196ca679d8244004&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-f:1832022190680457220&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ9jYB4L8itH-7_JT0w8o5o81D9X9JrFbqdL50U87Hsm_fWxznH41ASiX7jS5gdPJVuCGTq8G76PRpFeXPZGWd60tS7I5OQ8GhA2FgQOF3BXyyg4m01YyOO54g4&amp;disp=emb&amp;realattid=ii_196ca64e55ccb971f161&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-8028-815b-da0cb688a97a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-8002-ae6b-c4187bf41045" class="">De esta guia los cuchillos de madera se recepcionaron en 0 y de los paños wypall venia un paquete de 6 unidades del cual solo recibimos 1 unidad (1 rollo). En la guía de despacho salen los montos sin descontar obviamente. Mi pregunta es en que minuto se rebaja este monto de mi inventario.</p></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-80ab-9afc-f97d7017e781" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1f839073-1e23-807b-bf16-eaff14644c23" class="image"><a href="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.3&amp;permmsgid=msg-f:1832022190680457220&amp;th=196ca679d8244004&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-f:1832022190680457220&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_s0sip2_peHAobGrhKLZs651aw77Wbfseq_hQY19NzRcbzmE7Tv0U-9nMbSI5mfEdItjFn4kp0EeiDsky-k--YXmwLyBlfm4X3Zkh5w6nGkphoI7DpuVjyi7I&amp;disp=emb&amp;realattid=ii_196ca64e55dcb971f163&amp;zw"><img style="width:700px" src="https://mail.google.com/mail/u/0?ui=2&amp;ik=7602b3c523&amp;attid=0.3&amp;permmsgid=msg-f:1832022190680457220&amp;th=196ca679d8244004&amp;view=fimg&amp;fur=ip&amp;permmsgid=msg-f:1832022190680457220&amp;sz=s0-l75-ft&amp;attbid=ANGjdJ_s0sip2_peHAobGrhKLZs651aw77Wbfseq_hQY19NzRcbzmE7Tv0U-9nMbSI5mfEdItjFn4kp0EeiDsky-k--YXmwLyBlfm4X3Zkh5w6nGkphoI7DpuVjyi7I&amp;disp=emb&amp;realattid=ii_196ca64e55dcb971f163&amp;zw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-8087-b273-e040245f7fef" class=""><br/><br/><br/><strong>La respuesta luego de hacer la revisión fue canalizada a través de Katherine Boscán:<br/><br/></strong></p></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-80cb-a4be-f101bbc5dfca" class="">Hola buen día, referente a un reporte con el que el cliente se puede apoyar para revisar esas diferencias valorizadas es desde el Menú Lateral - Stock Control - Transferencias MultiLocal - Ahi deberá filtrar por el rango de tiempo en el que quiere consultar las diferencias entre <strong>Lo Enviado VS Lo Recibido, </strong>luego debe seleccionar la opcion de <strong>Detalle de Líneas, </strong>por ultimo genera el reporte desde el icono de 🔄. Ya con esto hecho solo debe descargar el reporte en dando click en el botón <strong>Exportar.</strong></p></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-80f0-a5ac-d4d2bfc100f3" class=""><br/>Ej:<br/></p></div><div style="display:contents" dir="ltr"><figure id="1f839073-1e23-80cb-94c4-c8dd0c5767df" class="image"><a href="KROSSBAR_T2_D/image.png"><img style="width:785.484375px" src="KROSSBAR_T2_D/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-80fb-9d75-d61ef5c0e6c7" class=""><br/>Asi se descargara el reporte y podrá ver las transferencias entre locales, para asi validar las cantidades y diferencias de lo enviado vs recibido en las columnas <strong>&quot;L </strong>y <strong>M&quot;, </strong>luego en la columna <strong>&quot;O&quot; </strong>vera valorizadas esas diferencias.<br/></p></div><div style="display:contents" dir="ltr"><figure id="1f839073-1e23-8045-bc35-e094f7a946f3" class="image"><a href="KROSSBAR_T2_D/image%201.png"><img style="width:785.484375px" src="KROSSBAR_T2_D/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-80c4-8278-d237c419363f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-803e-9aa2-fe2aa7f1c783" class="">También en las columnas J y K podrá ver el # de documento de despacho (La Guía) junto con el Total del documento, ya con eso podrá hacer su revisión mas precisa.<br/></p></div><div style="display:contents" dir="ltr"><figure id="1f839073-1e23-807f-b26c-efa0e05bb9e4" class="image"><a href="KROSSBAR_T2_D/image%202.png"><img style="width:785.484375px" src="KROSSBAR_T2_D/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-80e9-9e1b-db5f310cb334" class=""><br/><br/><strong>Conclusión: Tras revisar la solicitud realizada por el cliente, se apoyo con un paso a paso explicativo de como puede descargar un reporte de las transferencias entre locales en formato XLS en el cual mediante la apertura de este en Excel, pueda revisar esas diferencias que pudiesen existir en la recepción y envío de mercadería entre un local y otro; asi mismo ver estas diferencias valorizadas.</strong></p></div><div style="display:contents" dir="auto"><p id="1f839073-1e23-808d-9d8b-d2a6a6a0e068" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

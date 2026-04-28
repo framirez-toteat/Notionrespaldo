@@ -1,0 +1,1117 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Semana 43(13-19 Octubre) </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="28e39073-1e23-80f1-b357-e4d4f11c0a6b" class="page sans"><header><h1 class="page-title" dir="auto">Semana 43(13-19 Octubre) </h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Creado</th><td><time>16 de octubre de 2025 12:32</time></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="28e39073-1e23-8184-a720-ec09a4415f22" class="">
+</p></div><div style="display:contents" dir="ltr"><div id="28e39073-1e23-8145-8387-dbdb213be4c3" class="collection-content"><h4 class="collection-title">Planificación de Tech </h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Titulo</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Comentarios</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Toteat</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Status</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Plataforma</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px;display:block"/></span>URL</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Ticket</th></tr></thead><tbody><tr id="28e39073-1e23-818b-9acf-e8a1ae03e4c2"><td class="cell-title"><a href="Semana%2043(13-19%20Octubre)/Planificaci%C3%B3n%20de%20Tech/Dk%20Error%20en%20new%2028e390731e23818b9acfe8a1ae03e4c2.html">Dk Error en new</a></td><td class="cell-\q|e">El caso esta mapeado pero no se ha generado ticket</td><td class="cell-f^U@"><span class="selected-value select-value-color-red">New</span></td><td class="cell-tOOV"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>mapeado pero sin ticket</span></td><td class="cell-u&gt;fJ"><span class="selected-value select-value-color-default">Todas</span></td><td class="cell-{sHm"><a href=" https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1753905036458329" class="url-value"> https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1753905036458329</a></td><td class="cell-Vc^E"></td></tr><tr id="28e39073-1e23-81e1-8ced-ec535cd35831"><td class="cell-title"><a href="Semana%2043(13-19%20Octubre)/Planificaci%C3%B3n%20de%20Tech/Caso%20de%20Sushiblue%2028e390731e2381e18cedec535cd35831.html">Caso de Sushiblue</a></td><td class="cell-\q|e">Descuadres por el valor de delivery en peya AUn persiste</td><td class="cell-f^U@"><span class="selected-value select-value-color-green">Legacy</span></td><td class="cell-tOOV"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En progreso</span></td><td class="cell-u&gt;fJ"><span class="selected-value select-value-color-yellow">Peya</span></td><td class="cell-{sHm"></td><td class="cell-Vc^E">Esta en QA</td></tr><tr id="28e39073-1e23-810e-abec-d079027117fa"><td class="cell-title"><a href="Semana%2043(13-19%20Octubre)/Planificaci%C3%B3n%20de%20Tech/Caso%20de%20Voucher%2028e390731e23810eabecd079027117fa.html">Caso de Voucher</a></td><td class="cell-\q|e">pendiente de aprobación por Trini. Gae esta en produccion separacion de descuentos de Voucher con los otros. Falta New</td><td class="cell-f^U@"><span class="selected-value select-value-color-red">New</span></td><td class="cell-tOOV"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En progreso</span></td><td class="cell-u&gt;fJ"><span class="selected-value select-value-color-yellow">Peya</span></td><td class="cell-{sHm"><a href="https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1748633306992919" class="url-value">https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1748633306992919</a></td><td class="cell-Vc^E"></td></tr><tr id="28e39073-1e23-8154-8666-db1c69acd4a5"><td class="cell-title"><a href="Semana%2043(13-19%20Octubre)/Planificaci%C3%B3n%20de%20Tech/Cash%20Collection%2028e390731e2381548666db1c69acd4a5.html">Cash Collection </a></td><td class="cell-\q|e">ya esta en producción. Debe estar funcionando</td><td class="cell-f^U@"><span class="selected-value select-value-color-red">New</span></td><td class="cell-tOOV"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>Produccion</span></td><td class="cell-u&gt;fJ"><span class="selected-value select-value-color-yellow">Peya</span></td><td class="cell-{sHm"><a href="https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1756505133695299" class="url-value">https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1756505133695299</a></td><td class="cell-Vc^E"></td></tr><tr id="28e39073-1e23-81fd-8fd2-d05f7cffba57"><td class="cell-title"><a href="Semana%2043(13-19%20Octubre)/Planificaci%C3%B3n%20de%20Tech/Caso%20de%20DanubioAzul%20Legacy%2028e390731e2381fd8fd2d05f7cffba57.html">Caso de DanubioAzul Legacy</a></td><td class="cell-\q|e"><a href="https://www.notion.soCosto de delivery afectando en el reporte de caja">Costo de delivery afectando en el reporte de caja</a></td><td class="cell-f^U@"><span class="selected-value select-value-color-green">Legacy</span></td><td class="cell-tOOV"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>Produccion</span></td><td class="cell-u&gt;fJ"><span class="selected-value select-value-color-brown">Justo</span></td><td class="cell-{sHm"><a href="https://toteat-espacio.slack.com/archives/C082BH7D7DM/p1756508337611029" class="url-value">https://toteat-espacio.slack.com/archives/C082BH7D7DM/p1756508337611029</a></td><td class="cell-Vc^E"></td></tr><tr id="28e39073-1e23-813a-b361-ced6a17f7d45"><td class="cell-title"><a href="Semana%2043(13-19%20Octubre)/Planificaci%C3%B3n%20de%20Tech/Caso%20de%20Danubio%20New%2028e390731e23813ab361ced6a17f7d45.html">Caso de Danubio  New</a></td><td class="cell-\q|e"><a href="https://www.notion.soCosto de delivery afectando en el reporte de caja">Costo de delivery afectando en el reporte de caja</a></td><td class="cell-f^U@"><span class="selected-value select-value-color-red">New</span></td><td class="cell-tOOV"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>Produccion</span></td><td class="cell-u&gt;fJ"><span class="selected-value select-value-color-brown">Justo</span></td><td class="cell-{sHm"><a href="https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1740776160252279" class="url-value">https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1740776160252279</a></td><td class="cell-Vc^E"></td></tr><tr id="28e39073-1e23-81d8-a5b8-c01c320d1247"><td class="cell-title"><a href="Semana%2043(13-19%20Octubre)/Planificaci%C3%B3n%20de%20Tech/Validar%20el%20flujo%20del%20voucher%20Peya%2028e390731e2381d8a5b8c01c320d1247.html">Validar el flujo del voucher Peya </a></td><td class="cell-\q|e"></td><td class="cell-f^U@"><span class="selected-value select-value-color-green">Legacy</span></td><td class="cell-tOOV"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Sin empezar</span></td><td class="cell-u&gt;fJ"></td><td class="cell-{sHm"></td><td class="cell-Vc^E"></td></tr><tr id="28e39073-1e23-81a4-be51-eedd3d0f0c43"><td class="cell-title"><a href="Semana%2043(13-19%20Octubre)/Planificaci%C3%B3n%20de%20Tech/Ordenamiento%20de%20los%20extras,%20escalado%20a%20new%20pero%20ha%2028e390731e2381a4be51eedd3d0f0c43.html">Ordenamiento de los extras, escalado a new pero hacer enfasis en el otro canal sobre el efecto sino se corrige</a></td><td class="cell-\q|e"></td><td class="cell-f^U@"><span class="selected-value select-value-color-red">New</span></td><td class="cell-tOOV"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Sin empezar</span></td><td class="cell-u&gt;fJ"></td><td class="cell-{sHm"></td><td class="cell-Vc^E"></td></tr><tr id="28e39073-1e23-811d-bcbe-c692b3feb16b"><td class="cell-title"><a href="Semana%2043(13-19%20Octubre)/Planificaci%C3%B3n%20de%20Tech/Id%20de%20ordenes%20en%20la%20factura%2028e390731e23811dbcbec692b3feb16b.html">Id de ordenes en la factura</a></td><td class="cell-\q|e"></td><td class="cell-f^U@"></td><td class="cell-tOOV"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Sin empezar</span></td><td class="cell-u&gt;fJ"></td><td class="cell-{sHm"></td><td class="cell-Vc^E"></td></tr><tr id="28e39073-1e23-813d-9415-fdaf499a2dad"><td class="cell-title"><a href="Semana%2043(13-19%20Octubre)/Planificaci%C3%B3n%20de%20Tech/Reportes%20nombre%20de%20los%20clientes%2028e390731e23813d9415fdaf499a2dad.html">Reportes nombre de los clientes</a></td><td class="cell-\q|e"><a href="https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1757962674759279">https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1757962674759279</a></td><td class="cell-f^U@"></td><td class="cell-tOOV"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Sin empezar</span></td><td class="cell-u&gt;fJ"></td><td class="cell-{sHm"></td><td class="cell-Vc^E"></td></tr><tr id="28e39073-1e23-814c-900c-fbba346b5626"><td class="cell-title"><a href="Semana%2043(13-19%20Octubre)/Planificaci%C3%B3n%20de%20Tech/Boton%20Rappi%20envioo%20de%20menu%2028e390731e23814c900cfbba346b5626.html">Boton Rappi envioo de menu</a></td><td class="cell-\q|e">ya esta desarrollado<br/><br/><br/>ambiente para probar 1846979316784857-1</td><td class="cell-f^U@"><span class="selected-value select-value-color-red">New</span></td><td class="cell-tOOV"><span class="status-value select-value-color-pink"><div class="status-dot status-dot-color-pink"></div>QA</span></td><td class="cell-u&gt;fJ"></td><td class="cell-{sHm"><a href="falta pasarlo a produccion" class="url-value">falta pasarlo a produccion</a></td><td class="cell-Vc^E"></td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><p id="28f39073-1e23-80f3-b1bc-e96a345114e5" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-8167-b847-fdc1923e8044" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="28e39073-1e23-814f-813f-cb4b484e7931" class="">Salesforce</h1></div><div style="display:contents" dir="ltr"><table id="28e39073-1e23-81c8-b5ad-c9c184130213" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="28e39073-1e23-81fe-8ba6-e912285e5cbb"><td id="ALFu" class=""><a href="https://toteat.lightning.force.com/lightning/r/500Qr00000VMyDNIA1/view">00031777</a></td><td id="RbxW" class="">31/7/2025, 15:34</td><td id="}IRH" class="">Barbazul Nueva Apoquindo.<br/>Danubio<br/>TODAS </td><td id="E@hq" class="">Hernán Sugg</td><td id="c:KT" class="">Integración cuenta Barbazul Nueva Apoquindo.</td><td id="\mDz" class="">Escalado Ing</td><td id="YI{T" class="">Error de la DK</td><td id="h:Fw" class="">Andrea Ruiz</td><td id="g{}e" class=""><a href="https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1753905036458329">https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1753905036458329</a></td><td id="I}wi" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="28e39073-1e23-8102-a494-e37484297fc3"><td id="ALFu" class=""><a href="https://toteat.lightning.force.com/lightning/r/500Qr00000VtmgYIAR/view">00032407</a></td><td id="RbxW" class="">11/8/2025, 11:22</td><td id="}IRH" class="">SushiBlues Plaza Egaña</td><td id="E@hq" class=""></td><td id="c:KT" class="">Integración cuenta SushiBlues Plaza Egaña</td><td id="\mDz" class="">Escalado Ing</td><td id="YI{T" class="">Descuadres en ordenes y reportes<br/>En este caso debo validar lo informado por peya con respecto a cuando enviar o no la informacion de descuentos</td><td id="h:Fw" class="">Andrea Ruiz</td><td id="g{}e" class=""><a href="https://toteat-espacio.slack.com/archives/C082BH7D7DM/p1755709125610759">https://toteat-espacio.slack.com/archives/C082BH7D7DM/p1755709125610759</a></td><td id="I}wi" class="">se subio un fix el dia de hoy 23-09 pero aun se ven algunas ordenes con descuadres pero tal vez se crearon cuando aun no se habia hecho el fix, se monitorea mañana.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28e39073-1e23-8104-94bb-eae550e7bad2"><td id="ALFu" class=""><a href="https://toteat.lightning.force.com/lightning/o/Case/list?filterName=MyCases#:~:text=Mostrar%20acciones-,00033651,-1/9/2025">00033651</a></td><td id="RbxW" class="">1/9/2025, 11:30</td><td id="}IRH" class="">Mood Cuidarte Sabe Increible</td><td id="E@hq" class="">Adrián Contreras Saavedra</td><td id="c:KT" class="">Integración cuenta Mood Cuidarte Sabe Increible</td><td id="\mDz" class="">Escalado Ing</td><td id="YI{T" class="">orden de los extras</td><td id="h:Fw" class="">Andrea Ruiz</td><td id="g{}e" class=""><a href="https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1756849242954709">https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1756849242954709</a></td><td id="I}wi" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="28e39073-1e23-8142-bea4-ce5adee6db79"><td id="ALFu" class=""><a href="https://toteat.lightning.force.com/lightning/r/500Qr00000XZGtXIAX/view">00034354</a></td><td id="RbxW" class="">11/9/2025, 14:21</td><td id="}IRH" class="">ThaiBox - Santiago</td><td id="E@hq" class=""></td><td id="c:KT" class="">Integración cuenta ThaiBox - Santiago</td><td id="\mDz" class="">Escalado Ing</td><td id="YI{T" class="">primero reportaron un error del menu el cual se valido y se evidencia okey.<br/>Pero ellos tambien estan reportando el tema de los reportes con el nombre del cliente errado en Detalles de pago, en la orden en su detalle si esta con la info correcta.</td><td id="h:Fw" class="">Andrea Ruiz</td><td id="g{}e" class=""><a href="https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1757962674759279">https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1757962674759279</a></td><td id="I}wi" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="28e39073-1e23-81d0-a220-c5b198d9c360"><td id="ALFu" class=""><a href="https://toteat.lightning.force.com/lightning/r/500Qr00000Xmoe0IAB/view">00034558</a></td><td id="RbxW" class="">15/9/2025, 18:02</td><td id="}IRH" class="">MyWay</td><td id="E@hq" class="">Nasser Castilla</td><td id="c:KT" class="">Integración cuenta MyWay</td><td id="\mDz" class="">Escalado Ing</td><td id="YI{T" class="">Comentarios en las ordenes</td><td id="h:Fw" class="">Andrea Ruiz</td><td id="g{}e" class=""><a href="https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1758064372429819">https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1758064372429819</a></td><td id="I}wi" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="28e39073-1e23-8184-82a9-f760601b6275"><td id="ALFu" class=""><a href="https://toteat.lightning.force.com/lightning/r/500Qr00000YM3brIAD/view">00035165</a></td><td id="RbxW" class="">26/9/2025, 9:51</td><td id="}IRH" class="">Buffet Express Costanera Center</td><td id="E@hq" class="">Juan José Zulueta Vidal</td><td id="c:KT" class="">Integración cuenta Buffet Express Costanera Center</td><td id="\mDz" class="">Escalado Ing</td><td id="YI{T" class="">Cash collection</td><td id="h:Fw" class="">Andrea Ruiz</td><td id="g{}e" class=""><a href="https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1756505133695299">https://toteat-espacio.slack.com/archives/C06EJHC9NHL/p1756505133695299</a></td><td id="I}wi" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="28e39073-1e23-81a2-8c2a-cd51995acbc2"><td id="ALFu" class=""><a href="https://toteat.lightning.force.com/lightning/r/500Qr00000YM3brIAD/view">00035181</a></td><td id="RbxW" class="">26/9/2025, 12:38</td><td id="}IRH" class="">Bicono Zona G</td><td id="E@hq" class=""></td><td id="c:KT" class="">Integración cuenta Bicono Zona G</td><td id="\mDz" class="">Escalado Ing</td><td id="YI{T" class="">Facturacion electronica</td><td id="h:Fw" class="">Andrea Ruiz</td><td id="g{}e" class=""><a href="https://toteat-espacio.slack.com/archives/C082BH7D7DM/p1758923508333889">https://toteat-espacio.slack.com/archives/C082BH7D7DM/p1758923508333889</a></td><td id="I}wi" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="28e39073-1e23-814b-83f5-e491258245a0"><td id="ALFu" class=""><a href="https://toteat.lightning.force.com/lightning/r/500Qr00000Yu2JpIAJ/view">00035787</a></td><td id="RbxW" class="">7/10/2025, 13:33</td><td id="}IRH" class="">PARQUE 93</td><td id="E@hq" class="">Carlos Gómez</td><td id="c:KT" class="">Integración cuenta PARQUE 93</td><td id="\mDz" class="">Escalado Ing</td><td id="YI{T" class=""></td><td id="h:Fw" class="">Andrea Ruiz</td><td id="g{}e" class=""><a href="https://toteat-espacio.slack.com/archives/C0955P52A1J/p1759943648684319">https://toteat-espacio.slack.com/archives/C0955P52A1J/p1759943648684319</a></td><td id="I}wi" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-816f-97fb-cd9596cf88df" class="">Validaciones realizadas.<br/>Caso Sushiblues:<br/>Formula: Subtotal:<code>grandTotal + discountTotal - (vatTotal + deliveryFee)</code></p></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-8093-9416-c31c22e808b4" class="">Nombre de la cuenta</p></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-8006-96cc-fece3ff6367a" class="">SushiBlues Plaza Egaña</p></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-8024-af2e-dbc360327b2d" class="">Cuenta principal</p></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-8040-a902-f1de6e79eb7e" class=""><a href="https://toteat.lightning.force.com/lightning/r/Account/001Qr00000R21wOIAR/view">Fuku / Blues - Principal</a></p></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-80b8-92db-d3b65cedca38" class="">ID Toteat</p></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-8028-b0e9-f06fd3f7c0e4" class="">6712026101055488-00011</p></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-80a9-af6a-ed9e277a67d6" class=""><br/><br/></p></div><div style="display:contents" dir="ltr"><figure id="28e39073-1e23-800f-a7f1-cf3e95673c95" class="image"><a href="Semana%2043(13-19%20Octubre)/image.png"><img style="width:897.87109375px" src="Semana%2043(13-19%20Octubre)/image.png"/></a></figure></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js" integrity="sha512-m3JYEI6gx5fh9jF10FjGoMzVKcV2N6nchcDcqPCdI1L3R2WQV7br2XVNR8iTLb2daOMRl3zldbcfT40xU2ntVw==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><pre id="28e39073-1e23-8041-95ed-df205591ffa8" class="code code-wrap"><code class="language-jsx" style="white-space:pre-wrap;word-break:break-all">{
+  &quot;token&quot;: &quot;146524-_-oma_ac458d5f-7731-51fe-8b73-e2e1ed0cfe4d-_-us-cl&quot;,
+  &quot;code&quot;: &quot;1745098527&quot;,
+  &quot;preOrder&quot;: false,
+  &quot;expiryDate&quot;: &quot;2025-10-15T15:49:47.953Z&quot;,
+  &quot;createdAt&quot;: &quot;2025-10-15T15:23:37.229Z&quot;,
+  &quot;localInfo&quot;: {
+    &quot;platform&quot;: &quot;PEDIDOS_YA&quot;,
+    &quot;platformKey&quot;: &quot;PY&quot;,
+    &quot;countryCode&quot;: &quot;CL&quot;,
+    &quot;currencySymbol&quot;: &quot;$&quot;,
+    &quot;currencySymbolPosition&quot;: &quot;&quot;,
+    &quot;currencySymbolSpaces&quot;: &quot;&quot;,
+    &quot;decimalSeparator&quot;: &quot;.&quot;,
+    &quot;decimalDigits&quot;: &quot;&quot;,
+    &quot;thousandsSeparator&quot;: &quot;&quot;,
+    &quot;website&quot;: &quot;&quot;,
+    &quot;email&quot;: &quot;&quot;,
+    &quot;phone&quot;: &quot;&quot;
+  },
+  &quot;platformRestaurant&quot;: {
+    &quot;id&quot;: &quot;111691&quot;
+  },
+  &quot;customer&quot;: {
+    &quot;firstName&quot;: &quot;Susana&quot;,
+    &quot;lastName&quot;: &quot;Painxc3xa9n&quot;,
+    &quot;mobilePhone&quot;: &quot;******&quot;,
+    &quot;email&quot;: &quot;&quot;,
+    &quot;flags&quot;: [],
+    &quot;id&quot;: &quot;88423790&quot;,
+    &quot;code&quot;: &quot;88423790&quot;,
+    &quot;mobilePhoneCountryCode&quot;: &quot;&quot;
+  },
+  &quot;payment&quot;: {
+    &quot;type&quot;: &quot;Pago online&quot;,
+    &quot;status&quot;: &quot;paid&quot;,
+    &quot;remoteCode&quot;: &quot;Pago online&quot;,
+    &quot;requiredMoneyChange&quot;: &quot;&quot;,
+    &quot;vatName&quot;: &quot;&quot;,
+    &quot;vatId&quot;: &quot;&quot;
+  },
+  &quot;expeditionType&quot;: &quot;delivery&quot;,
+  &quot;products&quot;: [
+    {
+      &quot;id&quot;: &quot;172833519&quot;,
+      &quot;remoteCode&quot;: &quot;COM018&quot;,
+      &quot;name&quot;: &quot;Combo 7 (15 Piezas) + Bebida Lata&quot;,
+      &quot;comment&quot;: &quot;&quot;,
+      &quot;categoryName&quot;: null,
+      &quot;variation&quot;: {
+        &quot;name&quot;: &quot;Combo 7 (15 Piezas) + Bebida Lata&quot;
+      },
+      &quot;unitPrice&quot;: &quot;9880&quot;,
+      &quot;paidPrice&quot;: &quot;9880&quot;,
+      &quot;quantity&quot;: &quot;1&quot;,
+      &quot;selectedToppings&quot;: [
+        {
+          &quot;id&quot;: &quot;32819132&quot;,
+          &quot;remoteCode&quot;: &quot;grp-BA.130&quot;,
+          &quot;name&quot;: &quot;Elige tu Bebida Lata&quot;,
+          &quot;quantity&quot;: 1,
+          &quot;children&quot;: [
+            {
+              &quot;id&quot;: &quot;174346294&quot;,
+              &quot;remoteCode&quot;: &quot;mod-P4008&quot;,
+              &quot;name&quot;: &quot;PEPSI ZERO LATA&quot;,
+              &quot;quantity&quot;: 1,
+              &quot;children&quot;: [],
+              &quot;price&quot;: &quot;0&quot;,
+              &quot;type&quot;: &quot;EXTRA&quot;,
+              &quot;discounts&quot;: []
+            }
+          ],
+          &quot;price&quot;: &quot;0&quot;,
+          &quot;type&quot;: &quot;PRODUCT&quot;,
+          &quot;discounts&quot;: []
+        }
+      ],
+      &quot;discounts&quot;: [],
+      &quot;itemUnavailabilityHandling&quot;: &quot;CALL_CUSTOMER_AND_REPLACE&quot;,
+      &quot;description&quot;: &quot;&quot;,
+      &quot;discountAmount&quot;: &quot;&quot;,
+      &quot;halfHalf&quot;: false,
+      &quot;vatPercentage&quot;: &quot;&quot;,
+      &quot;selectedChoices&quot;: []
+    }
+  ],
+  &quot;comments&quot;: {
+    &quot;customerComment&quot;: &quot;Medio de pago: VISA&quot;,
+    &quot;vendorComment&quot;: &quot;&quot;
+  },
+  &quot;discounts&quot;: [],
+  &quot;price&quot;: {
+    &quot;minimumDeliveryValue&quot;: &quot;&quot;,
+    &quot;comission&quot;: &quot;&quot;,
+    &quot;deliveryFee&quot;: &quot;2060&quot;,
+    &quot;deliveryFees&quot;: [
+      {
+        &quot;name&quot;: &quot;Costo de envxc3xado&quot;,
+        &quot;value&quot;: 1550
+      },
+      {
+        &quot;name&quot;: &quot;Costo de Servicio&quot;,
+        &quot;value&quot;: 510
+      }
+    ],
+    &quot;containerCharge&quot;: &quot;&quot;,
+    &quot;deliveryFeeDiscount&quot;: &quot;&quot;,
+    &quot;serviceFeePercent&quot;: &quot;&quot;,
+    &quot;serviceFeeTotal&quot;: &quot;&quot;,
+    &quot;serviceTax&quot;: 0,
+    &quot;serviceTaxValue&quot;: 0,
+    &quot;subTotal&quot;: &quot;9880&quot;,
+    &quot;totalNet&quot;: &quot;9880&quot;,
+    &quot;vatVisible&quot;: true,
+    &quot;vatPercent&quot;: &quot;0&quot;,
+    &quot;vatTotal&quot;: &quot;0&quot;,
+    &quot;grandTotal&quot;: &quot;11940&quot;,
+    &quot;discountAmountTotal&quot;: &quot;0&quot;,
+    &quot;differenceToMinimumDeliveryValue&quot;: &quot;&quot;,
+    &quot;payRestaurant&quot;: &quot;0&quot;,
+    &quot;collectFromCustomer&quot;: &quot;&quot;,
+    &quot;riderTip&quot;: &quot;0&quot;
+  },
+  &quot;delivery&quot;: {
+    &quot;expressDelivery&quot;: false,
+    &quot;expectedDeliveryTime&quot;: &quot;2025-10-15T15:58:37.000Z&quot;,
+    &quot;riderPickupTime&quot;: &quot;2025-10-15T15:52:47.605Z&quot;,
+    &quot;address&quot;: null
+  },
+  &quot;shortCode&quot;: &quot;3228&quot;,
+  &quot;test&quot;: false,
+  &quot;extraParameters&quot;: {
+    &quot;payment_method&quot;: &quot;Pago Online&quot;,
+    &quot;payment_flag&quot;: &quot;VISA&quot;,
+    &quot;payment_type&quot;: &quot;DEBIT&quot;
+  },
+  &quot;corporateTaxId&quot;: &quot;&quot;,
+  &quot;callbackUrls&quot;: {
+    &quot;orderAcceptedUrl&quot;: &quot;https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/146524-_-oma_ac458d5f-7731-51fe-8b73-e2e1ed0cfe4d-_-us-cl/status&quot;,
+    &quot;orderRejectedUrl&quot;: &quot;https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/146524-_-oma_ac458d5f-7731-51fe-8b73-e2e1ed0cfe4d-_-us-cl/status&quot;,
+    &quot;orderPreparedUrl&quot;: &quot;https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/146524-_-oma_ac458d5f-7731-51fe-8b73-e2e1ed0cfe4d-_-us-cl/preparation-completed&quot;,
+    &quot;orderProductModificationUrl&quot;: &quot;https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/146524-_-oma_ac458d5f-7731-51fe-8b73-e2e1ed0cfe4d-_-us-cl/modifications/products&quot;,
+    &quot;orderPreparationTimeAdjustmentUrl&quot;: &quot;https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/146524-_-oma_ac458d5f-7731-51fe-8b73-e2e1ed0cfe4d-_-us-cl/preparation-time-adjustment&quot;
+  },
+  &quot;preparationTimeAdjustmentInformation&quot;: {
+    &quot;maxPickUpTimestamp&quot;: &quot;2025-10-15T16:02:47.605Z&quot;,
+    &quot;minPickUpTimestamp&quot;: &quot;2025-10-15T15:42:47.605Z&quot;,
+    &quot;preparationTimeChangeIntervalsInMinutes&quot;: [
+      -10,
+      -5,
+      5,
+      10
+    ]
+  },
+  &quot;vouchers&quot;: [],
+  &quot;webOrder&quot;: false,
+  &quot;mobileOrder&quot;: true,
+  &quot;corporateOrder&quot;: false,
+  &quot;integrationInfo&quot;: {}
+}</code></pre></div><div style="display:contents" dir="ltr"><figure id="28e39073-1e23-8037-9242-c0235ae95b90" class="image"><a href="Semana%2043(13-19%20Octubre)/image%201.png"><img style="width:897.890625px" src="Semana%2043(13-19%20Octubre)/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><pre id="28e39073-1e23-80d2-a550-c1c4491fd546" class="code code-wrap"><code class="language-jsx" style="white-space:pre-wrap;word-break:break-all">{
+  &quot;token&quot;: &quot;146524-_-oma_6ca56745-8d50-5047-b58c-c79082e3a677-_-us-cl&quot;,
+  &quot;code&quot;: &quot;1745453417&quot;,
+  &quot;preOrder&quot;: false,
+  &quot;expiryDate&quot;: &quot;2025-10-15T21:39:42.311Z&quot;,
+  &quot;createdAt&quot;: &quot;2025-10-15T21:34:10.960Z&quot;,
+  &quot;localInfo&quot;: {
+    &quot;platform&quot;: &quot;PEDIDOS_YA&quot;,
+    &quot;platformKey&quot;: &quot;PY&quot;,
+    &quot;countryCode&quot;: &quot;CL&quot;,
+    &quot;currencySymbol&quot;: &quot;$&quot;,
+    &quot;currencySymbolPosition&quot;: &quot;&quot;,
+    &quot;currencySymbolSpaces&quot;: &quot;&quot;,
+    &quot;decimalSeparator&quot;: &quot;.&quot;,
+    &quot;decimalDigits&quot;: &quot;&quot;,
+    &quot;thousandsSeparator&quot;: &quot;&quot;,
+    &quot;website&quot;: &quot;&quot;,
+    &quot;email&quot;: &quot;&quot;,
+    &quot;phone&quot;: &quot;&quot;
+  },
+  &quot;platformRestaurant&quot;: {
+    &quot;id&quot;: &quot;111691&quot;
+  },
+  &quot;customer&quot;: {
+    &quot;firstName&quot;: &quot;Cami&quot;,
+    &quot;lastName&quot;: &quot;Henrxc3xadquez&quot;,
+    &quot;mobilePhone&quot;: &quot;******&quot;,
+    &quot;email&quot;: &quot;&quot;,
+    &quot;flags&quot;: [],
+    &quot;id&quot;: &quot;54987731&quot;,
+    &quot;code&quot;: &quot;54987731&quot;,
+    &quot;mobilePhoneCountryCode&quot;: &quot;&quot;
+  },
+  &quot;payment&quot;: {
+    &quot;type&quot;: &quot;Pago online&quot;,
+    &quot;status&quot;: &quot;paid&quot;,
+    &quot;remoteCode&quot;: &quot;Pago online&quot;,
+    &quot;requiredMoneyChange&quot;: &quot;&quot;,
+    &quot;vatName&quot;: &quot;&quot;,
+    &quot;vatId&quot;: &quot;&quot;
+  },
+  &quot;expeditionType&quot;: &quot;delivery&quot;,
+  &quot;products&quot;: [
+    {
+      &quot;id&quot;: &quot;172833855&quot;,
+      &quot;remoteCode&quot;: &quot;PPYCOM031&quot;,
+      &quot;name&quot;: &quot;Combinacixc3xb3n 5 (20 Piezas)&quot;,
+      &quot;comment&quot;: &quot;&quot;,
+      &quot;categoryName&quot;: null,
+      &quot;variation&quot;: {
+        &quot;name&quot;: &quot;Combinacixc3xb3n 5 (20 Piezas)&quot;
+      },
+      &quot;unitPrice&quot;: &quot;14990&quot;,
+      &quot;paidPrice&quot;: &quot;14990&quot;,
+      &quot;quantity&quot;: &quot;1&quot;,
+      &quot;selectedToppings&quot;: [],
+      &quot;discounts&quot;: [],
+      &quot;itemUnavailabilityHandling&quot;: &quot;CALL_CUSTOMER_AND_REPLACE&quot;,
+      &quot;description&quot;: &quot;&quot;,
+      &quot;discountAmount&quot;: &quot;&quot;,
+      &quot;halfHalf&quot;: false,
+      &quot;vatPercentage&quot;: &quot;&quot;,
+      &quot;selectedChoices&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;172833579&quot;,
+      &quot;remoteCode&quot;: &quot;COM035&quot;,
+      &quot;name&quot;: &quot;Combinacixc3xb3n 9 (20 Piezas)&quot;,
+      &quot;comment&quot;: &quot;&quot;,
+      &quot;categoryName&quot;: null,
+      &quot;variation&quot;: {
+        &quot;name&quot;: &quot;Combinacixc3xb3n 9 (20 Piezas)&quot;
+      },
+      &quot;unitPrice&quot;: &quot;10790&quot;,
+      &quot;paidPrice&quot;: &quot;10790&quot;,
+      &quot;quantity&quot;: &quot;1&quot;,
+      &quot;selectedToppings&quot;: [],
+      &quot;discounts&quot;: [],
+      &quot;itemUnavailabilityHandling&quot;: &quot;CALL_CUSTOMER_AND_REPLACE&quot;,
+      &quot;description&quot;: &quot;&quot;,
+      &quot;discountAmount&quot;: &quot;&quot;,
+      &quot;halfHalf&quot;: false,
+      &quot;vatPercentage&quot;: &quot;&quot;,
+      &quot;selectedChoices&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;174738191&quot;,
+      &quot;remoteCode&quot;: &quot;ROL015&quot;,
+      &quot;name&quot;: &quot;Roll California&quot;,
+      &quot;comment&quot;: &quot;&quot;,
+      &quot;categoryName&quot;: null,
+      &quot;variation&quot;: {
+        &quot;name&quot;: &quot;Roll California&quot;
+      },
+      &quot;unitPrice&quot;: &quot;4990&quot;,
+      &quot;paidPrice&quot;: &quot;4990&quot;,
+      &quot;quantity&quot;: &quot;1&quot;,
+      &quot;selectedToppings&quot;: [],
+      &quot;discounts&quot;: [],
+      &quot;itemUnavailabilityHandling&quot;: &quot;CALL_CUSTOMER_AND_REPLACE&quot;,
+      &quot;description&quot;: &quot;&quot;,
+      &quot;discountAmount&quot;: &quot;&quot;,
+      &quot;halfHalf&quot;: false,
+      &quot;vatPercentage&quot;: &quot;&quot;,
+      &quot;selectedChoices&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;174738168&quot;,
+      &quot;remoteCode&quot;: &quot;ROL002&quot;,
+      &quot;name&quot;: &quot;Roll Edu&quot;,
+      &quot;comment&quot;: &quot;&quot;,
+      &quot;categoryName&quot;: null,
+      &quot;variation&quot;: {
+        &quot;name&quot;: &quot;Roll Edu&quot;
+      },
+      &quot;unitPrice&quot;: &quot;5690&quot;,
+      &quot;paidPrice&quot;: &quot;5690&quot;,
+      &quot;quantity&quot;: &quot;1&quot;,
+      &quot;selectedToppings&quot;: [],
+      &quot;discounts&quot;: [],
+      &quot;itemUnavailabilityHandling&quot;: &quot;CALL_CUSTOMER_AND_REPLACE&quot;,
+      &quot;description&quot;: &quot;&quot;,
+      &quot;discountAmount&quot;: &quot;&quot;,
+      &quot;halfHalf&quot;: false,
+      &quot;vatPercentage&quot;: &quot;&quot;,
+      &quot;selectedChoices&quot;: []
+    }
+  ],
+  &quot;comments&quot;: {
+    &quot;customerComment&quot;: &quot;Medio de pago: VISA&quot;,
+    &quot;vendorComment&quot;: &quot;&quot;
+  },
+  &quot;discounts&quot;: [
+    {
+      &quot;name&quot;: &quot;Descuento por promocixc3xb3n | Vendor&quot;,
+      &quot;amount&quot;: &quot;4990&quot;,
+      &quot;sponsorships&quot;: [],
+      &quot;type&quot;: &quot;Descuento por promocixc3xb3n | Vendor&quot;
+    }
+  ],
+  &quot;price&quot;: {
+    &quot;minimumDeliveryValue&quot;: &quot;&quot;,
+    &quot;comission&quot;: &quot;&quot;,
+    &quot;deliveryFee&quot;: &quot;2840&quot;,
+    &quot;deliveryFees&quot;: [
+      {
+        &quot;name&quot;: &quot;Costo de Servicio&quot;,
+        &quot;value&quot;: 1390
+      },
+      {
+        &quot;name&quot;: &quot;Costo de envxc3xado&quot;,
+        &quot;value&quot;: 1450
+      }
+    ],
+    &quot;containerCharge&quot;: &quot;&quot;,
+    &quot;deliveryFeeDiscount&quot;: &quot;&quot;,
+    &quot;serviceFeePercent&quot;: &quot;&quot;,
+    &quot;serviceFeeTotal&quot;: &quot;&quot;,
+    &quot;serviceTax&quot;: 0,
+    &quot;serviceTaxValue&quot;: 0,
+    &quot;subTotal&quot;: &quot;36460&quot;,
+    &quot;totalNet&quot;: &quot;36460&quot;,
+    &quot;vatVisible&quot;: true,
+    &quot;vatPercent&quot;: &quot;0&quot;,
+    &quot;vatTotal&quot;: &quot;0&quot;,
+    &quot;grandTotal&quot;: &quot;34310&quot;,
+    &quot;discountAmountTotal&quot;: &quot;4990&quot;,
+    &quot;differenceToMinimumDeliveryValue&quot;: &quot;&quot;,
+    &quot;payRestaurant&quot;: &quot;0&quot;,
+    &quot;collectFromCustomer&quot;: &quot;&quot;,
+    &quot;riderTip&quot;: &quot;0&quot;
+  },
+  &quot;delivery&quot;: {
+    &quot;expressDelivery&quot;: false,
+    &quot;expectedDeliveryTime&quot;: &quot;2025-10-15T22:09:10.000Z&quot;,
+    &quot;riderPickupTime&quot;: &quot;2025-10-15T21:47:42.120Z&quot;,
+    &quot;address&quot;: null
+  },
+  &quot;shortCode&quot;: &quot;3239&quot;,
+  &quot;test&quot;: false,
+  &quot;extraParameters&quot;: {
+    &quot;payment_method&quot;: &quot;Pago Online&quot;,
+    &quot;payment_flag&quot;: &quot;VISA&quot;,
+    &quot;payment_type&quot;: &quot;DEBIT&quot;
+  },
+  &quot;corporateTaxId&quot;: &quot;&quot;,
+  &quot;callbackUrls&quot;: {
+    &quot;orderAcceptedUrl&quot;: &quot;https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/146524-_-oma_6ca56745-8d50-5047-b58c-c79082e3a677-_-us-cl/status&quot;,
+    &quot;orderRejectedUrl&quot;: &quot;https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/146524-_-oma_6ca56745-8d50-5047-b58c-c79082e3a677-_-us-cl/status&quot;,
+    &quot;orderPreparedUrl&quot;: &quot;https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/146524-_-oma_6ca56745-8d50-5047-b58c-c79082e3a677-_-us-cl/preparation-completed&quot;,
+    &quot;orderProductModificationUrl&quot;: &quot;https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/146524-_-oma_6ca56745-8d50-5047-b58c-c79082e3a677-_-us-cl/modifications/products&quot;,
+    &quot;orderPreparationTimeAdjustmentUrl&quot;: &quot;https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/146524-_-oma_6ca56745-8d50-5047-b58c-c79082e3a677-_-us-cl/preparation-time-adjustment&quot;
+  },
+  &quot;preparationTimeAdjustmentInformation&quot;: {
+    &quot;maxPickUpTimestamp&quot;: &quot;2025-10-15T21:57:42.120Z&quot;,
+    &quot;minPickUpTimestamp&quot;: &quot;2025-10-15T21:37:42.120Z&quot;,
+    &quot;preparationTimeChangeIntervalsInMinutes&quot;: [
+      -10,
+      -5,
+      5,
+      10
+    ]
+  },
+  &quot;vouchers&quot;: [],
+  &quot;webOrder&quot;: false,
+  &quot;mobileOrder&quot;: true,
+  &quot;corporateOrder&quot;: false,
+  &quot;integrationInfo&quot;: {}
+}</code></pre></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-8094-adf0-eb0f5e98e142" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-8015-b941-ded00d73eec7" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-80f7-bee1-df65fe65ec1a" class="">Peya si acepta imagenes de extras</p></div><div style="display:contents" dir="auto"><p id="28f39073-1e23-80fb-b41d-f7b88d363c77" class="">Cual es el comportamienti….<br/><br/></p></div><div style="display:contents" dir="auto"><p id="28f39073-1e23-804a-88c1-fba49bfdc6c8" class="">ejemplo:</p></div><div style="display:contents" dir="auto"><p id="28f39073-1e23-80fe-ac18-f9d5d6e52ef9" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28f39073-1e23-8063-b77c-ed7c2ebaa9df" class="">{<br/>&quot;token&quot;: &quot;UFlfQ0wtNTA3MTA3-<em>-oma_4dc0c0b8-8bbd-5942-9264-f42725f14c06-</em>-us-cl&quot;,<br/>&quot;code&quot;: &quot;1747352764&quot;,<br/>&quot;preOrder&quot;: false,<br/>&quot;expiryDate&quot;: &quot;2025-10-17T17:26:18.413Z&quot;,<br/>&quot;createdAt&quot;: &quot;2025-10-17T17:20:55.136Z&quot;,<br/>&quot;localInfo&quot;: {<br/>&quot;platform&quot;: &quot;PEDIDOS_YA&quot;,<br/>&quot;platformKey&quot;: &quot;PY&quot;,<br/>&quot;countryCode&quot;: &quot;CL&quot;,<br/>&quot;currencySymbol&quot;: &quot;$&quot;,<br/>&quot;currencySymbolPosition&quot;: &quot;&quot;,<br/>&quot;currencySymbolSpaces&quot;: &quot;&quot;,<br/>&quot;decimalSeparator&quot;: &quot;.&quot;,<br/>&quot;decimalDigits&quot;: &quot;&quot;,<br/>&quot;thousandsSeparator&quot;: &quot;&quot;,<br/>&quot;website&quot;: &quot;&quot;,<br/>&quot;email&quot;: &quot;&quot;,<br/>&quot;phone&quot;: &quot;&quot;<br/>},<br/>&quot;platformRestaurant&quot;: {<br/>&quot;id&quot;: &quot;507107&quot;<br/>},<br/>&quot;customer&quot;: {<br/>&quot;firstName&quot;: &quot;Pamela&quot;,<br/>&quot;lastName&quot;: &quot;Blanco Lucero&quot;,<br/>&quot;mobilePhone&quot;: &quot;******&quot;,<br/>&quot;email&quot;: &quot;&quot;,<br/>&quot;flags&quot;: [],<br/>&quot;id&quot;: &quot;6304305&quot;,<br/>&quot;code&quot;: &quot;6304305&quot;,<br/>&quot;mobilePhoneCountryCode&quot;: &quot;&quot;<br/>},<br/>&quot;payment&quot;: {<br/>&quot;type&quot;: &quot;Pago online&quot;,<br/>&quot;status&quot;: &quot;paid&quot;,<br/>&quot;remoteCode&quot;: &quot;Pago online&quot;,<br/>&quot;requiredMoneyChange&quot;: &quot;&quot;,<br/>&quot;vatName&quot;: &quot;&quot;,<br/>&quot;vatId&quot;: &quot;&quot;<br/>},<br/>&quot;expeditionType&quot;: &quot;delivery&quot;,<br/>&quot;products&quot;: [<br/>{<br/>&quot;id&quot;: &quot;172833866&quot;,<br/>&quot;remoteCode&quot;: &quot;PPYPRO026&quot;,<br/>&quot;name&quot;: &quot;Gohan Pollo + Bebida lata + 1 Mochi&quot;,<br/>&quot;comment&quot;: &quot;&quot;,<br/>&quot;categoryName&quot;: null,<br/>&quot;variation&quot;: {<br/>&quot;name&quot;: &quot;Gohan Pollo + Bebida lata + 1 Mochi&quot;<br/>},<br/>&quot;unitPrice&quot;: &quot;10480&quot;,<br/>&quot;paidPrice&quot;: &quot;10480&quot;,<br/>&quot;quantity&quot;: &quot;1&quot;,<br/>&quot;selectedToppings&quot;: [<br/>{<br/>&quot;id&quot;: &quot;32819312&quot;,<br/>&quot;remoteCode&quot;: &quot;grp-BA.020&quot;,<br/>&quot;name&quot;: &quot;Elige tu Mochi&quot;,<br/>&quot;quantity&quot;: 1,<br/>&quot;children&quot;: [<br/>{<br/>&quot;id&quot;: &quot;197408379&quot;,<br/>&quot;remoteCode&quot;: &quot;mod-P5017&quot;,<br/>&quot;name&quot;: &quot;Mochi Tradicional Torta Caluga&quot;,<br/>&quot;quantity&quot;: 1,<br/>&quot;children&quot;: [],<br/>&quot;price&quot;: &quot;0&quot;,<br/>&quot;type&quot;: &quot;EXTRA&quot;,<br/>&quot;discounts&quot;: []<br/>}<br/>],<br/>&quot;price&quot;: &quot;0&quot;,<br/>&quot;type&quot;: &quot;PRODUCT&quot;,<br/>&quot;discounts&quot;: []<br/>},<br/>{<br/>&quot;id&quot;: &quot;32819314&quot;,<br/>&quot;remoteCode&quot;: &quot;grp-BA.130&quot;,<br/>&quot;name&quot;: &quot;Elige tu Bebida Lata&quot;,<br/>&quot;quantity&quot;: 1,<br/>&quot;children&quot;: [<br/>{<br/>&quot;id&quot;: &quot;174348168&quot;,<br/>&quot;remoteCode&quot;: &quot;mod-P4010&quot;,<br/>&quot;name&quot;: &quot;CRUSH LATA&quot;,<br/>&quot;quantity&quot;: 1,<br/>&quot;children&quot;: [],<br/>&quot;price&quot;: &quot;0&quot;,<br/>&quot;type&quot;: &quot;EXTRA&quot;,<br/>&quot;discounts&quot;: []<br/>}<br/>],<br/>&quot;price&quot;: &quot;0&quot;,<br/>&quot;type&quot;: &quot;PRODUCT&quot;,<br/>&quot;discounts&quot;: []<br/>}<br/>],<br/>&quot;discounts&quot;: [],<br/>&quot;itemUnavailabilityHandling&quot;: &quot;CALL_CUSTOMER_AND_REPLACE&quot;,<br/>&quot;description&quot;: &quot;&quot;,<br/>&quot;discountAmount&quot;: &quot;&quot;,<br/>&quot;halfHalf&quot;: false,<br/>&quot;vatPercentage&quot;: &quot;&quot;,<br/>&quot;selectedChoices&quot;: []<br/>}<br/>],<br/>&quot;comments&quot;: {<br/>&quot;customerComment&quot;: &quot;Medio de pago: MASTERCARD&quot;,<br/>&quot;vendorComment&quot;: &quot;&quot;<br/>},<br/>&quot;discounts&quot;: [<br/>{<br/>&quot;name&quot;: &quot;Descuento por promocixc3xb3n | Vendor&quot;,<br/>&quot;amount&quot;: &quot;4980&quot;,<br/>&quot;sponsorships&quot;: [],<br/>&quot;type&quot;: &quot;Descuento por promocixc3xb3n | Vendor&quot;<br/>}<br/>],<br/>&quot;price&quot;: {<br/>&quot;minimumDeliveryValue&quot;: &quot;&quot;,<br/>&quot;comission&quot;: &quot;&quot;,<br/>&quot;deliveryFee&quot;: &quot;0&quot;,<br/>&quot;deliveryFees&quot;: [],<br/>&quot;containerCharge&quot;: &quot;&quot;,<br/>&quot;deliveryFeeDiscount&quot;: &quot;&quot;,<br/>&quot;serviceFeePercent&quot;: &quot;&quot;,<br/>&quot;serviceFeeTotal&quot;: &quot;&quot;,<br/>&quot;serviceTax&quot;: 0,<br/>&quot;serviceTaxValue&quot;: 0,<br/>&quot;subTotal&quot;: &quot;10480&quot;,<br/>&quot;totalNet&quot;: &quot;10480&quot;,<br/>&quot;vatVisible&quot;: true,<br/>&quot;vatPercent&quot;: &quot;0&quot;,<br/>&quot;vatTotal&quot;: &quot;0&quot;,<br/>&quot;grandTotal&quot;: &quot;5500&quot;,<br/>&quot;discountAmountTotal&quot;: &quot;4980&quot;,<br/>&quot;differenceToMinimumDeliveryValue&quot;: &quot;&quot;,<br/>&quot;payRestaurant&quot;: &quot;0&quot;,<br/>&quot;collectFromCustomer&quot;: &quot;&quot;,<br/>&quot;riderTip&quot;: &quot;0&quot;<br/>},<br/>&quot;delivery&quot;: {<br/>&quot;expressDelivery&quot;: false,<br/>&quot;expectedDeliveryTime&quot;: &quot;2025-10-17T17:56:54.000Z&quot;,<br/>&quot;riderPickupTime&quot;: &quot;2025-10-17T17:41:18.190Z&quot;,<br/>&quot;address&quot;: null<br/>},<br/>&quot;shortCode&quot;: &quot;2553&quot;,<br/>&quot;test&quot;: false,<br/>&quot;extraParameters&quot;: {<br/>&quot;customer_national_id&quot;: &quot;527167728&quot;,<br/>&quot;payment_method&quot;: &quot;Pago Online&quot;,<br/>&quot;payment_flag&quot;: &quot;MASTERCARD&quot;,<br/>&quot;payment_type&quot;: &quot;CREDIT&quot;<br/>},<br/>&quot;corporateTaxId&quot;: &quot;527167728&quot;,<br/>&quot;callbackUrls&quot;: {<br/>&quot;orderAcceptedUrl&quot;: &quot;<a href="https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/UFlfQ0wtNTA3MTA3-_-oma_4dc0c0b8-8bbd-5942-9264-f42725f14c06-_-us-cl/status">https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/UFlfQ0wtNTA3MTA3-_-oma_4dc0c0b8-8bbd-5942-9264-f42725f14c06-_-us-cl/status</a>&quot;,<br/>&quot;orderRejectedUrl&quot;: &quot;<a href="https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/UFlfQ0wtNTA3MTA3-_-oma_4dc0c0b8-8bbd-5942-9264-f42725f14c06-_-us-cl/status">https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/UFlfQ0wtNTA3MTA3-_-oma_4dc0c0b8-8bbd-5942-9264-f42725f14c06-_-us-cl/status</a>&quot;,<br/>&quot;orderPreparedUrl&quot;: &quot;<a href="https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/UFlfQ0wtNTA3MTA3-_-oma_4dc0c0b8-8bbd-5942-9264-f42725f14c06-_-us-cl/preparation-completed">https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/UFlfQ0wtNTA3MTA3-_-oma_4dc0c0b8-8bbd-5942-9264-f42725f14c06-_-us-cl/preparation-completed</a>&quot;,<br/>&quot;orderProductModificationUrl&quot;: &quot;<a href="https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/UFlfQ0wtNTA3MTA3-_-oma_4dc0c0b8-8bbd-5942-9264-f42725f14c06-_-us-cl/modifications/products">https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/UFlfQ0wtNTA3MTA3-_-oma_4dc0c0b8-8bbd-5942-9264-f42725f14c06-_-us-cl/modifications/products</a>&quot;,<br/>&quot;orderPreparationTimeAdjustmentUrl&quot;: &quot;<a href="https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/UFlfQ0wtNTA3MTA3-_-oma_4dc0c0b8-8bbd-5942-9264-f42725f14c06-_-us-cl/preparation-time-adjustment">https://vendor-api-cl.us.restaurant-partners.com/api/1/pos/orders/UFlfQ0wtNTA3MTA3-_-oma_4dc0c0b8-8bbd-5942-9264-f42725f14c06-_-us-cl/preparation-time-adjustment</a>&quot;<br/>},<br/>&quot;preparationTimeAdjustmentInformation&quot;: {<br/>&quot;maxPickUpTimestamp&quot;: &quot;2025-10-17T17:51:18.190Z&quot;,<br/>&quot;minPickUpTimestamp&quot;: &quot;2025-10-17T17:31:18.190Z&quot;,<br/>&quot;preparationTimeChangeIntervalsInMinutes&quot;: [<br/>-10,<br/>-5,<br/>5,<br/>10<br/>]<br/>},<br/>&quot;vouchers&quot;: [],<br/>&quot;webOrder&quot;: false,<br/>&quot;mobileOrder&quot;: true,<br/>&quot;corporateOrder&quot;: false,<br/>&quot;integrationInfo&quot;: {}<br/>}</p></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-80b1-832d-c95aec2651b9" class=""><br/><br/></p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

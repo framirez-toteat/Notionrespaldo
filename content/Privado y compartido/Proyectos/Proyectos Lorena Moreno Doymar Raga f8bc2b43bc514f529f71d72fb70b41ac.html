@@ -1,0 +1,746 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Proyectos Lorena Moreno/Doymar Raga</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f8bc2b43-bc51-4f52-9f71-d72fb70b41ac" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">💼</span></div><h1 class="page-title" dir="auto">Proyectos Lorena Moreno/Doymar Raga</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ed76de69-b98b-4c5a-a097-dd8303cc2aae"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Consejo de Notion:</strong> te damos la bienvenida a tu gestor de proyectos, donde podrás gestionar los proyectos y tareas de todo tu equipo. Esta página contiene dos bases de datos conectadas:<div style="display:contents" dir="auto"><ul id="0e271636-bc54-4603-a770-abd449b731d5" class="bulleted-list"><li style="list-style-type:disc"><strong>:</strong> el desglose detallado de cada tarea vinculada a tus proyectos. Es donde puedes realizar un seguimiento del estado de la tarea, las fechas límite, la prioridad, las dependencias y el miembro del equipo responsable.</li></ul></div><div style="display:contents" dir="auto"><ul id="9c6d3496-8fdd-4b51-b458-c57afa84c4e4" class="bulleted-list"><li style="list-style-type:disc">: esta es tu perspectiva general de todos los proyectos en curso. Haz clic en cada proyecto para ver más detalles sobre periodos, miembros del equipo asignados, actualizaciones de estado y sus tareas vinculadas.</li></ul></div><div style="display:contents" dir="auto"><p id="2b89e5ba-2b68-47bf-9ca0-1958799e1773" class=""><br/>Para aprender a usar esta plantilla, echa un vistazo a <a href="https://www.notion.so/es-la/help/guides/accomplish-more-with-connected-project-management">esta guía</a>.</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="4b1902a4-8ab7-4c07-8cb1-8f90db502be4" class="">
+</p></div><div style="display:contents" dir="ltr"><div id="f76980bd-2d89-4f05-9651-ea1a049bdcb2" class="collection-content"><h4 class="collection-title">Tareas</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Nombre de la tarea</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha límite</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Prioridad</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/no-entry_gray.svg" style="width:14px;height:14px;display:block"/></span>Bloqueado por</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>Bloqueando</th></tr></thead><tbody><tr id="5615e98a-bc96-4176-9ffe-ffff6536ad09"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Crear%20posicionamiento%20del%20producto%205615e98abc9641769ffeffff6536ad09.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Crear posicionamiento del producto</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Crear%20posicionamiento%20del%20producto/Sohrab.png" class="icon user-icon"/>Sohrab Amin</span></td><td class="cell-notion://tasks/due_date_property"><time>9 de mayo de 2023</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-default">Marca</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="d58a3fba-8301-4c68-baf4-e121559e623a"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Crear%20un%20video%20de%20demostraci%C3%B3n%20del%20producto%20d58a3fba83014c68baf4e121559e623a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Crear un video de demostración del producto</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Crear%20un%20video%20de%20demostraci%C3%B3n%20del%20producto/nate.jpg" class="icon user-icon"/>Nate Martins</span></td><td class="cell-notion://tasks/due_date_property"><time>12 de mayo de 2023</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-red">Producción de video</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="a5965023-d14e-41e2-8b0a-5cbf544762f5"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Supervisar%20el%20rendimiento%20del%20lanzamiento%20a5965023d14e41e28b0a5cbf544762f5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Supervisar el rendimiento del lanzamiento</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Supervisar%20el%20rendimiento%20del%20lanzamiento/Ben-Notion.png" class="icon user-icon"/>Ben Lang</span></td><td class="cell-notion://tasks/due_date_property"><time>22 de mayo de 2023</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-brown">Métricas</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="ce1a6e03-8d20-4846-92d5-2529e607b19f"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM%20ce1a6e038d20484692d52529e607b19f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right-line_green.svg"/>Traducciones Errores TRM</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>4 de julio de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Investigación</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="7f0d07c7-d497-42fc-9afe-67fb5599c920"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Redactar%20M%C3%B3dulo%201%207f0d07c7d49742fc9afe67fb5599c920.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>5 de julio de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="c2b7f608-4cf2-41f4-8ed2-cf243fe65c52"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Elaborar%20estudio%20Facturante%20Argentina%20c2b7f6084cf241f48ed2cf243fe65c52.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/binoculars_green.svg"/>Elaborar estudio Facturante Argentina</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>15 de julio de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Investigación</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="edec9e45-532b-4870-a915-658ae5d6e3b8"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Solicitud%20de%20Folios%20edec9e45532b4870a915658ae5d6e3b8.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right-line_green.svg"/>Solicitud de Folios</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>18 de julio de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="02c8364f-24c0-4a3a-b7cd-7cfbd8acc5e3"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/%C2%BFC%C3%B3mo%20solicitar%20escalar%20situaciones%20a%20a%20TECH%20DTE%2002c8364f24c04a3ab7cd7cfbd8acc5e3.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right-line_green.svg"/>¿Cómo solicitar/escalar situaciones a a TECH DTE?</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>18 de julio de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="98083e05-a494-4e08-8edf-6db73de042da"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Seguimiento%20Sprint%2042%2098083e05a4944e088edf6db73de042da.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-down-line_green.svg"/>Seguimiento Sprint 42</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>18 de julio de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Seguimiento</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="5f0a10c0-1ed7-4284-a4e8-c8cd9e76bed4"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Redactar%20M%C3%B3dulo%202%205f0a10c01ed74284a4e8c8cd9e76bed4.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>18 de julio de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="df4fe623-6a68-47b4-9831-90b364a77b76"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Seguimiento%20Sprint%2041%20df4fe6236a6847b4983190b364a77b76.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-down-line_green.svg"/>Seguimiento Sprint 41</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>18 de julio de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Seguimiento</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="8ed8381b-f94a-4158-8898-4172793f1520"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Seguimiento%20Sprint%2043%208ed8381bf94a415888984172793f1520.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-down-line_green.svg"/>Seguimiento Sprint 43</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>16 de agosto de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Seguimiento</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="7fb7eb4a-0038-465d-82c4-56e898f0ae84"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Seguimiento%20Sprint%2044%207fb7eb4a0038465d82c456e898f0ae84.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-down-line_green.svg"/>Seguimiento Sprint 44</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>18 de agosto de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Seguimiento</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="694c1c90-3ab0-41b9-9576-9a659ac3e371"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Redactar%20M%C3%B3dulo%204%20694c1c903ab041b995769a659ac3e371.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>2 de septiembre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="0759c370-1e64-46f2-bac3-e71f2c25b56e"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Redactar%20M%C3%B3dulo%203%200759c3701e6446f2bac3e71f2c25b56e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>2 de septiembre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="10739073-1e23-80c4-8565-d3d217cdc74a"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Actualizaci%C3%B3n%20Resoluci%C3%B3n%20Colombia%20-%20Proveedor%20Fact%20107390731e2380c48565d3d217cdc74a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right-line_green.svg"/>Actualización Resolución Colombia - Proveedor Factura 1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>20 de septiembre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="c9e1c21e-7e7d-432c-a5fe-5bb0ecb796a4"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Redactar%20M%C3%B3dulo%205%20c9e1c21e7e7d432ca5fe5bb0ecb796a4.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>23 de septiembre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="839dedca-fe5f-4d98-aea4-89465c24d980"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Redactar%20M%C3%B3dulo%206%20839dedcafe5f4d98aea489465c24d980.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 6</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>26 de septiembre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="065a2222-67f0-401e-ad4d-25eea6169c0e"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Redactar%20M%C3%B3dulo%207%20065a222267f0401ead4d25eea6169c0e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 7</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>3 de octubre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="11939073-1e23-80f3-a7e2-f3226b580384"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Seguimiento%20Sprint%2046%20Planning%20119390731e2380f3a7e2f3226b580384.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-down-line_green.svg"/>Seguimiento Sprint 46 Planning</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>8 de octubre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Seguimiento</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="11839073-1e23-8019-be0b-e08ed01483e4"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Configuraci%C3%B3n%20Impuesto%20Exento%20Per%C3%BA%20118390731e238019be0be08ed01483e4.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right-line_green.svg"/>Configuración Impuesto Exento Perú</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>8 de octubre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="cf1a7ad3-de69-47af-aa2a-e37f5bf8c5ed"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Redactar%20M%C3%B3dulo%208%20cf1a7ad3de6947afaa2ae37f5bf8c5ed.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/checklist_green.svg"/>Redactar Módulo 8</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>10 de octubre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="12a39073-1e23-8013-be31-f82d54f09fbd"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Seguimiento%20Sprint%2046%20Review%2012a390731e238013be31f82d54f09fbd.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-down-line_green.svg"/>Seguimiento Sprint 46 Review</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>25 de octubre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Seguimiento</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="15239073-1e23-809b-ac60-db4781fb6405"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Actualizaci%C3%B3n%20Resoluci%C3%B3n%20Colombia%20-%20Proveedor%20Disp%20152390731e23809bac60db4781fb6405.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right-line_green.svg"/>Actualización Resolución Colombia - Proveedor Dispapeles </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>4 de diciembre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="18539073-1e23-80f1-b41a-c521ef97f288"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/%C2%BFQu%C3%A9%20hacer%20si%20descargo%20el%20certificado%20y%20no%20aparece%20185390731e2380f1b41ac521ef97f288.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right-line_green.svg"/>¿Qué hacer si descargo el certificado y no aparece para ingresar al SII?</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>24 de enero de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="18539073-1e23-807b-9b4e-c64b13080e0d"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/%C2%BFQu%C3%A9%20podr%C3%ADa%20salir%20mal%20185390731e23807b9b4ec64b13080e0d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/binoculars_green.svg"/>¿Qué podría salir mal?</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>24 de enero de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="13639073-1e23-80e8-b5ca-c46ef819e5e5"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Cambio%20Col%20Diferido%20136390731e2380e8b5cac46ef819e5e5.html"><span class="icon">🚨</span>Cambio Col Diferido </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>24 de enero de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Seguimiento</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="1ae39073-1e23-809f-b5c7-f75397d5cdfe"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Impuestos%20Costa%20Rica%201ae390731e23809fb5c7f75397d5cdfe.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right-line_green.svg"/>Impuestos Costa Rica</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>7 de marzo de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="24f39073-1e23-80f2-b76a-ea3d7fc5b4a0"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Actualizaci%C3%B3n%20Centro%20de%20Ayuda%20DTE%2024f390731e2380f2b76aea3d7fc5b4a0.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_green.svg"/>Actualización Centro de Ayuda DTE</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>14 de agosto de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="25d39073-1e23-80c8-9cf4-f07c701d7cf0"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Seguimiento%20Planeaci%C3%B3n%20Engineering%2025d390731e2380c89cf4f07c701d7cf0.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/code_green.svg"/>Seguimiento Planeación Engineering</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKuoMOnCVzrOiY71uvjDZs2bhdcBEC0Tejgn6n-vXj__MKDtME=s100" class="icon user-icon"/>Doymar Raga Flores</span></td><td class="cell-notion://tasks/due_date_property"><time>28 de agosto de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Seguimiento</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="1a639073-1e23-80aa-a453-f49c67d741f7"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Factura%20Global%20M%C3%A9xico%201a6390731e2380aaa453f49c67d741f7.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/notification_green.svg"/>Factura Global México </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>28 de agosto de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="26139073-1e23-804e-a63c-d4889d1f2afd"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Flujo%20Capacitaci%C3%B3n%20DTE%20261390731e23804ea63cd4889d1f2afd.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/copy_green.svg"/>Flujo Capacitación DTE </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKuoMOnCVzrOiY71uvjDZs2bhdcBEC0Tejgn6n-vXj__MKDtME=s100" class="icon user-icon"/>Doymar Raga Flores</span></td><td class="cell-notion://tasks/due_date_property"><time>1 de septiembre de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="26839073-1e23-80d4-9124-c9aea2764c56"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Creaci%C3%B3n%20Cliente%20Colombia%20268390731e2380d49124c9aea2764c56.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right-line_green.svg"/>Creación Cliente Colombia </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>8 de septiembre de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="26a39073-1e23-8023-a78f-c3e5e18ce4be"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/C%C3%B3mo%20instalar%20el%20certificado%20digital%20IDOK%20en%20Windo%2026a390731e238023a78fc3e5e18ce4be.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/window_green.svg"/>Cómo instalar el certificado digital IDOK en Windows</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKuoMOnCVzrOiY71uvjDZs2bhdcBEC0Tejgn6n-vXj__MKDtME=s100" class="icon user-icon"/>Doymar Raga Flores</span></td><td class="cell-notion://tasks/due_date_property"><time>10 de septiembre de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="26139073-1e23-80b0-9abe-d5c0e42ac573"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Proveedor%20Argentina%20Toteat%20DTE%20261390731e2380b09abed5c0e42ac573.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/cellular_green.svg"/>Proveedor Argentina Toteat DTE</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKuoMOnCVzrOiY71uvjDZs2bhdcBEC0Tejgn6n-vXj__MKDtME=s100" class="icon user-icon"/>Doymar Raga Flores</span></td><td class="cell-notion://tasks/due_date_property"><time>25 de septiembre de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span><span class="selected-value select-value-color-pink">Seguimiento</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="26439073-1e23-8038-ad43-c3163146a39d"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Documentos%20Fiscales%20264390731e238038ad43c3163146a39d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_green.svg"/>Documentos Fiscales</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKuoMOnCVzrOiY71uvjDZs2bhdcBEC0Tejgn6n-vXj__MKDtME=s100" class="icon user-icon"/>Doymar Raga Flores</span></td><td class="cell-notion://tasks/due_date_property"><time>30 de septiembre de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="28039073-1e23-80a3-9089-d39455ef508d"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%A9todo%20de%20Pago%20%E2%80%9CCr%C3%A9dito%E2%80%9D%20Colombia%20280390731e2380a39089d39455ef508d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_green.svg"/>Método de Pago “Crédito” Colombia</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>9 de octubre de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2bc39073-1e23-8010-8c13-f795487fe766"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Procedimiento%20Bajas%20Argentina%20-%20Facturante%202bc390731e2380108c13f795487fe766.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right-line_green.svg"/>Procedimiento Bajas Argentina - Facturante </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>1 de diciembre de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2d139073-1e23-807b-bde2-fec68126e9e9"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Argentina%20-%20Como%20emitir%20una%20nota%20de%20cr%C3%A9dito%202d1390731e23807bbde2fec68126e9e9.html"><span class="icon">📗</span>Argentina - Como emitir una nota de crédito </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>22 de diciembre de 2025</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2f839073-1e23-8055-afef-c26d7ad1f1a6"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Manual%20de%20Soluci%C3%B3n%20Certificado%20IDOK%20no%20aparece%20en%20%202f8390731e238055afefc26d7ad1f1a6.html"><span class="icon">📖</span>Manual de Solución: Certificado IDOK no aparece en el SII</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>30 de enero de 2026</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2f839073-1e23-80f2-989e-ef0af3beba7d"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Carga%20de%20Certificado%20Digital%20en%20DTEadmin%202f8390731e2380f2989eef0af3beba7d.html"><span class="icon">📗</span>Carga de Certificado Digital en DTEadmin</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>30 de enero de 2026</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2fc39073-1e23-8006-9b1c-dcf85413a118"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Gu%C3%ADa%20de%20Configuraci%C3%B3n%20C%C3%B3digo%20CAByS%20(Costa%20Rica)%202fc390731e2380069b1cdcf85413a118.html"><span class="icon">📗</span>Guía de Configuración: Código CAByS (Costa Rica)</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://tasks/due_date_property"><time>3 de febrero de 2026</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2fc39073-1e23-802a-9dd3-f8c8ab7cb004"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Equipo%20Toteat%202fc390731e23802a9dd3f8c8ab7cb004.html"><span class="icon">📗</span>Equipo Toteat</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2fc39073-1e23-8090-93c8-cae4bef4959f"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Clientes%202fc390731e23809093c8cae4bef4959f.html"><span class="icon">📗</span>Clientes</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="d6bd8b0b-4781-4477-9bce-881b9025ff8a"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Sin%20t%C3%ADtulo%20d6bd8b0b478144779bce881b9025ff8a.html">Sin título</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="da401b15-1bb2-4fbd-a00f-c7d1bc11211f"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%208%203%20da401b151bb24fbda00fc7d1bc11211f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 8.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2ce09386-e429-4404-91df-32ed2cc8430c"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%208%202%202ce09386e429440491df32ed2cc8430c.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 8.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="b4635fd3-df5e-430f-bc98-044aaa92180f"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%208%201%20b4635fd3df5e430fbc98044aaa92180f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 8.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="7e9d0cd8-5673-449d-ad8c-eef3d9506e8f"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%207%207%207e9d0cd85673449dad8ceef3d9506e8f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.7</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="0d4ab6a5-02c7-4408-8d1b-73666672cb5a"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%207%206%200d4ab6a502c744088d1b73666672cb5a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.6</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="96373fd5-8ffa-4975-8624-1d4c58d2046b"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%207%205%2096373fd58ffa497586241d4c58d2046b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="6c800d71-dbb4-4ef6-acf9-266169ed6328"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%207%204%206c800d71dbb44ef6acf9266169ed6328.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="d2f1ce9d-4236-4363-a70f-fab6540b9052"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%207%203%20d2f1ce9d42364363a70ffab6540b9052.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="491f7fb4-44cd-4133-a77c-20c7be0825c9"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%207%202%20491f7fb444cd4133a77c20c7be0825c9.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="291c3361-f47c-4e4d-bca2-c00f27149cf3"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%207%201%20291c3361f47c4e4dbca2c00f27149cf3.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 7.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="10009a73-1aac-4f5e-9635-67ea177996ee"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%206%206%2010009a731aac4f5e963567ea177996ee.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.6</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="760ac9f4-33ab-4ddf-8ae9-d6adaf64ed21"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%206%207%20760ac9f433ab4ddf8ae9d6adaf64ed21.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.7</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="bf95b44e-c256-41c8-b75f-a2386c220dbd"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%206%205%20bf95b44ec25641c8b75fa2386c220dbd.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="6c7ff9ca-db79-4d8e-a22b-9e761f3e7726"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%206%204%206c7ff9cadb794d8ea22b9e761f3e7726.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="df530a42-c488-4d34-958c-530e6b26ad0b"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%206%203%20df530a42c4884d34958c530e6b26ad0b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="fe14d9ae-ffab-466c-af7f-79561904c08f"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%206%202%20fe14d9aeffab466caf7f79561904c08f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="12a1c21e-8d2f-41cf-9cab-fca8d412eda1"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%206%201%2012a1c21e8d2f41cf9cabfca8d412eda1.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 6.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="24cfe949-4f5f-4e7e-adde-38df1a6a7ef8"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%205%205%2024cfe9494f5f4e7eadde38df1a6a7ef8.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="aafd9126-3baa-4bb7-8e7f-4d7a403e1053"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%205%206%20aafd91263baa4bb78e7f4d7a403e1053.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.6</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="0477b2bd-c9bc-47dd-90bb-247631d8aa21"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%205%204%200477b2bdc9bc47dd90bb247631d8aa21.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="3c008790-4962-4f96-b070-6df2144cb8f7"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%205%203%203c00879049624f96b0706df2144cb8f7.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="932159cb-d1ad-407a-a9e3-f36dd64649fd"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%205%202%20932159cbd1ad407aa9e3f36dd64649fd.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="679da6be-c4db-4d4c-ba71-76f68a5eb86d"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%205%201%20679da6bec4db4d4cba7176f68a5eb86d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 5.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="60e4fbeb-1c63-4f41-8ade-9b4c16bb637d"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%204%207%2060e4fbeb1c634f418ade9b4c16bb637d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.7</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="58fa3c81-18ee-44b4-9587-31ec55b30400"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%204%206%2058fa3c8118ee44b4958731ec55b30400.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.6</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="0492ce25-7351-4979-9e92-e816830c9f69"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%204%205%200492ce25735149799e92e816830c9f69.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="d7a41587-df1e-4c85-bf9f-32454b837431"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%204%204%20d7a41587df1e4c85bf9f32454b837431.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="79884849-011b-473c-9967-aa6ec8a16cce"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%204%203%2079884849011b473c9967aa6ec8a16cce.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="85af1651-e2d9-4462-a688-856512fe4203"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%204%202%2085af1651e2d94462a688856512fe4203.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="1121daab-6d06-46a1-88d6-924ccbb3dacc"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%204%201%201121daab6d0646a188d6924ccbb3dacc.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 4.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="633132f6-282d-4f41-9218-76c596fb6335"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%203%207%20633132f6282d4f41921876c596fb6335.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.7</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="1bf4e185-a32c-4164-9738-87478a6b790a"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%203%206%201bf4e185a32c4164973887478a6b790a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.6</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="937731dd-6b3a-4993-ab55-490bb7d9a859"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%203%205%20937731dd6b3a4993ab55490bb7d9a859.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="1146ddee-cab5-4953-8d37-16d88783409d"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%203%204%201146ddeecab549538d3716d88783409d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="258ade8e-71f1-42b4-a918-f1f0815041e0"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%203%203%20258ade8e71f142b4a918f1f0815041e0.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="166d678c-e3b2-40b8-a85b-f146c6828d8b"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%203%202%20166d678ce3b240b8a85bf146c6828d8b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="157e0258-ba6e-4597-8988-46ef0839fa5e"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%203%201%20157e0258ba6e4597898846ef0839fa5e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 3.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="a64d98eb-3875-4a60-b3a2-d8b944ba50ab"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%202%207%20a64d98eb38754a60b3a2d8b944ba50ab.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.7</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="93298061-5011-4067-933a-e746ebf1cad5"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%202%206%209329806150114067933ae746ebf1cad5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.6</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="9837c186-6faa-437d-98cf-5db6687bfb1f"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%202%205%209837c1866faa437d98cf5db6687bfb1f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="9ed6ecf4-503e-42d3-be94-3afad72e8c25"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%202%204%209ed6ecf4503e42d3be943afad72e8c25.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="8124a83b-216c-4ca2-abe9-415b9f04d917"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%202%203%208124a83b216c4ca2abe9415b9f04d917.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2567c3f4-ee79-4946-bbcd-70c929a47d0f"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%202%202%202567c3f4ee794946bbcd70c929a47d0f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="333abe25-e37e-4a30-a20f-f298e9ea5495"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%202%201%20333abe25e37e4a30a20ff298e9ea5495.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 2.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="b81647a3-7696-4b33-9cc1-4dcdcac0f77e"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%201%205%20b81647a376964b339cc14dcdcac0f77e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 1.5</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="73640f7b-286f-454b-a582-c3d4121b72c5"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%201%204%2073640f7b286f454ba582c3d4121b72c5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 1.4</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="5d526373-8f1e-4631-9742-f9d85822c214"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%201%203%205d5263738f1e46319742f9d85822c214.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 1.3</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="afa4ead6-e976-411b-ba3a-eebe64994c94"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%201%202%20afa4ead6e976411bba3aeebe64994c94.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 1.2</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="d532cc9c-c767-46fc-a81d-b1d5ed5174a6"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/M%C3%B3dulo%201%201%20d532cc9cc76746fca81db1d5ed5174a6.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Módulo 1.1</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><p id="b4f2db71-903d-4ba9-bf09-6883c004e003" class="">
+</p></div><div style="display:contents" dir="auto"><p id="7241d4bb-2f19-47a6-964c-1bf300b80db2" class=""><mark class="highlight-gray">↓ Haz clic en las distintas pestañas de la base de datos para ver los mismos datos de distintas formas. Pasa el cursor por encima de cualquier nombre de proyecto y haz clic en </mark><mark class="highlight-gray"><code>◨ ABRIR</code></mark><mark class="highlight-gray"> para ver más información y sus tareas asociadas.</mark></p></div><div style="display:contents" dir="ltr"><div id="74675136-3352-4598-9205-b322697b54de" class="collection-content"><h4 class="collection-title">Proyectos</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Project name</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Periodo</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Prioridad</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/activity_gray.svg" style="width:14px;height:14px;display:block"/></span>% completado</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/no-entry_gray.svg" style="width:14px;height:14px;display:block"/></span>Bloqueado por</th></tr></thead><tbody><tr id="d041dc52-fdc6-4da2-ad92-c1837434de39"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Proyectos/Estudio%20de%20investigaci%C3%B3n%20d041dc52fdc64da2ad92c1837434de39.html"><span class="icon">📑</span>Estudio de investigación</a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>En curso</span></td><td class="cell-notion://projects/people_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://projects/project_dates_property"><time>10 de junio de 2024 → 31 de diciembre de 2024</time></td><td class="cell-notion://projects/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://projects/completion_rollup">0.5185185185185185</td><td class="cell-notion://projects/project_blocked_by_relation"></td></tr><tr id="e1ccb88e-d208-4a78-accf-abff7f8cc0a7"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Proyectos/Seguimiento%20RFP%20e1ccb88ed2084a78accfabff7f8cc0a7.html"><span class="icon">📋</span>Seguimiento RFP</a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>En curso</span></td><td class="cell-notion://projects/people_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://projects/project_dates_property"><time>26 de junio de 2024 → 31 de octubre de 2024</time></td><td class="cell-notion://projects/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://projects/completion_rollup">0.3333333333333333</td><td class="cell-notion://projects/project_blocked_by_relation"></td></tr><tr id="bcbb7cbb-8ded-4fd1-818b-eb019b1cc0fd"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Proyectos/Realizaci%C3%B3n%20Contenido%20Flujo%20de%20Capacitaci%C3%B3n%20DTE%20bcbb7cbb8ded4fd1818beb019b1cc0fd.html"><span class="icon">🎨</span>Realización Contenido Flujo de Capacitación DTE</a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>En curso</span></td><td class="cell-notion://projects/people_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://projects/project_dates_property"><time>10 de mayo de 2024 → 31 de octubre de 2024</time></td><td class="cell-notion://projects/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://projects/completion_rollup">1</td><td class="cell-notion://projects/project_blocked_by_relation"></td></tr><tr id="03b16f38-e86d-4e10-bc83-22c94e788c59"><td class="cell-title"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Proyectos/Capacitaciones%2003b16f38e86d4e10bc8322c94e788c59.html"><span class="icon">👩🏻‍🏫</span>Capacitaciones</a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>En curso</span></td><td class="cell-notion://projects/people_property"><span class="user"><img src="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Tareas/Traducciones%20Errores%20TRM/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-notion://projects/project_dates_property"></td><td class="cell-notion://projects/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://projects/completion_rollup"></td><td class="cell-notion://projects/project_blocked_by_relation"><a href="Proyectos%20Lorena%20Moreno%20Doymar%20Raga/Proyectos/Realizaci%C3%B3n%20Contenido%20Flujo%20de%20Capacitaci%C3%B3n%20DTE%20bcbb7cbb8ded4fd1818beb019b1cc0fd.html"><span class="icon">🎨</span>Realización Contenido Flujo de Capacitación DTE</a></td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><p id="62e99474-ad28-47a6-89e9-e40196d8d503" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

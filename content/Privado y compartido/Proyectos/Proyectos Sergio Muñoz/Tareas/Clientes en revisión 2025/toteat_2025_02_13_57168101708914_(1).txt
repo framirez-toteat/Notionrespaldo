@@ -1,0 +1,285 @@
+Conversation with Toteat.
+Started on February 13, 2025 at 07:28 PM Santiago time -03 (GMT-0300)
+
+---
+
+07:28 PM | Alba Aguirre: Buenas tardes
+
+07:28 PM | Bienvenido al chat: Las respuestas te llegarán aquí y por correo electrónico:
+✉️ controlinternolagordis@gmail.com 
+ Nuestro tiempo de respuesta habitual
+🕒 Unos minutos
+
+07:28 PM | Israel from Toteat.: Hola! Soy Israel Berme, Agente de Soporte, coméntame en qué te puedo ayudar hoy?
+
+07:29 PM | Alba Aguirre: gusto en saludarle. tengo una consulta. si un punto de venta desea enviar a centro de produccion una devolucion o por ejemplo aceite quemado como lo debe hacer?
+
+07:29 PM | Israel from Toteat.: estamos presentando alta demanda de chats un momento de favor
+
+07:30 PM | Alba Aguirre: ok espero
+
+07:30 PM | Alba Aguirre: gracias
+
+07:34 PM | Israel from Toteat.: Operación Multi-Local 
+ Si tienes mas de un local con Toteat puedes copiar tus proveedores e ingredientes de un local a otro de manera masiva 
+ [Image "isotipo-44-1651248696.png?expires=1739489400&signature=71c04edd565ab4aeec632b3757e8645407082f5775032ffe7e3ee0c113f7b118&req=dSMgH895mYRWWPMW1HO4zf9vPaDRLaDwv2VaFmXHaJMco8nWT9OEe2ODUmuW%0AvASI6%2BPxLGTbwPnw3B8%3D%0A"] Escrito por Marketing Team 
+ Actualizado hace más de 5 años 
+ Lo primero que debes hacer es activar desde el local de origen esta funcionalidad. Desde el Menú Lateral-->Restaurant-->Ajustes Generales e ir a la pestaña de seguridad. Luego ubicar la opción de Operaciones multilocal 
+ 
+ [Image "Captura%2Bde%2BPantalla%2B2019-06-07%2Ba%2Bla-28s-29%2B14_08_27.png?expires=1739489400&signature=f5bcd1cb4e03ef4e2dcbc7c18b3031fcea981d7fae87d77878424313a62cbe89&req=dSMgH895mYRWW%2FMW1HO4zfxYrrhi3fhCM3zB%2B11wavNrTq%2FHnAzNcfN7TP%2FQ%0AqRkTlozIcIMTpJgS3UU%3D%0A"] ** Solo debe ser activado en el local de origen, el local de destino o sucursales no es necesario hacerlo** 
+ 
+ También podrás asignar que personal de tu staff puede realizar esta operación la cual te recomendamos siempre hacerlo en un horario valle. 
+ 
+ [Image "Captura%2Bde%2BPantalla%2B2019-06-07%2Ba%2Bla-28s-29%2B14_08_14.png?expires=1739489400&signature=796f4311b8805e7773ec4074d6e90f1e92df11b178a853033f43710bb7724b9d&req=dSMgH895mYRWUfMW1HO4zTI5YAGWeNs4y3mNruzOyhcNGB%2BxmDYYIT%2BUtq93%0ANgwQ8WGk0WEEMJGCxtM%3D%0A"] Una vez activada la opción en el local de origen en el Menú Lateral-->Operaciones-->Ops Multi Local 
+ 
+ [Image "Captura%2Bde%2BPantalla%2B2019-06-07%2Ba%2Bla-28s-29%2B14_10_11.png?expires=1739489400&signature=ad5717b9cb1393d768f4a091c97c9c4dceb2e1f0afa379f69a28ef56d6d82873&req=dSMgH895mYRWWvMW1HO4zaSm25Qe1t%2Bp%2Fyt2TwbLO%2BFX6LuoEWXjlw%2BrRSPG%0AqlrVDT%2F%2Bf60Slks3Gak%3D%0A"] 
+Aquí tendrás inicialmente dos pestañas: 
+ 
+ -Proveedores e ingredientes: Podrás copiar toda la información de uno o mas proveedores junto a sus ingredientes
+​
+​-Ingredientes: Copiar solo la información del ingrediente
+​ 
+ 
+ Te explicaremos paso a paso cada una de ellas
+​ 
+ 
+ -Proveedor e ingredientes: Debes seleccionar El restaurant de destino, luego los proveedores y si es necesario los ingredientes (solo te permitirá seleccionar los ingredientes si seleccionas un solo proveedor, si seleccionas mas de uno no podrás escoger que ingrediente clonar, lo que hará es que se clonen todos. Debes seleccionar también la opción general de la clonación 
+ 
+ 1.- Reemplazar todos los proveedores por los seleccionados y borrando los otros: Si en el local de destino ya están creados algunos proveedores al seleccionar esta opción se copiaran los datos y se eliminaran en el local de destino los que no estén dentro de los proveedores 
+ 
+ 2.- Reemplazar todos los ingredientes asociados al Proveedor: Si ya existe este proveedor se sustituirá la información incluyendo los ingredientes asociados a el 
+ 
+ 3.- Crear ingredientes inexistentes en destino: Si a este proveedor le tienes un ingrediente asociado que no se encuentra creado en el local de destino, se creará
+​ 
+ 
+ [Image "Captura%2Bde%2BPantalla%2B2019-06-07%2Ba%2Bla-28s-29%2B14_10_27.png?expires=1739489400&signature=c00e07cb5a19394a9ef6420c0baaf5e303847c2c4033d6a8b1773dee46f8ca2b&req=dSMgH895mYRWXvMW1HO4zWWF61vOB02T60lTmbJjQEZjoRJe959Boe1LkYT6%0AGlrA4Yveakm0vzEWy7o%3D%0A"] Una vez seleccionado las opciones generales de la clonación y la data a traspasar debes seleccionar la opción Clonar Proveedores 
+ 
+ [Image "Captura%2Bde%2BPantalla%2B2019-06-07%2Ba%2Bla-28s-29%2B14_11_17.png?expires=1739489400&signature=9410946d7177c64811a972601d439aa5e060e87dbbb8aa497efd22b0a656fe51&req=dSMgH895mYRWX%2FMW1HO4zWzs3cabrvwpjdJI7Xe5ptcFjTrkmBQaG2cRAikt%0AePwQ4dixUo3fco%2F5hCk%3D%0A"] Dependiendo de la cantidad de data a copiar esta operación puede demorar unos minutos, dentro de ese tiempo te aconsejamos no realizar ningún cambio en el local de origen o destino
+​ 
+ 
+ -Ingredientes: Si deseas copiar solo los ingredientes debes seleccionar esta opción, seleccionar el local de destino y los ingredientes. Se copiara también la configuración interna de ese ingrediente (Impuestos, Unidades de Medida, Stock, Proveedores) debes cerciorarte antes de hacer esta clonación que hay configuraciones que deben estar hechas en el local de destino como por ejemplo las bodegas.
+​ 
+ 
+ [Image "Captura%2Bde%2BPantalla%2B2019-06-07%2Ba%2Bla-28s-29%2B14_55_29.png?expires=1739489400&signature=a5c633322466d7e00d2448ac518309a4f198b6f5e47a980f81b2e59c87482f73&req=dSMgH895mYRWXfMW1HO4zVBtuD2CRFGM11zLSEKq%2BSB8evWZ7hOwOmHfimFI%0AJ3PNT6n7koCED5FdGC0%3D%0A"] Por último presionar Clonar Ingredientes 
+ 
+ [Image "Captura%2Bde%2BPantalla%2B2019-06-07%2Ba%2Bla-28s-29%2B16_39_35.png?expires=1739489400&signature=fc4a16b1bc45a9df9c4d00a667c3b536f893b2a6a2fe7f6c3986cfecb0b2e1d3&req=dSMgH895mYRWXPMW1HO4zXBcEgamW3F5tB4CBa8ejvUjMSaQXcZaP6n%2FHmzQ%0A1qyEHhSxqPfX4KJnn0o%3D%0A"] Recuerda esperar un par de minutos y corroborar después en el local de destino.
+
+07:34 PM | Israel from Toteat.: esa es la guia pero antes debe estar cloandos sus locales
+
+07:34 PM | Israel from Toteat.: para que se pueda aplicar
+
+07:37 PM | Alba Aguirre: entiendo.
+
+07:37 PM | Alba Aguirre: le agradezco pero veo que o formule bien la pregunta
+
+07:38 PM | Alba Aguirre: mi consulta es: si por ejemplo Eden quiere enviar a planta el aceite quemado como debe hacer la salida de ese producto?
+
+07:39 PM | Alba Aguirre: como se debe hacer para que el sistema haga esa salida y descargue esa mercancia y quede cargada al punto de destino?
+
+07:40 PM | Israel from Toteat.: ahi le puse la info
+
+07:40 PM | Israel from Toteat.: usted tiene ya clonados sus locales?
+
+07:40 PM | Alba Aguirre: si esa parte ya esta
+
+07:40 PM | Alba Aguirre: igual me gusto, porque me quedo ese documento
+
+07:41 PM | Israel from Toteat.: [Image "image.png?expires=1739488500&signature=72165fc6de4b584d33d7e4d2891c4cf917617b7d1decd35820cfb92f3401602f&req=dSMgH892nIhXX%2FMW1HO4zTRHntYyVOrJSLr65Ys0cDejfGLQA90wwoNMwsx7%0A7e4z%0A"]
+
+07:41 PM | Israel from Toteat.: [Image "image.png?expires=1739488500&signature=425cc67c7497f5cc32ed1a7aa0d9f256036629fbb12d65ac1fd8dc5b3e0e29d7&req=dSMgH892n4BXXvMW1HO4zYztGLacETYWx1WRJPju0PTyTr%2BWUCO5R6%2FERmLd%0AI7JW%0A"]
+
+07:44 PM | Alba Aguirre: ok
+
+07:44 PM | Alba Aguirre: me sale esto
+
+07:44 PM | Alba Aguirre: [Image "image.png?expires=1739488500&signature=f084fcd7051ac15380ededfc95e40a46d10b53e737ab557e29b6d90d0446b98c&req=dSMgH892mYRYX%2FMW1HO4zQeL%2BcrLRRUiPJQ4HwMrqOYhSI4E888bnrnHSRZa%0AnWoi%0A"]
+
+07:45 PM | Alba Aguirre: segun veo eso es para transferir platos a otras mesas
+
+07:45 PM | Alba Aguirre: me refiero a transferir ingredientes a la planta
+
+07:45 PM | Alba Aguirre: como el aceite, panes., cebolla etc
+
+07:46 PM | Israel from Toteat.: entre locales si , es esta
+
+07:46 PM | Alba Aguirre: donde lo consigo? cual sera la ruta
+
+07:46 PM | Israel from Toteat.: Primero que todo, deberá revisar que en Restaurat, ajustes generales, inventarios, el campo "INFORMACIÓN PARA TRANSFERENCIAS DE MERCADERÍA ENTRE LOCALES DE SU MISMA CADENA" este habilitada la opción " Habilitado para enviar y recibir transferencia". 
+ 
+ 
+ [Image "image.png?expires=1739488500&signature=c9f352184114901c98e469bb7da68e55ff65f4febc92ff6fc37e56db096c5fc3&req=dSMgH892mIZZUPMW1HO4zdcydTYMPN82CF%2BxYP92IZB8LTRmiNT6N%2FX82Av6%0AcD%2Be%0A"] También deberá tener en cuenta que los ingredientes y subrecetas que desea que estén habilitados para transferir entre sus sucursales tengan habilitada esta opción "Habilitado para enviar y recibir", "Solo Enviar" o "Solo Recibir", según sea el caso. 
+ 
+ Tener en cuanta que esta opción, se debe habilitar tanto para ingredientes como para extras que estén habilitados con Stock y sean transferibles. En las siguientes imágenes presentamos el paso a paso para poder llegar a esto: 
+ 
+ 
+ Ingredientes: 
+ [Image "image.png?expires=1739488500&signature=5391e0288d416454db77136b1083138270fb370d513788e0ec6ef10998757471&req=dSMgH892mIZXX%2FMW1HO4zWdLdpTxCxiAxKEbjMz4OiSII%2F3hBSvXkBIZLJIv%0AAcEB%0A"] 
+ [Image "image.png?expires=1739488500&signature=7eed5cd5c8abbb8dbc04e5299ccd5035f42ac8c599b995dd553c3357c3250c9f&req=dSMgH892mIZYWfMW1HO4zV%2Fywg%2FGSkR5ASoIbT7zlKmK%2BLO%2FzypxNzNSgTxO%0AD8lh%0A"] 
+ Subrecetas: 
+ 
+ [Image "image.png?expires=1739488500&signature=f1aed235e1b72b042ae791657674321fb6fb66aff3e21d92f5c95e85dfe9ef8d&req=dSMgH892mIZYXPMW1HO4zTcqvj6%2BMQqdot6Yg4Yfu5tQTU0xnNVXNPMNT0SV%0Asp5m%0A"] 
+ [Image "image.png?expires=1739488500&signature=b96f62478f2a4575dd1fe342660f58ee52595464a23b13069acf2f080e20e289&req=dSMgH892mIZWWPMW1HO4zbW2YTexvxLfBANe9shPT2L5aGUcQ7HWjsdLoW%2Bn%0AYIC7%0A"] También es importante saber que existen dos (2) figuras para las transferencias multilocal:
+​
+1. Se inicia con una requisición desde un punto A al punto B, luego de esto, el punto B realiza el despacho de la solicitud enviada previamente y posteriormente el punto A realizara la recepción de dicho despacho. 
+ 
+ 2. En este caso el punto B puede realizar un despacho al punto A sin una requisición echa previamente, y el punto A tendra que realizar la recepción. 
+ 
+ 
+ Teniendo claro lo anteriormente mencionado dirijase a Menú lateral---Stock Control--- Transferencias MultiLocal. 
+ 
+ 
+ [Image "image.png?expires=1739488500&signature=02a5ba7c0092cd3c656130c2e87fccd3f014acba7e8ddfa03d5a18f9406892b1&req=dSMgH892mIZYXvMW1HO4zQWC6DgEn%2FjR9dfe0CX0eevtHcpeW4b2aHxtRTTm%0AylTx%0A"] 
+ Una vez estando allí, deberá tener claro que tipo de movimiento es el que desea hacer, existen tres tipos de movimiento en este módulo: 
+ 
+ - Solicitud de ingredientes o insumos a locales relacionados con la cadena. 
+- Enviar ingredientes o insumos a locales relacionados con la cadena. 
+- Recepcionar ingredientes o insumos que nos envían desde otros locales. 
+ Solicitar Mercadería 
+ En el caso de querer solicitar ingredientes o insumos a otros locales, tenemos que dirigirnos a “Solicitudes Para Recibir”. Estando allí, debemos presionar el botón que dice “Crear nueva Solicitud de mercadería” 
+ 
+ 
+ [Image "image.png?expires=1739488500&signature=8421fc4fd4171969820eeedfdbd4b81422184786aa421ae5c2449d687fa428a4&req=dSMgH892mIZXUfMW1HO4zSufnsCM7nAMjNHTMyxbwdBpqM4Z3YNlHBO%2FaKgM%0A4BH8%0A"] 
+ 
+ Posterior a esto te saldrá el listado de los puntos de venta, deberá elegir a quien le va a realizar la requisición y luego darle click en el botón "Seleccionar" 
+ 
+ [Image "image.png?expires=1739488500&signature=dd94eb22ba7f727a31e43a3507f47fef94d1c89ae39d0c9f3a36e25d2d48d1c0&req=dSMgH892mIZYW%2FMW1HO4zefHX3b2b24V3tGKq%2F%2BILv0kVcNCtPJy5lNF9HjT%0Ae95K%0A"] 
+ 
+ Luego de esto se abrirá una nueva ventana y en la primera pestaña "Información" Encontrara los datos básicos del punto que solicita y los del punto al que se le hará la solicitud, adicional encontrara la fecha estimada de entrega, tambien un espacios para realizar comentarios a la requisición que sean relevantes para el centro de despacho. 
+ 
+ [Image "image.png?expires=1739488500&signature=0b662662c5220bda3ef752433b6fe5a41b39ad3b45891c82c59fbd20a2973726&req=dSMgH892mIZYX%2FMW1HO4zeC%2Fdtg6NwH8imdQd%2FzfC11AqKKXwAUUBgNjJXKU%0AX2YD%0A"] Pasado esto, tendrá que dirigirse a la pestaña "solicitud" allí vera el listado de los ingredientes y subrecetas que están habilitados para transferir. Solo debe digitar las cantidades correspondientes en cada campo teniendo en cuenta la unidad de medida ya establecida para estos, por ultimo dar click en el botón "Autorizar" con esto habra terminado el proceso de solicitud. 
+ 
+ En caso de querer guardar la información para luego modificarla, solo debe presionar Grabar, de esta manera la información quedara guardada pero no se autorizará. 
+ 
+ [Image "image.png?expires=1739488500&signature=210e7a0781f56f65ddd309fcb60cc1f4402465cf59ffd8dd840b48fd28f133a7&req=dSMgH892mIZWWvMW1HO4zcs%2FL8ENzPERmkMB7ezy1yR%2F%2BmhKN14gvpe6ey4N%0Ahg%2Ff%0A"] 
+ Despachar Mercadería 
+ Para realizar el despacho de una solicitud recibida, tendrá que dirigirse a la pestaña "Envió a Locales" en esta encontrara el listado solicitudes o envíos realizados, podrá identificar las solicitudes que no han sido despachadas por el estado (Confirmada Solicitud a Proveedor/Fábrica). Seguido deberá dar click en el lápiz. 
+ 
+ 
+ [Image "image.png?expires=1739488500&signature=cc487d805a38d0a092f8fa650c52409539f4db4c00f732cbc0e99381a2e6226f&req=dSMgH892mIZWXfMW1HO4zWw2zyODfTUPEDMV8ikrT6ROWgCxaknkO8Bw7vQX%0AOadF%0A"] 
+ 
+ Una vez ejecutada esta acción, el sistema lo dirigirá a la pestaña "Información" donde Encontrara los datos básicos del punto que solicita y los del punto que hará el despacho, adicional encontrara la fecha estimada de entrega, la cual podrá editar según corresponda. 
+ 
+ [Image "image.png?expires=1739488500&signature=fd78fd9edf39419ba1435fb919df15eeda6617565cc8fbc569e20d096580e23e&req=dSMgH892mIZXW%2FMW1HO4zef6zy6d%2F6dNKxPguTIbjZNsGbEdBptZEs78B22A%0AB%2FRN%0A"] Para el despacho, deberá ir a la pestaña confirmación, ahí vera el listado de ingredientes solicitado con su respectiva cantidad, este campo es modificable, si lo hace, el sistema le mostrara la diferencia positiva o negativa según corresponda. En la parte superior encuentra un botón por si desea imprimir el documento. Luego dar click en el botón autorizar ubicado en la parte inferior. 
+ 
+ [Image "image.png?expires=1739488500&signature=fcfe6b68f3f649e57088c24ff14b45632376b652fb32a2521beed3162eb8776c&req=dSMgH892mIZWXPMW1HO4zcBJOAApOZB2hKe1IHSosjy4CALKr%2BH91LxsGFgo%0ALNuc%0A"] 
+ Una vez hecho esto el sistema lo dirigirá al listado de envíos, deberá identificar cual es el que desea despachar y dar click en el lápiz. 
+ [Image "image.png?expires=1739488500&signature=3f83acc93e319b921bccc2fe91a73e989e0165504d2d7bacf2fa9721eb9f47ff&req=dSMgH892mIZXWvMW1HO4zd77AdE0gJvCmUaG%2BPL3gKyPIBO%2B8aCEkhndWF9Q%0AThaY%0A"] Seguido deberá ir a la pestaña "Despacho" y finalmente dar click en el botón "Despachar" ubicado en la parte inferior. De esta forma habrá terminado el proceso de despacho. 
+ 
+ [Image "image.png?expires=1739488500&signature=74cc7e7f3262f1e68918e5c1b0f108abcea402d85744c988db69d3381e310e95&req=dSMgH892mIZWW%2FMW1HO4zdm2dMjb85RWSyxcvmtgB15o%2B35ge0%2FUULGAoJgT%0ATNXE%0A"] 
+ Recepción de mercadería. 
+ 
+ Deberá dirigirse a la pestaña solicitudes para recibir e identificar cual de los documentos que se encuentran en este listado desea recepcionar, luego dar click en el lápiz. 
+ 
+ 
+ [Image "image.png?expires=1739488500&signature=415015c147edc24ddd9f88e56916b70a4f52ea7532458bff9e9799add61b3afe&req=dSMgH892mIZXUPMW1HO4zdsOt0xbfIQpblySZUQvV%2F2R8kCJoxUk5mweRNUe%0AXVeM%0A"] 
+ Hecho esto, el sistema lo dirigirá por defecto a la pestaña "Información", Deberá ubicarse en la pestaña Recepción, cuando lo haga el sistema le mostrara el listado de productos y cantidades despachadas por el punto de origen, estas cantidades son modificables, si lo hace, el sistema le mostrará la diferencia positiva o negativa según corresponda. Una vez estén las cantidades validadas, dar click en el botón "Recepcionar" ubicado en la parte inferior, de esta forma habrá culminado con el proceso de recepción. 
+ 
+ 
+ [Image "image.png?expires=1739488500&signature=860e7e140d74c233047148dda6d34cb03f2e4e1135459583d5feda8871d3130d&req=dSMgH892mIZYUPMW1HO4zZKQ8AVZpSLHpY5snvmvg8RS4gYP8zRdA2mZSDzB%0AeHyu%0A"] 
+ 
+ 
+ 
+ Despacho de mercadería sin requisición 
+ 
+ En el caso de querer enviar ingredientes o sub recetas a otros locales sin una solicitud hecha previamente, debe dirigirse a “Envió a Locales”. Estando allí, debe presionar el botón que dice “Crear nuevo envió de mercadería”. 
+ 
+ [Image "image.png?expires=1739488500&signature=a6718949f545674b617520ceb565b3de1977cb2db3d6b06e0841fd88dafbeb83&req=dSMgH892mIZXWfMW1HO4zVZ%2BEgmrGRH%2B2OXlxj25yHZOpwO%2BJoISHkWYIkun%0A7Mmr%0A"] 
+ Una vez haga click en el botón, le aparecerá un listado con los locales que tiene habilitados para transferencias. Le damos click al nombre del local y luego Seleccionar 
+ 
+ 
+ [Image "image.png?expires=1739488500&signature=0e8a85f0895a3291b20f92f448705076ead985fe9790e9e60eca3d9af68db029&req=dSMgH892mIZYWvMW1HO4zWGWORRwweYgm3ccvP1QV7yq%2BVlYipWufcV%2F7Zrf%0ApX4B%0A"] 
+ Luego de esto se abrirá una nueva venta y en la primera pestaña "Información" Encontrará los datos básicos del punto al que enviara este despacho, con la fecha de entrega estimada. 
+ 
+ [Image "image.png?expires=1739488500&signature=6881e5bf191050d3cc1a0c51eb8cd65250df832570f72ea2da4033a1a575b3bd&req=dSMgH892mIZYXfMW1HO4zTQwwThD97h9XbSFDQn4pu1CkhssXZWNxnfbrEbo%0AHxZu%0A"] 
+ Para el envió, deberá ir a la pestaña confirmación, ahí vera el listado de ingredientes y sub recetas que están habilitados para transferir, Luego solo tendrá que colocar las cantidades en cada campo según corresponda, teniendo en cuentas las unidades de medida ya establecidas para cada producto. Seguido a esto debes dar click en el boton "Autorizar" ubicado en la parte inferior. 
+ 
+ 
+ [Image "image.png?expires=1739488500&signature=a4c8a41d35960ed9fdb4e319dc0000c1040dc0144bb2e64a775663fc25e36fd6&req=dSMgH892mIZWX%2FMW1HO4zQL8EmCd9jhaoQFjph544vCXtKcqZ8FFuOjxtTzI%0AkqQ%2F%0A"] 
+ 
+ 
+ Una vez hecho esto el sistema lo dirigirá al listado de envíos, deberá identificar cual es el que desea despachar y dar click en el lápiz. 
+ 
+ [Image "image.png?expires=1739488500&signature=e70fc4f66ded509acdd766e8ec6deff97a5e9cff521caf71de87be24deb804b6&req=dSMgH892mIZXXvMW1HO4zdqc5ntAhHwh4%2B1isPXbJJbD%2F6JdSRArzOJKFzYN%0A9vbW%0A"] Finalmente deberás ir a la pestaña "Despacho" y finalmente dar click en el botón "Despachar" ubicado en la parte inferior. De esta forma abra terminado el proceso de despacho. 
+ 
+ Hecho esto, el punto de destino tendría que realizar la recepción del despacho. 
+ 
+ Carga masiva de insumos 
+ Por otro lado, podemos ingresar los insumos de manera masiva. Estando en "Confirmar", veremos el siguiente botón XLS, al dar click se visualizará este archivo: 
+​ 
+ [Image "image.png?expires=1739488500&signature=b1ab838d12794b3cbf3327c4bb42d3f84d20ab1e5e86e6225e6d798c5a21e81b&req=dSMgH892mIZYUfMW1HO4zb%2BgNjbuitb37y37Rqz%2BAnizwMk3M98sEsvIBGMv%0AFMOu%0A"] [Image "image.png?expires=1739488500&signature=aed634ab773b60ab2eae2e31793f37a370e252e9b22a82639db393dd42546bf4&req=dSMgH892mIZXWPMW1HO4zU%2FrwwTriyrpS5GJMj8Zevc6DeLi0sIHnrU48tRZ%0ATI69%0A"] 
+ Debemos rellenar solo la columna "Cantidad" y luego copiar el formato. 
+ 
+ [Image "image.png?expires=1739488500&signature=cd8cd4cd4fb00c7eeb13e1fa47dca978c48723172865a220e338fe1528f6d029&req=dSMgH892mIZXXPMW1HO4zUNfd6wQiVc2EEnFKVFHHGHMR578%2F0qUPRPCp8Uf%0AGnU2%0A"] 
+ Una vez copiado, vamos al sistema y presionamos el botón negro 
+ 
+ [Image "image.png?expires=1739488500&signature=ac5b4eb990877fcd89940401840cd94562681aa28d358cc8ef9ad7905956a1ab&req=dSMgH892mIZWWfMW1HO4zcZGh7teox77OIIpssKJLFtWpHuQFYy7AQ0lssCk%0Af1cv%0A"] Con eso, ya se cargaron las cantidades al movimiento multilocal.
+
+07:46 PM | Israel from Toteat.: Recuerda que con Toteat puedes capacitarte y aprender todo lo que necesites para llevar tu negocio al siguiente nivel 🚀. Agenda todas las capacitaciones gratuitas aquí 👉 📆 Capacitación (https://calendly.com/toteat) 
+﻿Sí deseas una capacitación más personalizada puedes escribir directamente al correo 📧 clientes@toteat.com (mailto:clientes@toteat.com) para que te indiquen el costo y agendarte! 🤓
+
+07:47 PM | Alba Aguirre: tengo otra consulta
+
+07:47 PM | Alba Aguirre: actualmente los puntos le piden sus materiass primas a centro de produccion.
+
+07:47 PM | Alba Aguirre: entonces veo que la ldinamica es similar
+
+07:48 PM | Israel from Toteat.: ahi le sugiero tomar capacitacion , si no es cliente nuevo
+
+07:48 PM | Alba Aguirre: pero si ellos hacen el pedido queda como que la planta les va a enviar. y lo que se requiere es que el punto va a enviar una materia prima obsoleta a la planta
+
+07:48 PM | Israel from Toteat.: veo que tiene bastantes dudas
+
+07:49 PM | Alba Aguirre: es que nosotros hacemos el pedido a planta
+
+07:49 PM | Alba Aguirre: pero como podemos enviar el producto a planta
+
+07:49 PM | Alba Aguirre: es decir de manera inversa
+
+07:49 PM | Israel from Toteat.: no , porque es otra operacion
+
+07:49 PM | Alba Aguirre: exacto si señor
+
+07:49 PM | Israel from Toteat.: esa enviar s su planta revertir no es posible
+
+07:49 PM | Alba Aguirre: como seria
+
+07:49 PM | Israel from Toteat.: no la tenemos solo entre locales
+
+07:49 PM | Alba Aguirre: eso es lo que consulto
+
+07:50 PM | Israel from Toteat.: no se puede ese paso
+
+07:50 PM | Israel from Toteat.: lo que puede hacer si es entre locales , enviar entre ellos
+
+07:50 PM | Israel from Toteat.: que es la guia que le mande arriba
+
+07:50 PM | Israel from Toteat.: para otra opracion no lo tenemos en toteat
+
+07:51 PM | Alba Aguirre: ahh entiendo
+
+07:51 PM | Israel from Toteat.: 😭
+
+07:51 PM | Israel from Toteat.: asi es
+
+07:51 PM | Alba Aguirre: si señor complejo
+
+07:52 PM | Alba Aguirre: porque los obsoletos se devuelven a planta
+
+07:52 PM | Israel from Toteat.: entiendo una devolucion
+
+07:52 PM | Alba Aguirre: pero no tengo la forma de documentar
+
+07:52 PM | Israel from Toteat.: puede enviar su peticion a clinetes@toteat.com
+
+07:52 PM | Alba Aguirre: esa es la palabra gracias un devolucion
+
+07:53 PM | Israel from Toteat.: pero no tenemos esa opcion
+
+07:53 PM | Alba Aguirre: gracias
+
+07:54 PM | Israel from Toteat.: Con mucho gusto, estamos para ayudarte Alba , muy buen punto para mejora
+
+07:54 PM | Israel from Toteat.: 😉
+
+---
+Exported from Toteat. on February 13, 2025 at 07:54 PM Santiago time -03 (GMT-0300)
