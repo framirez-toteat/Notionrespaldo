@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Procesos SAC</title>
+<script src="pages.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sidebar-w: 300px;
+    --bg: #f7f7f5;
+    --sidebar-bg: #1e1e2e;
+    --sidebar-hover: #2a2a3e;
+    --sidebar-active: #3b3b55;
+    --accent: #7c6af7;
+    --text: #37352f;
+    --text-light: #9b9b9b;
+    --folder-color: #a8a8c0;
+    --border: #e0e0e0;
+  }
+
+  html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+
+  /* Layout */
+  #app { display: flex; height: 100vh; }
+
+  /* Sidebar */
+  #sidebar {
+    width: var(--sidebar-w);
+    min-width: var(--sidebar-w);
+    background: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: width 0.2s;
+  }
+  #sidebar.collapsed { width: 48px; min-width: 48px; }
+
+  #sidebar-header {
+    padding: 16px 12px 12px;
+    border-bottom: 1px solid #2d2d42;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  #toggle-btn {
+    background: none; border: none; cursor: pointer;
+    color: var(--folder-color); font-size: 18px; flex-shrink: 0;
+    width: 24px; display: flex; align-items: center; justify-content: center;
+  }
+  #sidebar-title {
+    color: #fff; font-weight: 600; font-size: 14px;
+    white-space: nowrap; overflow: hidden;
+  }
+  #sidebar.collapsed #sidebar-title,
+  #sidebar.collapsed #search-wrap { display: none; }
+
+  #search-wrap { padding: 10px 12px; }
+  #search {
+    width: 100%; padding: 7px 10px;
+    background: #2a2a3e; border: 1px solid #3a3a52; border-radius: 6px;
+    color: #fff; font-size: 13px; outline: none;
+  }
+  #search::placeholder { color: var(--folder-color); }
+  #search:focus { border-color: var(--accent); }
+
+  #nav { flex: 1; overflow-y: auto; overflow-x: hidden; padding-bottom: 20px; }
+  #nav::-webkit-scrollbar { width: 4px; }
+  #nav::-webkit-scrollbar-track { background: transparent; }
+  #nav::-webkit-scrollbar-thumb { background: #3a3a52; border-radius: 2px; }
+
+  /* Tree nodes */
+  .folder-item { user-select: none; }
+  .folder-label {
+    display: flex; align-items: center; gap: 6px;
+    padding: 5px 12px; cursor: pointer; color: var(--folder-color);
+    font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+    white-space: nowrap; overflow: hidden;
+  }
+  .folder-label:hover { background: var(--sidebar-hover); }
+  .folder-icon { font-size: 10px; flex-shrink: 0; transition: transform 0.15s; }
+  .folder-item.open > .folder-label .folder-icon { transform: rotate(90deg); }
+  .folder-name { overflow: hidden; text-overflow: ellipsis; }
+
+  .folder-children { display: none; }
+  .folder-item.open > .folder-children { display: block; }
+
+  .page-link {
+    display: flex; align-items: center; gap: 7px;
+    padding: 5px 12px 5px 20px;
+    color: #c8c8d8; font-size: 13px; cursor: pointer;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    text-decoration: none; border-left: 2px solid transparent;
+  }
+  .page-link:hover { background: var(--sidebar-hover); color: #fff; }
+  .page-link.active { background: var(--sidebar-active); color: #fff; border-left-color: var(--accent); }
+  .page-link .page-icon { font-size: 12px; flex-shrink: 0; opacity: 0.6; }
+
+  /* indent levels */
+  .depth-2 .page-link { padding-left: 28px; }
+  .depth-3 .page-link { padding-left: 40px; }
+  .depth-4 .page-link { padding-left: 52px; }
+  .depth-5 .page-link { padding-left: 64px; }
+
+  .depth-2 > .folder-label { padding-left: 24px; }
+  .depth-3 > .folder-label { padding-left: 36px; }
+  .depth-4 > .folder-label { padding-left: 48px; }
+
+  /* Collapsed sidebar: show only icons */
+  #sidebar.collapsed .page-link { padding: 7px 0; justify-content: center; border-left: none; }
+  #sidebar.collapsed .page-link span:last-child { display: none; }
+  #sidebar.collapsed .folder-label { display: none; }
+
+  /* Main content */
+  #main {
+    flex: 1; display: flex; flex-direction: column;
+    background: var(--bg); overflow: hidden;
+  }
+
+  #topbar {
+    padding: 12px 20px; background: #fff; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 12px; flex-shrink: 0;
+  }
+  #breadcrumb { font-size: 13px; color: var(--text-light); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #breadcrumb span { color: var(--text); font-weight: 500; }
+
+  #open-btn {
+    font-size: 12px; padding: 5px 12px;
+    background: none; border: 1px solid var(--border); border-radius: 5px;
+    cursor: pointer; color: var(--text-light);
+    white-space: nowrap;
+  }
+  #open-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  #content-frame {
+    flex: 1; border: none; background: #fff;
+  }
+
+  #welcome {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; color: var(--text-light);
+    gap: 12px;
+  }
+  #welcome h2 { font-size: 22px; color: var(--text); font-weight: 600; }
+  #welcome p { font-size: 14px; }
+  #welcome .count { font-size: 40px; }
+
+  /* Search results highlight */
+  .page-link mark { background: #ffd700; color: #000; border-radius: 2px; }
+
+  #no-results {
+    padding: 20px 16px; color: var(--folder-color); font-size: 13px; text-align: center;
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <aside id="sidebar">
+    <div id="sidebar-header">
+      <button id="toggle-btn" title="Colapsar sidebar">☰</button>
+      <span id="sidebar-title">Procesos SAC</span>
+    </div>
+    <div id="search-wrap">
+      <input id="search" type="text" placeholder="Buscar página..." autocomplete="off" spellcheck="false">
+    </div>
+    <nav id="nav">
+      <div id="no-results">Sin resultados</div>
+    </nav>
+  </aside>
+
+  <main id="main">
+    <div id="topbar">
+      <div id="breadcrumb">Selecciona una página</div>
+      <button id="open-btn" style="display:none" onclick="openInNewTab()">Abrir en nueva pestaña ↗</button>
+    </div>
+    <div id="welcome">
+      <div class="count">📄</div>
+      <h2>Procesos SAC</h2>
+      <p id="page-count"></p>
+      <p>Selecciona una página en el panel izquierdo para comenzar.</p>
+    </div>
+    <iframe id="content-frame" style="display:none"></iframe>
+  </main>
+</div>
+
+<script>
+let pages = [];
+let currentPath = null;
+
+function init() {
+  pages = window.PAGES || [];
+  document.getElementById('page-count').textContent = `${pages.length} páginas disponibles`;
+  buildTree(pages);
+}
+
+function buildTree(list) {
+  const nav = document.getElementById('nav');
+  [...nav.querySelectorAll('.folder-item, .page-link')].forEach(el => el.remove());
+
+  if (list.length === 0) {
+    document.getElementById('no-results').style.display = 'block';
+    return;
+  }
+  document.getElementById('no-results').style.display = 'none';
+
+  // Map: folderPath -> {el, childrenEl}
+  const folderEls = {};
+
+  function ensureFolder(folderPath) {
+    if (folderEls[folderPath]) return folderEls[folderPath];
+
+    const parts = folderPath.split('/');
+    const depth = parts.length;
+    const name = parts[parts.length - 1];
+    const parentPath = parts.slice(0, -1).join('/');
+
+    const item = document.createElement('div');
+    item.className = `folder-item depth-${depth}`;
+
+    const label = document.createElement('div');
+    label.className = 'folder-label';
+    label.style.paddingLeft = (12 + (depth - 1) * 14) + 'px';
+    label.innerHTML = `<span class="folder-icon">▶</span><span class="folder-name">${name}</span>`;
+    label.onclick = () => item.classList.toggle('open');
+
+    const children = document.createElement('div');
+    children.className = 'folder-children';
+
+    item.appendChild(label);
+    item.appendChild(children);
+    folderEls[folderPath] = { el: item, childrenEl: children };
+
+    // Attach to parent
+    if (parentPath) {
+      const parent = ensureFolder(parentPath);
+      parent.childrenEl.appendChild(item);
+    } else {
+      nav.insertBefore(item, document.getElementById('no-results'));
+    }
+
+    return folderEls[folderPath];
+  }
+
+  // Collect and sort all unique folder paths
+  const allFolders = [...new Set(list.map(p => p.folder).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+  allFolders.forEach(f => ensureFolder(f));
+
+  // Add pages
+  for (const page of list) {
+    const f = page.folder || '';
+    const depth = f ? f.split('/').length + 1 : 1;
+    const link = document.createElement('a');
+    link.className = 'page-link';
+    link.style.paddingLeft = (20 + (depth - 1) * 14) + 'px';
+    link.setAttribute('data-path', page.path);
+    link.setAttribute('href', '#');
+    link.innerHTML = `<span class="page-icon">📄</span><span>${page.title}</span>`;
+    link.onclick = (e) => { e.preventDefault(); loadPage(page.path, page.title, page.folder); };
+    if (page.path === currentPath) link.classList.add('active');
+
+    if (f && folderEls[f]) {
+      folderEls[f].childrenEl.appendChild(link);
+    } else {
+      nav.insertBefore(link, document.getElementById('no-results'));
+    }
+  }
+
+  // Auto-open folders containing the active page
+  if (currentPath) {
+    const active = nav.querySelector('.page-link.active');
+    if (active) openParents(active);
+  }
+}
+
+function openParents(el) {
+  let parent = el.parentElement;
+  while (parent && parent.id !== 'nav') {
+    if (parent.classList.contains('folder-item')) parent.classList.add('open');
+    parent = parent.parentElement;
+  }
+}
+
+function loadPage(path, title, folder) {
+  currentPath = path;
+  document.getElementById('welcome').style.display = 'none';
+  const frame = document.getElementById('content-frame');
+  frame.style.display = 'block';
+  frame.src = path.split('/').map(encodeURIComponent).join('/');
+
+  // Breadcrumb
+  const parts = folder ? folder.split('/') : [];
+  const bc = document.getElementById('breadcrumb');
+  bc.innerHTML = parts.map(p => `${p}`).join(' / ') + (parts.length ? ' / ' : '') + `<span>${title}</span>`;
+
+  document.getElementById('open-btn').style.display = 'inline-block';
+
+  // Update active link
+  document.querySelectorAll('.page-link').forEach(l => {
+    l.classList.toggle('active', l.getAttribute('data-path') === path);
+  });
+
+  // Open parents
+  const active = document.querySelector('.page-link.active');
+  if (active) openParents(active);
+}
+
+function openInNewTab() {
+  if (currentPath) window.open(currentPath, '_blank');
+}
+
+// Search
+let searchTimer;
+document.getElementById('search').addEventListener('input', function() {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => filterPages(this.value.trim()), 150);
+});
+
+function filterPages(query) {
+  if (!query) {
+    buildTree(pages);
+    return;
+  }
+  const q = query.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const filtered = pages.filter(p => {
+    const t = p.title.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    const f = p.folder.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    return t.includes(q) || f.includes(q);
+  });
+  buildTree(filtered);
+  // Auto-open all folders in search results
+  document.querySelectorAll('.folder-item').forEach(el => el.classList.add('open'));
+}
+
+// Sidebar toggle
+document.getElementById('toggle-btn').addEventListener('click', () => {
+  document.getElementById('sidebar').classList.toggle('collapsed');
+});
+
+init();
+</script>
+</body>
+</html>

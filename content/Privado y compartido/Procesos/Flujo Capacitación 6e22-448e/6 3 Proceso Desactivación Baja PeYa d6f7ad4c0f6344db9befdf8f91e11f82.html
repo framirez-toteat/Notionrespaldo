@@ -1,0 +1,745 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>6.3. Proceso Desactivación/Baja PeYa</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d6f7ad4c-0f63-44db-9bef-df8f91e11f82" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">6.3. Proceso Desactivación/Baja PeYa</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><nav id="16c39073-1e23-80e4-836f-c0bc2f53d7aa" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-803c-8411-fd872de2a645"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-8025-b4cd-ca899f260ad2"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-8050-95ab-d1df6d242867"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-80a2-8a72-d232cfe6990d"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-80b8-ba30-d8cdab5d122e"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-8016-97f3-d02640268065"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-80f4-80c9-fe12e473fdc6"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-807c-98af-e2ec38ef021b"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-8060-a479-e100d445b539"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-803c-8411-fd872de2a645" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-8084-ae2f-e36b0ab4d4c3" class="">Para dar de baja una integración con PedidosYa, es necesario seguir un proceso específico. En el siguiente módulo conoceremos este proceso. Es importante tener en cuenta que al dar de baja la integración, esta quedará inactiva por tiempo indefinido, por lo que se debe considerar cuidadosamente antes de realizar este proceso.</p></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-8025-b4cd-ca899f260ad2" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-80e9-9986-d8849ac70bd1" class="">Cuando se solicita la baja en la integración de PedidosYa, este proceso surge debido a la necesidad del cliente de inactivar los servicios de Toteat o por alguna novedad en su operación que no le permite seguir utilizando la integración, ha dejado de usar la plataforma de PedidosYa o por el cierre del local. Sea cual sea el motivo, es necesario que el proceso de solicitud de baja se tramite con el área de Tech Integraciones Toteat</p></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-8050-95ab-d1df6d242867" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-80f5-bbfe-cb8b111bd324" class="">La solicitud debe ser realizada por el área de Customer Success después de validar los motivos y agotar todas las posibilidades de evitar la baja solicitada. La solicitud debe ser enviada a través del siguiente formulario:</p></div><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-80c2-a6e3-e00e5d849c6a"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdVgT-ZfckigQAfc_qIItvSKUWQKcz2Yj6VZRsEZCMMKEtLuA/viewform" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">https://docs.google.com/forms/d/e/1FAIpQLSdVgT-ZfckigQAfc_qIItvSKUWQKcz2Yj6VZRsEZCMMKEtLuA/viewform</div></div><div class="bookmark-href">https://docs.google.com/forms/d/e/1FAIpQLSdVgT-ZfckigQAfc_qIItvSKUWQKcz2Yj6VZRsEZCMMKEtLuA/viewform</div></div></a></figure></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-80a2-8a72-d232cfe6990d" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8093-8552-e05274171db8" class="toggle"><li><details open=""><summary><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="c78f8cc3-0b5c-4474-a1d2-e4cfdde2d440" class="bulleted-list"><li style="list-style-type:disc">Ser personal autorizado de Toteat y pertenecer al área de Customer Success.</li></ul></div><div style="display:contents" dir="auto"><ul id="9cb41db5-7b6f-40a0-bc0e-a6552d1aa554" class="bulleted-list"><li style="list-style-type:disc">Tener conocimientos sólidos sobre el proceso de activación y desactivación de la integración de PedidosYa-Toteat.</li></ul></div><div style="display:contents" dir="auto"><ul id="590e921f-6146-4c6d-a7d1-c72b2b974a38" class="bulleted-list"><li style="list-style-type:disc">Validar con el cliente los motivos por el cual solicita la baja, agotando todas las posibilidades de ofrecerle mejoras y/o soluciones que puedan satisfacer sus necesidades con la integración, de continuar con la solicitud de baja se debe de contar con la autorización del cliente de manera formal para dar inicio del proceso.</li></ul></div><div style="display:contents" dir="auto"><ul id="adddc127-69da-45d6-8b51-ff770d52dbbd" class="bulleted-list"><li style="list-style-type:disc">Es importante coordinar con el cliente la fecha estimada para desactivar la integración, recordándole que el proceso de baja puede demorar entre 1 y 2 días hábiles. Esto se debe al tiempo de respuesta del área de Tech Toteat, de PedidosYa y a la validación requerida por PedidosYa al cliente a través de correo electrónico.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-80b8-ba30-d8cdab5d122e" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-802c-a1ca-f6e348644c15" class="toggle"><li><details open=""><summary><strong>Paso 1: Validación de solicitud con el cliente.</strong></summary><div style="display:contents" dir="auto"><ul id="eb735c23-dd83-4c33-830c-33ddea4d0956" class="bulleted-list"><li style="list-style-type:disc">Reunirse con el cliente y validar sus motivos por los cuales solicita la baja de la integración.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c7a287-c68d-4858-9bc1-99b3454b6bb7" class="bulleted-list"><li style="list-style-type:disc">Es importante confirmar con el cliente la fecha estimada para desactivar la integración y explicarle que el proceso de baja puede tomar entre 1 y 2 días hábiles. Esto se debe al tiempo de respuesta del área de Tech Toteat y al proceso de validación que realiza PedidosYa, quienes solicitarán al cliente una confirmación a través de correo electrónico.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-806e-832f-d515ded605a6" class="toggle"><li><details open=""><summary><strong>Paso 2: Llenado y envío del formulario para Toteat.</strong></summary><div style="display:contents" dir="auto"><ul id="53185057-4232-4aff-8ba7-bd82bd8f6ede" class="bulleted-list"><li style="list-style-type:disc">Para proceder con la solicitud de la baja de la integraciones se debe llenar el formulario, a continuación se indica el paso a paso:</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="4fa49030-a34a-4cf0-a9d2-ad800ffec81d" class="numbered-list" start="1"><li><strong>Seleccionar el área desde el cual están gestionando la baja y tipo de solicitud.</strong><br/>En la mayoría de los casos, las solicitudes de baja de la integración son gestionadas por el Área de Customer Success, sin embargo, es posible que el área de Onboarding requiera realizar una solicitud de baja para alguna integración que haya sido activada durante el proceso de onboarding, estos casos, se consideran excepciones y es importante validar con el agente responsable antes de proceder con la ejecución de la baja.<div style="display:contents" dir="ltr"><figure id="7bc29587-f538-4a0a-ad0c-1a0330cc6352" class="image"><a href="4%203%20Proceso%20Desactivaci%C3%B3n%20Baja%20Uber/0aff67c6-0cb7-44b2-a0e9-fe9311ad6da6.png"><img style="width:432px" src="4%203%20Proceso%20Desactivaci%C3%B3n%20Baja%20Uber/0aff67c6-0cb7-44b2-a0e9-fe9311ad6da6.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="8a8fb1ec-ad66-4ab6-8869-839da1204686" class="numbered-list" start="2"><li><strong>Indicar nombre del Restaurante y/o marca en caso de ser multimarca.</strong><div style="display:contents" dir="ltr"><figure id="000b60f7-ebd2-4232-b4e7-c089ea694d22" class="image"><a href="4%203%20Proceso%20Desactivaci%C3%B3n%20Baja%20Uber/f5161d3b-8951-417a-a105-c1c27e8deff4.png"><img style="width:432px" src="4%203%20Proceso%20Desactivaci%C3%B3n%20Baja%20Uber/f5161d3b-8951-417a-a105-c1c27e8deff4.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="0b348bbe-dad1-4ffa-b5d9-2829034a1b78" class="numbered-list" start="3"><li><strong>Datos del Restaurante en Toteat y Pais:</strong><div style="display:contents" dir="ltr"><figure id="c3c35b78-d00a-4866-9452-cc1bac5fa168" class="image"><a href="4%203%20Proceso%20Desactivaci%C3%B3n%20Baja%20Uber/777e9fc2-8d62-41d8-94f6-25b80e01717c.png"><img style="width:432px" src="4%203%20Proceso%20Desactivaci%C3%B3n%20Baja%20Uber/777e9fc2-8d62-41d8-94f6-25b80e01717c.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="8b889de1-de48-44b3-aad5-938a56e5ec27" class="numbered-list" start="4"><li><strong>Identificar la plataforma y Api.<br/></strong></li></ol></div><div style="display:contents" dir="ltr"><figure id="d76e9da8-fd16-457c-b413-5b03cde4e288" class="image"><a href="5%203%20Proceso%20Desactivaci%C3%B3n%20Baja/31860db8-a366-49cc-9e25-ce86dffceaf5.png"><img style="width:480px" src="5%203%20Proceso%20Desactivaci%C3%B3n%20Baja/31860db8-a366-49cc-9e25-ce86dffceaf5.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="daf70f90-bc2e-4d7b-bbd4-ae2f762b25f2" class="image"><a href="5%203%20Proceso%20Desactivaci%C3%B3n%20Baja/f7c15816-fd88-40b3-9cc8-bf99b2c34569.png"><img style="width:480px" src="5%203%20Proceso%20Desactivaci%C3%B3n%20Baja/f7c15816-fd88-40b3-9cc8-bf99b2c34569.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-809a-8437-eca00d75e474" class="image"><a href="6%203%20Proceso%20Desactivaci%C3%B3n%20Baja%20PeYa/91cb0b2b-46da-4457-9d70-22ba65d06f8a.png"><img style="width:563.8387715930902px" src="6%203%20Proceso%20Desactivaci%C3%B3n%20Baja%20PeYa/91cb0b2b-46da-4457-9d70-22ba65d06f8a.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-8070-8605-f9e5003a71e1" class="image"><a href="6%203%20Proceso%20Desactivaci%C3%B3n%20Baja%20PeYa/d7b52488-c780-4ee4-886b-19c69c95f5a6.png"><img style="width:534px" src="6%203%20Proceso%20Desactivaci%C3%B3n%20Baja%20PeYa/d7b52488-c780-4ee4-886b-19c69c95f5a6.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21d8c6d4-5bba-4898-a581-9e805fe8d3f4" class=""><br/><strong>Nota</strong>: El formulario será visible en Slack en el canal <em><strong>#integraciones-interno</strong></em>, donde se le brindará el seguimiento correspondiente.</p></div><div style="display:contents" dir="auto"><p id="cec6564a-f3d9-4722-924d-41c6369c3503" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8096-ab11-d34801d9f519" class="toggle"><li><details open=""><summary><strong>Paso 3: Desactivación de la Api en Toteat.</strong></summary><div style="display:contents" dir="auto"><p id="a2727525-dbd0-45d1-8392-16c3ecd5e015" class="">1.- Se debe desactivar la integración, dando clic en el botón “<strong>Desactivar Int.Externa”. </strong><br/>Luego se debe validar status, esto se visualiza dando clic en el botón “<strong>Ver Estado Int.Externa”.<br/>Por SDK:</strong></p></div><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-8027-befe-ce1ca7d28951" class="image"><a href="6%203%20Proceso%20Desactivaci%C3%B3n%20Baja%20PeYa/image.png"><img style="width:679.9861450195312px" src="6%203%20Proceso%20Desactivaci%C3%B3n%20Baja%20PeYa/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="67582e8a-0b82-4338-b52b-fb1ff697f127" class=""><strong>Por Api V2: </strong><br/>Al revisar el status el cuadro de diálogo indica que ya no está configurada.</p></div><div style="display:contents" dir="auto"><blockquote id="16c39073-1e23-80f9-9af0-d62e8e3ec5a9" class="">La api se debe identificar que esta DADA DE BAJA.</blockquote></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-804b-92fc-d4a573e4e357" class="toggle"><li><details open=""><summary><strong>Paso 4: Envío de correo a PedidosYa</strong></summary><div style="display:contents" dir="auto"><p id="c740eac9-f93d-40f9-a521-0fd5e03fc330" class="">En este paso el área de Tech Integraciones es quien realiza el envío del correo a PedidosYa solicitando la baja de la integración. </p></div><div style="display:contents" dir="auto"><p id="56e54712-6c4b-47d7-b1e6-03b69a6f93fd" class="">El destinatario seria <a href="mailto:soporteintegraciones@pedidosya.com">soporteintegraciones@pedidosya.com</a></p></div><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-8071-ba2f-fb400f6a97f4" class="image"><a href="6%203%20Proceso%20Desactivaci%C3%B3n%20Baja%20PeYa/image%201.png"><img style="width:666.99658203125px" src="6%203%20Proceso%20Desactivaci%C3%B3n%20Baja%20PeYa/image%201.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80be-978f-f465b2260a76" class="toggle"><li><details open=""><summary><strong>Paso 5: Seguimiento de la solicitud Vía Slack.</strong></summary><div style="display:contents" dir="auto"><ul id="043be42a-f432-4e92-b201-3c194e882e53" class="bulleted-list"><li style="list-style-type:disc">Se notificará en el canal <em><strong>#integraciones-interno</strong></em> sobre la solicitud enviada, y en el hilo se proporcionará la actualización de la solicitud enviada a PedidosYa así como el estado de la integración y del API por parte de Toteat.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-8016-97f3-d02640268065" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80b9-84cb-d24986236238" class="bulleted-list"><li style="list-style-type:disc">El proceso de baja de integraciones es crucial cuando es autorizado por el cliente, ya que su correcta ejecución es fundamental para evitar repercusiones negativas en los futuros procesos del restaurante. Si la solicitud de baja no se realiza de manera adecuada, podría afectar la operatividad y eficiencia del restaurante, generando complicaciones innecesarias. Es por ello que es fundamental seguir un procedimiento establecido y asegurarse de que todas las partes involucradas estén al tanto de los pasos a seguir para garantizar una baja de integraciones sin contratiempos.</li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-80f4-80c9-fe12e473fdc6" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80eb-95b2-d3af6b75fd84" class="bulleted-list"><li style="list-style-type:disc">Restaurantes que No se encuentren integrados con la plataforma de PedidosYa.</li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-807c-98af-e2ec38ef021b" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80b9-86f2-c6984cf9993a" class="bulleted-list"><li style="list-style-type:disc">Auditar el proceso de baja de la integración de PedidosYa en todos los países donde aplique.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80ea-9e16-f9e89f03db4e" class="bulleted-list"><li style="list-style-type:disc">Validar status de la baja de la integración.</li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-8060-a479-e100d445b539" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="16c39073-1e23-8012-ab3a-f138d652439c" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="16dc89e6-5055-4f41-b73a-ccae859d9115"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="728912e5-c64d-41e3-b652-d97a283ba607"><td id="nU|h" class="">2024</td><td id="WwCq" class="">@Andrea Carolina Ruiz </td><td id="i;pn" class="">@Francisco Ramirez </td><td id="q^a=" class="">4028.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="6aa48e67-3812-4c0c-b276-19556de459b5"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="7bd585a8-ac9d-433e-83e4-0e1fac4e56bc"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1a439073-1e23-80b2-b73a-e5ee0109763f" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

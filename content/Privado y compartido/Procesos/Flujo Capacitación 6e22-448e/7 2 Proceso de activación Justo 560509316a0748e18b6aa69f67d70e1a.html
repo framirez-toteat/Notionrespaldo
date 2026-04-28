@@ -1,0 +1,749 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>7.2. Proceso de activación Justo</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="56050931-6a07-48e1-8b6a-a69f67d70e1a" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">7.2. Proceso de activación Justo</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><nav id="12839073-1e23-80b3-a428-f9b534031c64" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12839073-1e23-80a5-a6d7-c5ebf6ff0391"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12839073-1e23-8040-bbc0-c7c8b50e84c9"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12839073-1e23-807d-8604-c1347c50d5de"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12839073-1e23-80cf-83b1-c6ad59bcc020"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12839073-1e23-80e7-b002-c37664f6323c"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12839073-1e23-80fe-a909-d122ac99ea21"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12839073-1e23-80e6-821c-eb6fde3ef8c8"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12839073-1e23-8032-afd4-d44d52fd41c4"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12839073-1e23-8006-96bc-ef2edf4a168c"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="12839073-1e23-80a5-a6d7-c5ebf6ff0391" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="12839073-1e23-8000-806a-df885187c81b" class="">Una vez recopilados los datos de configuración para la integración entre Toteat y la plataforma de Justo, el siguiente paso es iniciar el proceso de activación. Esto implica validar con el cliente los datos suministrados en Justo y los generados en Toteat y configurar la API correspondiente para establecer la conexión entre ambas partes. </p></div><div style="display:contents" dir="auto"><h3 id="12839073-1e23-8040-bbc0-c7c8b50e84c9" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="12839073-1e23-8022-a759-f36f7407f51e" class="">Al activar la integración entre Justo y Toteat, nuestros clientes podrán disfrutar de las funcionalidades principales que ofrece esta integración. Entre ellas se encuentran la sincronización de menús, la gestión de pedidos y la generación de reportes consolidados.</p></div><div style="display:contents" dir="auto"><h3 id="12839073-1e23-807d-8604-c1347c50d5de" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="12839073-1e23-80ff-b2fc-c98ba735d168" class="">Para iniciar el proceso de activación, el cliente debe realizar la solicitud a su agente de Onboarding o de Customer, según el estatus del restaurante en Toteat. </p></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-8091-a510-f35402b61421" class="bulleted-list"><li style="list-style-type:disc">En el caso de un cliente nuevo, el agente de Onboarding debe validar durante el proceso si se llevará a cabo la activación de la integración. Es importante destacar que esta información debería haber sido comunicada por el cliente al comercial durante la negociación, para que el servicio quede especificado en Salesforce.</li></ul></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-8010-93e8-c9197cffccff" class="bulleted-list"><li style="list-style-type:disc">Si el cliente ya está en cartera, debe enviar la solicitud al correo clientes@toteat.com, donde recibirá una respuesta con los pasos a seguir.</li></ul></div><div style="display:contents" dir="auto"><h3 id="12839073-1e23-80cf-83b1-c6ad59bcc020" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-80e5-a87f-c09b56b731d8" class="toggle"><li><details open=""><summary><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="12839073-1e23-81a0-b7a8-d24e45326431" class="bulleted-list"><li style="list-style-type:disc">Ser personal autorizado de Toteat para la activación de los procesos de integración y tener conocimientos sólidos sobre el proceso de activación en la integración de Justo-Toteat.</li></ul></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-813d-808d-d2bd7c3c7d90" class="bulleted-list"><li style="list-style-type:disc">Confirmar con el cliente que ya está creado y activo en Justo, además de contar con su autorización para iniciar el proceso.</li></ul></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-819a-86b6-c6b2558365d0" class="bulleted-list"><li style="list-style-type:disc">Es crucial verificar que el cliente no esté vinculado a otro punto de venta (POS) antes de comenzar el proceso de integración.</li></ul></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-817d-bccd-d21d081142d6" class="bulleted-list"><li style="list-style-type:disc">El cliente debe contar con los datos necesarios para la integración, que incluyen: el Api Key, creación de Webhooks en Justo, los precios por lista que quiere mostrar en Justo.</li></ul></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-81c8-a0eb-db7020e57a87" class="bulleted-list"><li style="list-style-type:disc">Validar con el cliente que los productos tengan imágenes.</li></ul></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-8105-b111-cb7edd189721" class="bulleted-list"><li style="list-style-type:disc">Verificar tener  los datos de configuración  a la mano, estos datos son fundamentales para garantizar un proceso de integración exitoso y sin contratiempos. Si tiene alguna pregunta o requiere asistencia adicional se debe agendar una reunión vía meet con el cliente y verificar todas las dudas sobre el procedimiento.. Ver  </li></ul></div><div style="display:contents" dir="auto"><ul id="12a39073-1e23-80ac-926d-f7e7fecbd052" class="bulleted-list"><li style="list-style-type:disc"> Si el restaurante tiene múltiples sedes, es importante asegurarse de que todos los menús estén estandarizados, preferiblemente utilizando Toteat en todas las sedes.</li></ul></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-8101-af31-c978b6433eb7" class="bulleted-list"><li style="list-style-type:disc">Programar la integración para inicios de semana e informar al cliente que el tiempo de activación es de 1 a 3 días hábiles.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="12839073-1e23-80e7-b002-c37664f6323c" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-8019-a1e8-de734cdcc62a" class="toggle"><li><details open=""><summary><strong>Paso 1: Validar configuraciones de la API. </strong></summary><div style="display:contents" dir="auto"><p id="288c0c56-3556-4cba-a433-8b7a70a70777" class=""><strong>(Ver </strong><strong></strong><strong>)</strong></p></div><div style="display:contents" dir="auto"><ul id="2c011349-3c4c-407e-96d5-5bb36323aac3" class="bulleted-list"><li style="list-style-type:disc"><strong>Fuente de Origen</strong>: Justo.</li></ul></div><div style="display:contents" dir="ltr"><figure id="12a39073-1e23-803d-845f-fac57526bcea" class="image"><a href="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/25685b01-d824-4664-a9da-a1732072907d.png"><img style="width:513.2504440497335px" src="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/25685b01-d824-4664-a9da-a1732072907d.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12a39073-1e23-8067-a752-c8b91fd050ed" class=""><strong>Nota</strong>: <em>No olvidar dar clic al botón </em><em><strong>Grabar</strong></em><em> en la parte superior de Ajustes Generales — General.</em></p></div><div style="display:contents" dir="auto"><p id="12a39073-1e23-808d-a223-c91a34487b3f" class="">Configurarla en la Api:<br/></p></div><div style="display:contents" dir="ltr"><figure id="12a39073-1e23-8011-8665-f181576b56fd" class="image"><a href="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image.png"><img style="width:679.9722290039062px" src="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="347b4f5e-78b2-4dc6-b821-f76c951f1302" class="bulleted-list"><li style="list-style-type:disc"><strong>Forma de pago</strong>:  Justo.<br/> Ver  </li></ul></div><div style="display:contents" dir="ltr"><figure id="12a39073-1e23-80c3-98a1-cab0902541d9" class="image"><a href="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%201.png"><img style="width:679.9861450195312px" src="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="f1ea9bc6-6b70-40ca-82d5-0f14c22b32b0" class="">Verificar que quede activa y para uso de las integraciones.</p></div><div style="display:contents" dir="auto"><p id="871b9e58-70e1-46e3-9cc2-59e4f9bacb99" class="">   Configurarla en la API.</p></div><div style="display:contents" dir="ltr"><figure id="12a39073-1e23-8086-872b-f2a2e4113f34" class="image"><a href="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/25bc6ba3-e36f-4eab-b9df-a62f1a5a8d62.png"><img style="width:608.0532445923461px" src="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/25bc6ba3-e36f-4eab-b9df-a62f1a5a8d62.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="abb44e12-f2aa-4029-a058-a76cf47bc9fb" class="bulleted-list"><li style="list-style-type:disc"><strong>Sectores</strong>:  Los sectores deben estar creados con una jerarquía principal de INTEGRACIONES, y sub Jerarquías por cada una de las Plataformas y las marcas, como se observa a continuación:<br/></li></ul></div><div style="display:contents" dir="ltr"><figure id="12a39073-1e23-80d5-84fc-f1902d7804ea" class="image"><a href="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%202.png"><img style="width:679.9722290039062px" src="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12a39073-1e23-809c-9308-c834911c4323" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="f95ad7e6-c621-44e0-ba89-6af4eb1ab14b" class="bulleted-list"><li style="list-style-type:disc"><strong>Precios x lista</strong>: Los precios por lista se recomiendan crearlas por marca y por aplicación, en este caso Justo.</li></ul></div><div style="display:contents" dir="ltr"><figure id="12a39073-1e23-80ce-b27b-e3e15e162405" class="image"><a href="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%203.png"><img style="width:679.9583129882812px" src="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="519c3997-b90c-4320-9c14-51c869e0e4e3" class="bulleted-list"><li style="list-style-type:disc"><strong>Dark Kitchen:</strong>  Esto se utiliza en el caso de restaurantes multimarca, para identificar las comandas de cada una. </li></ul></div><div style="display:contents" dir="auto"><ul id="bb1fdf99-f250-46b5-9316-721e93df036c" class="bulleted-list"><li style="list-style-type:disc"><strong>Email de errores</strong>:  El cliente proporciona su dirección de correo electrónico, donde desea recibir las alertas de errores.</li></ul></div><div style="display:contents" dir="auto"><ul id="85106639-fdcb-4185-bf0a-37e86a6d799d" class="bulleted-list"><li style="list-style-type:disc"><strong>Url servicio externo</strong>:  El cliente lo proporciona, es el link del restaurante en la plataforma.</li></ul></div><div style="display:contents" dir="auto"><ul id="12a39073-1e23-80ca-aaba-eb26b0ce3576" class="bulleted-list"><li style="list-style-type:disc"><strong>Token externo: </strong>en este campo se coloca el APi Key generado en Justo, dato suministrado por el cliente.<br/> Ver <a href="7%201%20Datos%20para%20configuraci%C3%B3n%20Justo%20fa3e00216d9d4c0b94a737b57c8903ae.html">1.- Api Key de Justo (este se genera una sola vez, cuando el cliente lo crea debe copiarlo de una vez y guardarlo ya que es un dato que luego no es visible completo en Justo):
+Menu lateral del admin de Justo - - - Plataforma - - - Api - - - Api Keys - - - Crear.</a> <div style="display:contents" dir="ltr"><figure id="12a39073-1e23-8085-90b4-cfdd3661ff70" class="image"><a href="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%204.png"><img style="width:651.9861450195312px" src="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%204.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="12a39073-1e23-80fd-b7d8-fd2fde73bf77" class="bulleted-list"><li style="list-style-type:disc"><strong>Id Externa Restaurant: </strong>En este campo se coloca el Id del local generado en Justo, dato suministrado por el cliente o se puede consultar en versiones por medio del api Key, ver <a href="7%201%20Datos%20para%20configuraci%C3%B3n%20Justo%20fa3e00216d9d4c0b94a737b57c8903ae.html">2.-  Los datos de Id de Menú externo y Id externa restaurantes lo puede indicar el cliente o se puede consultar por versiones por medio del Api key. 
+</a> <br/><div style="display:contents" dir="ltr"><figure id="12a39073-1e23-80a6-834f-f6ccb2618f2b" class="image"><a href="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%205.png"><img style="width:651.9861450195312px" src="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%205.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="12a39073-1e23-8040-9297-fa56859f0fda" class="bulleted-list"><li style="list-style-type:disc"><strong>Id Menu Externo: </strong>En este campo se coloca el Id del local generado en Justo, dato suministrado por el cliente o se puede consultar en versiones por medio del api Key, ver <a href="7%201%20Datos%20para%20configuraci%C3%B3n%20Justo%20fa3e00216d9d4c0b94a737b57c8903ae.html">2.-  Los datos de Id de Menú externo y Id externa restaurantes lo puede indicar el cliente o se puede consultar por versiones por medio del Api key. 
+</a> <div style="display:contents" dir="ltr"><figure id="12a39073-1e23-80f3-ba98-c03d95775bdc" class="image"><a href="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%206.png"><img style="width:651.9861450195312px" src="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%206.png"/></a></figure></div></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-8017-b9fc-e3736332c784" class="toggle"><li><details open=""><summary><strong>Paso 2: Activación Api en Toteat.</strong></summary><div style="display:contents" dir="auto"><ul id="d3ac77d0-b884-4ca9-93c7-4f185dadf622" class="bulleted-list"><li style="list-style-type:disc">Una vez que hayamos confirmado que todas las configuraciones de la API de Justo son correctas, procederemos a activar la API y dar clic al botón Grabar.<br/><div style="display:contents" dir="ltr"><figure id="12a39073-1e23-806b-9a5d-c50887a4b816" class="image"><a href="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%207.png"><img style="width:679.9861450195312px" src="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%207.png"/></a></figure></div></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-8055-b369-cd1723aa2ccc" class="toggle"><li><details open=""><summary><strong>Paso 3: Validación de configuraciones en el Admin de Justo.</strong></summary><div style="display:contents" dir="auto"><ul id="f65f98b4-6f12-4e58-9d3b-7c15cb0db91a" class="bulleted-list"><li style="list-style-type:disc">La activación de la integración Justo - Toteat es un proceso que depende de que en ambas partes las configuraciones estén en los campos correctos, por lo tanto es obligatorio validar con el cliente, ya sea a través de una videollamada o mediante capturas de pantalla, las cuales se pueden enviar por correo, poder verificar que las configuraciones en Justo estén correctas.</li></ul></div><div style="display:contents" dir="auto"><ul id="12a39073-1e23-801e-861e-c8073a423bc2" class="bulleted-list"><li style="list-style-type:disc">Los campos que debemos validar en Justo son los siguientes:<br/><div style="display:contents" dir="auto"><p id="12a39073-1e23-8098-b338-d58fe53e11b9" class=""><strong>Validar Api Key: </strong>Verificar que las últimas letras del api Key configurado en Justo para Toteat sean iguales a las que están en la API de Toteat.  <br/></p></div><div style="display:contents" dir="ltr"><figure id="12a39073-1e23-808c-a9ed-f1f5e754bc69" class="image"><a href="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%208.png"><img style="width:679.9722290039062px" src="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%208.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12b39073-1e23-807c-8934-e4e88293db70" class="">
+</p></div><div style="display:contents" dir="auto"><p id="12a39073-1e23-8087-a3a2-c40fdbf7b009" class=""><strong>Validar Webhooks: </strong>Los webhooks serán identificados con la URL enviada de Toteat <br/><strong>Ver </strong><strong></strong><strong> <br/></strong></p></div><div style="display:contents" dir="ltr"><figure id="12a39073-1e23-806e-b01a-caaffbc803f3" class="image"><a href="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%209.png"><img style="width:707.9861450195312px" src="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%209.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="12b39073-1e23-8092-bc37-ddd7e3e6c27f" class="bulleted-list"><li style="list-style-type:circle">Al ingresar al Webhook debe estar indicado el local al que pertenece y activo.<div style="display:contents" dir="ltr"><figure id="12b39073-1e23-80fe-b9f8-e22ea25fb18b" class="image"><a href="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%2010.png"><img style="width:585.3055419921875px" src="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%2010.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12b39073-1e23-8094-92e7-db258957e28c"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="12b39073-1e23-8098-ad93-cf8c261ef718" class=""><strong>Nota</strong>: </p></div><div style="display:contents" dir="auto"><ol type="1" id="12b39073-1e23-8036-b96f-cb88d3e8f8ae" class="numbered-list" start="1"><li>Por favor validar que la URL esté exacta a la de la API de Toteat, tenga los ID correctos y no haya espacios al inicio, final o en la cadena de la URL.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="12b39073-1e23-80a3-992c-d0b67fa5bc98" class="numbered-list" start="2"><li>Al ingresar al Webhook este debe tener en <em><strong>llave secreta</strong></em> el Token exacto al que está en la api de Toteat (Sin espacios ni al inicio, final o en la cadena del Token).</li></ol></div></div></figure></div></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="12b39073-1e23-8059-a4bf-fef6f26f1767" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-8076-a2f8-cf4a31185e61" class="toggle"><li><details open=""><summary><strong>Paso 4: Validación de status de la integración en Versiones.</strong></summary><div style="display:contents" dir="auto"><ul id="875af528-aa0d-42ee-aee2-d2f8ac4dc551" class="bulleted-list"><li style="list-style-type:disc">Es necesario validar status de la integración en versiones luego de haber recibido realizado las activacion.<div style="display:contents" dir="auto"><ul id="847632a9-7052-450a-b9fa-7601f7eded95" class="bulleted-list"><li style="list-style-type:circle">Al ingresar a Versiones, en la sección de Delivery, selecciona Justo y luego utiliza el buscador para colocar el ID del restaurante.<div style="display:contents" dir="ltr"><figure id="12b39073-1e23-8094-bae4-c0ebfc2edbca"><a href="https://versiones.toteat.com/justo" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">TotEat System Admin L2S</div><div class="bookmark-description">TotEat Admin Control Panel</div></div><div class="bookmark-href"><img src="https://versiones.toteat.com/favicon.ico" class="icon bookmark-icon"/>https://versiones.toteat.com/justo</div></div></a></figure></div><div style="display:contents" dir="auto"><ul id="12b39073-1e23-80d8-b4f2-d9fe38789c95" class="bulleted-list"><li style="list-style-type:square">Validar que esta activa: Verificar que las marcas y APIs que se integraron estén activas en la primera columna &quot;Activa&quot;. <br/>En este campo se valida la activación de parte de Toteat.<div style="display:contents" dir="ltr"><figure id="12b39073-1e23-802d-881b-f466c5e91d98" class="image"><a href="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%2011.png"><img style="width:708px" src="7%202%20Proceso%20de%20activaci%C3%B3n%20Justo/image%2011.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="9bc43fb5-3127-4af7-8be4-9182283a9b17" class="">. </p></div></li></ul></div></li></ul></div></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="12839073-1e23-80fe-a909-d122ac99ea21" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-80f4-9fe0-dde777dbca99" class="bulleted-list"><li style="list-style-type:disc">La integración con Justo es crucial para optimizar la experiencia tanto del restaurante como de la gestión de la plataforma de delivery. Proporciona una mayor eficiencia en el proceso y facilita la centralización de la operación. Por lo tanto, es de gran importancia comprender el proceso de activación de la integración con Justo para garantizar una activación eficiente y una operación fluida. Además, es fundamental tener en cuenta que Justo centraliza la información de las integraciones de las sedes de una marca en una página, por lo que las cartas deben estar estandarizadas tanto en código como en estructura.</li></ul></div><div style="display:contents" dir="auto"><h3 id="12839073-1e23-80e6-821c-eb6fde3ef8c8" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-8081-9ea8-fd90dde830c1" class="bulleted-list"><li style="list-style-type:disc">Toda integración que no corresponda a Delivery.</li></ul></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-8085-ad9f-dd1d9e4afddf" class="bulleted-list"><li style="list-style-type:disc">Restaurantes que aún no se encuentren vinculados en la plataforma de Justo.</li></ul></div><div style="display:contents" dir="auto"><h3 id="12839073-1e23-8032-afd4-d44d52fd41c4" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-80bb-8066-f41764553a51" class="bulleted-list"><li style="list-style-type:disc">Auditar el proceso de activación de la integración de Justo en todos los países donde aplique.</li></ul></div><div style="display:contents" dir="auto"><ul id="12839073-1e23-8011-a962-de1efd719468" class="bulleted-list"><li style="list-style-type:disc">Validar status de la integración.</li></ul></div><div style="display:contents" dir="auto"><h3 id="12839073-1e23-8006-96bc-ef2edf4a168c" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="12839073-1e23-80c2-bae9-ed92b7fe10da" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="a3b0c7a8-fc96-4499-995f-5a01437e05c6"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="a9ded0cb-3df9-4507-b4c7-788304bf59aa"><td id="nU|h" class="">2024</td><td id="WwCq" class="">@Andrea Carolina Ruiz </td><td id="i;pn" class="">@Francisco Ramirez </td><td id="q^a=" class="">4034.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="ff8a1d61-ebe6-4ca4-b3cf-b30d78ec854b"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="8752ef97-e8b2-42ea-b746-12ab9a19c2e8"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

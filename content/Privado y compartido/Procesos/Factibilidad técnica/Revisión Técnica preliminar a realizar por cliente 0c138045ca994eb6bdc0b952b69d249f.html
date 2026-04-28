@@ -1,0 +1,746 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Revisión Técnica preliminar a realizar por clientes _ Nivel 1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0c138045-ca99-4eb6-bdc0-b952b69d249f" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">Revisión Técnica preliminar a realizar por clientes _ Nivel 1</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td><span class="selected-value select-value-color-red">Guías de ayuda</span><span class="selected-value select-value-color-orange">Soporte técnico</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Actualizado por</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Código </th><td><mark class="highlight-orange">4-6001</mark></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>F. edición</th><td><time>06/06/2024</time></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha de creación</th><td><time>28 de mayo de 2024</time></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="86f41cb2-1be2-4dd6-81f3-c656d44997b3"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><mark class="highlight-default_background"><strong>Propósito: “Este artículo está diseñado para determinar un paso a paso de revisión inicial que debe realizar el cliente directamente, con el fin de verificar que  todo lo básico y el Hardware, estén funcionando correctamente  antes de elevar el caso a Servicio al Cliente</strong></mark><mark class="highlight-default_background">.”</mark></div></figure></div><div style="display:contents" dir="ltr"><nav id="4b124dab-c4f2-4f7b-b1e3-e58ed87c8bca" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#4d338a6e-59a3-445f-a59c-b4669642bc91"><mark class="highlight-default_background">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#372f54f4-be56-4615-873c-cf08e3fe41e0"><mark class="highlight-orange"><mark class="highlight-default_background">2. Alcance</mark></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#fb944adb-23ab-4232-88f0-0fc0b1caf5e4"><mark class="highlight-orange"><mark class="highlight-default_background">3. Entrada</mark></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26f39fa6-6662-462c-9334-64bf5301b2f1"><mark class="highlight-orange"><mark class="highlight-default_background">4. Condiciones</mark></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c3505314-c4a7-4662-a7d2-d56a407c51fc"><mark class="highlight-orange"><mark class="highlight-default_background">5. Procedimiento Básicos</mark></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e1bc7051-3957-4335-b59d-1003120a73c7"><mark class="highlight-orange"><mark class="highlight-default_background">6. Procedimiento Avanzados</mark></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#756bc061-5547-475f-94a2-eb03ff0b015a"><mark class="highlight-orange"><mark class="highlight-default_background">7. Salida</mark></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e60d4497-92bb-4668-aee1-aee70fa6f04b"><mark class="highlight-orange"><mark class="highlight-default_background">8. Excepciones del flujo</mark></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#449c265d-4907-4d11-a5b8-535bed9f5a35"><mark class="highlight-orange"><mark class="highlight-default_background">9. Puntos de control </mark></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#217c847a-b82e-4c12-9740-787682bcbd18"><mark class="highlight-orange"><mark class="highlight-default_background">10. Control actualizaciones</mark></mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="4d338a6e-59a3-445f-a59c-b4669642bc91" class="block-color-orange"><mark class="highlight-default_background">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="41186012-7355-4b6c-a43c-0e5d62339e1c" class=""><mark class="highlight-default_background">Listado de validaciones que puede realizar el personal del local, antes de escalar la solicitud, validaciones básicas y simples que puedan corregir errores eventuales sin un asesoramiento por parte del </mark><em><mark class="highlight-default_background">Staff </mark></em><mark class="highlight-default_background">Toteat.</mark></p></div><div style="display:contents" dir="auto"><h3 id="372f54f4-be56-4615-873c-cf08e3fe41e0" class=""><mark class="highlight-orange"><mark class="highlight-default_background">2. Alcance</mark></mark></h3></div><div style="display:contents" dir="auto"><p id="a3c2fad5-25c8-41ab-bd74-2598b2f08fd3" class=""><mark class="highlight-default_background">Debe aplicarse en cada incidencia que tenga el cliente, con tal de asegurarse que todo lo básico de configuración y conexión esté correctamente realizado.</mark></p></div><div style="display:contents" dir="auto"><h3 id="fb944adb-23ab-4232-88f0-0fc0b1caf5e4" class=""><mark class="highlight-orange"><mark class="highlight-default_background">3. Entrada</mark></mark></h3></div><div style="display:contents" dir="auto"><p id="eb561e2f-63bf-4079-a3eb-57c9ca4ce20f" class=""><mark class="highlight-default_background">Este proceso debe ser realizado al identificar un error en la operatividad del sistema, escalado por el usuario de Toteat en el restaurante, ya sea Cajero, mesero, etc.</mark></p></div><div style="display:contents" dir="auto"><h3 id="26f39fa6-6662-462c-9334-64bf5301b2f1" class=""><mark class="highlight-orange"><mark class="highlight-default_background">4. Condiciones</mark></mark></h3></div><div style="display:contents" dir="auto"><ul id="1188cf2d-fb9b-43d2-ae9b-d4f7cf1ddee1" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong></mark></summary><div style="display:contents" dir="auto"><ul id="e673aaf4-dc7f-4fab-b594-65e2a25c2c94" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Determinar correctamente cual es el PC Servidor.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="25a5ab4e-4814-49ac-8128-ca54275a3499" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Determinar correctamente cual es la red Wifi/LAN a la que corresponde el PC Servidor.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="29492431-c287-419b-b76a-daab7cb02b9d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Verificar visualmente el estado de los equipos, que estén encendidos y conectados. </mark></li></ul></div><div style="display:contents" dir="auto"><ul id="a4dd5342-fc08-4340-badd-4f7520095446" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Tener usuario/contraseña de administrador en caso de necesidad.</mark></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="c3505314-c4a7-4662-a7d2-d56a407c51fc" class=""><mark class="highlight-orange"><mark class="highlight-default_background">5. Procedimiento Básicos</mark></mark></h3></div><div style="display:contents" dir="auto"><ul id="74835ddd-d8c4-46bc-9ea7-f8b6c14ed9e9" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"><strong>Paso 1: Validaciones operativas</strong></mark></summary><div style="display:contents" dir="auto"><ul id="545d9c89-3fe2-4e68-83f1-d18871a4d9fe" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Verificar el que el usuario sea el correcto.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="f52a2aed-6ce3-4185-be0e-a1a80cc39dc1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Verificar que esté en el ambiente correcto.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="2730184f-3b4a-4d3f-971c-52551dd18b1e" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Verificar que el usuario tenga turno abierto.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="b303f5c5-ba38-495b-a722-50eb86797042" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Verificar que el usuario tenga caja abierta.</mark></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="f8969b06-195f-471b-af4a-9db5b8994c35" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"><strong>Paso 2: Validaciones de configuración</strong></mark></summary><div style="display:contents" dir="auto"><ul id="f2479405-2c65-40ce-91fe-cd01d70771c9" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Verificar si el PC principal está encendido.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="2d7d65ec-addc-4b32-9632-39063ccda8bd" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Verificar el que esté en la red Wifi correcta.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="d5d351e0-afa5-4057-89c6-71178ba02279" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Verificar que esté en la URL correcta (res3.toteat.com, res4.toteat.com, etc)</mark></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="e1bc7051-3957-4335-b59d-1003120a73c7" class=""><mark class="highlight-orange"><mark class="highlight-default_background">6. Procedimiento Avanzados</mark></mark></h3></div><div style="display:contents" dir="auto"><ul id="317fead1-632c-4a46-89ac-3623e6db93ea" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"><strong>Paso 1: Revisión TPS (</strong></mark><em><mark class="highlight-default_background"><strong>Toteat Print Server</strong></mark></em><mark class="highlight-default_background"><strong>)</strong></mark></summary><div style="display:contents" dir="auto"><ul id="ac719fd3-d70f-4540-964d-9e57f808e551" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Verificar que TPS esté ejecutado correctamente.  Si está ejecutado, reiniciarlo:</mark></li></ul></div><div style="display:contents" dir="ltr"><figure id="7192859f-4a78-438b-b3cb-e3cc15988f68" class="image"><a href="Revisi%C3%B3n%20T%C3%A9cnica%20preliminar%20a%20realizar%20por%20cliente/Untitled.png"><img style="width:336px" src="Revisi%C3%B3n%20T%C3%A9cnica%20preliminar%20a%20realizar%20por%20cliente/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="0fe204cc-1f95-4f78-a2d7-0bb5344d9740" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Si no está ejecutándose, abrir el archivo en el escritorio:</mark></li></ul></div><div style="display:contents" dir="ltr"><figure id="d63bc2b1-595b-4ef1-a32b-75fdffc73d1f" class="image"><a href="Revisi%C3%B3n%20T%C3%A9cnica%20preliminar%20a%20realizar%20por%20cliente/Untitled%201.png"><img style="width:336px" src="Revisi%C3%B3n%20T%C3%A9cnica%20preliminar%20a%20realizar%20por%20cliente/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="fd9d523a-5400-495b-9e80-3ff775ecd25c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Con el software ejecutado debiesen corregirse problemas de impresión y estados </mark><em><mark class="highlight-default_background">Online/Offline</mark></em><mark class="highlight-default_background">, si aún no se resuelven los problemas o no se ejecutó correctamente el software ingresar al chat de soporte.</mark></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="19530d41-f593-4bea-9138-eb4b0cccae3b" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"><strong>Paso 2: Impresora USB en error de conexión</strong></mark></summary><div style="display:contents" dir="auto"><p id="54796053-e848-4400-bdbf-323133b9f0f4" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="524d426f-62a3-4eb6-8458-d1176c3821c1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Verificar visualmente impresora, cables conectados y luces de actividad encendidas, verificar intermitencia de luz de error. Verificar papel, tapa de papel, y cualquier impedimento físico que pueda tener.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="b16174ce-3921-4d26-8d99-0785ab066218" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Verificar el puerto al que está la impresora conectado, validar en su configuración en </mark><em><mark class="highlight-default_background">Windows </mark></em><mark class="highlight-default_background">si corresponde al USB correcto. Cambiar de puerto si es necesario.</mark></li></ul></div><div style="display:contents" dir="ltr"><figure id="e01ca4e6-6ae3-4071-b675-06d85625e25a" class="image"><a href="Revisi%C3%B3n%20T%C3%A9cnica%20preliminar%20a%20realizar%20por%20cliente/Untitled%202.png"><img style="width:336px" src="Revisi%C3%B3n%20T%C3%A9cnica%20preliminar%20a%20realizar%20por%20cliente/Untitled%202.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="ab1a676e-d916-4e7c-b038-eedf1fdb1b59" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background"><strong>Punto de control</strong></mark><mark class="highlight-default_background">: Imprimir página de prueba de </mark><em><mark class="highlight-default_background">Windows </mark></em><mark class="highlight-default_background">en la impresora, si esta no sale sigue siendo error de conexión, verificar/cambiar cable, puerto, conectores, etc. Si la página de prueba de </mark><em><mark class="highlight-default_background">Windows </mark></em><mark class="highlight-default_background">sale, debiese estar corregido el error.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="8782939f-711e-40f0-bf9e-c5cc2b394566" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background"><strong>Dispositivo USB no reconocido:</strong></mark><mark class="highlight-default_background"> Al mostrarse esta alerta en Windows, se debe proceder a reinstalar los drivers del puerto USB. </mark><div style="display:contents" dir="ltr"><figure id="7c2f1a48-e013-4627-b9fb-9672136d9f1e" class="image"><a href="Revisi%C3%B3n%20T%C3%A9cnica%20preliminar%20a%20realizar%20por%20cliente/Untitled%203.png"><img style="width:160px" src="Revisi%C3%B3n%20T%C3%A9cnica%20preliminar%20a%20realizar%20por%20cliente/Untitled%203.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="03446406-da7e-4ca8-97a9-e4f89e573514" class="image"><a href="Revisi%C3%B3n%20T%C3%A9cnica%20preliminar%20a%20realizar%20por%20cliente/Untitled%204.png"><img style="width:354px" src="Revisi%C3%B3n%20T%C3%A9cnica%20preliminar%20a%20realizar%20por%20cliente/Untitled%204.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="f2a51807-799b-437a-ba90-6292e0f117db" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-default_background"><strong>Paso 1</strong></mark><mark class="highlight-default_background">: Ir al Administrador de tareas buscar el puerto USB con problemas y reinstalarlo</mark><div style="display:contents" dir="ltr"><figure id="907c007e-7bde-4032-a11a-bc9a1338e84d" class="image"><a href="Revisi%C3%B3n%20T%C3%A9cnica%20preliminar%20a%20realizar%20por%20cliente/Untitled%205.png"><img style="width:242px" src="Revisi%C3%B3n%20T%C3%A9cnica%20preliminar%20a%20realizar%20por%20cliente/Untitled%205.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="3f6fb1af-0270-48bc-9f9f-73d3d9246992" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-default_background"><strong>Paso 2:</strong></mark><mark class="highlight-default_background"> Si el problema persiste se debe indicar a cliente que cambie de puerto USB la impresora, si a pesar de esto no funciona se debe cambiar el cable USB por uno en mejor estado</mark></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="888303e4-ec97-4ccb-b49b-93da5f7daf61"/></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="6eb26eb4-1d1c-4b62-a1af-2fc0dfe36f5e" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"><strong>Paso 3: Impresora </strong></mark><em><mark class="highlight-default_background"><strong>Ethernet </strong></mark></em><mark class="highlight-default_background"><strong>en error de conexión</strong></mark></summary><div style="display:contents" dir="auto"><ul id="437f5952-df06-4d09-9d00-5bfd5b2c7074" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Verificar visualmente impresora, cables conectados y luces de actividad encendidas, verificar intermitencia de luz de error. Verificar papel, tapa de papel, y cualquier impedimento físico que pueda tener.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="33b4ed67-7943-4f5c-b3a3-e752b88cd34c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Verificar que IP de la impresora corresponda con la IP configurada en </mark><em><mark class="highlight-default_background">Windows </mark></em><mark class="highlight-default_background">para ella:</mark></li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="ab84a70d-aafb-485b-9fb0-bab4488f0bee" class="numbered-list" start="1"><li><mark class="highlight-default_background">Obtener </mark><em><mark class="highlight-default_background">Selftest </mark></em><mark class="highlight-default_background">de la impresora: </mark><div style="display:contents" dir="auto"><p id="780be82c-4ba3-419e-ba31-8cbd7cac79da" class=""><mark class="highlight-default_background">1.1. Apagar impresora.</mark></p></div><div style="display:contents" dir="auto"><p id="41e4ac5e-d12c-4dd2-ae7d-0c5b4a293d39" class=""><mark class="highlight-default_background">1.2. Apretar botón </mark><em><mark class="highlight-default_background">feed</mark></em><mark class="highlight-default_background">.</mark></p></div><div style="display:contents" dir="auto"><p id="9d1c7221-fb95-47cc-a6d0-d4734561c145" class=""><mark class="highlight-default_background">1.3. Encender impresora manteniendo botón </mark><em><mark class="highlight-default_background">feed </mark></em><mark class="highlight-default_background">pulsado.</mark></p></div><div style="display:contents" dir="auto"><p id="5bd83903-66e2-4be2-986f-d4ca9ca7f227" class=""><mark class="highlight-default_background">1.4. En cuanto salga el </mark><em><mark class="highlight-default_background">Selftest, </mark></em><mark class="highlight-default_background">dejar de presionar el botón </mark><em><mark class="highlight-default_background">feed.</mark></em></p></div><div style="display:contents" dir="auto"><p id="43746fdd-c614-4610-a403-716e301b9226" class=""><mark class="highlight-default_background">1.5. Presionar el botón </mark><em><mark class="highlight-default_background">feed </mark></em><mark class="highlight-default_background">nuevamente un segundo, dejando salir papel en blanco y asegurándonos que no esté trabada.</mark></p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="4e24b692-5368-45b2-a914-730711d241d0" class="numbered-list" start="2"><li><mark class="highlight-default_background">Verificar IP en </mark><em><mark class="highlight-default_background">Windows </mark></em><mark class="highlight-default_background">en Propiedades de Impresora:</mark><div style="display:contents" dir="auto"><p id="9416c517-bb3a-4d65-8917-0dcb25fc1d37" class=""><mark class="highlight-default_background">2.1. Ir al Panel de dispositivos de impresoras (Tecla </mark><em><mark class="highlight-default_background">win </mark></em><mark class="highlight-default_background">+ “R” Comando: </mark><em><mark class="highlight-default_background">Control printers</mark></em><mark class="highlight-default_background">) </mark></p></div><div style="display:contents" dir="auto"><p id="2a78acc2-5b11-4529-b399-8e2a36a95737" class=""><mark class="highlight-default_background">2.2. </mark><em><mark class="highlight-default_background">Click </mark></em><mark class="highlight-default_background">derecho en la impresora correspondiente </mark></p></div><div style="display:contents" dir="auto"><p id="59dfda40-9048-43a4-a868-fd1d4f98c5b3" class=""><mark class="highlight-default_background">2.3. Propiedades de la impresora</mark></p></div><div style="display:contents" dir="auto"><p id="daf3ca03-078a-492f-bc9a-ba4fadadbc84" class=""><mark class="highlight-default_background">2.4. Pestaña “Puertos”, y aquí verificar si la IP es la misma que en el </mark><em><mark class="highlight-default_background">selftest</mark></em><mark class="highlight-default_background">. </mark></p></div><div style="display:contents" dir="auto"><p id="6bcae993-1c67-4d33-847a-3d06a2ea8b57" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="10d579f6-ff02-40a7-b2e8-5326c72ce2cb" class="image"><a href="../Flujo%20Capacitaci%C3%B3n/3%209%20Contingencias/Untitled%203.png"><img style="width:336px" src="../Flujo%20Capacitaci%C3%B3n/3%209%20Contingencias/Untitled%203.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="bcc9d078-3057-467a-8185-5f782d1212a1" class=""><mark class="highlight-default_background">2.5 Si la IP </mark><mark class="highlight-default_background"><strong>no coincide</strong></mark><mark class="highlight-default_background">  se debe hacer coincidir cambiándole la IP a la impresora, o desde la configuración de W</mark><em><mark class="highlight-default_background">indows</mark></em><mark class="highlight-default_background">.</mark></p></div><div style="display:contents" dir="auto"><p id="6779e4d2-c513-415c-9a11-61c011242579" class=""><mark class="highlight-default_background">2.6 Si la IP </mark><mark class="highlight-default_background"><strong>si coincide </strong></mark><mark class="highlight-default_background">se debe validar que estén dentro de la misma red y validaciones físicas de conexión, cables, puertos, conectores, etc.</mark></p></div></li></ol></div><div style="display:contents" dir="auto"><ul id="98df4c21-4828-47eb-a7ab-3a1c355f24ca" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background"><strong>Punto de control</strong></mark><mark class="highlight-default_background">: Imprimir página de prueba de </mark><em><mark class="highlight-default_background">Windows </mark></em><mark class="highlight-default_background">en la impresora, si esta no sale sigue siendo error de conexión, verificar/cambiar cable, puerto, conectores, etc. Si la página de prueba de </mark><em><mark class="highlight-default_background">Windows </mark></em><mark class="highlight-default_background">sale, debiese estar corregido el error.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="8bb70e75-e878-402e-b098-99057f3dae27" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Colocar la IP de la impresora en el comentario de la impresora si es que hubo cambios.</mark></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2def48d0-d891-4a21-8dda-158ebbb5de61" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"><strong>Paso 4: Revisión de que no hayan cambiado los nombres en el sistema de las Impresoras.</strong></mark></summary><div style="display:contents" dir="auto"><p id="f8b00675-8f1d-46ad-b44d-cecca6128ecd" class=""><mark class="highlight-default_background">A veces al desconectar y conectar una impresora el sistema operativo Windows la renombra y queda con un nombre distinto al configurado en Toteat.  (Menú lateral &gt; Configuración &gt; Impresoras). Revisar caracteres especiales en la impresora de Windows  símbolos como *, Tildes, + , etc.</mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="8b42285d-7f23-4c23-ae9d-9ff8329c5a8c" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"><strong>Paso 5: En caso de impresoras térmicas.</strong></mark></summary><div style="display:contents" dir="auto"><p id="fd470689-5d4a-4654-84dd-6c4b8961d51f" class=""><mark class="highlight-default_background">Revisar que el papel esté correctamente insertado, con el lado térmico al frente.  Puede comprobarlo rayando con la “uña”; si cambia de color el lado frontal está bien colocado.  Si no cambia de color en ningún lado, el papel no es térmico, debe cambiarlo por el correcto.</mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="711ca9b9-0222-4dd6-b5cf-5425b8e1fcc1" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"><strong>Paso 6: Verificación de Toteat Access Server (opcional)</strong></mark></summary><div style="display:contents" dir="auto"><p id="4e445f2b-1f18-4130-8496-256049243b39" class=""><mark class="highlight-default_background">Si se usa un sistema de </mark><em><mark class="highlight-default_background">login</mark></em><mark class="highlight-default_background"> rápido con códigos cortos o tarjetas </mark><em><mark class="highlight-default_background">NFC</mark></em><mark class="highlight-default_background"> debe verificar que la aplicación ToteatAccessServer.exe esté ejecutándose.<br/></mark></p></div><div style="display:contents" dir="ltr"><figure id="bc268e1e-94bc-46c3-b439-108c6ed0cd49" class="image"><a href="Revisi%C3%B3n%20T%C3%A9cnica%20preliminar%20a%20realizar%20por%20cliente/Untitled%206.png"><img style="width:288px" src="Revisi%C3%B3n%20T%C3%A9cnica%20preliminar%20a%20realizar%20por%20cliente/Untitled%206.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="756bc061-5547-475f-94a2-eb03ff0b015a" class=""><mark class="highlight-orange"><mark class="highlight-default_background">7. Salida</mark></mark></h3></div><div style="display:contents" dir="auto"><ul id="6d675e2c-88bd-407a-b1c9-fd79598372ed" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Se valida correctamente lo básico y avanzado previo a una revisión por parte del área SAC, con la cual ya tiene nociones de lo realizado y así minimizar el rango de búsqueda del problema.</mark></li></ul></div><div style="display:contents" dir="auto"><h3 id="e60d4497-92bb-4668-aee1-aee70fa6f04b" class=""><mark class="highlight-orange"><mark class="highlight-default_background">8. Excepciones del flujo</mark></mark></h3></div><div style="display:contents" dir="auto"><ul id="21706b5d-7428-47d5-b381-c4afebeda8b5" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">N/A</mark></li></ul></div><div style="display:contents" dir="auto"><h3 id="449c265d-4907-4d11-a5b8-535bed9f5a35" class=""><mark class="highlight-orange"><mark class="highlight-default_background">9. Puntos de control </mark></mark></h3></div><div style="display:contents" dir="auto"><ul id="6d4200fc-78a8-4ae0-9b21-5c97686282b7" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">El agente que tome el caso fiscaliza cual de los pasos se realizó o no correctamente</mark></li></ul></div><div style="display:contents" dir="auto"><h3 id="217c847a-b82e-4c12-9740-787682bcbd18" class=""><mark class="highlight-orange"><mark class="highlight-default_background">10. Control actualizaciones</mark></mark></h3></div><div style="display:contents" dir="ltr"><table id="00a2b078-b7f5-4909-a399-fc00dbc31516" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="434ea29f-9b10-48f1-9d9c-5b12e9690f7e"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="7502a0d4-1682-46da-8d9d-8d300cd08282"><td id="nU|h" class="">28/05/2024</td><td id="WwCq" class=""><span class="user">@Francisco Ramirez</span> </td><td id="i;pn" class=""><span class="user">@Pao Rodríguez</span> </td><td id="q^a=" class="">6001.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="70d61b46-fcc1-499f-8126-7f57775d24b7"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="febb1954-d116-4a65-98be-c59f069a0573"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="b121f1bf-bc14-4afa-8f63-1c2fb86c32cb" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

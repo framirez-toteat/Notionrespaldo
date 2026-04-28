@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Carga de folios </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="592222ca-8e3e-4796-959d-07aef194fc88" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📋</span></div><h1 class="page-title" dir="auto">Carga de folios </h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="7252c87b-70b9-427e-ab03-74dd439917da" class="">Este manual estará encargado de determinar el paso a paso para hacer una carga de folios para <strong>DTE TOTEAT CHILE</strong>, se hará el ejemplo con una petición de factura electrónica, sin embargo, es el mismo proceso para el resto de documentos.</p></div><div style="display:contents" dir="auto"><p id="1a9d4a72-9d9c-4eee-9c56-ee31481e0ad9" class="">Siempre que un cliente realice una solicitud de folios se debe cumplir este paso a paso, en el caso de que ejecutando el mismo aparezca un cartel o aviso<strong> diferente a lo mencionado</strong>, por favor <strong>consultar directamente con el encargado</strong> para verificar si es necesario realizar un procedimiento diferente o directamente no es posible realizar la carga.</p></div><div style="display:contents" dir="auto"><p id="8bfd5828-5cc4-43e9-9d64-e8d632c5f0d4" class="">Es importante que este procedimiento actualmente solo lo pueden hacer con Windows, si tienen un equipo de S.O. diferente, deberán solicitar ayuda a un compañero/encargado para realizarlo lo antes posible.</p></div><div style="display:contents" dir="auto"><ol type="1" id="2c4fa42d-6f0f-4a3b-9200-17fd668a9be0" class="numbered-list" start="1"><li>El primer paso para realizar la carga es primero que todo identificar qué es lo que el cliente necesita, por lo qué, si el cliente llega con un error o solicitud de folios, la primera pregunta que se le debe hacer es <strong>qué folios necesita, </strong>si son Boletas, facturas, notas de crédito, etc.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="b5f5c431-17c0-4331-8587-825b34f991c6" class="numbered-list" start="2"><li>Ya con esto definido, obtendremos el ID del restaurante más el ID del local (ID formato completo) e iremos a <strong>dteadmin.toteat.com</strong>. Aquí, debemos iniciar sesión con nuestro usuario e ir al botón de <strong>‘Configuración’</strong>.</li></ol></div><div style="display:contents" dir="auto"><p id="1c4b7113-f952-4406-b99e-a79e13d05656" class="">En el caso que el botón no aparezca, pueden darle al botón ‘Perfil’ un par de veces hasta que aparezca, o directamente loguearse en un ambiente cualquiera que tenga DTE Toteat activado.</p></div><div style="display:contents" dir="ltr"><figure id="574ce317-212b-4129-b782-bf209520dc8b" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXelLRdLBrMr0pbwb6lWOJ6RICyDMKIO_CwhbjHigcCGOZP9Mfc5XIeiuvd-YNwQP95P6gvcYIPWESD5Hw8han0M4ckDJtx3DtOJ0SQXxiL_qD01UC1YoKsts8GOHoK9plG3clRrR9VSZAeU-l7Jpak8GTT5?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:700px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXelLRdLBrMr0pbwb6lWOJ6RICyDMKIO_CwhbjHigcCGOZP9Mfc5XIeiuvd-YNwQP95P6gvcYIPWESD5Hw8han0M4ckDJtx3DtOJ0SQXxiL_qD01UC1YoKsts8GOHoK9plG3clRrR9VSZAeU-l7Jpak8GTT5?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="dd53ce87-62ec-458b-995a-4e1422975a56" class="">En este menú, debemos ir a <strong>‘Empresas’</strong> y aquí usar el buscador, podemos usar el buscador con diferentes datos, token, RUT, ID de restaurante y local o por país, en este caso será por el ID del local (que lo obtendrán de intercom en el chat abierto por el caso)</p></div><div style="display:contents" dir="ltr"><figure id="1a839073-1e23-80b1-829d-f7bdb5546806" class="image"><a href="Carga%20de%20folios/image.png"><img style="width:709.9750366210938px" src="Carga%20de%20folios/image.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="00c858c7-e7ed-4a46-85ef-31781f38927f" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfyz0QX9JBom_WXTeHBFq4dxzovA3nZafrT_fxMf_f5APMcEICKrZ79jILARlsKrN-rw4xBloL-JkG6wXv-Bti3Sb4x8WrNsXKaBSOysX7UmWDPVj2GnwEJpc9hHdWNdezaVNX5izOht16vQ0tY5kaGy_UO?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:685px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfyz0QX9JBom_WXTeHBFq4dxzovA3nZafrT_fxMf_f5APMcEICKrZ79jILARlsKrN-rw4xBloL-JkG6wXv-Bti3Sb4x8WrNsXKaBSOysX7UmWDPVj2GnwEJpc9hHdWNdezaVNX5izOht16vQ0tY5kaGy_UO?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="539fafa6-706e-4536-ae44-0b899876dd1d" class="numbered-list" start="1"><li>Una vez hecha la búsqueda, debemos instalar el certificado digital en nuestro equipo para poder acceder al portal del SII a nombre de esta empresa, para ello, iremos al botón <strong>‘Cer’</strong>.</li></ol></div><div style="display:contents" dir="ltr"><figure id="cfc16956-6efb-4caa-8336-e6ca4d634cb8" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfUbLHiPWIRKqF6G9NtPKRGepxGCsm20PHqWrZIkHuvv5tCtjebNY_20e4SrGylRTk-t4kaPyuO6aWMCLA9ZiL61OF0Dt4vGViHK7Fjk8wfDdN_wntOtpc4wAzJXhPn9i47lHk51DD8NRhZIhtIkxwTv4I?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfUbLHiPWIRKqF6G9NtPKRGepxGCsm20PHqWrZIkHuvv5tCtjebNY_20e4SrGylRTk-t4kaPyuO6aWMCLA9ZiL61OF0Dt4vGViHK7Fjk8wfDdN_wntOtpc4wAzJXhPn9i47lHk51DD8NRhZIhtIkxwTv4I?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="899d65cc-3672-4577-b568-1191b1350164" class="">En este apartado vamos al botón ‘Down’, donde comenzará la descarga del certificado digital. Una vez esté descargado debemos instalarlo en nuestro equipo.</p></div><div style="display:contents" dir="ltr"><figure id="89a3f7d0-f3f4-41a0-ac49-4328ba07e9d8" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdIS-mNBkGD4rOZ4192F3ODq5cd8GGt9iEqmVQwKZvlRPGGTm66OSptHAoidN7B3OCcEac1NbynXpcMWIZFB4292C4milqbGJT2GcqNTKmSYh5h1pIEQeqK5QRaUFtiYxc0LfYNI3T5bNPNYjHWt_pJg5A?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdIS-mNBkGD4rOZ4192F3ODq5cd8GGt9iEqmVQwKZvlRPGGTm66OSptHAoidN7B3OCcEac1NbynXpcMWIZFB4292C4milqbGJT2GcqNTKmSYh5h1pIEQeqK5QRaUFtiYxc0LfYNI3T5bNPNYjHWt_pJg5A?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="d7953281-d8c8-4281-a12b-2994dae4e7d4" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfa6ozqdj3N7fIrkySwFSB5ml6jQiAnUVtDSz-rThQHuLNnNao25hFU62uQWWBkaFMib7LmGMf5bTARDgY9p8iYIUQ787T4kwdOjjpe0qCGNcKqG_YKdBw0Dg-5fHF_GiA-c7n5QtfBmBKGwIq9yS5efpdn?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfa6ozqdj3N7fIrkySwFSB5ml6jQiAnUVtDSz-rThQHuLNnNao25hFU62uQWWBkaFMib7LmGMf5bTARDgY9p8iYIUQ787T4kwdOjjpe0qCGNcKqG_YKdBw0Dg-5fHF_GiA-c7n5QtfBmBKGwIq9yS5efpdn?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="71a9a72e-cd77-4d49-9a20-2ed330dc4bcd" class="">Cuando instalemos el certificado digital se nos abrirá una ventana en la que debemos avanzar de la siguiente manera:</p></div><div style="display:contents" dir="ltr"><figure id="dee8c5c0-f383-4134-ac79-10f47070441c" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdfXO6ZkmgLwQjQD51k6nfx_PQiTOsWSyPeric4l1n8TfQOHfNWdlie_EhBoq-Z_rKpY2xWG1UeZqM-g-_Dzi5THXFCRvNoMI83gZKxtDnUHNdlbqoYmw4YDGQY6SipJ4lIQ2xOoLhxv6mxkp9OvB43AOk?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:424px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdfXO6ZkmgLwQjQD51k6nfx_PQiTOsWSyPeric4l1n8TfQOHfNWdlie_EhBoq-Z_rKpY2xWG1UeZqM-g-_Dzi5THXFCRvNoMI83gZKxtDnUHNdlbqoYmw4YDGQY6SipJ4lIQ2xOoLhxv6mxkp9OvB43AOk?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="5b3c97c3-3853-46a2-9c3a-6cbc6694a4f5" class="">En la siguiente ventana, es importante que llenen bien la contraseña del certificado está detallada en el portal DTEAdmin, por lo qué, es aquí donde deben obtenerla. En el caso que el cliente tenga más de una contraseña, deben colocar la que esté en <strong>Status 1.</strong></p></div><div style="display:contents" dir="ltr"><figure id="6ca5ce82-542e-4fd6-9c5a-ea1c5040fb1e" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcicxJ63uco-mzl6XJteR0Po_7fElnx5SSfwMiAq2G8Utje-nAxFbeh_k_rKNepx1i4fUu42onF_sST-5bm_NUWeadUm2U2FE1jTFWDimpF6CHorsdqT7xulVETePZ-6V8Di8FYjKZ2zABlv5juGKV3VLBb?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcicxJ63uco-mzl6XJteR0Po_7fElnx5SSfwMiAq2G8Utje-nAxFbeh_k_rKNepx1i4fUu42onF_sST-5bm_NUWeadUm2U2FE1jTFWDimpF6CHorsdqT7xulVETePZ-6V8Di8FYjKZ2zABlv5juGKV3VLBb?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="e14bb9d4-9d40-4804-96fa-28488fd153fb" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdwNn9Z5zfjkeSNj0uW7kbQO7EI4Hf_XOxAV2sGGt5qHehM88uzVh1dWIYSp0-XIehpwfRtclbr8AzfXiRhaX3netoSeUDE5WHZvTWOD8FhvWQvSDYIIRolZ8fpRrV2NdOExXkF6ktAq4v5xh4JXPN-y-4r?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:342px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdwNn9Z5zfjkeSNj0uW7kbQO7EI4Hf_XOxAV2sGGt5qHehM88uzVh1dWIYSp0-XIehpwfRtclbr8AzfXiRhaX3netoSeUDE5WHZvTWOD8FhvWQvSDYIIRolZ8fpRrV2NdOExXkF6ktAq4v5xh4JXPN-y-4r?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="f1c99260-920d-4a79-bd59-b047532777c3" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeHb00u7pFG5luuQHMSJ3eYJuqtkoH98uKnPRkrHcLfKNRPSMUkgwkZmWLLRrvBVWUKpIWX0JCwW6JTRL1OMiD3DklAiXmu2Jm76Eyb7uN_gmO8SjwipDc1GFtoF5khEt4yXwGMC15N2WSvgCoZVFRdSE47?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:470.0000305175781px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeHb00u7pFG5luuQHMSJ3eYJuqtkoH98uKnPRkrHcLfKNRPSMUkgwkZmWLLRrvBVWUKpIWX0JCwW6JTRL1OMiD3DklAiXmu2Jm76Eyb7uN_gmO8SjwipDc1GFtoF5khEt4yXwGMC15N2WSvgCoZVFRdSE47?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="79a70738-9613-4f2f-86e0-a7cbbfb54f74" class="">Con esto, el certificado digital ya está instalado en nuestro equipo.</p></div><div style="display:contents" dir="auto"><p id="da8cd78c-6233-4ffc-9c0a-1cc24eeaf480" class=""><strong>Nota: Este documento es de suma importancia para el cliente por lo que está estrictamente prohibido realizar otros procedimientos fuera de los que Toteat requiere con él.</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="8a573b84-d3e4-4d22-83a8-de6631a9ea40" class="numbered-list" start="1"><li>Para el paso siguiente, recomendamos <strong>siempre utilizar una ventana incógnito</strong>, ya que, si no lo hacemos de esta manera siempre querrá ingresar con el último certificado digital utilizado. Ingresamos a la página del Servicio de impuestos internos o homer.sii.cl y aquí iniciaremos sesión con el certificado digital correspondiente.</li></ol></div><div style="display:contents" dir="ltr"><figure id="223c0bb7-451c-4a13-a584-137d1a61ea18" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfsMTh8eHLAQf2jfSv1acAOkPan_3Y1hI1bk4VjrtXMKH3GttsyZnW8znzbHKLXUafANdTF9MhNwJTcXY3IhewFCFQBgLrQtBgBz167a7N-b6hceBTQ7C6cwVbJ9_7HAAC1v2IngAN50ndN7jUKXjXp10HG?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfsMTh8eHLAQf2jfSv1acAOkPan_3Y1hI1bk4VjrtXMKH3GttsyZnW8znzbHKLXUafANdTF9MhNwJTcXY3IhewFCFQBgLrQtBgBz167a7N-b6hceBTQ7C6cwVbJ9_7HAAC1v2IngAN50ndN7jUKXjXp10HG?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27f4cf65-9c29-4f24-bfa0-86c9c0fcf4f4" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdccFiU0LkqGB0UAoKQzRXe8vp3nv3JiSQCECmzc4e96a_XhoDpNWAqSUbyQo3k7TQCF1FrwnJTQi7dx9zlHonMjDTZrW-4etI9cOaiBvYpXqEFtmQGlNXQc93oh2j6b92MNjW7OSoBiChc5YpJrtOeKSlN?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdccFiU0LkqGB0UAoKQzRXe8vp3nv3JiSQCECmzc4e96a_XhoDpNWAqSUbyQo3k7TQCF1FrwnJTQi7dx9zlHonMjDTZrW-4etI9cOaiBvYpXqEFtmQGlNXQc93oh2j6b92MNjW7OSoBiChc5YpJrtOeKSlN?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1eb5a4ee-c334-4796-9a11-9ca10446bb47" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcIygUmFnizEP0Rvyc1shfhjDX9EX87gUERQnyh4Sf6SmQQFSD3cT8--1NOB3u9CwXKbWGVxpODvxH7NtRYYNZ1sH4gIq5BA8SLmWhtrXVnimbTubnJbLoi7EHRWnLypXLHVvv0piY7RMqCVZBCNzgamTn-?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcIygUmFnizEP0Rvyc1shfhjDX9EX87gUERQnyh4Sf6SmQQFSD3cT8--1NOB3u9CwXKbWGVxpODvxH7NtRYYNZ1sH4gIq5BA8SLmWhtrXVnimbTubnJbLoi7EHRWnLypXLHVvv0piY7RMqCVZBCNzgamTn-?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="b919bbfa-10d0-4ab5-bcd5-06e215b86fc4" class="">Aquí es muy importante seleccionar el certificado digital correspondiente a este cliente, debe coincidir con el que está asociado en el portal dteadmin.</p></div><div style="display:contents" dir="ltr"><figure id="c44afaa6-0fd8-433d-871d-c5559eb21b8b" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdaE6qT3rjuc9PPIByPIrJ4_Wsonyhcc4eIRhs5OKJiz4xh3bNz0hipzVsUjjBKaSVMmxNd9I0JAmpw8_mDoaGyh2axfmPpLdBU7mOH8XJDciAZNT6IzTTTik31XNEpd7_NYWyKUH8FVwiNb2eZ3WVfSCY5?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdaE6qT3rjuc9PPIByPIrJ4_Wsonyhcc4eIRhs5OKJiz4xh3bNz0hipzVsUjjBKaSVMmxNd9I0JAmpw8_mDoaGyh2axfmPpLdBU7mOH8XJDciAZNT6IzTTTik31XNEpd7_NYWyKUH8FVwiNb2eZ3WVfSCY5?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="ef83637a-fd09-49e1-9072-35edfddf5080" class="numbered-list" start="1"><li>Ahora se debe ir a la siguiente ruta Servicios Online &gt; Boletas de venta y servicios electrónica &gt; Boleta electrónica de mercado.</li></ol></div><div style="display:contents" dir="ltr"><figure id="39d4cb47-4c2a-4c13-9b68-1d8b3c5ee9fb" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdFlkO6sI05RhtAvR1baESLsvz0IfAGKqNll2CO9wzR69bngb_sx-u-_MQapl7eD4xQsZI3k66jkQHMz9cpIJiNwG2JDpxfb3no8tmsjjHWIGXsVWTYmb4PiRxge7uZzk2aMYRzv07FvTuP-Pe58iRQYqQ?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdFlkO6sI05RhtAvR1baESLsvz0IfAGKqNll2CO9wzR69bngb_sx-u-_MQapl7eD4xQsZI3k66jkQHMz9cpIJiNwG2JDpxfb3no8tmsjjHWIGXsVWTYmb4PiRxge7uZzk2aMYRzv07FvTuP-Pe58iRQYqQ?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="617d3250-d1c9-4609-989f-624e58ca59cf" class="">Ahora se debe ir al apartado Timbraje electrónico  &gt; Solicitar timbraje electrónico</p></div><div style="display:contents" dir="ltr"><figure id="03c81b3e-ee44-4e2c-9ecc-57b184190a5d" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXekLXKDN1uiR6OLVo3h4Qa24uKoiwP2mOAaxtdTPRi_wVHCMNH6MaA24XoR5zapsb9W4zADQvBU0Z8hw8sWnZd-Ik9FNjC3_hAU1VTG-7IF6LeWLxMfHEi0fRUP7eUZVvHeBCQESO3ZbhuZ-EXmSYd65_m9?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXekLXKDN1uiR6OLVo3h4Qa24uKoiwP2mOAaxtdTPRi_wVHCMNH6MaA24XoR5zapsb9W4zADQvBU0Z8hw8sWnZd-Ik9FNjC3_hAU1VTG-7IF6LeWLxMfHEi0fRUP7eUZVvHeBCQESO3ZbhuZ-EXmSYd65_m9?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="bc0cb797-4acb-4a5d-b0c9-e737deda0c22" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcfgiajHk4dZ8uxnudfABzlM5CyJy5RKnLTWP0_VI6pbGHwwtJOa9uhaiI72DoIvTBBvIn2d7MpiT9OQuhnIG_5aI5ygA8ZGxOp1Xg-h7Si57xvPeNaWRDJyPHafCFA6v21z1a4DM2D1qByJXSmo2q_AhE?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcfgiajHk4dZ8uxnudfABzlM5CyJy5RKnLTWP0_VI6pbGHwwtJOa9uhaiI72DoIvTBBvIn2d7MpiT9OQuhnIG_5aI5ygA8ZGxOp1Xg-h7Si57xvPeNaWRDJyPHafCFA6v21z1a4DM2D1qByJXSmo2q_AhE?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="73d26aec-36b8-4f4f-af30-5b9dc4743e46" class="">Ahora, debemos llenar con los datos de la empresa que también están en dteadmin, recordar que el dígito verificador (número luego del guión) va separado.</p></div><div style="display:contents" dir="ltr"><figure id="76272bf5-4d02-4808-96e7-da9e894b378e" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcPNHKelA4DCKLm2g4xFCQeTzecI_xzxP_2M491Xan2t6hOL9V6_njNNYwvZKQGcVhveoe_d7ozQbrapSWxKkEo0aDaECMiLIfdzTTIBLHW5A3WnhCG83tzp5jIZSbJozfWhn0_LwzX129kr4yuu1PzTr7C?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcPNHKelA4DCKLm2g4xFCQeTzecI_xzxP_2M491Xan2t6hOL9V6_njNNYwvZKQGcVhveoe_d7ozQbrapSWxKkEo0aDaECMiLIfdzTTIBLHW5A3WnhCG83tzp5jIZSbJozfWhn0_LwzX129kr4yuu1PzTr7C?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="fe8b355d-d4b1-4018-8ff0-42fc6ff6d566" class="">Y aquí es donde nos preguntará qué documento es el que requerimos, debemos seleccionar el que el cliente necesita en este momento.</p></div><div style="display:contents" dir="ltr"><figure id="cfc7677e-4155-4349-861d-2877bb8bbba4" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXczZTrphDf32NrUJtgyZHeQYD-VZs84AxBX7RpCG8MBUJ6gCf7DQaNbcGUjKI5eFqjiek1s0RsUZFRIq7EXwTEHZLhmXcxYrFn6-yCeKDe64ZcPjxWvgb-epE1bdKD4GLVir34TwY1mCALZ8YRXnu7rtC6Q?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXczZTrphDf32NrUJtgyZHeQYD-VZs84AxBX7RpCG8MBUJ6gCf7DQaNbcGUjKI5eFqjiek1s0RsUZFRIq7EXwTEHZLhmXcxYrFn6-yCeKDe64ZcPjxWvgb-epE1bdKD4GLVir34TwY1mCALZ8YRXnu7rtC6Q?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1229724b-edaf-46ab-abba-671ae31b0685" class="">Si no están seguros, confirmar con el cliente.</p></div><div style="display:contents" dir="auto"><p id="10f4dfa0-df21-4e05-b3eb-1d951d3cabfd" class="">En este momento nos consultará cuantos documentos necesitamos, aquí es importante saber que <strong>no se le pueden dar más documentos del rango que tiene autorizado a realizar, </strong>es por esto que debemos fijarnos primero en esa casilla, para posteriormente llenar los documentos a timbrar o solicitar con un número <strong>igual o menor</strong> al mencionado.</p></div><div style="display:contents" dir="ltr"><figure id="ada77e43-16e6-462a-bd9b-1fe135eb0740" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXf1fRpjflLcasXxtQxYvli9ETbZcD11Ta8bNM-WAjV-4PAZOMVMjNrU1-2VkZp6k_tiQVqTJIkNpkLJL9IMflG9g41aZgEAW8_bNA868KgyXb6FLo_x7dza2P9JMUtUamWZfAw09uqEBLI-DG_6vPVk1hGO?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXf1fRpjflLcasXxtQxYvli9ETbZcD11Ta8bNM-WAjV-4PAZOMVMjNrU1-2VkZp6k_tiQVqTJIkNpkLJL9IMflG9g41aZgEAW8_bNA868KgyXb6FLo_x7dza2P9JMUtUamWZfAw09uqEBLI-DG_6vPVk1hGO?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="d1e68613-7e0e-4f0d-8fd3-1fd996a643f2" class="">De hacer lo contrario, les saldrá un aviso de error para que intenten nuevamente con un número no mayor al rango habilitado.</p></div><div style="display:contents" dir="auto"><p id="833a1d80-a9e7-4f15-aea8-03d3971f23e5" class="">Si avanzaron correctamente, podría llegar a salirles un aviso que el cliente posee situaciones pendientes con el SII, es importante darle esta información al cliente para que evite cualquier tipo de sanción de esta entidad y así tengan la posibilidad de emitir más documentos</p></div><div style="display:contents" dir="ltr"><figure id="6b35bf58-b3dc-4c57-aa88-9ef9c0c11721" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfNYizfL2PFpnxEjSYELtXrRH94OuX7bWEd_H9X2wqSTAhq-VNpT9GrnYmLpmYPy94wO0zkgPs7lZFwd16DvCkNGWWE60N9m3Con4neUrpM8_vK2seXBjCYJFyMseSdF-8ezhV-X1N62dGFGe06_1Ndhsus?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfNYizfL2PFpnxEjSYELtXrRH94OuX7bWEd_H9X2wqSTAhq-VNpT9GrnYmLpmYPy94wO0zkgPs7lZFwd16DvCkNGWWE60N9m3Con4neUrpM8_vK2seXBjCYJFyMseSdF-8ezhV-X1N62dGFGe06_1Ndhsus?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="fc0caef5-b2ff-4f2c-b31f-f03a026bd9f1" class="">Aquí le daremos a solicitar numeración  y luego a obtener folios.</p></div><div style="display:contents" dir="ltr"><figure id="a2fb5e6b-8881-4f05-8244-28ac30faf014" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeUBr4mjBgGu6dzuY1jZFzJLzOhyIXz5WV8fd6c91zXBZJiKYVmcwNe9tClUrqThZ7rrw29CjSnZkm2Q4rf0BpvqjltV128mzjdsqBtZMyKRrSHYQqO16OnHR9ryGa8YAFVpgdd_ob7aUv3oDZfeqdmu8LM?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeUBr4mjBgGu6dzuY1jZFzJLzOhyIXz5WV8fd6c91zXBZJiKYVmcwNe9tClUrqThZ7rrw29CjSnZkm2Q4rf0BpvqjltV128mzjdsqBtZMyKRrSHYQqO16OnHR9ryGa8YAFVpgdd_ob7aUv3oDZfeqdmu8LM?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="939ad392-5eee-4028-b08d-155025c9aa88" class="">Y finalmente el SII nos descargará el documento XML con los folios solicitados para este local.</p></div><div style="display:contents" dir="ltr"><figure id="3b184594-04b6-48e5-be1a-c2bf30086779" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeTu6q_QN5_2kEbdXmHqlbGHAQd_vvdP_yEIm0ufw9iwmYgwFSYNYCDT7BOXcBVLZ_gDt4AbyFgPUSuCTcet61BGKhxUXTyCfM4s4wj8ItKpft0rG308RQ_TLJKahRHFVtH_VXTTaj6ced8YFsSnig3xC4?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeTu6q_QN5_2kEbdXmHqlbGHAQd_vvdP_yEIm0ufw9iwmYgwFSYNYCDT7BOXcBVLZ_gDt4AbyFgPUSuCTcet61BGKhxUXTyCfM4s4wj8ItKpft0rG308RQ_TLJKahRHFVtH_VXTTaj6ced8YFsSnig3xC4?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="23f5109e-33ae-4bd1-b20f-abf7e5d68d87" class="numbered-list" start="1"><li>Con esto, estamos en condiciones de subir el XML (archivo con los folios) al portal, para esto, iremos al botón ‘CAF’</li></ol></div><div style="display:contents" dir="ltr"><figure id="a2307466-d7b7-4d9d-8ad0-d7e47ddded49" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeicVRAINbKeWxu2fFOk8O3PmCygeIJkF30tDMiePqjv9qLVD_m3yuHZvFW49UkdbwYRYOMrlp_f96lrpVreAjNXjSaD3tcg8MFqrnDAUSIDrB2GAf6o7luiIA-NdL5mVIuJC8WvriqvQCvNyV0chNBHXoA?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeicVRAINbKeWxu2fFOk8O3PmCygeIJkF30tDMiePqjv9qLVD_m3yuHZvFW49UkdbwYRYOMrlp_f96lrpVreAjNXjSaD3tcg8MFqrnDAUSIDrB2GAf6o7luiIA-NdL5mVIuJC8WvriqvQCvNyV0chNBHXoA?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="ff3f58ba-c14f-4368-8c99-8407e381f26e" class="">Aquí, vamos al botón ‘subir folios’ y arrastraremos el archivo descargado al cuadro en pantalla, donde le daremos a cargar .</p></div><div style="display:contents" dir="ltr"><figure id="9f2000ca-6d56-4e85-9b85-921b5e4ee74a" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcZMySqMEsvaOcX3qgl2Myur7_r77_xgtIlIeYou485-F3o-WmUqwjFNrUPhbTdr7Vqxa98U2CQwZwm9NvclzbjMSXTFvY64PP-MUq9Pl1dhvgFn8lQA6t1AJeXTSIAg0_7GYM3QTgUaQXqUEifGxlzkoo?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcZMySqMEsvaOcX3qgl2Myur7_r77_xgtIlIeYou485-F3o-WmUqwjFNrUPhbTdr7Vqxa98U2CQwZwm9NvclzbjMSXTFvY64PP-MUq9Pl1dhvgFn8lQA6t1AJeXTSIAg0_7GYM3QTgUaQXqUEifGxlzkoo?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="26b39073-1e23-806d-b396-c36c1c7785c9" class="">Arrastrar el XML de los folios al cuadro en DTE ADMIN</p></div><div style="display:contents" dir="ltr"><figure id="35866757-9adf-40ff-9cb9-6e734e745161" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdCTpfQbhzlNm24mGK0X8bu7w2LQeHY590it61ka1LhatnNEP9ARMwFaVrynaliOTCLO0fcM4X89xfTnefkjxQdvqLDGq6V88Rzd4py6xaTA29eFYiAlc6g_4AMQDxWcIeAXt4yJqoqSKUn7xZoUl8J-_19?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdCTpfQbhzlNm24mGK0X8bu7w2LQeHY590it61ka1LhatnNEP9ARMwFaVrynaliOTCLO0fcM4X89xfTnefkjxQdvqLDGq6V88Rzd4py6xaTA29eFYiAlc6g_4AMQDxWcIeAXt4yJqoqSKUn7xZoUl8J-_19?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="0b724553-156e-4cb8-b1f4-207ff77bac19" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcg2atZRMtUAWO8avdbUEiRau1iLSf_YSfxfYZSpGSqSlPrpsjQkwO5g5DwGcsQJ0r28qGK35iELhCxZMjcmLeB7j0xUSy8CiDMhh7mdnE7BZSXN8UctUz-Ao-5TcCF6uhV4Si2oO2fFxvHN0iHJw-9AXci?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcg2atZRMtUAWO8avdbUEiRau1iLSf_YSfxfYZSpGSqSlPrpsjQkwO5g5DwGcsQJ0r28qGK35iELhCxZMjcmLeB7j0xUSy8CiDMhh7mdnE7BZSXN8UctUz-Ao-5TcCF6uhV4Si2oO2fFxvHN0iHJw-9AXci?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="7bebf750-9d62-4df1-8925-841d038ae7db" class="">Si el proceso fue correcto, aparecerá un mensaje de confirmación indicando que los folios se subieron correctamente.</p></div><div style="display:contents" dir="ltr"><figure id="c28e6900-bff3-46f7-98e9-a8deca037cf4" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXc2kFaBmOig1a8RYwpqD-W_ufDUihAB83epDSZSJWwOGTJ3nDXt3rXckQljUQDSRAfs9dKXhv3Pl9UrdSlAxjDcxGZJVeajjrswzpKV6fBKAtn-ZIRvS6alahW4U9gxpZ0J4XRzlCvdAQloNlm7W2Rkkl5H?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXc2kFaBmOig1a8RYwpqD-W_ufDUihAB83epDSZSJWwOGTJ3nDXt3rXckQljUQDSRAfs9dKXhv3Pl9UrdSlAxjDcxGZJVeajjrswzpKV6fBKAtn-ZIRvS6alahW4U9gxpZ0J4XRzlCvdAQloNlm7W2Rkkl5H?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="84f30dff-6a8d-4684-b755-374e2707dec9" class="">Para finalizar, se le indicará al cliente que intente realizar el documento y ya no debiese darle ningún error al momento de emitir, sin embargo, podemos comprobar la carga del documento en el botón ‘Ver folios’ y aquí, podemos identificar el folio activo y con el correlativo correspondiente</p></div><div style="display:contents" dir="ltr"><figure id="25a08110-37c6-4cf3-b988-2e42de4adf21" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcXsnnj6LEUgFC8E-HcPk5MY6XQEkTYQ5OyxvFswnlNNP6fCXOB-YheU-b7GBFriruLAw6cUBNSZrBEYil0u8Uh69QLNx-H0TBcuXo3BbEhwgX3hVQPh7YuCuNSjGNcQX1vzymMuV264n-0-zHogFx59myI?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcXsnnj6LEUgFC8E-HcPk5MY6XQEkTYQ5OyxvFswnlNNP6fCXOB-YheU-b7GBFriruLAw6cUBNSZrBEYil0u8Uh69QLNx-H0TBcuXo3BbEhwgX3hVQPh7YuCuNSjGNcQX1vzymMuV264n-0-zHogFx59myI?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="87eb8e31-d11b-4116-ac75-e2bec928ac3a" class="">Todo caso diferente a los mostrado en este documento debe ser consultado con el encargado y/o área DTE para su validación.</p></div><div style="display:contents" dir="auto"><p id="36299bee-8bbd-47b8-beaf-b227db8c8936" class=""><strong>Nota</strong>: Si un mismo RUT está asociado a más de un ambiente, ésta carga de folios se hará para ‘todos’ por que realmente es a la empresa del RUT a la que se está subiendo, no al local en particular, por lo que no es necesario hacer una carga por local en estos casos.  En algunos casos particulares es necesario hacer carga por sucursal debido a la configuración de la misma (folios separados para mantener correlativo por sucursal), en este caso, debemos completar el ID del restaurante - local al momento de subir folios para añadirlos a la sucursal correcta, si no, nos dará un aviso de que esta empresa requiere folios por sucursal</p></div><div style="display:contents" dir="ltr"><figure id="8866e011-af20-4558-ad88-75c471fe96fd" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfId6HMLnm7eBiYLF-LY80MSZqhwrwmWO9rmQRPtprZG4bGbQasM41hoOnj_rCewjYCWzMVLibzRC2EknmjqBK9SmtvAD4dMk6Nl7czFyVtKtc_a_AbrD4-ohbKw-tGCtLcLVEIONlqD86zMk_N16Tiiys?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfId6HMLnm7eBiYLF-LY80MSZqhwrwmWO9rmQRPtprZG4bGbQasM41hoOnj_rCewjYCWzMVLibzRC2EknmjqBK9SmtvAD4dMk6Nl7czFyVtKtc_a_AbrD4-ohbKw-tGCtLcLVEIONlqD86zMk_N16Tiiys?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="8e4c3a48-d58d-46a0-a531-899a139b470f" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfblWpw_J0sIa2fAgSnlfCb04Rnah6mWYItzLL15NOJrg9RLUOB8tbxupVLnrKeskxqoOSRpuKCoeiV5x1CqMFbYoVuDswVI3jLSiL2mlAOVzvbAxW_ES80OspS2OSm4zlwz-7otM28S3UQTraxfE4GlLU?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:344px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfblWpw_J0sIa2fAgSnlfCb04Rnah6mWYItzLL15NOJrg9RLUOB8tbxupVLnrKeskxqoOSRpuKCoeiV5x1CqMFbYoVuDswVI3jLSiL2mlAOVzvbAxW_ES80OspS2OSm4zlwz-7otM28S3UQTraxfE4GlLU?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

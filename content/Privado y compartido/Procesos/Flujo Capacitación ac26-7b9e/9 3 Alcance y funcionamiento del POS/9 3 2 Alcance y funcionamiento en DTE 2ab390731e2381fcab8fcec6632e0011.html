@@ -1,0 +1,746 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>9.3.2. Alcance y funcionamiento en DTE </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2ab39073-1e23-81fc-ab8f-cec6632e0011" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">9.3.2. Alcance y funcionamiento en DTE </h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKuoMOnCVzrOiY71uvjDZs2bhdcBEC0Tejgn6n-vXj__MKDtME=s100" class="icon user-icon"/>Doymar Raga Flores</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-817c-8ad7-e2cce6f8aa36" class=""><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8128-a0a6-defcfed71c1d" class="">Proporcionar al equipo de participantes los conocimientos necesarios para comprender Alcance y funcionamiento del portal DTE en México.</p></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-81e2-a63c-f2f910265268" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-816d-b3bf-d9e779f10816" class="">Debe aplicarse al equipo de operaciones Toteat</p></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-8195-9f7c-e08dd9a55125" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8122-8cb0-ec1002a5e836" class="">El quipo de operaciones Toteat deberá tomar la capacitación DTE al menos una vez </p></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-816e-bc20-fdd1f2069b1f" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81e0-abf8-e7ee2e6afd9b" class=""><strong>Las personas que tomen la capacitación deben:<br/></strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8175-bada-efca9e1d8591" class="numbered-list" start="1"><li>Pertenecer al equipo de Operaciones</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8195-890b-c859d59dd923" class="numbered-list" start="2"><li>Tener conocimientos previos sobre la herramienta TRM</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8148-a0b6-cf2daa456312" class="numbered-list" start="3"><li>Encontrarse en periodo productivo y no en periodo de Pruebas </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-811c-9b7c-f290ecd0e892" class="numbered-list" start="4"><li>Permisos de acceso al portal de DTE</li></ol></div><div style="display:contents" dir="auto"><h2 id="2ab39073-1e23-81e3-a8e3-db55c44778be" class=""><mark class="highlight-orange">Alcance para equipo Toteat</mark></h2></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-818b-9c22-ee0b64cab63f" class="">El equipo de soporte y algunas personas de OB tiene acceso al portal de DTEadmin, con un menú diferenciado para realizar consultas y validaciones de manera ágil y sin necesidad de pertenecer a ninguna empresa, esto a través de la opción Configuración:</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8100-9775-d84bd6f92478" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image.png"><img style="width:432px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8129-af91-d4f29888a04e" class=""><strong>Todos los accesos pueden: </strong></p></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-81f0-a45e-c779ed3c2fdf" class="toggle"><li><details open=""><summary>Empresas</summary><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81d1-ae0a-eea99e29c379" class="">Visualizar la información de las empresas filtrando por RFC, ID del restaurante o por País</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81d7-9e61-dad24008883a" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%201.png"><img style="width:681.734375px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8187-b8bb-d38858f6a160" class="">Una vez aplicado el filtro, se podrán visualizar las siguientes opciones:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-813f-af89-d8dff679661a" class="numbered-list" start="1"><li>Edit (Editar): Permite verificar y modificar la información registrada de la empresa.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81c5-8728-fb0973952571" class="numbered-list" start="2"><li>Suc (Sucursal): Desde esta opción se pueden crear nuevas sucursales y consultar las ya registradas para la razón social seleccionada.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81b1-8bb6-f95a512705da" class="numbered-list" start="3"><li>Cer (Certificado): En esta sección se ingresan los datos del Certificado de Sello Digital (CSD), incluyendo la contraseña, el archivo <mark class="highlight-default"><code>.key</code></mark><mark class="highlight-default"> y el archivo </mark><mark class="highlight-default"><code>.cer</code></mark><mark class="highlight-default">.</mark><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81f3-aef1-e2f370ac510f" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%202.png"><img style="width:681.8125px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-818e-92ac-f432f0ff4933" class="">En Toteat sólo cargamos sellos, es decir: </p></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8105-b0a1-f59b712c3bcf" class="">Cuando se habla de los &quot;sellos&quot; en el contexto fiscal,  se refiere a:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81c0-b427-c47fd9cef486" class="numbered-list" start="1"><li>El archivo <mark class="highlight-default"><code>.cer</code></mark><mark class="highlight-default"> (certificado digital del sello).</mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81c3-ac2c-f0fa876d8fba" class="numbered-list" start="2"><li><mark class="highlight-default">El archivo </mark><mark class="highlight-default"><code>.key</code></mark><mark class="highlight-default"> (la clave privada asociada al certificado).</mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8158-b414-fb6df968d14d" class="numbered-list" start="3"><li><mark class="highlight-default">La contraseña del archivo </mark><mark class="highlight-default"><code>.key</code></mark><mark class="highlight-default">.</mark></li></ol></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-818e-82f2-ee6af251a11b" class="">Estos tres elementos en conjunto conforman los Sellos Digitales del SAT, que se utilizan para emitir facturas electrónicas.</p></div></li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-814b-a61d-f97d40691c77" class="toggle"><li><details open=""><summary>Documentos Emitidos</summary><div style="display:contents" dir="auto"><p id="2ab39073-1e23-818d-a45a-de7b163239b5" class="">En esta sección podrás revisar tanto los documentos emitidos como los intentos de emisión realizados.</p></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8149-8139-c2d28136110a" class="">Además, cuentas con filtros que te permitirán buscar por ID de ticket, rango de fecha, RFC o ID de sucursal, facilitando la identificación de la información que necesites.</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8129-be40-d7e0cbfde613" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%203.png"><img style="width:681.9500122070312px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%203.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8134-b704-dc0b1d540d8f" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%204.png"><img style="width:720px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81b0-accc-e004233adaf2" class="">Desde este botón podrás verificar el estado de envío de la factura y confirmar si fue enviada correctamente o si se produjo algún error durante el proceso.</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8116-b47f-dc9f9d453073" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%205.png"><img style="width:672px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%205.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><h2 id="2ab39073-1e23-81dd-a2e5-c6e52fa8b514" class=""><mark class="highlight-orange">Alcance Para Clientes</mark></h2></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8171-96db-d8dad2b9d764" class="">Los perfiles Dueño/Creador, Gerente Administrador o Contabilidad podrán acceder en el portal de <mark class="highlight-orange"><a href="https://facturacion.toteat.com/login">https://facturacion.toteat.com/login</a></mark><mark class="highlight-orange"> </mark>a las siguientes opciones:</p></div><div style="display:contents" dir="auto"><h2 id="2ab39073-1e23-811c-a123-fabb42db02c5" class="">Opciones</h2></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-8152-9a10-dc2ce1d898c8" class=""><strong>→ Carga CSD:</strong></h3></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8154-896a-f94668a9065e" class="">Desde este botón podrán cargar los sellos digitales, es decir:<br/> (clave de archivo .key, archivo .cer, archivo .cer )</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2ab39073-1e23-811d-8093-ccdd9960922a"><div style="font-size:1.5em"><span class="icon">📢</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ab39073-1e23-813a-86ae-def39d39261e" class=""><mark class="highlight-yellow">En DTE se deben cargar los archivos .cer y .key correspondientes a los sellos digitales, y no los de firma fiel</mark>.</p></div></div></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8165-a450-d4f5403cd515" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%206.png"><img style="width:709.9666748046875px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><blockquote id="2ab39073-1e23-8166-80ae-c0d71dd2f6db" class="">En México, es posible habilitar un acceso o portal de facturación para que el cliente final pueda emitir su propia factura.</blockquote></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8184-a751-dc4f7916318a" class="">A través de este portal <a href="https://autofactura-mx.toteat.com/">autofactura-mx.toteat.com</a>, el cliente ingresa sus datos fiscales (RFC, razón social, código postal, email, uso de CFDI, régimen fiscal) y genera la factura correspondiente a su compra, cumpliendo con los requisitos del SAT.</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8116-8ac3-d5aaf788fd44" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%207.png"><img style="width:235.00001525878906px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%207.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-81a0-ad6a-d87193271e41" class=""> <mark class="highlight-orange">5.  Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8147-90bb-ec65d1983125" class="numbered-list" start="1"><li><strong>Acceder al portal:</strong></li></ol></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-815f-aedb-f16738ca4d4b" class="">Ingrese a <a href="https://autofactura-mx.toteat.com/">autofactura-mx.toteat.com</a>.</p></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8180-968d-d13ec1563299" class="">En el portal se solicitará el N° de Pedido u Orden, el cual podrá encontrar en el ticket impreso entregado al momento de su compra.</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-816e-ba32-f3d6c6e1ea3f" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%208.png"><img style="width:710.0000610351562px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%208.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-810f-9094-e517ab0a167a" class=""><em>(Ejemplo de ticket con número de orden)</em></p></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8195-8a59-dcce64cc8cb0" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81aa-9b85-ebfdc7cbfa85" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%209.png"><img style="width:280px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%209.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81e3-ada3-f7f11a0929b1" class=""><br/>Luego de presionar el botón “Buscar”, se mostrará la siguiente ventana: en el lado izquierdo podrán ver el detalle del ticket a facturar, y en el lado derecho, los campos que deben completarse.<br/></p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81fd-b7e8-f171cb9d9651" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2010.png"><img style="width:709.9833984375px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2010.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-811b-89a9-c905daac04a1" class="">En esta sección, podrán definir qué detalle desean que aparezca en la factura:</p></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-8152-8ada-d9bc15183e06" class="bulleted-list"><li style="list-style-type:disc">Si desean que el detalle sea igual al del ticket impreso, deben seleccionar la opción “Usar detalle igual que ticket”.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-81d4-b1b7-fd569a6af79e" class="bulleted-list"><li style="list-style-type:disc">Si prefieren un detalle más general, pueden elegir la opción “Usar detalle solo → leyenda consumo alimentos”.</li></ul></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-811e-8f0b-d0db87567fdf" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2011.png"><img style="width:279px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2011.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8112-a99c-fd50b2034197" class="">Deben completar todos los campos y, una vez ingresada toda la información, se habilitará el botón “Generar” para proceder con la emisión de la factura.</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-819e-b4c3-c51d48dd58e0" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2012.png"><img style="width:710.0000610351562px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2012.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81b5-9faf-eaa047eefdab" class="">Una vez emitida la factura, se mostrará un botón para descargar el archivo PDF correspondiente.</p></div><div style="display:contents" dir="auto"><h2 id="2ab39073-1e23-8179-90b5-de622f8c9d66" class=""><em><mark class="highlight-red">Para visualizar las facturas o emitirla desde el portal </mark></em></h2></div><div style="display:contents" dir="auto"><h2 id="2ab39073-1e23-819d-bcdf-c20a44386539" class="">AutoFacturas desde DTEAdmin</h2></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-81a9-bec8-da61fa3954bf" class=""><strong>→ Autofacturas realizadas:</strong></h3></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-811a-b02e-fb4a26465927" class="">En esta sección podrán consultar los documentos emitidos y también los intentos de emisión que se hayan realizado.<br/></p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8113-8b0d-f6cc1588facc" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/514bf133-55d2-4351-ad68-13e6fe0af5c8.png"><img style="width:710px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/514bf133-55d2-4351-ad68-13e6fe0af5c8.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-815b-ade2-d67fb6719f67" class=""><br/>Desde aquí es posible verificar el estado de envío de cada factura y confirmar si fue enviada correctamente o si se produjo algún error durante el proceso.<br/></p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8118-b3af-f00af79e89be" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2013.png"><img style="width:709.9666748046875px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2013.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-8192-9006-e2526d98aafb" class=""><strong>→ Emisión de Autofactura </strong></h3></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81b9-b993-e7e1bfd32f15" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/555ce36f-b43d-411b-9719-f1192c65aa82.png"><img style="width:710px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/555ce36f-b43d-411b-9719-f1192c65aa82.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81ca-b4d2-d32b4b91efba" class="">En esta opción se puede emitir una factura asociada a un ticket.</p></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81b8-aff7-fd32ce47ea86" class="">Para ello, se deben completar todos los campos requeridos, incluyendo el detalle de los productos.</p></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8159-a7b6-d70d4befbf3d" class="">Una vez ingresada la información, se debe hacer clic en el botón correspondiente para enviar y generar la factura.</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81e9-b004-dea75323f319" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2014.png"><img style="width:709.9500122070312px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2014.png"/></a></figure></div><div style="display:contents" dir="auto"><blockquote id="2ab39073-1e23-8191-bdca-def4ce35e0f2" class=""><br/>⚠️ <strong>Importante:</strong> Para que una orden pueda ser facturada, debe encontrarse <strong>cerrada y liberada en TRM</strong>.<br/></blockquote></div><div style="display:contents" dir="auto"><h1 id="2ab39073-1e23-8193-bf6d-cc8a12e1e99d" class=""><strong>Factura global  </strong></h1></div><div style="display:contents" dir="auto"><h2 id="2ab39073-1e23-8122-b43f-f7d350a592ea" class=""><mark class="highlight-orange">Proceso para la emisión de Factura Global</mark></h2></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8103-aafc-f77a2fa946dd" class="">Para emitir una Factura Global, ten en cuenta lo siguiente:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81e9-8d51-f3d2ed079db2" class="numbered-list" start="1"><li>La empresa debe estar configurada para emitir autofacturas a través de DETECNO.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-812f-9fc3-d4d1a90d60d2" class="numbered-list" start="2"><li>Es recomendable que la empresa esté configurada con la emisión de folios, ya que esto permite un mayor control sobre la información transmitida al SAT.<div style="display:contents" dir="auto"><ul id="2ab39073-1e23-8134-a261-e9ad33da2a36" class="bulleted-list"><li style="list-style-type:disc">Si no está configurada de esta manera, la información se enviará con el número de orden.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81c7-a7e5-c8f62013dfad" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8132-b4fe-cc01cc875837" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2015.png"><img style="width:684.8194580078125px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2015.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-816a-9f45-e02198fa0a6c" class="">Para emitir la factura Global el cliente debe ingresar al portal de Administrador</p></div><div style="display:contents" dir="auto"><h2 id="2ab39073-1e23-81f1-b2cd-c2cf353371fa" class="">Formas de emitir la Factura Global</h2></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8123-a982-f57b04df5add" class="">Existen <strong>dos formas de emisión</strong>:</p></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-81be-a563-c536e64a50e4" class="bulleted-list"><li style="list-style-type:disc"><strong>Manual:</strong> el proceso se realiza directamente por el usuario.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-811b-b165-c57b9824f9fc" class="bulleted-list"><li style="list-style-type:disc"><strong>Automática:</strong> el sistema toma de forma automática las órdenes que no han sido autofacturadas y las incluye en la Factura Global.</li></ul></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-8153-a205-ff2f02281057" class="">1. Factura Global Manual</h3></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81e0-b479-e5b62233b6e4" class="numbered-list" start="1"><li>Ingresar a Factura Global → Emisión.<div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8189-abfd-d3fef111f8e4" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2016.png"><img style="width:684.8333129882812px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2016.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81dd-957d-f5d0a5444211" class="numbered-list" start="2"><li>Seleccionar la periodicidad de la factura que se desea emitir.<div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8185-9e6f-fe1cdfdcc31d" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2017.png"><img style="width:684.7916870117188px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2017.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8100-aad8-dd1ac1c069e3" class="numbered-list" start="3"><li>El sistema habilitará las fechas según la periodicidad seleccionada.<div style="display:contents" dir="auto"><ul id="2ab39073-1e23-8172-bbc5-f3b88532a685" class="bulleted-list"><li style="list-style-type:disc">Ingresar el correo electrónico y confirmar.</li></ul></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8183-a2fd-f47b149cfb21" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2018.png"><img style="width:684.8194580078125px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2018.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-816e-842d-e3eda1345739" class="numbered-list" start="4"><li>Se habilitarán los campos para adicionar la información a facturar:<div style="display:contents" dir="auto"><ul id="2ab39073-1e23-8171-b35a-fbcbf0184942" class="bulleted-list"><li style="list-style-type:disc">El término de periodo debe coincidir con lo definido en la parte superior.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-8119-ac43-fad7a6ba2ea7" class="bulleted-list"><li style="list-style-type:disc">Completar cantidad, descripción y total con base en lo que se desea facturar.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-81a9-9a5c-fdcc3da36197" class="bulleted-list"><li style="list-style-type:disc">Hacer clic en Agregar.</li></ul></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81c4-84bd-ebe079b82eba" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2019.png"><img style="width:684.8194580078125px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2019.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-813f-840b-d498ca93c4db" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2020.png"><img style="width:684.763916015625px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2020.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8128-a46f-e97dbbf6be10" class="numbered-list" start="5"><li>Una vez agregado el ítem, se puede:<div style="display:contents" dir="auto"><ul id="2ab39073-1e23-8181-919b-d9a95b8f53e4" class="bulleted-list"><li style="list-style-type:disc">Eliminarlo, si se registró de forma errónea.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-812f-8a16-d67df96730c4" class="bulleted-list"><li style="list-style-type:disc">Oprimir el botón Generar Factura Global, si está correcto.</li></ul></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81e1-827f-fbb4f8466a65" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2021.png"><img style="width:684.8194580078125px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2021.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8106-a298-fbeb430d4571" class="numbered-list" start="6"><li>Una vez generada, se habilitará el botón Abrir documento facturado (también se enviará automáticamente al correo electrónico registrado).<div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81a1-9758-ffcbc9a23ba7" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2022.png"><img style="width:684.8194580078125px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2022.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8143-ba69-f44af597166b" class="">La Factura Global manual queda disponible en formato PDF.<br/></p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8195-9575-d4f6d9ca15e2" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2023.png"><img style="width:676px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2023.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-810c-96e0-e4bfad335bc7" class="">2. Factura Global Automática</h3></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-813a-89fb-e06d02e255f1" class="numbered-list" start="1"><li>Ingresar a Factura Global → Generación automática.<div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-811e-8c29-cd2099998d86" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2016.png"><img style="width:684.8333129882812px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2016.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8103-a31c-e1b7b9f295c6" class="numbered-list" start="2"><li>Seleccionar la periodicidad de la factura que se desea emitir.<div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81f9-b2a5-f3c35ecb5a91" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/571502cd-6d35-4602-a2c6-9dffce24320d.png"><img style="width:684.828125px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/571502cd-6d35-4602-a2c6-9dffce24320d.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8180-989d-eec605b15611" class="numbered-list" start="3"><li>El sistema habilitará las fechas según la periodicidad seleccionada.<div style="display:contents" dir="auto"><ul id="2ab39073-1e23-819d-94c6-f91c835b67f4" class="bulleted-list"><li style="list-style-type:disc">Ingresar el correo electrónico y confirmar.</li></ul></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8119-9533-df91822914c0" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2024.png"><img style="width:684.7777709960938px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2024.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-813d-8134-c51a10a8cec2" class="numbered-list" start="4"><li>Automáticamente, el sistema mostrará las órdenes registradas en TRM que están disponibles para facturar en el periodo seleccionado.<div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-813d-9fdd-d34f5f43b0e4" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2025.png"><img style="width:684.8194580078125px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2025.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-818f-8021-dca9c0891cea" class="numbered-list" start="5"><li>Si la información es correcta, hacer clic en Generar Factura Global.<div style="display:contents" dir="auto"><ul id="2ab39073-1e23-8186-83e4-d6a6d7c64a3c" class="bulleted-list"><li style="list-style-type:disc">Si se desea excluir alguna orden, hacer clic en el ícono de eliminar correspondiente.</li></ul></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81cf-8420-f4ca97293df9" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2026.png"><img style="width:684.8194580078125px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2026.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81d1-9923-c1bd91810e39" class="numbered-list" start="6"><li>Una vez generada, se habilitará el botón Abrir documento facturado (también se enviará automáticamente al correo electrónico registrado).<div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81f4-b3e4-c2aa6d72125d" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2022.png"><img style="width:684.8194580078125px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2022.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81ba-ab7d-db41f9eadccc" class="">La Factura Global automática queda disponible en formato PDF.</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8160-ba9c-fe6d69afbc86" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2023.png"><img style="width:676px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2023.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2ab39073-1e23-8181-95b3-cd1da415b77f"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81a6-85d7-d5b025f19cd0" class="">El documento emitido es exactamente el mismo. Lo único que varía es la <strong>forma en que se genera</strong> (manual o automática).</p></div></div></figure></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-8189-8a7a-f5d0444ca07e" class="">→ Listado Emitidas</h3></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-813c-af2a-d964f6f403df" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2027.png"><img style="width:580px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2027.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-818d-9cd6-cf603c71f323" class=""><br/>Desde esta opción, podremos consultar las facturas globales emitidas y verificar el estado de cada una.</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8131-99c3-edb103632197" class="image"><a href="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2028.png"><img style="width:709.9833984375px" src="9%203%202%20Alcance%20y%20funcionamiento%20en%20DTE/image%2028.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81b4-bb99-f11717361fa5" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-8186-bab0-e27cac3f3202" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8157-9709-d7c75e1a1fdb" class="">Un equipo con conocimientos integrales sobre el alcance del portal de DTE para México, tanto para los integrantes del equipo con diferentes permisos como para un cliente que usa el servicio.</p></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-8114-9b4e-ef2596b85a02" class=""><mark class="highlight-orange">7. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81dd-9bc0-e0a552937273" class="">Acceder al portal de DTE y consultar información de las empresas creadas en México.</p></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-8197-a8c0-d59cdc2b1c33" class=""><mark class="highlight-orange">8. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="2ab39073-1e23-81d8-a328-c67ecf6e5940" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2ab39073-1e23-81e7-bbd0-c2263b5454a7"><th id="c&gt;eW" class="simple-table-header-color simple-table-header">Fecha actualización</th><th id="n@Bm" class="simple-table-header-color simple-table-header">Actualizado Por</th><th id="~Srl" class="simple-table-header-color simple-table-header">Aprobado Por</th><th id="d`CN" class="simple-table-header-color simple-table-header">Versión</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2ab39073-1e23-8148-a3b8-e57c3f01b3cd"><td id="c&gt;eW" class=""></td><td id="n@Bm" class=""></td><td id="~Srl" class=""></td><td id="d`CN" class=""><mark class="highlight-orange">4-2033.1</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ab39073-1e23-81ef-a624-cae6f2e1363d"><td id="c&gt;eW" class=""></td><td id="n@Bm" class=""></td><td id="~Srl" class=""></td><td id="d`CN" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81ac-a2f1-d3bd4654a189" class=""><br/></p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

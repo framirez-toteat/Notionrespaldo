@@ -1,0 +1,744 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>3.1. Cargar Sub-recetas a los productos.</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b8e267ee-1bfb-48d0-a4f5-4f0e706f7b8a" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">3.1. Cargar Sub-recetas a los productos.</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><nav id="2aa40b9a-7f23-46f6-8950-c6d274b05289" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1e064073-1068-4670-91f8-8f4f5893adf3"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ff67e65b-d968-4ace-86fd-c1946afa111d"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#55fa7f00-825e-4ebd-9c37-5bb4744d07b9"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#871e759b-6b5c-4034-9120-4cd4274ddbc1"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a663d1d6-4618-4097-a3c0-c8cb690b90e8"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c8046c85-e28d-47a1-93b5-5ee8f2ce06c7"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e277b94d-5f02-46a0-84e4-9f74f1024acb"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e7b503ac-5f0d-4b25-8144-2df104f6e0d9"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a9856bdf-066e-49c2-99f9-592e39ed62e3"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="1e064073-1068-4670-91f8-8f4f5893adf3" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="b6a2c449-3964-4343-9a9f-c9b52f8f2eac" class="">Cuando hablamos de cargar las subrecetas dentro de un producto, nos referimos a la utilizacion por unidad de medida en el producto. </p></div><div style="display:contents" dir="auto"><p id="5e980184-b7d4-49a7-b5b4-1661122d40f6" class="">Por ejemplo, si tengo una SUB MAYONESA CASERA, la puedo asociar al producto como un ingrediente y decirle al sistema que estoy utilizando esa sub dentro de la receta del producto.</p></div><div style="display:contents" dir="auto"><h3 id="ff67e65b-d968-4ace-86fd-c1946afa111d" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="a0746dab-52d0-4e9b-93bb-836c06a95c88" class="">Este procedimiento cubre los pasos necesarios para asociar subrecetas dentro de la receta de un producto. El alcance incluye la identificación de las subrecetas relevantes, la integración de estas subrecetas como ingredientes en la receta principal del producto, y la configuración del sistema para reflejar el uso de estas subrecetas.</p></div><div style="display:contents" dir="auto"><p id="1ba25565-1c7f-4512-bd37-5287666f3654" class=""> Este proceso es crucial para asegurar que todas las partes de la receta estén correctamente documentadas y contabilizadas, lo que permite una mejor gestión de los ingredientes y una mayor precisión en la producción del producto final.</p></div><div style="display:contents" dir="auto"><h3 id="55fa7f00-825e-4ebd-9c37-5bb4744d07b9" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="586677c0-82cc-4fa0-91be-e542f8dc2425" class="">Para poder llegar a este proceso seria necesario haber realizado las tareas anteriores, ya que es necesario que los ingredientes y las subrecetas existan para poder llegar a esto.</p></div><div style="display:contents" dir="auto"><h3 id="871e759b-6b5c-4034-9120-4cd4274ddbc1" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="d7c3fc83-459c-4175-b12a-98ffebeaa544" class="toggle"><li><details open=""><summary><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="8e969934-582e-456e-a7d3-3f34f94501c9" class="bulleted-list"><li style="list-style-type:disc">Tener creados los ingredientes.</li></ul></div><div style="display:contents" dir="auto"><ul id="0781cd76-64de-4af5-9892-85c68b40ac62" class="bulleted-list"><li style="list-style-type:disc">Creación y asociación de ingredientes a la subreceta.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="a663d1d6-4618-4097-a3c0-c8cb690b90e8" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="4cfaa606-933e-48d4-9336-5aa27b1f8010" class="toggle"><li><details open=""><summary><strong>Paso 1: Contar con las SubRecetas estructuradas</strong></summary><div style="display:contents" dir="auto"><ul id="ccb61975-6cf1-42a7-aba1-9466d766e2bc" class="bulleted-list"><li style="list-style-type:disc">Verificar que la SubReceta este creada y en extras con recetas.</li></ul></div><div style="display:contents" dir="ltr"><figure id="7b796341-e9da-433c-9cab-3ad18cda09bd" class="image"><a href="3%201%20Cargar%20Sub-recetas%20a%20los%20productos/Untitled.png"><img style="width:680px" src="3%201%20Cargar%20Sub-recetas%20a%20los%20productos/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="42a01ec9-b202-411b-8e2a-3cd1fc83f402" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: “Verificar que la “producción” que se esta realizando tenga coherencia”</li></ul></div><div style="display:contents" dir="ltr"><figure id="052da8e2-1e4d-4f37-bcd6-40471cbc3999" class="image"><a href="3%201%20Cargar%20Sub-recetas%20a%20los%20productos/image.png"><img style="width:680px" src="3%201%20Cargar%20Sub-recetas%20a%20los%20productos/image.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="68df70f8-ac31-413a-a43e-c3e6dfbd40d9" class="toggle"><li><details open=""><summary><strong>Paso 2: Asociar la SubReceta a la receta del producto</strong></summary><div style="display:contents" dir="auto"><ul id="4e755549-a3de-4dea-903f-35f8e09342cb" class="bulleted-list"><li style="list-style-type:disc">Debemos ir a la Receta del producto al cual deseamos asociar esta SubReceta.</li></ul></div><div style="display:contents" dir="ltr"><figure id="da59eb19-2fa0-4e6f-9a1b-d503cc81d966" class="image"><a href="3%201%20Cargar%20Sub-recetas%20a%20los%20productos/Untitled%201.png"><img style="width:680px" src="3%201%20Cargar%20Sub-recetas%20a%20los%20productos/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="7f4b53b1-652a-4eaa-a0f0-7931d5a74023" class="bulleted-list"><li style="list-style-type:disc">Una vez dentro, vamos a la seccion de ingredientes y buscamos nuestra SubReceta:</li></ul></div><div style="display:contents" dir="ltr"><figure id="5795d6e4-e769-4ecf-b278-5145fb1a5393" class="image"><a href="3%201%20Cargar%20Sub-recetas%20a%20los%20productos/Untitled%202.png"><img style="width:680px" src="3%201%20Cargar%20Sub-recetas%20a%20los%20productos/Untitled%202.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="cb97388d-f1bb-4203-8142-fd4f07aa7cbc" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: “Todas las Subrecetas/Extras siempre que tengan recetas se veran en la seccion de ingredientes en la receta, se identificaran con un asterisco”</li></ul></div><div style="display:contents" dir="auto"><hr id="eef0a8f4-4127-4c97-9c8f-a1597a33e35c"/></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="cc13bce7-16be-4e7c-b95f-d82d43cf08bb" class="toggle"><li><details open=""><summary><strong>Paso 3: Configurar unidad de medida a utilizar de la SubReceta</strong></summary><div style="display:contents" dir="auto"><ul id="953ea6cf-7f3c-4c23-b4c7-3e9b389895fd" class="bulleted-list"><li style="list-style-type:disc">Habiendo asociado la SubReceta al producto, debemos darle la unidad a utilizar (Kg, Gr, Ml, etc.)</li></ul></div><div style="display:contents" dir="ltr"><figure id="6fed5f74-3f67-431f-b159-486cb18dc7df" class="image"><a href="3%201%20Cargar%20Sub-recetas%20a%20los%20productos/Untitled%203.png"><img style="width:680px" src="3%201%20Cargar%20Sub-recetas%20a%20los%20productos/Untitled%203.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="04a50c4c-c380-4eb4-9426-d6f2b57da1f2" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: “Verificar que el costo siempre tenga coherencia con la realidad”</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="c8046c85-e28d-47a1-93b5-5ee8f2ce06c7" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="7f4bcde9-4bbc-4785-bbd8-0d6050a745cc" class="bulleted-list"><li style="list-style-type:disc">Con este proceso, llevaremos un mejor control de las producciones que realicemos y el como se consumen con cada venta.</li></ul></div><div style="display:contents" dir="auto"><h3 id="e277b94d-5f02-46a0-84e4-9f74f1024acb" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="f4dfe120-4e6a-4845-ae28-c354e884a043" class="bulleted-list"><li style="list-style-type:disc">Que el cliente no utilice SubRecetas o producciones en su sistema.</li></ul></div><div style="display:contents" dir="auto"><h3 id="e7b503ac-5f0d-4b25-8144-2df104f6e0d9" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="81c4b62a-22c6-41f1-be5c-f1963de4b57c" class="bulleted-list"><li style="list-style-type:disc">Verificar que la SubReceta quedo correctamente asociada y con su “Utilizar solo en transformaciones de producción”.</li></ul></div><div style="display:contents" dir="auto"><h3 id="a9856bdf-066e-49c2-99f9-592e39ed62e3" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="7eed1e8b-743b-4b92-8ac8-ca957621584b" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="e3d33d7f-7c76-4c4c-ac31-1031d652d1fe"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="4c1f0f1a-ad28-4075-9f7a-cbe0a57902c6"><td id="nU|h" class="">18/07/2024</td><td id="WwCq" class=""><span class="user">@Marcelo Sepulveda</span> </td><td id="i;pn" class=""><span class="user">@Francisco Ramirez</span> </td><td id="q^a=" class="">4-3003.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="101aeed8-ef2b-4727-939a-67289b48d021"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="5fc5dd76-e5b5-4f3f-9275-9157c742e97b"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="0cdc45c7-ad3d-438c-ad47-946f2c1075ad" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

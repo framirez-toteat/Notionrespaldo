@@ -1,0 +1,751 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2.3. Crear Sub-recetas/Preelaborados</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="949bf03e-fa5a-4f02-a9a9-65a81fe7a77a" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">2.3. Crear Sub-recetas/Preelaborados</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><nav id="cf3ceb81-eefd-49a2-b382-0cdec407fd92" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#56ee37ef-e140-48bd-8f96-6b8cb1221e34"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#0d478842-f396-42e9-9e05-84f286e6f4af"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#90e4c562-29d2-4f53-a67f-4a6f977af34b"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#91d1c27c-8331-444f-b8de-0db8ab056fae"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5fcb6251-c38f-4d5f-ab11-ab75be886dce"><mark class="highlight-orange">5. Procedimiento</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#eb90e3bf-ca35-4026-9343-e76358a418f1"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b704badb-179f-4324-bb0d-62601b3d57cf"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7fb59bab-703c-4f5c-a555-e0a187262a86"><mark class="highlight-orange">8. Puntos de control</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#df9ce866-9418-4889-8047-7976f6124189"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="56ee37ef-e140-48bd-8f96-6b8cb1221e34" class=""><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="c0b726c6-098f-4b61-bb65-2ac9a5e5386b" class="">Las subrecetas o preelaborados son preparaciones declaradas en el local, que sirven para complementar una receta o producir porciones de un insumo.</p></div><div style="display:contents" dir="auto"><p id="6347ba37-8477-49f6-9b36-c1c5e0fcd565" class="">Las subrecetas a nivel sistema se tratan como &quot;extras&quot;, por lo tanto, al momento de crearlas, se debe realizar de esa manera.</p></div><div style="display:contents" dir="auto"><h3 id="0d478842-f396-42e9-9e05-84f286e6f4af" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="2795d2e4-5f90-498f-af1a-418bfb6b2891" class="">Las Subrecetas se utilizan cuando el cliente utiliza sus insumos e ingredientes para producir complementos para sus platos finales, por ejemplo, el producir su propia Mayonesa Casera, donde utilizan sus ingredientes para llegar a un producto final.</p></div><div style="display:contents" dir="auto"><p id="92ea9527-5a0b-4ec8-a93b-bb281975954e" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="90e4c562-29d2-4f53-a67f-4a6f977af34b" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="7fbf2079-6369-4322-bee5-17386529d5bc" class="">Este proceso no se solicita, sino que se capacita al cliente al respecto. Para ello, es necesario que participe en las capacitaciones personalizadas o gratuitas, donde se bajará la información y la lógica que utiliza el sistema.</p></div><div style="display:contents" dir="auto"><h3 id="91d1c27c-8331-444f-b8de-0db8ab056fae" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="3e82d31c-d806-49ee-9a9a-ea93c052f214" class="bulleted-list"><li style="list-style-type:disc"><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong><div style="display:contents" dir="auto"><ul id="1d28a4a4-6ad5-4b22-9535-99e97a3d0dc0" class="bulleted-list"><li style="list-style-type:circle">Se debe tener activo el módulo de inventario avanzado.</li></ul></div><div style="display:contents" dir="auto"><ul id="10d00303-be34-49e3-af3c-9fda2f7cab2f" class="bulleted-list"><li style="list-style-type:circle">Debe haber pasado por las capacitaciones previas para poder llegar a este punto.</li></ul></div><div style="display:contents" dir="auto"><ul id="1eec6081-2174-4a7f-ac03-fbca4b75a6da" class="bulleted-list"><li style="list-style-type:circle">Debe declarar la producción de estas subrecetas en el sistema.</li></ul></div><div style="display:contents" dir="auto"><ul id="1dc8b52b-8adb-4a98-8f19-d8ae3ec38cc7" class="bulleted-list"><li style="list-style-type:circle">Se deben cumplir los procesos anteriores para poder llegar al actual.</li></ul></div><div style="display:contents" dir="auto"><ul id="12a39073-1e23-8021-a718-c1b4bbb34e69" class="bulleted-list"><li style="list-style-type:circle">Se debe tener previamente configurada la base de datos de ingredientes en el sistema.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="5fcb6251-c38f-4d5f-ab11-ab75be886dce" class=""><mark class="highlight-orange">5. Procedimiento</mark></h3></div><div style="display:contents" dir="auto"><ul id="94cdf182-af75-4807-b73d-b5a99f0d3722" class="bulleted-list"><li style="list-style-type:disc"><strong>Paso 1: Creación de la jerarquía de extras “Subrecetas”</strong><div style="display:contents" dir="auto"><ul id="76692cc5-b6e5-46f6-adba-7216cbe43652" class="bulleted-list"><li style="list-style-type:circle">Ir a Menú lateral -&gt; Productos -&gt; Jerarquía de extras y hacer clic en el lápiz de BA.</li></ul></div><div style="display:contents" dir="auto"><ul id="23b6f6e8-9189-4035-a06b-f1cf5a73fe44" class="bulleted-list"><li style="list-style-type:circle">Allí, crear la jerarquía de extras &quot;Subrecetas&quot; con el ID NODO 999.</li></ul></div><div style="display:contents" dir="ltr"><figure id="033c0c1c-f113-48a9-be09-bc7ab349b7e4" class="image"><a href="2%203%20Crear%20Sub-recetas%20Preelaborados/Untitled.png"><img src="2%203%20Crear%20Sub-recetas%20Preelaborados/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="ae6b234f-9524-45f3-8823-03dbefa2aef6" class="bulleted-list"><li style="list-style-type:circle"><strong>Nota</strong>: Es importante que siempre se creen con el ID 999, ya que es un ID único para las subrecetas.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="8152e4c2-8a12-49df-9a64-60f136a81c97" class="bulleted-list"><li style="list-style-type:disc"><strong>Paso 2: Crear el extra/subreceta</strong><div style="display:contents" dir="auto"><ul id="44e77c8f-d205-4988-95d7-8dc707a5048b" class="bulleted-list"><li style="list-style-type:circle">Ir a Menú lateral -&gt; Productos -&gt; Extras.</li></ul></div><div style="display:contents" dir="auto"><ul id="a9a8dcab-047e-4ebc-8f3e-f9a31adef423" class="bulleted-list"><li style="list-style-type:circle">Allí, crear las subrecetas como si fueran extras. Ingresar el ID Extra, Nombre Extra, precio base y la jerarquía asociada.</li></ul></div><div style="display:contents" dir="ltr"><figure id="b9274678-1e75-4413-94d3-e461d39115cd" class="image"><a href="2%203%20Crear%20Sub-recetas%20Preelaborados/Untitled%201.png"><img src="2%203%20Crear%20Sub-recetas%20Preelaborados/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="535e5e19-23d9-4b3b-a789-bed8a964ff88" class="bulleted-list"><li style="list-style-type:circle">Una vez creado el extra, iremos al lapiz y le activaremos el modulo de Stock, con el fin de que ya sea inventariable.</li></ul></div><div style="display:contents" dir="ltr"><figure id="9987d8ea-cf94-4483-a6eb-c640be78effe" class="image"><a href="2%203%20Crear%20Sub-recetas%20Preelaborados/image.png"><img style="width:679.96875px" src="2%203%20Crear%20Sub-recetas%20Preelaborados/image.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="7bce9f98-1bdb-4fa5-9d20-c370399191ae" class="bulleted-list"><li style="list-style-type:circle"><strong>Nota</strong>: Por buenas prácticas, es importante que los ID y el nombre contengan la palabra SUB, como en la imagen del ejemplo.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="c4c6f85a-80bc-42a8-90f9-1b81cf1e6a2b" class="bulleted-list"><li style="list-style-type:disc"><strong>Paso 3: Creación de la SubReceta</strong><div style="display:contents" dir="auto"><ul id="f78a7622-5a26-4e64-885c-bbf612804730" class="bulleted-list"><li style="list-style-type:circle">Ir a Menú lateral → Stock Control → Ingredientes y Recetas →Recetas.</li></ul></div><div style="display:contents" dir="auto"><ul id="a0a66ce0-1eed-4f22-8fcb-28a341532dfb" class="bulleted-list"><li style="list-style-type:circle">Allí, iremos a Extras Sin Recetas y buscaremos nuestra Sub:</li></ul></div><div style="display:contents" dir="ltr"><figure id="c4411d87-a4a5-4979-92d5-feeff2b7df1a" class="image"><a href="2%203%20Crear%20Sub-recetas%20Preelaborados/Untitled%202.png"><img style="width:679.984375px" src="2%203%20Crear%20Sub-recetas%20Preelaborados/Untitled%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="3fde2ff4-b94b-4b08-8d84-881c7745bc57" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="df2eae98-3027-4f66-8653-34a98c7f34f0" class="bulleted-list"><li style="list-style-type:circle">Le daremos click al lápiz e ingresaremos los campos que pide el sistema (Cantidad a producir, Unidad de medida Cantidad, Porciones/kg, Usar solo en transacciones de transformación).</li></ul></div><div style="display:contents" dir="auto"><p id="7bef7acc-75e0-49aa-ab82-780309b4dd1f" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="0d571c9f-21e5-43d6-802b-77f0a58a633c" class="image"><a href="2%203%20Crear%20Sub-recetas%20Preelaborados/Untitled%203.png"><img style="width:679.9921875px" src="2%203%20Crear%20Sub-recetas%20Preelaborados/Untitled%203.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="608c9cbb-8ef4-481c-b479-801907a3de32" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="106de99c-0da1-4d78-acd5-4742982db835" class="bulleted-list"><li style="list-style-type:circle">Luego, comenzaremos a cargar los insumos que se están utilizando para poder llegar a la cantidad producida.</li></ul></div><div style="display:contents" dir="auto"><p id="0dc5c0ea-5b31-4d42-ba0f-646095915cbf" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1fd40863-8036-493a-b8af-e867696f05f7" class="image"><a href="2%203%20Crear%20Sub-recetas%20Preelaborados/Untitled%204.png"><img style="width:679.984375px" src="2%203%20Crear%20Sub-recetas%20Preelaborados/Untitled%204.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2fe16212-08bb-4e8b-b8cd-db94f0bc33a5" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="5b3f1dec-d4e1-41ad-b8f1-c952280872ad" class="bulleted-list"><li style="list-style-type:circle">Siempre guardar los cambios una vez hayan sido realizados.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="3dbb1970-daec-464d-a33f-4c183a26dffc" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="eb90e3bf-ca35-4026-9343-e76358a418f1" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><p id="78d6b07c-d43e-4f72-a603-1d6e3cd0cc5f" class="">Con este proceso, se puede llevar un control de las producciones y los insumos utilizados para poder declararlas.</p></div><div style="display:contents" dir="auto"><h3 id="b704badb-179f-4324-bb0d-62601b3d57cf" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="0df3e0ae-9c5d-493b-89d6-bffe2f07caf0" class="bulleted-list"><li style="list-style-type:disc">Que el cliente no trabaje con subrecetas o producciones.</li></ul></div><div style="display:contents" dir="auto"><h3 id="7fb59bab-703c-4f5c-a555-e0a187262a86" class=""><mark class="highlight-orange">8. Puntos de control</mark></h3></div><div style="display:contents" dir="auto"><ul id="ca3fd1bd-de1a-4005-bef7-3621142d3074" class="bulleted-list"><li style="list-style-type:disc">Revisar en Menú lateral -&gt; Stock Control -&gt; Ingrediente y recetas -&gt; Recetas, allí se debe ir a extras sin recetas y ya deben aparecer las subrecetas creadas.<div style="display:contents" dir="ltr"><figure id="77650433-e812-4bf2-a841-e8e302df98bc" class="image"><a href="2%203%20Crear%20Sub-recetas%20Preelaborados/Untitled%202.png"><img style="width:679.984375px" src="2%203%20Crear%20Sub-recetas%20Preelaborados/Untitled%202.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="20562123-dbfe-47d6-840c-d83affe4f477" class="bulleted-list"><li style="list-style-type:disc">Cuando la SubReceta tenga ingredientes, esta pasará a “Extras Con Receta”.</li></ul></div><div style="display:contents" dir="auto"><h3 id="df9ce866-9418-4889-8047-7976f6124189" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="7be835ce-a0f3-4e48-8562-24f19c86f98a" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="b11054e6-b362-4347-873d-dbd19315b5af"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="9d672d86-e317-40fe-a84a-a1bdaaca47a3"><td id="nU|h" class="">10/07/2024</td><td id="WwCq" class=""><span class="user">@Marcelo Sepulveda</span>  </td><td id="i;pn" class=""><span class="user">@Francisco Ramirez</span> </td><td id="q^a=" class="">4-3002.3</td></tr></div><div style="display:contents" dir="ltr"><tr id="d0fdfacc-9135-428e-a151-9c68890f5eba"><td id="nU|h" class="">28/04/2025</td><td id="WwCq" class=""><span class="user">@Sergio Muñoz</span> </td><td id="i;pn" class=""></td><td id="q^a=" class="">4-3002.4</td></tr></div><div style="display:contents" dir="ltr"><tr id="bdbaab61-36fa-47a7-953c-ac5d1bac2af0"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1e439073-1e23-8068-a7e3-c3fad6f5e626" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1e439073-1e23-8096-99e1-f4d43d8ffa1f"><div class="source"><a href="2%203%20Crear%20Sub-recetas%20Preelaborados/Jerarquia_de_SubRecetasPreelaborados_y_Porcionamiento.mp4">attachment:412da164-b93f-4b1c-8e89-1ad9b348b502:Jerarquia_de_SubRecetasPreelaborados_y_Porcionamiento.mp4</a></div></figure></div><div style="display:contents" dir="ltr"><figure id="1e439073-1e23-8010-b4b7-ebe2cecd664f"><div class="source"><a href="2%203%20Crear%20Sub-recetas%20Preelaborados/Porcionamiento.mp4">attachment:9654704f-d7f2-4194-b884-158aa44226a0:Porcionamiento.mp4</a></div></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,745 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>5.2. Unidades de medida</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e3fdd87e-661d-4f31-a6c6-f44c2fbeeb58" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">5.2. Unidades de medida</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><nav id="10243e60-cd2c-4aa1-858c-146effe5373a" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7deea81e-bba5-4d40-b05f-34f55df69226"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#566f1203-79fb-455f-9c02-fbdf7164568d"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b66d3d1d-17c3-481c-9124-8e3235ec7056"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#272cd234-7b0c-4a0c-8e96-3f33e9885be4"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#fa760a63-e73e-474e-a9be-5548be2153ec"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7d485665-95cd-4d01-9555-ff0097037a5e"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#223b1e81-1065-4ada-abdc-f57f49bcc2fd"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d3b7603e-460d-4273-9643-15bd755292a6"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c08403c4-dc65-4d44-aebe-b9f73234791f"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="7deea81e-bba5-4d40-b05f-34f55df69226" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="dffcb4b2-37f5-45f9-9e71-4420f7154aa8" class="">La unidad de medida es el corazón del insumo o ingrediente. Como vimos en los procesos anteriores, solo manejamos tres unidades de medida base: kg, L y UN.</p></div><div style="display:contents" dir="auto"><p id="43f87b8c-c780-45c5-86cb-aefe5fa1ea3a" class="">En este proceso veremos las conversiones de unidades que podemos realizar a nuestros insumos, por ejemplo:</p></div><div style="display:contents" dir="auto"><p id="6bb5c301-8082-4564-8dcc-8fd5c904dee6" class="">&quot;1 Caja = 6 Kilogramos&quot; o &quot;Botella 750 = 0,75 Litros&quot;.</p></div><div style="display:contents" dir="auto"><p id="7fed2f78-6446-4f87-a277-911e5ce1f1d9" class="">Esta configuración nos facilitará el ingreso de facturas e igualará el formato que nos vende nuestro proveedor.</p></div><div style="display:contents" dir="auto"><p id="baccfd65-5ae3-4cef-918c-d15567582fd8" class=""><strong>Nota: Cualquier error en la definición de unidad de medida en los insumos puede causar descuadraturas en los costos, cantidades y errores asociado al descuento directo del ingrediente.</strong> </p></div><div style="display:contents" dir="auto"><h3 id="566f1203-79fb-455f-9c02-fbdf7164568d" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="6f5b1c01-43c3-481a-a0f3-555c030c3d76" class="">Este proceso abarca la configuración y gestión de unidades de medida para insumos e ingredientes en el sistema, incluyendo:</p></div><div style="display:contents" dir="auto"><ul id="92c4e364-bea2-4601-bd9b-2fb61f0ff904" class="bulleted-list"><li style="list-style-type:disc">Definición y uso de las tres unidades de medida base: kilogramos (kg), litros (L) y unidades (UN).</li></ul></div><div style="display:contents" dir="auto"><ul id="75276c61-c373-49a5-a8fc-3df1c1f1ca8d" class="bulleted-list"><li style="list-style-type:disc">Configuración de conversiones de unidades para facilitar el manejo de diferentes formatos de insumos (por ejemplo, cajas a kilogramos, botellas a litros, etc.).</li></ul></div><div style="display:contents" dir="auto"><ul id="fec766c2-892e-4e66-8ec1-0d2b7fda920f" class="bulleted-list"><li style="list-style-type:disc">Alineación de las unidades de medida del sistema con los formatos utilizados por los proveedores para facilitar el ingreso de facturas.</li></ul></div><div style="display:contents" dir="auto"><ul id="7aed5732-97e1-4b7a-927a-0b56acfa543d" class="bulleted-list"><li style="list-style-type:disc">Implementación de estas configuraciones para todos los insumos e ingredientes relevantes en el inventario del sistema.</li></ul></div><div style="display:contents" dir="auto"><p id="fec3e703-a9bf-47dd-8135-19faf08d9f56" class="">El alcance de este proceso es fundamental para garantizar la precisión en el manejo de inventarios y la eficiencia en las operaciones de compra y gestión de insumos.</p></div><div style="display:contents" dir="auto"><h3 id="b66d3d1d-17c3-481c-9124-8e3235ec7056" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><ul id="d23c7ad4-95ef-4491-a949-779cc620b199" class="bulleted-list"><li style="list-style-type:disc">Lista de insumos e ingredientes que requieren configuración de unidades de medida.</li></ul></div><div style="display:contents" dir="auto"><ul id="8bd546df-6e5c-4cc9-9a0d-3208287e04b7" class="bulleted-list"><li style="list-style-type:disc">Información sobre las unidades de medida base utilizadas en el sistema (kg, L, UN).</li></ul></div><div style="display:contents" dir="auto"><ul id="42bae7fc-467c-436a-9ba5-e4a993d1d9e2" class="bulleted-list"><li style="list-style-type:disc">Datos sobre las conversiones de unidades necesarias para cada insumo (por ejemplo, cajas a kilogramos, botellas a litros, etc.).</li></ul></div><div style="display:contents" dir="auto"><ul id="fe564474-0ecb-4c0a-b6c5-bb117dd10d39" class="bulleted-list"><li style="list-style-type:disc">Formatos de unidades utilizados por los proveedores para cada insumo.</li></ul></div><div style="display:contents" dir="auto"><p id="d3ad15b0-2aad-4f1f-b073-0ddeae20fa69" class="">Esta información es crucial para configurar correctamente las unidades de medida y garantizar la precisión en el manejo de inventarios y la eficiencia en las operaciones de compra.</p></div><div style="display:contents" dir="auto"><h3 id="272cd234-7b0c-4a0c-8e96-3f33e9885be4" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="8388b344-41a5-43eb-b6a0-8bc47b6ca561" class="toggle"><li><details open=""><summary><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="ded98346-e76b-4a71-8d07-cfda94250425" class="bulleted-list"><li style="list-style-type:disc">Poseer los permisos necesarios en el sistema para modificar los insumos de manera masiva o individual.</li></ul></div><div style="display:contents" dir="auto"><ul id="9d3b7982-174a-4383-807b-04758ccc9926" class="bulleted-list"><li style="list-style-type:disc">Listado de ingredientes configurado en el sistema.</li></ul></div><div style="display:contents" dir="auto"><ul id="49fb18d8-186c-4278-b7e6-ca01bd1ace64" class="bulleted-list"><li style="list-style-type:disc">Formato de compra utilizado por proveedores.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="fa760a63-e73e-474e-a9be-5548be2153ec" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="17b1349c-6ccc-4ff9-90ad-abee0c3e677c" class="toggle"><li><details open=""><summary><strong>Paso 1: Identificar el ingrediente</strong></summary><div style="display:contents" dir="auto"><ul id="de1aa3e0-beb7-465c-980f-deee9a2bdfc1" class="bulleted-list"><li style="list-style-type:disc">En la sección de ingredientes, haga clic en el ícono de lápiz del ingrediente deseado.</li></ul></div><div style="display:contents" dir="auto"><ul id="bf441f31-1e15-4b1b-99ed-ea0decf3dbe6" class="bulleted-list"><li style="list-style-type:disc">Verifique que la &quot;Medida Base&quot; sea kg, L o UN.</li></ul></div><div style="display:contents" dir="auto"><ul id="b09db7ac-920c-4db4-aad3-ff33489baeae" class="bulleted-list"><li style="list-style-type:disc">Dentro del insumo, vaya a &quot;Unidades de medida&quot;.</li></ul></div><div style="display:contents" dir="auto"><ul id="1417169e-125c-457f-b00a-7ae5816d02cc" class="bulleted-list"><li style="list-style-type:disc">Asegúrese de que la primera conversión sea la misma unidad de medida que se muestra fuera (Paso 1.2).</li></ul></div><div style="display:contents" dir="auto"><ul id="1cb7ff82-ad67-4143-a0ca-47faddee92d2" class="bulleted-list"><li style="list-style-type:disc">Haga clic en &quot;Agregar Conversión&quot; y configure los parámetros deseados.</li></ul></div><div style="display:contents" dir="auto"><ul id="f107ac4e-1300-4202-ab3b-49ec0df6003c" class="bulleted-list"><li style="list-style-type:disc">En &quot;Unidad de medida&quot;, defina la unidad a la que desea convertir (por ejemplo, CAJA, Botella, etc.).</li></ul></div><div style="display:contents" dir="auto"><ul id="33896448-0fb7-4296-a313-0744cd0dc13f" class="bulleted-list"><li style="list-style-type:disc">La &quot;Unidad de Medida Base&quot; debe ser siempre la misma que se muestra fuera.</li></ul></div><div style="display:contents" dir="auto"><ul id="78dcd284-bca9-4984-aecb-8c55c192f2c9" class="bulleted-list"><li style="list-style-type:disc">Una vez completado, haga clic en &quot;Confirmar&quot; y luego en &quot;Grabar Ingredientes&quot;.</li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-80ce-b460-f1e1ce9f3eee" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota Importante: “Si el insumo es UN, no es necesario dejar la primera conversion UN=UN. Se puede comenzar de inmediato con la conversion, Ejm: PACK = 6UN.”</strong></li></ul></div><div style="display:contents" dir="auto"><p id="15f39073-1e23-8081-b170-d4dea5ceba87" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="facbac93-ae91-4a63-82d2-b3cac979e2bd" class="toggle"><li><details open=""><summary><strong>Paso 2 (Método Masivo): Descargar el archivo</strong></summary><div style="display:contents" dir="auto"><ul id="716b5fd1-0e62-48f7-b29e-9811af977218" class="bulleted-list"><li style="list-style-type:disc">Utilice el archivo XLS.ADV mencionado anteriormente.</li></ul></div><div style="display:contents" dir="auto"><ul id="cc06428a-37ee-4f19-9ef6-7778832baf5e" class="bulleted-list"><li style="list-style-type:disc">Trabaje desde la columna BI hasta BP, enfocándose en las columnas BI, BJ, BN, BK y BL.</li></ul></div><div style="display:contents" dir="ltr"><figure id="a7151acf-f712-449c-822e-07d9e2996107" class="image"><a href="5%202%20Unidades%20de%20medida/image.png"><img style="width:708px" src="5%202%20Unidades%20de%20medida/image.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="ada04510-5d84-4cb8-8977-3dbe8dd5028a" class="bulleted-list"><li style="list-style-type:disc">Una vez completado, seleccione todo el Excel, cópielo y haga clic en el botón &quot;Adv. Paste&quot;.</li></ul></div><div style="display:contents" dir="auto"><ul id="8759fa9b-62c3-4872-a576-80d50c1bfaf3" class="bulleted-list"><li style="list-style-type:disc">Aparecerá un mensaje confirmando la cantidad de productos/insumos modificados.</li></ul></div><div style="display:contents" dir="auto"><ul id="17ac3d50-177a-4191-9c92-baf505e428b8" class="bulleted-list"><li style="list-style-type:disc">Finalmente, haga clic en &quot;Grabar ingredientes&quot; en la parte superior.</li></ul></div><div style="display:contents" dir="auto"><p id="15f39073-1e23-80ef-96cc-da0fd8208a5f" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="7d485665-95cd-4d01-9555-ff0097037a5e" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="e9ff15dc-9789-4b05-b467-7eec739bb9d7" class="bulleted-list"><li style="list-style-type:disc">Insumos con los formatos de proveedores.</li></ul></div><div style="display:contents" dir="auto"><ul id="53f6bf88-f79b-4fa2-819b-f7cfd82d25d4" class="bulleted-list"><li style="list-style-type:disc">Registro de la configuración realizada para futuras referencias o auditorías.</li></ul></div><div style="display:contents" dir="auto"><h3 id="223b1e81-1065-4ada-abdc-f57f49bcc2fd" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="e3bf9d51-11f9-4ef4-b042-b6d32c0dff0f" class="bulleted-list"><li style="list-style-type:disc">Si no se manejaran conversiones de unidades.</li></ul></div><div style="display:contents" dir="auto"><h3 id="d3b7603e-460d-4273-9643-15bd755292a6" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="ec19f0d0-eb4b-44b9-bd55-ee78fe4def89" class="bulleted-list"><li style="list-style-type:disc">Luego de haber grabado, ingresar para revisar lo existente.</li></ul></div><div style="display:contents" dir="auto"><h3 id="c08403c4-dc65-4d44-aebe-b9f73234791f" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="5f7d0531-7f3a-46fb-bba9-3196a7a492f2" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="097ba904-a9a0-4095-bd48-4211cc1cc527"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="49ed02b2-e1a9-499f-b838-26aa2f1d6498"><td id="nU|h" class="">04-09-2024</td><td id="WwCq" class=""><span class="user">@Marcelo Sepulveda</span> </td><td id="i;pn" class=""><span class="user">@Francisco Ramirez</span> </td><td id="q^a=" class="">4-3005.2</td></tr></div><div style="display:contents" dir="ltr"><tr id="b77318f0-2909-4c93-8f4a-fbc24f1cd175"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="e1323748-7390-4e54-9eee-3b2329b6fcff"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="7867ca69-adaa-4e5f-ae3d-15000a321488"/></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

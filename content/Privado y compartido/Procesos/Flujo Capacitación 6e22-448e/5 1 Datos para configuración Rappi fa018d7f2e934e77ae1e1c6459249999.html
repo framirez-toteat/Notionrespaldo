@@ -1,0 +1,744 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>5.1. Datos para configuración Rappi</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="fa018d7f-2e93-4e77-ae1e-1c6459249999" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">5.1. Datos para configuración Rappi</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><nav id="12f39073-1e23-805f-8654-c79a10432d46" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-8001-a89b-f10de3ac14c6"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-80a3-ac91-cdadf20e9e4f"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-8019-81fd-dfceb6947e25"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-80ba-8332-ccf15dba0b44"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-800d-9d22-d6be74dc3179"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-8032-852e-f9d6a3effb2d"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-803d-b700-ca02c7fcdd98"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-802a-a7c9-e9960757d134"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-806b-9687-cbd79b9d66e2"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-8001-a89b-f10de3ac14c6" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-8083-b004-cbcaa7c61153" class="">En este módulo, abordaremos los campos de configuración más importantes durante la activación de la integración de Toteat con Rappi.</p></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-80a3-ac91-cdadf20e9e4f" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-80de-885f-e0892af3716d" class="">Para iniciar el proceso de integración con Rappi, es crucial comprender las configuraciones necesarias para garantizar un proceso de integración exitoso. <br/>Las configuraciones de las APIs incluyen campos estándar que siempre deben configurarse, así como campos específicos que requieren datos exclusivos de Rappi.</p></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-8019-81fd-dfceb6947e25" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-80df-826b-d4a9b794da3c" class="">Cuando el cliente desea iniciar su operación con la integración de Rappi, comienza este proceso de solicitud y recopilación de datos para las configuraciones para llevar a cabo la integración con Rappi.</p></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-80ba-8332-ccf15dba0b44" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-80da-aba1-d41836e6a8a1" class="toggle"><li><details open=""><summary><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="5f645737-20e7-4ffa-beaf-e26a155a9c29" class="bulleted-list"><li style="list-style-type:disc">Ser personal autorizado de Toteat para la activación de los procesos de integraciones y tener conocimientos sólidos sobre el proceso de activación en la integración Rappi-Toteat.</li></ul></div><div style="display:contents" dir="auto"><ul id="4b032a70-2977-4c14-a9ba-f5cad3fcb2a4" class="bulleted-list"><li style="list-style-type:disc">Confirmar que el cliente ya esté creado y activo en Rappi.</li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8095-8a40-fe40ecbb928d" class="bulleted-list"><li style="list-style-type:disc">Verificar que el cliente no esté vinculado a otro punto de venta (POS) antes de iniciar la integración.</li></ul></div><div style="display:contents" dir="auto"><ul id="4e69382e-804e-47c3-accb-7167b2602f66" class="bulleted-list"><li style="list-style-type:disc">Si el cliente está asociado a otro POS, solicitar que realice la baja antes de proceder con nuestra integración.</li></ul></div><div style="display:contents" dir="auto"><ul id="81d99234-182e-4b17-bcec-28cc7bd46ae2" class="bulleted-list"><li style="list-style-type:disc">Asegurar que el cliente tenga los datos necesarios para la integración con Rappi:<div style="display:contents" dir="auto"><ul id="12f39073-1e23-8028-b7ec-ed805f8b9a99" class="bulleted-list"><li style="list-style-type:circle">Store ID de Rappi.</li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-80ae-b410-d0bb220c1beb" class="bulleted-list"><li style="list-style-type:circle">Precios por lista para Rappi.</li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-80fa-9e17-e7ef1cd0bd5b" class="bulleted-list"><li style="list-style-type:circle">Validación si es tienda única, Padre o Hija.<div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12f39073-1e23-805f-9a9c-da3e59ef3863"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><ul id="12f39073-1e23-80c4-91b6-e004aec67c1e" class="bulleted-list"><li style="list-style-type:disc">En caso de ser tienda Hija, el cliente debe otorgar al agente de Toteat encargado de realizar la integración, el Store ID de la tienda Padre.</li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8075-bb68-c423b7f613f8" class="bulleted-list"><li style="list-style-type:disc"> Si la tienda Padre no está integrada con Toteat o no está con Toteat, se debe solicitar la desvinculación para que la tienda Hija pueda manejarse de manera única.</li></ul></div></div></figure></div></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="979ce046-7faa-4b2b-80ad-ff6b945c6d1a" class="bulleted-list"><li style="list-style-type:disc">Confirmar con el cliente que los productos tengan imágenes (Mínimo el 80% de los productos)</li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8093-9adc-e6f53ae77bd0" class="bulleted-list"><li style="list-style-type:disc">Validar estructura del menú de acuerdo a lo que el cliente requiere y verificar que se cumplan con las restricciones que Rappi exige para la recepción del menú.</li></ul></div><div style="display:contents" dir="auto"><ul id="f0fa1827-9581-49f9-9501-be431fe3133a" class="bulleted-list"><li style="list-style-type:disc">Programar la integración para inicios de semana e informar al cliente sobre el tiempo de activación de 1 a 3 días hábiles.<div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12f39073-1e23-808e-8abf-c9cc594121c9"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><ul id="12f39073-1e23-809c-bb36-e99e0ef1a1dc" class="bulleted-list"><li style="list-style-type:disc">Es importante asegurarse de tener los datos de configuraciones y el menú en Toteat completamente exactos a lo que se requiere en Rappi y aprobado por el cliente, antes de solicitar la integración. </li></ul></div></div></figure></div></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-800d-9d22-d6be74dc3179" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-800d-842a-cec5cfdf4e70" class="toggle"><li><details open=""><summary><strong>Paso 1: Solicitud de Datos vía correo</strong></summary><div style="display:contents" dir="auto"><ul id="c9f48402-5dc4-4e8f-a179-4f7934a21d76" class="bulleted-list"><li style="list-style-type:disc">El agente encargado de realizar la activación de la integración Rappi- Toteat debe solicitar los datos de configuración vía correo electrónico. </li></ul></div><div style="display:contents" dir="auto"><ul id="2f9a09a6-2820-49bf-807d-d746147ff5f7" class="bulleted-list"><li style="list-style-type:disc">Se requiere la siguiente información:<br/>1.- Store ID de Rappi.<div style="display:contents" dir="auto"><p id="12f39073-1e23-800b-828c-c802b73cda76" class="">2.- Validación si es tienda única, Padre o Hija.</p></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-809e-97c4-e74fb5aa38a3" class="">3.- Validar estructura del menú de acuerdo a lo que el cliente requiere.</p></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-8013-b0b2-d3f07c003cc5" class="">4.- Precios por lista a usar en Rappi, para ello se debe crear el precio por lista en el ambiente e identificarlo con el nombre de la marca-Rappi, posteriormente, se debe descargar en formato de Excel, el archivo de precio por lista y enviarlo al cliente. </p></div><div style="display:contents" dir="auto"><blockquote id="12f39073-1e23-8078-8466-e06a3cac9257" class="">-En la columna de precio por lista, el cliente deberá colocar los precios a manejar en dicha plataforma. <br/><br/>-<em><strong>Si no desea que un producto sea visible en Rappi, deberá dejar la celda en blanco (sin datos).<br/></strong></em><br/>-<em><strong>Este proceso debe realizarse tanto para los productos como para los extras, </strong></em>asegurándonos de que la información sea completa y precisa para una correcta implementación en la plataforma de Rappi.</blockquote></div></li></ul></div><div style="display:contents" dir="auto"><ul id="0c5020ce-dce4-4401-acf2-ea4e0a478490" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: El cliente debe responder a lo solicitado a través del mismo correo, con el fin de mantener un registro formal de los datos.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-80c9-8760-e7c0a24be710" class="toggle"><li><details open=""><summary><strong>Paso 2: Ubicación del Store id en la plataforma de Rappi.</strong></summary><div style="display:contents" dir="auto"><ul id="927ceac8-a36c-44b8-bad7-0e2581ac23e6" class="bulleted-list"><li style="list-style-type:disc">Ingresar al portal Rappi Aliados con las credenciales que Rappi te otorgo.<div style="display:contents" dir="ltr"><figure id="12f39073-1e23-805c-9b18-f716220a38b1" class="image"><a href="5%201%20Datos%20para%20configuraci%C3%B3n%20Rappi/paso_1.png"><img style="width:651.9722290039062px" src="5%201%20Datos%20para%20configuraci%C3%B3n%20Rappi/paso_1.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-80ee-b3fc-dd585fe43bde" class="bulleted-list"><li style="list-style-type:disc">Despliega el menú en la barra lateral izquierda.<div style="display:contents" dir="ltr"><figure id="12f39073-1e23-80c2-8af4-c647a3b4d159" class="image"><a href="5%201%20Datos%20para%20configuraci%C3%B3n%20Rappi/paso_2.png"><img style="width:679.9722290039062px" src="5%201%20Datos%20para%20configuraci%C3%B3n%20Rappi/paso_2.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-805d-9833-dc15f5f37139" class="bulleted-list"><li style="list-style-type:disc">Selecciona la opción <strong>“Mi cuenta”</strong><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-80f5-aea9-e60d81be6a64" class="image"><a href="5%201%20Datos%20para%20configuraci%C3%B3n%20Rappi/paso_3.png"><img style="width:679.9722290039062px" src="5%201%20Datos%20para%20configuraci%C3%B3n%20Rappi/paso_3.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-80dd-9f3c-eb462a30bd2f" class="bulleted-list"><li style="list-style-type:disc">Ubica la sección de mis tiendas. Una vez allí, podrás ubicar el store id correspondiente.<div style="display:contents" dir="ltr"><figure id="12f39073-1e23-8056-8a29-d5ca73177122" class="image"><a href="5%201%20Datos%20para%20configuraci%C3%B3n%20Rappi/store_id.png"><img style="width:651.9722290039062px" src="5%201%20Datos%20para%20configuraci%C3%B3n%20Rappi/store_id.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-808e-a150-c63e4bf3522b" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: Esta tarea debe ser realizada por el cliente. Es importante que el cliente verifique que está en el portal Rappialiados correcto, especialmente si posee varias marcas. Este paso es crucial para asegurar que se esté trabajando con la marca adecuada y se eviten errores en el proceso.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-802e-b570-e659523bbc60" class="toggle"><li><details open=""><summary><strong>Paso 3: Validación si es tienda única, Padre o Hija.</strong></summary><div style="display:contents" dir="auto"><p id="12f39073-1e23-8076-94b5-d8225a482670" class="">En este caso, si el cliente no está seguro del tipo de tienda que es su restaurante en Rappi, e existen varias formas de obtener esa información:</p></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-8041-a301-f511c67e3f8f" class="">1.- Realizar la consulta a la Kam de Rappi.</p></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-803c-82f7-d77d8c076b24" class="">2.- Realizar la consulta a Soporte de Rappi:  <a href="http://wa.me/5715140348">http://wa.me/5715140348</a></p></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-8004-b6e2-ebadf5476eb7" class="">3.- Realizar la validación en el grupo de Whatsapp que se tiene con rappi para las activaciones.</p></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-80e3-ac12-cd389166ccfb" class="image"><a href="5%201%20Datos%20para%20configuraci%C3%B3n%20Rappi/image.png"><img style="width:144px" src="5%201%20Datos%20para%20configuraci%C3%B3n%20Rappi/image.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-80c7-803f-fb94952126dd" class="toggle"><li><details open=""><summary><strong>Paso 4: Datos del Api de Toteat.</strong></summary><div style="display:contents" dir="auto"><ul id="527da335-0b00-4a84-a81e-cf5a9a41cdec" class="bulleted-list"><li style="list-style-type:disc">Ver Módulo  <a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API%207da512cd631145b287e6a7783ea96ecc.html"><span class="icon">📗</span>2.2. ¿Cómo se configura un API?</a></li></ul></div><div style="display:contents" dir="auto"><ul id="15939073-1e23-80ba-91ca-f1cd46a29aa7" class="bulleted-list"><li style="list-style-type:disc">Id externo del Restaurante:  </li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-8032-852e-f9d6a3effb2d" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-80f4-ba39-d602d96bdad1" class="bulleted-list"><li style="list-style-type:disc">Disponer de los datos de configuración para la integración de Rappi es fundamental para agilizar y garantizar una ejecución correcta. Esta información permite realizar el proceso rápidamente, asegurando que se cumplan los parámetros establecidos. Así, no sólo se optimiza el tiempo empleado en la activación de la integración, sino que también se asegura la precisión y fiabilidad del proceso.</li></ul></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-803d-b700-ca02c7fcdd98" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8023-b874-e191d29495cc" class="bulleted-list"><li style="list-style-type:disc">Toda integración que no corresponda a Delivery.</li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-802f-be76-c17242f81495" class="bulleted-list"><li style="list-style-type:disc">Restaurantes que aún no se encuentren vinculados en la plataforma de Rappi.</li></ul></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-802a-a7c9-e9960757d134" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8099-97d9-fcae9c16431f" class="bulleted-list"><li style="list-style-type:disc">Revisión del proceso de obtención de datos de Rappi.</li></ul></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-806b-9687-cbd79b9d66e2" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="12f39073-1e23-80ac-8413-d9ac38826636" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="da9466cf-e22d-47b5-bc74-5cc613bf44dd"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="8a26126b-7766-42b1-8f36-d92b0ee7355b"><td id="nU|h" class="">30-10-2024</td><td id="WwCq" class=""><span class="user">@Andrea Carolina Ruiz</span> </td><td id="i;pn" class=""><span class="user">@Francisco Ramirez</span> </td><td id="q^a=" class="">4019.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="829e5993-bcb9-4e5e-a862-69efa92f9043"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="c49cead1-73ae-488e-a3b3-ae5a8875eb91"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1a439073-1e23-806c-9b3a-de094047792d" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,748 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>4.8 Proceso de facturación Argentina DTE Toteat</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2e939073-1e23-8007-87ca-fb06b7bc5c82" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">4.8 Proceso de facturación Argentina DTE Toteat</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2e939073-1e23-804f-b27e-fb680a99cbef" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2e939073-1e23-8010-b66a-e277f3fbef94" class=""><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-80df-b496-cc4a12377b4e" class="">Proporcionar al equipo de participantes los conocimientos necesarios para comprender el proceso de emisión y gestión de DTE en Argentina cuando Toteat es el proveedor de mercado.</p></div><div style="display:contents" dir="auto"><h3 id="2e939073-1e23-809d-b701-f2b40399fb4b" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-8065-be01-c8dca595572f" class="">Debe aplicarse al equipo de operaciones Toteat</p></div><div style="display:contents" dir="auto"><h3 id="2e939073-1e23-8045-9bbe-f1abeaf8dfe6" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-8052-862a-e58260c74611" class="">El quipo de operaciones Toteat deberá tomar la capacitación DTE al menos una vez </p></div><div style="display:contents" dir="auto"><h3 id="2e939073-1e23-80fe-8151-f43a9d72f8a2" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-8027-9ba4-fa629e44ff09" class=""><strong>Las personas que tomen la capacitación deben:<br/></strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-8089-b1b6-d0a04242eb88" class="numbered-list" start="1"><li>Pertenecer al equipo de Operaciones</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-806b-a1cb-c09d71df8d4a" class="numbered-list" start="2"><li>Tener conocimientos previos sobre la herramienta TRM</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-802e-925b-d057bcbb7ef1" class="numbered-list" start="3"><li>Encontrarse en periodo productivo y no en periodo de Pruebas </li></ol></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-80e5-8d3c-d5b6839508fc" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2e939073-1e23-800a-ab0c-fb3fd7316ea9" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-80e3-8647-ef5fd6922cc7" class="">Como proveedores de mercado, estamos en la capacidad y alcance de gestionar peticiones y solicitudes de los clientes de manera eficiente y a gran escala. <br/>Contamos con los permisos, portales y herramientas para proporcionar soluciones rápidas y efectivas, asegurando que todas las necesidades de nuestros clientes sean atendidas con el más alto nivel de calidad y profesionalismo.</p></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-80c6-85b6-fdc76153b9b6" class="">Existen dos situaciones para la activación del servicio de emisión Directo Toteat - Arca </p></div><div style="display:contents" dir="auto"><ul id="2e939073-1e23-80a5-b270-e9a5a7924fd1" class="toggle"><li><details open=""><summary>Migración de Facturante a ToteatArg</summary><div style="display:contents" dir="auto"><p id="2e939073-1e23-80f7-a001-d536d971541c" class="">Cuando un local está facturando a través de Facturante y desea comenzar a emitir desde el servicio de ToteatArg, contamos con la información necesaria para realizar el cambio de proveedor.</p></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-8077-a524-e358ec305117" class="">El cliente puede elegir si desea continuar utilizando el mismo Punto de Venta (CAE) o solicitar uno nuevo para el cambio de proveedor de facturación.</p></div><div style="display:contents" dir="auto"><h3 id="2e939073-1e23-80e1-9a8b-d5eb17b0a05e" class=""><strong>Documentos requeridos:</strong></h3></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-80d6-9dbd-e60dad0421db" class="">a. CUIT</p></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-8019-b85c-e48012da4f10" class="">b. Razón Social </p></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-8025-84e5-cdedbfd36f76" class="">c. Punto de Venta (CAE) </p></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-807a-bf78-f7fe298bab30"><div class="source"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/ACTIVACIN_DE_LA_FACTURA_ELECTRONICA_ARGENTINA_CON_TOTEAT_DTE_DIRECTO.pdf">ACTIVACIÓN DE LA FACTURA ELECTRONICA ARGENTINA CON TOTEAT DTE DIRECTO.pdf</a></div></figure></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-8065-a582-f95769d96d34" class="">d. Fecha de inicio de actividades</p></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-8020-894c-fecf2bc5af6d" class="">e. IIBB (Numero de ingresos Brutos)</p></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-80cd-ac33-fac1985d4c0a" class="">f. ID Toteat</p></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="2e939073-1e23-80b5-b10e-d86980c37c18" class=""><strong>Creación del certificado CRT: </strong></h3></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-807c-aa1d-f9b8b48a59d0" class="">Con la información anterior, se envía la solicitud a <strong>Diego Sánchez</strong>, quien genera el certificado <strong>.csr</strong>.</p></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-806b-ba93-fbefba714e56" class="">Este archivo se envía al cliente, quien debe realizar el siguiente proceso:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-80bb-a512-d3301d44b8fd" class="numbered-list" start="1"><li>Ingresar a <strong>AFIP</strong> con su Clave Fiscal.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-80a2-8177-d023af3083ce" class="numbered-list" start="2"><li>Ir al servicio <strong>“Administración de Certificados Digitales”</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-8026-9481-f667423ddfca" class="numbered-list" start="3"><li>Seleccionar el <strong>CUIT</strong> de la empresa.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-80e1-99bb-cd21038689fe" class="numbered-list" start="4"><li>Elegir <strong>“Nuevo Certificado”</strong> y subir el archivo <strong>.csr</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-808e-ac62-e5df3543ca7e" class="numbered-list" start="5"><li>Descargar el <strong>certificado firmado (.crt)</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-8032-b5ab-dbc7ae305162" class="numbered-list" start="6"><li>Enviar el archivo <strong>.crt</strong> dentro de una carpeta <strong>ZIP</strong>.</li></ol></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-80df-9856-df122aa1b636" class="image"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image.png"><img style="width:681.9750366210938px" src="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-8056-9acf-da8054d38b19" class="image"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%201.png"><img style="width:653.9625244140625px" src="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-800a-9790-d6532465e82a" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2e939073-1e23-80d4-bd5d-f35454e7f042" class="">Verificación de servicios habilitados</h3></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-809d-9903-f75a4fe2468c" class="">Antes de continuar, verificar que el CUIT tenga habilitado el servicio de <strong>Factura Electrónica (FE)</strong>:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-8027-8b2a-db02c298214f" class="numbered-list" start="1"><li>Ingresar a <strong>Administrador de Relaciones de Clave Fiscal</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-80da-b347-fb680b543d24" class="numbered-list" start="2"><li>Hacer clic en <strong>“Nueva relación”</strong> (si no está creada).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-800f-a3da-e7fb2e993498" class="numbered-list" start="3"><li>Buscar el servicio <strong>“WebService – Factura Electrónica”</strong> (también puede figurar como <em>WSFE - Factura Electrónica</em> o <em>Factura Electrónica - WS</em>).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-8073-9838-d52b48234670" class="numbered-list" start="4"><li>Seleccionar el servicio.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-805c-a2df-d7a51a1129a9" class="numbered-list" start="5"><li>En la siguiente pantalla:<div style="display:contents" dir="auto"><ul id="2e939073-1e23-80ad-b8f9-fa15a8173105" class="bulleted-list"><li style="list-style-type:disc">Si la empresa emitirá con su propio sistema (como en este caso):<div style="display:contents" dir="auto"><p id="2e939073-1e23-802a-bb19-c823b9dfe347" class="">Seleccionar <strong>“Representación directa”</strong>.</p></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-8033-a7b7-ee6378ae3d48" class="">Representado: (el mismo CUIT).</p></div></li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-8029-875b-e144401fde1a" class="numbered-list" start="6"><li>Confirmar los datos, aceptar y generar el <strong>PDF</strong> del procedimiento.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-8030-8d0e-c77688c44e21" class="numbered-list" start="7"><li>Firmar y confirmar electrónicamente la relación.</li></ol></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-801b-9f62-ecd16a626035" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2e939073-1e23-8019-9b62-dc8b21acefe7" class="">Configuración y activación en DTE</h3></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-80f5-8cf9-c41e74699f92" class="">a. Buscar el <strong>ID Toteat</strong> correspondiente y proceder con la migración del proveedor. </p></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-80dd-bb4c-f415eeb05f5b" class="image"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%202.png"><img style="width:681.9625244140625px" src="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-8013-a6e4-cd589d63a85b" class="">b. En la pestaña <strong>“EDI”</strong>, desactivar la empresa.</p></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-8028-a15b-e4bd58eba213" class="image"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%203.png"><img style="width:681.9625244140625px" src="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-80e1-a0bc-c6795a52df34" class="">c. Luego de presionar el botón <strong>“Desactivar”</strong>, se visualizará la opción <strong>“Cambiar Proveedor Arg”</strong>.<br/></p></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-80e0-a91a-f8120aa0c396" class="image"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%204.png"><img style="width:672px" src="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-80f6-bffd-f82dbeda343a" class="">d. Al oprimir <strong>“Cambiar Proveedor Arg”</strong>, volver a la página principal y filtrar por el CUIT.<br/></p></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-80d4-b1c1-dab06a6aec77" class="image"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%205.png"><img style="width:681.9500122070312px" src="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="2e939073-1e23-8058-a9fe-d8ec6f599332" class="bulleted-list"><li style="list-style-type:disc">En el campo <strong>Proveedor</strong>, deberá visualizarse <strong>ToteatArg</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2e939073-1e23-802f-97db-f3e429afbef3" class="bulleted-list"><li style="list-style-type:disc">El ID del local mostrará temporalmente la palabra <strong>“Baja”</strong>, que se corregirá en los pasos siguientes.</li></ul></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-80c8-9d22-d5fd0b5be780" class="">e. Carga de certificados</p></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-8015-be0a-d7454a98f0b0" class="">En la pestaña <strong>“CER”</strong>, cargar los archivos correspondientes:</p></div><div style="display:contents" dir="auto"><ul id="2e939073-1e23-803b-88a9-dfc8a10e6fe9" class="bulleted-list"><li style="list-style-type:disc"><strong>Certificado (.CRT):</strong> el que envía el cliente (paso 2.6).</li></ul></div><div style="display:contents" dir="auto"><ul id="2e939073-1e23-807f-acc6-f2c6894a5541" class="bulleted-list"><li style="list-style-type:disc"><strong>KEY (.KEY):</strong> el que genera Diego y se entrega al cliente (paso 2).</li></ul></div><div style="display:contents" dir="auto"><ul id="2e939073-1e23-80f2-b502-f40971300aac" class="bulleted-list"><li style="list-style-type:disc"><strong>Password Key:</strong> <code>diego123.,</code> (clave otorgada por Diego).</li></ul></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-80a5-b63e-ee210438ea3c" class="image"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%206.png"><img style="width:681.9874877929688px" src="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-8035-88ac-fd959a269b46" class="">Una vez completados los campos, presionar <strong>“Enviar”</strong>.</p></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-80e2-9519-f8e9b018a4db" class="">f. Configuración final en DTE</p></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-8051-b536-ca6bf906a2dd" class="numbered-list" start="1"><li>Volver a la pestaña <strong>“EDI”</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-80b6-8827-f23933ef29bf" class="numbered-list" start="2"><li>Eliminar la palabra <strong>“Baja”</strong>, dejando únicamente el número correspondiente al ID de Toteat.<div style="display:contents" dir="ltr"><figure id="2e939073-1e23-80ff-9004-e303fcc55be0" class="image"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%207.png"><img style="width:681.9625244140625px" src="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%207.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-80cb-9e64-fc8af6ddcb6a" class="numbered-list" start="3"><li>Configurar los siguientes campos:<div style="display:contents" dir="auto"><ul id="2e939073-1e23-807e-92bc-de69010c9b32" class="bulleted-list"><li style="list-style-type:disc"><strong>URL para token:</strong> <code>https://wsaa.afip.gov.ar/ws/services/LoginCms</code></li></ul></div><div style="display:contents" dir="auto"><ul id="2e939073-1e23-8029-81ce-c6db340c9246" class="bulleted-list"><li style="list-style-type:disc"><strong>URL para data:</strong> <code>https://servicios1.afip.gov.ar/wsfev1/service.asmx</code></li></ul></div><div style="display:contents" dir="auto"><ul id="2e939073-1e23-8033-85d0-e15d428b4097" class="bulleted-list"><li style="list-style-type:disc"><strong>Régimen:</strong> RI (Responsable Inscripto)</li></ul></div><div style="display:contents" dir="auto"><ul id="2e939073-1e23-8052-b425-ed089d77a28c" class="bulleted-list"><li style="list-style-type:disc"><strong>IIBB:</strong> según el número indicado por el cliente o previamente configurado en Facturante.</li></ul></div><div style="display:contents" dir="auto"><ul id="2e939073-1e23-8013-bb86-facb9baa83a5" class="bulleted-list"><li style="list-style-type:disc"><strong>Fecha de inicio de actividades:</strong> la informada por el cliente.</li></ul></div><div style="display:contents" dir="auto"><ul id="2e939073-1e23-80bd-a430-e648e60ed7e6" class="bulleted-list"><li style="list-style-type:disc"><strong>Pto. de Venta AFIP (ARCA):</strong> el punto indicado en la constancia de AFIP.<div style="display:contents" dir="ltr"><figure id="2e939073-1e23-8041-948b-e140209e8531" class="image"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/f9b7e164-f8db-4d83-8edd-e3f6e52ce0ac.png"><img style="width:605.2313883299798px" src="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/f9b7e164-f8db-4d83-8edd-e3f6e52ce0ac.png"/></a><figcaption>Siempre debe decir “RECE para aplicativo y we services”</figcaption></figure></div></li></ul></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-801d-913a-d4f7366451ab" class="image"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%208.png"><img style="width:681.9375px" src="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%208.png"/></a><figcaption>Campos en DTE </figcaption></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2e939073-1e23-802b-b113-d364b8feab13" class="numbered-list" start="4"><li>Presionar <strong>“Activar”</strong> para habilitar al cliente.<div style="display:contents" dir="auto"><p id="2e939073-1e23-800f-b4b9-f385d091d5ab" class="">Al activar:</p></div><div style="display:contents" dir="auto"><ul id="2e939073-1e23-80fe-b27c-e0b03c8317df" class="bulleted-list"><li style="list-style-type:disc">Dejará de visualizarse el botón <strong>“Cambiar Proveedor Arg”</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2e939073-1e23-806f-8e83-e134f2e3723b" class="bulleted-list"><li style="list-style-type:disc">Verificar que el estado aparezca <strong>en verde</strong>, el <strong>proveedor sea ToteatArg</strong>, y el <strong>ID Toteat</strong> sea el correcto.</li></ul></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-802e-9b88-fcd5be9c3ee4" class="image"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%209.png"><img style="width:681.9874877929688px" src="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%209.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-807c-bc09-e8bc40a2c4d1" class="image"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%2010.png"><img style="width:681.9125366210938px" src="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%2010.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-80b1-98a4-fa976e7c6762" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2e939073-1e23-804b-9f75-eeb1f373c721" class="">Prueba de emisión</h3></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-8014-bef0-c271db00f890" class="">Realizar una prueba desde <strong>TRM</strong> para confirmar que la emisión se realice exitosamente.</p></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-8081-b1c2-ec0a4ed87d78" class="image"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%2011.png"><img style="width:710px" src="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%2011.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-809d-b595-c69ed751ac7f" class="image"><a href="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%2012.png"><img style="width:655.0000610351562px" src="4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat/image%2012.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2e939073-1e23-8016-b619-d688a558c39c"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2e939073-1e23-80c7-aadb-c916f2d53d95" class="">En esta situación no es necesario realizar ningún ajuste en TRM ni en BackOffice / versiones.</p></div></div></figure></div><div style="display:contents" dir="auto"><h3 id="2e939073-1e23-8020-8673-c209d71ee030" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-80b7-93d1-e3cfde0924ee" class="">Un equipo con conocimientos integrales sobre Documentos Tributarios Electrónicos (DTE) Toteat para Argentina</p></div><div style="display:contents" dir="auto"><h3 id="2e939073-1e23-8048-95a2-f17b2e66bdca" class=""><mark class="highlight-orange">7. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><p id="2e939073-1e23-8049-ad0f-c77b6261d4a4" class="">Realizar pruebas de conocimiento a los participantes de la capacitación sobre Documentos Tributarios Electrónicos (DTE) Toteat para Argentina.</p></div><div style="display:contents" dir="auto"><h3 id="2e939073-1e23-80ba-bbec-ff361a09b36c" class=""><mark class="highlight-orange">8. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="2e939073-1e23-8051-84a9-c871756f65f2" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2e939073-1e23-8076-88c9-d08311e5f0ad"><th id="LBRD" class="simple-table-header-color simple-table-header">Fecha Actualización</th><th id="znXK" class="simple-table-header-color simple-table-header">Actualizado Por</th><th id="Nt}a" class="simple-table-header-color simple-table-header">Aprobado Por</th><th id="bc~V" class="simple-table-header-color simple-table-header">Versión </th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2e939073-1e23-80ed-901c-fe3293ff1f37"><td id="LBRD" class="">28 de Junio 2024</td><td id="znXK" class=""><span class="user">@Lorena Moreno</span> </td><td id="Nt}a" class=""><span class="user">@Francisco Ramirez</span> </td><td id="bc~V" class="">4-2007.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="2e939073-1e23-80de-babf-de078cc8774f"><td id="LBRD" class=""></td><td id="znXK" class=""></td><td id="Nt}a" class=""></td><td id="bc~V" class=""></td></tr></div></tbody></table></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

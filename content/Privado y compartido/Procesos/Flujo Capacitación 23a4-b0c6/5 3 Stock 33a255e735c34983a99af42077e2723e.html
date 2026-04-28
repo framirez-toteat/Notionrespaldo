@@ -1,0 +1,746 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>5.3. Stock</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="33a255e7-35c3-4983-a99a-f42077e2723e" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">5.3. Stock</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><nav id="df024b8b-a8a4-46f5-9775-51f4dd226224" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#be209149-1eb6-4c87-9729-86f2ddd0ca85"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e35e578f-78cd-4d81-836a-8defb48a7515"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8fa5cf3b-9d32-4d99-a7cd-7f3507fb5ff2"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#4bd51b9a-5921-4117-8c0f-9a4df18cd8ed"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c1f6dbf5-1229-4910-a07d-9cda64325bed"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a0771ec5-2072-411e-abac-427b65a278ca"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#64511d23-28e0-4878-956f-efe43fa06032"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#009abc90-21aa-41df-ae15-98a126cdebb7"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#83198242-d7a2-41e8-a076-efe9e744a739"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="be209149-1eb6-4c87-9729-86f2ddd0ca85" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="f5d0519a-66d5-41c5-bc97-e3f67bf4acc7" class="">En este proceso exploraremos la configuración interna avanzada de los ingredientes. Abordaremos:</p></div><div style="display:contents" dir="auto"><ul id="2581d2b3-221b-4678-b5b5-8c96a7ab47d8" class="bulleted-list"><li style="list-style-type:disc">Unidad de medida para reportes</li></ul></div><div style="display:contents" dir="auto"><ul id="04b8a057-f868-4366-9266-7a6176b8b906" class="bulleted-list"><li style="list-style-type:disc">Unidad de medida para stocks</li></ul></div><div style="display:contents" dir="auto"><ul id="f88a7324-7b51-4918-93b1-ce08a5dff76c" class="bulleted-list"><li style="list-style-type:disc">Unidad de medida para tomas de inventario</li></ul></div><div style="display:contents" dir="auto"><ul id="3c04e33c-f765-43ee-8fde-37467fdf9f9a" class="bulleted-list"><li style="list-style-type:disc">Mínimo y máximo por bodega</li></ul></div><div style="display:contents" dir="auto"><ul id="c21913f4-38e1-4cbf-8dfe-db4d91bc9c2e" class="bulleted-list"><li style="list-style-type:disc">Habilitación para transferencias multi-locales</li></ul></div><div style="display:contents" dir="auto"><ul id="5c597253-cbac-44ad-abad-6ad550711f5a" class="bulleted-list"><li style="list-style-type:disc">Bodega de uso y bodega de compra</li></ul></div><div style="display:contents" dir="auto"><ul id="82237b6b-fd11-4fee-a385-f010652f2458" class="bulleted-list"><li style="list-style-type:disc">Prioridad de asignación de bodegas (de qué bodega se descontará al vender)</li></ul></div><div style="display:contents" dir="auto"><p id="d4c25ed1-5adc-4307-a6cc-3b1172fbd25c" class="">Este proceso es fundamental para la configuración precisa de nuestros insumos e ingredientes.</p></div><div style="display:contents" dir="auto"><h3 id="e35e578f-78cd-4d81-836a-8defb48a7515" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="68ea3147-3c97-4a05-a2c8-55e829f93e26" class="">Este proceso abarca la configuración interna avanzada de los ingredientes en el sistema, incluyendo:</p></div><div style="display:contents" dir="auto"><ul id="ec767b82-4bcf-4266-9ca6-f075fba80992" class="bulleted-list"><li style="list-style-type:disc">Definición de unidades de medida para reportes, stocks y tomas de inventario</li></ul></div><div style="display:contents" dir="auto"><ul id="f4aeae89-d8b3-45e7-a14b-bb52061ece4f" class="bulleted-list"><li style="list-style-type:disc">Establecimiento de niveles mínimos y máximos por bodega</li></ul></div><div style="display:contents" dir="auto"><ul id="b851c17a-3204-4e1f-a3ce-bfb3750c204d" class="bulleted-list"><li style="list-style-type:disc">Configuración de transferencias multi-locales</li></ul></div><div style="display:contents" dir="auto"><ul id="f428b445-96e7-4f8d-946a-79b4c840c799" class="bulleted-list"><li style="list-style-type:disc">Asignación de bodegas de uso y compra</li></ul></div><div style="display:contents" dir="auto"><ul id="f9a706da-6bc2-4c62-aa5b-e15d4290159e" class="bulleted-list"><li style="list-style-type:disc">Determinación de prioridades para la asignación de bodegas en ventas</li></ul></div><div style="display:contents" dir="auto"><p id="7ae624e4-e7e8-42fc-8081-572daf02ab7e" class="">El alcance de este proceso es crucial para garantizar una gestión precisa y eficiente de los insumos e ingredientes en toda la cadena de suministro y operaciones del negocio.</p></div><div style="display:contents" dir="auto"><h3 id="8fa5cf3b-9d32-4d99-a7cd-7f3507fb5ff2" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="4411dfe4-e8eb-44f6-8ffd-1a7564cf1c7b" class="">Para este proceso, se requieren los siguientes elementos de entrada:</p></div><div style="display:contents" dir="auto"><ul id="a6a46229-f6ce-4ea9-9104-90fc05c7691f" class="bulleted-list"><li style="list-style-type:disc">Lista completa de ingredientes a configurar</li></ul></div><div style="display:contents" dir="auto"><ul id="a63b827e-3a4b-4a6f-9005-033881ac9e4d" class="bulleted-list"><li style="list-style-type:disc">Información sobre las unidades de medida utilizadas actualmente para reportes, stocks y tomas de inventario</li></ul></div><div style="display:contents" dir="auto"><ul id="6a0dc0b3-d478-4c4d-acb5-49786b16e04a" class="bulleted-list"><li style="list-style-type:disc">Datos sobre los niveles mínimos y máximos actuales por bodega para cada ingrediente</li></ul></div><div style="display:contents" dir="auto"><ul id="1d832a19-b8be-482a-80b9-90afc834cc57" class="bulleted-list"><li style="list-style-type:disc">Detalles sobre las políticas de transferencias multi-locales existentes</li></ul></div><div style="display:contents" dir="auto"><ul id="8b471441-90bd-48fb-bd4d-4ca3b2e21647" class="bulleted-list"><li style="list-style-type:disc">Información sobre las bodegas de uso y compra actuales para cada ingrediente</li></ul></div><div style="display:contents" dir="auto"><ul id="8f833bb1-b79e-4faf-ab1f-d8941d9d4f7d" class="bulleted-list"><li style="list-style-type:disc">Datos sobre la prioridad actual de asignación de bodegas para ventas</li></ul></div><div style="display:contents" dir="auto"><p id="c077a5b4-937e-41fb-9108-caacbb2358fa" class="">Estos elementos de entrada son esenciales para realizar una configuración interna avanzada precisa y efectiva de los ingredientes en el sistema.</p></div><div style="display:contents" dir="auto"><h3 id="4bd51b9a-5921-4117-8c0f-9a4df18cd8ed" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="ad5e86c3-de3a-4139-b0db-0d30e5a6a93e" class="toggle"><li><details open=""><summary><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="b3425779-d954-43a7-a63c-a2d3a0feb148" class="bulleted-list"><li style="list-style-type:disc">Poseer los permisos necesarios en el sistema para modificar los insumos de manera masiva o individual.</li></ul></div><div style="display:contents" dir="auto"><ul id="ef01cf6b-c4aa-4abe-b5b1-497cfe66770b" class="bulleted-list"><li style="list-style-type:disc">Listado de ingredientes configurado en el sistema.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="c1f6dbf5-1229-4910-a07d-9cda64325bed" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="0906e5ee-09fa-4109-a07c-30a35ae8534b" class="toggle"><li><details open=""><summary><strong>Paso 1: Información para control de stocks</strong></summary><div style="display:contents" dir="auto"><ul id="48923338-0931-46e6-9112-bba2bd16c3fa" class="bulleted-list"><li style="list-style-type:disc">Estando en el lápiz del insumo, iremos a “Stocks”</li></ul></div><div style="display:contents" dir="auto"><ul id="7e9d26e1-c05b-4119-b02a-5ade28f91132" class="bulleted-list"><li style="list-style-type:disc">Lo primero que veremos será que podemos modificar las Unidades de medida de Stock y Reportes. Importantes para la visualización y Stocks.<div style="display:contents" dir="ltr"><figure id="56bbc781-8ad8-4327-9fd8-f994be269542" class="image"><a href="5%203%20Stock/image.png"><img style="width:680px" src="5%203%20Stock/image.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="6a4cd84c-724c-48bb-8c6e-059b0b2aaf37" class="bulleted-list"><li style="list-style-type:disc">También podemos configurar si quiere una fecha de vencimiento (<em>Actualmente no disponible)</em>.</li></ul></div><div style="display:contents" dir="auto"><ul id="4b939876-b4da-45b7-b928-751eb30a0c2b" class="bulleted-list"><li style="list-style-type:disc">Costo interno para manejo de inventarios(<em>Actualmente no disponible)</em>.</li></ul></div><div style="display:contents" dir="auto"><p id="15f39073-1e23-809f-8c71-c3133ce933ee" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="6e5a8fb5-7106-47df-a250-cfd4b2c34eb1" class="toggle"><li><details open=""><summary><strong>Paso 2:</strong> <strong>Información para Transferencias de Mercadería entre locales de su misma cadena</strong></summary><div style="display:contents" dir="auto"><ul id="10b00a54-e906-483a-960d-06e2064b2826" class="bulleted-list"><li style="list-style-type:disc">En este punto, podremos configurar si queremos que nuestro insumo esté habilitado para transferirse entre múltiples locales.<div style="display:contents" dir="ltr"><figure id="3d23f58d-6b2f-4157-b95f-383c1dfcc68c" class="image"><a href="5%203%20Stock/image%201.png"><img style="width:708px" src="5%203%20Stock/image%201.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="26994281-3450-4fa9-8bfb-7e674df6d8b7" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: Aquí debemos decidir si queremos que nuestro insumo se pueda enviar y recibir, o solo una de estas opciones.</li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-8031-8234-e6c7789ca9af" class="bulleted-list"><li style="list-style-type:disc"><strong>NOTA IMPORTANTE: Esta configuración debe estar en todos los locales donde se trabajara con la transferencia multilocal, de no estar configurado, no podrán enviar mercadería.</strong></li></ul></div><div style="display:contents" dir="auto"><p id="15f39073-1e23-80cc-a320-c4d2513d8126" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="b01a24bb-2985-4522-8d5e-51ed164a9fc7" class="toggle"><li><details open=""><summary><strong>Paso 3: Información de Bodegas para este Producto</strong></summary><div style="display:contents" dir="auto"><ul id="b6130bae-0745-4c23-84b2-6b5b09529e36" class="bulleted-list"><li style="list-style-type:disc">Aquí realizaremos una configuración crucial para utilizar el módulo: la asociación del insumo con las bodegas.<div style="display:contents" dir="ltr"><figure id="0c1124f5-e5cd-4fcf-9188-fd574dddef30" class="image"><a href="5%203%20Stock/image%202.png"><img style="width:680px" src="5%203%20Stock/image%202.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="e770c6a3-4964-4336-9606-f7dd4dc379b1" class="bulleted-list"><li style="list-style-type:disc"><strong>Bodegas Usadas: </strong>Indique a qué bodega(s) pertenece este ingrediente. Puede asociarlo a más de una, pero en la siguiente opción debe especificar de cuál se hará el descargue del inventario. Es crucial que coloque esta bodega como la primera de la lista.</li></ul></div><div style="display:contents" dir="auto"><ul id="fb508f3a-d5ce-42a8-bde9-87ce545ee1d7" class="bulleted-list"><li style="list-style-type:disc"><strong>Prioridad en Asignación de Bodega en producción/venta de platos:</strong> Acá tiene tres opciones:<div style="display:contents" dir="auto"><ul id="7c276396-6c44-4a94-8e1e-876711d0dc7f" class="bulleted-list"><li style="list-style-type:circle"><strong>Según observará en Centro de Producción:</strong> Tomara la bodega de acuerdo a la configuración realizada en el centro de producción</li></ul></div><div style="display:contents" dir="auto"><ul id="99e6f455-8a32-4384-9b0b-8af8abe3c4bd" class="bulleted-list"><li style="list-style-type:circle"><strong>Según observará CP, solo en bodegas de la lista: </strong>Solo tomara en cuenta las bodegas usadas</li></ul></div><div style="display:contents" dir="auto"><ul id="dc363e59-5f66-446d-bdb4-725b556d12fd" class="bulleted-list"><li style="list-style-type:circle"> <strong>Primera bodega de la lista anterior:</strong> Descontará siempre de la primera bodega que coloco en la lista de bodegas (esta es la opción recomendada por nosotros).</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="3c32d490-8d7f-4199-b0b9-434935bd25ac" class="bulleted-list"><li style="list-style-type:disc"><strong>Traspaso automático entre bodegas: </strong>Esta opción permite que el sistema realice transferencias automáticas de un ingrediente entre la bodega A y la bodega B cuando se agota en una de ellas. Sin embargo, recomendamos mantener esta opción en &quot;NO&quot;, ya que es preferible que ustedes controlen manualmente las transferencias entre bodegas en lugar de dejar que el sistema lo haga automáticamente.</li></ul></div><div style="display:contents" dir="auto"><ul id="3ee562ba-6e33-452c-b8e8-3c0c6cdc17a9" class="bulleted-list"><li style="list-style-type:disc"><strong>Bodega por Defecto en Compras (ingreso de Factura de Proveedores):</strong> Seleccione la bodega que recibirá el ingreso de la factura de este ingrediente.</li></ul></div><div style="display:contents" dir="auto"><ul id="a5cb62b8-88dc-4dd1-be10-0b8e0f68c49d" class="bulleted-list"><li style="list-style-type:disc"><strong>Unidad de Medida para Stock Máximo/Mínimo:</strong> Elija la unidad de medida en la que desea visualizar este ingrediente. Si no selecciona ninguna, se usará por defecto la misma unidad de medida del ingrediente.</li></ul></div><div style="display:contents" dir="auto"><ul id="b0e9e4f3-48bf-4381-94d8-f2ba975d1e7a" class="bulleted-list"><li style="list-style-type:disc"><strong>Stock Mínimo General (suma de todas las Bodegas):</strong> No es obligatorio.</li></ul></div><div style="display:contents" dir="auto"><ul id="7f6b22bb-011b-46c3-9f6b-4a93b0a36a34" class="bulleted-list"><li style="list-style-type:disc"><strong>Stock Máximo General (suma de todas las Bodegas):</strong> No es obligatorio.</li></ul></div><div style="display:contents" dir="auto"><p id="15f39073-1e23-80de-939e-c9187e3d6275" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="a0771ec5-2072-411e-abac-427b65a278ca" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="8bdb7f55-166b-42f1-b31a-61114c1803a7" class="bulleted-list"><li style="list-style-type:disc">Configuración interna avanzada de los insumos.</li></ul></div><div style="display:contents" dir="auto"><ul id="2788a472-7ab6-4de9-860d-34a8d008af7d" class="bulleted-list"><li style="list-style-type:disc">Insumo asociado a su bodega.</li></ul></div><div style="display:contents" dir="auto"><ul id="0fd82422-459d-47c1-a505-38f6b173878d" class="bulleted-list"><li style="list-style-type:disc">Registro de la configuración realizada para futuras referencias o auditorías.</li></ul></div><div style="display:contents" dir="auto"><h3 id="64511d23-28e0-4878-956f-efe43fa06032" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="122dfbb7-b8ce-44ae-9fe4-4cdc3f522438" class="bulleted-list"><li style="list-style-type:disc">No tiene excepciones</li></ul></div><div style="display:contents" dir="auto"><h3 id="009abc90-21aa-41df-ae15-98a126cdebb7" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="770a03ef-586d-4d5d-9eb9-ba19ae628d79" class="bulleted-list"><li style="list-style-type:disc">Luego de haber grabado, ingresar para revisar lo existente.</li></ul></div><div style="display:contents" dir="auto"><h3 id="83198242-d7a2-41e8-a076-efe9e744a739" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="517aab89-6b47-4ecc-9884-e72527687be0" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="f7fb9397-1583-4469-a3f3-de9d749adfa5"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="3c778588-237d-4998-9115-1aa5a114993f"><td id="nU|h" class="">04-09-2024</td><td id="WwCq" class=""><span class="user">@Marcelo Sepulveda</span> </td><td id="i;pn" class=""><span class="user">@Francisco Ramirez</span> </td><td id="q^a=" class="">4-3005.3</td></tr></div><div style="display:contents" dir="ltr"><tr id="aee404e6-51da-4995-a11a-dd03ba4c1062"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="4a079463-5300-440d-8c15-b2477bbf738c"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="094a559e-d166-4855-ae2f-0c850d3f6cc0"/></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

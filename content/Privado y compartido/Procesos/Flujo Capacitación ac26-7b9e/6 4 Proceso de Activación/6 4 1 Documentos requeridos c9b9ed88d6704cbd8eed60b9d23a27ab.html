@@ -1,0 +1,745 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>6.4.1. Documentos requeridos.</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c9b9ed88-d670-4cbd-8eed-60b9d23a27ab" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">6.4.1. Documentos requeridos.</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Actualizado por</th><td><span class="user"><img src="../../DTE%20Chile/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Código </th><td><mark class="highlight-orange">4-2054.1</mark></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha de creación</th><td><time>20 de septiembre de 2024</time></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h3 id="10739073-1e23-8076-97b0-f6d5338c6c85" class=""><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="28266936-2f69-4785-9a3f-e3b6dfe3f87f" class="">Proporcionar al equipo de participantes los conocimientos necesarios para comprender el proceso de activación de DTE para Costa Rica a través de la integración con GTI y así asegurar la homologación del conocimiento dentro del equipo.</p></div><div style="display:contents" dir="auto"><h3 id="10739073-1e23-801e-a61c-d7276eed2561" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="10739073-1e23-8015-8c9f-eba45cf18c5b" class="">Debe aplicarse al equipo de operaciones de Toteat encargado de solicitudes de activaciones o de realizar las activaciones.</p></div><div style="display:contents" dir="auto"><h3 id="10739073-1e23-808a-90bc-d38c46dde62e" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="10739073-1e23-8097-be5a-c77ed9bf63ce" class="">El equipo de operaciones Toteat deberá tomar la capacitación DTE al menos una vez </p></div><div style="display:contents" dir="auto"><h3 id="10739073-1e23-8005-b728-fea45dee4e8a" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><p id="71661d89-b8ef-4d4c-acce-c68333e24c70" class=""><strong>Las personas que tomen la capacitación deben:<br/></strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="a12b82ce-06f2-4e2f-985b-3363f8aa364c" class="numbered-list" start="1"><li>Pertenecer al equipo de Operaciones</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="10739073-1e23-805e-b651-f6cb4db49ef2" class="numbered-list" start="2"><li>Tener conocimientos previos sobre la herramienta TRM</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="10739073-1e23-80da-a6f4-e058d10fbded" class="numbered-list" start="3"><li>Encontrarse en periodo productivo y no en periodo de Pruebas </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="fe5d9437-d4cf-4142-a434-f2e053267418" class="numbered-list" start="4"><li>Tener acceso al portal de DTEadmin y contar con los permisos de creación de empresas</li></ol></div><div style="display:contents" dir="auto"><p id="da349131-75fd-493b-b7d1-ac9d43efd3e0" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="10739073-1e23-80c8-9738-ceafb1369d67" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><p id="10739073-1e23-8052-902b-fb8024a2acfd" class="">Para la activación de una empresa en Costa Rica, se debe:</p></div><div style="display:contents" dir="auto"><ol type="1" id="12239073-1e23-8069-b80e-fc8f1108cdb6" class="numbered-list" start="1"><li>El cliente ingresa con el deseo de activar la emisión de documentos a través de la integración GTI-Toteat</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="10739073-1e23-8020-94bb-ea2a4f236960" class="numbered-list" start="2"><li>Desde Toteat se envía la información proporcionada por el cliente para la creación de la cuenta al correo <a href="mailto:integraciones@gticr.com">mailto:integraciones@gticr.com</a> <a href="mailto:raraya@gticr.com">raraya@gticr.com</a> <strong> y </strong><a href="mailto:fernando.lenero@mercat.cl">fernando.lenero@mercat.cl</a> </li></ol></div><div style="display:contents" dir="auto"><div id="12239073-1e23-8084-90e8-c0583a368e91" class="column-list"><div style="display:contents" dir="auto"><div id="12239073-1e23-809f-b40c-fde6abd160d0" style="width:50%" class="column"><div style="display:contents" dir="ltr"><table id="39481a06-4a4e-424e-8244-a71bfba800a5" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="81dfbff5-af9f-415a-90be-7f4ec293a119"><th id="N^TI" class="simple-table-header-color simple-table-header">Empresa</th><th id="ZSdV" class="simple-table-header-color simple-table-header">Usuario</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="dceed53d-fa43-4cd3-986d-7cfacf3460ff"><td id="N^TI" class="">Identificación</td><td id="ZSdV" class="">Identificación</td></tr></div><div style="display:contents" dir="ltr"><tr id="5d40a13a-e79f-4775-9a8f-05b564bf7d60"><td id="N^TI" class="">Razón Social</td><td id="ZSdV" class="">Primer Apellido</td></tr></div><div style="display:contents" dir="ltr"><tr id="40f5a3b7-e8ba-4106-aca4-85f7cf80098d"><td id="N^TI" class="">Nombre Comercial</td><td id="ZSdV" class="">Segundo Apellido</td></tr></div><div style="display:contents" dir="ltr"><tr id="273de998-6eb1-49b7-a86b-117ab04668ee"><td id="N^TI" class="">Teléfono</td><td id="ZSdV" class="">Correo electrónico</td></tr></div><div style="display:contents" dir="ltr"><tr id="667b5273-4249-423a-9c6b-52e1911e9705"><td id="N^TI" class="">Provincia, Cantón, Distrito</td><td id="ZSdV" class="">Número de Teléfono</td></tr></div><div style="display:contents" dir="ltr"><tr id="e5ba1867-bddb-4468-a3db-ca74bb861210"><td id="N^TI" class="">Dirección</td><td id="ZSdV" class="">Provincia, Cantón, Distrito</td></tr></div></tbody></table></div></div></div><div style="display:contents" dir="auto"><div id="12239073-1e23-80ba-ae7a-dd32231de3f9" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="12239073-1e23-80dc-a18b-ebe4a543c039" class="image"><a href="6%204%201%20Documentos%20requeridos/image.png"><img style="width:330.9875183105469px" src="6%204%201%20Documentos%20requeridos/image.png"/></a><figcaption>Ejemplo del correo electrónico enviado </figcaption></figure></div><div style="display:contents" dir="auto"><p id="12239073-1e23-8068-a5f7-ccb98ad64fea" class="">
+</p></div></div></div></div></div><div style="display:contents" dir="auto"><ol type="1" id="12239073-1e23-8086-9e88-db66bb58001d" class="numbered-list" start="3"><li>GTI proporciona la información comercial sobre los planes y una vez confirmado y pagado el plan por el cliente GTI procede con la activación de la cuenta </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="10739073-1e23-8039-84f2-d034a1baf0a6" class="numbered-list" start="2"><li>El equipo de GTI responde sobre el mismo con las credenciales para la activación de la empresa con la integración GTI-Toteat</li></ol></div><div style="display:contents" dir="auto"><div id="12239073-1e23-80fe-9ee4-c2310f834ef2" class="column-list"><div style="display:contents" dir="auto"><div id="12239073-1e23-802f-9f34-e705b1088083" style="width:50%" class="column"><div style="display:contents" dir="ltr"><table id="10739073-1e23-80e9-bd1a-ca3858a8502a" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="de79ce57-0cd5-4127-bc1a-f7cac49a793e"><td id="Ii~P" class="block-color-blue_background" style="width:296px">Cuenta</td></tr></div><div style="display:contents" dir="ltr"><tr id="b95789b9-ccd2-4de2-8e63-963c3da34d3a"><td id="Ii~P" class="block-color-blue_background" style="width:296px">Usuario</td></tr></div><div style="display:contents" dir="ltr"><tr id="f96a4f47-0222-4d77-bc7d-c4d74171aeb2"><td id="Ii~P" class="block-color-blue_background" style="width:296px">Clave</td></tr></div></tbody></table></div></div></div><div style="display:contents" dir="auto"><div id="12239073-1e23-8098-be61-ee83cb9c35a6" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="12239073-1e23-80a9-b4bf-d115a48d7f1c" class="image"><a href="6%204%201%20Documentos%20requeridos/image%201.png"><img style="width:330.9125061035156px" src="6%204%201%20Documentos%20requeridos/image%201.png"/></a><figcaption>Ejemplo respuesta de GTI con las credenciales de activación</figcaption></figure></div></div></div></div></div><div style="display:contents" dir="auto"><ol type="1" id="10739073-1e23-8012-b211-df0066534015" class="numbered-list" start="3"><li>Con la información enviada por GTI, El cliente pasa a realizar el proceso de activación de la cuenta a través de los siguientes instructivos</li></ol></div><div style="display:contents" dir="ltr"><figure id="10739073-1e23-8079-a2c5-eb2a7954d34b"><div class="source">https://drive.google.com/file/d/1qYWKR48SHiGfhERBB4y0-39YtMnXgLR0/view?usp=drive_link</div></figure></div><div style="display:contents" dir="ltr"><figure id="10739073-1e23-80eb-96bd-ef036f8a8fe2"><div class="source">https://drive.google.com/file/d/1zaw4r8tY5UYeNJfdqKwDq_m0OjxpdIzs/view?usp=drive_link</div></figure></div><div style="display:contents" dir="auto"><ol type="1" id="10739073-1e23-806e-902d-f99a405d1624" class="numbered-list" start="4"><li>Cuando el cliente realiza el proceso, Solicitamos la contraseña asignada al portal GTI </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="12239073-1e23-8020-a9a7-fb00d17539f0" class="numbered-list" start="5"><li>Ingresamos al portal de GTI Con el usuario entregado por GTI y la contraseña asignada por el cliente, validamos el ingreso exitoso al portal </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="12239073-1e23-8086-bdaa-d6d3390b6ed5" class="numbered-list" start="6"><li>Con la información de Numero de cuenta, Usuario y Contraseña (validados previamente en el punto 4) procedemos a la activación por parte de Toteat</li></ol></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12239073-1e23-8025-8878-d20a9fe87d8e"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><ol type="1" id="12239073-1e23-80e1-a96d-c06c9899e387" class="numbered-list" start="1"><li>Los folios son gestionados y elaborados directamente por GTI.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="12239073-1e23-80a4-a289-dcee6dd1179d" class="numbered-list" start="2"><li>GTI durante la activación solicita al cliente la información sobre los folios utilizados en otro proveedor para su correcta configuración y posterior activación</li></ol></div></div></figure></div><div style="display:contents" dir="auto"><h3 id="47f82c13-fe0e-4b5d-a69e-2591f68a0014" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><p id="10739073-1e23-8050-9d9b-e79f93f703e7" class="">Un equipo con amplio conocimiento sobre los datos necesarios para la activación de los Documentos Tributarios Electrónicos (DTE) a través de la integración GTI-Toteat para Costa Rica.</p></div><div style="display:contents" dir="auto"><h3 id="10739073-1e23-80f2-ad64-dcfd1dfc2906" class=""><mark class="highlight-orange">7. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><p id="10739073-1e23-80f7-ad4a-e5d3c6bcf616" class="">Contar con los datos necesarios para la creación de una empresa con la integración GTI-Toteat para Costa Rica</p></div><div style="display:contents" dir="auto"><h3 id="10739073-1e23-8034-899a-d5f1b19099b3" class=""><mark class="highlight-orange">8. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="10739073-1e23-80ef-a829-cc105182f35f" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="d0d2535d-686b-45ff-9cc6-d8dcc5fb3821"><th id="`;rn" class="simple-table-header-color simple-table-header">Fecha Actualización</th><th id="U^E|" class="simple-table-header-color simple-table-header">Actualizado Por</th><th id="Hy?y" class="simple-table-header-color simple-table-header">Aprobado Por</th><th id="^bPN" class="simple-table-header-color simple-table-header">Versión</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="1d97b360-3fb2-410a-81cb-1a924218178c"><td id="`;rn" class="">20 de Septiembre 2024</td><td id="U^E|" class="">@Lorena Moreno</td><td id="Hy?y" class=""></td><td id="^bPN" class=""><mark class="highlight-orange">4-2054.1</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="8890fa6d-76ec-4790-8f7e-8f35e508ee0d"><td id="`;rn" class=""></td><td id="U^E|" class=""></td><td id="Hy?y" class=""></td><td id="^bPN" class=""></td></tr></div></tbody></table></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

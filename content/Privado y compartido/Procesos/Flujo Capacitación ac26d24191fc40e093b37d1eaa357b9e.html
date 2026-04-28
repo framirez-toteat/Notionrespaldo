@@ -1,0 +1,745 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Flujo Capacitación</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ac26d241-91fc-40e0-93b3-7d1eaa357b9e" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1647427017067-8f33ccbae493?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 53.400000000000006%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_blue.svg"/></div><h1 class="page-title" dir="auto">Flujo Capacitación</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">P</span></span>Pao Rodríguez</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td><span class="selected-value select-value-color-default">Proceso</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><div><div style="display:contents" dir="auto"><ul id="faec9993-9c11-4226-8f5a-1d156f4b3a7e" class="toggle"><li><details open=""><summary><strong>Modulo 1: Conceptos básicos DTE</strong></summary><div style="display:contents" dir="ltr"><figure id="3747b0c9-79ca-4af0-8e67-ac061c07e0d5" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/1%201%20Introducci%C3%B3n%203747b0c979ca4af08e67ac061c07e0d5.html"><span class="icon">📗</span>1.1. Introducción.</a></figure></div><div style="display:contents" dir="ltr"><figure id="dec06aec-fd14-49a9-ae51-622e77a78bcb" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/1%202%20Objetivo%20general%20dec06aecfd1449a9ae51622e77a78bcb.html"><span class="icon">📗</span>1.2. Objetivo general</a></figure></div><div style="display:contents" dir="ltr"><figure id="fbb3d76b-a824-48d8-8df6-2cf893809434" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/1%203%20Objetivos%20Especificos%20fbb3d76ba82448d88df62cf893809434.html"><span class="icon">📗</span>1.3. Objetivos Especificos</a></figure></div><div style="display:contents" dir="ltr"><figure id="6a0572fe-1d67-49b9-aab3-df19ee8d61cd" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/1%204%20Conceptos%20Clave%206a0572fe1d6749b9aab3df19ee8d61cd.html"><span class="icon">📗</span>1.4. Conceptos Clave.</a></figure></div><div style="display:contents" dir="ltr"><figure id="f688b981-9450-487a-a35b-0c2c672365db" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/1%205%20Herramientas%20y%20recursos%20f688b9819450487aa35b0c2c672365db.html"><span class="icon">📗</span>1.5. Herramientas y recursos.</a></figure></div></details></li></ul></div></div></div><div style="display:contents" dir="auto"><div><div style="display:contents" dir="auto"><ul id="d0b30725-9c8e-4250-8659-d97c121e6283" class="toggle"><li><details open=""><summary><strong>Modulo 2: Conceptos básicos DTE Chile</strong></summary><div style="display:contents" dir="ltr"><figure id="16a9cdfa-7043-4bec-9450-0d763fe6d6e4" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/2%201%20Generalidad%20del%20pa%C3%ADs%2016a9cdfa70434bec94500d763fe6d6e4.html"><span class="icon">📗</span>2.1. Generalidad del país.</a></figure></div><div style="display:contents" dir="ltr"><figure id="3e30f5bc-6ec1-4f9f-b98f-43559f573d37" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/2%202%20Proveedor%20de%20mercado%203e30f5bc6ec14f9fb98f43559f573d37.html"><span class="icon">📗</span>2.2. Proveedor de mercado.</a></figure></div><div style="display:contents" dir="ltr"><figure id="b416adb3-5fde-4faf-9046-2d30d309a3c9" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/2%203%20Alcance%20y%20funcionamiento%20DTE%20Admin%20b416adb35fde4faf90462d30d309a3c9.html"><span class="icon">📗</span>2.3. Alcance y funcionamiento DTE Admin.</a></figure></div><div style="display:contents" dir="ltr"><figure id="14042110-33e9-4a3a-a16f-47057492519c" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/2%204%20Proceso%20de%20Activaci%C3%B3n%201404211033e94a3aa16f47057492519c.html"><span class="icon">📗</span>2.4. Proceso de Activación.</a></figure></div><div style="display:contents" dir="ltr"><figure id="0c9a5d48-c7cd-46e2-9be6-860473735aa7" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/2%205%20Proceso%20de%20Bajas%200c9a5d48c7cd46e29be6860473735aa7.html"><span class="icon">📗</span>2.5. Proceso de Bajas.</a></figure></div><div style="display:contents" dir="ltr"><figure id="adf170f2-f07a-4268-a1ed-7e7d8b7d3afa" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/2%206%20Estado%20de%20los%20documentos%20adf170f2f07a4268a1ed7e7d8b7d3afa.html"><span class="icon">📗</span>2.6. Estado de los documentos.</a></figure></div><div style="display:contents" dir="ltr"><figure id="2dad320e-a982-4281-a8fe-3e347fddcdf6" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/2%207%20Incidencias%20comunes%202dad320ea9824281a8fe3e347fddcdf6.html"><span class="icon">📗</span>2.7. Incidencias comunes.</a></figure></div></details></li></ul></div></div></div><div style="display:contents" dir="auto"><div><div style="display:contents" dir="auto"><ul id="6abda8ea-b0e4-4bbb-8740-f266f241c385" class="toggle"><li><details open=""><summary><strong>Modulo 3: Conceptos básicos DTE Colombia.</strong></summary><div style="display:contents" dir="ltr"><figure id="b133d98f-46be-4e8f-9527-415ad536ba96" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/3%201%20Generalidad%20del%20pa%C3%ADs%20b133d98f46be4e8f9527415ad536ba96.html"><span class="icon">📗</span>3.1. Generalidad del país.</a></figure></div><div style="display:contents" dir="ltr"><figure id="715078ba-9bca-44cf-929a-2a31332450b7" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/3%202%20Integraci%C3%B3n%20Proveedores%20Facturaci%C3%B3n%20715078ba9bca44cf929a2a31332450b7.html"><span class="icon">📗</span>3.2. Integración Proveedores Facturación</a></figure></div><div style="display:contents" dir="ltr"><figure id="b96cc375-557d-417f-aaa1-93215c87e558" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/3%203%20Alcance%20y%20funcionamiento%20DTE%20b96cc375557d417faaa193215c87e558.html"><span class="icon">📗</span>3.3. Alcance y funcionamiento DTE.</a></figure></div><div style="display:contents" dir="ltr"><figure id="a906008f-a128-45de-bfe1-bf01baa2d0e1" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/3%204%20Proceso%20de%20Activaci%C3%B3n%20a906008fa12845debfe1bf01baa2d0e1.html"><span class="icon">📗</span>3.4. Proceso de Activación.</a></figure></div><div style="display:contents" dir="ltr"><figure id="229e16ae-d100-4c0b-991b-1bc5a668e37e" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/3%205%20Proceso%20de%20Bajas%20229e16aed1004c0b991b1bc5a668e37e.html"><span class="icon">📗</span>3.5. Proceso de Bajas.</a></figure></div><div style="display:contents" dir="ltr"><figure id="90b3b7cd-2251-4a06-b30b-4123e4f21811" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/3%206%20Estado%20de%20los%20documentos%2090b3b7cd22514a06b30b4123e4f21811.html"><span class="icon">📗</span>3.6. Estado de los documentos.</a></figure></div><div style="display:contents" dir="ltr"><figure id="d02f28eb-15c7-4cde-9801-ade8f208ca98" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/3%207%20Incidencias%20comunes%20d02f28eb15c74cde9801ade8f208ca98.html"><span class="icon">📗</span>3.7. Incidencias comunes. </a></figure></div></details></li></ul></div></div></div><div style="display:contents" dir="auto"><div><div style="display:contents" dir="auto"><ul id="92028993-1337-4403-aa0c-6c5c57dd4a87" class="toggle"><li><details open=""><summary><strong>Modulo 4: Conceptos básicos DTE Argentina. </strong></summary><div style="display:contents" dir="ltr"><figure id="47137ef3-8fed-4035-91b2-3563e60fe166" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/4%201%20Generalidad%20del%20pa%C3%ADs%2047137ef38fed403591b23563e60fe166.html"><span class="icon">📗</span>4.1. Generalidad del país.</a></figure></div><div style="display:contents" dir="ltr"><figure id="6e4c8b95-4783-45da-9aea-4e214486d261" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/4%202%20Integraci%C3%B3n%20Proveedor%20Facturaci%C3%B3n%206e4c8b95478345da9aea4e214486d261.html"><span class="icon">📗</span>4.2. Integración Proveedor Facturación</a></figure></div><div style="display:contents" dir="ltr"><figure id="b86591a3-9d7d-42e7-8e4d-18801adc49d7" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/4%203%20Alcance%20y%20funcionamiento%20del%20POS%20b86591a39d7d42e78e4d18801adc49d7.html"><span class="icon">📗</span>4.3. Alcance y funcionamiento del POS.</a></figure></div><div style="display:contents" dir="ltr"><figure id="c4985c23-0548-492f-9116-86d46495dd76" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/4%204%20Proceso%20de%20Activaci%C3%B3n%20c4985c230548492f911686d46495dd76.html"><span class="icon">📗</span>4.4. Proceso de Activación.</a></figure></div><div style="display:contents" dir="ltr"><figure id="4a4de3dd-cd6e-4859-8f30-b53a066ef16b" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/4%205%20Proceso%20Solicitud%20de%20Bajas%204a4de3ddcd6e48598f30b53a066ef16b.html"><span class="icon">📗</span>4.5. Proceso Solicitud de Bajas.</a></figure></div><div style="display:contents" dir="ltr"><figure id="9bded163-6247-4b9f-a2dc-014e1e467464" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/4%206%20Estado%20de%20los%20documentos%209bded16362474b9fa2dc014e1e467464.html"><span class="icon">📗</span>4.6. Estado de los documentos.</a></figure></div><div style="display:contents" dir="ltr"><figure id="216fdd16-4d50-4c76-baf9-250a924ff9ae" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/4%207%20Incidencias%20comunes%20216fdd164d504c76baf9250a924ff9ae.html"><span class="icon">📗</span>4.7. Incidencias comunes. </a></figure></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-8007-87ca-fb06b7bc5c82" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/4%208%20Proceso%20de%20facturaci%C3%B3n%20Argentina%20DTE%20Toteat%202e9390731e23800787cafb06b7bc5c82.html"><span class="icon">📗</span>4.8 Proceso de facturación Argentina DTE Toteat</a></figure></div><div style="display:contents" dir="ltr"><figure id="2e939073-1e23-80a8-817d-e723eeaf49f5" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/4%209%20C%C3%B3mo%20emitir%20una%20NC%20en%20DTE%20Toteat%20Arg%202e9390731e2380a8817de723eeaf49f5.html"><span class="icon">📗</span>4.9 Cómo emitir una NC en DTE Toteat Arg</a></figure></div></details></li></ul></div></div></div><div style="display:contents" dir="auto"><div><div style="display:contents" dir="auto"><ul id="6fa167e7-2602-4fa1-850d-d32f94601f79" class="toggle"><li><details open=""><summary><strong>Modulo 5: Conceptos básicos DTE Perú.</strong></summary><div style="display:contents" dir="ltr"><figure id="4794c561-1bed-4e08-a7c1-80d515cfd0a6" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/5%201%20Generalidad%20del%20pa%C3%ADs%204794c5611bed4e08a7c180d515cfd0a6.html"><span class="icon">📗</span>5.1. Generalidad del país.</a></figure></div><div style="display:contents" dir="ltr"><figure id="bf8cc7d1-502e-4ef5-8141-1aecad6f8f90" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/5%202%20Proveedor%20de%20mercado%20bf8cc7d1502e4ef581411aecad6f8f90.html"><span class="icon">📗</span>5.2. Proveedor de mercado.</a></figure></div><div style="display:contents" dir="ltr"><figure id="a29667e1-63d8-4707-a32f-ad17d5ad130a" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/5%203%20Alcance%20y%20funcionamiento%20DTE%20a29667e163d84707a32fad17d5ad130a.html"><span class="icon">📗</span>5.3. Alcance y funcionamiento DTE.</a></figure></div><div style="display:contents" dir="ltr"><figure id="d4a80e10-7b5d-4f67-b5da-ad1ef9c38ccc" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/5%204%20Proceso%20de%20Activaci%C3%B3n%20d4a80e107b5d4f67b5daad1ef9c38ccc.html"><span class="icon">📗</span>5.4. Proceso de Activación.</a></figure></div><div style="display:contents" dir="ltr"><figure id="2bffcc9a-2776-4f28-ab4a-a635116615ce" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/5%205%20Incidencias%20comunes%202bffcc9a27764f28ab4aa635116615ce.html"><span class="icon">📗</span>5.5. Incidencias comunes. </a></figure></div></details></li></ul></div></div></div><div style="display:contents" dir="auto"><div><div style="display:contents" dir="auto"><ul id="e903d653-6a4f-4fb1-a207-6886e78be671" class="toggle"><li><details open=""><summary><strong>Modulo 6: Conceptos básicos DTE Costa Rica.</strong></summary><div style="display:contents" dir="ltr"><figure id="ea5fbf49-ae95-4818-9cdd-cb280f74f318" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/6%201%20Generalidad%20del%20pa%C3%ADs%20ea5fbf49ae9548189cddcb280f74f318.html"><span class="icon">📗</span>6.1. Generalidad del país.</a></figure></div><div style="display:contents" dir="ltr"><figure id="15252a89-4e26-42d0-9d65-4b9d3238acad" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/6%202%20Proveedor%20de%20mercado%2015252a894e2642d09d654b9d3238acad.html"><span class="icon">📗</span>6.2. Proveedor de mercado.</a></figure></div><div style="display:contents" dir="ltr"><figure id="002af19d-eaa9-49be-83bc-d75bb404070e" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/6%203%20Alcance%20y%20funcionamiento%20del%20POS%20002af19deaa949be83bcd75bb404070e.html"><span class="icon">📗</span>6.3. Alcance y funcionamiento del POS.</a></figure></div><div style="display:contents" dir="ltr"><figure id="fdae8412-f766-46de-be2d-e0f41ff10b6c" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/6%204%20Proceso%20de%20Activaci%C3%B3n%20fdae8412f76646debe2de0f41ff10b6c.html"><span class="icon">📗</span>6.4. Proceso de Activación.</a></figure></div><div style="display:contents" dir="ltr"><figure id="2e65b778-9919-46d5-9b5d-3595bdeeb9d4" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/6%205%20Proceso%20de%20Bajas%202e65b778991946d59b5d3595bdeeb9d4.html"><span class="icon">📗</span>6.5. Proceso de Bajas.</a></figure></div><div style="display:contents" dir="ltr"><figure id="d6006b35-12df-4222-aed5-3053b5058a38" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/6%206%20Estado%20de%20los%20documentos%20d6006b3512df4222aed53053b5058a38.html"><span class="icon">📗</span>6.6. Estado de los documentos.</a></figure></div><div style="display:contents" dir="ltr"><figure id="df0a1af8-4d74-462e-91d8-ce01ade9e621" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/6%207%20Incidencias%20comunes%20df0a1af84d74462e91d8ce01ade9e621.html"><span class="icon">📗</span>6.7. Incidencias comunes. </a></figure></div><div style="display:contents" dir="ltr"><figure id="2fd39073-1e23-80c9-910d-cbe450c1af90" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/6%208%20Cabys%202fd390731e2380c9910dcbe450c1af90.html">6.8. Cabys</a></figure></div></details></li></ul></div></div></div><div style="display:contents" dir="auto"><div><div style="display:contents" dir="auto"><ul id="593c24a8-a955-413e-847e-7883df67cb0d" class="toggle"><li><details open=""><summary><strong>Modulo 7: Conceptos básicos DTE Uruguay.</strong></summary><div style="display:contents" dir="ltr"><figure id="e525521b-0d5c-41a5-850b-95053a4d8711" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/7%201%20Generalidad%20del%20pa%C3%ADs%20e525521b0d5c41a5850b95053a4d8711.html"><span class="icon">📗</span>7.1. Generalidad del país.</a></figure></div><div style="display:contents" dir="ltr"><figure id="e7b9b5ed-c6f8-4af7-95e5-fb0d29903f88" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/7%202%20Proveedor%20de%20mercado%20e7b9b5edc6f84af795e5fb0d29903f88.html"><span class="icon">📗</span>7.2. Proveedor de mercado.</a></figure></div><div style="display:contents" dir="ltr"><figure id="fad464a7-13ee-4bf6-80fa-3c443cea7866" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/7%203%20Alcance%20y%20funcionamiento%20del%20POS%20fad464a713ee4bf680fa3c443cea7866.html"><span class="icon">📗</span>7.3. Alcance y funcionamiento del POS</a></figure></div><div style="display:contents" dir="ltr"><figure id="16289a9b-0ce7-422a-9fcf-abc2bb2608fc" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/7%204%20Proceso%20de%20Activaci%C3%B3n%2016289a9b0ce7422a9fcfabc2bb2608fc.html"><span class="icon">📗</span>7.4. Proceso de Activación.</a></figure></div><div style="display:contents" dir="ltr"><figure id="61b1c774-2ec6-44aa-adad-d5f7bede84c7" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/7%205%20Proceso%20de%20Bajas%2061b1c7742ec644aaadadd5f7bede84c7.html"><span class="icon">📗</span>7.5. Proceso de Bajas.</a></figure></div><div style="display:contents" dir="ltr"><figure id="47790072-39cb-4bf9-927e-684f0e99e3e6" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/7%206%20Estado%20de%20los%20documentos%204779007239cb4bf9927e684f0e99e3e6.html"><span class="icon">📗</span>7.6. Estado de los documentos.</a></figure></div><div style="display:contents" dir="ltr"><figure id="5af17f41-5e03-4c53-b8da-a60400f72a7c" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/7%207%20Incidencias%20comunes%205af17f415e034c53b8daa60400f72a7c.html"><span class="icon">📗</span>7.7. Incidencias comunes. </a></figure></div></details></li></ul></div></div></div><div style="display:contents" dir="auto"><div><div style="display:contents" dir="auto"><ul id="a9e448a3-2af4-4360-83d5-4e951ed8a347" class="toggle"><li><details open=""><summary><strong>Módulo 8: Conceptos básicos DTE México</strong></summary><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-80ef-8dc3-c71b37c3c9d6" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/9%201%20Generalidad%20del%20pa%C3%ADs%202ab390731e2380ef8dc3c71b37c3c9d6.html"><span class="icon">📗</span>9.1. Generalidad del país.</a></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-80d3-b26d-cf0979ccd6b3" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/9%202%20Integraci%C3%B3n%20Proveedor%20Facturaci%C3%B3n%202ab390731e2380d3b26dcf0979ccd6b3.html"><span class="icon">📗</span>9.2. Integración Proveedor Facturación </a></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8061-be86-db7f20c87f8b" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/9%203%20Alcance%20y%20funcionamiento%20del%20POS%202ab390731e238061be86db7f20c87f8b.html"><span class="icon">📗</span>9.3. Alcance y funcionamiento del POS. </a></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-80b2-8a33-c59cd9e99a0a" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/9%204%20Proceso%20de%20Activaci%C3%B3n%202ab390731e2380b28a33c59cd9e99a0a.html"><span class="icon">📗</span>9.4. Proceso de Activación </a></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-80d0-91b3-cf8e077031b6" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/9%205%20Proceso%20de%20baja%202ab390731e2380d091b3cf8e077031b6.html"><span class="icon">📗</span>9.5. Proceso de baja</a></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-80fb-ac96-ec8897878a40" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/9%206%20Errores%20comunes%202ab390731e2380fbac96ec8897878a40.html"><span class="icon">📗</span>9.6. Errores comunes </a></figure></div></details></li></ul></div></div></div><div style="display:contents" dir="auto"><ul id="80139c54-ee26-493c-8724-67429ebdecc3" class="toggle"><li><details open=""><summary><strong>Modulo 9: Evaluaciones</strong></summary><div style="display:contents" dir="ltr"><figure id="5ff3751a-9e02-48e6-aaf0-db6ed753e6e8" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/8%201%20DTE%20CHILE%205ff3751a9e0248e6aaf0db6ed753e6e8.html"><span class="icon">📗</span>8.1. DTE CHILE</a></figure></div><div style="display:contents" dir="ltr"><figure id="ffe0fe70-8606-4481-8273-ec4a86502fac" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/8%202%20DTE%20COLOMBIA%20ffe0fe70860644818273ec4a86502fac.html"><span class="icon">📗</span>8.2. DTE COLOMBIA</a></figure></div><div style="display:contents" dir="ltr"><figure id="f5cfca79-9a63-48d1-8092-bf0784b60a39" class="link-to-page"><a href="Flujo%20Capacitaci%C3%B3n%20ac26-7b9e/8%203%20DTE%20ARGENTINA%20f5cfca799a6348d18092bf0784b60a39.html"><span class="icon">📗</span>8.3. DTE ARGENTINA</a></figure></div><div style="display:contents" dir="auto"><p id="4ccb0769-8df7-4631-9471-fc6ffc0c8414" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="2aa39073-1e23-80cb-8c86-fc99a279f5e4" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

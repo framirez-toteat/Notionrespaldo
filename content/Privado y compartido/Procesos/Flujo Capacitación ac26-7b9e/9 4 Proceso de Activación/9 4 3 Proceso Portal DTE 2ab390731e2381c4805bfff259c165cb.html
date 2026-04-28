@@ -1,0 +1,745 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>9.4.3. Proceso Portal DTE</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2ab39073-1e23-81c4-805b-fff259c165cb" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">9.4.3. Proceso Portal DTE</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKuoMOnCVzrOiY71uvjDZs2bhdcBEC0Tejgn6n-vXj__MKDtME=s100" class="icon user-icon"/>Doymar Raga Flores</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-810a-81af-dafebdb04a64" class=""><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-810d-9c47-ee09585a1ad0" class="">Proporcionar al equipo de participantes los conocimientos necesarios para comprender el proceso de activación de DTE para México desde el portal de DTEadmin y así asegurar la homologación del conocimiento dentro del equipo.</p></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-81d4-b0e9-c1dad6835813" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-815d-b416-d100b2fca411" class="">Debe aplicarse al equipo de operaciones de Toteat encargado de solicitudes de activaciones o de realizar las activaciones.</p></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-8146-917a-eeb717749c2f" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81b2-9f58-d3010f6977f5" class="">El quipo de operaciones Toteat encargado de activaciones deberá tomar la capacitación DTE al menos una vez </p></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-813b-bdc8-f9d19565aeeb" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81c2-aaef-d01b7d6f2e01" class=""><strong>Las personas que tomen la capacitación deben:<br/></strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81fd-94b1-fb65838eadb5" class="numbered-list" start="1"><li>Pertenecer al equipo de Operaciones</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81d6-be67-ef90f48310d5" class="numbered-list" start="2"><li>Tener conocimientos previos sobre la herramienta TRM</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81bc-89a1-cf347f59eb35" class="numbered-list" start="3"><li>Encontrarse en periodo productivo y no en periodo de Pruebas </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81e4-b8f9-e00ab1876358" class="numbered-list" start="4"><li><mark class="highlight-default">Tener permisos de acceso y creación de clientes en el portal DTEadmin.</mark></li></ol></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-81aa-8db0-c6fa85a3fb13" class=""><mark class="highlight-orange"><strong>5. Procedimiento</strong></mark></h3></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81c1-8dd9-d9db49c0b4b6" class="">Ingresamos al Menú → Configuración → Empresas</p></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8170-9841-c2b12c29262c" class="">Las configuraciones establecidas para la activación de los documentos electrónicos tributarios (DTE) en la plataforma de DTE son las siguientes:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-813d-baec-cfaa9258db92" class="numbered-list" start="1"><li>Para crear la empresa necesitamos completar toda la información de los campos solicitados:</li></ol></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-819e-9c4a-e93278d6b918" class="bulleted-list"><li style="list-style-type:disc"> ID Fiscal (RFC)</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-8104-9ed0-c7bdb1cff344" class="bulleted-list"><li style="list-style-type:disc"> Id local (Id completo) </li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-8148-b086-fd1291eb5448" class="bulleted-list"><li style="list-style-type:disc"> País (México)</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-81da-a514-f1beb1bfed51" class="bulleted-list"><li style="list-style-type:disc"> Proveedor (Detectno<div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-817d-b8d0-c2ca3564f1f9" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_16.46.58_d40af90e.jpg"><img style="width:710px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_16.46.58_d40af90e.jpg"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-813d-a720-ee0637a6a3c7" class="numbered-list" start="2"><li>Una vez <strong>ingresados todos los datos</strong>, hacemos clic en el botón <strong>“Crear” y nos mostrará el mensaje “Company Created OK”  </strong></li></ol></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81df-97f4-f39792135d8c" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_16.48.58_f415e154.jpg"><img style="width:709.953125px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_16.48.58_f415e154.jpg"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81fd-a073-e2d9f7221837" class="numbered-list" start="3"><li>Luego ingresamos el RFC en el buscador de “Buscador IDFiscal” y veremos en la parte inferior, la empresa efectivamente creada, pero inactiva aún.</li></ol></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81dd-9cd9-d34395294f31" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/image.png"><img style="width:709.96875px" src="9%204%203%20Proceso%20Portal%20DTE/image.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-819f-9aa6-dcc6a8d35d67" class="numbered-list" start="4"><li>Accedemos a la pestaña <strong>EDI</strong> para completar la información necesaria de la empresa.</li></ol></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81fa-98c0-e5cdb03c0e31" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.02.08_fd675cad.jpg"><img style="width:709.921875px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.02.08_fd675cad.jpg"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81bb-b34c-d2ba703bb010" class="numbered-list" start="5"><li>Con apoyo del PDF del Constancia de Situación Fiscal y la información adicional solicitada al cliente, llenaremos los campos correspondientes a:</li></ol></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-81c2-956f-fe42270c960e" class="bulleted-list"><li style="list-style-type:disc">Dirección</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-81f7-8c90-d76949a7d71b" class="bulleted-list"><li style="list-style-type:disc">Municipalidad (comuna) → Nombre del Municipio o Demarcación Territorial</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-819d-9e22-e4180de75f8a" class="bulleted-list"><li style="list-style-type:disc">Ciudad → Nombre de Localidad</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-817f-b302-cbedf0dbee60" class="bulleted-list"><li style="list-style-type:disc">Código Postal </li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-81f7-ba25-f3d0d8e670ef" class="bulleted-list"><li style="list-style-type:disc">Fono → Teléfono </li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-815d-908b-dae9ea15e48b" class="bulleted-list"><li style="list-style-type:disc">Email </li></ul></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-812c-98ef-f798494557a5" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/image%201.png"><img style="width:709.96875px" src="9%204%203%20Proceso%20Portal%20DTE/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81ad-9d44-cdf93d779601" class="numbered-list" start="6"><li>Luego, debemos configurar la cantidad de días para autofacturar, considerando que el máximo permitido es de 30 días calendario. Ingresamos el usuario y la contraseña predeterminados </li></ol></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8196-9308-c385e29c3bf0" class=""><br/>A continuación, ingresamos el usuario y la contraseña predeterminados para todos los locales de México que se activen, y utilizamos la URL correspondiente a la integración con Detecno, que es el canal por el cual se envía la información.</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2ab39073-1e23-8127-bc9a-eef80062b825"><div style="font-size:1.5em"><span class="icon">🔑</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8153-8025-cccabda2894b" class="">Usurio: TME5D2\WS4450</p></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8145-b3e4-e3f115173cde" class="">Contraseña: Uo$3s+UdSi</p></div></div></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81a2-8a77-f4ad0a7ac6a6" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/image%202.png"><img style="width:709.953125px" src="9%204%203%20Proceso%20Portal%20DTE/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-810b-8b92-cfb0fef0c0db" class="numbered-list" start="7"><li>Presionamos el botón <strong>“Activar”</strong> y luego <strong>“Grabar”</strong>.  Aparecerán los mensajes:</li></ol></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-8129-8740-e0c11c6d4f65" class="bulleted-list"><li style="list-style-type:disc"><strong>“Company Activada OK”</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-8150-88c6-e193b83c6b88" class="bulleted-list"><li style="list-style-type:disc"><strong>“Company Saved OK”</strong></li></ul></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81bf-a9ab-c76202323f0f" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.12.50_5c4a5d20.jpg"><img style="width:709.953125px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.12.50_5c4a5d20.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81a8-b509-ec7ed26c2083" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.13.12_116e471d.jpg"><img style="width:710px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.13.12_116e471d.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8135-8184-ff30afab7194" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.13.35_b67f24e7.jpg"><img style="width:709.96875px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.13.35_b67f24e7.jpg"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-81ab-b540-e8acacc3e31b" class="numbered-list" start="8"><li>Volvemos atrás y verificamos que en la columna <strong>Status</strong> la empresa aparezca como <strong>activa (verde)</strong>.</li></ol></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81f1-bfa3-feff5cc3feb4" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.13.59_179b390d.jpg"><img style="width:710px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.13.59_179b390d.jpg"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-815c-a4f8-c6a363bf7e0c" class="numbered-list" start="9"><li>Ingresamos al botón “Suc” para agregar la sucursal en DTE.</li></ol></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8188-a1f8-e2e76fca764a" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.14.16_d2a55ded.jpg"><img style="width:710px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.14.16_d2a55ded.jpg"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8149-9c32-ec687156490f" class="numbered-list numbered-list-digits-2" start="10"><li>Hacemos clic en <strong>Nueva</strong> y llenamos los datos solicitados:</li></ol></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-81c8-b428-f6edd4104660" class="bulleted-list"><li style="list-style-type:disc">Id de la sucursal </li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-817a-af59-c259162ad102" class="bulleted-list"><li style="list-style-type:disc">Nombre de la sucursal</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-8141-bece-c93ddd57394a" class="bulleted-list"><li style="list-style-type:disc">Dirección</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-81c1-9e32-d5202cce5251" class="bulleted-list"><li style="list-style-type:disc">Ciudad</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-81a0-8d1e-e65aeba0573f" class="bulleted-list"><li style="list-style-type:disc">Municipalidad (Comuna)</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-811d-8097-f6fefa58e897" class="bulleted-list"><li style="list-style-type:disc">Código Postal</li></ul></div><div style="display:contents" dir="auto"><ul id="2ab39073-1e23-8113-941a-d15bb675363d" class="bulleted-list"><li style="list-style-type:disc">Impuesto → El impuesto ya configurado para la sucursal puede verificarse en TRM desde menú lateral→ Restaurants→ Ajustes generales→ Impuestos</li></ul></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8125-bef8-f00fb785a791" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.14.30_b65f5a8d.jpg"><img style="width:709.953125px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.14.30_b65f5a8d.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8122-bbc8-e0aaf2f1dd64" class="">Luego de ingresar los datos correspondientes, debemos presionar el botón de Activar y luego Grabar, nos mostrará un mensaje “Sucursal creada”</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81b5-972e-f3f1cf31ff5f" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.18.30_cfce011d.jpg"><img style="width:709.984375px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.18.30_cfce011d.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2ab39073-1e23-8111-b9a7-cd019df84c3b"><div style="font-size:1.5em"><span class="icon">📢</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ab39073-1e23-818e-ab91-cd7b8618650a" class="">En méxico</p></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8151-a3b5-cac24f756f0b" class="">16 % (General): Aplica en todo el país para bienes, servicios y rentas.</p></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8181-aecd-f953f7c38e6a" class="">8 % (Reducido): Solo en zonas fronterizas (norte y sur) </p></div></div></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8143-b9b2-dc083ab495cb" class="numbered-list numbered-list-digits-2" start="11"><li>Regresamos a la pantalla anterior  y validams que en la columna Sta, tenemos → Status activo.</li></ol></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-818c-987c-f18db4475784" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/image%203.png"><img style="width:709.9375px" src="9%204%203%20Proceso%20Portal%20DTE/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8119-b3d7-e72bf625afef" class="numbered-list numbered-list-digits-2" start="12"><li>Retornamos al menú principal y seleccionamos el botón Cer, para cargar la contraseña, el archivo .cer , y el archivo .key.</li></ol></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81b9-9409-f170d5e9a20a" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.19.37_89bb8c7a.jpg"><img style="width:710px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.19.37_89bb8c7a.jpg"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8100-9258-f98ffc263221" class="numbered-list numbered-list-digits-2" start="13"><li>Haremos clic en Subir Certificado y procedemos a cargar los archivos correspondientes</li></ol></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2ab39073-1e23-81fd-8ff5-ea9613856df9"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81f5-99c3-c5701b078c8f" class="">Solo nos permitirá cargar los archivos con la extensión correcta según cada campo.</p></div></div></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-81a7-8373-cc9deab81a8e" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.20.05_9dfa1eb1.jpg"><img style="width:709.953125px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.20.05_9dfa1eb1.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-816f-ae54-ea53690dbeff" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/image%204.png"><img style="width:710px" src="9%204%203%20Proceso%20Portal%20DTE/image%204.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8124-b6a4-d46bdcf687b1" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.22.13_f024dc99.jpg"><img style="width:710px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.22.13_f024dc99.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-819b-8c11-e75779c45432" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.23.47_782010f6.jpg"><img style="width:709.984375px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.23.47_782010f6.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-816b-97bb-f192703957eb" class="">Presionamos el botón “Enviar” y nos arroja un mensaje de “Certificado Cargado”</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8100-b210-edc35960d71c" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.24.10_f0b0b5b2.jpg"><img style="width:709.96875px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.24.10_f0b0b5b2.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-819f-8f0c-e8df8b5c03fc" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.24.28_0044db2f.jpg"><img style="width:709.96875px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.24.28_0044db2f.jpg"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2ab39073-1e23-8110-abcb-dbc17ade78f7" class="numbered-list numbered-list-digits-2" start="14"><li>Regresamos a la vista anterior y verificamos que el Certificado esté con Status 1 →Activo </li></ol></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8164-bf6d-f7f32e88190f" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.24.45_21c26665.jpg"><img style="width:709.984375px" src="9%204%203%20Proceso%20Portal%20DTE/Imagen_de_WhatsApp_2025-10-02_a_las_17.24.45_21c26665.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81a3-8fab-db42f90efddd" class=""><br/>✅ Con todos estos pasos <strong>realizados</strong>, la empresa quedará activa correctamente en DTE.<br/></p></div><div style="display:contents" dir="auto"><h2 id="2ab39073-1e23-814b-abd6-f4655b894a33" class=""><mark class="highlight-orange">Persona Física</mark></h2></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8105-861c-e81181ceb7c2" class="">En caso que sea una persona física, es decir, que realiza actividades económicas por cuenta propia.</p></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8118-8414-ca4a47c74d2e" class="">En la Constancia de Situación Fiscal, observamos que además de un RFC asignado, también tendrá  <strong>CURP</strong> (<em>Clave Única de Registro de Población</em>) es un código alfanumérico único que identifica a todas las personas que viven en México y también a los mexicanos que residen en el extranjero, similar al DNI o RUN.</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-812d-89fc-deeddb6462c4" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/image%205.png"><img style="width:709.984375px" src="9%204%203%20Proceso%20Portal%20DTE/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81ca-8ec2-dc8000391e1a" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2ab39073-1e23-8181-bd2e-c2eb91d0f1ea" class=""><mark class="highlight-orange">Creación en Detecno </mark></h2></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8173-9fb2-cf2b3220b2c3" class="">Este tipo de contribuyente se crea en Detecno siguiendo el mismo procedimiento previamente explicado, teniendo en cuenta que, en este caso, la razón social debe corresponder a los nombres y apellidos del contribuyente.</p></div><div style="display:contents" dir="auto"><h2 id="2ab39073-1e23-8185-acce-ccc59253f291" class=""><mark class="highlight-orange">Creación y Activación en DTEadmin</mark></h2></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-817f-aa4c-f4152293154e" class="">En  DTEadmin hay una configuración adicional en el botón Edi en el caso de personas física.</p></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81f5-8283-e73487b9e6cd" class="">Se debe activar la opción CURP </p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-8132-bbd7-fce71c432974" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/image%206.png"><img style="width:709.953125px" src="9%204%203%20Proceso%20Portal%20DTE/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-81af-98d1-f71619b212ae" class="">La cual a su vez habilitará una opción en la cual debemos seleccionar el régimen del contribuyente, se usa la opción Personas Físicas con Actividades Empresariales y Profesionales.</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-814e-a636-cec79dca46e6" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/image%207.png"><img style="width:709.96875px" src="9%204%203%20Proceso%20Portal%20DTE/image%207.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8155-bde2-e0330e48164d" class="">Esta información se evidencia en la Constancia de Situación Fiscal  en la segunda página.</p></div><div style="display:contents" dir="ltr"><figure id="2ab39073-1e23-816d-8a70-f1eaf7d46926" class="image"><a href="9%204%203%20Proceso%20Portal%20DTE/image%208.png"><img style="width:709.96875px" src="9%204%203%20Proceso%20Portal%20DTE/image%208.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8101-985d-caab5a21a2a5" class="">Se guarda y activa de la misma forma descrita anteriormente, para luego continuar con los pasos habituales del proceso de activación.</p></div><div style="display:contents" dir="auto"><h3 id="2ab39073-1e23-817e-a000-c06716755e91" class=""><mark class="highlight-orange"><strong>6. Control actualizaciones</strong></mark></h3></div><div style="display:contents" dir="ltr"><table id="2ab39073-1e23-816d-9a24-ef402ba5d57f" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="2ab39073-1e23-81b6-ac90-d312c55f6e78"><td id="q&gt;J:" class=""><strong>Fecha Actualización</strong></td><td id="{lbx" class=""><strong>Actualizado Por</strong></td><td id=";V{g" class=""><strong>Aprobado Por</strong></td><td id="nPQ^" class=""><strong>Versión</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ab39073-1e23-8179-b371-c7d0a5a385fc"><td id="q&gt;J:" class=""></td><td id="{lbx" class=""></td><td id=";V{g" class=""></td><td id="nPQ^" class=""><mark class="highlight-orange">4-2030.1</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ab39073-1e23-81a8-ba6c-f87cc512f496"><td id="q&gt;J:" class=""></td><td id="{lbx" class=""></td><td id=";V{g" class=""></td><td id="nPQ^" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ab39073-1e23-8136-a9ca-e40684ba9d40"><td id="q&gt;J:" class=""></td><td id="{lbx" class=""></td><td id=";V{g" class=""></td><td id="nPQ^" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="2ab39073-1e23-8186-bdb5-fb2e7c31164a" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

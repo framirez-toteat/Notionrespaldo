@@ -1,0 +1,752 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Payments México (EN PROCESO)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="15339073-1e23-8063-9bb4-eb83d9c7d057" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1608496601160-f86d19a44f9f?ixlib=rb-4.0.3&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_brown.svg"/></div><h1 class="page-title" dir="auto">Payments México (EN PROCESO)</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td><span class="selected-value select-value-color-yellow">Integraciones</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha de creación</th><td><time>10 de diciembre de 2024</time></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="15339073-1e23-8104-a919-e6e71ec66d1d"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Propósito: “Configuración y uso para integración con terminal Billpocket para conciliación de pagos con TRM”</strong>.</div></figure></div><div style="display:contents" dir="ltr"><nav id="15339073-1e23-8171-8f2b-e65e3f5d7aab" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#15339073-1e23-8198-ae25-e8c2d25408eb"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#15339073-1e23-815f-a454-e8c930196d99"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#15339073-1e23-81b6-8778-e4b8789cc791"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#15339073-1e23-81ab-9090-df6cbb410797"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#15339073-1e23-817d-9fb1-ef1c537abced"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#15339073-1e23-8129-a73e-d88eba34907b"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#15339073-1e23-81e5-85ba-ca02d72f2071"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#15339073-1e23-81bd-8182-d8f37283f56c"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#15339073-1e23-81fb-bfc4-cb63f69d0822"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="15339073-1e23-8198-ae25-e8c2d25408eb" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="15339073-1e23-81f5-8566-ee3d27b3e3ba" class="">Este documento trata acerca de la configuración y uso de la configuración de Payments Billpocket para México, dando paso al proceso de <em>payments</em> para TRM con este dispositivo. Esta integración actualmente funciona  como forma para levantar pagos desde TRM hacia el terminal, y además directamente desde el navegador del dispositivo para usarlo como “cajero móvil”</p></div><div style="display:contents" dir="auto"><h3 id="15339073-1e23-815f-a454-e8c930196d99" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="15339073-1e23-81f9-9eb3-ff925f14c562" class="">Este documento debe aplicarse para clientes que necesiten la integración con el terminal Payments Billpocket<em>.</em></p></div><div style="display:contents" dir="auto"><h3 id="15339073-1e23-81b6-8778-e4b8789cc791" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="15339073-1e23-81f9-a510-ed42739e95b2" class="">Este proceso debe realizarlo el cliente mediante solicitud a su ejecutivo comercial, enviando los documentos correspondientes:</p></div><div style="display:contents" dir="auto"><ul id="15839073-1e23-8015-a3d3-c74872e1e849" class="toggle"><li><details open=""><summary>Documentos Persona Física:</summary><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-80b6-90d9-c80f1d6ed821" class="numbered-list" start="1"><li>Constancia de situación fiscal con vigencia no mayor a 3 meses.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-80bf-88cb-cb8a04badb72" class="numbered-list" start="2"><li>Nombre completo, teléfono y correo del representante legal.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-80d2-88d0-cc14cb8b2e52" class="numbered-list" start="3"><li>INE o pasaporte del representante legal.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-80d0-b571-e9bae892abe7" class="numbered-list" start="4"><li>Carátula de estado de cuenta bancario en donde se va a depositar, que contenga Clabe interbancaria no mayor a 3 meses.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-809b-81ca-ef674844790f" class="numbered-list" start="5"><li>Dirección del local.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-8083-97cb-e992a0f4aff1" class="numbered-list" start="6"><li>Combrobante de domicilio con vigencia no mayor a 3 meses.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-8043-b0c3-e2ef3f075e4f" class="toggle"><li><details open=""><summary>Documentos Persona Moral:</summary><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-8016-ab5d-e523c6346980" class="numbered-list" start="1"><li>Constancia Fiscal con vigencia no mayor a 3 meses.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-80f5-aab1-cd4c72489697" class="numbered-list" start="2"><li>Nombre completo, teléfono y correo del representante legal.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-80ea-9ce1-e3b1a1f6361a" class="numbered-list" start="3"><li>INE o pasaporte del representante legal.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-8023-9dfc-efb9f53be78f" class="numbered-list" start="4"><li>Carátula de estado de cuenta bancario en donde se va a depositar, que contenga la Clabe interbancaria no mayor a 3 meses.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-800f-ab26-d305d7976050" class="numbered-list" start="5"><li>Acta constitutiva.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-8071-a37b-c20220533351" class="numbered-list" start="6"><li>Dirección del local.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-8010-ad8c-d32a544e19f9" class="numbered-list" start="7"><li>Comprobante de domicilio con vigencia no mayor a 3 meses.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="15839073-1e23-807a-945f-ee01d3d5fff7" class="toggle"><li><details open=""><summary>Datos para el envío de terminales</summary><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-801c-8663-f8bca6c9ef7b" class="numbered-list" start="1"><li>Nombre y número de contacto de la persona que recibirá los equipos.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-80e2-9f09-c54db478e510" class="numbered-list" start="2"><li>Dirección de entrega de los equipos.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="15339073-1e23-81ab-9090-df6cbb410797" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81d2-b909-fce1b6d2a709" class="toggle"><li><details open=""><summary><strong>Se debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="15339073-1e23-819d-9699-c5c58cf26514" class="bulleted-list"><li style="list-style-type:disc">Lo debe realizar el staff Toteat.</li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81cf-b9b4-e40cbb7a0cdb" class="bulleted-list"><li style="list-style-type:disc">El terminal debe ser modelo <mark class="highlight-red"><strong>VALIDAR (importa? siempre nos mandarán el mismo desde bill pocket)</strong></mark></li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-8128-96e5-e16eaab7a3fd" class="bulleted-list"><li style="list-style-type:disc">Estar en la última versión de TRM.</li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81ec-b6d3-caf26173b508" class="bulleted-list"><li style="list-style-type:disc">La integración es solo para utilizar tarjeta de crédito o débito en el terminal, no acepta billeteras electrónicas configuradas en él. <mark class="highlight-red"><strong>VALIDAR</strong></mark></li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-8182-a516-fd9e541fc8ee" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red"><strong>Debe tener alguna aplicación preinstalada? cual, quien la instala? se puede usar toteat en el dispositivo o solo levanta pagos?¡</strong></mark></li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-8129-8c11-d3db228457e5" class="bulleted-list"><li style="list-style-type:disc">Disponible en TRM GAE y Migración.</li></ul></div><div style="display:contents" dir="auto"><ul id="15839073-1e23-80bd-974d-c5db2b822c4b" class="bulleted-list"><li style="list-style-type:disc">El cliente debe estar en  periodo de prueba o Facturando (”En creación” no es válido para la configuración).</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="15339073-1e23-817d-9fb1-ef1c537abced" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81e8-8b64-cc81b6f88b5c" class="toggle"><li><details open=""><summary><mark class="highlight-orange"><strong>5.1. Configuración de la integración</strong></mark></summary><div style="display:contents" dir="auto"><ul id="15339073-1e23-8148-8f0a-e9fc1181f59c" class="toggle"><li><details open=""><summary><strong>Paso 1: Activación forma de pago.</strong></summary><div style="display:contents" dir="auto"><ul id="15339073-1e23-8176-8163-f72cbeb9e07d" class="bulleted-list"><li style="list-style-type:disc">Activar la forma de pago Toteat Payments PDV desde Menú lateral &gt; Restaurante &gt; Ajustes generales &gt; Formas de pago.</li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81f9-b92c-e313207df3b6" class="bulleted-list"><li style="list-style-type:disc">Selecciona la forma de pago ‘Toteat payments PDV’ y confirmar.</li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-8105-81be-fb44295c8051" class="bulleted-list"><li style="list-style-type:disc">Grabar la forma de pago en el ícono superior.</li></ul></div><div style="display:contents" dir="ltr"><figure id="15839073-1e23-80c4-8db4-e1fca749ccca" class="image"><a href="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image.png"><img style="width:651.984375px" src="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="15339073-1e23-81c0-8590-ceada4522400" class="image"><a href="Klap/image%201.png"><img style="width:384px" src="Klap/image%201.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-810d-8967-ebb7a67c691b" class="toggle"><li><details open=""><summary><strong>Paso 2: Activación integración.</strong></summary><div style="display:contents" dir="auto"><ul id="15339073-1e23-819c-91b7-f68e77aa7440" class="bulleted-list"><li style="list-style-type:disc">Ir al módulo de la integración en Menú lateral &gt; Integraciones &gt; Toteat payments.</li></ul></div><div style="display:contents" dir="auto"><p id="15839073-1e23-80fa-9d02-f49cb8b6c266" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="15839073-1e23-8093-8360-d59f42f5b5c7" class="image"><a href="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%201.png"><img style="width:336px" src="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="15839073-1e23-803d-bef3-eaa9991a0f82" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-810d-af0e-e7e6ab044177" class="bulleted-list"><li style="list-style-type:disc">Dar “Sí” al campo de “Activar pagos con dispositivos PDV Toteat Payments”, en el menú de Configuración.</li></ul></div><div style="display:contents" dir="ltr"><figure id="15839073-1e23-8048-ac3b-f79d85a99af2" class="image"><a href="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%202.png"><img style="width:624px" src="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81bb-8857-c134533e09c5" class="bulleted-list"><li style="list-style-type:disc">Completar los datos para la integración:</li></ul></div><div style="display:contents" dir="auto"><p id="15839073-1e23-8077-8f4f-e200c702b297" class=""><div class="indented"><div style="display:contents" dir="ltr"><figure id="15839073-1e23-8060-ba67-e3bc6fd728c5" class="image"><a href="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%203.png"><img style="width:627.96875px" src="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-806f-9af8-d40eb9345555" class="numbered-list" start="1"><li>Token de usuario: <mark class="highlight-red"><strong>??</strong></mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-807a-8e83-fe7550caa61f" class="numbered-list" start="2"><li>Integración Cloud to Cloud: <mark class="highlight-red"><strong>??</strong></mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-8052-a465-cef6ef79e8a1" class="numbered-list" start="3"><li>Versión API Cloud to Cloud: <mark class="highlight-red"><strong>??</strong></mark></li></ol></div></div></p></div><div style="display:contents" dir="auto"><ul id="15839073-1e23-801c-874f-cc0447ce1df7" class="bulleted-list"><li style="list-style-type:disc">Grabar la información en el icono en la parte inferior.</li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81d5-96a3-df8fb9e36890" class="bulleted-list"><li style="list-style-type:disc">Para agregar los terminales, reingresar a la configuración y en la parte inferior están los cuadros a completar para el terminal, aquí se deben completar:<div style="display:contents" dir="ltr"><figure id="15839073-1e23-80f4-ac54-c78431a42d74" class="image"><a href="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%204.png"><img style="width:623.96875px" src="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="15839073-1e23-80d7-b6d2-eaa744e44d91" class=""><br/>  1.   <strong>Nombre del terminal: </strong>identificación del terminal  por definición del cliente.</p></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-8033-8860-f6b8434d150f" class="numbered-list" start="2"><li><strong>ID de Terminal: </strong>Número de serie impreso en la parte posterior. <mark class="highlight-red"><strong>SE PUEDE OBTENER DE OTRA MANERA? VALIDAR</strong></mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-8044-b6a0-f95e6126ae4e" class="numbered-list" start="3"><li><strong>Token del Dispositivo</strong>: <mark class="highlight-red"><strong>POR QUÉ ESTÁ EN BLANCO? NO SE USA?</strong></mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-8001-ba11-fa35d1727a9f" class="numbered-list" start="4"><li><strong>DGID Toteat: </strong><mark class="highlight-red"><strong>Cómo es el proceso para detectarlo? se debe hacer algo en el terminal tipo bluetooth</strong></mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15839073-1e23-80cc-bd19-c58f11322d83" class="numbered-list" start="5"><li>Terminal Activo: Se debe dejar en SÍ, si el equipo estará operativo en el servicio. </li></ol></div></li></ul></div><div style="display:contents" dir="auto"><p id="15839073-1e23-80c3-a899-d6111abb00d1" class=""><mark class="highlight-red"><strong>HAY QUE HACER ALGUNA HABILITACIÖN EN EL TERMINAL? paso a paso</strong></mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81e1-9faf-ffc8b6a6abd2" class="toggle"><li><details open=""><summary><strong>Paso 3: Asignación de terminal a Caja.</strong></summary><div style="display:contents" dir="auto"><ul id="15339073-1e23-81dc-a203-e049d97697ee" class="bulleted-list"><li style="list-style-type:disc">Se debe asociar el terminal a la caja. Ir a Menú lateral &gt; Restaurante &gt; Cajas, y seleccionar la caja correspondiente que tendrá asociado el terminal.</li></ul></div><div style="display:contents" dir="auto"><p id="15339073-1e23-8195-a804-e71d0c4270b7" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="15339073-1e23-818f-a1ee-c1c33cf2698f" class="image"><a href="Klap/image%205.png"><img style="width:528px" src="Klap/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="15339073-1e23-8134-80c5-e8d37bfdb47f" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81fe-aad8-ebfd6c2f0387" class="bulleted-list"><li style="list-style-type:disc">Ir al lápiz de edición, y aquí asociar el terminal correspondiente en el parámetro “Terminales Toteat Payments”.</li></ul></div><div style="display:contents" dir="ltr"><figure id="15839073-1e23-809f-bd81-faa26076e18b" class="image"><a href="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%205.png"><img style="width:521px" src="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-8139-92da-fde8fe005b04" class="bulleted-list"><li style="list-style-type:disc">Confirmar y grabar los cambios</li></ul></div><div style="display:contents" dir="auto"><p id="15339073-1e23-8120-9139-f35229279911" class="">
+</p></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-8100-bbd4-cd730124b07b" class="toggle"><li><details open=""><summary><mark class="highlight-orange"><strong>5.2. Uso de la integración</strong></mark></summary><div style="display:contents" dir="auto"><ul id="15339073-1e23-81a8-9266-ca163bfb66a0" class="toggle"><li><details open=""><summary><strong>Paso 1: Verificar caja</strong></summary><div style="display:contents" dir="auto"><ul id="15339073-1e23-8112-9f0b-d6ac527dafa9" class="bulleted-list"><li style="list-style-type:disc">Tener Caja abierta.</li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81e9-b0a6-cfe507b6fc3f" class="bulleted-list"><li style="list-style-type:disc">Validar que la caja que realizará el pago con la integración sea la que se configuró con el terminal correspondiente.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-8189-b22e-c9bd57904527" class="toggle"><li><details open=""><summary><strong>Paso 2: Pagar la mesa</strong></summary><div style="display:contents" dir="auto"><ul id="15339073-1e23-81c6-8d43-e5b04a4b9e49" class="bulleted-list"><li style="list-style-type:disc">Con la caja abierta, ir al ícono de “Cerrar mesa”.</li></ul></div><div style="display:contents" dir="ltr"><figure id="15839073-1e23-808d-b4b1-eb228851c645" class="image"><a href="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%206.png"><img style="width:480px" src="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-814e-8f9d-dab5f03249d4" class="bulleted-list"><li style="list-style-type:disc">Seleccionar la forma de pago ‘Toteat payments PDV’ y dar al ícono ‘Pagar’.</li></ul></div><div style="display:contents" dir="ltr"><figure id="15839073-1e23-8089-8677-d825ee01e589" class="image"><a href="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%207.png"><img style="width:651.96875px" src="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%207.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81ec-b444-e67660fc1d96" class="bulleted-list"><li style="list-style-type:disc">Al momento de pagar, seleccionar el terminal correspondiente (en el caso de tener más de uno disponible) y presionar ‘Pagar’.</li></ul></div><div style="display:contents" dir="ltr"><figure id="15839073-1e23-806e-9625-fc9f6e07c5a5" class="image"><a href="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%208.png"><img style="width:651.984375px" src="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%208.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-8185-8ddf-e32f3f882814" class="bulleted-list"><li style="list-style-type:disc">Realizado esto, en pantalla verán el pago en proceso.</li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81d6-9427-d80df249c77a" class="bulleted-list"><li style="list-style-type:disc">Mientras en pantalla está el pago en proceso, en el terminal se levantará el pago correspondiente:</li></ul></div><div style="display:contents" dir="auto"><p id="15839073-1e23-8079-8ce3-c9a6b5d50d1e" class=""><mark class="highlight-red"><strong>PROCESO PENDIENTE A REALIZAR EN EL TERMINAL ??</strong></mark></p></div><div style="display:contents" dir="auto"><p id="15339073-1e23-8176-a913-c551a5681d4b" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="15339073-1e23-8193-b26a-f4a20699ef93" class="numbered-list" start="8"><li>Pago confirmado y pagado en TRM, listo para emitir Boleta en el caso que esté configurada</li></ol></div><div style="display:contents" dir="auto"><p id="15839073-1e23-8021-b3a0-cbd2bc1a4320" class=""><mark class="highlight-red"><strong>FOTO PENDIENTE, PROBAR CON TERMINAL</strong></mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81f8-873c-f63077348ac4" class="toggle"><li><details open=""><summary><strong>Paso 3: Información de pagos</strong></summary><div style="display:contents" dir="auto"><ul id="15339073-1e23-819b-8851-ddcc9898b85c" class="bulleted-list"><li style="list-style-type:disc">Detalle de la información de pagos en Menú lateral &gt; Integraciones &gt; Toteat Payments &gt; Historial. </li></ul></div><div style="display:contents" dir="ltr"><figure id="15839073-1e23-80fd-b0d3-d275e6174c11" class="image"><a href="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%209.png"><img style="width:651.96875px" src="Payments%20M%C3%A9xico%20(EN%20PROCESO)/image%209.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-8163-a9cc-f08d8ce13578" class="bulleted-list"><li style="list-style-type:disc">Pagos aceptados son órdenes ya pagadas y en TRM como órdenes abiertas/cerradas en detalle de pago.</li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81cb-8a6d-f9243124a2d7" class="bulleted-list"><li style="list-style-type:disc">Pagos Abortados son pagos que no se concretaron dentro del tiempo correspondiente.</li></ul></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-8162-9eb9-ff0874273559" class="bulleted-list"><li style="list-style-type:disc">Pagos rechazados son pagos que el terminal no procesó de manera correcta.</li></ul></div><div style="display:contents" dir="auto"><p id="15339073-1e23-8100-b31d-d4f44b5a0e60" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="15339073-1e23-81c0-8eaf-fe390d6d778d" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="15339073-1e23-8129-a73e-d88eba34907b" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81bf-a67e-f63ea074f93b" class="bulleted-list"><li style="list-style-type:disc">Se configura y utiliza correctamente la integración con Toteat Payments</li></ul></div><div style="display:contents" dir="auto"><h3 id="15339073-1e23-81e5-85ba-ca02d72f2071" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-81d5-84e7-cbabf2d73f18" class="bulleted-list"><li style="list-style-type:disc">Clientes sin integración con Toteat Payments</li></ul></div><div style="display:contents" dir="auto"><h3 id="15339073-1e23-81bd-8182-d8f37283f56c" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="15339073-1e23-8176-862f-d76d2ab8cf4c" class="bulleted-list"><li style="list-style-type:disc">Orden de prueba al momento de la configuración</li></ul></div><div style="display:contents" dir="auto"><h3 id="15339073-1e23-81fb-bfc4-cb63f69d0822" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="15339073-1e23-8135-a2f7-c90c5bed2b8b" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="15339073-1e23-81f5-8ddf-f15face4f8a4"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="15339073-1e23-8174-9d2e-e92ab50490ce"><td id="nU|h" class="">10-12-2024</td><td id="WwCq" class=""><span class="user">@Francisco Ramirez</span> </td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="15339073-1e23-8117-8fb6-ef353d928d26"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="15339073-1e23-810c-98e5-e8706d9a33cc"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="15339073-1e23-8191-9ece-e6f7670af7fa" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

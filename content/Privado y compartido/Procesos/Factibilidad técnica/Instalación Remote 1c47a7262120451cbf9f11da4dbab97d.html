@@ -1,0 +1,749 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Instalación Remote</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1c47a726-2120-451c-bf9f-11da4dbab97d" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">Instalación Remote</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="10a39073-1e23-8045-b5b8-f2972a1b156a"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Propósito: “Realizar la correcta instalación de la herramienta Screenconnect en el PC del cliente para así llevar monitoreo de su red y saber las características del mismo.”</strong>.</div></figure></div><div style="display:contents" dir="ltr"><nav id="10a39073-1e23-8034-a4ac-ec76003f82f5" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#10a39073-1e23-8010-982a-c9d3f3fb4dea"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6425d937-550e-4d0b-b1fe-05fd7dc40853"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#10a39073-1e23-8053-9239-cfaa7269812f"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#10a39073-1e23-80d9-8d66-cf33eb06f20d"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#10a39073-1e23-80d5-8b89-cbfa49130802"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#10a39073-1e23-809b-8e47-e6ffa4b3a80b"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#10a39073-1e23-8090-9e91-cefbbbc7dade"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#10a39073-1e23-8056-9cf7-ca06680e90ae"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#10a39073-1e23-801b-b66f-d7ac7223ee0c"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="10a39073-1e23-8010-982a-c9d3f3fb4dea" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="854771c7-6953-4884-b23f-986a3d4c6a42" class="">En la primera parte de revisión de factibilidad técnica del cliente, se deben realizar dos monitoreos para así validar que este cumpla con parte de los requisitos mínimos que Toteat necesita para trabajar correctamente, estos monitoreos son:</p></div><div style="display:contents" dir="auto"><ol type="1" id="10a39073-1e23-80d4-97a0-e5d7f6b61fde" class="numbered-list" start="1"><li>Monitoreo de red: Este consta de monitorear la estabilidad de la señal que tiene el cliente en el equipo principal, con el fin de determinar qué tan estable es la red y/o cuanta intermitencia tiene dentro de un rango de tiempo en específico, el monitoreo se aprueba si es que la red está conectada de corrido sin intermitencias por aproximadamente 8 horas, si no, el cliente debe hacer las modificaciones correspondientes para acercarse a ese rango (cablear la el PC al router, despejar el router, validar con el proveedor, etc.)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="10a39073-1e23-80ac-81a0-e305dbecf2ce" class="numbered-list" start="2"><li>Monitoreo del equipo Principal: La herramienta utilizada para realizar el monitoreo de red también nos proporciona toda la información de hardware que el equipo en el que está instalado tiene, para así, determinar si el equipo cumple con los requisitos mínimos para ser utilizado como “servidor” o no, de ser así deberá cambiar el equipo por uno que si se acerque más a estos.  Validar con <a href="Requisitos%20m%C3%ADnimos%20recomendados%20fd67ef8c7a8b479d820428ab3a0724a6.html"><span class="icon">📗</span>Requisitos mínimos recomendados </a>.</li></ol></div><div style="display:contents" dir="auto"><p id="10a39073-1e23-8082-b157-e1c23127bf5d" class="">Para realizar este monitoreo es que se usará una herramienta externa llamada Screenconnect (o <em>Remote</em> por su nombre anterior) la cual además de servir para validar estos monitoreos, es la herramienta que el equipo de SAC utiliza para hacer el soporte remoto a los clientes en caso de que sea necesario.</p></div><div style="display:contents" dir="auto"><h3 id="6425d937-550e-4d0b-b1fe-05fd7dc40853" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="10a39073-1e23-8003-9420-d1e9db5d92e1" class="">Este proceso se debe aplicar para todos los clientes en la primera instancia de conversaciones con el ejecutivo de ventas, de este monitoreo pueden alertarse inconvenientes que podrían afectar la experiencia de usuario en el uso de Toteat.</p></div><div style="display:contents" dir="auto"><h3 id="10a39073-1e23-8053-9239-cfaa7269812f" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="10a39073-1e23-809e-b34f-c2058df0d6a8" class="">Este proceso parte a través del envío de un correo por parte del ejecutivo de ventas el cual trae un código para la instalación de Remote, y un pequeño explicativo del como realizarlo.</p></div><div style="display:contents" dir="auto"><h3 id="10a39073-1e23-80d9-8d66-cf33eb06f20d" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="10a39073-1e23-8093-b4ef-d201d3ddce14" class="toggle"><li><details open=""><summary><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="cf8d2f9b-dadc-4a96-ade0-c1a50f385165" class="bulleted-list"><li style="list-style-type:disc">Se debe realizar idealmente en el PC que será el servidor en el uso de Toteat</li></ul></div><div style="display:contents" dir="auto"><ul id="399e4640-0b77-4dd9-bf80-bbc0c1afd604" class="bulleted-list"><li style="list-style-type:disc">Se debe realizar en la red definitiva que tendrá el cliente en su local (por ej: no lo debe realizar en su casa si es que el local físicamente está en otro lugar)</li></ul></div><div style="display:contents" dir="auto"><ul id="b0667bb3-7c8b-4080-a7ca-b1f783d93cba" class="bulleted-list"><li style="list-style-type:disc">Se debe realizar idealmente en un PC con Windows, teniendo en consideración que es un requisito mínimo para ser servido</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="10a39073-1e23-80d5-8b89-cbfa49130802" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="66cf3d37-9828-4008-acd7-139764c8fc42" class="toggle"><li><details open=""><summary><strong>Paso 1: Recopilación información</strong></summary><div style="display:contents" dir="auto"><ul id="f8fae043-5f4a-4d25-aa2d-8c6d56cb3139" class="bulleted-list"><li style="list-style-type:disc">Desde el correo que envía el agente de ventas, se debe extraer la información asociada a:</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="10a39073-1e23-80fc-9873-c72125e4c273" class="numbered-list" start="1"><li>El código de <em>Remote: </em>Es un código de 5 dígitos  único por cliente que será utilizado para obtener el archivo de descarga de la herramienta.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="10a39073-1e23-80a5-81ba-d11684d9a93f" class="numbered-list" start="2"><li>Link de descarga: La URL necesaria para realizar la acción de descarga del archivo de <em>Remote, </em>para todos los clientes la dirección es la misma <a href="http://Toteat.screenconnect.com">Toteat.screenconnect.com</a> </li></ol></div><div style="display:contents" dir="auto"><ul id="10a39073-1e23-8076-888c-ed139796436d" class="bulleted-list"><li style="list-style-type:disc">El cuerpo del correo que se envía actualmente es: </li></ul></div><div style="display:contents" dir="auto"><p id="10a39073-1e23-80f9-aca7-f09fc95f1798" class=""><strong>Instrucciones</strong>:</p></div><div style="display:contents" dir="auto"><p id="10a39073-1e23-8035-a479-d6c710b27359" class="">1. <a href="https://toteat.screenconnect.com/">Haz click aquí para ir a la web de conexión remota</a> <br/>2. Introduzca el siguiente código de acceso:  44595 (código de prueba para el ejemplo)<br/>3. Una vez ingresado el código pulse sobre la flecha azul<br/>4. Se iniciará la descarga del software bajo el nombre ToteatRemote.Client.exe<br/>5. Luego de realizada la descarga, ejecute el instalador para continuar. Si aparece un mensaje solicitando permiso para realizar cambios en el equipo, seleccione &quot;Sí&quot;<br/>6. Una vez instalado Toteat Remote aparecerá el ícono de la aplicación en la bandeja de sistema del computador, y una notificación indicando que se ha realizado la conexión.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="10a39073-1e23-80c3-a209-e4b334db7552" class="toggle"><li><details open=""><summary><strong>Paso 2: Ingreso al URL y descarga de archivo</strong></summary><div style="display:contents" dir="auto"><ul id="4a534f1d-d972-4b1b-a7b6-a306ba740ef1" class="bulleted-list"><li style="list-style-type:disc">Ya con el código, se ingresará a <a href="http://Toteat.screenconnect.com">Toteat.screenconnect.com</a> y se ingresará el código en el cuadro de texto “Unirse con un código”.</li></ul></div><div style="display:contents" dir="ltr"><figure id="10a39073-1e23-80b4-ae19-dc2b5f974ee8" class="image"><a href="Instalaci%C3%B3n%20Remote/image.png"><img style="width:528px" src="Instalaci%C3%B3n%20Remote/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="10a39073-1e23-800f-a1ec-d00b69e154fd" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="192e361b-d16e-46a3-baa2-c91939f47752" class="bulleted-list"><li style="list-style-type:disc">Al ingresar el código la flecha al costado derecho del cuadro de texto pasara de gris a rojo, y clickeando sobre ese ícono comenzará la descarga.</li></ul></div><div style="display:contents" dir="ltr"><figure id="10a39073-1e23-804a-892b-e7e28c6b3954" class="image"><a href="Instalaci%C3%B3n%20Remote/image%201.png"><img style="width:528px" src="Instalaci%C3%B3n%20Remote/image%201.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="10a39073-1e23-807f-b93b-c9e1d03993fd" class="image"><a href="Instalaci%C3%B3n%20Remote/image%202.png"><img style="width:528px" src="Instalaci%C3%B3n%20Remote/image%202.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="10a39073-1e23-8022-a059-ec915f04abca" class="image"><a href="Instalaci%C3%B3n%20Remote/image%203.png"><img style="width:336px" src="Instalaci%C3%B3n%20Remote/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="629057f0-3f4a-4f57-b39b-aa11d402a883"/></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="21ec628a-18b0-497d-b212-34f03c5b6539" class="toggle"><li><details open=""><summary><strong>Paso 3: Ejecutar el archivo descargado</strong></summary><div style="display:contents" dir="auto"><ul id="76af79df-912d-42b4-8f96-0bb888d0771a" class="bulleted-list"><li style="list-style-type:disc">Una vez la descarga esté lista, se debe clickear sobre el ícono de ella para así comenzar la instalación.</li></ul></div><div style="display:contents" dir="ltr"><figure id="10a39073-1e23-80c7-9bfb-d1123aa8064f" class="image"><a href="Instalaci%C3%B3n%20Remote/image%204.png"><img style="width:348px" src="Instalaci%C3%B3n%20Remote/image%204.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="10a39073-1e23-80d5-b0ba-e7c9b2952064" class="image"><a href="Instalaci%C3%B3n%20Remote/image%205.png"><img style="width:679.96875px" src="Instalaci%C3%B3n%20Remote/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="10a39073-1e23-804f-a828-e86d519e51d0" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="9cee08fc-c953-4914-b508-94ae5254656f" class="bulleted-list"><li style="list-style-type:disc">Al aparecer la ventana de permisos debe clickear sobre el icono de ‘Sí’ .</li></ul></div><div style="display:contents" dir="ltr"><figure id="10b39073-1e23-8046-9201-ca1c129ca349" class="image"><a href="Instalaci%C3%B3n%20Remote/image%206.png"><img style="width:384px" src="Instalaci%C3%B3n%20Remote/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="f611cfea-0368-4d4d-a0f6-74d505ea3a99" class="bulleted-list"><li style="list-style-type:disc">Con esto se instalará el archivo correctamente, para validar que esté ok, se debe verificar que el ícono del archivo se esté ejecutando correctamente en los íconos de la parte inferior derecha .</li></ul></div><div style="display:contents" dir="ltr"><figure id="10b39073-1e23-8074-a46c-d848044eef02" class="image"><a href="Instalaci%C3%B3n%20Remote/image%207.png"><img style="width:288px" src="Instalaci%C3%B3n%20Remote/image%207.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="10b39073-1e23-80c8-b19d-c174e5621ba4" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="10b39073-1e23-8058-a048-eaa4f9942ddb"><div class="source"><a href="https://www.youtube.com/watch?v=PtmbXYsip4Q&amp;ab_channel=Toteat">https://www.youtube.com/watch?v=PtmbXYsip4Q&amp;ab_channel=Toteat</a></div></figure></div><div style="display:contents" dir="auto"><ul id="10b39073-1e23-80b5-86ce-d3f4ec738a3d" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota: “</strong><em>Este proceso puede tardar más o menos dependiendo de la velocidad de descarga de internet y del procesador del equipo, en general no debiese tardar más de un par de minutos.”</em></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="10a39073-1e23-8019-a13e-dff24ed1bd2d" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="10a39073-1e23-809b-8e47-e6ffa4b3a80b" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="10a39073-1e23-801e-aa23-c0fe13c92566" class="bulleted-list"><li style="list-style-type:disc">Se logra instalar el remote de manera correcta para iniciar el monitoreo.</li></ul></div><div style="display:contents" dir="auto"><h3 id="10a39073-1e23-8090-9e91-cefbbbc7dade" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="9f91aa30-d72f-4058-83ab-45756fae9e1a" class="bulleted-list"><li style="list-style-type:disc">Clientes que no requieran PC servidor (por ejemplo, usarán solo un equipo IMIN).</li></ul></div><div style="display:contents" dir="auto"><ul id="10b39073-1e23-8037-a8be-fb1d5d88165e" class="bulleted-list"><li style="list-style-type:disc">Clientes específicos dictaminados por el country manager identificados como excepción en Salesforce.</li></ul></div><div style="display:contents" dir="auto"><h3 id="10a39073-1e23-8056-9cf7-ca06680e90ae" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="10a39073-1e23-803f-aace-e56683d8cd9b" class="bulleted-list"><li style="list-style-type:disc">Para validar el proceso se debe verificar el ícono de Remote abajo a la derecha.</li></ul></div><div style="display:contents" dir="auto"><ul id="10b39073-1e23-8059-a409-d71b88274832" class="bulleted-list"><li style="list-style-type:disc">Se puede consultar el estado del remote a un agente SAC para validar si existe conexión a dicho código.</li></ul></div><div style="display:contents" dir="auto"><p id="11339073-1e23-80eb-bb2b-da7725bf1585" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="10a39073-1e23-801b-b66f-d7ac7223ee0c" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="10a39073-1e23-80ac-bff6-d0810c34090f" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="eb65626a-d49f-4dce-a201-bbdc1a05694c"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="15a2ff02-2da1-485d-91b9-3c134e0460da"><td id="nU|h" class="">24/09/2024</td><td id="WwCq" class=""><span class="user">@Francisco Ramirez</span> </td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="1d2f9aef-ed67-4c2d-a0e1-170410cf2e11"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="78dd7352-d605-469a-9ff8-46124a431bf7"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="e5b4c77d-38e3-4b19-b68a-f7e864de3783" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

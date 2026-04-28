@@ -1,0 +1,744 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2.4.2. Procesos plataforma DTE.</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f7ddecc7-c2d3-4f2d-b392-6909ee60dd3e" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">2.4.2. Procesos plataforma DTE.</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Actualizado por</th><td><span class="user"><img src="../../DTE%20Chile/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Código </th><td><mark class="highlight-orange">4-2010.1</mark></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha de creación</th><td><time>8 de julio de 2024</time></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h3 id="a845e538-fb44-4899-9c57-10edef0ec6f6" class=""><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="0d7ea59a-b6a9-4c4d-96b3-63506fe77cd1" class="">Proporcionar al equipo de participantes los conocimientos necesarios para comprender el proceso de activación de DTE para Chile desde el portal de DTEadmin y así asegurar la homologación del conocimiento dentro del equipo.</p></div><div style="display:contents" dir="auto"><h3 id="5a9a2f8d-4b23-4321-b82f-1e8ddae47322" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="ec4fe31e-99b5-4f95-a433-816c67a9b4ed" class="">Debe aplicarse al equipo de operaciones de Toteat encargado de solicitudes de activaciones o de realizar las activaciones.</p></div><div style="display:contents" dir="auto"><h3 id="82abc140-03c7-435a-bf86-7863e4147732" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="fe7e4a53-fe1e-4151-80e2-0fd003f63673" class="">El quipo de operaciones Toteat encargado de activaciones deberá tomar la capacitación DTE al menos una vez </p></div><div style="display:contents" dir="auto"><h3 id="ee6d9c88-6b13-4bbd-8885-60377f12fbc4" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><p id="5a2feb00-f79b-4626-817f-5470274b984c" class=""><strong>Las personas que tomen la capacitación deben:<br/></strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="7f7dd07f-910f-4f52-903c-3ba1d79f5aee" class="numbered-list" start="1"><li>Pertenecer al equipo de Operaciones</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="15c8ca53-01da-416f-b98a-9a97e139c686" class="numbered-list" start="2"><li>Tener conocimientos previos sobre la herramienta TRM</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="f621fd85-0d73-422c-8f44-f8f6cf301f3f" class="numbered-list" start="3"><li>Encontrarse en periodo productivo y no en periodo de Pruebas </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="dbbcef15-983a-42bd-8586-0e4e63423ec6" class="numbered-list" start="4"><li><mark class="highlight-default">Tener permisos de acceso y creación de clientes en el portal DTEadmin</mark><mark class="highlight-default">.</mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="b19ad71c-8f0b-4b7a-a040-9d729372a857" class="numbered-list" start="5"><li>El proceso de descarga del certificado digital debe realizarse desde un equipo con sistema Windows</li></ol></div><div style="display:contents" dir="auto"><h3 id="d7e8d1b0-cea1-4901-83e7-b2b1b3c14146" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><p id="3961bcc1-973f-4417-926c-b66c99835128" class="">Según lo indicado en el módulo <a href="../2%203%20Alcance%20y%20funcionamiento%20DTE%20Admin%20b416adb35fde4faf90462d30d309a3c9.html"><span class="icon">📗</span>2.3. Alcance y funcionamiento DTE Admin.</a> Ingresamos al Menú → Configuración → External company </p></div><div style="display:contents" dir="auto"><p id="c08c1e11-23e0-483e-90cb-280cff34fdd6" class="">Las configuraciones establecidas para la activación de los documentos electrónicos tributarios (DTE) en la plataforma de DTE son las siguientes:</p></div><div style="display:contents" dir="auto"><ul id="4f7f4d81-aa9a-4fca-b22e-11335b2e78bf" class="toggle"><li><details open=""><summary><strong>Boleta electrónica</strong></summary><div style="display:contents" dir="auto"><ol type="1" id="9da5183f-4529-4ca3-96b9-09836c13163c" class="numbered-list" start="1"><li>Validar que bajo el RUT existan datos creados en el portal de DTEadmin y validar los permisos del certificado digital en el SII.</li></ol></div><div style="display:contents" dir="ltr"><figure id="35dd637a-11ec-4457-b773-c4a3c250d78a" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled.png"><img style="width:680px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="b78a1cab-00c0-435e-9146-6c4c02e15a35" class="">Cuando en STA aparece en amarillo es por que aun no esta activo, vamos al botón CERT para descargar el certificado e instalarlo en el equipo para acceder al portal del SII y verificar si el certificado tiene los permisos correspondientes</p></div><div style="display:contents" dir="ltr"><figure id="e139d125-b1c0-4a8e-b495-9e28283cec5a" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%201.png"><img style="width:680px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="bd54ed6b-e33b-4d05-9fdf-eaa8707b30be" class="">Presionamos el botón &quot;Descargar&quot; e instalamos en el equipo con la clave correspondiente.</p></div><div style="display:contents" dir="ltr"><figure id="91d01c1a-4718-40a7-9e26-dd75bd505d00" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%202.png"><img style="width:336px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%202.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="6e9eb525-bc62-4e65-b70c-596922c18825" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%203.png"><img style="width:331px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%203.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2264ed06-d7d2-47b5-9e3c-9df3fbdd90eb" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%204.png"><img style="width:321px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%204.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="01c800a5-1199-4638-913e-91ea3c892a2f" class="numbered-list" start="2"><li>Vamos al portal del SII <a href="https://zeusr.sii.cl//AUT2000/InicioAutenticacion/IngresoRutClave.html?https://misiir.sii.cl/cgi_misii/siihome.cgi">https://zeusr.sii.cl//AUT2000/InicioAutenticacion/IngresoRutClave.html?https://misiir.sii.cl/cgi_misii/siihome.cgi</a> e ingresamos con la opción “Ingresar con Certificado Digital” donde buscaremos el nombre del certificado que descargamos e ingresamos </li></ol></div><div style="display:contents" dir="ltr"><figure id="d68f1914-a13b-442c-a5c3-318b79be6b58" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%205.png"><img style="width:684px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%205.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="875682cf-9b59-44b0-bf5e-a70da2a4e18f" class="numbered-list" start="3"><li>Accedemos a los permisos a través del menú de Servicios en línea → Boleta de ventas y servicios electrónicos → Boleta electrónica de Mercado</li></ol></div><div style="display:contents" dir="ltr"><figure id="52678b2b-4af6-4381-9bbe-57c66912e9ed" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%206.png"><img style="width:680px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%206.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="3ef18207-bb84-4f01-8d68-e29ac0f84db6" class="">Vamos a la opción Actualización de datos empresa autorizada y mantención de usuarios</p></div><div style="display:contents" dir="ltr"><figure id="f1c372eb-f259-4720-aa57-51102ed5f59d" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%207.png"><img style="width:680px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%207.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="7f708369-9f44-4686-aec1-62c28f23f8fc" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%208.png"><img style="width:708px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%208.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="80aa5e7c-be87-4945-b4d8-889b8d47f215" class="">Debe visualizarse el Rut y nombre del certificado del representante legal y en todas las casillas tener la “<em><strong>S”</strong></em> que indica que si Aplica, si cuenta con el permiso</p></div><div style="display:contents" dir="ltr"><figure id="afd24548-3e6b-4b2a-9732-c8823bd98568" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%209.png"><img style="width:572px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%209.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="fc7223bc-710d-4eb0-9f35-8055bde6d0bc" class="">Luego, verificamos si tiene autorizada la emisión de Boletas en la opción <strong>CONTRIBUYENTES AUTORIZADOS PARA EMITIR DOCUMENTOS TRIBUTARIOS ELECTRÓNICOS </strong>y consultamos por RUT de la empresa</p></div><div style="display:contents" dir="ltr"><figure id="960e1273-a682-4e4a-b928-80cc8a212a88" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%2010.png"><img style="width:684px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%2010.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="9192baae-1e63-4d25-b276-748d2c782840" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%2011.png"><img style="width:637px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%2011.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="97c565b2-4568-41a2-a773-d4deb6ebf596" class="">por lo que actualizamos la casilla de intercambio y descargamos folios de boleta electronica </p></div><div style="display:contents" dir="ltr"><figure id="60f33a22-038b-497a-af17-556108c7f9ee" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%2012.png"><img style="width:684px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%2012.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="82c93b56-f1a1-4419-806f-584a52d45d15" class="">Cargamos los folios en DTEAdmin en el botón de CAF.</p></div><div style="display:contents" dir="ltr"><figure id="c21e431d-a15b-42bc-bf14-d5658e4b34fc" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%2013.png"><img style="width:680px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%2013.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="5b07782d-e620-48bc-8ee4-8f7cb28d5a86" class="">Cargamos los folios y procedemos a activar </p></div><div style="display:contents" dir="ltr"><figure id="a202d6ac-4f38-46b7-8049-fa6e5cba06ed" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%2014.png"><img style="width:708px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%2014.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="d0b7cf69-9bec-4701-997d-3c82cec0b8b0" class="">Procedemos a la pestaña EDIT donde verificamos y activamos la empresa</p></div><div style="display:contents" dir="ltr"><figure id="926441d1-932c-46ab-bf41-76ae553bc117" class="image"><a href="2%204%202%20Procesos%20plataforma%20DTE/Untitled%2015.png"><img style="width:708px" src="2%204%202%20Procesos%20plataforma%20DTE/Untitled%2015.png"/></a><figcaption>Importante: Esta información será crucial para el proceso del módulo 2.4.3 Proceso Versiones.</figcaption></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="c65cfaf8-8ba1-4326-8e51-7f5ae2723b4a" class="toggle"><li><details open=""><summary><strong>Factura Electrónica<br/></strong></summary><div style="display:contents" dir="ltr"><figure id="c7257351-172b-4387-8ab4-aaafb1f70e7d"><div class="source">https://drive.google.com/file/d/1rVomvvwJFZlPkpZLDLlTa8SRvi3WCbNi/view</div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="1ab8ee63-5915-448c-941e-a08f27ba80da" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><p id="677c9165-0710-4ec0-a9be-56a260f84622" class="">Realizar la activación correcta del servicio DTE toteat en el portal de DTEadmin.</p></div><div style="display:contents" dir="auto"><h3 id="e067ac65-f511-4611-9310-e31efa6be451" class=""><mark class="highlight-orange">7</mark><mark class="highlight-orange">. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><p id="352ce430-5b39-4f10-a4d3-6553b3f495c7" class="">Revisar que la empresa este creada en DTEadmin de manera correcta</p></div><div style="display:contents" dir="auto"><h3 id="c0392b87-f52b-47f3-9122-31392f5c5861" class=""><mark class="highlight-orange">8. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="270bc418-6ef7-4f70-a00a-edcda2a7c796" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="ba781fb0-f44d-4bd5-a4b4-81ffd90d4332"><th id="CBa=" class="simple-table-header-color simple-table-header">Fecha actualización </th><th id="Z`O}" class="simple-table-header-color simple-table-header">Actualizado Por</th><th id="XF]{" class="simple-table-header-color simple-table-header">Aprobado Por</th><th id="OTRg" class="simple-table-header-color simple-table-header">Versión </th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="ed361816-6e91-45fe-a550-eabd49446668"><td id="CBa=" class="">8 de julio del 2024</td><td id="Z`O}" class=""><span class="user">@Lorena Moreno</span> </td><td id="XF]{" class=""><span class="user">@Francisco Ramirez</span> </td><td id="OTRg" class="">4-2010.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="30f720fe-4188-4898-a9cd-82804ecdca96"><td id="CBa=" class=""></td><td id="Z`O}" class=""></td><td id="XF]{" class=""></td><td id="OTRg" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="7be8ae09-7678-4d4e-b9f3-965817acad27" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

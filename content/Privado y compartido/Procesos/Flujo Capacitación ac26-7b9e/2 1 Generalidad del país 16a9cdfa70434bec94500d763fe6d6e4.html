@@ -1,0 +1,745 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2.1. Generalidad del país.</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="16a9cdfa-7043-4bec-9450-0d763fe6d6e4" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">2.1. Generalidad del país.</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Código </th><td><mark class="highlight-orange">4-2006.1</mark></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha de creación</th><td><time>28 de junio de 2024</time></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h3 id="70991d17-d211-483b-a548-3ac08b92269a" class=""><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="1c750055-eaa7-4d50-8a68-28f64a26f9c3" class="">Proporcionar al equipo de participantes los conocimientos necesarios para comprender el proceso de emisión y gestión de DTE en Chile.</p></div><div style="display:contents" dir="auto"><h3 id="5ff3cb9e-7ab1-488b-a653-fe7524ee43b9" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="d0cfe1bf-bd3b-449e-9677-9a4c1bca0139" class="">Debe aplicarse al equipo de operaciones Toteat</p></div><div style="display:contents" dir="auto"><h3 id="dc087a61-930e-4a0f-9a12-66156a7b5847" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="e781f726-0269-4456-900e-1f986ddaa8c0" class="">El equipo de operaciones Toteat deberá tomar la capacitación DTE al menos una vez </p></div><div style="display:contents" dir="auto"><h3 id="f5d9177e-0dd1-4ec1-aa55-55d03c05de65" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><p id="06ba5e9c-ab34-4137-a023-196a2e21f53d" class=""><strong>Las personas que tomen la capacitación deben:</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="159ee815-4510-459c-ae8b-b3ce96a98714" class="numbered-list" start="1"><li>Pertenecer al equipo de Operaciones</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="a7eba8a7-70e2-4eeb-848f-fc3b139520bb" class="numbered-list" start="2"><li>Tener conocimientos previos sobre la herramienta TRM</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="850ae138-fda5-491a-9be3-079b1ef0982f" class="numbered-list" start="3"><li>Encontrarse en periodo productivo y no en periodo de Pruebas </li></ol></div><div style="display:contents" dir="auto"><h3 id="c99a9fa2-200b-4b28-a0a9-d82d577e5bd2" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><p id="69a7e00e-f641-4633-a859-4640507f11b5" class="">Chile es nuestro país más grande en cuanto a cartera, por lo cual Toteat se destaca como proveedor líder en el mercado de facturación. Además de ofrecer nuestras propias soluciones, contamos con integraciones a una variedad de proveedores externos, incluyendo Bsale, Nubox, Contaline, GDExpress, Blueline y Dbnet. Esta diversidad de integraciones nos permite ofrecer a nuestros clientes una flexibilidad y eficiencia excepcionales en la gestión de sus procesos de facturación.</p></div><div style="display:contents" dir="auto"><h2 id="1ef88334-a6fa-4bbf-9eef-4d1a7d76583b" class="">Caso 1: Proveedores de mercado</h2></div><div style="display:contents" dir="auto"><p id="803c651d-f33a-4e54-9e1d-e72f6c487084" class="">Cuando actuamos como proveedores de servicio de facturación, nuestros clientes tienen la capacidad de emitir tanto Documentos Afectos (con impuestos) como documentos exentos (sin impuestos). Esta flexibilidad permite a nuestros clientes gestionar sus obligaciones fiscales de manera eficiente y conforme a la normativa vigente, adaptándose a las diversas necesidades de sus operaciones comerciales.<br/></p></div><div style="display:contents" dir="ltr"><figure id="865dbcfd-f8e7-43ca-9800-e87a4b31034a" class="image"><a href="2%201%20Generalidad%20del%20pa%C3%ADs/Untitled.png"><img style="width:708px" src="2%201%20Generalidad%20del%20pa%C3%ADs/Untitled.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="28a054df-b7a4-48a6-995d-fa600afd6746" class="image"><a href="2%201%20Generalidad%20del%20pa%C3%ADs/image.png"><img style="width:522.98291015625px" src="2%201%20Generalidad%20del%20pa%C3%ADs/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="962ea213-62c9-4614-a541-aa07a44e059e" class="">Los clientes tienen acceso al portal de DTEadmin (<a href="https://dteadmin.toteat.com/">dteadmin.toteat.com</a>), donde pueden gestionar sus certificados digitales, realizar solicitudes y cargas de folios, y verificar el estado de sus documentos. Esta herramienta proporciona un control integral sobre el proceso de facturación electrónica, asegurando que los clientes puedan administrar y supervisar todos los aspectos relacionados con la emisión y validación de sus documentos tributarios de manera eficiente y segura.</p></div><div style="display:contents" dir="ltr"><figure id="5189c11b-13b4-4753-8f58-f033c16b1754" class="image"><a href="2%201%20Generalidad%20del%20pa%C3%ADs/Untitled%201.png"><img style="width:708px" src="2%201%20Generalidad%20del%20pa%C3%ADs/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="ad538b72-5e55-40da-97c1-338a5c4f5f94" class="">El equipo de soporte de Toteat tiene acceso al portal, lo que les permite visualizar rápidamente diversa información filtrada por RUT, ID de restaurante o por país. Esta capacidad facilita una asistencia eficiente y precisa, ya que el equipo puede acceder a los datos necesarios para resolver cualquier consulta o inconveniente de nuestros clientes de manera ágil y efectiva.</p></div><div style="display:contents" dir="ltr"><figure id="d0f7572e-aca5-465a-96f9-277c84013118" class="image"><a href="2%201%20Generalidad%20del%20pa%C3%ADs/Untitled%202.png"><img style="width:707.9125366210938px" src="2%201%20Generalidad%20del%20pa%C3%ADs/Untitled%202.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="1af5360f-7af6-4c6b-a6d7-ef0e8071098f" class="">Caso 2: Integrados a un Proveedor de Mercado</h2></div><div style="display:contents" dir="auto"><p id="3432b9d9-520a-470e-8af8-12f700f90f50" class="">Cuando estamos integrados con un proveedor de mercado, la gestión de solicitudes de folios, certificados y otros aspectos relacionados debe realizarse directamente con su proveedor de facturación. Debido a esta integración, no hay acceso al portal de DTEadmin.</p></div><div style="display:contents" dir="auto"><p id="fe8de8b6-c0d8-4e83-89e1-f6c76d8e566d" class="">Actualmente nos encontramos integrados con:</p></div><div style="display:contents" dir="auto"><ul id="4ea8108f-826a-4594-8899-cfb5cd18e12b" class="toggle"><li><details open=""><summary><strong>Bsale : </strong></summary><div style="display:contents" dir="auto"><p id="dcf90703-0815-4672-a404-a6fd9e61a524" class=""><strong><br/></strong>Emisión de boletas y facturas electrónicas desde TRM<br/><mark class="highlight-orange">Gestión de Folios desde Bsale<br/>Gestión Certificado Digital desde Bsale<br/>Emisión Notas de crédito t debito desde bsale</mark></p></div><div style="display:contents" dir="ltr"><figure id="f4241b29-faba-4c85-b577-c2825742f6ab" class="image"><a href="2%201%20Generalidad%20del%20pa%C3%ADs/Untitled%203.png"><img style="width:378px" src="2%201%20Generalidad%20del%20pa%C3%ADs/Untitled%203.png"/></a></figure></div><div style="display:contents" dir="ltr"><table id="2b1bf12e-fb75-40f2-9621-ddc0b5607f94" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="8cbd44b1-f909-4a0e-bcc2-f1499df6d912"><th id="EEG}" class="block-color-orange simple-table-header">Nombre</th><th id="KMou" class="block-color-orange simple-table-header">Cargo</th><th id="aWY|" class="block-color-orange simple-table-header">E-mail</th><th id="Wl^C" class="block-color-orange simple-table-header">Tel</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="fae5f690-1099-4263-b822-4cb5c47e8137"><td id="EEG}" class="">Alejandra Vilchez</td><td id="KMou" class="">Customer Success</td><td id="aWY|" class="">avilchez@bsale.app</td><td id="Wl^C" class="">932677081</td></tr></div><div style="display:contents" dir="ltr"><tr id="0da3152d-10a7-42cd-bb6d-3a5016872a5c"><td id="EEG}" class="">Equipo de Soporte</td><td id="KMou" class="">Mesa de ayuda</td><td id="aWY|" class="">ayuda@bsale.app</td><td id="Wl^C" class="">2 2938 1115</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="56699a13-eac7-4ba8-8ea0-85ca640cedf6" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="54f39eff-c45a-4b5c-be2f-f44471096c23" class="toggle"><li><details open=""><summary><strong>Nubox:</strong></summary><div style="display:contents" dir="auto"><p id="39c8a36b-ef5d-47de-a492-c64bdbcac95a" class=""><strong><br/></strong>Emisión de boletas y facturas electrónicas desde TRM<br/><mark class="highlight-blue">Gestión de Folios desde Nubox<br/>Gestión Certificado Digital desde Nubox<br/>Emisión Notas de crédito t debito desde Nubox</mark></p></div><div style="display:contents" dir="ltr"><figure id="531569a1-b87e-4b13-b950-80477beaab5d" class="image"><a href="2%201%20Generalidad%20del%20pa%C3%ADs/Untitled%204.png"><img style="width:458px" src="2%201%20Generalidad%20del%20pa%C3%ADs/Untitled%204.png"/></a></figure></div><div style="display:contents" dir="ltr"><table id="0c99a005-c4ea-4311-9e2a-f9f0663db036" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="1b46b7b6-da43-42ed-8ece-732f980e165f"><th id="BX;o" class="block-color-blue simple-table-header">Nombre</th><th id="pNnr" class="block-color-blue simple-table-header">Cargo</th><th id="W=pL" class="block-color-blue simple-table-header">E-mail</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="ebb619b3-aadb-4b87-9ccb-33a46dadfcf3"><td id="BX;o" class="">Angel Cuevas Segovia</td><td id="pNnr" class="">Agente de Soporte</td><td id="W=pL" class="">angel.cuevas.segovia@nubox-aec4728dcd77.intercom-mail.com</td></tr></div><div style="display:contents" dir="ltr"><tr id="abaa45a6-7935-4fdb-96fb-3c769c17b4bd"><td id="BX;o" class="">Equipo de Soporte</td><td id="pNnr" class="">Mesa de ayuda</td><td id="W=pL" class="">soporte@nubox.com</td></tr></div></tbody></table></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="cbdbb345-2e2a-43d4-91d2-f853d3b9e889" class="toggle"><li><details open=""><summary><strong>Contaline:</strong></summary><div style="display:contents" dir="auto"><p id="7092b50a-cb3e-46e4-849d-20e0c3a4274d" class=""><strong><br/></strong>Emisión de boletas y facturas electrónicas desde TRM<br/><mark class="highlight-purple">Gestión de Folios desde Contaline<br/>Gestión Certificado Digital desde Contaline<br/>Emisión Notas de crédito t debito desde Contaline</mark></p></div><div style="display:contents" dir="ltr"><figure id="c7165136-1d41-4929-82df-6e44bf23e1cb" class="image"><a href="2%201%20Generalidad%20del%20pa%C3%ADs/f6bed875-3b80-47a3-bdf3-ee3c4fc87a52.png"><img style="width:432px" src="2%201%20Generalidad%20del%20pa%C3%ADs/f6bed875-3b80-47a3-bdf3-ee3c4fc87a52.png"/></a></figure></div><div style="display:contents" dir="ltr"><table id="8c7a920b-f6c4-4439-b958-b6ab24d4cf95" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="0d5b2fb0-29ea-427f-9e8e-97a49b6b149f"><th id="~r?F" class="block-color-purple simple-table-header">Nombre</th><th id="pzZA" class="block-color-purple simple-table-header">Cargo</th><th id="`i:N" class="block-color-purple simple-table-header">E-mail</th><th id="I~es" class="block-color-purple simple-table-header">Tel</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="600cdac8-13b1-4cd9-872c-e9fef42dc24c"><td id="~r?F" class="">Equipo Soporte</td><td id="pzZA" class="">Mesa de ayuda</td><td id="`i:N" class=""> soporte@contaline.net</td><td id="I~es" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="f0ae66dc-4668-4b12-b7f3-9e91b05f985d"><td id="~r?F" class="">Juan Carlos Schubert Ravest</td><td id="pzZA" class="">Scrum master </td><td id="`i:N" class="">jcschubert@contaline.cl</td><td id="I~es" class="">978873132</td></tr></div></tbody></table></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="c7e58170-304e-4e19-b9a6-4ee9258ab146" class="toggle"><li><details open=""><summary><strong>GDExpress</strong></summary><div style="display:contents" dir="auto"><p id="379f4c31-de4c-4185-ba88-2955eea0c797" class="">Emisión de boletas y facturas electrónicas desde TRM<br/><mark class="highlight-blue">Gestión de Folios desde GDExpress<br/>Gestión Certificado Digital desde GDExpress<br/>Emisión Notas de crédito t debito desde GDExpress</mark></p></div><div style="display:contents" dir="ltr"><figure id="cbb1b183-71a2-4572-8f2e-c7d45ba06019" class="image" style="text-align:left"><a href="2%201%20Generalidad%20del%20pa%C3%ADs/77ed7a9b-9f42-4bd9-9f3f-822967f54f93.png"><img style="width:480px" src="2%201%20Generalidad%20del%20pa%C3%ADs/77ed7a9b-9f42-4bd9-9f3f-822967f54f93.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="ad54c4ca-df74-4b15-ba3c-63fb9abec96c" class="toggle"><li><details open=""><summary><strong>Blueline:</strong></summary><div style="display:contents" dir="auto"><p id="65b70cf5-5814-4281-9fe8-dab81a51a881" class="">Emisión de boletas y facturas electrónicas desde TRM<br/><mark class="highlight-blue">Gestión de Folios desde Blueline<br/>Gestión Certificado Digital desde Blueline<br/>Emisión Notas de crédito t debito desde Blueline</mark></p></div><div style="display:contents" dir="ltr"><figure id="4342f59a-ad1a-4cd2-b6ff-ceb636e6d444" class="image"><a href="2%201%20Generalidad%20del%20pa%C3%ADs/Untitled%205.png"><img style="width:393px" src="2%201%20Generalidad%20del%20pa%C3%ADs/Untitled%205.png"/></a></figure></div><div style="display:contents" dir="ltr"><table id="ec1c9ae5-32b8-46e1-bcf8-978baff44cc7" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="c4cb5631-555b-4119-b22d-f6e8a61d12f8"><th id="C_uS" class="block-color-blue simple-table-header">Nombre</th><th id="kZYl" class="block-color-blue simple-table-header">Cargo</th><th id="dRSY" class="block-color-blue simple-table-header">E-mail</th><th id="wH::" class="block-color-blue simple-table-header">Tel</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="112a561f-07c9-4eb0-8569-de33e2b187ab"><td id="C_uS" class="">Equipo de Soporte</td><td id="kZYl" class="">Mesa de ayuda</td><td id="dRSY" class="">soluciones@blueline.cl</td><td id="wH::" class="">2 28953199</td></tr></div></tbody></table></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="c4c8430f-4756-4ac4-8db6-4dbf86135836" class="toggle"><li><details open=""><summary><strong>Dbnet:</strong></summary><div style="display:contents" dir="auto"><p id="1184640c-94bb-43c9-91dc-17e79f49ae0c" class="">Emisión de boletas y facturas electrónicas desde TRM<br/><mark class="highlight-pink">Gestión de Folios desde DBNet<br/>Gestión Certificado Digital desde DBNet<br/>Emisión Notas de crédito y debito desde DBNet</mark></p></div><div style="display:contents" dir="ltr"><figure id="5fb423b5-a6cf-4de7-9530-8850ec1925eb" class="image"><a href="2%201%20Generalidad%20del%20pa%C3%ADs/af82fcda-46c3-467f-bc3c-6ac012893420.png"><img style="width:384px" src="2%201%20Generalidad%20del%20pa%C3%ADs/af82fcda-46c3-467f-bc3c-6ac012893420.png"/></a></figure></div><div style="display:contents" dir="ltr"><table id="f678e597-2ae5-4a74-863d-0f6487edf2b3" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="54395882-d08d-4eab-ad38-9cfc77952e5d"><th id="jtW|" class="block-color-pink simple-table-header">Nombre</th><th id="Y_aW" class="block-color-pink simple-table-header">Cargo</th><th id="dytn" class="block-color-pink simple-table-header">E-mail</th><th id="U`PE" class="block-color-pink simple-table-header">Tel</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="6daced2a-37e8-4e8c-9c77-ed49e8b80913"><td id="jtW|" class="">Equipo de Soporte</td><td id="Y_aW" class="">Mesa de ayuda</td><td id="dytn" class="">DBNET@DBNETCORP.COM</td><td id="U`PE" class="">2 2584 7800</td></tr></div></tbody></table></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="11239073-1e23-8028-913d-e9ed1ea1b4ba" class="toggle"><li><details open=""><summary><strong>IDTE (FULLPRIME):</strong></summary><div style="display:contents" dir="auto"><p id="7daa21e8-20a5-48ab-8784-930047a540c5" class="">Emisión de boletas y facturas electrónicas desde TRM<br/><mark class="highlight-orange">Gestión de Folios desde IDTE<br/>Gestión Certificado Digital desde IDTE<br/>Emisión Notas de crédito y debito desde IDTE</mark></p></div><div style="display:contents" dir="ltr"><figure id="11239073-1e23-806a-b31a-e931eb5e1381" class="image"><a href="2%201%20Generalidad%20del%20pa%C3%ADs/image%201.png"><img style="width:287px" src="2%201%20Generalidad%20del%20pa%C3%ADs/image%201.png"/></a></figure></div><div style="display:contents" dir="ltr"><table id="d1f7e9d9-6aa2-4221-9a2e-629c1904142c" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="ee062dd6-0dbc-450b-9712-51ac218015d9"><th id="jtW|" class="block-color-orange simple-table-header">Nombre</th><th id="Y_aW" class="block-color-orange simple-table-header">Cargo</th><th id="dytn" class="block-color-orange simple-table-header">E-mail</th><th id="U`PE" class="block-color-orange simple-table-header">Tel</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="a6424e5a-57b7-4873-aa34-1989bbb440bf"><td id="jtW|" class="">Claudio Silva</td><td id="Y_aW" class="">Business Manager</td><td id="dytn" class=""><a href="mailto:claudio.silva@fullprime.cl">claudio.silva@fullprime.cl</a></td><td id="U`PE" class=""></td></tr></div></tbody></table></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="d3e1f041-de34-4067-a830-ae967c0daddd" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><p id="b0a7f749-adc0-48c7-b608-89e8536d591b" class="">Un equipo con conocimientos integrales sobre Documentos Tributarios Electrónicos (DTE) de Toteat y su emisión diferenciada entre proveedor de mercado y cuando es integración en Chile </p></div><div style="display:contents" dir="auto"><h3 id="273c78a5-3b43-4302-9dda-695a58873b72" class=""><mark class="highlight-orange">7. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><p id="5e0542d1-2abd-42c5-9f16-1da93f1f8319" class="">Realizar pruebas de conocimiento a los participantes de la capacitación sobre Documentos Tributarios Electrónicos (DTE) Toteat para Chile.</p></div><div style="display:contents" dir="auto"><h3 id="5e092d5c-4bff-46c4-8aeb-1c67a3cdb0cc" class=""><mark class="highlight-orange">8. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="9bc9c97b-f8f2-4a3c-bc0a-98d782506d5a" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="ea0f32e0-e497-421c-9814-9b1efe4f02e4"><th id=":bJE" class="simple-table-header-color simple-table-header">Fecha Actualización</th><th id="ccJp" class="simple-table-header-color simple-table-header">Actualizado Por</th><th id=":oOJ" class="simple-table-header-color simple-table-header">Aprobado Por</th><th id="?:|I" class="simple-table-header-color simple-table-header">Versión</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="8673cdd2-db52-4a15-895f-70ba0693cd54"><td id=":bJE" class="">28 de Junio 2024</td><td id="ccJp" class=""><span class="user">@Lorena Moreno</span> </td><td id=":oOJ" class=""><span class="user">@Francisco Ramirez</span> </td><td id="?:|I" class="">4-2006.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="eb20178e-4a80-465e-8906-8035e2df312e"><td id=":bJE" class=""></td><td id="ccJp" class=""></td><td id=":oOJ" class=""></td><td id="?:|I" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="2155bd9e-4682-40d6-a7b3-9936ca962f26" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

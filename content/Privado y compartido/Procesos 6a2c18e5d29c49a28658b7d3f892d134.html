@@ -1,0 +1,748 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Procesos </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6a2c18e5-d29c-49a2-8658-b7d3f892d134" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1544816565-c199d6f5d2d3?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon notion-static-icon" src="https://www.notion.so/icons/binoculars_purple.svg"/></div><h1 class="page-title" dir="auto">Procesos </h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><div id="92a8c7cf-4ca0-42f1-8381-422208210196" class="column-list"><div style="display:contents" dir="auto"><div id="726a2b11-4fb5-4e74-b39a-25cc140726c2" style="width:33.33333333333333%" class="column"><div style="display:contents" dir="auto"><h2 id="2a55ec14-7fb5-49b6-a88f-008c6c7a988f" class="">Implementación</h2></div><div style="display:contents" dir="auto"><hr id="2fe66cd9-24ac-495a-b7b7-468f2dee037a"/></div><div style="display:contents" dir="ltr"><figure id="f13301db-08e7-43c2-9fa3-2c6351b9dd37" class="link-to-page"><a href="Procesos/Flujo%20Capacitaci%C3%B3n%20f13301db08e743c29fa32c6351b9dd37.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_gray.svg"/>Flujo Capacitación</a></figure></div><div style="display:contents" dir="ltr"><figure id="34ff15f5-36a4-4553-8497-53bcd49083b2" class="link-to-page"><a href="Procesos/Factibilidad%20t%C3%A9cnica%2034ff15f536a44553849753bcd49083b2.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_gray.svg"/>Factibilidad técnica</a></figure></div><div style="display:contents" dir="ltr"><figure id="70a9c37a-d463-4b73-b7ba-73608763c40f" class="link-to-page"><a href="Procesos/Manual%20implementaci%C3%B3n%2070a9c37ad4634b73b7ba73608763c40f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_gray.svg"/>Manual implementación</a></figure></div><div style="display:contents" dir="ltr"><figure id="2f739073-1e23-80c9-886d-e2a6bab254d2" class="link-to-page"><a href="Procesos/Offline%202f7390731e2380c9886de2a6bab254d2.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_gray.svg"/>Offline</a></figure></div><div style="display:contents" dir="ltr"><figure id="3147f7b3-73f8-4627-a943-9ea38105b398" class="link-to-page"><a href="Procesos/Kitchen%20Display%20System%203147f7b373f84627a9439ea38105b398.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_gray.svg"/>Kitchen Display System</a></figure></div><div style="display:contents" dir="ltr"><figure id="f845360e-dd12-49ec-97e8-b9d396bc87cf" class="link-to-page"><a href="Procesos/Kiosko%20T%C3%B3tem%20f845360edd1249ec97e8b9d396bc87cf.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_gray.svg"/>Kiosko / Tótem</a></figure></div><div style="display:contents" dir="ltr"><figure id="d4c7b3ed-8226-4c90-aefe-5232bb4d693c" class="link-to-page"><a href="Procesos/Evaluaciones%20d4c7b3ed82264c90aefe5232bb4d693c.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_gray.svg"/>Evaluaciones</a></figure></div><div style="display:contents" dir="ltr"><figure id="757e43f1-5f6f-4288-85a8-9c49409481b2" class="link-to-page"><a href="Procesos/Requisitos%20m%C3%ADnimos%20Hardware%20757e43f15f6f428885a89c49409481b2.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_gray.svg"/>Requisitos mínimos Hardware</a></figure></div><div style="display:contents" dir="ltr"><figure id="32139073-1e23-80fb-bd83-e4027c72c1a6" class="link-to-page"><a href="Procesos/Configuraci%C3%B3n%20Raspberry%20TPS%20321390731e2380fbbd83e4027c72c1a6.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_gray.svg"/>Configuración Raspberry TPS</a></figure></div><div style="display:contents" dir="auto"><h2 id="d8e0234c-b93a-4628-b173-1718bc0d7974" class="">Integraciones Delivery</h2></div><div style="display:contents" dir="auto"><hr id="7ced2c38-ed99-460b-a901-6f0add2f08d8"/></div><div style="display:contents" dir="ltr"><figure id="6e225a31-f9b9-47d0-9cdc-85e9ec7a448e" class="link-to-page"><a href="Procesos/Flujo%20Capacitaci%C3%B3n%206e225a31f9b947d09cdc85e9ec7a448e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_green.svg"/>Flujo Capacitación</a></figure></div><div style="display:contents" dir="ltr"><figure id="b128af4e-52ac-4830-a103-9fc3ee4ac48f" class="link-to-page"><a href="Procesos/Uber%20Eats%20b128af4e52ac4830a1039fc3ee4ac48f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_green.svg"/>Uber Eats</a></figure></div><div style="display:contents" dir="ltr"><figure id="f9365d53-6940-4c2d-89da-1cb736317ea5" class="link-to-page"><a href="Procesos/Rappi%20f9365d5369404c2d89da1cb736317ea5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_green.svg"/>Rappi</a></figure></div><div style="display:contents" dir="ltr"><figure id="0fb1b975-e62f-4662-aab5-74eb8d3a64f7" class="link-to-page"><a href="Procesos/Pedidos%20Ya%200fb1b975e62f4662aab574eb8d3a64f7.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_green.svg"/>Pedidos Ya</a></figure></div><div style="display:contents" dir="ltr"><figure id="a1bf5f45-be1c-4bc4-baab-856048136e08" class="link-to-page"><a href="Procesos/Justo%20a1bf5f45be1c4bc4baab856048136e08.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_green.svg"/>Justo</a></figure></div><div style="display:contents" dir="ltr"><figure id="8dc3ca20-9263-4b6d-a799-650b22ec87cb" class="link-to-page"><a href="Procesos/Didi%208dc3ca2092634b6da799650b22ec87cb.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_green.svg"/>Didi</a></figure></div><div style="display:contents" dir="ltr"><figure id="ead3cb2c-4386-42b1-9bba-5b838fb94960" class="link-to-page"><a href="Procesos/Api%20Standard%20en%20delivery%20ead3cb2c438642b19bba5b838fb94960.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_green.svg"/>Api Standard en delivery</a></figure></div><div style="display:contents" dir="ltr"><figure id="c0d10e29-b573-4e51-9b75-8d14e06a402a" class="link-to-page"><a href="Procesos/Evaluaciones%20c0d10e29b5734e519b758d14e06a402a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_green.svg"/>Evaluaciones</a></figure></div><div style="display:contents" dir="ltr"><figure id="3d32d5cf-9588-49e1-bd66-d3b00a6cd171" class="link-to-page"><a href="Procesos/Otros%203d32d5cf958849e1bd66d3b00a6cd171.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_green.svg"/>Otros</a></figure></div><div style="display:contents" dir="ltr"><figure id="2f639073-1e23-805f-b109-e3a0016429eb" class="link-to-page"><a href="Procesos/Documentaci%C3%B3n%20actualizada%202f6390731e23805fb109e3a0016429eb.html"><span class="icon">🔜</span>Documentación actualizada</a></figure></div><div style="display:contents" dir="auto"><h2 id="31439073-1e23-8090-89ef-e5440802469d" class="">Documentación Multisucursal (construccion)</h2></div><div style="display:contents" dir="auto"><hr id="31439073-1e23-8014-bfe5-d6bd3e0862d4"/></div><div style="display:contents" dir="ltr"><figure id="31439073-1e23-8025-84b5-e7031595c8e3" class="link-to-page"><a href="Procesos/Flujo%20de%20capacitaci%C3%B3n%20314390731e23802584b5e7031595c8e3.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_pink.svg"/>Flujo de capacitación</a></figure></div></div></div><div style="display:contents" dir="auto"><div id="b7da497b-66e1-4c7e-b535-2df494596f74" style="width:33.33333333333333%" class="column"><div style="display:contents" dir="auto"><h2 id="c30db79b-0d8f-4b85-bef3-e4ede6da6f2c" class="">DTE</h2></div><div style="display:contents" dir="auto"><hr id="f9e1a8f7-78d1-4ff0-90e5-68896c4ef2c7"/></div><div style="display:contents" dir="ltr"><figure id="ac26d241-91fc-40e0-93b3-7d1eaa357b9e" class="link-to-page"><a href="Procesos/Flujo%20Capacitaci%C3%B3n%20ac26d24191fc40e093b37d1eaa357b9e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_blue.svg"/>Flujo Capacitación</a></figure></div><div style="display:contents" dir="ltr"><figure id="aa8ecc28-3c5f-484e-9523-198c2fd217a5" class="link-to-page"><a href="Procesos/DTE%20Chile%20aa8ecc283c5f484e9523198c2fd217a5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_blue.svg"/>DTE Chile</a></figure></div><div style="display:contents" dir="ltr"><figure id="c969c51e-dbc7-4ccd-a534-c4ae44745cd8" class="link-to-page"><a href="Procesos/DTE%20Colombia%20c969c51edbc74ccda534c4ae44745cd8.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_blue.svg"/>DTE Colombia</a></figure></div><div style="display:contents" dir="ltr"><figure id="58cea41f-b867-40eb-a63b-773d1b565d92" class="link-to-page"><a href="Procesos/DTE%20Argentina%2058cea41fb86740eba63b773d1b565d92.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_blue.svg"/>DTE Argentina</a></figure></div><div style="display:contents" dir="ltr"><figure id="4b0e6da7-181b-41e9-b952-86502a8c574d" class="link-to-page"><a href="Procesos/DTE%20Per%C3%BA%204b0e6da7181b41e9b95286502a8c574d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_blue.svg"/>DTE Perú</a></figure></div><div style="display:contents" dir="ltr"><figure id="70b1d490-ffc0-4027-b948-735f99adf4c4" class="link-to-page"><a href="Procesos/DTE%20Costa%20Rica%2070b1d490ffc04027b948735f99adf4c4.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_blue.svg"/>DTE Costa Rica</a></figure></div><div style="display:contents" dir="ltr"><figure id="15425599-1b2f-4ae0-ac3e-70ae86b77adc" class="link-to-page"><a href="Procesos/DTE%20Uruguay%20154255991b2f4ae0ac3e70ae86b77adc.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_blue.svg"/>DTE Uruguay</a></figure></div><div style="display:contents" dir="ltr"><figure id="27f39073-1e23-80a0-834c-e3de28f2b9a8" class="link-to-page"><a href="Procesos/DTE%20M%C3%A9xico%2027f390731e2380a0834ce3de28f2b9a8.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_blue.svg"/>DTE México</a></figure></div><div style="display:contents" dir="ltr"><figure id="9512b8df-21ea-40f4-a0b3-d08267ee72c9" class="link-to-page"><a href="Procesos/Evaluaciones%209512b8df21ea40f4a0b3d08267ee72c9.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_blue.svg"/>Evaluaciones</a></figure></div><div style="display:contents" dir="ltr"><figure id="24039073-1e23-8046-8564-c62b9e90e5b2" class="link-to-page"><a href="Procesos/Check%20list%20Validaciones%20DTE%20240390731e2380468564c62b9e90e5b2.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_blue.svg"/>Check list Validaciones DTE</a></figure></div><div style="display:contents" dir="auto"><h2 id="c7fad309-5c98-408d-be40-8349d3ff9b06" class="">Integraciones pago</h2></div><div style="display:contents" dir="auto"><hr id="1cddaa93-9fe6-4e30-86d6-a8ab04705c53"/></div><div style="display:contents" dir="ltr"><figure id="1ede07c3-b049-4aaa-91e3-58646b895aa2" class="link-to-page"><a href="Procesos/Klap%201ede07c3b0494aaa91e358646b895aa2.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_brown.svg"/>Klap</a></figure></div><div style="display:contents" dir="ltr"><figure id="26139073-1e23-8016-b2b1-d6119580ed13" class="link-to-page"><a href="Procesos/Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)%20261390731e238016b2b1d6119580ed13.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_brown.svg"/>Mercado Pago Point (Caja, Kiosco y Mesa)</a></figure></div><div style="display:contents" dir="ltr"><figure id="13439073-1e23-8047-a669-c48b85b765f6" class="link-to-page"><a href="Procesos/Amipass%20134390731e238047a669c48b85b765f6.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_brown.svg"/>Amipass</a></figure></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-80cd-8d04-e19b73129da2" class="link-to-page"><a href="Procesos/Getnet%2012f390731e2380cd8d04e19b73129da2.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_brown.svg"/>Getnet</a></figure></div><div style="display:contents" dir="ltr"><figure id="15339073-1e23-8063-9bb4-eb83d9c7d057" class="link-to-page"><a href="Procesos/Payments%20M%C3%A9xico%20(EN%20PROCESO)%20153390731e2380639bb4eb83d9c7d057.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_brown.svg"/>Payments México (EN PROCESO)</a></figure></div><div style="display:contents" dir="ltr"><figure id="c8cf67d2-fcc7-4f91-942d-a19199df8285" class="link-to-page"><a href="Procesos/Redelcom%20c8cf67d2fcc74f91942da19199df8285.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_brown.svg"/>Redelcom</a></figure></div><div style="display:contents" dir="ltr"><figure id="7ea1e431-06e8-4dfc-81e5-165361d8e0b2" class="link-to-page"><a href="Procesos/Mach%207ea1e43106e84dfc81e5165361d8e0b2.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_brown.svg"/>Mach</a></figure></div><div style="display:contents" dir="ltr"><figure id="2a739073-1e23-804c-8934-d48949b11721" class="link-to-page"><a href="Procesos/Transbank%202a7390731e23804c8934d48949b11721.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_brown.svg"/>Transbank</a></figure></div><div style="display:contents" dir="auto"><p id="26139073-1e23-80f2-b64b-de3cde0e5dea" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="df683df6-8b99-45ce-9572-2fa383cbbb29" style="width:33.33333333333333%" class="column"><div style="display:contents" dir="auto"><h2 id="e611256c-06a7-41ae-8ad1-5f06774a1412" class="">Stock Control</h2></div><div style="display:contents" dir="auto"><hr id="f7f9d0b2-372b-4cf6-a21a-f8325002a798"/></div><div style="display:contents" dir="ltr"><figure id="23a4abb0-54a3-4cde-8522-74fadb3bb0c6" class="link-to-page"><a href="Procesos/Flujo%20Capacitaci%C3%B3n%2023a4abb054a34cde852274fadb3bb0c6.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_red.svg"/>Flujo Capacitación</a></figure></div><div style="display:contents" dir="ltr"><figure id="ade7f9d5-67cc-4fc9-b960-34fb86bb82b5" class="link-to-page"><a href="Procesos/Activaci%C3%B3n%20ade7f9d567cc4fc9b96034fb86bb82b5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_red.svg"/>Activación</a></figure></div><div style="display:contents" dir="ltr"><figure id="2a51806c-36c0-4096-a6e0-94932dc73278" class="link-to-page"><a href="Procesos/Recetas%20e%20ingredientes%202a51806c36c04096a6e094932dc73278.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_red.svg"/>Recetas e ingredientes</a></figure></div><div style="display:contents" dir="ltr"><figure id="1c10bef3-cb78-487b-bd3f-73567f28f47e" class="link-to-page"><a href="Procesos/Control%20bodegas%20y%20Proveedores%201c10bef3cb78487bbd3f73567f28f47e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_red.svg"/>Control bodegas y Proveedores</a></figure></div><div style="display:contents" dir="ltr"><figure id="ccabd82b-e06e-440a-a4f2-79c609b4ff1f" class="link-to-page"><a href="Procesos/Transferencias%20Multilocal%20ccabd82be06e440aa4f279c609b4ff1f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_red.svg"/>Transferencias Multilocal</a></figure></div><div style="display:contents" dir="ltr"><figure id="f367bd8c-02a8-4184-92d2-ce63239aeb3d" class="link-to-page"><a href="Procesos/Reportes%20f367bd8c02a8418492d2ce63239aeb3d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_red.svg"/>Reportes</a></figure></div><div style="display:contents" dir="ltr"><figure id="ce9660f8-e119-4c9b-9633-fdb851bc6ec2" class="link-to-page"><a href="Procesos/Evaluaciones%20ce9660f8e1194c9b9633fdb851bc6ec2.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_red.svg"/>Evaluaciones</a></figure></div><div style="display:contents" dir="ltr"><figure id="14439073-1e23-8084-804c-c2e4de957f8d" class="link-to-page"><a href="Procesos/Inicio%20Capacitaci%C3%B3n%20General%20144390731e238084804cc2e4de957f8d.html"><span class="icon">🧐</span>Inicio Capacitación General</a></figure></div><div style="display:contents" dir="auto"><p id="2b639073-1e23-8026-90e8-ee3e23fd9ea1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="0e191656-3af0-40d0-a0ef-26dd353399bb" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="f72bf827-5f5f-4636-949b-8c5847746f73" class="">Procesos Generales</h2></div><div style="display:contents" dir="ltr"><figure id="0321d243-82eb-4525-82a8-93986b5fe0da" class="link-to-page"><a href="Procesos/Formato%20documentos%200321d24382eb452582a893986b5fe0da.html"><span class="icon">📋</span>Formato documentos</a></figure></div><div style="display:contents" dir="ltr"><figure id="df0a8446-7e30-431c-820b-557c4559c7fc" class="link-to-page"><a href="Procesos/Procesos%20Generales%20df0a84467e30431c820b557c4559c7fc.html"><span class="icon">📋</span>Procesos Generales </a></figure></div><div style="display:contents" dir="ltr"><figure id="29539073-1e23-80bb-9aed-c26078699ef1" class="link-to-page"><a href="Procesos/Bases%20295390731e2380bb9aedc26078699ef1.html"><span class="icon">📝</span>Bases</a></figure></div><div style="display:contents" dir="ltr"><figure id="29a39073-1e23-805c-8d9c-cddec1c13c84" class="link-to-page"><a href="Procesos/Formato%20levantamiento%20casos%20slack%2029a390731e23805c8d9ccddec1c13c84.html"><span class="icon">📋</span>Formato levantamiento casos slack</a></figure></div><div style="display:contents" dir="ltr"><figure id="2b639073-1e23-8049-891e-d366e7bfb3fe" class="link-to-page"><a href="Procesos/Criterios%20para%20cierre%20de%20caso%202b6390731e238049891ed366e7bfb3fe.html"><span class="icon">📋</span>Criterios para cierre de caso</a></figure></div><div style="display:contents" dir="ltr"><figure id="2cc39073-1e23-801e-8e7f-c50a094e7e3c" class="link-to-page"><a href="Procesos/Escalado%20de%20casos%202cc390731e23801e8e7fc50a094e7e3c.html"><span class="icon">📝</span>Escalado de casos.</a></figure></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-80fa-b207-d1111f977e79" class="">
+</p></div></div></div></div></div><div style="display:contents" dir="auto"><p id="f0e5a189-5966-450b-ba8e-a2ceb72fefb1" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

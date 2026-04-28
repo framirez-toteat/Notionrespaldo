@@ -1,0 +1,750 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Bases</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="29539073-1e23-80bb-9aed-c26078699ef1" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📝</span></div><h1 class="page-title" dir="auto">Bases</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="29b39073-1e23-80dc-b1aa-e58ec17d9081" class="">Glosario (en creación)</h1></div><div style="display:contents" dir="auto"><ul id="29539073-1e23-80ab-b207-f55d5091942e" class="toggle"><li><details open=""><summary>General</summary><div style="display:contents" dir="auto"><p id="29a39073-1e23-806b-97e4-db9f991fa76e" class=""><strong>TRM</strong>: Toteat Restaurant Manager, visualización del POS en formato restaurante</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-80d3-8536-fda7d6ace190" class="">POS: <br/><strong>TSM</strong>: Toteat Sales Manager, visualización del POS en formato take away.<br/><strong>TPS</strong>: Toteat Print Server, software instalado en el servidor, el cual controla las impresiones y estado del ambiente.<br/><strong>TAS</strong>: Toteat Access System, software utilizado para funcionalidades NFC y PIN.<br/><strong>Ambiente</strong>: Entorno configurado de un cliente, con sus propias impresoras, usuarios y parámetros de conexión.<br/><strong>Comanda</strong>: Registro digital o impreso que detalla los productos solicitados por un cliente en un pedido.<br/><strong>Precuenta</strong>: Documento provisional que muestra el detalle del consumo antes del pago final.<br/><strong>Ticket/Recibo</strong>: Documento emitido al finalizar una venta que confirma el pago realizado. Generalmente no es válido fiscalmente.</p></div><div style="display:contents" dir="auto"><p id="29a39073-1e23-806f-855c-dbd9f4e744fb" class=""><strong>DTE</strong>: Documento tributario electrónico, Comprobante fiscal digital autorizado por el servicio tributario de cada</p></div><div style="display:contents" dir="auto"><p id="29a39073-1e23-80e0-b815-d4ec009fd90d" class=""><strong>GAE</strong>: Google App Engine,  servicio en la nube de Google Cloud que permite desarrollar y alojar aplicaciones web sin gestionar servidores. Ofrece escalabilidad automática, alta disponibilidad y soporte para varios lenguajes.<br/><strong>API</strong>: Application Programming Interface, Conjunto de funciones que permite la comunicación entre Toteat y sistemas externos (como integraciones de delivery, pago, ERP, etc).</p></div><div style="display:contents" dir="auto"><p id="29a39073-1e23-8051-a24d-e62f0a7ec817" class=""><strong>ETL (Extract, Transform, Load): </strong> Proceso que consiste en <strong>extraer datos de distintas fuentes</strong>, transformarlos según las reglas de negocio y <strong>cargarlos en un sistema central</strong> (como BigQuery o Salesforce) para análisis y reportes.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8052-a4d0-c7c95b9fad90" class=""><strong>MRR (Monthly Recurring Revenue): </strong> <strong>Ingresos recurrentes mensuales</strong>, métrica que refleja los ingresos estables que genera Toteat por suscripciones activas.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8016-97c3-f84fdf4b8cb4" class=""><strong>Resultado Operacional: xx</strong></p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8004-8db0-c3590305233e" class=""><strong>MQL (Marketing Qualified Lead):</strong> Contacto identificado por el equipo de marketing que <strong>ha mostrado interés real</strong> y cumple con criterios para ser gestionado por ventas.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8034-ba22-e4897d911021" class=""><strong>Lead: </strong> Persona o empresa que <strong>ha mostrado interés inicial</strong> en los servicios de Toteat, pero que aún no es cliente.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8046-aa24-ca6cd7d76aea" class=""><strong>Revenue: </strong>Monto que recibe Toteat por la prestación de sus servicios a los clientes.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8040-9ee4-dac63a7c60e6" class=""><strong>GMV (Gross Merchandise Value): </strong>Valor total de las ventas procesadas por los clientes a través de la plataforma de Toteat.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8014-819b-dc02db8b02a4" class=""><strong>MOM (Month over Month): </strong>Comparación porcentual del desempeño de un indicador entre <strong>dos meses consecutivos.</strong></p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-80fc-8918-dd03cfadc6b6" class=""><strong>YOY (Year over Year):</strong> Comparación porcentual del desempeño de un indicador entre <strong>el mismo período de dos años distintos</strong>.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8058-932b-e92380db8d95" class=""><strong>Churn:</strong> <strong>Tasa de cancelación o pérdida de clientes</strong>, que indica el porcentaje de clientes que dejan de usar el servicio en un período.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-805f-b8e2-eca50d59337a" class=""><strong>NPS (Net Promoter Score):</strong> Métrica de satisfacción que mide <strong>la probabilidad de que un cliente recomiende Toteat</strong> a otros, en una escala del 0 al 10.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8022-8d6b-dc0a8178ec1d" class=""><strong>Funnel (Embudo de ventas): </strong>Etapas del proceso comercial desde la captación del lead hasta el cierre de la venta, utilizadas para medir conversión y eficiencia.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-802e-9302-e9efddf8f050" class=""><strong>LTV (Life time value): </strong>Valor económico promedio que un cliente aporta desde que comienza a operar hasta que deja de hacerlo. El LTV permite evaluar la rentabilidad a largo plazo de la cartera.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8093-a1d8-f653dcfdd454" class=""><strong>Salesforce (CRM):</strong> Plataforma usada por Toteat para <strong>gestionar leads, oportunidades y casos de soporte</strong>, centralizando la información comercial y operativa.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8018-a614-c1c6dadee310" class=""><strong>CSAT (Customer Satisfaction Score):</strong> Indicador de satisfacción inmediata que mide <strong>la experiencia del cliente</strong> tras una interacción o soporte recibido.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-80b1-91dd-fd681219b470" class=""><strong>Cierre: </strong>Etapa final del proceso comercial en la que un prospecto confirma su decisión de convertirse en cliente. En Salesforce, corresponde a una Oportunidad marcada como “Cerrada – Ganada”, lo que indica que se concretó la venta o contratación del servicio.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8057-8745-ffd1cd96e590" class=""><strong>Altas: </strong>Etapa posterior al Cierre, que marca el momento en que un nuevo cliente finaliza su onboarding y comienza a operar activamente con Toteat</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-80da-b5ee-dab845530455" class=""><strong>Cartera: </strong>Conjunto de clientes que ya completaron su alta y se encuentran operando activamente con Toteat.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8037-a81d-ff01f81ca62d" class=""><strong>Longtail: </strong>Segmento de clientes de <strong>bajo volumen individual pero alta cantidad</strong>, que en conjunto representan una parte importante del total de ingresos. Para pertenecer a este segmento el cliente debe tener un <strong>GMV </strong>de; <strong>Chile &lt; 24.000 USD, México/Argentina &lt; 19.000 USD y Colombia/Perú &lt; 15.000 USD.</strong></p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8046-9b24-f3194eb1585d" class=""><strong>Core: </strong>Clientes estratégicos o de <strong>alta prioridad operativa y comercial</strong>, con alto volumen o impacto en el negocio. Para pertenecer a este segmento el cliente debe tener un <strong>GMV </strong>de; <strong>Chile &lt; 60.000 USD, México/Argentina &lt; 48.000 USD y Colombia/Perú &lt; 36.000 USD. </strong></p></div><div style="display:contents" dir="auto"><p id="2a939073-1e23-80fc-8e0a-eddb7ca3f433" class=""><strong>Head</strong>: Cliente estratégico de <strong>alta prioridad operativa y comercial</strong>, con poco volumen y alto impacto en el negocio. Para pertenecer a este segmento el cliente debe tener un <strong>GMV </strong>de; <strong>Chile  &gt; 60.000 USD, México/Argentina &gt; 48.000 USD, &gt; 36.000 USD.</strong></p></div><div style="display:contents" dir="auto"><p id="2a939073-1e23-8035-aa71-c028e3336902" class=""><strong>KDS (Kitchen Display System):</strong> Sistema de pantallas digitales que <strong>reemplaza las comandas impresas</strong> en cocina, mostrando pedidos en tiempo real desde el TRM.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-802a-b77a-f46e4954ba8f" class=""><strong>Intercom:</strong> Plataforma de <strong>atención al cliente en tiempo real</strong> usada por el equipo SAC de Toteat para gestionar consultas, incidencias y soporte en línea.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-804f-9669-d74a159cb565" class=""><strong>Notas de cobro</strong>: Documento utilizado en Chile y Colombia para notificar al cliente el monto o tarifa correspondiente al período a cobrar.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-80f3-8d4e-ebbe34c75d5a" class=""><strong>Bloqueo leve:</strong> Restricción temporal en el acceso o funciones de un ambiente, <strong>sin afectar completamente la operación</strong>, por ejemplo, el acceso a la reportería.</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8048-b651-f758660248d4" class=""><strong>Bloqueo grave:</strong> Suspensión completa del acceso o funcionamiento del sistema <strong>por no pago.</strong></p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-80ec-bee9-c699116e75e6" class=""><strong>Incidencias:</strong> Problemas o errores reportados por clientes que <strong>afectan parcial o totalmente el funcionamiento del sistema</strong></p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8022-b60e-c6213f9012ab" class=""><strong>RFP (Request For Proposal): </strong> Documento formal en el que se <strong>solicitan propuestas comerciales o técnicas</strong> para evaluar y desarrollar.<br/><br/></p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-80c4-be17-e8ea510aaf3d" class="">Proyectos: Sodexo; Dunkin y Cassis</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-80d8-a5af-c852e303c737" class="">
+</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-80e4-be57-c757b8548ac0" class="">Modelo de negocio</p></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-80b8-8eea-ea6e3fc6e5dd" class="bulleted-list"><li style="list-style-type:disc">Monto Mínimo </li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-801d-a555-c0bcf4526f57" class="bulleted-list"><li style="list-style-type:disc">Tarifa Variable</li></ul></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8007-8657-ec8a9b2f3a1b" class="">
+</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-8008-b1fa-df101cf22061" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="29539073-1e23-8047-b229-d5cfe36caca7" class="toggle"><li><details open=""><summary>Implementación</summary><div style="display:contents" dir="auto"><p id="29a39073-1e23-80ad-96d1-fb5d92e6605e" class=""><strong>IP</strong>: Internet Protocol. Dirección numérica única que identifica un dispositivo dentro de una red. En Toteat, cada impresora, PC o equipo conectado (como un POS o Totem) debe tener una <strong>IP fija o reservada</strong> para garantizar la comunicación estable entre el sistema, el servidor local y los periféricos.<br/><strong>Firewall</strong>: Sistema de seguridad que controla y filtra el tráfico de red entrante y saliente según reglas definidas.<br/><strong>Puertos</strong>: Canales lógicos que permiten la comunicación entre dispositivos y aplicaciones a través de una red. Cada servicio o proceso utiliza un número de puerto específico.<br/><strong>Archivo host</strong>: Archivo del sistema operativo que asocia manualmente <strong>nombres de dominio con direcciones IP</strong> antes de consultar servidores DNS.<br/><strong>DNS</strong>: Domain Name System, Sistema que traduce los nombres de dominio (como <em>toteat.com</em>) en direcciones IP numéricas que los equipos pueden entender.</p></div><div style="display:contents" dir="auto"><p id="29a39073-1e23-8057-8098-d56fd8deb1e8" class=""><strong>DHCP</strong>: Protocolo que asigna automáticamente direcciones IP a los dispositivos conectados; en Toteat se recomienda IP fija para impresoras y servidores.<br/></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-809e-816a-fa976d70df95" class="toggle"><li><details open=""><summary>Areas</summary><div style="display:contents" dir="auto"><p id="29b39073-1e23-8036-a84a-f6191737b342" class=""><strong>SAC</strong>: Área responsable de <strong>atender, gestionar y resolver las solicitudes o incidencias de los clientes</strong> de Toteat.</p></div><div style="display:contents" dir="auto"><p id="2a939073-1e23-80c8-9b12-e194b92fffce" class=""><strong>SDR (Sales Development Representative)</strong>: Rol del equipo comercial encargado de <strong>contactar, calificar y agendar oportunidades con leads</strong> generados por marketing<br/><strong>BDR (Business Development Representative): </strong>Rol enfocado en <strong>identificar y generar nuevas oportunidades de negocio</strong> a través de prospección activa.<strong><br/>SAC TECH: </strong>Área responsable de <strong>atender, gestionar y resolver las solicitudes o incidencias </strong>escaladas por los equipos operativos de Toteat.</p></div><div style="display:contents" dir="auto"><p id="2a939073-1e23-8021-8100-c53e43c9d715" class=""><strong>Onboarding: </strong>Equipo encargado de gestionar e implementar al cliente para entendimiento del software y seguimiento durante su proceso de aprendizaje.</p></div><div style="display:contents" dir="auto"><p id="2a939073-1e23-80e5-8809-f332768485c9" class=""><strong>KAM (Key Account Manager):</strong></p></div><div style="display:contents" dir="auto"><p id="2a939073-1e23-8070-b08f-f45f8188088c" class=""><strong>QA:</strong></p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-80cf-bb78-fa6307c06bfd" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-80b3-a37d-e03333f787ec" class="toggle"><li><details open=""><summary>Tech</summary><div style="display:contents" dir="auto"><ul id="29b39073-1e23-81be-943d-dbd10b94369b" class="bulleted-list"><li style="list-style-type:disc"><strong>API:</strong> Una API (Interfaz de Programación de Aplicaciones) es un conjunto de reglas y protocolos que permiten que diferentes aplicaciones de software se comuniquen entre sí. Las APIs definen cómo las solicitudes y respuestas deben ser formateadas, qué operaciones están disponibles, y cómo los datos deben ser intercambiados. Esto permite a los desarrolladores integrar funciones y servicios de otros programas sin tener que entender su código interno. Por ejemplo, una API de un servicio de mapas permite a una aplicación obtener información sobre ubicaciones y direcciones sin tener que construir un sistema de mapas desde cero. Las APIs son fundamentales en el desarrollo de software moderno, facilitando la creación de aplicaciones más complejas y conectadas.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-81bf-b679-c611e9f6d9e5" class="bulleted-list"><li style="list-style-type:disc"><strong>Bases de datos: </strong>Las bases de datos relacionales y no relacionales son dos tipos de sistemas de gestión de bases de datos con diferentes enfoques para almacenar y gestionar datos. Las bases de datos relacionales, como MySQL y PostgreSQL, organizan los datos en tablas con filas y columnas, utilizando un esquema estructurado y soportando relaciones entre tablas mediante claves primarias y foráneas. Son ideales para datos con estructuras bien definidas y relaciones complejas. En contraste, las bases de datos no relacionales, como MongoDB y Cassandra, almacenan datos en formatos más flexibles, como documentos JSON, grafos o tablas de claves-valor. Son adecuadas para manejar grandes volúmenes de datos no estructurados o semi-estructurados y permiten un escalamiento horizontal más sencillo. La elección entre relacional y no relacional depende de las necesidades específicas del proyecto, como la naturaleza de los datos y los requisitos de escalabilidad y flexibilidad.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-8183-b16d-d2d4ad1bd17a" class="bulleted-list"><li style="list-style-type:disc"><strong>Caso de Prueba: </strong>Es un conjunto de acciones que se ejecutan para verificar una característica o funcionalidad particular de una aplicación de software. </li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-817b-96ac-d5cb50704c4f" class="bulleted-list"><li style="list-style-type:disc"><strong>Defecto (Bug): </strong>Error, fallo o defecto en una aplicación que hace que se comporte de manera inesperada. Los defectos tienen diferentes severidades (Impacto que tiene un defecto en el funcionamiento del sistema): Crítica - Alta - Media - Baja.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-817e-8b9e-d0adbacac526" class="bulleted-list"><li style="list-style-type:disc"><strong>Escalamiento: </strong>El escalamiento horizontal y el escalamiento vertical son dos enfoques para aumentar la capacidad de un sistema. El escalamiento vertical, también conocido como &quot;scaling up,&quot; implica aumentar la capacidad de un solo servidor añadiendo más recursos, como CPU, RAM o almacenamiento. Esto mejora el rendimiento del servidor individual, pero tiene un límite físico y puede ser costoso. Por otro lado, el escalamiento horizontal, o &quot;scaling out,&quot; consiste en añadir más servidores al sistema para distribuir la carga de trabajo. Esto permite un crecimiento casi ilimitado y proporciona redundancia, mejorando la disponibilidad y la tolerancia a fallos, ya que si un servidor falla, los otros pueden seguir funcionando.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-811e-b384-fc0954fadc21" class="bulleted-list"><li style="list-style-type:disc"><strong>ETL: </strong>En particular ETL (Extract, Transform, Load) es el proceso con el cual estamos migrando los clientes desde <em>legacy</em> a <em>new. </em>Toma la data que esta en <em>Datastore</em> (la base de datos de <em>legacy) </em>y la traspasa a <em>new </em>a través de las mismas APIs que utiliza el TRM nuevo. Es un proceso relativamente caro en cómputo por la complejidad y cantidad de data que involucra (y la cantidad de llamados individuales a la API).</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-81a7-9123-c3357d82bece" class="bulleted-list"><li style="list-style-type:disc"><strong>Flask</strong>: Flask es un microframework de Python diseñado para facilitar la creación de aplicaciones web de manera rápida y sencilla, sin imponer una estructura rígida o dependencias pesadas. Creado por Armin Ronacher, Flask es conocido por su simplicidad y flexibilidad, permitiendo a los desarrolladores construir desde pequeños proyectos hasta aplicaciones web complejas. Utiliza una arquitectura basada en WSGI y viene con un servidor de desarrollo incorporado, soporte para pruebas unitarias y una estructura modular que permite extender sus capacidades mediante extensiones. Flask se enfoca en proporcionar las herramientas esenciales necesarias para el desarrollo web, como el enrutamiento de URLs, la gestión de solicitudes y respuestas HTTP, y la integración de plantillas Jinja2, ofreciendo así una experiencia de desarrollo minimalista y potente.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-81f9-b17a-da716ca82488" class="bulleted-list"><li style="list-style-type:disc"><strong>Framework: </strong>Un framework de programación es una plataforma de software que proporciona una estructura y un conjunto de herramientas predefinidas para facilitar el desarrollo de aplicaciones. Actúa como una base sobre la cual los desarrolladores pueden construir programas, ahorrando tiempo y esfuerzo al reutilizar código común y seguir una arquitectura coherente. Los frameworks incluyen bibliotecas, componentes, y directrices que ayudan a resolver problemas comunes en el desarrollo de software, como la gestión de la base de datos, el enrutamiento de URL, y la interacción con la interfaz de usuario. Ejemplos populares de frameworks incluyen Django para Python, Spring para Java, y Angular para JavaScript. Estos frameworks permiten a los desarrolladores enfocarse en la lógica específica de sus aplicaciones, mejorando la productividad y la calidad del código.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-817a-9c55-f22818707ace" class="bulleted-list"><li style="list-style-type:disc"><strong>Google App Engine</strong>: Google App Engine es una plataforma como servicio (PaaS) proporcionada por Google Cloud que permite a los desarrolladores construir y desplegar aplicaciones web y móviles sin preocuparse por la infraestructura subyacente. App Engine gestiona automáticamente el escalado, equilibrado de carga y mantenimiento de servidores, permitiendo a los desarrolladores centrarse en el código y la lógica de la aplicación. Soporta varios lenguajes de programación, como Python, Java, Node.js y Go, y proporciona servicios integrados como bases de datos, autenticación y almacenamiento. Con App Engine, las aplicaciones pueden escalar automáticamente para manejar grandes volúmenes de tráfico, asegurando alto rendimiento y disponibilidad sin intervención manual.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-81ca-b2e4-cbbd87647c69" class="bulleted-list"><li style="list-style-type:disc"><strong>Google Cloud Datastore</strong>: Google Cloud Datastore es un servicio de base de datos NoSQL completamente gestionado por Google Cloud, diseñado para manejar grandes volúmenes de datos estructurados y no estructurados con alta disponibilidad y escalabilidad. Está optimizado para aplicaciones que requieren consultas complejas, transacciones ACID, y estructuras de datos jerárquicas. Cloud Datastore permite a los desarrolladores almacenar y consultar datos en tiempo real mediante una interfaz sencilla y consistente, sin preocuparse por la administración de servidores o el escalado. Se integra perfectamente con otros servicios de Google Cloud, como App Engine y Cloud Functions, proporcionando una solución robusta y flexible para aplicaciones web y móviles que necesitan manejar datos dinámicos y distribuidos.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-815d-84be-d6755ca28a96" class="bulleted-list"><li style="list-style-type:disc"><strong>Google Cloud Run</strong>: Google Cloud Run es un servicio de Google Cloud que permite ejecutar aplicaciones en contenedores de forma completamente gestionada, sin necesidad de administrar la infraestructura subyacente. Con Cloud Run, puedes desplegar aplicaciones escritas en cualquier lenguaje de programación, empaquetadas en contenedores, y ejecutarlas en una infraestructura escalable que ajusta automáticamente los recursos según la demanda. Cloud Run soporta aplicaciones sin estado, ideal para microservicios y APIs, y ofrece facturación basada en el uso, lo que significa que solo pagas por el tiempo que tu aplicación está en ejecución. Además, se integra fácilmente con otros servicios de Google Cloud, proporcionando una solución flexible y eficiente para el desarrollo y despliegue de aplicaciones modernas.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-818c-88b5-c2adb5c90a78" class="bulleted-list"><li style="list-style-type:disc"><strong>HTTP</strong>: HTTP (Hypertext Transfer Protocol) es un protocolo de comunicación utilizado en la World Wide Web para la transferencia de datos entre clientes (generalmente navegadores web) y servidores. Es el fundamento sobre el cual se basa la navegación web, permitiendo la solicitud y entrega de recursos como páginas HTML, imágenes, videos y otros contenidos. HTTP funciona mediante un modelo de solicitud-respuesta, donde el cliente envía una solicitud HTTP a un servidor, y este responde con el recurso solicitado o un mensaje de error si el recurso no está disponible.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-8161-a0ab-f6f75d5a8ed2" class="bulleted-list"><li style="list-style-type:disc"><strong>JavaScript: </strong>Javascript es un lenguaje de programación de alto nivel y dinámico, fundamental para el desarrollo web. Creado por Brendan Eich en 1995, se ejecuta principalmente en los navegadores web y permite crear páginas interactivas y dinámicas. A diferencia de HTML y CSS, que se utilizan para estructurar y diseñar páginas web, JavaScript agrega funcionalidad a las páginas, permitiendo la manipulación del contenido, la validación de formularios, la creación de animaciones y la comunicación asincrónica con servidores mediante tecnologías como AJAX. Además, con la llegada de entornos de ejecución como Node.js, JavaScript también se utiliza en el desarrollo del lado del servidor, ampliando su uso más allá del navegador y permitiendo construir aplicaciones web completas.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-8100-9d0e-d1afc5b2b6f6" class="bulleted-list"><li style="list-style-type:disc"><strong>JSON</strong>: JSON (JavaScript Object Notation) es un formato de intercambio de datos ligero y de fácil lectura, tanto para humanos como para máquinas. Utilizado principalmente para transmitir datos entre un servidor y una aplicación web, JSON se basa en una estructura de pares clave-valor y listas ordenadas, lo que permite representar datos complejos de manera sencilla y estructurada. Su sintaxis es derivada de JavaScript, pero es independiente del lenguaje de programación, lo que lo hace compatible con muchos lenguajes, como Python, Java y C#. Gracias a su simplicidad y eficiencia, JSON se ha convertido en el formato preferido para APIs y servicios web, facilitando la comunicación y el intercambio de datos en aplicaciones modernas.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-81d7-bca0-d88150be0bd9" class="bulleted-list"><li style="list-style-type:disc"><strong>La nube: </strong>La nube es un conjunto de servidores en Internet que proporcionan almacenamiento y servicios de computación, permitiendo a usuarios y empresas acceder a datos y aplicaciones desde cualquier dispositivo con conexión a Internet. En lugar de depender de hardware local, los datos y aplicaciones se alojan en servidores remotos gestionados por proveedores de servicios en la nube, como Amazon Web Services, Google Cloud o Microsoft Azure. Esto ofrece flexibilidad, escalabilidad y seguridad, ya que los recursos se pueden ajustar según las necesidades y los datos están protegidos con medidas avanzadas de seguridad y copias de seguridad.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-81b9-9478-ff80d037437e" class="bulleted-list"><li style="list-style-type:disc"><strong>Lenguaje de programación:  </strong>Un lenguaje de programación es un sistema formal de comunicación diseñado para expresar instrucciones que pueden ser entendidas y ejecutadas por una computadora. Permite a los desarrolladores escribir programas que especifican las operaciones que la máquina debe realizar, utilizando una sintaxis y una gramática específicas. Estos lenguajes pueden ser de bajo nivel, cercanos al código máquina y específicos de una arquitectura, o de alto nivel, más abstractos y fáciles de entender para los humanos.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-8192-9407-efb9c79d680a" class="bulleted-list"><li style="list-style-type:disc"><strong>MongoDB</strong>: MongoDB es una base de datos NoSQL orientada a documentos que almacena datos en formato JSON flexible, permitiendo la gestión de datos semi-estructurados y no estructurados de manera eficiente. Es ideal para aplicaciones que requieren alta disponibilidad, escalabilidad horizontal y capacidad para manejar grandes volúmenes de datos con estructura dinámica. MongoDB Atlas es el servicio de base de datos en la nube gestionado por MongoDB, que facilita la implementación, operación y escalado de bases de datos MongoDB en plataformas de nube como AWS, Azure y Google Cloud. Atlas automatiza tareas administrativas como la configuración, las actualizaciones, el monitoreo y las copias de seguridad, permitiendo a los desarrolladores concentrarse en construir sus aplicaciones mientras disfrutan de una infraestructura de base de datos segura y de alto rendimiento.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-819e-a14e-dffbf2b6562b" class="bulleted-list"><li style="list-style-type:disc"><strong>Paradigma cliente-servidor:</strong> El paradigma cliente-servidor es un modelo de comunicación en redes donde un dispositivo, llamado cliente, solicita servicios o recursos de otro dispositivo, llamado servidor. El servidor, que almacena datos y aplicaciones, espera solicitudes de uno o más clientes y responde proporcionándoles los recursos solicitados. Este modelo es fundamental en muchas aplicaciones de Internet, como sitios web y correos electrónicos, donde los clientes (navegadores web o aplicaciones de correo) se comunican con servidores para acceder a contenido, enviar mensajes o realizar transacciones, distribuyendo así la carga de trabajo y optimizando el uso de recursos en la red.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-81fb-a416-c54541df25c9" class="bulleted-list"><li style="list-style-type:disc"><strong>Plan de pruebas:</strong> Conjunto de casos de prueba a realizar en una funcionalidad o sistema determinado para comprobar su correcto funcionamiento.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-8171-8304-d92854ec29cb" class="bulleted-list"><li style="list-style-type:disc"><strong>Pruebas Funcionales:</strong> Son pruebas específicas, concretas y exhaustivas para probar y validar que el software hace lo que debe y sobre todo, lo que se ha especificado.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-81f1-a207-c3caf2ad072b" class="bulleted-list"><li style="list-style-type:disc"><strong>Pruebas de Regresión: </strong>Pruebas realizadas para confirmar que los cambios recientes en el código no han afectado funcionalidades existentes.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-8169-ac5a-e7db81a949da" class="bulleted-list"><li style="list-style-type:disc"><strong>Pruebas de Integración: </strong>Este tipo de pruebas evalúa la forma en que interactúan y operan varios módulos de aplicaciones de software de forma cohesiva. Un ejemplo de estas prueba sería probar órdenes de Rappi y ver como ingresan a TRM. </li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-8190-9342-e84fb5f7498f" class="bulleted-list"><li style="list-style-type:disc"><strong>Pruebas Automatizadas: </strong>Pruebas creadas con una herramientas específica, en nuestro caso utilizamos Cypress, para luego ser ejecutadas automáticamente, sin intervención humana.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-81ca-b6c9-e3058916eac9" class="bulleted-list"><li style="list-style-type:disc"><strong>Python: </strong>Python es un lenguaje de programación de alto nivel, interpretado y de propósito general, conocido por su simplicidad y legibilidad. Creado por Guido van Rossum y lanzado por primera vez en 1991, Python utiliza una sintaxis clara y concisa que facilita la escritura y el mantenimiento del código, haciéndolo ideal tanto para principiantes como para desarrolladores experimentados. Es muy versátil y se usa en una amplia variedad de aplicaciones, desde desarrollo web y análisis de datos hasta inteligencia artificial y automatización de tareas. Además, cuenta con una extensa biblioteca estándar y una activa comunidad de desarrolladores que contribuyen con numerosos paquetes y herramientas para ampliar sus capacidades.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-811b-9cc4-fa4054a89609" class="bulleted-list"><li style="list-style-type:disc"><strong>Quality Assurance (QA):</strong> Es una disciplina clave en el desarrollo de software y productos que se centra en asegurar que los productos cumplen con los requisitos y estándares de calidad establecidos. El objetivo principal de QA es prevenir defectos y problemas antes de que el producto llegue al cliente final. </li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-8167-a395-ed09748f533f" class="block-color-default bulleted-list"><li style="list-style-type:disc"><strong>RFP (Request for Proposal): </strong>es un documento interno que tiene por objetivo solicitar el desarrollo de un nuevo requerimiento/ funcionalidad o la resolución de un bug. Este documento debe proporcionar toda la información necesaria para que los equipos de <a href="https://www.notion.so/Engineering-toteat-91aa2c6ee3c3403e80b83209d5f36cab?pvs=21"><span class="icon">🤖</span>Engineering (toteat)</a> y <a href="https://www.notion.so/Producto-ed5793019f574a9994a8ef0a78a5fb1a?pvs=21"><img class="icon" src="Bases/Innovacion.gif"/>Producto</a> puedan evaluar y analizar el pedido realizado. Para más información de cómo generarlo utilizar este <a href="https://www.notion.so/RFP-bf2b03040f054f1889f2baa89d2bd156?pvs=21">link</a>.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-812b-b36a-dd832dc16edc" class="bulleted-list"><li style="list-style-type:disc"><strong>Vue</strong>: Vue.js es un framework progresivo de JavaScript para construir interfaces de usuario y aplicaciones de una sola página (SPA). Creado por Evan You, Vue.js es conocido por su enfoque flexible y su facilidad de integración, ya que puede ser utilizado tanto para mejorar aplicaciones existentes como para desarrollar proyectos completos desde cero. Vue.js utiliza una sintaxis declarativa similar a HTML para vincular datos y manejar eventos, y ofrece características avanzadas como componentes reutilizables, reactividad de datos y enrutamiento para gestionar la navegación en las aplicaciones. Su arquitectura basada en componentes facilita el desarrollo de interfaces de usuario complejas y la gestión del estado de la aplicación, mientras que su ecosistema de herramientas y bibliotecas, como Vue Router y Vuex, proporciona soluciones robustas para la gestión del enrutamiento y el estado. La simplicidad y eficiencia de Vue.js lo han convertido en una opción popular entre los desarrolladores web.</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-81a3-9054-e4f2a80061f2" class="bulleted-list"><li style="list-style-type:disc"><strong>Webapp2</strong>: Webapp2 es un framework ligero de Python diseñado para el desarrollo de aplicaciones web, conocido por su simplicidad y flexibilidad. Originalmente creado para Google App Engine, Webapp2 proporciona una estructura minimalista que facilita el manejo de solicitudes HTTP, el enrutamiento de URLs y la gestión de sesiones. Su diseño modular permite a los desarrolladores añadir solo las funcionalidades que necesitan, lo que lo hace adecuado para aplicaciones que requieren una huella pequeña y alto rendimiento. Además, Webapp2 es compatible con WSGI, el estándar para servidores web en Python, lo que permite su uso en una variedad de entornos de despliegue. Aunque es menos conocido que frameworks más grandes como Django o Flask, Webapp2 es valorado por su eficiencia y facilidad de uso en proyectos de tamaño pequeño a mediano.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h1 id="29b39073-1e23-80d6-b7d2-c1c174d026ff" class="">Rubro</h1></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-80de-8ea1-e40cbb35bf13" class="bulleted-list"><li style="list-style-type:disc">Tecnología SaaS B2B</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-8062-b4b0-c524b6f87ed6" class="bulleted-list"><li style="list-style-type:disc">Competidores  <div style="display:contents" dir="auto"><ul id="2a939073-1e23-80de-a88a-ce8fc79c3fcb" class="bulleted-list"><li style="list-style-type:circle">México → Parrot Software, Soft Restaurat, Wansoft POS, BistroSoft, Fudo</li></ul></div><div style="display:contents" dir="auto"><ul id="2a939073-1e23-809d-a346-ebb9868a8d4c" class="bulleted-list"><li style="list-style-type:circle">Colombia → Justo, Loggro, Restobar, ICG, Fudo.</li></ul></div><div style="display:contents" dir="auto"><ul id="2a939073-1e23-80eb-bace-d9e0ca28c91c" class="bulleted-list"><li style="list-style-type:circle">Chile → Fudo, Resto, Gourmet, Methodo, Justo</li></ul></div><div style="display:contents" dir="auto"><ul id="2a939073-1e23-80d7-9ae6-eb06478336a5" class="bulleted-list"><li style="list-style-type:circle">Argentina → Maxirest, Bistrosoft, Fudo, Thinkion </li></ul></div><div style="display:contents" dir="auto"><ul id="2a939073-1e23-8051-913e-e27b795a5351" class="bulleted-list"><li style="list-style-type:circle">Perú → Restaurante P.E, Inforest </li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-804d-8c5b-e7d2e6a53ddc" class="bulleted-list"><li style="list-style-type:disc">Valor diferencial<div style="display:contents" dir="auto"><ul id="2a939073-1e23-802f-8648-f2cdb496041e" class="bulleted-list"><li style="list-style-type:circle"><strong>Robustez del producto:</strong></li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="2a939073-1e23-80a7-9cbf-ee4c5f9f5476" class="numbered-list" start="1"><li>Plataforma cloud con uptime superior al 99,9 %.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2a939073-1e23-8062-8cf6-eb94d71b2521" class="numbered-list" start="2"><li>Módulos integrados (POS, KDS, CRM, inventario, facturación y delivery + mucho más).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2a939073-1e23-8080-b470-e9654f2d4ee7" class="numbered-list" start="3"><li>Integraciones con metodos de pago, ERPs y plataformas de delivery líderes.</li></ol></div><div style="display:contents" dir="auto"><ul id="2a939073-1e23-80ab-bb95-d6b602d30ea4" class="bulleted-list"><li style="list-style-type:circle"><strong>Servicio y atención especializada:</strong></li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="2a939073-1e23-80c9-8b68-c074662b5853" class="numbered-list" start="1"><li>Soporte humano regional con conocimiento gastronómico.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2a939073-1e23-800c-b944-cd32dfb28056" class="numbered-list" start="2"><li>Implementación acompañada por expertos locales.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2a939073-1e23-805d-b5df-c9b7fd6f3151" class="numbered-list" start="3"><li>Enfoque consultivo que traduce datos en eficiencia operativa.</li></ol></div><div style="display:contents" dir="auto"><ul id="2a939073-1e23-807b-a6ed-fdf6c3ca206c" class="bulleted-list"><li style="list-style-type:circle"><strong>Flexibilidad y adaptación</strong></li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="2a939073-1e23-80af-b8fb-c95b59ae4ae5" class="numbered-list" start="1"><li>Escalable para cadenas, franquicias o locales independientes.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2a939073-1e23-80fa-af88-d3fcbccac647" class="numbered-list" start="2"><li>Customización de reportes, precios y flujos por país o segmento.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2a939073-1e23-8046-bae5-eb5fb7b8ba49" class="numbered-list" start="3"><li>API abierta para integraciones externas.</li></ol></div></li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-8042-b588-da83c0d33aa1" class="bulleted-list"><li style="list-style-type:disc">Mundo restaurantero 4,500 (Aproximadamente)</li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-8001-a959-ca7def8cfdba" class="bulleted-list"><li style="list-style-type:disc">Arquetipo de Clientes (Longtail, Head, Core) </li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-80b5-99da-f4ca7b4cec43" class="bulleted-list"><li style="list-style-type:disc">¿Cómo vendemos y qué vendemos? </li></ul></div><div style="display:contents" dir="auto"><ul id="29b39073-1e23-80c8-8a9c-f72ce6ca77bb" class="bulleted-list"><li style="list-style-type:disc">¿Quiénes somos? <div style="display:contents" dir="auto"><ul id="2a939073-1e23-80cf-9358-d18d190ccb7d" class="bulleted-list"><li style="list-style-type:circle">Propósito ¿Por qué existimos? Existimos para mejorar la experiencia gastronómica de todos</li></ul></div><div style="display:contents" dir="auto"><ul id="2a939073-1e23-80b6-b676-eaea682ac6b9" class="bulleted-list"><li style="list-style-type:circle">Visión ¿Qué queremos ser? Ser la principal plataforma gastronómica de Latinoamérica, donde la tecnología y el servicio se unen para facilitar la conexión entre restaurantes consumidores y proveedores.</li></ul></div><div style="display:contents" dir="auto"><ul id="2a939073-1e23-807f-ae40-e215a4a0698a" class="bulleted-list"><li style="list-style-type:circle">Misión ¿Cómo lo vamos a lograr? Reunir un equipo apasionado por la tecnología y gastronomía comprometido con el éxito de nuestros clientes gracias a la implementación de la plataforma. </li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="2a939073-1e23-80c5-b243-c7e9314f82ad" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2a939073-1e23-80bb-8b6b-c4e1aca65a6e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="29b39073-1e23-80a4-bfb3-d704fab737f9" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

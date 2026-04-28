@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>6.1. Datos para configuración PeYa</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="214d597a-5a04-45e6-add0-9d833fa1a1a1" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">6.1. Datos para configuración PeYa</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-8003-a8aa-d351bcff3b22" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-80cf-9b1d-e10d34bd4334" class="">En este módulo, abordaremos los campos de configuración más importantes durante la activación de la integración de Toteat con Pedidos Ya.</p></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-8024-8e0c-eddd085845b5" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-800a-b3b0-cde8a3112185" class="">Para iniciar el proceso de integración con Pedidos Ya es crucial comprender las configuraciones necesarias para garantizar un proceso de integración exitoso. <br/>Las configuraciones de las APIs incluyen campos estándar que siempre deben configurarse, así como campos específicos que requieren datos exclusivos de Pedidos Ya.</p></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-8014-b924-fbc90d160a67" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-80f0-968e-dcd3f68d7c46" class="">Cuando el cliente desea iniciar su operación con la integración de Pedidos Ya, comienza este proceso de solicitud y recopilación de datos para las configuraciones para llevar a cabo la integración.</p></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-802f-99b6-da81aebf3913" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8020-a3d1-d5a1b96cca25" class="toggle"><li><details open=""><summary><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="c1bf7d25-b8c1-4c21-8e79-533078d976c1" class="bulleted-list"><li style="list-style-type:disc">Ser personal autorizado de Toteat para la activación de los procesos de integraciones y tener conocimientos sólidos sobre el proceso de activación en la integración PeYA-Toteat.</li></ul></div><div style="display:contents" dir="auto"><ul id="64d2eb55-21c9-495e-bccc-42ecf32f62b0" class="bulleted-list"><li style="list-style-type:disc">Confirmar que el cliente ya esté creado y activo en PeYA.</li></ul></div><div style="display:contents" dir="auto"><ul id="52b38bff-9f12-418d-be27-826bea5eefd1" class="bulleted-list"><li style="list-style-type:disc">Verificar que el cliente no esté vinculado a otro punto de venta (POS) antes de iniciar la integración.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80fc-bf20-f99f302a8251" class="bulleted-list"><li style="list-style-type:disc">Si el cliente está asociado a otro POS, solicitar que realice la baja antes de proceder con nuestra integración.</li></ul></div><div style="display:contents" dir="auto"><ul id="96ad7151-ddb1-4706-a185-17d05e88c4ae" class="bulleted-list"><li style="list-style-type:disc">Asegurar que el cliente tenga los datos necesarios para la integración con PeYA:<div style="display:contents" dir="auto"><ul id="b8afa489-4dc7-4e62-b15c-d652854cb859" class="bulleted-list"><li style="list-style-type:circle"> ID de PeYA.</li></ul></div><div style="display:contents" dir="auto"><ul id="e0028cbb-1415-4394-bbb3-c9a54998e460" class="bulleted-list"><li style="list-style-type:circle">Precios por lista para PeYA</li></ul></div><div style="display:contents" dir="auto"><ul id="96bb3e53-895c-4bef-83e3-3687787b7f50" class="bulleted-list"><li style="list-style-type:circle">Validación si es tienda única o si se encuentra vinculada ( esto es similar a la estructura Padre e Hija de Rappi).<div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="79699515-50ed-48d4-acc5-ea8fe7243442"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><ul id="5c555aeb-e01b-49db-83e8-abb4135e8bfb" class="bulleted-list"><li style="list-style-type:disc">En caso de de estar vinculada, el cliente debe otorgar al agente de Toteat encargado de realizar la integración, el ID de la tienda que rige el menú.</li></ul></div><div style="display:contents" dir="auto"><ul id="e438a6f4-cc99-4f2f-b962-705361191652" class="bulleted-list"><li style="list-style-type:disc"> Si la tienda Padre no está integrada con Toteat o no está con Toteat, se debe solicitar la desvinculación para que la tienda a integrar pueda manejarse de manera única.</li></ul></div></div></figure></div></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="c2f622bd-6a57-4e8f-8421-27386a88996d" class="bulleted-list"><li style="list-style-type:disc">Confirmar con el cliente que los productos tengan imágenes (Mínimo el 80% de los productos)</li></ul></div><div style="display:contents" dir="auto"><ul id="576a6ea7-7fd1-4564-8d3e-96bee145ce36" class="bulleted-list"><li style="list-style-type:disc">Validar estructura del menú de acuerdo a lo que el cliente requiere y verificar que se cumplan con las restricciones que PeYA exige para la recepción del menú.</li></ul></div><div style="display:contents" dir="auto"><ul id="d998f338-a942-4e61-b6fd-58eb1d5b54cd" class="bulleted-list"><li style="list-style-type:disc">Programar la integración para inicios de semana e informar al cliente sobre el tiempo de activación de 1 a 3 días hábiles.<div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f794face-f7b2-4da4-a919-b2f5ca87fc8b"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><ul id="1d916719-571c-4dbe-a7a0-d0c966443cef" class="bulleted-list"><li style="list-style-type:disc">Es importante asegurarse de tener los datos de configuraciones y el menú en Toteat completamente exactos a lo que se requiere en PeYA y aprobado por el cliente, antes de solicitar la integración. </li></ul></div></div></figure></div></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-80ea-8353-d358830968a8" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80ac-90c2-f41bbb1e0ad6" class="toggle"><li><details open=""><summary><strong>Paso 1: Solicitud de Datos vía correo.</strong></summary><div style="display:contents" dir="auto"><ul id="1deb459e-8f5f-48c0-b11e-33da3632a8f7" class="bulleted-list"><li style="list-style-type:disc">El agente encargado de realizar la activación de la integración PeYA- Toteat debe solicitar los datos de configuración vía correo electrónico. </li></ul></div><div style="display:contents" dir="auto"><ul id="47c8bcda-8e83-49ee-9134-8051ad18be67" class="bulleted-list"><li style="list-style-type:disc">Se requiere la siguiente información:<br/>1.- ID de PeYA.<div style="display:contents" dir="auto"><p id="46b7ef1c-2576-4a16-97cf-da4d153ce529" class="">2.- Validación si es tienda única, o se encuentra vinculada a otra.</p></div><div style="display:contents" dir="auto"><p id="7ba97dcb-2a25-4229-9422-59d29e9b64b8" class="">3.- Validar estructura del menú de acuerdo a lo que el cliente requiere.</p></div><div style="display:contents" dir="auto"><p id="a4143a17-250e-4b0d-b19b-b3eb3c646d4f" class="">4.- Precios por lista a usar en PeYA, para ello se debe crear el precio por lista en el ambiente e identificarlo con el nombre de la marca-PeYA, posteriormente, se debe descargar el archivo de precio x lista en formato de Excel y enviarlo al cliente. </p></div><div style="display:contents" dir="auto"><blockquote id="499b55d0-1b82-4f1a-8cd0-279c5b86161b" class="">-En la columna de precio por lista, el cliente deberá colocar los precios a manejar en dicha plataforma. <br/><br/>-<em><strong>Si no desea que un producto sea visible en PeYA, deberá dejar la celda en blanco (sin datos).<br/></strong></em><br/>-<em><strong>Este proceso debe realizarse tanto para los productos como para los extras, </strong></em>asegurándonos de que la información sea completa y precisa para una correcta implementación en la plataforma de PeYA.</blockquote></div></li></ul></div><div style="display:contents" dir="auto"><ul id="0e15e4c5-ab15-4762-8d2e-5828b74012c9" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: El cliente debe responder a lo solicitado a través del mismo correo, con el fin de mantener un registro formal de los datos.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8004-affe-e90e63d39fda" class="toggle"><li><details open=""><summary><strong>Paso 2: Solicitud del Remote Id a Peya.</strong></summary><div style="display:contents" dir="auto"><ul id="67a8134e-43e0-4908-819e-0e841a3e7bd8" class="bulleted-list"><li style="list-style-type:disc">Es importante destacar que en el año 2024 Peya implementó un cambio en su integración, específicamente en su API. La integración anterior utilizaba un SDK, mientras que ahora se emplea la nueva API V2. Para esta integración, sigue siendo necesario el ID de Peya para identificar la tienda. Sin embargo, para la configuración en la API de Toteat se requiere el &quot;Remote id&quot;, un dato proporcionado por Peya tras enviar la solicitud correspondiente de activación, indicando el ID del restaurante de Peya.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8086-bbf9-e6f3a69d3542" class="bulleted-list"><li style="list-style-type:disc">Esta solicitud del Remote Id se realiza por medio del correo de Soporte de Peya: <br/><a href="mailto:soporteintegraciones@pedidosya.com">mailto:soporteintegraciones@pedidosya.com</a></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-807d-b202-f19f38d904d9" class="bulleted-list"><li style="list-style-type:disc">La solicitud para <em><strong>Argentina</strong></em> se está manejando aun por el grupo de Whatsapp <strong>“Integración Toteat-PYA AR”</strong></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8089-9f8f-fcbd42bd6ca4" class="toggle"><li><details open=""><summary><strong>Paso 3: Validación si es tienda única o vinculada.</strong></summary><div style="display:contents" dir="auto"><p id="bbcd22c3-37cc-4db3-9d95-6bc7755be40f" class="">En este caso, si el cliente no está seguro  como está configurada su restaurante en Peya, existen varias formas de obtener esa información:</p></div><div style="display:contents" dir="auto"><p id="d022ea3f-d086-4830-9a6d-9dcd06ee88d8" class="">1.- Realizar la consulta a la Kam de PeYa.</p></div><div style="display:contents" dir="auto"><p id="d295424b-f40b-4407-8911-8ed06eab167f" class="">2.- Realizar la consulta a Soporte de PeYa vía correo: <br/><a href="mailto:soporteintegraciones@pedidosya.com">mailto:soporteintegraciones@pedidosya.com</a></p></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8018-9b99-d2319b4ef922" class="bulleted-list"><li style="list-style-type:disc">En el caso de <em><strong>Argentina</strong></em> se se puede realizar la consulta por el grupo de Whatsapp <strong>“Integración Toteat-PYA AR”</strong></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80d6-bd78-e05c0044fd7a" class="toggle"><li><details open=""><summary><strong>Paso 4: Datos del Api de Toteat.</strong></summary><div style="display:contents" dir="auto"><ul id="64201ad3-5781-4a16-9a69-40adae12b303" class="bulleted-list"><li style="list-style-type:disc">Ver Módulo  <a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API%207da512cd631145b287e6a7783ea96ecc.html"><span class="icon">📗</span>2.2. ¿Cómo se configura un API?</a></li></ul></div><div style="display:contents" dir="auto"><ul id="c1bc3e09-c1ba-4f4d-97d5-225338f9a72e" class="bulleted-list"><li style="list-style-type:disc">Id externo del Restaurante:  </li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-800f-aaba-f0f15cbfd104" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8057-96c4-f6c6e8daab14" class="bulleted-list"><li style="list-style-type:disc">Disponer de los datos de configuración para la integración de PeYA es fundamental para agilizar y garantizar una ejecución correcta. Esta información permite realizar el proceso rápidamente, asegurando que se cumplan los parámetros establecidos. Así, no sólo se optimiza el tiempo empleado en la activación de la integración, sino que también se asegura la precisión y fiabilidad del proceso.</li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-808e-a88e-d1aa9e5a19ea" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80aa-8376-cfa1a27ae104" class="bulleted-list"><li style="list-style-type:disc">Toda integración que no corresponda a Delivery.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80a4-a122-e4c84d310a56" class="bulleted-list"><li style="list-style-type:disc">Restaurantes que aún no se encuentren vinculados en la plataforma de PeYA.</li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-8083-ad9b-caf399d8da13" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80eb-8028-dba2c3a0557a" class="bulleted-list"><li style="list-style-type:disc">Revisión del proceso de obtención de datos de PeYA.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-805b-b6d7-cd2460e7ce7e" class="bulleted-list"><li style="list-style-type:disc">Validación continua del flujo para la solicitud de datos, con el área de Integraciones PeYA.</li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-8005-baa5-d6c6935c1f17" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="16c39073-1e23-8058-acc4-c62d8d69983d" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="6defcaa0-0f3e-4375-82d8-ee2c695bfb68"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="8cae38ee-3be7-4ca0-ac94-e801f2608ff4"><td id="nU|h" class="">30-10-2024</td><td id="WwCq" class=""><span class="user">@Andrea Carolina Ruiz</span> </td><td id="i;pn" class=""><span class="user">@Francisco Ramirez</span> </td><td id="q^a=" class="">4026.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="6b94b19e-c9ef-4b5b-8060-9dcc67824776"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="d8c8926f-0a0b-4177-9959-d1e0b094f092"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

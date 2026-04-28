@@ -1,0 +1,749 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>6.2. Proceso de activación Peya</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1ccf8145-347c-4545-9cac-4d546f4b3177" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">6.2. Proceso de activación Peya</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><nav id="16c39073-1e23-8013-aca8-efdd4d2392d3" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-8006-9a0b-c8c149aaf8e0"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-80e9-8e66-dfba004bbe1a"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-80c0-8539-c8de36fdfcce"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-80a1-b46b-e017be72e5cf"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-8057-9cea-d46292f69000"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-8002-8644-e483680b4728"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-80c7-b174-c548aa268da7"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-803a-9988-ce027d889347"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16c39073-1e23-803a-a2a9-c4378ced60e1"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-8006-9a0b-c8c149aaf8e0" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-80e6-869a-c32565f44658" class=""> Una vez que se han recopilado los datos necesarios para configurar la integración entre Toteat y la plataforma de PeYA, el siguiente paso es iniciar el proceso de activación. Esto implica configurar la API correspondiente para establecer la conexión entre ambas partes y coordinar el proceso de activación a través del canal de comunicación que mantenemos con PeYA.</p></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-80e9-8e66-dfba004bbe1a" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-80fc-a113-f7cf6886d4a2" class="">Al activar la integración entre PeYA y Toteat, nuestros clientes podrán disfrutar de las funcionalidades principales que ofrece esta integración. Entre ellas se encuentran la sincronización de menús, la gestión de pedidos y la generación de reportes consolidados.</p></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-80c0-8539-c8de36fdfcce" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-80d0-8c18-c9a27ed56f83" class="">Para iniciar el proceso de activación, el cliente debe realizar la solicitud a su agente de Onboarding o de Customer, según el estatus del restaurante en Toteat. </p></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8077-aab0-d28b8f0d91c9" class="bulleted-list"><li style="list-style-type:disc">En el caso de un cliente nuevo, el agente de Onboarding debe validar durante el proceso si se llevará a cabo la activación de la integración. Es importante destacar que esta información debería haber sido comunicada por el cliente al comercial durante la negociación, para que el servicio quede especificado en Salesforce.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8061-afcc-d89e50c18df7" class="bulleted-list"><li style="list-style-type:disc">Si el cliente ya está en cartera, debe enviar la solicitud al correo clientes@toteat.com, donde recibirá una respuesta con los pasos a seguir.</li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-80a1-b46b-e017be72e5cf" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-807a-9eae-f7bd941ccf23" class="toggle"><li><details open=""><summary><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="16c39073-1e23-817f-8a77-ddc4f1553c46" class="bulleted-list"><li style="list-style-type:disc">Ser personal autorizado de Toteat para la activación de los procesos de integración y tener conocimientos sólidos sobre el proceso de activación en la integración de PeYA-Toteat.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-81a5-ba49-f352d0cc34e1" class="bulleted-list"><li style="list-style-type:disc">Confirmar con el cliente que ya está creado y activo en PeYA, además de contar con su autorización para iniciar el proceso.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-81fe-ac10-fcb91eaf0ffd" class="bulleted-list"><li style="list-style-type:disc">Es crucial verificar que el cliente no esté vinculado a otro punto de venta (POS) antes de comenzar el proceso de integración.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-817a-bf1e-e5f615026882" class="bulleted-list"><li style="list-style-type:disc">El cliente debe contar con los datos necesarios para la integración, que incluyen:  ID de la tienda, precios por lista para PeYA. </li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-81df-8f35-d1a464056597" class="bulleted-list"><li style="list-style-type:disc">Validar con el cliente que los productos tengan imágenes.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-819a-ba8f-efd9c6ff009d" class="bulleted-list"><li style="list-style-type:disc">Validación si es tienda única o esta vinculada.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8192-9914-f4ffccaf410a" class="bulleted-list"><li style="list-style-type:disc">Programar la integración para inicios de semana e informar al cliente que el tiempo de activación es de 1 a 3 días hábiles.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-8057-9cea-d46292f69000" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8006-af52-ff77d7f18805" class="toggle"><li><details open=""><summary><strong>Paso 1: Validar configuraciones de la API. </strong></summary><div style="display:contents" dir="auto"><p id="16c39073-1e23-8102-ae36-db60a2043a4b" class=""><strong>(Ver </strong><strong></strong><strong>)</strong></p></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8163-a831-f2b685a4691e" class="toggle"><li><details open=""><summary><strong>Fuente de Origen</strong>: PedidosYa .</summary><div style="display:contents" dir="auto"><ul id="16c39073-1e23-813a-85fd-d74075588ecb" class="bulleted-list"><li style="list-style-type:disc">En ajustes Generales:<br/><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-803c-8f33-e1b827d47f7e" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image.png"><img style="width:651.9861450195312px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-81d5-b186-c6a2a062b549" class=""><strong>Nota</strong>: No olvidar guardar los ajustes realizados. Dar clic en la parte superior al botón “Grabar”. </p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-81f8-884b-d03ef3541664" class="bulleted-list"><li style="list-style-type:disc">En la Api:<br/><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-80ab-aed9-da435ae763a1" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%201.png"><img style="width:623.9861450195312px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-8123-b953-c0d80d04b3ac" class=""><strong>Nota</strong>: No olvidar guardar los ajustes realizados. Dar clic en la parte inferior al botón “Grabar”. </p></div></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-81a1-b111-e1d7873c97f0" class="toggle"><li><details open=""><summary><strong>Forma de pago</strong>:  </summary><div style="display:contents" dir="auto"><p id="16c39073-1e23-806d-8d36-d4e0012d785a" class="">Ver  </p></div><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-80b4-adb9-f63dd5870d0a" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%202.png"><img style="width:679.9861450195312px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-80f6-9e5d-e790be6a597c" class="">Para PedidosYa existen  3 formas de pago:</p></div><div style="display:contents" dir="auto"><ol type="1" id="16c39073-1e23-80b2-8f3c-f96598287578" class="numbered-list" start="1"><li>PedidosYA.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="16c39073-1e23-80de-9d84-f82b626cdd5d" class="numbered-list" start="2"><li>PedidosYa Vouchers.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="16c39073-1e23-80d7-aa9b-e3b25a096476" class="numbered-list" start="3"><li>PedidosYa Cash Collection.</li></ol></div><div style="display:contents" dir="auto"><blockquote id="16c39073-1e23-8053-9e82-d952af2600da" class=""><em>Se recomienda activar los tres métodos de pago, incluso si el cliente inicialmente solo utilizará el primero. Esto se debe a que, con el tiempo, el cliente podría optar por habilitar los otros métodos a medida que avance en la operación e integración con Peya.</em></blockquote></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-80c1-9e4c-edc8c43ab66d" class=""><div class="indented"><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8181-b4b4-de8e9e312c52" class="bulleted-list"><li style="list-style-type:disc"><strong>Verificar que quede activa y para uso de las integraciones.</strong></li></ul></div><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-8088-9050-f3e1c9cfad9d" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%203.png"><img style="width:679.9722290039062px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-80d7-8aee-ef12982058cb" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-81c9-b71c-f659668478a4" class="bulleted-list"><li style="list-style-type:disc"> <strong>Configurarla en la API: </strong>En la api solo se debe configurar la forma de pago PedidosYa.<br/></li></ul></div><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-80d3-9abf-d40798aa7ce2" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%204.png"><img style="width:679.9722290039062px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%204.png"/></a></figure></div></div></p></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-8043-be6f-cb6b4065b03a" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8173-9fdb-efef0d97ba1c" class="toggle"><li><details open=""><summary><strong>Sectores</strong>:  Los sectores deben estar creados con una jerarquía principal de INTEGRACIONES, y sub Jerarquías por cada una de las Plataformas y marcas, como se observa a continuación:</summary><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-8068-adc7-f0ef3d201e91" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%205.png"><img style="width:679.9861450195312px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-8082-97a9-ef9ccc5ba3b6" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80cc-8517-f02720175d52" class="toggle"><li><details open=""><summary><strong>Precios x lista</strong>: Los precios por lista se recomiendan crearlas por marca y por plataforma.</summary><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-80fc-a75b-ca1e366b32a6" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%206.png"><img style="width:651.9861450195312px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-801d-bfa6-c9bd1b455a95" class="">Luego se debe configurar en la Api:</p></div><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-80e9-b246-e1f338127363" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%207.png"><img style="width:679.9861450195312px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%207.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8162-bfd3-f6eae8c1aa6a" class="bulleted-list"><li style="list-style-type:disc"><strong>Dark Kitchen:</strong>  Esto se utiliza en el caso de restaurantes multimarca, para identificar las comandas de cada una. Ver  </li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8117-9d94-c9dba8a9ab79" class="bulleted-list"><li style="list-style-type:disc"><strong>Email de errores</strong>:  El cliente proporciona su dirección de correo electrónico, donde desea recibir las alertas de errores.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8174-9995-fcfbe53ecdfa" class="bulleted-list"><li style="list-style-type:disc"><strong>Url servicio externo</strong>:  El cliente lo proporciona, es el link del restaurante en la plataforma.</li></ul></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="16c39073-1e23-813b-b695-cd41370b7da9"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8170-8ef6-e9d10139f636" class="bulleted-list"><li style="list-style-type:disc"><strong>Id Externa Restaurante:</strong>  En la Sección <em><strong>“General” </strong></em>del Api, se visualiza el campo<em><strong> Id Externa Restaurante </strong></em>donde se debe configurar el <em><strong>Remote Id de PeYa (Api V2) y el id de la tienda (SDK)</strong></em><br/><br/>Ver  <br/>El remote id esta compuesto por:<br/><em><strong>Las iniciales del paÍs- nombre-restaurante-consecutivo de Peya.<br/>ej: </strong></em><strong>CH-MARCA-UNO-001</strong><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-80ed-a47f-f28d9e6bc1aa" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%208.png"><img style="width:590.1944580078125px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%208.png"/></a></figure></div></li></ul></div></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8017-82e0-c3b9a2e11a4a" class="toggle"><li><details open=""><summary><strong>Paso 2: Activación Api y de la Integración en Toteat.</strong></summary><div style="display:contents" dir="auto"><ul id="6cce7355-fe5e-4e0b-99ce-e81040a2ca3f" class="bulleted-list"><li style="list-style-type:disc">Una vez que hayamos confirmado que todas las configuraciones de la API para PeYa son correctas, procederemos a activar la Api.<div style="display:contents" dir="auto"><blockquote id="16c39073-1e23-8069-82e5-d112901480a6" class="">Cuando es por SDK:<div style="display:contents" dir="ltr"><figure id="16c39073-1e23-8058-93da-d185e9d7a9f0" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%209.png"><img style="width:651.9861450195312px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%209.png"/></a></figure></div></blockquote></div><div style="display:contents" dir="auto"><blockquote id="16c39073-1e23-80ef-bc3c-e8c2809d42f9" class="">Cuando se trata de integracion por Api V2 de Peya:<div style="display:contents" dir="ltr"><figure id="16c39073-1e23-807f-abc4-efc8f1d26a50" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%2010.png"><img style="width:679.9722290039062px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%2010.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8086-800a-fcd32c0a6a33" class="bulleted-list"><li style="list-style-type:disc">La disponibilidad en la plataforma puede estar en off por las siguientes causas:</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="16c39073-1e23-8025-a91b-fd3af8e06081" class="numbered-list" start="1"><li>Aun no esta integrada de parte de Peya.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="16c39073-1e23-800b-b250-c02b30214793" class="numbered-list" start="2"><li>No se encuentra en Horario.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="16c39073-1e23-8048-847f-d20cf5d00e98" class="numbered-list" start="3"><li> Si se encuentra en horario  y la activación ya fue confirmada por Peya, pero aún no permite dejar activa la disponibilidad, podría tratarse de una interrupción en la comunicación de la integración. En este caso, es recomendable escalar el incidente al área de Tech Toteat para su revisión.</li></ol></div></blockquote></div></li></ul></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-8079-9c7f-ca10ec2372ba" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="3c1ab501-9d45-4b30-abde-bb87ec20c8bf" class="bulleted-list"><li style="list-style-type:disc">Luego de activar la Api, se debe proceder a solicitar la activación de la integración en coordinación con el área de Soporte de Peya, vía correo <a href="mailto:soporteintegraciones@pedidosya.com">soporteintegraciones@pedidosya.com</a> y en el caso de Argentina por el grupo de Whatsapp <strong>“Integración Toteat-PYA AR”</strong></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80a7-a6c9-cc2ac2dd3f8f" class="toggle"><li><details open=""><summary><strong>Paso 3: Solicitud de activación a PeYa</strong>.</summary><div style="display:contents" dir="auto"><p id="16c39073-1e23-80c4-9796-e75ceae0f26a" class=""><em>La solicitud se realiza vía correo de Soporte de Peya: </em><em><a href="mailto:soporteintegraciones@pedidosya.com">mailto:soporteintegraciones@pedidosya.com</a></em></p></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-807d-8205-f40be6bd2c66" class=""><em>La solicitud para </em><em><strong>Argentina</strong></em><em> se está manejando aun por el grupo de Whatsapp </em><em><strong>“Integración Toteat-PYA AR”</strong></em></p></div><div style="display:contents" dir="auto"><ol type="1" id="16c39073-1e23-810a-97d4-fb19c597bada" class="numbered-list" start="1"><li>Antes de proceder con la solicitud, <strong> es necesario validar si es una tienda agrupada para el envió de menú, es decir si maneja la estructura tienda Padre e Hija, es Independiente ó Única</strong>. Según los requerimientos de la integración, se deben solicitar hacer ajustes a dicha estructura en caso de ser necesario.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="16c39073-1e23-81db-a7a4-d81bae452dc9" class="numbered-list" start="2"><li>Es fundamental asegurarse de que el menú esté completamente aprobado por el cliente, los precios por lista estén correctamente configurados, <strong>al menos el 80% de las imágenes de los productos estén cargadas en Toteat</strong> y se cumplan todos los requisitos establecidos por PeYa.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="16c39073-1e23-81e0-afc7-c8c58630efe1" class="numbered-list" start="3"><li>Al solicitar la activación de la integración a PeYa se debe indicar en el cuerpo del correo los siguientes datos:<div style="display:contents" dir="auto"><ol type="a" id="16c39073-1e23-806a-ae6a-e3a122b441a5" class="numbered-list" start="1"><li>Id del restaurante en Peya (Dato suministrado por el cliente).</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="16c39073-1e23-803b-8414-f4bca549bbc7" class="numbered-list" start="2"><li>Fecha planificada para la activación.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="16c39073-1e23-80c9-a466-d658a7a031d1" class="numbered-list" start="3"><li>Fecha y hora estimada para realizar la orden de prueba.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="16c39073-1e23-8036-a0fb-f95b2892edfb" class="numbered-list" start="4"><li>Solicitud del remote Id en caso de ser por Api V2.</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="16c39073-1e23-809c-8af9-efffefb5c895" class="numbered-list" start="4"><li>Solicitar a Peya la activación en el momento adecuado, evitar hacerlo en franjas de horario de alta demanda de ventas.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="16c39073-1e23-8173-9a5a-d1defe8eb2b0" class="numbered-list" start="5"><li>Planificar las activaciones preferiblemente a inicios de la semana y evitar realizarlas los viernes, salvo que sea estrictamente necesario y se haga a primera hora.</li></ol></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8121-bff4-fba54cf8fc44" class="bulleted-list"><li style="list-style-type:disc">Cuando PeYa indique que ya quedó configurada de su lado, debemos validar que la integración esté activa, cuyo status debe ser 1, en caso de no arrojar el mensaje que se indica a continuación, por favor dar clic al botón <strong>“Activar Int. Externa”, </strong>y volver a validar Estado de la integración.<br/><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-80bd-a56b-f3fe965bc972" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%2011.png"><img style="width:707.9722290039062px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%2011.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-802b-b8d0-fb131566e004" class="bulleted-list"><li style="list-style-type:disc">Si la tienda está dentro del horario establecido, en este momento luego de activada la integración por parte de Peya, debe permitir activar la opción <strong>“Disponibilidad en la plataforma” (solo para Api V2)</strong><br/></li></ul></div><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-8069-8c9e-c43c89f73274" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%2012.png"><img style="width:707.9722290039062px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%2012.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8192-91c9-f180a12363ca" class="bulleted-list"><li style="list-style-type:disc">Se valida el envío del menú, esto se realiza verificando en Versiones. <br/>(Ver <a href="6%205%20Env%C3%ADo%20de%20Men%C3%BA%20PeYa%20c99de9e72d2c434c89b2542658dd6ddc.html"><span class="icon">📗</span>6.5. Envío de Menú PeYa</a>)</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8002-8a05-c4fb1ad65432" class="toggle"><li><details open=""><summary><strong>Paso 4: Validación de status de la integración en Versiones.</strong></summary><div style="display:contents" dir="auto"><ul id="c5b1cbd0-59b5-477f-8747-e955516c191f" class="bulleted-list"><li style="list-style-type:disc">Es necesario validar status de la integración en versiones Toteat, en el momento solo se puede validar integraciones por SDK para la Api V2 aún no se cuenta con la visual en versiones pero esto se encuentra en proceso.</li></ul></div><div style="display:contents" dir="auto"><ul id="2aa7a0d3-1b5f-467c-92cf-669f4df94d1d" class="bulleted-list"><li style="list-style-type:disc">Al ingresar a Versiones, en la sección de Delivery, selecciona Pedidoya y luego utiliza el buscador para colocar el ID del restaurante o el  ID de Pedidoya .</li></ul></div><div style="display:contents" dir="ltr"><figure id="55622ece-8446-4a22-b059-d76d02e0032b"><a href="https://versiones.toteat.com/ubereats" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">TotEat System Admin L2S</div><div class="bookmark-description">TotEat Admin Control Panel</div></div><div class="bookmark-href"><img src="https://versiones.toteat.com/favicon.ico" class="icon bookmark-icon"/>https://versiones.toteat.com/ubereats</div></div></a></figure></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-80b5-b255-fe6e3d503384" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-8035-8e81-d62c9eec1ccd" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%2013.png"><img style="width:679.9722290039062px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%2013.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="af43e5f5-1dff-4622-81e1-b8d438fc8cb5" class="bulleted-list"><li style="list-style-type:disc">Verificar que las marcas y APIs que se integraron estén activas en la columna &quot;Activa&quot;. <br/>Las integradas por Versión 2 aun no aparece en Versiones. En este caso debemos validar directamente en la Api:</li></ul></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="16d39073-1e23-8042-80ad-edcdae234249"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><ul id="16d39073-1e23-8045-a6a1-cdf6eabef94b" class="bulleted-list"><li style="list-style-type:disc">Si se encuentra en horario  y la activación ya fue confirmada por Peya, pero aún no permite dejar activa la disponibilidad, podría tratarse de una interrupción en la comunicación de la integración. En este caso, es recomendable escalar el incidente al área de Tech Toteat para su revisión.</li></ul></div></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80ce-aaa6-f9668cd0d521" class="toggle"><li><details open=""><summary><strong>Paso 5: Validación de status de la integración en el API.</strong></summary><div style="display:contents" dir="auto"><ul id="1fed324c-a443-4da3-afe4-3c20a6921c21" class="bulleted-list"><li style="list-style-type:disc">Al ingresar al Api hay un botón “<strong> Ver Estado Int. Externa</strong>”, dar clic alli y saldrá un cuadro de diálogo.</li></ul></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-808d-94bc-d4831284a29f" class=""> Por SDK:</p></div><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-800e-b767-f50767cb4cb0" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%2014.png"><img style="width:576px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%2014.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-809b-b9f7-f35b260df10d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="16c39073-1e23-807e-8404-d5e619b129be" class="">Por Api V2:<br/></p></div><div style="display:contents" dir="ltr"><figure id="16c39073-1e23-807b-ad06-d017db16c24a" class="image"><a href="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%2015.png"><img style="width:587.96875px" src="6%202%20Proceso%20de%20activaci%C3%B3n%20Peya/image%2015.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-8002-8644-e483680b4728" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-8097-9d1e-ff6255d75d02" class="bulleted-list"><li style="list-style-type:disc">La integración con PedidosYa es fundamental para mejorar la experiencia tanto del restaurante como de la gestión de la plataforma de delivery. Proporciona mayor eficiencia en el proceso, además, facilita y centraliza la operación en temas administrativos. Por lo tanto, es de gran importancia conocer el proceso de activación de la integración con PedidosYa para asegurar una eficiente activación y, por ende, una operación exitosa.</li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-80c7-b174-c548aa268da7" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80d1-a770-e915d9e60398" class="bulleted-list"><li style="list-style-type:disc">Toda integración que no corresponda a Delivery.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80e0-910d-c79596656875" class="bulleted-list"><li style="list-style-type:disc">Restaurantes que aún no se encuentren vinculados en la plataforma de PedidosYa.</li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-803a-9988-ce027d889347" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-80c0-84a0-e923b6d33699" class="bulleted-list"><li style="list-style-type:disc">Auditar el proceso de activación de la integración de  PedidosYa en todos los países donde aplique.</li></ul></div><div style="display:contents" dir="auto"><ul id="16c39073-1e23-808d-aea7-ec854ea17442" class="bulleted-list"><li style="list-style-type:disc">Validar status de la integración y por cual integraciones se realizó.</li></ul></div><div style="display:contents" dir="auto"><h3 id="16c39073-1e23-803a-a2a9-c4378ced60e1" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="16c39073-1e23-8051-8f77-dcc4072eb395" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="b5e52e09-a0fe-4ddf-ab3b-01c8400ab806"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="e5b458cb-be64-4699-8e9a-400414044cbf"><td id="nU|h" class="">4/12/2024</td><td id="WwCq" class=""><span class="user">@Andrea Carolina Ruiz</span> </td><td id="i;pn" class=""><span class="user">@Francisco Ramirez</span> </td><td id="q^a=" class="">4027.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="143089fd-7d4c-4bdd-bc83-425c3caa3518"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="3e58e804-7972-413e-9067-3e7d3888d198"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

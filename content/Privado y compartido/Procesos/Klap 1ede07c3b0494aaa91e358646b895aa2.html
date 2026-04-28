@@ -1,0 +1,753 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Klap</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1ede07c3-b049-4aaa-91e3-58646b895aa2" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1608496601160-f86d19a44f9f?ixlib=rb-4.0.3&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_brown.svg"/></div><h1 class="page-title" dir="auto">Klap</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td><span class="selected-value select-value-color-yellow">Integraciones</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha de creación</th><td><time>12 de agosto de 2024</time></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="97790889-f581-4fae-bc33-661fc72f4b0b"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Propósito: “Configuración y uso para integración con terminal Klap para conciliación de pagos con TRM”</strong>.</div></figure></div><div style="display:contents" dir="ltr"><nav id="6d08c3af-040f-47bf-88ff-9aaa9347de5b" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#927bbc3e-0b69-44ed-9e2c-911586c5e12a"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#4ae49b08-d5ec-489b-994d-0f751cff994f"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#fc548473-4ab5-4160-87ee-bb4571a52f9b"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#017682c6-ff80-4db9-a434-a97729d3528e"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#55e32d20-3bcd-4b02-a2a8-19abd1fd714c"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d4f9513d-97c0-481e-b025-d3e8591f95c7"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f2e6fcfe-a65c-4d97-a75f-492a9ebb8601"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7bbdd941-3093-467b-99b3-ff6644d47990"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#bc3b9296-754d-44f0-8d40-f34b44bbdb9f"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="927bbc3e-0b69-44ed-9e2c-911586c5e12a" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="f8e7fe61-42b3-4733-b9d0-d1935e12791e" class="">Este documento trata acerca de la configuración y uso de la configuración de <em>Klap</em> para Chile, dando paso al proceso de <em>payments</em> para TRM con este dispositivo. Esta integración actualmente funciona exclusivamente como forma para levantar pagos desde TRM hacia el terminal, <strong>no se puede usar Toteat directamente desde el navegador del dispositivo</strong> para usarlo como “cajero móvil”</p></div><div style="display:contents" dir="auto"><h3 id="4ae49b08-d5ec-489b-994d-0f751cff994f" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="2f1e59cf-f0ec-4fdc-9c90-c76afc9930ad" class="">Este documento debe aplicarse para clientes que necesiten la integración con el terminal <em>Klap.</em></p></div><div style="display:contents" dir="auto"><h3 id="fc548473-4ab5-4160-87ee-bb4571a52f9b" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="affad570-9ef8-4f66-af2b-1675b4710c78" class="">Este proceso debe realizarlo el cliente directamente teniendo los datos y el terminal correspondiente.</p></div><div style="display:contents" dir="auto"><h3 id="017682c6-ff80-4db9-a434-a97729d3528e" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="423196b9-7fb0-49fc-b1b5-8934a0a6eb59" class="toggle"><li><details open=""><summary><strong>Se debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="4d982812-9624-4646-beeb-af4f56dfeadf" class="bulleted-list"><li style="list-style-type:disc">Lo debe realizar el perfil dueño/creador. </li></ul></div><div style="display:contents" dir="auto"><ul id="66db52df-2da6-4084-880f-4d90a994bab1" class="bulleted-list"><li style="list-style-type:disc">El terminal debe ser modelo  A5.</li></ul></div><div style="display:contents" dir="auto"><ul id="391caf68-696e-4f75-ad75-a2dab126ad76" class="bulleted-list"><li style="list-style-type:disc">Estar en la última versión de TRM.</li></ul></div><div style="display:contents" dir="auto"><ul id="12939073-1e23-804b-9df9-c5899162bde0" class="bulleted-list"><li style="list-style-type:disc">La integración es solo para utilizar tarjeta de crédito o débito en el terminal, no acepta billeteras electrónicas configuradas en él.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="55e32d20-3bcd-4b02-a2a8-19abd1fd714c" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="b10772d6-4c74-42f3-9781-71d540341165" class="toggle"><li><details open=""><summary><mark class="highlight-orange"><strong>5.1. Configuración de la integración</strong></mark></summary><div style="display:contents" dir="auto"><ul id="7122d7cb-bc3f-409f-b9af-4fadc4993d05" class="toggle"><li><details open=""><summary><strong>Paso 1: Activación forma de pago.</strong></summary><div style="display:contents" dir="auto"><ul id="39542d66-9569-4de4-bd2d-d3675c12b4e5" class="bulleted-list"><li style="list-style-type:disc">Activar la forma de pago Klap Pagos PDV desde Menú lateral &gt; Restaurante &gt; Ajustes generales &gt; Formas de pago.</li></ul></div><div style="display:contents" dir="ltr"><figure id="22bbee12-7254-48ee-805a-6cfe07822807" class="image"><a href="Klap/image.png"><img style="width:528px" src="Klap/image.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="2902507a-42ac-4c01-9329-6a15fa09fa4d" class="bulleted-list"><li style="list-style-type:disc">Selecciona la forma de pago ‘Klap Pago PDV’ y confirmar.</li></ul></div><div style="display:contents" dir="auto"><ul id="a6357fa9-1742-4e8d-a71b-5b9c3aceb90d" class="bulleted-list"><li style="list-style-type:disc">Grabar la forma de pago en el ícono superior.</li></ul></div><div style="display:contents" dir="ltr"><figure id="da8b8ed8-8023-4850-afe9-66069b54482a" class="image"><a href="Klap/image%201.png"><img style="width:384px" src="Klap/image%201.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1abcf631-2c8f-45f7-88a5-74c08cdb57c1" class="toggle"><li><details open=""><summary><strong>Paso 2: Activación integración.</strong></summary><div style="display:contents" dir="auto"><ul id="1867a6af-c4f2-4ef0-afaa-e291dec0e099" class="bulleted-list"><li style="list-style-type:disc">Ir al módulo de la integración en Menú lateral &gt; Integraciones &gt; Klap.</li></ul></div><div style="display:contents" dir="ltr"><figure id="e3ea6399-8bba-4ae9-92ca-4046c95ae06b" class="image"><a href="Klap/image%202.png"><img style="width:240px" src="Klap/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="defcadb7-ab79-4b36-8eb7-0d88a7d2f06e" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="0b059fa6-bda8-4682-81d5-9c979b6fc204" class="bulleted-list"><li style="list-style-type:disc">Dar “Sí” al campo de activar integración.</li></ul></div><div style="display:contents" dir="ltr"><figure id="5ecb272d-5bf4-4309-a150-548fd57b5c9f" class="image"><a href="Klap/image%203.png"><img style="width:480px" src="Klap/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="e8da8532-335a-4d15-a4a2-cd1787588ceb" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="ef2b8be7-86ba-4207-bedb-79ee4745a412" class="bulleted-list"><li style="list-style-type:disc">Completar los datos para la integración; ID de cliente (único por sucursal, independiente si corresponden a la misma cadena y/o razón social), nombre de terminal e ID de terminal. Estos datos los debe proveer Klap Pagos directamente, el ID de terminal puede estar impreso en la parte trasera del mismo como Serial Number (S/N).</li></ul></div><div style="display:contents" dir="ltr"><figure id="740c9458-59ec-4889-a3a2-d5a0e8e2689c" class="image"><a href="Klap/image%204.png"><img style="width:528px" src="Klap/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="5f1ca9bc-352a-4f93-a6e7-60de81937172" class="bulleted-list"><li style="list-style-type:disc">Una vez estén los datos ingresados darle al ícono de grabar en la parte inferior, si tiene más de un dispositivo debe utilizar “Agregar Terminal” tantas veces como dispositivos tenga cada uno con su ID correspondiente.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="05312f95-5a47-407c-b2b8-ce0b43201268" class="toggle"><li><details open=""><summary><strong>Paso 3: Asignación de terminal a Caja.</strong></summary><div style="display:contents" dir="auto"><ul id="a0492342-59b8-461c-bc6e-9a6ded1b9daf" class="bulleted-list"><li style="list-style-type:disc">Se debe asociar el terminal a la caja. Ir a Menú lateral &gt; Restaurante &gt; Cajas, y seleccionar la caja correspondiente que tendrá asociado el terminal.</li></ul></div><div style="display:contents" dir="auto"><p id="da5ad7c1-9fc8-4929-9447-624414ca13b2" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="11263ca3-6fa7-409c-8de2-889240d9cd38" class="image"><a href="Klap/image%205.png"><img style="width:528px" src="Klap/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="47b04c57-eab3-4092-8399-0d948115eb67" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="2bc83896-cc8d-4542-81b3-49e88d4aa161" class="bulleted-list"><li style="list-style-type:disc">Ir al lápiz de edición, y aquí asociar el terminal correspondiente en el parámetro “Terminales Klap”.</li></ul></div><div style="display:contents" dir="ltr"><figure id="f609d672-55d4-47ea-ac22-d77958603952" class="image"><a href="Klap/image%206.png"><img style="width:432px" src="Klap/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="e23ec660-49d7-4c6d-888e-43a959b2e2c2"/></div><div style="display:contents" dir="ltr"><figure id="67e809f9-5643-4640-87b3-6d5d0ee8a0c7" class="image"><a href="Klap/image%207.png"><img style="width:384px" src="Klap/image%207.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="e736ab57-3164-4b46-a432-486fad7439b0" class="bulleted-list"><li style="list-style-type:disc">Confirmar y grabar los cambios</li></ul></div><div style="display:contents" dir="auto"><p id="0e251276-220d-4813-90cb-62d0a311aa69" class="">
+</p></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="930c86c7-7894-49ab-8913-a8eec5d8e9ac" class="toggle"><li><details open=""><summary><mark class="highlight-orange"><strong>5.2. Uso de la integración</strong></mark></summary><div style="display:contents" dir="auto"><ul id="46e73c0c-5c13-444c-974c-01427e0b4607" class="toggle"><li><details open=""><summary><strong>Paso 1: Verificar caja</strong></summary><div style="display:contents" dir="auto"><ul id="0d75ff70-df65-4cc3-9a01-f4f4ae4d359d" class="bulleted-list"><li style="list-style-type:disc">Tener Caja abierta.</li></ul></div><div style="display:contents" dir="auto"><ul id="c0330361-d6fe-4b50-b9e6-93a9b4cd13a0" class="bulleted-list"><li style="list-style-type:disc">Validar que la caja que realizará el pago con la integración sea la que se configuró con el terminal correspondiente.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="e7123dec-938a-4311-9b05-e2ad1f8346d6" class="toggle"><li><details open=""><summary><strong>Paso 2: Pagar la mesa</strong></summary><div style="display:contents" dir="auto"><ul id="a2863bfe-5012-4e1d-811f-46a94eb10c3e" class="bulleted-list"><li style="list-style-type:disc">Con la caja abierta, ir al ícono de “Cerrar mesa” </li></ul></div><div style="display:contents" dir="ltr"><figure id="595a36e5-7fa7-4255-91db-4bfbe6f296f3" class="image"><a href="Klap/image%208.png"><img style="width:432px" src="Klap/image%208.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="85a4c966-bb5b-4c5f-b916-3c65ef0bdbad" class="bulleted-list"><li style="list-style-type:disc">Seleccionar la forma de pago ‘Klap Pago PDV’ y dar al ícono ‘Pagar’.</li></ul></div><div style="display:contents" dir="ltr"><figure id="99c93bcd-6e0a-4bc8-b554-403aba18bb0c" class="image"><a href="Klap/image%209.png"><img style="width:480px" src="Klap/image%209.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="44a16ff5-6875-44e6-b100-c4bb49615517" class="bulleted-list"><li style="list-style-type:disc">Al momento de pagar, seleccionar el terminal correspondiente (en el caso de tener más de uno disponible) y presionar ‘Pagar’.</li></ul></div><div style="display:contents" dir="ltr"><figure id="3bec9762-bde7-4fd1-be69-334d9443534b" class="image"><a href="Klap/image%2010.png"><img style="width:480px" src="Klap/image%2010.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="70ed0bbe-e198-496a-aea4-80eda1ffbe25" class="bulleted-list"><li style="list-style-type:disc">Realizado esto, en pantalla verán el pago en proceso.</li></ul></div><div style="display:contents" dir="ltr"><figure id="551569da-1caf-45c6-89c9-401a4591cb8a" class="image"><a href="Klap/image%2011.png"><img style="width:336px" src="Klap/image%2011.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="fe4e08e2-c41b-4217-bf73-0972962795a2" class="bulleted-list"><li style="list-style-type:disc">Mientras en pantalla está el pago en proceso, en el terminal se levantará el pago correspondiente:</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="2c8a499a-4589-4f72-b153-d375f3a7a020" class="numbered-list" start="1"><li>En pantalla verán el pago en proceso.</li></ol></div><div style="display:contents" dir="ltr"><figure id="5a9741ef-fe52-46fc-a2e1-4870b854849d" class="image"><a href="Klap/image%2012.png"><img style="width:240px" src="Klap/image%2012.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="ad9d844c-9e2a-499e-8588-e39827da6db7" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="251ec83b-6e70-4de6-9d8d-3e793e6e5f27" class="numbered-list" start="2"><li>Confirmación de Monto</li></ol></div><div style="display:contents" dir="ltr"><figure id="cfc1011b-7f1f-4c1d-8b34-fd3299bc18ba" class="image"><a href="Klap/image%2013.png"><img style="width:240px" src="Klap/image%2013.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="00741017-e689-4f0e-9dc9-e9db38e6174c" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="32210209-0e3f-441e-bedb-9386e8bde023" class="numbered-list" start="3"><li>Operar Tarjeta</li></ol></div><div style="display:contents" dir="ltr"><figure id="8ef6f08a-74a4-4faf-b3b3-649a39d32f17" class="image"><a href="Klap/image%2014.png"><img style="width:240px" src="Klap/image%2014.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="d781cfd0-45c0-46fd-84c6-c08b727eee2c" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="ecb47e40-19ea-4bf9-b360-4088eea59964" class="numbered-list" start="4"><li>Detalles pago</li></ol></div><div style="display:contents" dir="ltr"><figure id="fa9cc9ce-10c5-4ca1-b101-dc028033d3a5" class="image"><a href="Klap/image%2015.png"><img style="width:240px" src="Klap/image%2015.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="cc301ff0-c61b-4038-9118-8092ccc890c0" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="fe4afe2a-9394-4362-8844-e692d50fcdc1" class="numbered-list" start="5"><li>Confirmación de transacción realizada </li></ol></div><div style="display:contents" dir="ltr"><figure id="e8044855-2fab-438c-a4da-80126d6fd007" class="image"><a href="Klap/image%2016.png"><img style="width:240px" src="Klap/image%2016.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="dd31ad4f-7fb9-4cde-83ea-0f33f5c9d6de" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="69ec1e57-c562-4e94-85e4-5615c5892bc3" class="numbered-list" start="6"><li>Pago traspasado a TRM con éxito</li></ol></div><div style="display:contents" dir="ltr"><figure id="57d73549-f386-4a77-ab7e-1ee6a913b7c2" class="image"><a href="Klap/image%2017.png"><img style="width:480px" src="Klap/image%2017.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="10c8ba4e-a3c8-4309-9133-934325709180" class="toggle"><li><details open=""><summary><strong>Paso 3: Información de pagos</strong></summary><div style="display:contents" dir="auto"><ul id="1df9e0fc-809c-4011-8197-b14c0d21f22a" class="bulleted-list"><li style="list-style-type:disc">Detalle de la información de pagos en Menú lateral &gt; Integraciones &gt; Klap &gt; Historial. </li></ul></div><div style="display:contents" dir="ltr"><figure id="12939073-1e23-8038-ad40-c1a5a2ebbe31" class="image"><a href="Klap/image%2018.png"><img style="width:651.9750366210938px" src="Klap/image%2018.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="3cd4f544-5660-4640-8443-4eac359510a4" class="bulleted-list"><li style="list-style-type:disc">Pagos realizados/aceptados son órdenes ya pagadas y en TRM como órdenes abiertas/cerradas en detalle de pago.</li></ul></div><div style="display:contents" dir="auto"><ul id="8a3ad074-8c72-4c8c-87be-502d09be20a4" class="bulleted-list"><li style="list-style-type:disc">Pagos realizados/aceptados sin traspaso a TRM consultar en “Buscar Pedidos” en donde se debe buscar por el campo “ID Toteat” del movimiento con pago en proceso.</li></ul></div><div style="display:contents" dir="ltr"><figure id="12939073-1e23-806e-bcc3-e83d848fcfa4" class="image"><a href="Klap/image%2019.png"><img style="width:651.9874877929688px" src="Klap/image%2019.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="886b3182-afa5-41b6-b463-731f9ffc736c" class="bulleted-list"><li style="list-style-type:disc">Al realizar esto el pago se refrescará indicando el proceso realizado correctamente y se puede validar en la orden.</li></ul></div><div style="display:contents" dir="ltr"><figure id="12939073-1e23-8068-b66b-e99380ee16c4" class="image"><a href="Klap/image%2020.png"><img style="width:651.9750366210938px" src="Klap/image%2020.png"/></a></figure></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="d4f9513d-97c0-481e-b025-d3e8591f95c7" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="eb205148-24a1-46bd-b628-b7f83e61bf6b" class="bulleted-list"><li style="list-style-type:disc">Se configura y utiliza correctamente la integración con Klap</li></ul></div><div style="display:contents" dir="auto"><h3 id="f2e6fcfe-a65c-4d97-a75f-492a9ebb8601" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="14263848-da88-4b7b-90a0-5d2238b48b07" class="bulleted-list"><li style="list-style-type:disc">Clientes sin integración con <em>Klap</em></li></ul></div><div style="display:contents" dir="auto"><h3 id="7bbdd941-3093-467b-99b3-ff6644d47990" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="a79ba87a-8ff0-4791-989b-a223e30c9f06" class="bulleted-list"><li style="list-style-type:disc">Orden de prueba al momento de la configuración</li></ul></div><div style="display:contents" dir="auto"><h3 id="bc3b9296-754d-44f0-8d40-f34b44bbdb9f" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="d66db72c-18da-4e50-9f79-2b2fcbd92167" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="30f57f64-7a30-4b64-a635-a465c3c3ffb3"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="81a56849-f678-4cfc-85c6-230a3fdb63c4"><td id="nU|h" class="">12-08-2024</td><td id="WwCq" class=""><span class="user">@Francisco Ramirez</span> </td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="283e8176-9e70-430d-8044-0356a9668f39"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="7c2acb0e-7ebb-486d-82d5-17421aca6305"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

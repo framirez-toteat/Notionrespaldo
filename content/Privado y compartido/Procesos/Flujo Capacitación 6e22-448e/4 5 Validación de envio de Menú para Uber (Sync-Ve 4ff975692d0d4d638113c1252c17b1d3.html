@@ -1,0 +1,744 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>4.5. Validación de envio de Menú para Uber (Sync-Versiones)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4ff97569-2d0d-4d63-8113-c1252c17b1d3" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">4.5. Validación de envio de Menú para Uber (Sync-Versiones)</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><nav id="d95d6ead-c326-4a09-bc03-849d2626317a" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9c423032-ed79-4446-a533-6b98df9782bc"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6163c201-85ce-4c3d-aa13-ac4424df685b"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#52d1a855-10fb-4f80-b6d8-1c56e9a0f8f7"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c0b2f9fc-82fd-4eb5-ac02-ae1f1e75b6ac"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a9e12dd7-c495-4b69-8065-8516860c89ba"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d0dbec53-2ada-4781-b29a-d05ff93cc108"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#56204eeb-dc54-468f-92a5-0bd5e137a969"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b5c096ea-c97f-4c30-908a-8b08fb9385d3"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c17da83d-426c-480b-9a47-acd8c7c3f11e"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="9c423032-ed79-4446-a533-6b98df9782bc" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="0610a69d-5066-45b7-8bf5-1580ec1a44b6" class="">En este módulo se detalla el proceso para validar el envío de menús en versiones de Toteat. Es importante verificar que el menú cumpla con los requisitos establecidos y que no haya errores en su envío.</p></div><div style="display:contents" dir="auto"><h3 id="6163c201-85ce-4c3d-aa13-ac4424df685b" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="bd27240b-5190-4ee1-9348-740bf0cb74a3" class="">Es fundamental asegurarse de que el envío del menú se genere de modo correcto, y que el contenido enviado corresponda al requerido por el cliente. Con esta validación se logra confirmar el estatus, lo cual implica verificar si cumple con las restricciones y/o formato exigido por la plataforma, o si requiere alguna modificación adicional.</p></div><div style="display:contents" dir="auto"><h3 id="52d1a855-10fb-4f80-b6d8-1c56e9a0f8f7" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="11139073-1e23-807c-9df5-f7ad751f9a53" class="">Durante la activación de las integraciones y el proceso de actualización de cartas en la plataforma, es crucial realizar una validación del envío del menú. De esta manera, podemos garantizar que el envío se realice exitosamente. De lo contrario, podremos verificar el error generado y realizar los ajustes pertinentes. Este proceso de validación puede ser realizado por el agente que esté llevando a cabo la activación, ya sea del área de Customer o Onboarding, así como por el área de SAC cuando el cliente ingrese al chat para validar la causa por la cual no visualiza las actualizaciones de la carta en sus aplicaciones integradas.</p></div><div style="display:contents" dir="auto"><h3 id="c0b2f9fc-82fd-4eb5-ac02-ae1f1e75b6ac" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="ec21cc69-42db-406d-a67f-eed3c9703fc3" class="toggle"><li><details open=""><summary><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="0b11f179-f58b-423a-a20b-5f10793e6e4e" class="bulleted-list"><li style="list-style-type:disc">Ser personal autorizado de Toteat para la activación de los procesos de integración con UberEats.</li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-80cd-ba49-d4e11c6382f5" class="bulleted-list"><li style="list-style-type:disc">Tener permisos específicos para acceder a la Herramienta Versiones Toteat-Delivery.</li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-8004-ac6d-eec5e19a2148" class="bulleted-list"><li style="list-style-type:disc">Conocer las restricciones que las plataformas manejan para la visibilidad del menú de tiendas integradas.</li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-8019-8b7e-d999f46ff97c" class="bulleted-list"><li style="list-style-type:disc">Validar e identificar la causa y solucionar los errores que se generan en los envíos de menú.</li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-801a-9722-c49b677c339a" class="bulleted-list"><li style="list-style-type:disc">Definir claramente los canales de comunicación con Uber para agilizar la resolución de problemas y la coordinación efectiva en el proceso de integración.<div style="display:contents" dir="ltr"><figure id="11139073-1e23-8022-975e-f94aae54d6dc"><div class="source">https://docs.google.com/spreadsheets/d/1A-P2_5W8toveoCiCLlqVe75vW33ShcFLgpncU_cgBt0/edit?gid=0#gid=0</div></figure></div></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="a9e12dd7-c495-4b69-8065-8516860c89ba" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="148896bd-4660-4037-b132-c68cf343a559" class="toggle"><li><details open=""><summary><strong>Paso 1: Envío de menú</strong></summary><div style="display:contents" dir="auto"><ul id="d760bce5-1a26-4100-89d9-0df9f2565b92" class="bulleted-list"><li style="list-style-type:disc">El envío de menú para la integración de Uber se realiza de las siguientes maneras:</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="11239073-1e23-806c-b382-fc39f161a7b1" class="numbered-list" start="1"><li> <em><strong>Automático:</strong></em> Se realiza cuando se efectúan ajustes en los productos y/o en los precios por lista, lo que detecta las modificaciones y realiza automáticamente el envío de menú desde Toteat a Uber.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="11239073-1e23-8039-84a7-f7f9627e61a0" class="numbered-list" start="2"><li>Al iniciar el turno, Uber realiza un envío automático del menú para enviar la información de los horarios, y también se anexa la información de la carta.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="11239073-1e23-808b-acb4-c1c20273569c" class="numbered-list" start="3"><li><em><strong>Manual:  </strong></em>Se realiza de manera forzada al dar clic en el botón &quot;Grabar&amp;SendHook&quot; dentro de la API de Uber.<br/><div style="display:contents" dir="ltr"><figure id="11239073-1e23-802b-b76d-c121636b03c8" class="image"><a href="4%205%20Validaci%C3%B3n%20de%20envio%20de%20Men%C3%BA%20para%20Uber%20(Sync-Ve/image.png"><img style="width:679.9861450195312px" src="4%205%20Validaci%C3%B3n%20de%20envio%20de%20Men%C3%BA%20para%20Uber%20(Sync-Ve/image.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><p id="381f9ecf-38b4-4293-bfe0-511c9e8a16bf" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="97d3e083-7133-4899-9f0d-4ec1520fd3d4" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: ¡Uber impacta el menú casi de inmediato, máximo en 10 minutos!</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="11239073-1e23-80ab-afba-faca3a78dd8e" class="toggle"><li><details open=""><summary><strong>Paso 2: Validación de status del envío de menú en versiones.</strong></summary><div style="display:contents" dir="auto"><p id="11239073-1e23-807c-9fa2-fe9868476541" class="">Después de enviar el menú, debemos verificar en versiones si el menú se ha enviado correctamente o si se ha generado algún error.</p></div><div style="display:contents" dir="auto"><ol type="1" id="11239073-1e23-80fc-80e3-dec749b05027" class="numbered-list" start="1"><li><strong>Ingresar a Versiones Toteat.</strong> </li></ol></div><div style="display:contents" dir="ltr"><figure id="11239073-1e23-80ee-a61e-e1ea7c9c891b"><a href="https://versiones.toteat.com/restaurantes" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">TotEat System Admin L2S</div><div class="bookmark-description">TotEat Admin Control Panel</div></div><div class="bookmark-href"><img src="https://versiones.toteat.com/favicon.ico" class="icon bookmark-icon"/>https://versiones.toteat.com/restaurantes</div></div></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="11239073-1e23-80c7-911a-db7f17d698f1" class="numbered-list" start="2"><li><strong>Menú lateral - Delivery - Sync Menu.</strong><br/><div style="display:contents" dir="ltr"><figure id="11239073-1e23-80c6-a372-ed18566ab447" class="image"><a href="4%205%20Validaci%C3%B3n%20de%20envio%20de%20Men%C3%BA%20para%20Uber%20(Sync-Ve/image%201.png"><img style="width:679.9861450195312px" src="4%205%20Validaci%C3%B3n%20de%20envio%20de%20Men%C3%BA%20para%20Uber%20(Sync-Ve/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="11239073-1e23-80bd-ad7e-f9a46d0f0912" class="bulleted-list"><li style="list-style-type:disc">Se mostrará una pantalla como la siguiente donde se podrá observar el listado de menús enviados en las últimas horas.</li></ul></div><div style="display:contents" dir="ltr"><figure id="11239073-1e23-80ff-9d52-fa725e6d4559" class="image"><a href="4%205%20Validaci%C3%B3n%20de%20envio%20de%20Men%C3%BA%20para%20Uber%20(Sync-Ve/image%202.png"><img style="width:707.9861450195312px" src="4%205%20Validaci%C3%B3n%20de%20envio%20de%20Men%C3%BA%20para%20Uber%20(Sync-Ve/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="11239073-1e23-8071-8d37-c752b8204681" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: Sync Menu no guarda los envíos de menú de más de 2-3 horas antes.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="11239073-1e23-807e-aa42-f50d1ad7c893" class="numbered-list" start="3"><li><strong>Verificar status:</strong> En este paso es importante identificar lo siguiente:</li></ol></div><div style="display:contents" dir="auto"><ul id="11239073-1e23-8096-a7b8-d990a7742b8a" class="bulleted-list"><li style="list-style-type:disc"><strong>Nombre del Restaurante:</strong> Indicará el nombre del ambiente Toteat. </li></ul></div><div style="display:contents" dir="auto"><ul id="11239073-1e23-8090-b572-ea24c21d00dd" class="bulleted-list"><li style="list-style-type:disc"><strong>ID: </strong>Indica el ID del ambiente y el ID del local.</li></ul></div><div style="display:contents" dir="auto"><ul id="11239073-1e23-8010-8639-f22da62e7370" class="bulleted-list"><li style="list-style-type:disc"><strong>Status</strong>: Estado del envió.</li></ul></div><div style="display:contents" dir="auto"><ul id="11239073-1e23-8090-a217-e68131c5bb00" class="bulleted-list"><li style="list-style-type:disc"><strong>Fecha Modificación</strong>: Se observa la fecha y la hora de envío en Hora UTC.</li></ul></div><div style="display:contents" dir="auto"><ul id="11239073-1e23-80bc-89e0-e669fe0e191d" class="bulleted-list"><li style="list-style-type:disc"><strong>Tipo</strong>: se especifica Plataforma y Api (<em>importante</em>).<br/><em><strong>Nota</strong></em><em>: Recuerda que las Apis de Uber  inician por 11XX, ejemplo 1101, 1101, etc.</em><div style="display:contents" dir="ltr"><figure id="11239073-1e23-8093-b891-c2d868c26393" class="image"><a href="4%205%20Validaci%C3%B3n%20de%20envio%20de%20Men%C3%BA%20para%20Uber%20(Sync-Ve/image%203.png"><img style="width:679.9722290039062px" src="4%205%20Validaci%C3%B3n%20de%20envio%20de%20Men%C3%BA%20para%20Uber%20(Sync-Ve/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="11239073-1e23-8030-9ac2-c8ad737dc821" class="bulleted-list"><li style="list-style-type:circle"><strong>Nota</strong>: En &quot;Detalle&quot;, al hacer clic en el ícono se puede observar el detalle de la información enviada (JSON del menú) y si se generó un error, se puede observar el detalle del mismo.<div style="display:contents" dir="ltr"><figure id="11239073-1e23-80ba-86af-f211aeccc3ae" class="image"><a href="4%205%20Validaci%C3%B3n%20de%20envio%20de%20Men%C3%BA%20para%20Uber%20(Sync-Ve/image%204.png"><img style="width:623.9722290039062px" src="4%205%20Validaci%C3%B3n%20de%20envio%20de%20Men%C3%BA%20para%20Uber%20(Sync-Ve/image%204.png"/></a></figure></div></li></ul></div></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="504ccd17-38c0-48e2-ae1a-962d55ba2fc4" class="toggle"><li><details open=""><summary><strong>Paso 3: Identificar error y posible solución.</strong></summary><div style="display:contents" dir="auto"><ul id="a70cc569-45dd-4d14-a93d-acd0c42e9067" class="bulleted-list"><li style="list-style-type:disc">Los errores que se presentan en los envíos de menú los podemos ver en la siguiente tabla, donde encontraremos el error, causa y solución.</li></ul></div><div style="display:contents" dir="auto"><ul id="d0df90d1-d856-41cf-a448-5b542862078a" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: Recuerda que en Versiones en la sección “Detalle” es donde puedes encontrar el error.<br/> </li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="b476ba6c-c8d6-4537-851b-b91a92cd5192" class="toggle"><li><details open=""><summary><strong>Paso 4: Reenviar menú.</strong></summary><div style="display:contents" dir="auto"><ul id="4a93608b-6e3f-4bcc-a615-4420cad14076" class="bulleted-list"><li style="list-style-type:disc">Una vez realizado el ajuste se procede a realizar el reenvió del menú, ver  </li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1ea5a0d0-7ff2-457d-83d1-4cd36399a0db" class="toggle"><li><details open=""><summary><strong>Paso 5: Revalidación de envío de menú.</strong></summary><div style="display:contents" dir="auto"><ul id="90b7cddc-b52f-46fd-ad6f-220316e735af" class="bulleted-list"><li style="list-style-type:disc">Ir al Paso 2,  </li></ul></div><div style="display:contents" dir="auto"><p id="c344c240-0637-4103-8e23-dc2202e46217" class=""><strong>Nota</strong>: Se repite el proceso hasta lograr el envió de manera exitosa.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="d0dbec53-2ada-4781-b29a-d05ff93cc108" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="a68a31e9-5946-4ef9-ad68-b655f7bbc6b0" class="bulleted-list"><li style="list-style-type:disc">Una de las funciones clave de la integración entre Toteat y las plataformas de Delivery es el envío del menú, por lo tanto es crucial asegurar que el proceso se lleve a cabo sin problemas, proporcionando así una experiencia óptima a nuestros usuarios. Sin embargo, debido a restricciones de las plataformas o problemas de configuración, pueden surgir fallas y errores en el envío del menú.Para abordar esto, contamos con un proceso de validación del estado de envío del menú, que nos permite detectar y solucionar cualquier problema de manera oportuna para evitar impactos negativos en la operación de la integración y en el restaurante.</li></ul></div><div style="display:contents" dir="auto"><h3 id="56204eeb-dc54-468f-92a5-0bd5e137a969" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="5aa92d23-7729-4e66-9a13-628662a5d4ad" class="bulleted-list"><li style="list-style-type:disc">Toda integración que no corresponda a Delivery.</li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-80a3-b5fb-dadc22b84ec4" class="bulleted-list"><li style="list-style-type:disc">Restaurantes que aún no se encuentren vinculados en la plataforma de Uber.</li></ul></div><div style="display:contents" dir="auto"><h3 id="b5c096ea-c97f-4c30-908a-8b08fb9385d3" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="9d442827-706f-4ef4-bdb7-85c08200bcc7" class="bulleted-list"><li style="list-style-type:disc">Revisión de los registros de envío de menús en Versiones.</li></ul></div><div style="display:contents" dir="auto"><h3 id="c17da83d-426c-480b-9a47-acd8c7c3f11e" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="32ad573e-7831-4ed4-8a6e-9b353c1ae075" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="51d6948a-9f89-4778-b5fa-948f14ba97e3"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="aa47901c-fdb0-44a6-8a09-933efdd05853"><td id="nU|h" class="">2024</td><td id="WwCq" class="">@Andrea Carolina Ruiz</td><td id="i;pn" class="">@Francisco Ramírez</td><td id="q^a=" class="">4016.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="f119f3b7-1df5-4573-a291-dea399ecf529"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="cbb7fe9a-3d21-491d-8e74-09b5f993c908"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

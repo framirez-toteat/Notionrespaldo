@@ -1,0 +1,748 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>6.1. Toma de inventario. </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="df335709-db26-4f78-a403-862af2235b3f" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">6.1. Toma de inventario. </h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><nav id="11939073-1e23-8093-8788-e704662c9c56" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#11939073-1e23-800f-b22a-edb48fe9b490"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#11939073-1e23-805f-9dd2-d6ff61f6322e"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#11939073-1e23-8064-9e03-d6c1ae8f4050"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#11939073-1e23-80ea-8feb-dea30bcc014e"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#11939073-1e23-8064-adfd-c339f15b9c56"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#11939073-1e23-803f-99a9-e575b95edd86"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#11939073-1e23-80c9-a601-efb6510d82f1"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#11939073-1e23-80a9-a27a-fc4268212857"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#11939073-1e23-8036-8766-f13ae6d6beb6"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="11939073-1e23-800f-b22a-edb48fe9b490" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="11939073-1e23-803f-a3e7-fd98fe556930" class="">Este proceso tiene como objetivo garantizar la actualización precisa del inventario dentro del sistema. Se llevará a cabo mediante la realización periódica de tomas de inventario, en las cuales se deberá registrar las cantidades físicas de los insumos o ingredientes disponibles. Esto permite mantener un control eficiente y actualizado de los niveles de stock, asegurando que la información en el sistema refleje fielmente la realidad.</p></div><div style="display:contents" dir="auto"><h3 id="11939073-1e23-805f-9dd2-d6ff61f6322e" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="11939073-1e23-801d-a278-d2640c2b0335" class="">Este proceso abarca todas las actividades relacionadas con la actualización y control del inventario físico dentro del sistema. Involucra la identificación y conteo de insumos o ingredientes disponibles en las bodegas, así como el registro de dichas cantidades en el sistema. El proceso se aplica de manera periódica y está destinado a garantizar que los datos de inventario reflejen con precisión el stock físico, permitiendo una correcta gestión de recursos y minimizando errores en la planificación de compras y producción.</p></div><div style="display:contents" dir="auto"><h3 id="11939073-1e23-8064-9e03-d6c1ae8f4050" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="11939073-1e23-80ac-942a-c68e530dce9b" class="">Las entradas necesarias para ejecutar este proceso incluyen:</p></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80cb-a2c6-c2932e52bdb0" class="bulleted-list"><li style="list-style-type:disc"><strong>Listados de inventario previos</strong>: Información sobre los insumos o ingredientes existentes en las bodegas, que servirán de referencia para el conteo actual.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-800c-b002-f212ba76dc3d" class="bulleted-list"><li style="list-style-type:disc"><strong>Personal asignado</strong>: Personas responsables de realizar el conteo físico de los insumos o ingredientes en las bodegas.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-809c-8cc5-dab41a75e35c" class="bulleted-list"><li style="list-style-type:disc"><strong>Acceso al sistema de inventario</strong>: Permisos y acceso al sistema para registrar las cantidades actualizadas, realizar ajustes y aprobaciones según corresponda.</li></ul></div><div style="display:contents" dir="auto"><p id="11939073-1e23-8018-b083-d2cafa223211" class="">Estas entradas garantizan que el proceso pueda ejecutarse de manera precisa y eficiente.</p></div><div style="display:contents" dir="auto"><h3 id="11939073-1e23-80ea-8feb-dea30bcc014e" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80ea-b499-ddac422454b7" class="toggle"><li><details open=""><summary><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="c815fbc7-2028-4722-bd5b-689caade976a" class="bulleted-list"><li style="list-style-type:disc">Identificación y configuración de insumos en sus bodegas.</li></ul></div><div style="display:contents" dir="auto"><ul id="c5683f4a-4fe0-4cc2-9474-11be4dd0f8a8" class="bulleted-list"><li style="list-style-type:disc">Permisos para poder realizar tomas de inventario y aprobaciones.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8091-a899-f2eb9787ff75" class="bulleted-list"><li style="list-style-type:disc">Configuración de unidades de medida para la toma.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="11939073-1e23-8064-adfd-c339f15b9c56" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8035-8ceb-fd85e02d3fd3" class="toggle"><li><details open=""><summary><strong>Paso 1: Toma de inventario</strong></summary><div style="display:contents" dir="auto"><ul id="11939073-1e23-807e-94e0-dba764bf598b" class="bulleted-list"><li style="list-style-type:disc">Se deberá ir a la ruta <strong>Stock Control – Inventarios</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8000-9ccd-e34d94a73c0e" class="bulleted-list"><li style="list-style-type:disc">Allí estará la opción <strong>Toma de inventarios</strong>.<div style="display:contents" dir="ltr"><figure id="11939073-1e23-808b-a1df-fdcdfe0330bf" class="image"><a href="6%201%20Toma%20de%20inventario/image.png"><img style="width:679.9625244140625px" src="6%201%20Toma%20de%20inventario/image.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80f4-8863-cb52f0715463" class="bulleted-list"><li style="list-style-type:disc">En está sección, podremos seleccionar la fecha en la cual se cargara la toma, asi como a que bodega se realizara y formato de ingreso masivo.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-807c-ba78-fe40d2483521" class="bulleted-list"><li style="list-style-type:disc">Se podra ingresar la opción de mostrar minimo y maximos por Bodega o Total y rellenar vacios con 0.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8025-bd3a-dfaf39254740" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota:</strong> Se debe tener en cuenta que, al seleccionar la fecha de toma y cargar este inventario, será en esa fecha donde se cargará el inventario al comienzo del día. Por lo tanto, si se carga una toma de inventario hoy en la tarde, se descontará todo lo que se vendió en la mañana.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8084-803f-d71436adf685" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota: </strong>Si no se tiene stock de un insumo, no se puede dejar el espacio en blanco, por lo que se debe rellenar con un 0, de ser necesario.</li></ul></div><div style="display:contents" dir="auto"><p id="15f39073-1e23-8089-bdc2-d358fc261619" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8021-b980-df527afc59d8" class="toggle"><li><details open=""><summary><strong>Paso 2.1: Ingreso de información Masiva</strong></summary><div style="display:contents" dir="auto"><ul id="11939073-1e23-80ae-be21-cb06710aa682" class="bulleted-list"><li style="list-style-type:disc">Lo primero, seleccionar la fecha y la bodega.<div style="display:contents" dir="ltr"><figure id="11939073-1e23-80ca-b17a-e4140f8c49df" class="image"><a href="6%201%20Toma%20de%20inventario/image%201.png"><img style="width:679.9750366210938px" src="6%201%20Toma%20de%20inventario/image%201.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80fd-aa5e-e9fa65e98473" class="bulleted-list"><li style="list-style-type:disc">Se debe dar click en el boton “XLS” y se descargara un archivo excel.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80f8-9dbc-c024339ebb2d" class="bulleted-list"><li style="list-style-type:disc">Al abrirlo, se debe rellenar la columna “Cantidad”.<div style="display:contents" dir="ltr"><figure id="11939073-1e23-80e8-9247-f9c0fa4de128" class="image"><a href="6%201%20Toma%20de%20inventario/image%202.png"><img style="width:707.9874877929688px" src="6%201%20Toma%20de%20inventario/image%202.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80b6-9bb6-e98c72ca3999" class="bulleted-list"><li style="list-style-type:disc">Se pueden dejar campos en blanco para luego presionar la opción &quot;Rellenar vacíos con 0&quot; o hacerlo desde el mismo Excel.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80ff-921d-cf8c4647dbd2" class="bulleted-list"><li style="list-style-type:disc">Se copian todos los campos, sin encabezado, para luego ir al sistema y presionar &quot;Subir Toma&quot;.<div style="display:contents" dir="ltr"><figure id="11939073-1e23-8034-834a-d32ffcc1d4ac" class="image"><a href="6%201%20Toma%20de%20inventario/image%203.png"><img style="width:679.9874877929688px" src="6%201%20Toma%20de%20inventario/image%203.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80cd-b8ff-f55ee5a7b32b" class="bulleted-list"><li style="list-style-type:disc">Se aparecerá la vista anterior de la imagen, para dar clic en &quot;Grabar Toma&quot;.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-802b-9deb-c29bb7eb058d" class="bulleted-list"><li style="list-style-type:disc">Una vez presionado el botón, el sistema redirigirá a &quot;Históricos&quot;.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80f3-807e-e8dcd0cfa672" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota: </strong>Si se necesita cambiar la unidad de medida de un insumo al realizar la toma, se debe hacer en la configuración interna del insumo o ingrediente (revisar proceso 5.3).</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8041-8235-c47dd6b60478" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota: </strong>Si es necesario, se pueden utilizar decimales al ingresar el stock.</li></ul></div><div style="display:contents" dir="auto"><p id="15f39073-1e23-8066-a10b-cc391ef81357" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8002-93fa-f0f98b63193d" class="toggle"><li><details open=""><summary><strong>Paso 2.2: Ingreso de información desde el sistema</strong></summary><div style="display:contents" dir="auto"><ul id="11939073-1e23-8017-b468-e6c944e5107f" class="bulleted-list"><li style="list-style-type:disc">Primero, seleccionar fecha y bodega.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8063-969d-fd9482459f27" class="bulleted-list"><li style="list-style-type:disc">Estando en Toma de inventario, se debe rellenar las cantidades que tenemos en nuestro stock.<div style="display:contents" dir="ltr"><figure id="11939073-1e23-80de-ae5f-c723f93a45f6" class="image"><a href="6%201%20Toma%20de%20inventario/image%204.png"><img style="width:679.9750366210938px" src="6%201%20Toma%20de%20inventario/image%204.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-801e-a365-e7fe3e051da5" class="bulleted-list"><li style="list-style-type:disc">Una vez listo, se presiona “Grabar Toma”.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80dc-a708-d0f9b50cc336" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota:</strong> Si se utiliza el filtro de búsqueda del sistema, se debe eliminar lo que se haya escrito antes de grabar, ya que, de otra manera, no permitirá grabar la toma.</li></ul></div><div style="display:contents" dir="auto"><p id="15f39073-1e23-8049-bdc1-f143dc59c4fb" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-801d-9e69-c4be73d5b8f0" class="toggle"><li><details open=""><summary><strong>Paso 3: Históricos</strong></summary><div style="display:contents" dir="auto"><ul id="11939073-1e23-80c0-8015-f7604767b85e" class="bulleted-list"><li style="list-style-type:disc">En <strong>Históricos</strong>, se podrán visualizar todos los movimientos relacionados con tomas de inventario, transferencias entre bodegas, transferencias entre locales y transformaciones de productos (declaración de producción).<div style="display:contents" dir="ltr"><figure id="11939073-1e23-8016-a2fa-c666ab0beb00" class="image"><a href="6%201%20Toma%20de%20inventario/image%205.png"><img style="width:679.9625244140625px" src="6%201%20Toma%20de%20inventario/image%205.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><p id="11939073-1e23-8028-b71c-f064527c3703" class="">Cada uno de estos movimientos mostrará:</p></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8078-9d43-e4bb6dc2f68c" class="bulleted-list"><li style="list-style-type:disc"><strong>ID Movimiento: </strong>ID único proporcionado por el sistema para cada movimiento que se registre en Históricos.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-800f-a05f-e47d1594bc20" class="bulleted-list"><li style="list-style-type:disc"><strong>Clase: </strong>Tipo de movimiento que se registro en Históricos.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-800c-9fe4-d22787987884" class="bulleted-list"><li style="list-style-type:disc"><strong>Fecha: </strong>Fecha en la cual el movimiento afectará el inventario.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8047-9d5a-d30fbeb3f5db" class="bulleted-list"><li style="list-style-type:disc"><strong>Bodega: </strong>Bodega o bodegas afectadas con el movimiento.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80e1-a65e-d7fce9370748" class="bulleted-list"><li style="list-style-type:disc"><strong>Hora Creación: </strong>Hora y fecha de creación del movimiento.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-802e-a351-ddf43b158574" class="bulleted-list"><li style="list-style-type:disc"><strong>Usuario Creador: </strong>Usuario que ingresó y generó el movimiento.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-800e-bb18-e9dd821bb551" class="bulleted-list"><li style="list-style-type:disc"><strong>Hora de Aprobación:</strong> Fecha y hora correspondientes a cuando se aprobó este movimiento.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80c6-8b22-f7f4fe5b781e" class="bulleted-list"><li style="list-style-type:disc"><strong>Usuario Aprobador:</strong> Usuario que realizó la aprobación del movimiento.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8069-bf14-fa3f7de37617" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota:</strong> Si alguno de estos movimientos no cuenta con los campos de “Hora Aprobación” y “Usuario Aprobador”, no se vera afectado el inventario, por lo que es como que nunca se hubiera realizado.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8055-85c3-d56f9dd3dbe6" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota:</strong> Si el nombre del usuario en el movimiento se visualiza en números, es porque ese usuario no es parte del staff, por lo que puede ser alguien de Toteat o un usuario eliminado.</li></ul></div><div style="display:contents" dir="auto"><p id="15f39073-1e23-8037-955b-d1f5fd2c9852" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80a2-b03c-de373f08d1d4" class="toggle"><li><details open=""><summary><strong>Paso 4: Lápiz del movimiento</strong></summary><div style="display:contents" dir="auto"><ul id="11939073-1e23-80d3-bcd0-cccb9daffbb1" class="bulleted-list"><li style="list-style-type:disc">Al hacer clic en el ícono de lápiz, se ingresará al movimiento, donde estará la opción de revisar las cantidades ingresadas, modificar dichas cantidades y la fecha, si es necesario.<div style="display:contents" dir="ltr"><figure id="11939073-1e23-80b5-b248-ccd760899988" class="image"><a href="6%201%20Toma%20de%20inventario/image%206.png"><img style="width:679.9750366210938px" src="6%201%20Toma%20de%20inventario/image%206.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80d2-be5c-e0837c553c2e" class="bulleted-list"><li style="list-style-type:disc">Al desplazarse hacia abajo, se podrá ingresar un comentario al movimiento, además de visualizar una serie de botones.<div style="display:contents" dir="ltr"><figure id="11939073-1e23-8083-9113-d4246fca0558" class="image"><a href="6%201%20Toma%20de%20inventario/image%207.png"><img style="width:679.9625244140625px" src="6%201%20Toma%20de%20inventario/image%207.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-804c-93f2-ecd71339c869" class="bulleted-list"><li style="list-style-type:disc"><strong>Confirmar/Autorizar Transacción: </strong>Se está autorizando este movimiento, por lo tanto, se generará una fecha de aprobación y un usuario aprobador. En consecuencia, el movimiento afectará los inventarios.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-804b-afb2-c83e6d308c6f" class="bulleted-list"><li style="list-style-type:disc"><strong>Grabar Cambios: </strong>Se graban las modificaciones realizadas, pero no se aprueba. Es decir, se guarda y se puede continuar editando más tarde.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-809b-aedc-cc7c9d2fe9be" class="bulleted-list"><li style="list-style-type:disc"><strong>Eliminar: </strong>Se elimina el movimiento.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80cc-93be-df899af92880" class="bulleted-list"><li style="list-style-type:disc"><strong>Cancelar: </strong>No se guardan cambios en el movimiento.</li></ul></div><div style="display:contents" dir="auto"><p id="15f39073-1e23-8005-bd43-c7e00c9bab26" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80ac-82af-e08c70646590" class="toggle"><li><details open=""><summary><strong>Paso 5: Aprobado</strong></summary><div style="display:contents" dir="auto"><ul id="11939073-1e23-80a2-84d1-f86e99c8aa53" class="bulleted-list"><li style="list-style-type:disc">Una vez el movimiento haya sido autorizado, se visualizara en Históricos asi:<div style="display:contents" dir="ltr"><figure id="11939073-1e23-8018-b161-cd0f55691f3e" class="image"><a href="6%201%20Toma%20de%20inventario/image%208.png"><img style="width:707.9625244140625px" src="6%201%20Toma%20de%20inventario/image%208.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8055-be42-dca508de6fa6" class="bulleted-list"><li style="list-style-type:disc">Si se ingresa al ícono de lápiz de este movimiento, se observará que ya no es posible realizar modificaciones de ningún tipo.<div style="display:contents" dir="ltr"><figure id="11939073-1e23-804c-9d56-c292875d212a" class="image"><a href="6%201%20Toma%20de%20inventario/image%209.png"><img style="width:707.9750366210938px" src="6%201%20Toma%20de%20inventario/image%209.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80ce-8c1f-f81527e8571c" class="bulleted-list"><li style="list-style-type:disc">Al bajar solo veremos dos botones “Reversar Confirmación” y “Ok”.<div style="display:contents" dir="ltr"><figure id="11939073-1e23-803d-adb5-cc9ac550fa77" class="image"><a href="6%201%20Toma%20de%20inventario/image%2010.png"><img style="width:454.928955078125px" src="6%201%20Toma%20de%20inventario/image%2010.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80e4-beb8-c5ee2747043a" class="bulleted-list"><li style="list-style-type:disc"><strong>Reversar Confirmación:</strong>Se revierte la autorización del movimiento, por lo que se puede modificar nuevamente.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8032-96a8-c8360858ddea" class="bulleted-list"><li style="list-style-type:disc"><strong>Ok: </strong>Simplemente devuelve a Históricos.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-8024-9a43-dd5351c8d359" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota:</strong> Al revertir un movimiento, se pueden modificar las cantidades y la fecha. Esto se utiliza cuando faltó ingresar cantidades de insumos o se necesita realizar un ajuste.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80c4-94e4-ee61b725cf9d" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: Es necesario tener un perfil de dueño o creador para poder eliminar o desautorizar un movimiento.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="11939073-1e23-803f-99a9-e575b95edd86" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-803f-b677-fd823e0cbaac" class="bulleted-list"><li style="list-style-type:disc">Stock actualizado según la información física del cliente.</li></ul></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80dd-8053-d6fcfff160fb" class="bulleted-list"><li style="list-style-type:disc">Valorización de bodegas.</li></ul></div><div style="display:contents" dir="auto"><h3 id="11939073-1e23-80c9-a601-efb6510d82f1" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80da-aff4-fdf00957bf5d" class="bulleted-list"><li style="list-style-type:disc">No hay excepciones.</li></ul></div><div style="display:contents" dir="auto"><h3 id="11939073-1e23-80a9-a27a-fc4268212857" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="11939073-1e23-80af-9443-ff527a152be0" class="bulleted-list"><li style="list-style-type:disc">Revisar en Históricos que el movimiento fue aprobado correctamente.</li></ul></div><div style="display:contents" dir="auto"><h3 id="11939073-1e23-8036-8766-f13ae6d6beb6" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="11939073-1e23-8052-954c-c1effe4d3e2e" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="4fbf0cdf-d732-4da2-bf61-4acefd42c13e"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="a3a311de-1a24-4f3b-ae2f-a21d2fa72024"><td id="nU|h" class="">08-10-2024</td><td id="WwCq" class=""><span class="user">@Marcelo Sepulveda</span> </td><td id="i;pn" class=""><span class="user">@Francisco Ramirez</span> </td><td id="q^a=" class="">4-3006.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="183fe512-1105-4304-afe8-994f5749362a"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="ff8fb252-a894-4edf-91cf-c8e361e4a0ae"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="11939073-1e23-80e8-947e-d9b2eb0fda4c"/></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

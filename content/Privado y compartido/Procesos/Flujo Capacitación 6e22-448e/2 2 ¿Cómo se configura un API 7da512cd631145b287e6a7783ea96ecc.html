@@ -1,0 +1,750 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2.2. ¿Cómo se configura un API?</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7da512cd-6311-45b2-87e6-a7783ea96ecc" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">2.2. ¿Cómo se configura un API?</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><nav id="64547de3-3b59-45c1-a4d6-df2ca60dd97d" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ae0acd96-f4af-4a8f-9388-dc3126ddb459"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#3c5d56ac-d7b2-4b4e-bef6-7f94537930b6"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2d53b319-5a41-4dcf-b6d2-81552f19c01d"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6909357b-abfd-4825-80e5-486f886abb5f"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#14b6a8f1-6041-4adb-9298-3936e3ea838f"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#72190b6f-8407-48d2-af2f-cbb252698a52"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#700308d1-a08c-4f0b-8f9a-8dbad1f05f0a"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6e7f3c1a-214d-498b-b441-a37fb31fa38c"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c2497b19-c7a4-4c60-b3a8-1d53401e1745"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="ae0acd96-f4af-4a8f-9388-dc3126ddb459" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="215beb08-11d3-458c-a6b8-b6f485b261f9" class="">En este módulo abarcáremos los campos a configurar más importantes durante la configuración de una API.</p></div><div style="display:contents" dir="auto"><h3 id="3c5d56ac-d7b2-4b4e-bef6-7f94537930b6" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="dca98c4b-a0a3-4246-9212-65c935c735e7" class="">En las configuraciones de las APIs, existen campos que se deben configurar siempre, independientemente de si se trata de una API para Delivery o una API estándar.</p></div><div style="display:contents" dir="auto"><h3 id="2d53b319-5a41-4dcf-b6d2-81552f19c01d" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="2a09ecac-1a24-4a6e-b32d-fc22c73d913d" class="">Personal de Toteat enfocado en el proceso de configuración de APIs y activación de integraciones.</p></div><div style="display:contents" dir="auto"><h3 id="6909357b-abfd-4825-80e5-486f886abb5f" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="9dfed9e1-1bbb-4563-9a76-1039f7588c28" class="toggle"><li><details open=""><summary><strong>La persona que realice y/o solicite este proceso debe cumplir con los siguientes requisitos:</strong></summary><div style="display:contents" dir="auto"><ul id="bbe9e61f-56e7-4f29-82cd-74792484589e" class="bulleted-list"><li style="list-style-type:disc">Pertenecer al equipo Toteat.</li></ul></div><div style="display:contents" dir="auto"><ul id="0a5ddb6c-def7-4e1a-a529-171824c8990c" class="bulleted-list"><li style="list-style-type:disc">Tener conocimientos del software Toteat.</li></ul></div><div style="display:contents" dir="auto"><ul id="e73f99bd-67c6-49a5-97b9-46684a66ce9e" class="bulleted-list"><li style="list-style-type:disc">Personal autorizado para la activación de los procesos de integraciones.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="14b6a8f1-6041-4adb-9298-3936e3ea838f" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="11bca9c5-b8d2-44a3-9384-032f19a74b58" class="toggle"><li><details open=""><summary><strong>Paso 1: Fuente de Origen</strong></summary><div style="display:contents" dir="auto"><ul id="33711377-cf7e-4a75-b39d-26f21286d926" class="bulleted-list"><li style="list-style-type:disc">La fuente de origen ayuda a definir la reportería y la operación.</li></ul></div><div style="display:contents" dir="auto"><ul id="f03cd745-818c-48b6-9c31-349ab950c3fc" class="bulleted-list"><li style="list-style-type:disc">Para la configuración de la fuente de Origen se deben llevar a cabo los siguiente pasos:</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="329ca915-fa45-4d8a-a18e-1aba8c87cc6c" class="numbered-list" start="1"><li>Dar clic en Menú Principal  &gt;&gt;&gt; Ajustes Generales &gt;&gt;&gt; General.<div style="display:contents" dir="ltr"><figure id="bd21b6b2-26fa-4e5a-af92-8336fb897d28" class="image" style="text-align:center"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfl6VbI8bmXiQAVWqUCKC51F6SVhShE083Hfz_72PvYOoa7qXcYKBD4-7brwDOqIKsRDvE10rKX4xzcNj2s9s960t0CStbprbh308E5AXh5i77AlxYekVJW5uBdlmUnw_f_4VSNM2EVV-g0azyZy69_axC8?key=dNnsoqHgBNwUKmo8Qih1rw"><img style="width:479px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfl6VbI8bmXiQAVWqUCKC51F6SVhShE083Hfz_72PvYOoa7qXcYKBD4-7brwDOqIKsRDvE10rKX4xzcNj2s9s960t0CStbprbh308E5AXh5i77AlxYekVJW5uBdlmUnw_f_4VSNM2EVV-g0azyZy69_axC8?key=dNnsoqHgBNwUKmo8Qih1rw"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="b81426c3-6b22-4559-92d2-691b93075111" class="numbered-list" start="2"><li>En la sección General, se encuentra un item llamado “Delivery”, esta opción se debe activar.<div style="display:contents" dir="ltr"><figure id="f69c6a72-c046-42d0-86d9-1cf7db17755f" class="image" style="text-align:center"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcEXR8dYGoHN6fjmkrj5PyMoR6RJkdIgs2_dq_uhqve7E02Lfvv6nSmrgM3vPNLpRAL_dg_ckwLcjjW03NyL9iFcoCQOijHAkj5ZkE6bz-JgeodbgWdb82PbrtzjvfWpfqg6BQJ0PjgAfAjqJEeb56Z0FZK?key=dNnsoqHgBNwUKmo8Qih1rw"><img style="width:511px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcEXR8dYGoHN6fjmkrj5PyMoR6RJkdIgs2_dq_uhqve7E02Lfvv6nSmrgM3vPNLpRAL_dg_ckwLcjjW03NyL9iFcoCQOijHAkj5ZkE6bz-JgeodbgWdb82PbrtzjvfWpfqg6BQJ0PjgAfAjqJEeb56Z0FZK?key=dNnsoqHgBNwUKmo8Qih1rw"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="ceca3908-325b-4c21-8942-a7eb5b582ee8" class="numbered-list" start="3"><li>Después de activar, aparece una sección llamada &quot;Fuentes de Origen&quot;. Allí, validamos la Aplicación a Integrar en la lista desplegable y la añadimos haciendo clic en el botón &quot;+&quot;. Si se trata de un ecommerce que no está por defecto, se puede crear de manera personalizada con un custom.</li></ol></div><div style="display:contents" dir="auto"><p id="266d495a-3a29-433e-8b52-cbf76158d2dc" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="f181a502-01ef-455e-9ae7-683380aa3173" class="image" style="text-align:center"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeCX6AxrzQrAfVYpsn7I01fPWrQHQsjIj9VOjPXSRbVsuHPcWx8w6Xrcgya6cK_lZML9a0_i5zswge4CYAdT8HK353acRU6s70gSLY4VBEXwlnuAebr4sodY28qw9HHg2-9g3QzsH-Xh9ZMw8Ta42Vf-Qpv?key=dNnsoqHgBNwUKmo8Qih1rw"><img style="width:461px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeCX6AxrzQrAfVYpsn7I01fPWrQHQsjIj9VOjPXSRbVsuHPcWx8w6Xrcgya6cK_lZML9a0_i5zswge4CYAdT8HK353acRU6s70gSLY4VBEXwlnuAebr4sodY28qw9HHg2-9g3QzsH-Xh9ZMw8Ta42Vf-Qpv?key=dNnsoqHgBNwUKmo8Qih1rw"/></a></figure></div><div style="display:contents" dir="auto"><p id="b8488f75-40d5-40e1-978c-296cdae0b283" class=""><strong>Nota</strong>: <em>Recuerda siempre guardar los cambios realizados.</em></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="ca6e922f-3738-4290-b14d-26569f525690" class="toggle"><li><details open=""><summary><strong>Paso 2: Forma de pago</strong></summary><div style="display:contents" dir="auto"><ul id="7545b74d-f30d-448a-90cc-bd1306aac3cf" class="bulleted-list"><li style="list-style-type:disc">La forma de pago es exclusiva para cada integración.</li></ul></div><div style="display:contents" dir="auto"><ul id="c6729f69-6d1e-474c-ae54-79427ce2b5bd" class="bulleted-list"><li style="list-style-type:disc">Para configurar la forma de pago en el caso de las integraciones se maneja un método único identificado con el nombre del delivery<em><strong>, </strong></em> varios ya se encuentran predefinidos. <br/>Si se trata de un ecommerce que no está por defecto, se puede crear de manera personalizada con un custom y el código que se le asigna a la forma de pago se debe tener en cuenta para indicarlo al ecommerce y/o empresa que vaya a utilizar el Api Standard.</li></ul></div><div style="display:contents" dir="auto"><p id="4bf7c879-dbd1-45c5-9773-eea6a3f94024" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="722693f9-f446-4c31-a031-c0aeb96c9e40" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfeJAeWWm38DgKYfPN4NV2XdPAl1icjmg0ODVvp0tOET4V69KPY2l_6B3Zg2UD-r7a_mpIqifHJrLTU8RBxJklSjKnxYQiaPPdALogHvn-1600sYVmk4J7WZnqzWh2ks-V8LRk0Q-P-aaO4g-KBVF82z3e5?key=dNnsoqHgBNwUKmo8Qih1rw"><img style="width:768px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfeJAeWWm38DgKYfPN4NV2XdPAl1icjmg0ODVvp0tOET4V69KPY2l_6B3Zg2UD-r7a_mpIqifHJrLTU8RBxJklSjKnxYQiaPPdALogHvn-1600sYVmk4J7WZnqzWh2ks-V8LRk0Q-P-aaO4g-KBVF82z3e5?key=dNnsoqHgBNwUKmo8Qih1rw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="11a39073-1e23-80a4-a93c-fed8e4c03898" class="image" style="text-align:center"><a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/image.png"><img style="width:576px" src="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="11a39073-1e23-8096-8992-d2234221506d" class=""><strong>Nota 1</strong>: <em>Verificar que la forma de pago quede activa y en el caso de los deliverys que quede con la opción de “Solo uso en Integraciones” activa.</em></p></div><div style="display:contents" dir="auto"><p id="f33d8d34-5308-4e48-8838-e9ec95765f55" class=""><strong>Nota 2</strong>: <em>Recuerda siempre guardar los cambios realizados.</em></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="65238318-dc90-4a83-9f2c-762ad8e012a5" class="toggle"><li><details open=""><summary><strong>Paso 3: Sectores</strong></summary><div style="display:contents" dir="auto"><ul id="681d15a7-cc57-4bd5-aa04-1dd0e1a95bfc" class="bulleted-list"><li style="list-style-type:disc">Los Sectores nos permiten segmentar los pedidos en curso en la pantalla de órdenes de Toteat y así dar un mejor manejo a la operación Delivery, ademas de poder visualizar de manera mas amigable las ventas en los reportes de Deliverys.</li></ul></div><div style="display:contents" dir="auto"><ul id="fc802fb1-7ac5-46cc-97fb-6b4b1bdd2dd7" class="bulleted-list"><li style="list-style-type:disc">Se recomienda crear los sectores con una jerarquía principal de INTEGRACIONES, y crear sub Jerarquías por cada uno de las marcas y luego por cada Delivery, como se observa a continuación:</li></ul></div><div style="display:contents" dir="ltr"><figure id="51ddbb1e-c72a-4b71-a0ed-d869d6a8b136" class="image" style="text-align:center"><a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/image_(37).png"><img style="width:680px" src="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/image_(37).png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="1b055248-3646-41b2-8c01-eeea7506912b" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: <em>Recuerda siempre guardar los cambios realizados</em></li></ul></div><div style="display:contents" dir="auto"><p id="47463cc8-1a47-418d-9170-f73d95fc0a52" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="6496fbe2-7e3a-4f7b-adf7-e96ae76c768b" class="toggle"><li><details open=""><summary><strong>Paso 4: Precios x lista</strong></summary><div style="display:contents" dir="auto"><ul id="4f92d1b6-5252-4615-b022-af98170cb305" class="bulleted-list"><li style="list-style-type:disc">Los precios por lista son muy útiles para filtrar y obtener reportes de delivery más organizados, por lo que es importante identificarlos de la manera más detallada posible.</li></ul></div><div style="display:contents" dir="auto"><ul id="77c13856-9cd0-4e18-98fd-e0ce18d93465" class="bulleted-list"><li style="list-style-type:disc">Los precios por lista se recomiendan crearlas por marca y por plataforma. </li></ul></div><div style="display:contents" dir="auto"><ul id="7422c50c-7284-4754-aa41-06bb16974f0b" class="bulleted-list"><li style="list-style-type:disc">Los productos y descripciones se verán en las distintas plataformas con el mismo nombre que tienen asignado en Toteat y bajo las jerarquías que se determinen.</li></ul></div><div style="display:contents" dir="auto"><ul id="95512357-c11a-40f9-bf4c-9cb2acb97a6e" class="bulleted-list"><li style="list-style-type:disc">Se recomienda cumplir con las restricciones que determina cada plataforma para los nombres de productos, descripciones, extras, nombres y número de jerarquías. <br/>Las imágenes deben ser cargadas en Toteat y deben ser la que el cliente desea que sean visibles en las diferentes plataformas.</li></ul></div><div style="display:contents" dir="auto"><p id="db1073bd-c4d2-49bc-96fd-e07cad83ffe1" class=""><strong>Notas</strong>: </p></div><div style="display:contents" dir="auto"><ul id="5e8818c5-250c-4441-94ec-b785ec2b324b" class="bulleted-list"><li style="list-style-type:disc">Al crear los precios por lista, se debe indicar el precio que se desea en la plataforma de delivery.</li></ul></div><div style="display:contents" dir="auto"><ul id="9f7e9d83-e316-4e13-9ee7-ca9297383980" class="bulleted-list"><li style="list-style-type:disc">Si no deseas enviar un producto a la integración, deja el campo de precio por lista<em><strong> vacío</strong></em>. <em>Si colocas 0, se enviará con precio cero</em>.</li></ul></div><div style="display:contents" dir="auto"><ul id="6f1072d4-a1a4-4ed4-8974-79c50d413ac1" class="bulleted-list"><li style="list-style-type:disc">Si un producto está sin stock en una de las marcas se debe marcar la opción &quot;Bloqueado&quot; en el precio por lista que corresponda. Si deseas que no esté disponible para ninguna de las marcas y en ninguna plataforma se debe inactivar desde el maestro de productos.</li></ul></div><div style="display:contents" dir="auto"><p id="ac657440-60c1-4a23-a9d8-477e245acfe4" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="bb4b9c4b-1f96-48d9-9155-df6784f02882" class="toggle"><li><details open=""><summary><strong>Paso 5: Configuración de Turnos</strong></summary><div style="display:contents" dir="auto"><ul id="414daefe-c043-449f-a6ed-8fa32794e6f1" class="bulleted-list"><li style="list-style-type:disc">Para la Integración solo aplica en el caso de Ubereats.</li></ul></div><div style="display:contents" dir="auto"><ul id="b9ca0922-5d43-4dc6-af86-0e1c376c09fc" class="bulleted-list"><li style="list-style-type:disc">Recordar que los turnos que manejan en Uber deben quedar como sub turnos y con la opción de Delivery activa ( D ) solamente.</li></ul></div><div style="display:contents" dir="ltr"><figure id="a97c57f2-9fd0-41b5-8a45-937648810359" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXePjV2Bk6CJISU_0fPbinvUJUg-dZuNMn_7u2wLCNDOnnvbZQozW4lEZkt1K9UfEWwJdwlVPKW1b0vZ6kdFSxkKETvkUZ3Wm5eB21zsK6l8XFrj0HmuxyTjHnx6hgWL_Kku72rZMkHJebiv_kXbmd22J1pj?key=dNnsoqHgBNwUKmo8Qih1rw"><img style="width:700px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXePjV2Bk6CJISU_0fPbinvUJUg-dZuNMn_7u2wLCNDOnnvbZQozW4lEZkt1K9UfEWwJdwlVPKW1b0vZ6kdFSxkKETvkUZ3Wm5eB21zsK6l8XFrj0HmuxyTjHnx6hgWL_Kku72rZMkHJebiv_kXbmd22J1pj?key=dNnsoqHgBNwUKmo8Qih1rw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="0d8abdf1-b051-44ef-9d02-40c0f0f75e41" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfL39QKnZ5r86ZXnuxMF3oSyncRLO4DFbDstLzsuEY7eSAnVAV_4X2PI85A6OUdfXIYaOlnt3n2gBgsnIpTlyGsxISl_U0CjwCi28oFngwE3SXRAhn9rDymagH3i4oeEygp9K0yXBFmC4__SNUDZuTRqxeZ?key=dNnsoqHgBNwUKmo8Qih1rw"><img style="width:177px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfL39QKnZ5r86ZXnuxMF3oSyncRLO4DFbDstLzsuEY7eSAnVAV_4X2PI85A6OUdfXIYaOlnt3n2gBgsnIpTlyGsxISl_U0CjwCi28oFngwE3SXRAhn9rDymagH3i4oeEygp9K0yXBFmC4__SNUDZuTRqxeZ?key=dNnsoqHgBNwUKmo8Qih1rw"/></a></figure></div><div style="display:contents" dir="auto"><ul id="461c1ae6-5271-4abc-b94b-6777d8d37394" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: <em>Recuerda siempre guardar los cambios realizados.</em></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="b68a4e19-f261-4617-b7a2-ca7770fcc9a0" class="toggle"><li><details open=""><summary><strong>Paso 6: Dark Kitchen.</strong></summary><div style="display:contents" dir="auto"><p id="eb67e7db-d910-4063-a099-b402eec9a747" class="">Para crear una dark kitchen se debe realizar desde la sección de la Toteat Shop en toteat con la ayuda de la consola de Google Chrome, sigue estos pasos detallados:</p></div><div style="display:contents" dir="auto"><ol type="1" id="5eb6f9a2-59f1-446c-a3a0-835ac6129466" class="numbered-list" start="1"><li>Ve a la sección de Toteat Shop&gt;&gt;&gt;Configuración detallada.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="21bfbc47-0b08-4346-aa53-95fc0a508bf9" class="numbered-list" start="2"><li>Una vez allí, ingresa al menú de configuraciones de Google Chrome en la parte superior derecha de la pantalla.<div style="display:contents" dir="ltr"><figure id="5399048c-e072-4472-9543-ac4a844cfb54" class="image"><a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/Untitled.png"><img style="width:652px" src="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/Untitled.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="b2c20c72-bfb6-4f3c-8854-94c54b8cb60f" class="numbered-list" start="3"><li>Selecciona &quot;Más herramientas&quot; y luego &quot;Herramientas para desarrolladores&quot;.<div style="display:contents" dir="ltr"><figure id="22fcf53f-2d5f-497e-b452-ca73244a2895" class="image"><a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/Untitled%201.png"><img style="width:652px" src="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/Untitled%201.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="78ab1aac-9b72-417d-9edd-f95bf0f74756" class="numbered-list" start="4"><li>En la pestaña que se abre, haz clic en el botón &quot;Clear Console&quot; para limpiar la consola.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="c2215692-6ce9-4674-9eb8-e3920bb5241e" class="numbered-list" start="5"><li>Luego escribe el comando S.creaDarkKitchen() y presiona enter.</li></ol></div><div style="display:contents" dir="ltr"><figure id="87fea32b-31ec-4401-9fdb-4d22f09763f8" class="image"><a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/Untitled%202.png"><img style="width:680px" src="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/Untitled%202.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="0f1360f1-3622-4037-b7c1-c18bdf0bd27a" class="image"><a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/Untitled%203.png"><img style="width:680px" src="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/Untitled%203.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="17b726c5-4b98-4694-9f5f-004fe1a8b3db" class="numbered-list" start="6"><li>Para modificar el nombre del restaurante en la pestaña superior, es necesario activar la aplicación Toteat Shop. Una vez allí, podrás visualizar el campo para indicar el nombre del restaurante o de la marca, luego se puede desactivar.<br/></li></ol></div><div style="display:contents" dir="ltr"><figure id="1a439073-1e23-80e6-903e-fd580f2806b2" class="image"><a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/image%201.png"><img style="width:681.9921875px" src="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="c10d0c44-cfd3-40d6-860c-035603c7cd32" class="">
+</p></div><div style="display:contents" dir="auto"><blockquote id="75859d5b-87ab-405b-b301-f52afb0306a2" class="">Recuerda que estas pestañas se crean de acuerdo a la cantidad de marcas que se manejan en el ambiente. <br/>Se deja una pestaña principal que se recomienda tenga el nombre del ambiente y las siguientes pestañas serán las destinadas para los nombres de las dark kitchen, esto es debido a que las dark kitchen deben tomar id diferente a cero (0) . </blockquote></div><div style="display:contents" dir="auto"><ul id="7a7fc115-63f1-4d51-aa4d-4bd6e2ddd46b" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: <em>Recuerda siempre guardar los cambios realizados</em><em>. Este proceso es realizado por personal autorizado de Toteat.</em></li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="9f6cc258-d35f-4d59-95b3-9865c556f0b5" class="numbered-list" start="7"><li>Con la configuración de la dark kitchen lista, en la API ya aparece el campo de “Dark Kitchen” y se puede seleccionar en la lista desplegable la marca que se desea configurar.</li></ol></div><div style="display:contents" dir="ltr"><figure id="6376086c-0938-463c-9e18-9f5c64451c24" class="image"><a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/Untitled%204.png"><img style="width:680px" src="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/Untitled%204.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="db523077-fa89-4b4c-ad3b-f57189fb6b75" class="toggle"><li><details open=""><summary><strong>Paso 7: Creación de la API</strong></summary><div style="display:contents" dir="auto"><ul id="916edbf1-fd14-4899-83a9-80c1c5cded26" class="bulleted-list"><li style="list-style-type:disc">Ingresar Menú Principal  &gt;&gt;&gt; Configuración &gt;&gt;&gt; Print Server y API.</li></ul></div><div style="display:contents" dir="auto"><ul id="ca4887ba-a7b6-4d47-bc0f-62453b110adf" class="bulleted-list"><li style="list-style-type:disc">Ingresar a la pestaña API Config.</li></ul></div><div style="display:contents" dir="auto"><ul id="c462784a-4861-4f34-9c03-9a4c7939768e" class="bulleted-list"><li style="list-style-type:disc">Desplegar la lista de tipos de APIs y seleccionar la que se requiere:</li></ul></div><div style="display:contents" dir="ltr"><figure id="6987e9e2-800f-461b-921f-a04391085aef" class="image" style="text-align:center"><a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/Untitled%205.png"><img style="width:434.94793701171875px" src="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/Untitled%205.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="5143a88f-7067-41fe-b9a4-9c9f5813c7b9" class="bulleted-list"><li style="list-style-type:disc">Dar clic al botón “Agregar Api”.</li></ul></div><div style="display:contents" dir="auto"><ul id="ae04e701-57e4-4088-9b17-f300b3a53051" class="bulleted-list"><li style="list-style-type:disc">En ese momento aparece la pantalla para configurar la Api, se observan 4 pestañas: General/Pedidos/Productos/Seguridad.</li></ul></div><div style="display:contents" dir="auto"><ul id="02177ccc-26ca-4fac-b2d7-128a3c5162b0" class="bulleted-list"><li style="list-style-type:disc">En la sección “General” se define el nombre de la Api, la cual se recomienda indicar la marca y la plataforma o Ecommerce, ej: Marca|Plataforma (1). También, la selección de la Dark Kitchen (2) configurada en el paso 6.<br/>Como datos adicionales para temas operativos,  si bien no son obligatorios, pero son de gran ayuda,  son:  <br/>- El email para errores (3), por medio del cual se reporta algunos errores de las integración, y la URL servicio externo, este último seria el link de la plataforma.</li></ul></div><div style="display:contents" dir="auto"><ul id="1a439073-1e23-8071-aa09-eae62e5c4902" class="bulleted-list"><li style="list-style-type:disc">Dependiendo de la plataforma a integrar hay datos más específicos que son otorgados por las plataformas al restaurante y deben indicarse para poder configurarlos en la Api (Id Externa, Tokens, Webhooks) (4).</li></ul></div><div style="display:contents" dir="auto"><p id="d1124a88-cfc7-48b7-a10a-00b2d441659f" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="634d7ea5-b4e3-4e78-98c5-c8b992c3f9cc" class="image"><a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/image%202.png"><img style="width:680px" src="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="aefc92f9-e9ae-4947-ad01-89a5d088f2c1" class="bulleted-list"><li style="list-style-type:disc">En la sección de “Pedidos” se definen los campos de fuente de origen (1), forma de pago (2) y sector (3).  </li></ul></div><div style="display:contents" dir="ltr"><figure id="88002cbb-09ab-4dda-ac5b-2967bf2d9fde" class="image"><a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/image%203.png"><img style="width:680px" src="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="c485844c-ad14-4d76-be3c-f5a15672f558" class="bulleted-list"><li style="list-style-type:disc">En la sección de “Productos” se define el campo de Lista de precios. </li></ul></div><div style="display:contents" dir="auto"><p id="a5d88ba9-4126-4125-bf7f-9ffcc5f591f4" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="a9cc3c82-60e3-42ee-94a5-5540acc292b0" class="image"><a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/image%204.png"><img style="width:680px" src="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API/image%204.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="72190b6f-8407-48d2-af2f-cbb252698a52" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="f7d71619-8924-427b-bbdd-4b395b08db65" class="bulleted-list"><li style="list-style-type:disc">Una API configurada correctamente permite que el sistema Toteat se comunique e intercambie datos de manera eficiente esto facilita la integración de diferentes servicios y plataformas, lo que puede resultar en una mejor experiencia para los usuarios finales.</li></ul></div><div style="display:contents" dir="auto"><h3 id="700308d1-a08c-4f0b-8f9a-8dbad1f05f0a" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="cc438310-6a8a-4929-ba40-29742d542b1a" class="bulleted-list"><li style="list-style-type:disc">Toda integración que no corresponda a Delivery.</li></ul></div><div style="display:contents" dir="auto"><h3 id="6e7f3c1a-214d-498b-b441-a37fb31fa38c" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="540a3698-30da-40c9-b6c5-5170f816d080" class="bulleted-list"><li style="list-style-type:disc">Evaluación de homologación de conocimientos.</li></ul></div><div style="display:contents" dir="auto"><ul id="735bb8b3-1f76-41ca-8a23-24e3a5c117ba" class="bulleted-list"><li style="list-style-type:disc">Capacitaciones.</li></ul></div><div style="display:contents" dir="auto"><ul id="e86b3109-9410-4cad-8ace-d3cc8ac9a02a" class="bulleted-list"><li style="list-style-type:disc">Activaciones de integraciones.</li></ul></div><div style="display:contents" dir="auto"><h3 id="c2497b19-c7a4-4c60-b3a8-1d53401e1745" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="7bc2afcf-6cd1-4d68-b094-f22a76b3c2a1" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="ada18989-f756-413d-ba25-e7e1302bb265"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="26369575-35f7-47c1-b36f-e842391a634d"><td id="nU|h" class="">17/07/2024</td><td id="WwCq" class=""><span class="user">@Andrea Carolina Ruiz</span> </td><td id="i;pn" class=""><span class="user">@Francisco Ramirez</span> </td><td id="q^a=" class="">4005.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="bd00d3b7-9ee2-48ac-84b5-c90062936bf5"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="6381d9f7-1ae5-4574-aed2-c890254666fe"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

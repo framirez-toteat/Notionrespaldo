@@ -1,0 +1,755 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Requisitos mínimos recomendados </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="fd67ef8c-7a8b-479d-8204-28ab3a0724a6" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">Requisitos mínimos recomendados </h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha de creación</th><td><time>30 de julio de 2024</time></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><ol type="1" id="f86aed5f-c07a-457e-85f6-41d498a5adfe" class="numbered-list" start="1"><li><strong>EQUIPO PRINCIPAL</strong></li></ol></div><div style="display:contents" dir="auto"><p id="e1fade4e-c471-480a-81b0-6129258404b9" class="">Este equipo es el principal en nuestro sistema y debe estar siempre encendido mientras su local esté en operaciones. Él controlará el estado de su ambiente en Toteat y además distribuirá las impresiones según las configuraciones.</p></div><div style="display:contents" dir="ltr"><table id="9dd0aec4-dc9e-4ad2-ae8b-9f541a37676a" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="e22d5c09-258d-4f16-a690-a55bda672af0"><td id="&lt;}?Y" class="">Características<br/></td><td id="Zcm&gt;" class="">Flujo bajo <br/>(0-15 mesas)</td><td id="`k~Q" class="">Flujo Medio<br/>(16-40 mesas)</td><td id="&lt;}EX" class="">Flujo Alto<br/>(41 &lt; mesas)</td></tr></div><div style="display:contents" dir="ltr"><tr id="74a73ae6-d7f7-49ec-bd9f-4f8f28ff6f52"><td id="&lt;}?Y" class="">S.O. Windows  10, 11.</td><td id="Zcm&gt;" class="">Home/pro</td><td id="`k~Q" class="">Professional</td><td id="&lt;}EX" class="">Professional</td></tr></div><div style="display:contents" dir="ltr"><tr id="db262cc6-eb8e-41c5-bf83-27def39769ad"><td id="&lt;}?Y" class="">Memoria RAM</td><td id="Zcm&gt;" class="">4GB</td><td id="`k~Q" class="">8GB</td><td id="&lt;}EX" class="">16GB</td></tr></div><div style="display:contents" dir="ltr"><tr id="7f683e9f-8021-44c4-bb1c-49fc9f66d941"><td id="&lt;}?Y" class="">Procesador<br/>(Núcleos x velocidad)</td><td id="Zcm&gt;" class="">4 x 2.0Ghz</td><td id="`k~Q" class="">4 x 2.5Ghz</td><td id="&lt;}EX" class="">8 x 2.0Ghz</td></tr></div><div style="display:contents" dir="ltr"><tr id="e4af7165-26ea-4e97-ae5c-ed81507d55dd"><td id="&lt;}?Y" class="">Disco Duro</td><td id="Zcm&gt;" class="">HDD/SSD 100Gb</td><td id="`k~Q" class="">SSD 200Gb</td><td id="&lt;}EX" class="">SSD 200Gb</td></tr></div><div style="display:contents" dir="ltr"><tr id="b7c8ed8a-4e6c-4053-ad70-3be00b0f9f8b"><td id="&lt;}?Y" class="">Navegador</td><td id="Zcm&gt;" class="">Google Chrome<br/>(Última versión)</td><td id="`k~Q" class="">Google Chrome<br/>(Última versión)</td><td id="&lt;}EX" class="">Google Chrome<br/>(Última versión)</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="19339073-1e23-8027-921c-c17250c59e5f" class=""><strong>Nota</strong>:  <em>En el apartado de Procesador, considerar procesadores de 8 x 1/2/3 Ghz como válidos para Flujo Bajo y Medio.   </em></p></div><div style="display:contents" dir="auto"><p id="19339073-1e23-802c-89f0-ddc707e59341" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="e049db9a-ae81-4bbe-8bf8-069164b2b2b8" class="numbered-list" start="2"><li><strong>EQUIPO CAJA Y TOMADORES DE PEDIDO</strong></li></ol></div><div style="display:contents" dir="auto"><p id="44560f13-7035-47f8-b17e-334dd950b5ad" class="">Estos equipos son los puntos de venta asociados a su local, solamente cumplirán este rol y no se realiza configuración alguna en ellos. Para utilizarlos solo debe entrar a Toteat e iniciar sesión, con ello ya tendrá acceso a toda la información y configuraciones de su ambiente.</p></div><div style="display:contents" dir="ltr"><table id="7d912235-bc9b-4897-8f50-85fd6f779568" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="ca8b22c9-0bd2-432f-8c50-e63a986e47ed"><td id="=eAD" class="">Características<br/></td><td id="zTIi" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="bbc033da-abc1-43f9-a029-2c763be9ca09"><td id="=eAD" class="">Sistema operativo</td><td id="zTIi" class="">Windows 10, 11.<br/>iOS<br/>Linux<br/>Chrome OS<br/>Android 14 +</td></tr></div><div style="display:contents" dir="ltr"><tr id="cf499edb-f89c-4383-8260-34aa8df6370f"><td id="=eAD" class="">Memoria RAM</td><td id="zTIi" class="">4GB</td></tr></div><div style="display:contents" dir="ltr"><tr id="57d75139-6ef4-4848-aa27-41c88dd8ad29"><td id="=eAD" class="">Procesador<br/>(Núcleos x velocidad)</td><td id="zTIi" class="">4 x 2.0Ghz</td></tr></div><div style="display:contents" dir="ltr"><tr id="f1a423c6-390f-4e56-b6a3-2b94909beab8"><td id="=eAD" class="">Disco Duro</td><td id="zTIi" class="">HDD/SSD 100Gb</td></tr></div><div style="display:contents" dir="ltr"><tr id="68546423-84ac-4f93-9d01-72567641b221"><td id="=eAD" class="">Navegador</td><td id="zTIi" class="">Google Chrome<br/>Safari (iOS)<br/>En última versión</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><ol type="1" id="8f80fd0e-f6c8-4eeb-baf9-dacf33da97e7" class="numbered-list" start="3"><li><strong>IMPRESORAS</strong></li></ol></div><div style="display:contents" dir="auto"><p id="83c45dc4-bc82-48d5-9561-21a3d8e55086" class="">Las impresoras son parte crucial de nuestra operación, para funciones de comandas o de caja, es importante que estas tengan la mejor distribución y configuración para evitar errores en mediano plazo, estas deben ser:</p></div><div style="display:contents" dir="auto"><ul id="51bc3c3e-2ba3-4c57-a8a3-e2244c6e8c6a" class="bulleted-list"><li style="list-style-type:disc">Impresoras térmicas USB o Ethernet (Preferible conexión Ethernet)</li></ul></div><div style="display:contents" dir="auto"><ul id="8a4fedd0-369c-4da4-be9a-8d6d5bba6f6d" class="bulleted-list"><li style="list-style-type:disc">Preferible marca Epson o Bixolon</li></ul></div><div style="display:contents" dir="auto"><ul id="c6aa2a72-b0d8-48c6-8362-77f445ca001e" class="bulleted-list"><li style="list-style-type:disc">Tamaño 80mm o 58mm (Se recomienda por calidad impresoras 80mm)</li></ul></div><div style="display:contents" dir="auto"><ul id="0f56904c-7763-4fc3-9c1d-424bd5792fbf" class="bulleted-list"><li style="list-style-type:disc">Si es una impresora USB debe estar conectada al computador principal por un cable inferior a 2 metros y no se debe desconectar continuamente.</li></ul></div><div style="display:contents" dir="auto"><ul id="02b2c248-440b-401d-b0fa-b65d87eb4ca3" class="bulleted-list"><li style="list-style-type:disc">Compatibles con Protocolo ESC/POS</li></ul></div><div style="display:contents" dir="auto"><ul id="baa87b6c-2c6e-4c97-8503-b76437ba9119" class="bulleted-list"><li style="list-style-type:disc">Impresoras No compatibles<div style="display:contents" dir="auto"><p id="62a123f8-834d-4c13-af7c-e47384f94de0" class="">1. Impresoras chinas o de marcas Star Micronics TSP100 Series, IBM, Toshiba y otras que no tengan compatibilidad nativa con protocolo ESC/POS<br/>2. Impresoras inalámbricas no nativas USB, ethernet. </p></div></li></ul></div><div style="display:contents" dir="auto"><p id="c87b88d7-97fa-412f-893b-8932e58cf14d" class=""><strong>Nota</strong>: <em>No trabajamos actualmente con impresoras USB conectadas a equipos diferentes al servidor, ya que nuestro software de impresión Toteat Print Server (TPS) reconoce las impresoras instaladas en la cola de Windows del PC en el que este está, el servidor. Si las impresoras por USB están conectadas por USB a otros equipos, el TPS no podrá acceder a ellas. Además, si se realiza el proceso de impresoras compartidas, depende mucho de la estructura de la red para determinar casos de error, y contemplando que es uno de los errores más comunes debido a problemas de red, falta de mantención y rotulación de equipos, es que tampoco trabajamos con impresoras compartidas para así facilitar el soporte de cualquier impresora que esté en un punto distante al servidor. Por esto, recomendamos no tener más de 1 impresora USB conectada al PC servidor y exigimos el uso de impresoras ethernet para cualquier uso que requieran de la impresión a más de 2 metros del PC servidor.</em></p></div><div style="display:contents" dir="auto"><p id="b9dbc7b7-3b43-4016-8ba6-c64393d6a848" class="">
+</p></div><div style="display:contents" dir="auto"><p id="0bbe4de7-ab70-4876-82b0-674761e08d09" class=""><strong>INTERNET</strong></p></div><div style="display:contents" dir="auto"><p id="01d4702d-58c6-48f3-98bf-9d426d4b038f" class="">La conexión a la red es clave para hacer uso del 100% de funcionalidades que Toteat ofrece, además, de ser uno de los primeros monitoreos que se realiza a nuestros clientes para verificar su estabilidad, las recomendaciones son:</p></div><div style="display:contents" dir="ltr"><table id="f8d764f9-c43c-49ef-adb9-4a2df37045e1" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="d2d40744-1dfe-41f7-a60e-08759740f939"><td id="ZNrL" class="">Tipo de conexión</td><td id="EK==" class="">Flujo bajo <br/>(0-15 mesas)</td><td id="pPW[" class="">Flujo Medio<br/>(16-40 mesas)</td><td id="G:B@" class="">Flujo Alto<br/>(41 &lt; mesas)</td></tr></div><div style="display:contents" dir="ltr"><tr id="14b896a2-5818-4ce6-b71d-a49471b6bf68"><td id="ZNrL" class="">Domiciliar (Bajada/Subida)</td><td id="EK==" class="">&lt; 30Mb / 15Mb</td><td id="pPW[" class="">&lt; 50Mb / 25Mb</td><td id="G:B@" class="">&lt; 100Mb / 50Mb</td></tr></div><div style="display:contents" dir="ltr"><tr id="900ec5af-57ee-4f4b-aad9-14270f3dee47"><td id="ZNrL" class="">Dedicada (Bajada/Subida)</td><td id="EK==" class="">&lt; 5Mb simétrico</td><td id="pPW[" class="">&lt; 8Mb simétrico</td><td id="G:B@" class="">&lt; 10Mb simétrico</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="19339073-1e23-80a4-87ab-dc8e4dfe9094" class=""><strong>Nota</strong>:  <em>Internet domiciliar; Internet normal contratado por cualquier relación proveedor cliente.  Internet Dedicado; conexión directa entre proveedor y cliente, es un internet muy costoso que asegura una estabilidad 100% del tiempo, suelen ser velocidades menores pero con un costo mayor a 100 dolares.</em></p></div><div style="display:contents" dir="auto"><p id="135b921c-9485-4d21-be5c-9e71773523d6" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="0a3e8220-35d3-4819-9470-d8b221f65a4e" class="numbered-list" start="4"><li><strong>OFFLINE</strong></li></ol></div><div style="display:contents" dir="auto"><p id="5c66482d-b4ff-429b-900c-e68455bffa57" class="">El modo Offline se activa en el momento en el que nuestro software detecta que no hay internet en la red, es un modo de emergencia para esta contingencia y no para un uso regular u operación diaria. Los computadores, PDV e impresoras, deben tener dirección IP fija fuera del rango DHCP conectado todo al mismo dispositivo que el servidor (ya sea Router, Switch, etc). Cableado estructurado cat 5E o superior. Como router recomendados tenemos:</p></div><div style="display:contents" dir="auto"><ul id="d69b4234-6964-447b-af53-c3993dddadc8" class="bulleted-list"><li style="list-style-type:disc">Linksys Router N300 E900</li></ul></div><div style="display:contents" dir="auto"><ul id="089c934c-9e8c-4f12-aca1-1b59d6e34bf8" class="bulleted-list"><li style="list-style-type:disc">Router Gigabit Dual Band ACT1200 Archer C6</li></ul></div><div style="display:contents" dir="auto"><ul id="67351a19-4b36-46d7-aae6-12fb31c79822" class="bulleted-list"><li style="list-style-type:disc">TPlink Router 3G / 4G N300 TL-MR 3420</li></ul></div><div style="display:contents" dir="auto"><p id="5c9b7136-2125-4f13-b511-1ef060b6ad70" class="">
+</p></div><div style="display:contents" dir="auto"><p id="8a3cb8cd-5c34-49f5-9783-95e1d4fc5b61" class=""><em>Nota: Los dispositivos que sean del tipo access point, al ser dispositivos que tienen configuraciones separadas e independientes, podrían ocasionar diversos inconvenientes en la red. Por esta razón, no se recomienda tener este tipo de dispositivos instalados en el local o en la red donde se encuentra configurado Toteat. Es posible que estos dispositivos generen conflictos de configuración, problemas de conectividad, o interferencias que afecten el rendimiento general de la red. Para evitar estos problemas y mantener un funcionamiento óptimo del sistema, es mejor prescindir del uso de access points en estas circunstancias.</em></p></div><div style="display:contents" dir="auto"><p id="7cbe225f-ef59-449d-a256-999b45f706ad" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="88257aff-43d9-43f8-8f77-8a3bfa1ae4d3" class="numbered-list" start="5"><li><strong>DISPOSITIVOS MÓVILES</strong></li></ol></div><div style="display:contents" dir="auto"><p id="f7233323-6181-47d9-ab5b-fd7ccc7dc97f" class="">Los equipos móviles son de gran ayuda para agilizar la operación de los tomadores de pedidos, para ellos puedes utilizar tablets, celulares, entre otros.  Estos deben cumplir:</p></div><div style="display:contents" dir="auto"><ul id="80354107-44c1-450f-9f7b-8d8081d2cca0" class="bulleted-list"><li style="list-style-type:disc">Pantalla mínima 8&quot;</li></ul></div><div style="display:contents" dir="auto"><ul id="ea073f81-0c5b-4ddd-bb20-9df44a89da29" class="bulleted-list"><li style="list-style-type:disc">Resolución mínima 1024 x 768 DPI</li></ul></div><div style="display:contents" dir="auto"><ul id="d58300bf-df6d-45de-86dd-2afe6efddfdb" class="bulleted-list"><li style="list-style-type:disc">Android 15 o superior</li></ul></div><div style="display:contents" dir="auto"><ul id="4b7baf69-15c7-4583-bb78-6744cf06ff0b" class="bulleted-list"><li style="list-style-type:disc">Navegador Google Chrome o Safari instalado</li></ul></div><div style="display:contents" dir="auto"><ul id="e01d879e-6bec-49a2-9cf8-1c80a721d531" class="bulleted-list"><li style="list-style-type:disc">2Gb RAM, Quad Core de 1,5 Ghz preferible, Octa Core para mejorar rendimiento</li></ul></div><div style="display:contents" dir="auto"><ul id="838b3dc3-5ec8-4991-a199-009c519126b2" class="bulleted-list"><li style="list-style-type:disc">Memoria SSD de 16 Gb mínimo</li></ul></div><div style="display:contents" dir="auto"><ul id="3d65fad8-2e71-426d-a983-5815fe04df2b" class="bulleted-list"><li style="list-style-type:disc">Marcas recomendadas: Samsung, Apple,</li></ul></div><div style="display:contents" dir="auto"><ul id="01b7c6ab-17cf-4ba2-8d57-2f5e103bb0c8" class="bulleted-list"><li style="list-style-type:disc">Lenovo, HP de gama media y alta</li></ul></div><div style="display:contents" dir="auto"><ul id="88c31cbf-8a53-45c1-b6ad-82b007c0564e" class="bulleted-list"><li style="list-style-type:disc">Ipad con iOS 11 o superior</li></ul></div><div style="display:contents" dir="auto"><p id="3fde1a23-821d-4715-94df-acbd3055af3f" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="b29f5ad8-80d5-46ab-9731-0fa0762c826c" class="numbered-list" start="6"><li><strong>BALANZA</strong></li></ol></div><div style="display:contents" dir="auto"><p id="24052e1a-d294-482f-86df-df70d7f8ba2b" class="">Balanzas para integración directa con Toteat</p></div><div style="display:contents" dir="auto"><ul id="5f2217ff-f3e0-4316-b14d-9aa85fa96d0e" class="bulleted-list"><li style="list-style-type:disc">Modelo Uni-celda</li></ul></div><div style="display:contents" dir="auto"><ul id="ba066036-eb74-4eb2-80fe-db917f7707a5" class="bulleted-list"><li style="list-style-type:disc">Modelo de indicador LP7516 o HFL</li></ul></div><div style="display:contents" dir="auto"><p id="85d5697f-1b74-4719-8c0b-ad4821959629" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2dce2651-2321-42a2-9362-04c5ffc9f7c8" class=""><em>Nota: El cable utilizado para la balanza debe ser un cable COM/USB. Este cable debe tener una distancia máxima de 2 metros  para asegurar una conexión adecuada y evitar cualquier posible pérdida de señal. Es importante utilizar un cable de buena calidad para garantizar el correcto funcionamiento del dispositivo y evitar posibles interrupciones durante su uso.</em></p></div><div style="display:contents" dir="auto"><p id="efca8d4a-949c-47f7-ba05-afab546e89f9" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="cc757f87-ac1b-4e4f-bdcd-2537d3ede821" class="numbered-list" start="7"><li><strong>LECTOR CÓDIGO DE BARRAS</strong></li></ol></div><div style="display:contents" dir="auto"><p id="a4fef45e-9365-4b0f-9f12-21715c59a8de" class="">Lector de Código de Barra USB modelo genérico.</p></div><div style="display:contents" dir="auto"><p id="082c4c21-a704-4c0f-89a6-0e649688a349" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="621350c6-3b17-4006-b9c8-0c5da482d1ae" class="numbered-list" start="8"><li><strong>LECTOR NFC</strong></li></ol></div><div style="display:contents" dir="auto"><p id="59d96db4-a514-40d6-858d-de6f5f0f49d3" class="">Multi-login para que múltiples meseros usen un tomador de pedidos</p></div><div style="display:contents" dir="auto"><ul id="4e9e594d-7d67-44ee-894b-fc417bfda422" class="bulleted-list"><li style="list-style-type:disc">Lectores marca ACS modelos ACR 122U y ACR 1251U</li></ul></div><div style="display:contents" dir="auto"><p id="9fca4b40-45b2-4923-9d90-fa5660b947ce" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="2f1ace53-b3d5-43e6-936a-544568c65c30" class="numbered-list" start="9"><li><strong>KITCHEN DISPLAY SYSTEM</strong></li></ol></div><div style="display:contents" dir="auto"><p id="5f009e53-ac28-4581-9c81-bbba51263081" class="">Cualquier pantalla con acceso a internet, como Tablet, celular, Monitor en un PC, notebooks, computadores, etc. Debe tener Google Chrome en su última versión, por lo que recomendamos que tenga Android directamente.</p></div><div style="display:contents" dir="auto"><p id="e50decc8-1fb8-46ba-8cd9-62a12b78b3bf" class="">Además, un elemento de entrada para hacer el cambio de estado en el producto, teclado, mouse, pantalla Touch, bumpers, etc.</p></div><div style="display:contents" dir="auto"><p id="026851ce-140e-4322-bd7c-edbbe0143043" class="">Se recomienda la marca Samsung o IMIN para pantallas de KDS y otros modelos de proveedores certificados como “Touch Dynamics” y “Digital Pos”.</p></div><div style="display:contents" dir="auto"><p id="882c8de3-0ab2-4b2b-8b35-2e3395276fec" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="8af36ebb-ad87-4480-b2e8-f40f8b982a49" class="numbered-list numbered-list-digits-2" start="10"><li><strong>KIOSKO / TÓTEM</strong></li></ol></div><div style="display:contents" dir="auto"><ul id="1e8bd654-d816-4938-b5d6-ffa6fc929f14" class="bulleted-list"><li style="list-style-type:disc">Android: Modelo S1 IMIN y KRANE IMIN (el modelo Krane no trae impresora incorporada, la impresora que se asocie a este debe estar por red) y otros modelos de proveedores certificados como “Touch Dynamics” y “Digital Pos”.</li></ul></div><div style="display:contents" dir="auto"><ul id="c88d9df3-e0f0-4831-a495-f38a856f9387" class="bulleted-list"><li style="list-style-type:disc">Otros: La impresora que esté asociada al equipo debe ser impresora ethernet, la configuración no reconoce impresoras conectadas internamente por USB si no son los modelos anteriores, aplica para S.O. Android y  Windows.</li></ul></div><div style="display:contents" dir="auto"><ul id="12239073-1e23-8038-93bc-dc6926351dd1" class="bulleted-list"><li style="list-style-type:disc">El tótem debe estar en la misma red del servidor, especialmente cuando la impresora está configurada por ethernet.</li></ul></div><div style="display:contents" dir="auto"><p id="04e9a71a-6e8f-41bd-927a-9a5db6086326" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,770 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2.2. Punto de venta</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8bdf1539-84df-42dc-a302-f5c0407d2262" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">2.2. Punto de venta</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Código </th><td>4-6006</td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="28439073-1e23-8088-a02a-cff94d7b7feb" class="">💻 <strong>Equipos compatibles con Puntos de Venta Toteat</strong></h1></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80f4-b8d3-e553098ca2c5" class="">Toteat puede operar en una amplia variedad de dispositivos —<strong>Windows, Mac o Android</strong>— siempre que cuenten con el <strong>navegador Google Chrome</strong> instalado.</p></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80c9-bc22-d99ec8365ba7" class="">Esto permite acceder directamente a las vistas del sistema mediante los enlaces oficiales, sin necesidad de instalaciones adicionales.</p></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-807e-b9fd-f91c73893a38"/></div><div style="display:contents" dir="auto"><h2 id="28439073-1e23-8020-a8f2-d36d3da1dfcc" class="">🌐 <strong>Acceso a las vistas del sistema</strong></h2></div><div style="display:contents" dir="auto"><p id="28439073-1e23-8069-805d-d38ca8fb9aee" class="">Para ingresar al punto de venta, utiliza alguno de los siguientes links según corresponda:</p></div><div style="display:contents" dir="ltr"><table id="28439073-1e23-80ee-bcc8-c9575715e052" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="28439073-1e23-80b8-bd69-d0e745e074d6"><th id="\rt]" class="simple-table-header-color simple-table-header">Vista</th><th id="fKwZ" class="simple-table-header-color simple-table-header">Enlace</th><th id="gPPM" class="simple-table-header-color simple-table-header">Descripción</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="28439073-1e23-804b-bb2f-ee0d626f8f7d"><td id="\rt]" class=""><strong>Vista Restaurant 1</strong></td><td id="fKwZ" class=""><a href="https://res1.toteat.com/">https://res1.toteat.com/</a></td><td id="gPPM" class="">Acceso principal a vista Restaurant</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-800d-bcfd-f4437feca889"><td id="\rt]" class=""><strong>Vista Restaurant 2</strong></td><td id="fKwZ" class=""><a href="https://res2.toteat.com/">https://res2.toteat.com/</a></td><td id="gPPM" class="">Alternativa de vista Restaurant</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-8078-87e5-eb6f559f7b6f"><td id="\rt]" class=""><strong>Vista Restaurant 3</strong></td><td id="fKwZ" class=""><a href="https://res3.toteat.com/">https://res3.toteat.com/</a></td><td id="gPPM" class="">Alternativa de vista Restaurant</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-8076-a013-d627c698711d"><td id="\rt]" class=""><strong>Vista Take Away 4</strong></td><td id="fKwZ" class=""><a href="https://res4.toteat.com/">https://res4.toteat.com/</a></td><td id="gPPM" class="">Exclusiva para Take Away</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-80a3-b1c7-c5e4cc720bf1"><td id="\rt]" class=""><strong>Vista Take Away 5</strong></td><td id="fKwZ" class=""><a href="https://res5.toteat.com/">https://res5.toteat.com/</a></td><td id="gPPM" class="">Exclusiva para Take Away</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-80ad-ad15-ce47119d81a6"><td id="\rt]" class=""><strong>Kiosko Legacy</strong></td><td id="fKwZ" class=""><a href="https://kiosk.toteat.app/">https://kiosk.toteat.app/</a></td><td id="gPPM" class="">Versión clásica del Kiosko</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-8048-8e3e-de7a9240a179"><td id="\rt]" class=""><strong>Kiosko New</strong></td><td id="fKwZ" class=""><a href="https://kiosk.toteat.shop/">https://kiosk.toteat.shop/</a></td><td id="gPPM" class="">Nueva versión del Kiosko Toteat</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-80eb-abaa-f64e9b72c34e" class="">💡 Solo se necesita Google Chrome (o Safari en iOS) para acceder correctamente a las vistas.</blockquote></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-8055-a781-dfb3f782e634"/></div><div style="display:contents" dir="auto"><h2 id="28439073-1e23-80df-a187-c36a244a17c5" class="">🧠 <strong>Requisitos técnicos recomendados</strong></h2></div><div style="display:contents" dir="auto"><p id="28439073-1e23-8010-9767-f153d4cd376d" class="">A continuación, se detallan las especificaciones mínimas y sugeridas según el tipo de dispositivo:</p></div><div style="display:contents" dir="auto"><p id="28439073-1e23-8013-9983-e8126a2e60ea" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28439073-1e23-8052-ad4b-ddeb974b4884" class="">Validar en <a href="../Factibilidad%20t%C3%A9cnica/Requisitos%20m%C3%ADnimos%20recomendados%20fd67ef8c7a8b479d820428ab3a0724a6.html"><span class="icon">📗</span>Requisitos mínimos recomendados </a> </p></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-8080-8efa-e3b3811c0360"/></div><div style="display:contents" dir="auto"><h3 id="28439073-1e23-8096-bbb3-fd09955a320c" class="">🖥️ <strong>Equipos PC o Notebook</strong></h3></div><div style="display:contents" dir="ltr"><table id="28439073-1e23-805f-ba29-f46e8bd54fbb" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="28439073-1e23-80b9-830f-f2da54bbcec4"><th id="vBGh" class="simple-table-header-color simple-table-header">Componente</th><th id="bjQ;" class="simple-table-header-color simple-table-header">Requisito</th><th id="G&gt;ww" class="simple-table-header-color simple-table-header">Detalle</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="28439073-1e23-80a0-9b36-fc3e3bbe4b9c"><td id="vBGh" class=""><strong>Sistema operativo</strong></td><td id="bjQ;" class="">Windows 7, 10 o 11</td><td id="G&gt;ww" class="">Versión actualizada y estable</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-80e3-82d3-fca2eb5bc31f"><td id="vBGh" class=""><strong>Procesador</strong></td><td id="bjQ;" class="">Intel o AMD 2.0 GHz (4 núcleos)</td><td id="G&gt;ww" class="">Mejor si es de generación reciente</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-80a3-aeed-f4c9c73ee1af"><td id="vBGh" class=""><strong>Memoria RAM</strong></td><td id="bjQ;" class="">4 GB mínimo</td><td id="G&gt;ww" class="">Recomendado: 8 GB</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-804c-aedb-c0260f510cc6"><td id="vBGh" class=""><strong>Almacenamiento</strong></td><td id="bjQ;" class="">200 GB HDD / SSD</td><td id="G&gt;ww" class="">SSD preferible por velocidad</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-80a5-b60c-dfcd1fd6fba6"><td id="vBGh" class=""><strong>Navegador</strong></td><td id="bjQ;" class="">Google Chrome</td><td id="G&gt;ww" class="">Actualizado a la última versión</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-803a-a13f-cd8b70424fe3" class="">⚙️ Se recomienda utilizar equipos con hardware moderno para asegurar fluidez en la operación diaria.</blockquote></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-8042-a442-e9d19d6e289f"/></div><div style="display:contents" dir="auto"><h3 id="28439073-1e23-8052-bbfb-dfd76e6a3c69" class="">📱 <strong>Equipos móviles (tablets o celulares)</strong></h3></div><div style="display:contents" dir="ltr"><table id="28439073-1e23-8090-b924-f8cfc990fbe8" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="28439073-1e23-8084-bda0-ec71871a0fc5"><th id="w&gt;:W" class="simple-table-header-color simple-table-header">Especificación</th><th id="g_kT" class="simple-table-header-color simple-table-header">Recomendación</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="28439073-1e23-80aa-96cb-ff2aabf43400"><td id="w&gt;:W" class=""><strong>Tamaño de pantalla</strong></td><td id="g_kT" class="">8” o superior</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-805a-b91d-d3e15dbaadc6"><td id="w&gt;:W" class=""><strong>Resolución mínima</strong></td><td id="g_kT" class="">1024 x 768 DPI</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-80d7-8972-f043291f6236"><td id="w&gt;:W" class=""><strong>Sistema operativo</strong></td><td id="g_kT" class="">Android 7+ o iOS 11+</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-8039-85fd-e34e730caf8b"><td id="w&gt;:W" class=""><strong>Procesador</strong></td><td id="g_kT" class="">Quad Core 1.5 GHz (ideal: Octa Core)</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-80ec-841c-d35577a5917e"><td id="w&gt;:W" class=""><strong>Memoria RAM</strong></td><td id="g_kT" class="">2 GB mínimo</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-8092-818e-e00cbb4a9d19"><td id="w&gt;:W" class=""><strong>Almacenamiento</strong></td><td id="g_kT" class="">SSD 16 GB o más</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-8008-a68c-c8246bed6605"><td id="w&gt;:W" class=""><strong>Navegador</strong></td><td id="g_kT" class="">Google Chrome o Safari</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-80a4-a823-defbf50e2a9f"><td id="w&gt;:W" class=""><strong>Marcas sugeridas</strong></td><td id="g_kT" class="">Samsung, Lenovo, HP (gama media/alta), iPad</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-8059-a13b-ff4e3e2a5184"/></div><div style="display:contents" dir="auto"><h2 id="28439073-1e23-802e-a414-e59a4959d338" class="">🌐 <strong>Conectividad recomendada</strong></h2></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-80cd-8c2b-e077fbc549ce" class="">⚠️ La estabilidad de la conexión es fundamental para un punto de venta eficiente.</blockquote></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80f1-aabf-e4d06b2bc7a6" class=""><strong>Recomendaciones de red:</strong></p></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-8046-8b9e-c358e857eb1b" class="bulleted-list"><li style="list-style-type:disc">Preferir <strong>conexión por cable (Ethernet)</strong> siempre que sea posible.</li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-80dd-9411-fa44bab82fea" class="bulleted-list"><li style="list-style-type:disc">Si se usa <strong>Wi-Fi</strong>, ubicar el router en una <strong>zona central y sin interferencias</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-8060-8f33-e6b84291018e" class="bulleted-list"><li style="list-style-type:disc">Evitar redes saturadas o compartidas con otros dispositivos no operativos.</li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-804b-8c30-ea730e76b921" class="bulleted-list"><li style="list-style-type:disc">Verificar que la velocidad de subida y bajada sea <strong>constante y superior a 10 Mbps</strong>.</li></ul></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-80e8-bfe6-dcc88305dd5f"/></div><div style="display:contents" dir="auto"><h2 id="28439073-1e23-8019-b6b9-dc16ba953118" class="">💡 <strong>Buenas prácticas</strong></h2></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-80d9-8c19-fe7b7cda710a" class="bulleted-list"><li style="list-style-type:disc">🔄 Mantener el navegador <strong>Google Chrome actualizado</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-8037-9220-d5751d208caa" class="bulleted-list"><li style="list-style-type:disc">🧼 Reiniciar los equipos periódicamente para liberar recursos.</li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-804e-b32a-dbd6186ea40f" class="bulleted-list"><li style="list-style-type:disc">📶 Comprobar la conexión antes de cada apertura del local.</li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-8094-a6ca-f69c383e7ac6" class="bulleted-list"><li style="list-style-type:disc">🧰 Tener un <strong>equipo de respaldo configurado</strong> en caso de fallas.</li></ul></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-80b9-9b51-d5848fe83ae1"/></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-8004-a5e6-cbdfeae68ac3" class="">✅ En resumen:<div style="display:contents" dir="auto"><p id="28439073-1e23-804a-9f2f-d24821cdba10" class="">Con equipos actualizados, buena conectividad y navegadores al día, los puntos de venta funcionarán de manera óptima, garantizando una experiencia fluida tanto para el personal como para los clientes.</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80e3-a0c0-f75667c02363" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28439073-1e23-8039-b020-c570cb86a2e8" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="28439073-1e23-800e-bf0a-e434c9478466" class="">🧾 <strong>Equipos con Impresora Integrada y Configuración en Toteat</strong></h1></div><div style="display:contents" dir="auto"><p id="28439073-1e23-802c-9f68-ca0e730a8377" class="">Toteat es compatible con distintos equipos Android y Windows que poseen <strong>impresoras integradas</strong>.</p></div><div style="display:contents" dir="auto"><p id="28439073-1e23-804c-93fc-f534a70087a1" class="">A continuación se detallan los modelos compatibles, sus configuraciones y las opciones avanzadas disponibles dentro del sistema.</p></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-80de-b5ef-cf1ded00f0db"/></div><div style="display:contents" dir="auto"><h2 id="28439073-1e23-809e-8588-ef507f1ac1c2" class="">🤖 <strong>Equipos Android con Impresora Integrada</strong></h2></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80f2-b9c2-e252451c3f4e" class="">Actualmente, <strong>solo los equipos de la marca IMIN</strong> son compatibles con Toteat cuando se utiliza una impresora integrada.</p></div><div style="display:contents" dir="auto"><h3 id="28439073-1e23-80a4-938d-e2b4af662555" class="">📱 Modelos compatibles</h3></div><div style="display:contents" dir="auto"><p id="12339073-1e23-80e6-aaf8-c29def4cfe4b" class=""><div class="indented"><div style="display:contents" dir="auto"><p id="d1391b3f-5af1-46a2-8953-2f377827727a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="12339073-1e23-801c-aebd-ebbc3cd4751b" class=""><strong>Imin M2 Max</strong></p></div><div style="display:contents" dir="ltr"><figure id="12339073-1e23-801c-a0eb-dd9e9a4f6f71" class="image" style="text-align:center"><a href="2%202%20Punto%20de%20venta/image.png"><img style="width:384px" src="2%202%20Punto%20de%20venta/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12339073-1e23-80d3-8a0b-e6019052d0cd" class=""><strong>Swift 2 Series</strong></p></div><div style="display:contents" dir="ltr"><figure id="12339073-1e23-8007-ab03-ffeb3b6ac002" class="image" style="text-align:center"><a href="2%202%20Punto%20de%20venta/image%201.png"><img style="width:336px" src="2%202%20Punto%20de%20venta/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12339073-1e23-8000-bb19-f89d312b2cee" class=""><strong>Swift 1 Pro</strong></p></div><div style="display:contents" dir="ltr"><figure id="12339073-1e23-8051-9f3d-df710a91af7e" class="image" style="text-align:center"><a href="2%202%20Punto%20de%20venta/image%202.png"><img style="width:144px" src="2%202%20Punto%20de%20venta/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12339073-1e23-8084-9b82-fe6d55528620" class=""><strong>Falcon 1</strong></p></div><div style="display:contents" dir="ltr"><figure id="12339073-1e23-80b1-8178-fd26f696fac3" class="image" style="text-align:center"><a href="2%202%20Punto%20de%20venta/image%203.png"><img style="width:384px" src="2%202%20Punto%20de%20venta/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12339073-1e23-80b9-b38e-cf2dbaba0569" class=""><strong>D4 Pro</strong></p></div><div style="display:contents" dir="ltr"><figure id="12339073-1e23-803f-838b-dfcff2d9af70" class="image" style="text-align:center"><a href="2%202%20Punto%20de%20venta/image%204.png"><img style="width:336px" src="2%202%20Punto%20de%20venta/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12339073-1e23-805c-b750-d1f44c2eba41" class=""><strong>D4</strong></p></div><div style="display:contents" dir="ltr"><figure id="12339073-1e23-8084-a9e4-ec2734595b6f" class="image" style="text-align:center"><a href="2%202%20Punto%20de%20venta/image%205.png"><img style="width:288px" src="2%202%20Punto%20de%20venta/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12339073-1e23-80b5-92be-e111abad6d6b" class=""><strong>Kiosco de Autoservicio S1</strong></p></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80ce-ad75-ddd5b45e5fde" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="12339073-1e23-8069-8cbf-e9751c443997" class="image" style="text-align:center"><a href="2%202%20Punto%20de%20venta/image%206.png"><img style="width:384px" src="2%202%20Punto%20de%20venta/image%206.png"/></a></figure></div></div></p></div><div style="display:contents" dir="auto"><p id="28439073-1e23-808d-b8f6-dfe83d268d0b" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28439073-1e23-801f-8c6c-e1a58957d2ed" class="">
+</p></div><div style="display:contents" dir="auto"><p id="12339073-1e23-8092-afc6-d169c15a859c" class="">
+</p></div><div style="display:contents" dir="auto"><p id="12339073-1e23-807c-b8cb-d8df52629f87" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="28439073-1e23-80e5-b1e9-f7432f1ca974" class="">🧩 <strong>Aplicaciones necesarias</strong></h3></div><div style="display:contents" dir="auto"><p id="28439073-1e23-8068-b03c-e2350b873e47" class="">Para que los equipos IMIN funcionen correctamente con Toteat, deben tener <strong>instaladas las siguientes 2 aplicaciones:</strong></p></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80a2-95d5-d5b6b1cee944" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="12339073-1e23-803b-9de5-e30bcb898d31" class="image"><a href="2%202%20Punto%20de%20venta/image%207.png"><img style="width:318.9875183105469px" src="2%202%20Punto%20de%20venta/image%207.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="28439073-1e23-8099-9c59-cede18c12a7a" class="">🖨️ <strong>Configuración de impresión en TRM</strong></h3></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80df-903a-ca24c3768219" class="">En el menú lateral, ve a:</p></div><div style="display:contents" dir="auto"><p id="28439073-1e23-8092-ab69-d5ee8f521ebf" class=""><strong>Configuración → Impresoras</strong></p></div><div style="display:contents" dir="auto"><p id="28439073-1e23-806d-b308-f7a41dd89ec7" class="">Debe configurarse la regla de impresión de la siguiente forma:</p></div><div style="display:contents" dir="ltr"><figure id="12339073-1e23-8028-920b-cfc1daa9b999" class="image"><a href="2%202%20Punto%20de%20venta/image%208.png"><img style="width:480px" src="2%202%20Punto%20de%20venta/image%208.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12339073-1e23-80c1-9a01-d58e863feaa6" class="">
+</p></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-80b9-9148-e6e8f3e2ea91" class="">En el campo Nombre de Sistema Operativo, selecciona:<div style="display:contents" dir="auto"><p id="28439073-1e23-804f-94c2-cb51c628f2b2" class=""><code>TOTEAT_BACKGROUND_PRINTER</code></p></div></blockquote></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-80ee-9743-d07e1a1b8757" class="">En el campo IP, escribe:<div style="display:contents" dir="auto"><ul id="28439073-1e23-80c3-901b-eab025ffe167" class="bulleted-list"><li style="list-style-type:disc"><code>IMIN2</code> → Para impresoras de <strong>58 mm</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-8060-87f4-fb690b608c74" class="bulleted-list"><li style="list-style-type:disc"><code>IMIN3</code> → Para impresoras de <strong>80 mm</strong></li></ul></div></blockquote></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-80f6-b4cd-c0a43b3c602f"/></div><div style="display:contents" dir="auto"><h2 id="28439073-1e23-8084-b21c-e0006468360b" class="">🪟 <strong>Equipos Windows con Impresora Integrada</strong></h2></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80e0-901f-ebea04214b2e" class="">Algunos equipos POS con Windows también poseen impresora interna.</p></div><div style="display:contents" dir="auto"><p id="28439073-1e23-807c-8e9e-e671e351276f" class="">En estos casos, basta con <strong>instalar el software TPS</strong> en el mismo equipo para permitir el uso de la impresora USB integrada.</p></div><div style="display:contents" dir="ltr"><figure id="12339073-1e23-80dd-a949-ceb6957633c0" class="image"><a href="2%202%20Punto%20de%20venta/0d7bee39-1628-495c-9acc-2c3313ddd76b.png"><img style="width:384px" src="2%202%20Punto%20de%20venta/0d7bee39-1628-495c-9acc-2c3313ddd76b.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12339073-1e23-80cb-9824-e032459f1fba" class="">
+</p></div><div style="display:contents" dir="auto"><p id="12339073-1e23-80e5-b83e-fedd0eaa8cbe" class=""><br/>💡 <strong>Ventaja:</strong> Toteat puede operar con conexión a internet desde cualquier parte del mundo, lo que permite tener <strong>puntos de venta móviles</strong> en distintas zonas del local.<br/><br/></p></div><div style="display:contents" dir="auto"><p id="12339073-1e23-8055-a0e9-dee80503405e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="6fc4849e-85b5-475b-a2bb-183d18299647" class="">Debemos tomar en cuenta que en Toteat podemos acceder con internet desde cualquier parte del mundo, lo cual es una gran ventaja y nos brinda una flexibilidad impresionante. Esta conectividad global nos permite establecer y operar puntos de venta en diferentes ubicaciones dentro del local, facilitando que el personal pueda tomar las órdenes de los clientes utilizando un PC, una tablet o incluso un celular. Esto asegura que el proceso de toma de pedidos sea eficiente y adaptable a diversas situaciones.</p></div><div style="display:contents" dir="auto"><p id="9214d73b-5f72-46cd-bb9c-5aa80db65fff" class="">En estos puntos de venta se pueden utilizar dos vistas diferentes, cada una adaptada a necesidades específicas:</p></div><div style="display:contents" dir="auto"><ol type="1" id="f9a03a2e-1ed7-4e91-87cb-990569a1ba19" class="numbered-list" start="1"><li><strong>Vista Restaurant:</strong><div style="display:contents" dir="auto"><p id="5e42947f-7677-4106-a3bc-24473cb18b94" class="">Esta vista está especialmente diseñada para ser utilizada en lugares donde uno o varios comensales pueden ser atendidos simultáneamente. Esta interfaz no solo facilita la toma de órdenes, sino que también permite emitir precuentas, lo que es sumamente útil para que los camareros o garzones puedan entregarlas al cliente y verificar su cuenta de manera precisa. Además, la vista Restaurant ofrece la opción de separar la orden por comensales, lo que permite realizar diferentes pagos de manera más organizada y personalizada, mejorando así la experiencia del cliente.</p></div><div style="display:contents" dir="auto"><p id="02cd7925-5711-46aa-8846-32fb6a56bc4c" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="7746f911-ec5c-4eb9-b4e5-2685d80ff6a1" class="image"><a href="2%202%20Punto%20de%20venta/restaurant.png"><img style="width:680px" src="2%202%20Punto%20de%20venta/restaurant.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="c79f659b-a808-447c-b482-3d9731d7af62" class="">
+</p></div></li></ol></div><div style="display:contents" dir="auto"><h2 id="28439073-1e23-8094-8d8f-f19558f31af2" class="">🧭 <strong>Vistas disponibles en los Puntos de Venta</strong></h2></div><div style="display:contents" dir="auto"><p id="28439073-1e23-8028-9dd8-d4f92bf90c47" class="">Toteat ofrece dos interfaces según el tipo de operación:</p></div><div style="display:contents" dir="auto"><h3 id="28439073-1e23-80cf-8edf-ee17c1390c60" class="">🍽️ <strong>Vista Restaurant</strong></h3></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80e2-9e74-f0f49d38705c" class="">Diseñada para locales donde se atienden varios comensales por mesa.</p></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80fd-97a0-ec96f2e4aa7d" class="">Permite emitir <strong>precuentas</strong>, <strong>dividir pagos por cliente</strong> y <strong>gestionar mesas simultáneamente</strong>.</p></div><div style="display:contents" dir="auto"><ol type="1" id="b0fb565f-857f-4e31-858b-df227f50db1c" class="numbered-list" start="1"><li><strong>Vista TakeAway:</strong><div style="display:contents" dir="auto"><p id="49fe4714-9205-45f0-bca0-4fe519e0a9e9" class="">Por otro lado, esta vista es visualmente muy diferente y está pensada para ser utilizada en locales con ventas rápidas o productos ya preparados. Es ideal para situaciones donde se requiere una entrega rápida y el flujo de venta es más ágil. La Vista TakeAway permite mostrar imágenes de los productos al momento de tomar la orden, lo que no solo mejora la presencia del local, sino que también facilita a los clientes la elección de sus productos de manera más visual y atractiva.</p></div><div style="display:contents" dir="auto"><p id="4b9f4b22-883c-4f42-a8a8-704d47678316" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="b9115a2c-c474-47e5-b098-a44f6e544c30" class="image"><a href="2%202%20Punto%20de%20venta/TakeAway.png"><img style="width:680px" src="2%202%20Punto%20de%20venta/TakeAway.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="a683dbda-2562-4c87-a511-1420c5eebf0d" class="">
+</p></div></li></ol></div><div style="display:contents" dir="auto"><p id="6bc0f8cd-969e-41c6-b164-2d0a72538dd1" class="">Estos puntos de venta no solo están diseñados para facilitar la operación diaria, sino que también pueden ser utilizados por los cajeros para realizar pagos en las órdenes. Alternativamente, pueden estar disponibles exclusivamente para los garzones y camareros, permitiendo así centralizar el pedido de las órdenes en equipos específicos. Esto asegura que el proceso sea más eficiente y organizado, optimizando el flujo de trabajo dentro del local y mejorando la calidad del servicio al cliente.</p></div><div style="display:contents" dir="auto"><p id="c0925cc1-465c-4492-8725-a47bc7351e4c" class="">
+</p></div><div style="display:contents" dir="auto"><p id="9e8383f9-0c7f-4432-aab6-f2ec9509d268" class="">También es fundamental que podamos comprender en detalle que en cada equipo donde tengamos acceso a Toteat, disponemos de dos configuraciones principales. Estas configuraciones están directamente asociadas al equipo o usuario respectivo, y estas opciones son las siguientes:</p></div><div style="display:contents" dir="auto"><p id="7cf95235-a338-44a7-a9c2-fa951af75299" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="d1065eb8-9732-4dc4-a82d-c0aed12ee595" class="image"><a href="2%202%20Punto%20de%20venta/image%209.png"><img src="2%202%20Punto%20de%20venta/image%209.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="bb1c714b-69c7-41ac-8c88-d440276def56" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2ebd0704-97c6-42f6-9c35-f55527548e3b" class=""><strong>1.- Ajustes de equipo:</strong></p></div><div style="display:contents" dir="auto"><p id="344969a9-f1c2-47ca-b588-e53f62c420f2" class="">En este apartado, podemos encontrar una variedad de configuraciones diseñadas para mejorar las funciones del equipo y realizar activaciones específicas directamente desde el equipo. Es importante destacar que este tipo de configuración tendrá un impacto directo en el equipo mismo, permitiendo una personalización detallada de su funcionamiento.</p></div><div style="display:contents" dir="ltr"><figure id="1af4bac8-a1b4-4b58-9586-c1c3bb0a28aa" class="image"><a href="2%202%20Punto%20de%20venta/image%2010.png"><img src="2%202%20Punto%20de%20venta/image%2010.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="0c07e587-f7a1-45de-b409-a37dc881e19b" class=""><strong>1.1.- Activar Vista Take Away</strong><div class="indented"><div style="display:contents" dir="auto"><p id="858d5c06-4404-45a6-9f48-80bfff450f41" class="">Este botón solo se puede mostrar desde los siguientes enlaces específicos:</p></div><div style="display:contents" dir="auto"><ul id="a734e7f7-2fba-4542-8370-f4246fbef3ed" class="bulleted-list"><li style="list-style-type:disc"><a href="https://res4.toteat.com/">https://res4.toteat.com/</a></li></ul></div><div style="display:contents" dir="auto"><ul id="e96a7776-171d-4ee7-9273-655e18154c2e" class="bulleted-list"><li style="list-style-type:disc"><a href="https://res5.toteat.com/">https://res5.toteat.com/</a></li></ul></div><div style="display:contents" dir="auto"><p id="14fda80f-79e4-45c1-8dc9-1d01df3da612" class="">La vista Take Away solo se puede visualizar y activar desde estos enlaces, proporcionando una interfaz especializada para este tipo de operación.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="52241eeb-490f-4050-932f-3d99cf5da4a3" class=""><strong>1.2.- Software TPS Instalado en este mismo equipo</strong><div class="indented"><div style="display:contents" dir="auto"><p id="3c46be98-0d90-43a7-8a99-8497c0afdf08" class="">Esta opción permite verificar y gestionar el software TPS que está instalado en el equipo en cuestión, asegurando que esté configurado correctamente para las operaciones necesarias.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="bc90869e-ddba-4c51-8a64-b94c0a3659a0" class=""><strong>1.3.- Mantener correlativos en mesas virtuales</strong><div class="indented"><div style="display:contents" dir="auto"><p id="3a1f6e39-5e2d-4f5b-b475-11f2cce404b3" class="">Con esta configuración, se puede asegurar que los números correlativos se mantengan de manera ordenada en las mesas virtuales, facilitando una mejor gestión y seguimiento de las órdenes.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="cc2982e1-c81a-46c3-b23a-31dd320e32e5" class=""><strong>1.4.- Mostrar solo el primer nivel de sectores en Home</strong><div class="indented"><div style="display:contents" dir="auto"><p id="fd47319a-2318-4638-a916-f60ce8a7d96a" class="">Permite simplificar la visualización en la pantalla principal o &#x27;Home&#x27;, mostrando únicamente el primer nivel de sectores, lo cual puede ser útil para una navegación más clara y sencilla.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="5d564887-da82-4bfc-8f67-a92404a997b2" class=""><strong>1.5.- Vía de impresión Precuenta:</strong></p></div><div style="display:contents" dir="auto"><p id="b8f79264-64fa-4d5d-9910-c39addd550ab" class="">
+</p></div><div style="display:contents" dir="auto"><p id="bd066188-6c06-4f31-891e-a43c68a1a074" class="">
+</p></div><div style="display:contents" dir="auto"><p id="c3f52e9a-eb91-4c3b-af71-863aff5c9f94" class=""><strong>1.6.- Vía de impresiones Especiales:</strong></p></div><div style="display:contents" dir="auto"><p id="b69e109c-1c7a-4193-a35c-58503b581aab" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17fcf851-2238-45a6-b255-7b7d5101b4f6" class="">
+</p></div><div style="display:contents" dir="auto"><p id="cc7b89a9-e39a-4e61-b2cd-e9321325c24a" class=""><strong>1.7.- Mensaje de órdenes nuevas:</strong><div class="indented"><div style="display:contents" dir="auto"><p id="c855dec9-308d-4f3c-8c74-0f6194466367" class="">Define cómo se mostrarán las notificaciones de nuevas órdenes, asegurando que el equipo esté al tanto de todas las actualizaciones en tiempo real.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="03ff53ac-9c32-4826-80c0-788478dfbc4c" class=""><strong>1.8.- Botones de Scroll</strong><div class="indented"><div style="display:contents" dir="auto"><p id="5afec260-cb52-410f-ab99-f68a2aa7507f" class="">Activa o desactiva los botones de desplazamiento (scroll), facilitando la navegación por las distintas opciones y listas.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="f76e6726-9149-48ff-b8dd-c4f3b03ebcf4" class=""><strong>1.9.- Mostrar Botón de Búsqueda en pedidos</strong><div class="indented"><div style="display:contents" dir="auto"><p id="c89cfebe-8820-4284-8191-c73ef6cfad3a" class="">Permite la visibilidad del botón de búsqueda en la sección de pedidos, mejorando la capacidad de encontrar órdenes específicas rápidamente.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="746d6204-ecff-45c9-b472-ade7e6af267d" class=""><strong>1.10.- Delay al liberar mesa (Server)</strong><div class="indented"><div style="display:contents" dir="auto"><p id="59f9e096-6be2-4082-a5e5-f0eedf9518b2" class="">Configura un retraso (delay) al liberar una mesa, lo cual puede ser útil para sincronizar las operaciones con el servidor y evitar conflictos.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="c91b92f4-abb0-4eac-9df7-c2ed25f875e1" class=""><strong>1.11.- Sector de Mesas virtuales</strong><div class="indented"><div style="display:contents" dir="auto"><p id="10367451-a1d4-4c77-855c-1b67707e68ce" class="">Define y gestiona los sectores específicos para las mesas virtuales, mejorando la organización y asignación de las mismas.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="3b571da4-71db-4907-9c2e-54b63a2ea3bf" class=""><strong>1.12.- Sector para Deliveries</strong><div class="indented"><div style="display:contents" dir="auto"><p id="32b8f51d-0600-4a9e-9174-99a396710566" class="">Configura un sector dedicado para las entregas (deliveries), facilitando la gestión y seguimiento de los pedidos que deben ser entregados.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="698e82c4-9044-4e93-a26c-a5203b3f90f0" class=""><strong>1.13.- Sector para retiro en Local</strong><div class="indented"><div style="display:contents" dir="auto"><p id="a6350f9f-bb79-4354-9465-e5e76c929c3b" class="">Ajusta un sector específico para los pedidos que serán retirados en el local, mejorando la eficiencia en la entrega de estos pedidos.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="7f789699-bf41-455c-91f8-3640335d559f" class=""><strong>1.14.- Alerta en Pedidos Toteat App</strong><div class="indented"><div style="display:contents" dir="auto"><p id="74aea738-b985-415a-ba23-99fcfeff3d33" class="">Activa las alertas auditivas para los pedidos realizados a través de la aplicación Toteat, asegurando que se reciban y gestionen de manera oportuna. Estas alertas se emiten desde el PC configurado y permiten seleccionar entre varios tipos de sonidos, ofreciendo una mayor personalización en la notificación de nuevos pedidos.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="48e5b316-7661-46d6-9818-b764a80a6a74" class=""><strong>1.15.- Activar atajos de teclado (Experimental)</strong></p></div><div style="display:contents" dir="auto"><p id="f134f0a9-6504-4eb6-b1f3-0f648db7f7cd" class="">
+</p></div><div style="display:contents" dir="auto"><p id="534c3991-f6d2-4a95-a816-6faa3dcd98d3" class=""><strong>1.16.- Alerta en Pedidos integración Deliveries</strong><div class="indented"><div style="display:contents" dir="auto"><p id="8aa680bd-f67d-48f3-b00d-d7877646fe9e" class="">Configura las alertas para los pedidos integrados a través de plataformas de entrega, garantizando su notificación y gestión adecuada. Esta alerta funciona de manera similar a la Alerta en Pedidos Toteat App, ofreciendo diferentes opciones de audio para una mayor personalización.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="c8217bea-3c61-4a27-9aa3-f7218a7076d0" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27641f19-cbe4-4be3-be54-edea451d5861" class=""><strong>2.- Ajustes Personales:</strong><div class="indented"><div style="display:contents" dir="auto"><p id="700251fd-03f8-4ff6-8031-62dc454223fa" class=""><strong>2.1.- Impresión de Voucher</strong><div class="indented"><div style="display:contents" dir="auto"><p id="6179d044-0446-48b5-bae3-d5abe4bb8e01" class="">Acá podemos encontrar las opciones de Impresión manual y Graba Pago e imprime, de esa forma puede seleccionar una de las 2 para que este tiquet al momento de realizar el pago este se imprima de forma automática o presionando el botón de ticket.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="9233459c-31b6-496f-9360-c996b2200520" class=""><strong>2.2.- Impresora para Reportes</strong><div class="indented"><div style="display:contents" dir="auto"><p id="9978f138-62da-447f-a074-9dba2168d838" class="">Desde este apartado podemos seleccionar una impresora diferente para que todos los botones encontrados en Menú Lateral&gt;Reportes puedan salir en esa impresora seleccionada, también podemos la opción de *Preview* para poder ver estas impresiones directamente en la consola del navegador.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="7ed7a000-9a66-49cc-b481-8bb91aa99217" class=""><strong>2.3.- No mostrar mensaje informativo(Verdes)</strong><div class="indented"><div style="display:contents" dir="auto"><p id="1bae738f-f350-4721-aef0-5c239637370b" class="">Toteat posee notificaciones que aparecen en la parte inferior de la pantalla cada vez que se realiza una acción que ha sido exitosa, como lo son los guardados o cambios en las cartas, este mensaje verde significa que fue exitoso, con esta opción podemos hacer que esa notificación no aparezca.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="1edd3f1c-e14a-40f9-8095-174da9dc4987" class=""><strong>2.4.- Tiempo de espera clic en pedidos</strong></p></div><div style="display:contents" dir="auto"><p id="0e320352-c067-45c9-bc73-a43cdf0803e7" class=""><strong>2.5.- Tamaño de la Fuente</strong><div class="indented"><div style="display:contents" dir="auto"><p id="6e268e8d-8fe5-467f-8057-3e65ba5669e4" class="">En esta configuración tenemos 3 opciones disponibles: Normal, grande y extra grande, esta opción funciona para que al momento de comandar algún productos esta fuente pueda aplicarle alguno de esos tamaños</p></div></div></p></div><div style="display:contents" dir="auto"><p id="74841cbb-f594-4f21-a14c-f84da843da07" class=""><strong>2.6.- Refrescar Reporte Cierre en Tiempo Real</strong></p></div><div style="display:contents" dir="auto"><p id="7b982016-57d5-429a-aa43-ac874a9146cc" class=""><strong>2.7.- Tamaño de la Fuente (Cajero):</strong><div class="indented"><div style="display:contents" dir="auto"><p id="b476dc9f-7f81-45bd-9354-e95ab885b9ed" class="">Esta opción realiza un cambio directamente a la fuente que se muestra al momento de pagar una orden, luego de hacer clic en cerrar mesa esta fuente se puede cambiar, tenemos disponible para seleccionar 3 tamaños de fuente: Normal, grande y extra grande.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="9fbb1fb7-962d-4c5f-8eaf-f38ddf721a01" class=""><strong>2.8.- Muestra Items Anulados al cerrar cuenta</strong><div class="indented"><div style="display:contents" dir="auto"><p id="bac31c1c-20c7-409b-b72a-94bdf7ef3317" class="">Una vez anulados los ítems en la orden, estos aparecerán en rojo al intentar liberar la mesa.</p></div><div style="display:contents" dir="ltr"><figure id="9d80ec7e-597e-4762-bc4d-c6f92073a0a5" class="image"><a href="2%202%20Punto%20de%20venta/image%2011.png"><img style="width:660px" src="2%202%20Punto%20de%20venta/image%2011.png"/></a></figure></div></div></p></div><div style="display:contents" dir="auto"><p id="8705bbe7-aab1-4ba7-a4d4-d7462a5a42ba" class=""><strong>2.9.- No Mostrar Alertas de Toteat Print Server</strong><div class="indented"><div style="display:contents" dir="auto"><p id="a90c9d6b-d9dc-4081-bc09-edd5237e50da" class="">TPS o (Toteat Print Server) es el software que conecta entre las impresoras del local Windows, si alguna se encuentra en error en TRM (Toteat Restaurant Manager) se mostrará un mensaje o alerta sobre el problema generado en la comunicación con esa impresora, este botón desactiva esa alerta.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="0cf337b2-81c0-485a-84f8-00a2e90d6c5d" class=""><strong>2.10.- Abrir Directo Mesa Unitaria</strong><div class="indented"><div style="display:contents" dir="auto"><p id="10b39073-1e23-8025-a9e7-f1d14418c0bf" class="">Este botón se utiliza para abrir una mesa directamente, en este caso al estar activado no solicitará el precio por lista y tampoco la cantidad de comensales, se abrirá directamente para que puedas comandar los productos en la orden o mesa.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="c0830cd6-7efc-4ec7-b240-f19bf054b8a1" class=""><strong>2.11.- Solicitar Confirmación de Pago</strong><div class="indented"><div style="display:contents" dir="auto"><p id="10b39073-1e23-802a-8ed1-d0bb3e09e3ac" class="">Al momento de ingresar el monto y forma de pago en una orden en una orden y hacer luego de hacer clic en el botón pagar aparecerá una ventana consultando si desea grabar el pago.</p></div></div></p></div><div style="display:contents" dir="ltr"><figure id="10b39073-1e23-8084-8902-f663055d9f58" class="image"><a href="2%202%20Punto%20de%20venta/image%2012.png"><img style="width:377.3194580078125px" src="2%202%20Punto%20de%20venta/image%2012.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="362dc275-be40-46da-844c-0c40fa0dec3b" class=""><strong>2.12.- Pagar y liberar mesa automáticamente</strong><div class="indented"><div style="display:contents" dir="auto"><p id="10b39073-1e23-80d4-9ebc-c674362378a6" class="">Con esta opción activada permite que la mesa y orden sea liberada de forma automática después de hacer clic en el botón de pagar. Esta opción no emite el documento fiscal o DTE de forma automática, solo funciona para tickets de pagos</p></div></div></p></div><div style="display:contents" dir="auto"><p id="1b603f2b-8420-4935-beb5-43819789d41d" class=""><strong>2.13.- Impresión de Copia Comanda</strong><div class="indented"><div style="display:contents" dir="auto"><p id="10b39073-1e23-80ee-ad2e-dd86775d9da2" class="">Esta opción habilita un botón que se puede observar en la mesa al abrirla, este genera una copia de la comanda al presionarlo, el cual saldrá en la impresora seleccionada para reportes que se encuentra en Menú Lateral&gt;Configuración&gt;Ajustes Personales “Impresora para Reportes”.</p></div><div style="display:contents" dir="ltr"><figure id="cd648d29-6506-4361-bfc7-e4142659de23" class="image"><a href="2%202%20Punto%20de%20venta/image%2013.png"><img style="width:218.97500610351562px" src="2%202%20Punto%20de%20venta/image%2013.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="868d2463-fb06-4825-8c8d-c6209e007b31" class="image"><a href="2%202%20Punto%20de%20venta/image%2014.png"><img style="width:353.3194580078125px" src="2%202%20Punto%20de%20venta/image%2014.png"/></a></figure></div></div></p></div><div style="display:contents" dir="auto"><p id="7e8135f9-6a1a-4875-b55b-8492d53c9ae9" class=""><strong>2.14.- Mostrar Precuenta en Pantalla</strong><div class="indented"><div style="display:contents" dir="auto"><p id="10b39073-1e23-80ad-be32-fdbc14cecf9b" class="">Esta configuracion le permite a los garzones, camareros o usuarios que no tenga abierta alguna de las cajas o en su defecto no puedan abrir caja, mostrara una pantalla con los detalles de la precuenta. Este se podra visualizar al hacer clic en el boton “imprimir Precuentas”</p></div><div style="display:contents" dir="ltr"><figure id="74756da3-e8a8-424d-ae8d-5f3e6b21a7b6" class="image"><a href="2%202%20Punto%20de%20venta/image%2015.png"><img style="width:659.96875px" src="2%202%20Punto%20de%20venta/image%2015.png"/></a></figure></div></div></p></div><div style="display:contents" dir="ltr"><figure id="10b39073-1e23-8039-b652-d4cc1229f5ff" class="image"><a href="2%202%20Punto%20de%20venta/image%2016.png"><img style="width:384px" src="2%202%20Punto%20de%20venta/image%2016.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="b1a25c8c-2b59-46b6-823b-19ae7f768f2c" class=""><strong>2.15.- Precuenta y Regreso a Home </strong></p></div><div style="display:contents" dir="auto"><p id="4458a4da-9f58-44c5-9a4c-bc8bba4f3512" class="">Al enviar una impresion de “Cuentas Separadas” y hacer clic en confirmar la ventana y mesa ya no seran visibles y mostrara la pantalla principal de toteat donde se encuentran todas las mesas y sus sectores</p></div><div style="display:contents" dir="ltr"><figure id="11939073-1e23-80ea-a807-f40ef8f8c071" class="image"><a href="2%202%20Punto%20de%20venta/image%2017.png"><img style="width:683.96875px" src="2%202%20Punto%20de%20venta/image%2017.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="c26e7b8e-b452-40b7-8654-6df25b922551" class=""><strong>2.16.- Mostrar Imágenes en Toma Pedidos:</strong></p></div><div style="display:contents" dir="auto"><p id="10b39073-1e23-80bd-9a4e-eae9c9f940c2" class="">Al activar esta opcion se mostrara un icono de camara cuando el producto contenga una imagen, al hacer clic en la camara fotografica se mostrara la imagen asignada al producto</p></div><div style="display:contents" dir="ltr"><figure id="11939073-1e23-80d6-813a-e93642e08d60" class="image"><a href="2%202%20Punto%20de%20venta/image%2018.png"><img style="width:683.96875px" src="2%202%20Punto%20de%20venta/image%2018.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="11939073-1e23-80ca-b14f-e3c30a86d368" class="image"><a href="2%202%20Punto%20de%20venta/image%2019.png"><img style="width:589.3194580078125px" src="2%202%20Punto%20de%20venta/image%2019.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="c1ccf6a3-8df7-421c-a31f-be97d57a40d5" class=""><strong>2.18.- Recuerda Prioridad Platos</strong></p></div><div style="display:contents" dir="auto"><p id="10b39073-1e23-808a-9cc2-fc3301264f30" class="">Consultar con Yoser</p></div><div style="display:contents" dir="auto"><p id="5f2db808-effe-4f15-abd2-9e0097d8d8de" class=""><strong>2.19.- Muestra Lista Precios al Cerrar Cuenta</strong></p></div><div style="display:contents" dir="auto"><p id="11939073-1e23-800c-a59e-d330002c05fc" class="">Al tener en ON este boton se mostrara luego de hacer clic en cerrar mesa, en la pantalla para realizar el pago, una ventana con los precios x lista que tienen creados en el local.</p></div><div style="display:contents" dir="ltr"><figure id="11939073-1e23-803c-92bc-d045a5d775ff" class="image"><a href="2%202%20Punto%20de%20venta/image%2020.png"><img style="width:683.984375px" src="2%202%20Punto%20de%20venta/image%2020.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="e0ed9093-c02c-47a6-881a-84778b230271" class=""><strong>2.20.- Recuerda Último Descuento en Caja</strong></p></div><div style="display:contents" dir="auto"><p id="11b39073-1e23-8040-8504-f15223c1671c" class="">Al ingrear un monto o porcentaje en el campo de descuento de la precuenta personalizada este se replica al campo descuento de la orden, regresas a la pantalla principal y abrimos nuevamente la orden esta mostrara de igual forma el ultimo descuento que fue impreso en la precuenta personalizada.</p></div><div style="display:contents" dir="ltr"><figure id="11b39073-1e23-80e4-a11c-e96dc39c0420" class="image"><a href="2%202%20Punto%20de%20venta/image%2021.png"><img style="width:683.9625244140625px" src="2%202%20Punto%20de%20venta/image%2021.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="ef8c2bf6-b8b2-4723-b36b-ca645ce26792" class=""><strong>2.21.- Recuerda Última propina en Caja</strong></p></div><div style="display:contents" dir="auto"><p id="11b39073-1e23-8001-9b19-e0435ae078a6" class="">Al tener esta opcion en on guarda la ultima propina ingresada en la precuenta personalizada, si asignamos 20% de propinas al imprimirla queda grabada en la mesa, al abrir nuevamente la orden y solicitar una nueva precuenta personalizada aparecera el 20% o el ultimo monto o porcentaje ingresado en ese campo.</p></div><div style="display:contents" dir="ltr"><figure id="11b39073-1e23-80be-80d7-c94806b0e48c" class="image"><a href="2%202%20Punto%20de%20venta/image%2022.png"><img style="width:683.9874877929688px" src="2%202%20Punto%20de%20venta/image%2022.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="e52a6ed0-c2f1-49c3-b4d1-6bc753f42c79" class=""><strong>2.22.- Muestra Consumo en Listado Pedidos</strong></p></div><div style="display:contents" dir="auto"><p id="11b39073-1e23-80aa-885b-ff1d5498c53e" class="">Al activar esta opcion se mostrara en la pantalla principal de toteat y debajo de la mesa u orden el consumo total o el total pagado de la misma.</p></div><div style="display:contents" dir="ltr"><figure id="11b39073-1e23-8048-9bb1-dacb667c7ec4" class="image"><a href="2%202%20Punto%20de%20venta/image%2023.png"><img style="width:109.98750305175781px" src="2%202%20Punto%20de%20venta/image%2023.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="5c3a875c-5650-458f-8b9b-6056df9216c5" class=""><strong>2.23.- Muestra Personas en Listado Pedidos</strong></p></div><div style="display:contents" dir="auto"><p id="92871fb2-5b39-4728-87a2-706ba6e767c7" class=""><strong>2.24.- Nombre en Listado de Pedidos</strong></p></div><div style="display:contents" dir="auto"><p id="12239073-1e23-806f-94e3-d34c4a7a488e" class="">En este apartado disponemos de varias opciones para seleccionar<div class="indented"><div style="display:contents" dir="ltr"><figure id="12239073-1e23-803b-923e-dbe75126cf02" class="image"><a href="2%202%20Punto%20de%20venta/image%2024.png"><img style="width:293.3194580078125px" src="2%202%20Punto%20de%20venta/image%2024.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12239073-1e23-80b7-855d-efb14d72c99e" class="">2.24.1.- Mostrar Repartidor / Camarero</p></div><div style="display:contents" dir="auto"><p id="12239073-1e23-8007-b592-c5d1e461714d" class="">Debajo de la mesa abierta mostrara dicho nombre, si tiene camarero o repartidos asignado</p></div><div style="display:contents" dir="ltr"><figure id="12239073-1e23-8014-84b0-c2995e014a0e" class="image"><a href="2%202%20Punto%20de%20venta/image%2025.png"><img style="width:120px" src="2%202%20Punto%20de%20venta/image%2025.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="12239073-1e23-80b9-ab3b-cac0ca530eb2" class="image"><a href="2%202%20Punto%20de%20venta/image%2026.png"><img style="width:123.98750305175781px" src="2%202%20Punto%20de%20venta/image%2026.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12239073-1e23-806b-83e6-dc4c7c1789f4" class="">El camarero o garzon puede ser seleccionado al abrir la mesa y antes de ser confirmada</p></div><div style="display:contents" dir="ltr"><figure id="12239073-1e23-8066-aaa1-c063dad4f7a4" class="image"><a href="2%202%20Punto%20de%20venta/image%2027.png"><img style="width:269.3194580078125px" src="2%202%20Punto%20de%20venta/image%2027.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12239073-1e23-8070-956e-d320ae4b62c3" class="">El repartidor se puede seleccionar al momento de abrir una orden de tipo delivery </p></div><div style="display:contents" dir="ltr"><figure id="12239073-1e23-805e-aec0-da2b4d442a64" class="image"><a href="2%202%20Punto%20de%20venta/image%2028.png"><img style="width:269.3194580078125px" src="2%202%20Punto%20de%20venta/image%2028.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12239073-1e23-8094-871d-e5c393528050" class="">2.24.2.- Mostrar Cliente</p></div><div style="display:contents" dir="auto"><p id="12239073-1e23-80ce-b060-d1723be4cb82" class="">Esta opcion podra mostara el nombre del cliente que fue seleccionado al momento de crear una orden delivery, el cual mostrara el nombre de este cliente debajo de la mesa en la pantalla principal </p></div><div style="display:contents" dir="ltr"><figure id="12239073-1e23-80e1-aab4-cfc1a93dd883" class="image"><a href="2%202%20Punto%20de%20venta/image%2029.png"><img style="width:104.98750305175781px" src="2%202%20Punto%20de%20venta/image%2029.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12239073-1e23-80c8-b50c-e66654d246bb" class="">2.24.3.- Nombre Cliente / Comentario</p></div><div style="display:contents" dir="auto"><p id="12239073-1e23-8004-bfe9-cd44712edb18" class="">2.24.4.- Origen</p></div><div style="display:contents" dir="auto"><p id="12239073-1e23-8051-a91c-cb6a044656c4" class="">2.24.5.- Nombre/Comentario y Origen</p></div><div style="display:contents" dir="auto"><p id="12239073-1e23-8047-9729-c374ea538d75" class="">2.24.6.- Comentario, por separado</p></div><div style="display:contents" dir="auto"><p id="12239073-1e23-80bd-a892-dc3a0bb2e2b8" class="">2.24.7.- Mesero, ultimo comentario corto</p></div><div style="display:contents" dir="auto"><p id="12239073-1e23-803f-bf93-f0d056815892" class="">2.24.8.- Mesero, comentario corto</p></div></div></p></div><div style="display:contents" dir="auto"><p id="7f4c8a81-3a2b-47b6-a18e-7771ece6b3fe" class=""><strong>2.25.- Ordenar Categorías Alfabéticamente</strong></p></div><div style="display:contents" dir="auto"><p id="3a4b6415-40fa-4ad6-b2cb-aaca3c0e7a6a" class=""><strong>2.26.- Ordenar Productos Alfabéticamente</strong></p></div><div style="display:contents" dir="auto"><p id="1fbe9059-8500-4f2c-a4e9-27a6133002f6" class=""><strong>2.27.- Ordenar Extras Alfabéticamente</strong></p></div><div style="display:contents" dir="auto"><p id="4e9eb70c-7a64-469a-9619-62d4101072bc" class=""><strong>2.28.- Confirmación Pedidos App en un paso</strong></p></div><div style="display:contents" dir="auto"><p id="1a81c018-65ea-48f7-abc2-06c5e1073b14" class=""><strong>2.29.- Muestra icono en líneas ingresadas por Cliente Final</strong></p></div><div style="display:contents" dir="auto"><p id="fd65b8e1-95a0-42c8-ba86-7ae23dcf1a3e" class=""><strong>2.30.- Mostrar Notificaciones de nuevos pedidos de clientes finales de estos sectores</strong></p></div></div></p></div><div style="display:contents" dir="auto"><p id="ec558c41-c259-4bfe-9395-448836076907" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,751 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Mercado Pago Point (Caja, Kiosco y Mesa)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="26139073-1e23-8016-b2b1-d6119580ed13" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1608496601160-f86d19a44f9f?ixlib=rb-4.0.3&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_brown.svg"/></div><h1 class="page-title" dir="auto">Mercado Pago Point (Caja, Kiosco y Mesa)</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">C</span></span>Cristian Marín</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td><span class="selected-value select-value-color-yellow">Integraciones</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha de creación</th><td><time>1 de septiembre de 2025</time></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Personas</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="26139073-1e23-818a-b53c-fbe1aca6a94e"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Propósito: “Configuración y uso para integración con terminal Mercado pago Point para conciliación de pagos con TRM”</strong>.</div></figure></div><div style="display:contents" dir="ltr"><nav id="26139073-1e23-812e-8715-ca9db3337d28" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26139073-1e23-81da-a10a-e3b2b3d91289"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26139073-1e23-8117-a0f7-e56d792a48f5"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26139073-1e23-815b-9255-cc94aa4c5c84"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26139073-1e23-814f-bc4a-d352c3f02c9e"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26139073-1e23-81cf-92b7-d0be7dffa06f"><mark class="highlight-orange">5. Procedimiento configuración de la integración</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26239073-1e23-8083-ac3a-f9b4b979b829"><mark class="highlight-orange">6. Opciones de integración </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26239073-1e23-8046-b191-f4290e871b71"><mark class="highlight-orange">7. Ejemplos de integración </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29339073-1e23-8006-ba46-f0f2031f0c3d"><mark class="highlight-orange">X. Configuración Mercado Pago Point con la tienda (14/10/25)</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29339073-1e23-800a-8005-ce2fe9f0949e"><strong>Detalles técnicos:</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26139073-1e23-81c1-a44f-e2bad814cc59"><mark class="highlight-orange">8. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26139073-1e23-81ae-8133-fad92c34ccc9"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="26139073-1e23-81da-a10a-e3b2b3d91289" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="26139073-1e23-81ea-af48-d10bf0646b43" class="">Este documento trata acerca de la configuración y uso de la configuración de Mercado Pago Point, dando paso al proceso de <em>payments</em> para TRM con este dispositivo. Esta integración actualmente funciona en modo Cajero, levantando pagos al terminal desde un PDV; modo Cajero móvil, utilizado por camareros para levantar el pago y cerrar la mesa en el lugar, y cómo <em>Selfservice</em>, para <em>tótems (kiosco)</em>.</p></div><div style="display:contents" dir="auto"><h3 id="26139073-1e23-8117-a0f7-e56d792a48f5" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="26139073-1e23-8132-aac4-d7c486d84706" class="">Este documento debe aplicarse para clientes que necesiten la integración con el terminal <em>MercadoPago Point.</em></p></div><div style="display:contents" dir="auto"><h3 id="26139073-1e23-815b-9255-cc94aa4c5c84" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="26139073-1e23-8161-91fa-c4221e000f75" class="">Este proceso debe realizarlo el cliente directamente teniendo los datos y el terminal correspondiente. </p></div><div style="display:contents" dir="auto"><h3 id="26139073-1e23-814f-bc4a-d352c3f02c9e" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="26139073-1e23-814f-8998-e57a6f59b93a" class="toggle"><li><details open=""><summary><strong>Se debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="26139073-1e23-81ff-bc3a-f19e5054c66a" class="bulleted-list"><li style="list-style-type:disc">Lo debe realizar el perfil dueño/creador que tenga la cuenta que administra el portal de <em>MercadoPago</em>. </li></ul></div><div style="display:contents" dir="auto"><ul id="26139073-1e23-8134-9b8a-c7808d89a366" class="bulleted-list"><li style="list-style-type:disc">El terminal debe ser modelo N950. </li></ul></div><div style="display:contents" dir="auto"><ul id="26139073-1e23-8106-b304-c68ef4c2264a" class="bulleted-list"><li style="list-style-type:disc">La configuración es exclusiva para TRM New.</li></ul></div><div style="display:contents" dir="auto"><ul id="26139073-1e23-810d-bddc-c17e1dc3de45" class="bulleted-list"><li style="list-style-type:disc">La integración es solo para utilizar tarjeta de crédito o débito en el terminal, no acepta billeteras electrónicas configuradas en él. <mark class="highlight-red">Validar** mercado pago tampoco?</mark></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="26139073-1e23-81cf-92b7-d0be7dffa06f" class=""><mark class="highlight-orange">5. Procedimiento configuración de la integración</mark></h3></div><div style="display:contents" dir="auto"><ul id="26239073-1e23-8032-9bd1-e48e29e3439d" class="toggle"><li><details open=""><summary><strong>Paso 1: Activación del terminal</strong></summary><div style="display:contents" dir="auto"><ul id="26239073-1e23-80bd-9f43-ef1da852a0aa" class="toggle"><li><details open=""><summary>Activación y Login de equipos (1)</summary><div style="display:contents" dir="ltr"><figure id="26239073-1e23-8053-aec3-e7a709628bb8" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image.png"><img style="width:654px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="26239073-1e23-8083-8a15-e7d9ef5bad30" class="toggle"><li><details open=""><summary>Activación y Login de equipos (2)</summary><div style="display:contents" dir="ltr"><figure id="26239073-1e23-803b-8a5a-db27608e2161" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%201.png"><img style="width:681.9750366210938px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%201.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="26239073-1e23-805a-a412-df6727fc3856" class="toggle"><li><details open=""><summary>Configuración PIN seguridad de los equipos</summary><div style="display:contents" dir="auto"><p id="28139073-1e23-806d-a36f-c49216c6d250" class="">(Sin el PIN no se puede configurar en modo Kiosco)</p></div><div style="display:contents" dir="ltr"><figure id="26239073-1e23-8004-a657-cf3d98505697" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%202.png"><img style="width:654.0340576171875px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%202.png"/></a></figure></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="26139073-1e23-813d-b986-e5b7c6f54674" class="toggle"><li><details open=""><summary><strong>Paso 2: Activación forma de pago.</strong></summary><div style="display:contents" dir="auto"><ul id="26139073-1e23-8142-8558-d21909cd3493" class="bulleted-list"><li style="list-style-type:disc">Activar la forma de pago &quot;MercadoPago Point Smart&quot; desde Menú lateral &gt; Restaurante &gt; Ajustes generales &gt; Formas de pago.</li></ul></div><div style="display:contents" dir="ltr"><figure id="26139073-1e23-81f4-9240-ef2f980c8648" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/Captura_de_pantalla_2025-05-14_a_la(s)_3.20.47_p.m..png"><img style="width:653.9921875px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/Captura_de_pantalla_2025-05-14_a_la(s)_3.20.47_p.m..png"/></a></figure></div><div style="display:contents" dir="auto"><p id="26139073-1e23-8132-a973-fd0b905c4037" class="">
+</p></div><div style="display:contents" dir="auto"><p id="26139073-1e23-81cc-bccd-efcb8da2c26e" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="26139073-1e23-8120-ad7e-f47b920f0c55" class="bulleted-list"><li style="list-style-type:disc">Selecciona la forma de pago ‘MercadoPago Point Smart’ y confirmar.</li></ul></div><div style="display:contents" dir="auto"><ul id="26139073-1e23-81c8-8293-cf6203b489fa" class="bulleted-list"><li style="list-style-type:disc">Grabar la forma de pago en el ícono superior.</li></ul></div><div style="display:contents" dir="ltr"><figure id="26139073-1e23-8179-ba4f-ea2bfb131fb4" class="image"><a href="Klap/image%201.png"><img style="width:384px" src="Klap/image%201.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="26139073-1e23-81f5-8319-f7c2d9f2026a" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"><strong>Paso 3: Activación integración.</strong></mark></summary><div style="display:contents" dir="auto"><ul id="26139073-1e23-81b6-807a-f1deadc890b4" class="bulleted-list"><li style="list-style-type:disc">Ir al módulo de la integración en Menú lateral &gt; Integraciones &gt; MercadoPago.</li></ul></div><div style="display:contents" dir="ltr"><figure id="26239073-1e23-80fc-8f12-e862076d84ea" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%203.png"><img style="width:288px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="26239073-1e23-8084-9338-dd12c91eff14" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="26239073-1e23-8001-9f16-ed4064ec4db2" class="bulleted-list"><li style="list-style-type:disc">Loguearte con tu cuenta de Merchant en Mercado Pago y luego apretar el botón de integración</li></ul></div><div style="display:contents" dir="ltr"><figure id="26239073-1e23-80c1-80d5-c124ae0eec21" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%204.png"><img style="width:654px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="26239073-1e23-804f-8c72-cec0686ab990" class="bulleted-list"><li style="list-style-type:disc">Autorizar la integración.</li></ul></div><div style="display:contents" dir="ltr"><figure id="26239073-1e23-8069-9813-c4d39362f495" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%205.png"><img style="width:654.0340576171875px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%205.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="26139073-1e23-81dd-8f95-c2c622ea8f78" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"><strong>Paso 4: Generar Store</strong></mark></summary><div style="display:contents" dir="auto"><ul id="26139073-1e23-8156-b3d7-f9a0050d2854" class="bulleted-list"><li style="list-style-type:disc">Se deben cargar los datos, generar Store y luego grabar.</li></ul></div><div style="display:contents" dir="ltr"><figure id="26239073-1e23-80ff-8ae9-eec7753ec2fd" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%206.png"><img style="width:654.0340576171875px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="26139073-1e23-814e-8888-d44be9810477" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="26239073-1e23-80c0-af3c-c4d1bb4d2647" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"><strong>Paso 5: Asociar Point a Sucursal en Mercado Pago</strong></mark></summary><div style="display:contents" dir="auto"><p id="28139073-1e23-8046-aaf2-fcef44c9ef38" class="">Solo puede ser una terminal por caja de Mercado Pago para que funcione modo integrado</p></div><div style="display:contents" dir="ltr"><figure id="26239073-1e23-800b-83e7-df1724160e6d" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/Captura_de_Pantalla_2025-08-01_a_la(s)_09.29.49.png"><img style="width:654.0340576171875px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/Captura_de_Pantalla_2025-08-01_a_la(s)_09.29.49.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="26239073-1e23-8085-baa2-c0a0174ec8b6" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/Captura_de_Pantalla_2025-08-01_a_la(s)_09.29.58.png"><img style="width:654.0340576171875px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/Captura_de_Pantalla_2025-08-01_a_la(s)_09.29.58.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="26239073-1e23-804b-98c2-e5a1a1c2d3e6" class="toggle"><li><details open=""><summary><strong>Paso 6: Agregar dispositivo en toteat y elegir Modo</strong></summary><div style="display:contents" dir="auto"><p id="28139073-1e23-8014-b928-c51608317fe9" class="">(Si elegimos modo kiosco se debe reiniciar la terminal)</p></div><div style="display:contents" dir="ltr"><figure id="26239073-1e23-8009-aa11-d049b834cb31" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image_(65).png"><img style="width:654.0340576171875px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image_(65).png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="26239073-1e23-8083-ac3a-f9b4b979b829" class=""><mark class="highlight-orange">6. Opciones de integración </mark></h3></div><div style="display:contents" dir="auto"><ul id="26239073-1e23-8037-a425-e9ea0289fb08" class="toggle"><li><details open=""><summary><mark class="highlight-default"><strong>Kiosco</strong></mark></summary><div style="display:contents" dir="auto"><ul id="26239073-1e23-803b-a1f1-d0f95a35ba4a" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"><strong>Asociar terminal a la configuración del kiosco</strong></mark></summary><div style="display:contents" dir="ltr"><figure id="26239073-1e23-80c5-b425-f9f04ad869db" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%207.png"><img style="width:317.9829406738281px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%207.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="26239073-1e23-805e-b8ac-f47ac9776e60" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%208.png"><img style="width:653.9750366210938px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%208.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="26239073-1e23-803d-b825-e03d5e524c5d" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%209.png"><img style="width:508.3948669433594px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%209.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-809d-908b-df3c88f3807b" class="toggle"><li><details open=""><summary><strong>Aclaraciones IMPORTANTES</strong></summary><div style="display:contents" dir="auto"><ul id="28139073-1e23-8001-b9e5-d33606c723b3" class="bulleted-list"><li style="list-style-type:disc">⚠️ El modo kiosco tiene que tener de preferencia el WIFI activo. De terminarse los datos en modo kiosco, no se puede configurar un WIFI, por lo tanto no se puede sacar del modo kiosco </li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-80ec-abb9-e5733ba5664a" class="bulleted-list"><li style="list-style-type:disc">Los modos distintos a kiosco permiten generar la devolución de dinero desde el terminal, por lo tanto no se debería dejar un point disponible para un consumidor final si no está en modo kiosco</li></ul></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="26239073-1e23-80b4-a73d-d2163a2cf4bc" class="toggle"><li><details open=""><summary><mark class="highlight-default"><strong>Caja terminal / toteat atención a mesa en terminal</strong></mark></summary><div style="display:contents" dir="auto"><ul id="26239073-1e23-804f-b868-f2270d9a7ec0" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"><strong>Asociar terminal a caja toteat</strong></mark></summary><div style="display:contents" dir="auto"><ul id="26239073-1e23-802f-833e-cf480714723a" class="bulleted-list"><li style="list-style-type:disc">Ir al menú → Restaurantes → Cajas → Agregar Caja / ir al lápiz de edición</li></ul></div><div style="display:contents" dir="ltr"><figure id="26239073-1e23-809a-94b9-c5a6503433ee" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2010.png"><img style="width:508.38067626953125px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2010.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="26139073-1e23-8166-bb85-f80c4fb87988" class="bulleted-list"><li style="list-style-type:disc">Aquí asociar el terminal correspondiente en el parámetro “Terminales Mercado Point Smart”.</li></ul></div><div style="display:contents" dir="ltr"><figure id="26239073-1e23-80ff-9e74-f361072aa3de" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2011.png"><img style="width:385.96588134765625px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2011.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="26239073-1e23-8081-ae87-c144cfaa89fb" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2012.png"><img style="width:357.96875px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2012.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="26139073-1e23-812d-ba55-ec778129841b" class="bulleted-list"><li style="list-style-type:disc">Confirmar y grabar los cambios</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="26239073-1e23-808e-b93c-efc8b652ec1b" class="toggle"><li><details open=""><summary><mark class="highlight-yellow_background">Proceso para instalar el app de toteat en el Point</mark></summary><div style="display:contents" dir="auto"><p id="26439073-1e23-8064-b525-fe8f9d8e560b" class="">La app la instala el equipo de Mercado Pago, por lo que ya debería encontrarse en el Point. En caso de no ser así, ponerse en contacto con ellos</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="26239073-1e23-80a8-8c5d-f99d33dc0205" class="toggle"><li><details open=""><summary>Ajustes de equipo para Mercado Point atención a mesas</summary><div style="display:contents" dir="auto"><div id="26239073-1e23-8072-99a4-d546b331bebd" class="column-list"><div style="display:contents" dir="auto"><div id="26239073-1e23-802b-ad5f-f2b6fe44e07c" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="26239073-1e23-80a3-a261-c7da98d31291" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2013.png"><img style="width:320.9801025390625px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2013.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="26239073-1e23-8002-a5f1-e4d7dddcbcaf" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="26239073-1e23-808b-9758-f2b335b3168c" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2014.png"><img style="width:318.9772644042969px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2014.png"/></a></figure></div></div></div></div></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="26239073-1e23-8046-b191-f4290e871b71" class=""><mark class="highlight-orange">7. Ejemplos de integración </mark></h3></div><div style="display:contents" dir="auto"><ul id="26139073-1e23-81c7-b72f-ed7432b0d62e" class="toggle"><li><details open=""><summary><mark class="highlight-default"><mark class="highlight-default_background"><strong>Ejemplo de uso en Caja</strong></mark></mark></summary><div style="display:contents" dir="auto"><p id="26239073-1e23-802b-a6e5-ffc86c55e7bf" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="26239073-1e23-804b-9280-dc524d6df84b"><div class="source"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/20250902_123229.mp4">attachment:c18d2be7-aa83-49ee-9d14-6f1eb78619cc:20250902_123229.mp4</a></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="26239073-1e23-807c-b932-f64a79221136" class="toggle"><li><details open=""><summary><mark class="highlight-default"><mark class="highlight-default_background"><strong>Ejemplo de uso en atención a mesa</strong></mark></mark></summary><div style="display:contents" dir="ltr"><figure id="26239073-1e23-8029-ae46-f8dfee49f749"><div class="source"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/20250902_123757.mp4">attachment:7649ce1a-a29e-4ec7-aa88-a8cd9b5e698a:20250902_123757.mp4</a></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="26239073-1e23-80f4-848b-efcaa3ab24c2" class="toggle"><li><details open=""><summary><mark class="highlight-default"><mark class="highlight-default_background"><strong>Ejemplo de uso en kiosco</strong></mark></mark></summary><div style="display:contents" dir="ltr"><figure id="26239073-1e23-80d7-806b-c991a6e974ce"><div class="source"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/20250902_124709.mp4">attachment:9a503b5e-26b5-4763-a593-7e8d7e111f91:20250902_124709.mp4</a></div></figure></div><div style="display:contents" dir="auto"><p id="26239073-1e23-80f5-88e7-e57dcdfd3b04" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="29339073-1e23-808a-81c2-f78ecc4fa779" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="29339073-1e23-8006-ba46-f0f2031f0c3d" class=""><mark class="highlight-orange">X. Configuración Mercado Pago Point con la tienda (14/10/25)</mark></h3></div><div style="display:contents" dir="auto"><p id="29339073-1e23-8074-bb0c-ebc8a7e71c42" class="">Se aplicaron cambios en la configuración de terminales de MP Point. El objetivo es asegurar que las terminales aparezcan correctamente en la lista de configuración. De esta forma podremos solucionar el problema que solo muestra las primeras 50 y operaciones podrá configurarlas sin la necesidad de cambiar campos por api con la ayuda de ingeniería.</p></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Detalles técnicos:</strong></summary><div class="indented"><div style="display:contents" dir="auto"><ol type="1" id="29339073-1e23-8066-89a6-fb5d1941728d" class="numbered-list" start="1"><li><strong>Configuración de tienda:</strong><div style="display:contents" dir="auto"><ul id="29339073-1e23-805f-a919-d9a1628b76fa" class="bulleted-list"><li style="list-style-type:disc">La tienda debe mostrar el mensaje:<div style="display:contents" dir="auto"><p id="29339073-1e23-80c3-ae76-f5123e3746f7" class=""><em>“Local configurado correctamente. Id de local Mercado Pago 70327614”</em>.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="29339073-1e23-8062-bd59-f0a471a368b3" class="bulleted-list"><li style="list-style-type:disc">Se deben completar todos los campos con valores correctos.</li></ul></div><div style="display:contents" dir="auto"><ul id="29339073-1e23-80ca-9417-c9d5e383130c" class="bulleted-list"><li style="list-style-type:disc">Si varias sucursales comparten el mismo nombre, luego no podrán diferenciarse en la lista.</li></ul></div><div style="display:contents" dir="auto"><ul id="29339073-1e23-8017-9525-d423b7e08678" class="bulleted-list"><li style="list-style-type:disc"><em>Ejemplo de tienda configurada correctamente.</em></li></ul></div><div style="display:contents" dir="ltr"><figure id="29339073-1e23-80a3-be10-df58e76ee7a8" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2015.png"><img style="width:626.0510864257812px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2015.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="29339073-1e23-80f1-b04c-ce1a33906dc0" class="numbered-list" start="2"><li><strong>Configuración de terminal:</strong><div style="display:contents" dir="auto"><ul id="29339073-1e23-809a-b80e-d4e6dbd9c75c" class="bulleted-list"><li style="list-style-type:disc">La terminal debe estar asociada a la tienda correspondiente.</li></ul></div><div style="display:contents" dir="auto"><ul id="29339073-1e23-80e1-8be5-d329b2c2ad51" class="bulleted-list"><li style="list-style-type:disc">Al configurar por primera vez, se realiza desde la propia terminal.<div style="display:contents" dir="auto"><p id="29339073-1e23-8026-9840-efecb8a630e7" class=""><em>Configuración inicial desde terminal.</em></p></div><div style="display:contents" dir="ltr"><figure id="29339073-1e23-8089-ac25-c001795b1526" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2016.png"><img style="width:192px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2016.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="29339073-1e23-80ae-951f-c66d20948737" class="bulleted-list"><li style="list-style-type:disc">Para cambiar la tienda asignada desde el <strong>portal de Mercado Pago</strong>:<div style="display:contents" dir="auto"><ol type="1" id="29339073-1e23-8062-a70e-e5a8605bebfb" class="numbered-list" start="1"><li>Ir a la barra izquierda → <em>Tu negocio</em> → <em>Tus máquinas Point</em>.<div style="display:contents" dir="ltr"><figure id="29339073-1e23-8027-99f9-c0d345654816" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2017.png"><img style="width:192px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2017.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="29339073-1e23-8091-aeae-cf14afe20ca7" class="numbered-list" start="2"><li>Seleccionar los tres puntitos → <em>Cambiar de caja mi máquina</em>.<div style="display:contents" dir="ltr"><figure id="29339073-1e23-801c-9bb4-ca81f002074c" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2018.png"><img style="width:598.0681762695312px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2018.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="29339073-1e23-80f5-8835-e84d74365162" class="numbered-list" start="3"><li>Elegir la misma tienda configurada en Toteat (una caja diferente por cada terminal).<div style="display:contents" dir="ltr"><figure id="29339073-1e23-8073-9c18-dea6be5ba2ce" class="image"><a href="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2019.png"><img style="width:336px" src="Mercado%20Pago%20Point%20(Caja,%20Kiosco%20y%20Mesa)/image%2019.png"/></a></figure></div></li></ol></div></li></ul></div><div style="display:contents" dir="auto"><p id="29339073-1e23-80f4-80fd-f2dfa90c6665" class="">⚠️ Si hay más de una terminal en la misma caja, solo una podrá usarse de forma integrada.</p></div></li></ol></div></div></details></div><div style="display:contents" dir="auto"><h3 id="26139073-1e23-81c1-a44f-e2bad814cc59" class=""><mark class="highlight-orange">8. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="26139073-1e23-8184-b5f8-eb7e1dd02c42" class="bulleted-list"><li style="list-style-type:disc">Se configura y utiliza correctamente la integración con Mercado Pago Point</li></ul></div><div style="display:contents" dir="auto"><ul id="26139073-1e23-81e9-b884-d13b49b734fe" class="bulleted-list"><li style="list-style-type:disc">Realizar pago de prueba</li></ul></div><div style="display:contents" dir="auto"><h3 id="26139073-1e23-81ae-8133-fad92c34ccc9" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="26139073-1e23-813b-a87b-d505838a1e9f" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="26139073-1e23-81fb-88eb-ef11afe34c51"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="26139073-1e23-8125-915d-cc11c745a6d6"><td id="nU|h" class="">2-09-2025</td><td id="WwCq" class=""><span class="user">@Francisco Ramirez</span> y <span class="user">@Cristian Marín</span> </td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26139073-1e23-812d-9861-fcbc7d4a00e9"><td id="nU|h" class="">3-10-2025</td><td id="WwCq" class=""><span class="user">@Cristian Marín</span> </td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26139073-1e23-8103-82d7-e14344c8775d"><td id="nU|h" class="">21-10-2025</td><td id="WwCq" class=""><span class="user">@Cristian Marín</span> </td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="29a39073-1e23-80b0-8600-daeeaed354db" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

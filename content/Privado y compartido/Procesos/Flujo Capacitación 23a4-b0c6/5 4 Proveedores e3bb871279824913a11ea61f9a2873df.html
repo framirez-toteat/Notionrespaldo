@@ -1,0 +1,745 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>5.4. Proveedores</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e3bb8712-7982-4913-a11e-a61f9a2873df" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">5.4. Proveedores</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><nav id="02a7180e-1e4e-4832-b129-42994e2289b9" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#aa0cc130-7265-4378-8613-6655c3636a9e"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ccf37534-255a-4199-ac6f-0529ec0a7932"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#21e48268-9760-4532-b28a-61550d8ee207"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ccf9e974-7632-41f4-b1c8-5017f63e5f83"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#3258b2ca-0229-43ae-bcf8-d0f38c04241a"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#775e29fe-ede4-424f-9807-9f29d398e13e"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#aa10ba01-b18a-4e85-9b03-ed5829f2ca93"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#defa90f0-cf2b-463a-bebd-74fce1ca06e6"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e44d877f-9e21-4f66-b84a-0fbbcd1e03a1"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="aa0cc130-7265-4378-8613-6655c3636a9e" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="abc2de5d-0724-4afe-8797-4fbe37803125" class="">En este proceso veremos cómo asociar un proveedor a un insumo específico, con el fin de llevar un mejor control interno. Analizaremos:</p></div><div style="display:contents" dir="auto"><ul id="25c2c13f-c3f1-4401-aefb-c0b5bea27f90" class="bulleted-list"><li style="list-style-type:disc">Proveedor</li></ul></div><div style="display:contents" dir="auto"><ul id="19739525-2c9e-42aa-af3f-72e6a588c26f" class="bulleted-list"><li style="list-style-type:disc">Costo neto negociado</li></ul></div><div style="display:contents" dir="auto"><ul id="aad057c1-2333-443b-b5e1-4993bf75e89e" class="bulleted-list"><li style="list-style-type:disc">Unidad de medida del costo anterior</li></ul></div><div style="display:contents" dir="auto"><ul id="e0678d84-3bec-4881-a686-fa37d8c13b7d" class="bulleted-list"><li style="list-style-type:disc">Costo neto de distribución (opcional)</li></ul></div><div style="display:contents" dir="auto"><ul id="74483b3b-47ef-4c1d-8d1d-7a8c06af6695" class="bulleted-list"><li style="list-style-type:disc">Porcentaje de descuento negociado</li></ul></div><div style="display:contents" dir="auto"><ul id="477147f6-9a62-47dd-ab40-7afcca3b55f1" class="bulleted-list"><li style="list-style-type:disc">Formato de compra permitido en facturas</li></ul></div><div style="display:contents" dir="auto"><h3 id="ccf37534-255a-4199-ac6f-0529ec0a7932" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="50f7aab3-6b07-49f5-951f-49f0f9175cba" class="">El alcance de este proceso abarca la asociación de proveedores a insumos específicos dentro del sistema de gestión de inventario y compras. Incluye:</p></div><div style="display:contents" dir="auto"><ul id="fd5dc977-4c9a-45a1-9902-e6ac7e23030a" class="bulleted-list"><li style="list-style-type:disc">La identificación y registro de proveedores para cada insumo.</li></ul></div><div style="display:contents" dir="auto"><ul id="95a553ae-53de-42d4-8f02-8e71582c6991" class="bulleted-list"><li style="list-style-type:disc">La configuración de costos netos negociados y sus unidades de medida correspondientes.</li></ul></div><div style="display:contents" dir="auto"><ul id="77650ca6-6e9d-4d65-868d-13e5a52391c5" class="bulleted-list"><li style="list-style-type:disc">El establecimiento de costos netos de distribución cuando sea aplicable.</li></ul></div><div style="display:contents" dir="auto"><ul id="4e07d103-e801-4382-89ba-02f86fcc261b" class="bulleted-list"><li style="list-style-type:disc">La definición de porcentajes de descuento negociados con los proveedores.</li></ul></div><div style="display:contents" dir="auto"><ul id="aa28daae-8db9-48be-96db-117307694b3a" class="bulleted-list"><li style="list-style-type:disc">La especificación de formatos de compra permitidos en las facturas.</li></ul></div><div style="display:contents" dir="auto"><p id="3da135fc-bc74-4312-a5b2-5b4643859cc9" class="">Este proceso es fundamental para optimizar el control interno de los insumos, facilitando una gestión más eficiente de las relaciones con los proveedores y los costos asociados a cada producto.</p></div><div style="display:contents" dir="auto"><h3 id="21e48268-9760-4532-b28a-61550d8ee207" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="bc0758f9-a268-4c76-80f7-48e2bb2e689f" class="">Para iniciar este proceso de asociación de proveedores a insumos específicos, se requiere la siguiente información:</p></div><div style="display:contents" dir="auto"><ul id="f00a8742-c962-45cf-bd80-7cffc7785dc0" class="bulleted-list"><li style="list-style-type:disc">Lista actualizada de proveedores aprobados por la empresa.</li></ul></div><div style="display:contents" dir="auto"><ul id="f551567d-9073-4672-b003-e91ca1aa6cb9" class="bulleted-list"><li style="list-style-type:disc">Catálogo de insumos utilizado en el sistema de gestión de inventario.</li></ul></div><div style="display:contents" dir="auto"><ul id="1b12703c-ab51-4e59-8b4b-c5820abf96e4" class="bulleted-list"><li style="list-style-type:disc">Información detallada sobre los costos netos negociados con cada proveedor para cada insumo.</li></ul></div><div style="display:contents" dir="auto"><ul id="1621696e-760b-4e46-b8fe-c675722f2ce8" class="bulleted-list"><li style="list-style-type:disc">Unidades de medida estándar utilizadas para cada insumo.</li></ul></div><div style="display:contents" dir="auto"><ul id="41774949-5663-4976-a909-f2cebffc2ec4" class="bulleted-list"><li style="list-style-type:disc">Datos sobre costos netos de distribución, si aplican.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f011219-8f78-4e5a-933e-1c26cea1d80d" class="bulleted-list"><li style="list-style-type:disc">Registro de los porcentajes de descuento negociados con cada proveedor.</li></ul></div><div style="display:contents" dir="auto"><ul id="697e7501-822d-45d3-b505-74602d53cf45" class="bulleted-list"><li style="list-style-type:disc">Especificaciones sobre los formatos de compra aceptados en las facturas de los proveedores.</li></ul></div><div style="display:contents" dir="auto"><p id="a003e5c4-12d3-4fb2-b94a-050f0698f24d" class="">Esta información es crucial para realizar una asociación precisa y eficiente entre proveedores e insumos, lo que permitirá un mejor control interno y una gestión optimizada de las compras y el inventario.</p></div><div style="display:contents" dir="auto"><h3 id="ccf9e974-7632-41f4-b1c8-5017f63e5f83" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="8d862657-9ae3-4836-b080-5a88e77eaa1d" class="toggle"><li><details open=""><summary><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="5990711d-d2a8-48e5-a3a7-00afcfc5f472" class="bulleted-list"><li style="list-style-type:disc">Poseer los permisos necesarios en el sistema para modificar los insumos de manera masiva o individual.</li></ul></div><div style="display:contents" dir="auto"><ul id="cebda8ab-20b0-46d8-a012-dffd60d7fa1e" class="bulleted-list"><li style="list-style-type:disc">Listado de ingredientes por proveedor configurado en el sistema.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="3258b2ca-0229-43ae-bcf8-d0f38c04241a" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="2feec28d-2eb5-453f-8b8b-e27116cb0683" class="toggle"><li><details open=""><summary><strong>Paso 1: Proveedores</strong></summary><div style="display:contents" dir="auto"><ul id="019706a4-cb2b-4fc3-afc1-ea74029b3517" class="bulleted-list"><li style="list-style-type:disc">Estando en el lápiz del insumo, iremos a “Stocks”</li></ul></div><div style="display:contents" dir="auto"><ul id="83e41d33-973c-45a9-b3e3-35e5c8b4e0ad" class="bulleted-list"><li style="list-style-type:disc">Aquí podremos configurar internamente cada proveedor. Es importante que la primera opción siempre sea &quot;Todos&quot;.<div style="display:contents" dir="ltr"><figure id="15c2a739-617d-48b4-9cbd-30b2f20161b1" class="image"><a href="5%204%20Proveedores/image.png"><img style="width:680px" src="5%204%20Proveedores/image.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="3e404654-7734-4c7c-8edf-0d457a1f0794" class="bulleted-list"><li style="list-style-type:disc">Para poder asociar un proveedor en específico, presionamos “Agregar Proveedor”</li></ul></div><div style="display:contents" dir="auto"><ul id="2efd9e37-e7b1-42af-bc00-00a45ee967b0" class="bulleted-list"><li style="list-style-type:disc">Bajamos, y podremos rellenar los datos que necesitemos.<div style="display:contents" dir="ltr"><figure id="643ff525-b074-4857-bb82-ac113818e4a9" class="image"><a href="5%204%20Proveedores/image%201.png"><img style="width:680px" src="5%204%20Proveedores/image%201.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><p id="c7f14f86-8a28-43a2-9c52-1ffe30a3d123" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="09fddfbf-c358-4fa3-b689-b482bf57f86e" class="bulleted-list"><li style="list-style-type:disc"><strong>Proveedor: </strong>Selecciona un proveedor de la lista.</li></ul></div><div style="display:contents" dir="auto"><ul id="f5affbd4-3385-4519-8891-4128782cd76d" class="bulleted-list"><li style="list-style-type:disc"><strong>Costo Neto Negociado: </strong>Es opcional, pero te ayudará al ingresar la factura de compra. El monto se completará automáticamente y, si el proveedor cambia el precio, se mostrará una alerta.</li></ul></div><div style="display:contents" dir="auto"><ul id="50089483-5c1a-4e5d-ba66-334fd9d11961" class="bulleted-list"><li style="list-style-type:disc"><strong>Unidad de medida del costo anterior: </strong>Coloca la unidad de medida correspondiente solo si haz ingresado el precio.</li></ul></div><div style="display:contents" dir="auto"><ul id="86e50c1c-3f3d-4ac9-a9a8-749b5d48c894" class="bulleted-list"><li style="list-style-type:disc"><strong>Costo Neto de Distribución: </strong>Opcional.(<em>Actualmente no disponible)</em>.</li></ul></div><div style="display:contents" dir="auto"><ul id="1ee4f91b-af48-4d53-b97f-5765ea29767e" class="bulleted-list"><li style="list-style-type:disc"><strong>% Descuento Negociado: </strong>Ingresa el porcentaje de descuento acordado con el proveedor.</li></ul></div><div style="display:contents" dir="auto"><ul id="42f8de92-ff6e-497c-8202-38f7aae14024" class="bulleted-list"><li style="list-style-type:disc"><strong>Formato de compra permitido en facturas: </strong>Es crucial completar este campo para evitar errores de unidades de medida al ingresar facturas.</li></ul></div><div style="display:contents" dir="auto"><ul id="0da79c35-63bb-4653-9c27-3e2512b477f8" class="bulleted-list"><li style="list-style-type:disc"><strong>Costo interno para manejo de inventarios</strong>: Establece el costo que se utilizará internamente para gestionar el inventario.</li></ul></div><div style="display:contents" dir="auto"><ul id="2e9df030-eb6c-451a-ba7c-233c21033944" class="bulleted-list"><li style="list-style-type:disc"><strong>Nombre Producto en Maestro de Proveedor: </strong>Se relaciona el nombre del producto del proveedor con el de nuestro sistema, permitiendo la importación de facturas a través de un archivo XML o la carga DTE de Toteat.</li></ul></div><div style="display:contents" dir="auto"><ul id="b2311111-917e-45cc-901a-8f3566361fd5" class="bulleted-list"><li style="list-style-type:disc"><strong>Código de Producto en Maestro de Proveedor:</strong> Se establece una relación entre el código del sistema y el del proveedor, para una carga de facturas.</li></ul></div><div style="display:contents" dir="auto"><p id="11f39073-1e23-8018-887b-c08833e2abde" class=""><strong>Configuración de carga &quot;Automática&quot; de facturas:</strong></p></div><div style="display:contents" dir="auto"><ul id="11f39073-1e23-80df-a34a-ec040baf7cd3" class="bulleted-list"><li style="list-style-type:disc">Dentro de la misma sección de proveedores, en el insumo, una vez agregado un proveedor, se deberá seleccionar el deseado para luego configurar el &quot;Formato de compra permitido en facturas&quot;, el &quot;Nombre de producto en el maestro de proveedor&quot; y el &quot;Código de producto en el maestro de proveedor&quot;.</li></ul></div><div style="display:contents" dir="ltr"><figure id="11f39073-1e23-80b4-8cd5-ddc640589ea0" class="image"><a href="5%204%20Proveedores/c9d0808f-bfdc-445b-9d71-f505307def58.png"><img style="width:720px" src="5%204%20Proveedores/c9d0808f-bfdc-445b-9d71-f505307def58.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12039073-1e23-800b-9df6-c1b629be7438" class=""><strong>Nota: </strong>Este paso es importante cuando necesitamos cargar facturas desde DTE o el archivo XML.</p></div><div style="display:contents" dir="auto"><p id="15f39073-1e23-80c6-ae5d-ef4fb3a22f8d" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="775e29fe-ede4-424f-9807-9f29d398e13e" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="bc1a3c57-e3c0-419c-8b35-0cda834e0fc3" class="bulleted-list"><li style="list-style-type:disc">Configuración interna avanzada de los insumos.</li></ul></div><div style="display:contents" dir="auto"><ul id="545e775c-73e8-4259-8a15-971dc9289031" class="bulleted-list"><li style="list-style-type:disc">Insumo asociado a su proveedor.</li></ul></div><div style="display:contents" dir="auto"><ul id="89484087-e688-4ec9-b210-e62394aa5e76" class="bulleted-list"><li style="list-style-type:disc">Registro de la configuración realizada para futuras referencias o auditorías.</li></ul></div><div style="display:contents" dir="auto"><h3 id="aa10ba01-b18a-4e85-9b03-ed5829f2ca93" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="2b0f4c67-2270-4dbb-8d32-c49d34da7a46" class="bulleted-list"><li style="list-style-type:disc">Cliente desea llevar el control en los proveedores, y no en los insumos.</li></ul></div><div style="display:contents" dir="auto"><h3 id="defa90f0-cf2b-463a-bebd-74fce1ca06e6" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="7667240f-8f7d-46a1-8f10-e86dc22d784e" class="bulleted-list"><li style="list-style-type:disc">Luego de haber grabado, ingresar para revisar lo existente.</li></ul></div><div style="display:contents" dir="auto"><h3 id="e44d877f-9e21-4f66-b84a-0fbbcd1e03a1" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="ba482d6e-b604-4e21-b0f9-3a6da1ef14e0" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="363bfda1-8420-4c46-937f-7d6d480159d8"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="6db76cae-b3cd-48d7-aea9-d295164072c3"><td id="nU|h" class="">04-09-2024</td><td id="WwCq" class=""><span class="user">@Marcelo Sepulveda</span> </td><td id="i;pn" class=""><span class="user">@Francisco Ramirez</span> </td><td id="q^a=" class="">4-3005.4</td></tr></div><div style="display:contents" dir="ltr"><tr id="31c82d9a-5dab-47af-a624-e72be039b571"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="6d5cf81c-95c2-4ed4-a549-a1c2ab8cff86"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="5294efe7-71ed-4821-b0b4-90db44e48eb2"/></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

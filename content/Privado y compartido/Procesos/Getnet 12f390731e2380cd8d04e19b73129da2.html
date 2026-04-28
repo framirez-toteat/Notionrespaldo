@@ -1,0 +1,771 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Getnet</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="12f39073-1e23-80cd-8d04-e19b73129da2" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1608496601160-f86d19a44f9f?ixlib=rb-4.0.3&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_brown.svg"/></div><h1 class="page-title" dir="auto">Getnet</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td><span class="selected-value select-value-color-yellow">Integraciones</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha de creación</th><td><time>30 de octubre de 2024</time></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12f39073-1e23-81ef-b57e-e267747e45b9"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Propósito: “Configuración y uso para integración con terminal Getnet para conciliación de pagos con TRM”</strong>.</div></figure></div><div style="display:contents" dir="ltr"><nav id="12f39073-1e23-8140-8583-d79f52cb415d" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-8137-9628-dd41a260f2a8"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-817e-88d6-e0eef63bc45f"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-8106-8ed9-efa467e069cc"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-8104-bff5-edb8a0ee8b87"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-81c7-9d48-fcd4001272a4"><mark class="highlight-orange">5. Procedimiento de configuración y uso</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#17439073-1e23-8029-8fd2-d78d88354a59"><mark class="highlight-orange">6. Video Procedimiento</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1dd39073-1e23-808c-b8a9-c01b41714fbe"></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#17439073-1e23-8018-9794-f54bf7af4005"><mark class="highlight-orange">7. Contactos Getnet</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#17439073-1e23-8064-b5ef-f60d9e474256"><mark class="highlight-orange">8. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-8141-8144-c3bfbf241b84"><mark class="highlight-orange">9. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-810b-870a-dc6f54ee9977"><mark class="highlight-orange">10. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12f39073-1e23-81fc-8b92-eb2c45fd5ed2"><mark class="highlight-orange">11. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-8137-9628-dd41a260f2a8" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-8154-a29d-e02df315e9e2" class="">Este documento trata acerca de la configuración y uso de la configuración de <em>Getnet</em> para Chile, dando paso al proceso de <em>payments</em> para TRM con este dispositivo. Esta integración está habilitada para uso como terminal de pago con envío desde Caja, uso de TRM en el dispositivo para “Cajero Móvil” y para uso del terminal asociado a un tótem. </p></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-817e-88d6-e0eef63bc45f" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-81e0-be93-cae25f8b934d" class="">Este documento debe aplicarse para clientes que necesiten la integración con el terminal <em>Getnet.</em></p></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-8106-8ed9-efa467e069cc" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><ol type="1" id="16139073-1e23-8030-bab5-d2b1c295b65c" class="numbered-list" start="1"><li>Solicitud de credenciales:<br/>El KAM de toteat debe enviar un correo a <a href="mailto:elias.mendez@getnet.cl">elias.mendez@getnet.cl</a> / <a href="mailto:daniel.maldonado@santander.cl">daniel.maldonado@santander.cl</a> / <a href="mailto:rafael.villagra@getnet.cl">rafael.villagra@getnet.cl</a> solicitando la activación de las credenciales y el siguiente formato:<br/><br/><strong>ASUNTO</strong>: Activación integración Toteat-Getnet cliente XXXX<br/><br/><strong>MENSAJE</strong>:                                                                                                                                              </li></ol></div><div style="display:contents" dir="auto"><p id="18139073-1e23-80f0-b8c6-febc634d8bb3" class="">Datos: Sociedad (Rut y nombre razón Social)</p></div><div style="display:contents" dir="auto"><p id="18139073-1e23-807b-8eb8-d300923bc6aa" class="">Contacto:  cliente (Nombre, teléfono, correo y cargo)</p></div><div style="display:contents" dir="auto"><p id="18139073-1e23-80eb-a890-c3d6a1323eef" class="">Ubicación:  Sucursal (Nombre y Dirección).</p></div><div style="display:contents" dir="auto"><ol type="1" id="16539073-1e23-8057-b5e4-e7f0d5f073ab" class="numbered-list" start="1"><li>Correo de respuesta con &quot;Credenciales de acceso&quot;:<br/>Llegará un correo a clientes@toteat.com, Tomás Grohnert y Jan Stillfried con la información requerida, los campos importantes son CLIENTID Y CLIENTSECRET</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="20939073-1e23-80fe-85b7-d9c3c501a08d" class="numbered-list" start="2"><li>Llegará al domicilio del cliente los dispositivos.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="16539073-1e23-8088-8cf8-d33583af2781" class="numbered-list" start="3"><li>Con esta información se puede comenzar el procedimiento 5 de integración. </li></ol></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-8104-bff5-edb8a0ee8b87" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81c0-b16d-dc1dd4c34615" class="toggle"><li><details open=""><summary><strong>Se debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81a5-b457-c15065efc41c" class="bulleted-list"><li style="list-style-type:disc">Lo debe realizar el perfil dueño/creador. </li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-811b-aa0e-dc581e3b3eab" class="bulleted-list"><li style="list-style-type:disc">El terminal recomendado para la utilización de la integración es el <strong>modelo A960. </strong>El modelo A920 Pro y el INGENICO funcionan de igual manera pero podrían tener peor rendimiento.</li></ul></div><div style="display:contents" dir="auto"><ul id="1dd39073-1e23-8098-85da-ce584a105a00" class="bulleted-list"><li style="list-style-type:disc">Se debe tener instaladas las aplicaciones G-Services y Pago Getnet (Getnetapp).</li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-817a-955a-df59cf72c263" class="bulleted-list"><li style="list-style-type:disc">Estar en la última versión de TRM.</li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8112-a94e-f53fd2ecd59b" class="bulleted-list"><li style="list-style-type:disc">La integración es solo para utilizar tarjetas, apple pay o google pay, no acepta billeteras electrónicas configuradas en él. (Mercadopago, Mach, etc...)</li></ul></div><div style="display:contents" dir="auto"><ul id="13439073-1e23-80d8-9df9-e31b151d7541" class="bulleted-list"><li style="list-style-type:disc">Disponible en TRM Versión Legacy y New. </li></ul></div><div style="display:contents" dir="auto"><ul id="23039073-1e23-80a7-8af9-e037e28b96ab" class="bulleted-list"><li style="list-style-type:disc">Existen dos aplicaciones (Legacy = Toteat Getnet) &amp; (New = Toteat Getnet Res7) se debe solicitar a Getnet instalar la versión de la apk que corresponda al ambiente del cliente.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-81c7-9d48-fcd4001272a4" class=""><mark class="highlight-orange">5. Procedimiento de configuración y uso</mark></h3></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81a9-91a9-feed599aeddf" class="toggle"><li><details open=""><summary><mark class="highlight-orange"><strong>5.1. Configuración de la integración</strong></mark></summary><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8106-a064-f0252ecf4da6" class="toggle"><li><details open=""><summary><strong>Paso 1: Activación forma de pago.</strong></summary><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8175-99a8-e9171cf75118" class="bulleted-list"><li style="list-style-type:disc">Activar la forma de pago Getnet PDV desde Menú lateral &gt; Restaurante &gt; Ajustes generales &gt; Formas de pago.</li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-813b-a965-f0a8a374b242" class="bulleted-list"><li style="list-style-type:disc">Selecciona la forma de pago ‘Getnet PDV’ y confirmar.</li></ul></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-80f4-b005-fe75190ce05b" class="image"><a href="Getnet/image.png"><img style="width:528px" src="Getnet/image.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-811f-baf3-ec9b29fc93f7" class="bulleted-list"><li style="list-style-type:disc">Grabar la forma de pago en el ícono superior.</li></ul></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-816b-a83e-d7409f3405ce" class="image"><a href="Klap/image%201.png"><img style="width:384px" src="Klap/image%201.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81af-b689-f76bb7596047" class="toggle"><li><details open=""><summary><strong>Paso 2: Activación integración.</strong></summary><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8180-b708-f4a299433b41" class="bulleted-list"><li style="list-style-type:disc">Ir al módulo de la integración en Menú lateral &gt; Integraciones &gt; Getnet.</li></ul></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-8089-802b-fc9277243a65" class="image"><a href="Getnet/image%201.png"><img style="width:288px" src="Getnet/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21639073-1e23-8046-88cf-d47cb8946ea6" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81f9-8f5b-c0124aff7180" class="bulleted-list"><li style="list-style-type:disc">Dar “Sí” al campo de activar integración, en el menú de Configuración.</li></ul></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-80b7-b110-fa8cacc0828e" class="image"><a href="Getnet/image%202.png"><img style="width:651.9625244140625px" src="Getnet/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81e7-a938-d3dc667bb61a" class="bulleted-list"><li style="list-style-type:disc">Completar los datos para la integración: <br/>- ID de sucursal (único por sucursal, independiente si corresponden a la misma cadena y/o razón social) <mark class="highlight-orange"><strong>Este dato aparece en los terminales</strong></mark><mark class="highlight-orange"><strong> en  </strong></mark><a href="Getnet%2012f390731e2380cd8d04e19b73129da2.html">Reportes Terminal</a><br/>- ID cliente (único por cliente y/o razón social)<br/>- Llave secreta para integración (único por cliente y/o razón social)<br/><mark class="highlight-orange"><strong>Estos datos los debe proveer Getnet directamente, nosotros enviamos un correo de solicitud y la respuesta de ellos llegará a clientes@toteat.com</strong></mark><br/><br/></li></ul></div><div style="display:contents" dir="auto"><p id="17439073-1e23-80ab-8884-f470aa289b39" class=""><strong>Grabar una vez han sido ingresado los datos.</strong></p></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-80a3-8398-e74bbda3baa7" class="image"><a href="Getnet/image%203.png"><img style="width:651.9750366210938px" src="Getnet/image%203.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="21639073-1e23-8047-9d03-c1262c6d2e5c" class="toggle"><li><details open=""><summary><strong>Paso 3: Agregar Terminales.</strong></summary><div style="display:contents" dir="auto"><ul id="12f39073-1e23-80be-b0cd-d2351c7f20fa" class="bulleted-list"><li style="list-style-type:disc">Para agregar los terminales, reingresar a la configuración y en la parte inferior están los cuadros a completar para el terminal, aquí se deben completar:<div style="display:contents" dir="auto"><p id="21639073-1e23-806c-9644-db88d4c0492d" class=""><br/><strong>Nombre del terminal: </strong>identificación del terminal  por definición del cliente.</p></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-80c9-b9a3-ca15271bf9c4" class=""><strong>S/N Terminal: </strong>se encuentra impreso en la parte trasera del dispositivo.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8095-a867-cc235290a2e2" class="toggle"><li><details open=""><summary><strong>ID Terminal: </strong> se obtiene directamente desde el equipo entrando a la aplicación “Pago Getnet” &gt; Menú superior derecho &gt; Reportes</summary><div style="display:contents" dir="auto"><p id="21639073-1e23-804d-b390-c73fa9e3abe0" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="21639073-1e23-8014-94d1-dba9ec0c9d64" class="image"><a href="Getnet/image%204.png"><img style="width:240px" src="Getnet/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21639073-1e23-800b-992f-cdb4596da558" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="21639073-1e23-8024-abf5-fe6d19840fa6" class="image"><a href="Getnet/image%205.png"><img style="width:240px" src="Getnet/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21639073-1e23-80db-aba9-cdbaf82f465a" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="21639073-1e23-8004-b658-e218f0aa37fd" class="image"><a href="Getnet/image%206.png"><img style="width:240px" src="Getnet/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21639073-1e23-8056-bf4f-c9cbaa312991" class="">
+</p></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-80a1-95ae-ff4d7ac7a556" class="">Ingresar a “Parámetros” e ingresar clave.</p></div><div style="display:contents" dir="ltr"><figure id="21639073-1e23-80f9-bb14-eb2c9c2d89d9" class="image"><a href="Getnet/image%207.png"><img style="width:240px" src="Getnet/image%207.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-8002-92dc-d45e26f058aa" class="">Hecho esto, se imprimirá un reporte desde el equipo con la información de ID Terminal, ID sucursal, entre otras.</p></div><div style="display:contents" dir="ltr"><figure id="21639073-1e23-80fa-9404-e175409aac43" class="image"><a href="Getnet/image%208.png"><img style="width:226px" src="Getnet/image%208.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21639073-1e23-806c-83dd-f50e50c6fb5d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-80a4-9b72-f9af0c5502cb" class="">Aquí encontraremos el ID del terminal correspondiente.<br/><br/><strong>Video:</strong></p></div><div style="display:contents" dir="ltr"><figure id="21639073-1e23-803d-bacb-de6ddc924c15"><div class="source"><a href="Getnet/A960_2025-06-18_16-19-10.mp4">Como imprimir reporte de terminal</a></div></figure></div><div style="display:contents" dir="auto"><p id="21639073-1e23-8083-9b1c-f3323ecda819" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81ab-80ac-eae2a756d540" class="bulleted-list"><li style="list-style-type:disc">Los campos “Imprime QR Toteat en precuenta” y “Imprime QR Toteat en recibo” dependerán directamente de la parametrización del cliente si es que desea unirlos. </li></ul></div><div style="display:contents" dir="auto"><ul id="1dd39073-1e23-8007-a724-defcdea2b010" class="bulleted-list"><li style="list-style-type:disc">El campo “Modo de operación del dispositivo” debe concordar con el tipo de uso que tendrá ese dispositivo (Autoatención o atención en caja)</li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8070-a7a9-c7168ecd036a" class="bulleted-list"><li style="list-style-type:disc">Grabar antes de enviar impresión de prueba. </li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8094-8aae-d0b92da85106" class="bulleted-list"><li style="list-style-type:disc"><strong>El tamaño de la letra del terminal es estándar, no se puede modificar ni configurar.</strong></li></ul></div><div style="display:contents" dir="ltr"><figure id="21639073-1e23-8054-9cb3-f526611f34d2" class="image"><a href="Getnet/image%209.png"><img style="width:639.7750244140625px" src="Getnet/image%209.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8098-9a22-c30440206212" class="toggle"><li><details open=""><summary><strong>Paso 4: Habilitar integración en terminal.</strong></summary><div style="display:contents" dir="auto"><p id="12f39073-1e23-80a1-8e2c-eea10be8b66e" class="">Para el caso de Getnet, el terminal también necesita dos configuraciones internas para que este funcione correctamente, para ello se debe: </p></div><div style="display:contents" dir="auto"><ul id="17439073-1e23-806a-9633-eb2e4def021f" class="toggle"><li><details open=""><summary><strong>4.1. Habilitar integración en G-Services:</strong></summary><div style="display:contents" dir="auto"><ol type="1" id="17439073-1e23-8065-8ddb-d2e5d386e6dc" class="numbered-list" start="1"><li>En la barra superior debe aparecer un ícono de una nube, si no está significa que hay un paso faltante para estar sincronizados con los servicios cloud de GETNET.</li></ol></div><div style="display:contents" dir="auto"><div id="21639073-1e23-8019-af04-faa66716a570" class="column-list"><div style="display:contents" dir="auto"><div id="21639073-1e23-80e1-97ce-fd5f54eb3c54" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="21639073-1e23-8065-9a49-ce5eabdf16cc" class="image" style="text-align:center"><a href="Getnet/image%2010.png"><img style="width:240px" src="Getnet/image%2010.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21639073-1e23-80a5-9b50-cdef85d501b4" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="21639073-1e23-80cb-aa65-c705b7f2dae0" style="width:50.000000000000014%" class="column"><div style="display:contents" dir="ltr"><figure id="21639073-1e23-80a6-b45f-f96bc949ab8a" class="image" style="text-align:center"><a href="Getnet/image%2011.png"><img style="width:240px" src="Getnet/image%2011.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><ol type="1" id="17439073-1e23-8007-97f4-f8b34c4ef254" class="numbered-list" start="2"><li>Se debe hacer click sobre aplicación azul (G-Services), el equipo descargará información y sincronizará con la nube. </li></ol></div><div style="display:contents" dir="auto"><div id="21639073-1e23-8045-81c4-e38c9d08e0ae" class="column-list"><div style="display:contents" dir="auto"><div id="21639073-1e23-80cf-9dd3-c6b17d192a66" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="21639073-1e23-8082-ab09-d3b970d055f2" class="image"><a href="Getnet/image%2012.png"><img style="width:240px" src="Getnet/image%2012.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21639073-1e23-80aa-8147-c13aeb33dd7d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="21639073-1e23-808b-91d0-da2e5f7cf76d" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="21639073-1e23-8085-9ed6-e80d6589d3ad" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="21639073-1e23-80cb-8a0b-f1879ce91253" class="image"><a href="Getnet/image%2013.png"><img style="width:240px" src="Getnet/image%2013.png"/></a></figure></div></div></div></div></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="17439073-1e23-801b-a026-f89018938778" class="toggle"><li><details open=""><summary><strong>4.2. Tipo de integración en terminal (Pago Getnet):</strong></summary><div style="display:contents" dir="auto"><p id="21639073-1e23-8014-b135-ce7526df4531" class="">Para utilizar correctamente el terminal, se debe configurar en la aplicación “Pago Getnet” según la usabilidad que se le dará a este, si se utilizará para levantar pagos desde un PDV (<strong>Caja a Terminal</strong>) se debe activar el modo “<strong>Cloud to cloud</strong>”, y si es que se utilizará como PDV y Caja Móvil (<strong>TRM dentro del terminal</strong>), se debe activar el modo “<strong>POS Integrado</strong>”.</p></div><div style="display:contents" dir="auto"><ul id="17439073-1e23-8091-995a-c4335815a889" class="toggle"><li><details open=""><summary><mark class="highlight-default"><strong>Activación modo cloud to cloud.</strong></mark><mark class="highlight-blue"><strong> </strong></mark></summary><div style="display:contents" dir="auto"><p id="21639073-1e23-809e-8741-dc8069f28afe" class="">Se debe ir a “Pago Getnet” &gt; Menú superior derecho &gt; Ícono de configuración (superior derecho) &gt; Modo de conexión.</p></div><div style="display:contents" dir="auto"><div id="21639073-1e23-8069-905c-ef7b8df485bf" class="column-list"><div style="display:contents" dir="auto"><div id="21639073-1e23-808c-aab3-cbefd61c8209" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="21639073-1e23-80af-91df-f18f969d831d" class="image"><a href="Getnet/image%2014.png"><img style="width:240px" src="Getnet/image%2014.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21639073-1e23-80c9-bde0-cf872072e2a4" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="21639073-1e23-80fe-9f5e-f9548b02366f" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="21639073-1e23-8007-aff3-d2043622c533" class="image"><a href="Getnet/image%2015.png"><img style="width:240px" src="Getnet/image%2015.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="21639073-1e23-8007-8f9c-e7036fd021bb" class="">Aquí se debe entrar al modo Cloud to cloud, una vez esté habilitado, mostrará un icono 🔄 verde en el extremo superior izquierdo, indicando que se activó correctamente.</p></div><div style="display:contents" dir="auto"><p id="21639073-1e23-80db-9a5a-cfb13cada36b" class="">
+</p></div><div style="display:contents" dir="auto"><div id="21639073-1e23-80ba-80c8-e85f33187b35" class="column-list"><div style="display:contents" dir="auto"><div id="21639073-1e23-801e-9fa3-fbc11ab0807c" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="21639073-1e23-80ca-9a39-d185155f20fa" class="image"><a href="Getnet/image%2016.png"><img style="width:240px" src="Getnet/image%2016.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21639073-1e23-806f-8942-e573f02d7f61" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="21639073-1e23-801c-8429-e7de83b1230e" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="21639073-1e23-8074-b97f-fded0355af5c" class="image"><a href="Getnet/image%2017.png"><img style="width:240px" src="Getnet/image%2017.png"/></a></figure></div></div></div></div></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-80d2-947c-f94d0e6ef8bc" class="toggle"><li><details open=""><summary><mark class="highlight-default"><strong>Activación modo POS integrado.</strong></mark></summary><div style="display:contents" dir="auto"><p id="21639073-1e23-809f-bf89-f95706db489b" class="">Se debe ir a “Pago Getnet” &gt; Menú superior derecho &gt; POS Integrado</p></div><div style="display:contents" dir="auto"><p id="21639073-1e23-8075-9772-ce32a7a0f710" class="">
+</p></div><div style="display:contents" dir="auto"><div id="21639073-1e23-80e8-87ac-f22989a75c32" class="column-list"><div style="display:contents" dir="auto"><div id="21639073-1e23-80c3-839d-e94b68366573" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="21639073-1e23-80cc-8392-f1a19a12cb1d" class="image"><a href="Getnet/image%2018.png"><img style="width:240px" src="Getnet/image%2018.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21639073-1e23-80d5-ad7a-fd3b32d97a04" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="21639073-1e23-80e6-8450-edd2d67fa377" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="21639073-1e23-80a1-8c33-c419424846ab" class="image"><a href="Getnet/image%2019.png"><img style="width:240px" src="Getnet/image%2019.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="21639073-1e23-80d4-9dfa-c2b962041945" class="">Una vez aquí, pedirá ingresar la Clave del terminal, para posteriormente poder conectarlo a Caja:</p></div><div style="display:contents" dir="auto"><div id="21639073-1e23-80f8-a466-c15288b8b82b" class="column-list"><div style="display:contents" dir="auto"><div id="21639073-1e23-80d7-91ef-e18acb3d28d1" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="21639073-1e23-8023-a631-cf295d8fdba8" class="image"><a href="Getnet/image%2020.png"><img style="width:240px" src="Getnet/image%2020.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21639073-1e23-804d-85c7-c5c047aaffec" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="21639073-1e23-8099-bbef-f6926cf6afde" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="21639073-1e23-8090-afa2-e5f99bd4e004" class="image"><a href="Getnet/image%2021.png"><img style="width:240px" src="Getnet/image%2021.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="21639073-1e23-80eb-b3db-ce500e359701" class="">Cuando se confirma, entrará a esta ventana a la espera de inyección de pago desde TRM en el mismo terminal, por lo que se debe cambiar esta ventana a Toteat ya que todo el manejo y uso del POS es desde esa aplicación.</p></div><div style="display:contents" dir="ltr"><figure id="21639073-1e23-80a6-8b08-cb232041e73d" class="image"><a href="Getnet/image%2022.png"><img style="width:240px" src="Getnet/image%2022.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21639073-1e23-8041-a588-e8406c1fb4cb" class=""><strong>Video:</strong></p></div><div style="display:contents" dir="ltr"><figure id="21639073-1e23-804d-adc1-cca74091ca28"><div class="source"><a href="Getnet/A960_2025-06-18_17-51-01.mp4">Modo Pos Integrado</a></div></figure></div></details></li></ul></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81f1-b13e-e9a54b00825c" class="toggle"><li><details open=""><summary><strong>Paso 5: Asignación de terminal a caja.</strong></summary><div style="display:contents" dir="auto"><ul id="12f39073-1e23-818f-b1dd-efa39bf5bf78" class="bulleted-list"><li style="list-style-type:disc">Se debe asociar el terminal a la caja. Ir a Menú lateral &gt; Restaurante &gt; Cajas, y seleccionar la caja correspondiente que tendrá asociado el terminal.</li></ul></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-8168-8e8a-e3725280a150" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-8145-afe7-ea58e2a05c0a" class="image"><a href="Klap/image%205.png"><img style="width:528px" src="Klap/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-819b-8eca-f962bbce39bd" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8166-9290-f4058fcefad7" class="bulleted-list"><li style="list-style-type:disc">Ir al lápiz de edición, y aquí asociar el terminal correspondiente en el parámetro “Terminales Getnet”.</li></ul></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-8004-b52b-f3766fae55a9" class="image"><a href="Getnet/image%2023.png"><img style="width:528px" src="Getnet/image%2023.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81a7-8014-c8c488812362" class="bulleted-list"><li style="list-style-type:disc">Confirmar y grabar los cambios</li></ul></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-810d-a0dc-fc40d8f115c3" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="23039073-1e23-8061-bade-d76b03de8360" class="toggle"><li><details open=""><summary><strong>Paso 6: Ajustes de equipo (Para POS Integrado).</strong></summary><div style="display:contents" dir="auto"><p id="23039073-1e23-8034-a1eb-fbe9ac08abb6" class="">Al utilizar el modo POS INTEGRADO, se requiere que las impresiones que emita el POS, salgan por el mismo dispositivo. Para ello se debe ir a <strong>Menú lateral &gt; Configuración &gt; Ajustes de equipo </strong>y validar que los siguientes campos estén correctamente configurados:<br/><br/><strong>1. Imprimir en terminal Getnet:</strong> El terminal correspondiente.<br/><strong>2. Terminal de pago Android en este mismo dispositivo: </strong>Getnet.<strong> <br/>3. ID de Terminal de pago de este dispositivo: </strong>El terminal correspondiente.<br/><strong>4. Terminal de pago - Vista Nueva:</strong> ON</p></div><div style="display:contents" dir="auto"><p id="23039073-1e23-8036-9e8c-fa9a77c73fcf" class="">
+</p></div><div style="display:contents" dir="auto"><p id="23039073-1e23-8031-97b0-d5c2439310e3" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="23039073-1e23-8016-b45a-ea405d97ad55" class="image"><a href="Getnet/image%2024.png"><img style="width:288px" src="Getnet/image%2024.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="23039073-1e23-8092-84f8-dacf705e922b" class="">
+</p></div><div style="display:contents" dir="auto"><p id="23039073-1e23-8027-b052-e2c790cae499" class=""><strong>Nota: Estos parámetros no son necesarios para el uso Cloud To Cloud</strong></p></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81ed-b833-c1ba81a767ee" class="toggle"><li><details open=""><summary><mark class="highlight-orange"><strong>5.2. Uso de la integración</strong></mark></summary><div style="display:contents" dir="auto"><ul id="12f39073-1e23-818d-8445-d7efcc1e6eed" class="toggle"><li><details open=""><summary><strong>Paso 1: Validar caja.</strong></summary><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81a2-a6a9-c287a1cd6eac" class="bulleted-list"><li style="list-style-type:disc">Tener Caja abierta.</li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-810f-83e0-f0c9b29dc8de" class="bulleted-list"><li style="list-style-type:disc">Verificar que la caja que realizará el pago con la integración sea la que se configuró con el terminal correspondiente.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8140-bb91-d832a550c163" class="toggle"><li><details open=""><summary><strong>Paso 2: Pagar la mesa</strong></summary><div style="display:contents" dir="auto"><ul id="21639073-1e23-8050-940e-c29db6630f3f" class="toggle"><li><details open=""><summary><strong>Pago en modo CAJA a TERMINAL (Cloud to cloud)</strong></summary><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81cd-a66d-e4a1aa29eedc" class="bulleted-list"><li style="list-style-type:disc">Con la caja abierta, ir al ícono de “Cerrar mesa”.</li></ul></div><div style="display:contents" dir="auto"><p id="23039073-1e23-8069-be3b-e53c0e94fd2b" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="23039073-1e23-800d-9ba0-fec1b847f847" class="image"><a href="Getnet/image%2025.png"><img style="width:480px" src="Getnet/image%2025.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81e2-9449-f3bb1a4bf96b" class="bulleted-list"><li style="list-style-type:disc">Seleccionar la forma de pago ‘Getnet PDV’ y dar al ícono ‘Pagar’.</li></ul></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-8092-8805-cae3ee321afe" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-809a-9e3a-fa57fb96a280" class="image"><a href="Getnet/image%2026.png"><img style="width:480px" src="Getnet/image%2026.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81d9-b5a7-f63d30c7157a" class="bulleted-list"><li style="list-style-type:disc">Al momento de pagar, seleccionar el terminal correspondiente (en el caso de tener más de uno disponible) y presionar ‘Pagar’.</li></ul></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-8063-adc6-d8c82bc026c5" class="image"><a href="Getnet/image%2027.png"><img style="width:480px" src="Getnet/image%2027.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81ee-ab7f-f1719d201650" class="bulleted-list"><li style="list-style-type:disc">Realizado esto, en pantalla verán el pago en proceso.</li></ul></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-806c-9fef-ee404ac2eecf" class="image"><a href="Getnet/image%2028.png"><img style="width:480px" src="Getnet/image%2028.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-814b-84fa-e3a64c90235e" class="bulleted-list"><li style="list-style-type:disc">Mientras en pantalla está el pago en proceso, en el terminal se levantará el pago correspondiente:</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="12f39073-1e23-819c-984d-c85000d533f1" class="numbered-list" start="1"><li>En pantalla verán el pago en proceso.</li></ol></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-80f1-bfee-ea8854d3b6cf" class="image"><a href="Getnet/image%2029.png"><img style="width:288px" src="Getnet/image%2029.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-8007-810c-f9ef1475dbb3" class=""><strong>Nota: </strong>Se puede enviar propina desde Toteat, sin embargo, la que se seleccione en el terminal es la que se hará efectiva en el cobro.</p></div><div style="display:contents" dir="auto"><ol type="1" id="12f39073-1e23-8102-8d67-eda73f40e8f8" class="numbered-list" start="2"><li>Confirmación de Monto y operar tarjeta.</li></ol></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-8018-96b8-e540ee2c396d" class="image"><a href="Getnet/image%2030.png"><img style="width:288px" src="Getnet/image%2030.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="12f39073-1e23-8182-a67f-dc08fc023ae6" class="numbered-list" start="3"><li>Seleccionar si necesita añadir cambio o no.</li></ol></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-801d-b3e7-cb3cbc9dec59" class="image"><a href="Getnet/image%2031.png"><img style="width:288px" src="Getnet/image%2031.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="12f39073-1e23-81df-846b-ec68a36d57d5" class="numbered-list" start="4"><li>Ingresar Clave </li></ol></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-80ac-90f9-dd7fa519c03b" class="image"><a href="Getnet/image%2032.png"><img style="width:288px" src="Getnet/image%2032.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="12f39073-1e23-8120-881d-cbb65d6806d0" class="numbered-list" start="5"><li>Procesando pago </li></ol></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-80ac-9fcb-e76893f5d08e" class="image"><a href="Getnet/image%2033.png"><img style="width:288px" src="Getnet/image%2033.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="12f39073-1e23-8128-ac58-f35200d30109" class="numbered-list" start="6"><li>Pago aprobado en terminal</li></ol></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-809a-8af0-e349cc1da08a" class="image"><a href="Getnet/image%2034.png"><img style="width:288px" src="Getnet/image%2034.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="12f39073-1e23-8017-8cbb-fcc9e928c092" class="numbered-list" start="8"><li>Pago confirmado y pagado en TRM, listo para emitir Boleta en el caso que esté configurada</li></ol></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-801c-8941-eb7aa1b03cc7" class=""><strong>Importante:</strong> L<strong>a boleta sale por la impresora asociada a la caja, no por el terminal Getnet.</strong></p></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-80d2-9c2a-ccb1b28ab575" class="image"><a href="Getnet/image%2035.png"><img style="width:528px" src="Getnet/image%2035.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="21d39073-1e23-8004-b106-ff2860b4b67e" class="toggle"><li><details open=""><summary><strong>Pago en modo TRM en Terminal(POS INTEGRADO)</strong></summary><div style="display:contents" dir="auto"><ul id="21d39073-1e23-809e-b02a-f27461f3b19c" class="bulleted-list"><li style="list-style-type:disc">Con la caja abierta, ir al ícono de “Cobrar”.</li></ul></div><div style="display:contents" dir="ltr"><figure id="23039073-1e23-8097-9db6-d046c73db5c6" class="image"><a href="Getnet/image%2036.png"><img style="width:240px" src="Getnet/image%2036.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="21d39073-1e23-80df-9ae1-cd41f045558e" class="bulleted-list"><li style="list-style-type:disc">Seleccionar el tipo de pago correspondiente.</li></ul></div><div style="display:contents" dir="ltr"><figure id="23039073-1e23-8025-9689-d6965bebbc80" class="image"><a href="Getnet/image%2037.png"><img style="width:240px" src="Getnet/image%2037.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="21d39073-1e23-8010-aa5c-da654249f3da" class="bulleted-list"><li style="list-style-type:disc">Al momento de pagar, procesará el pago para abrir la aplicación de pago de Getnet.</li></ul></div><div style="display:contents" dir="ltr"><figure id="23039073-1e23-80a0-912c-f49ffc3da273" class="image"><a href="Getnet/image%2038.png"><img style="width:240px" src="Getnet/image%2038.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="21d39073-1e23-805b-a5c4-d818be3a0b84" class="bulleted-list"><li style="list-style-type:disc">Mientras en pantalla está el pago en proceso, en el terminal se levantará el pago correspondiente:</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="21d39073-1e23-8076-91b7-f4a9597ae3b7" class="numbered-list" start="1"><li>En pantalla verán el pago en proceso.</li></ol></div><div style="display:contents" dir="ltr"><figure id="21d39073-1e23-801e-8a7e-fcf1a426ffc8" class="image"><a href="Getnet/image%2029.png"><img style="width:288px" src="Getnet/image%2029.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21d39073-1e23-80fc-9cb0-e2217860383b" class=""><strong>Nota: </strong>Se puede enviar propina desde Toteat, sin embargo, la que se seleccione en el terminal es la que se hará efectiva en el cobro.</p></div><div style="display:contents" dir="auto"><ol type="1" id="21d39073-1e23-80e2-9e2c-fdb181e79a65" class="numbered-list" start="2"><li>Confirmación de Monto y operar tarjeta.</li></ol></div><div style="display:contents" dir="ltr"><figure id="21d39073-1e23-808b-b3f6-f0f2f2f9eaa1" class="image"><a href="Getnet/image%2030.png"><img style="width:288px" src="Getnet/image%2030.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="21d39073-1e23-80ab-ad16-c0f3ee470910" class="numbered-list" start="3"><li>Seleccionar si necesita añadir cambio o no.</li></ol></div><div style="display:contents" dir="ltr"><figure id="21d39073-1e23-8089-9e41-ebe83098f272" class="image"><a href="Getnet/image%2031.png"><img style="width:288px" src="Getnet/image%2031.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="21d39073-1e23-80b0-8986-ea51dbcbb5af" class="numbered-list" start="4"><li>Ingresar Clave </li></ol></div><div style="display:contents" dir="ltr"><figure id="21d39073-1e23-8000-9126-f45205768870" class="image"><a href="Getnet/image%2032.png"><img style="width:288px" src="Getnet/image%2032.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="21d39073-1e23-807f-a092-eae3a8e6a760" class="numbered-list" start="5"><li>Procesando pago </li></ol></div><div style="display:contents" dir="ltr"><figure id="21d39073-1e23-80bc-b48b-e5a78aafa92a" class="image"><a href="Getnet/image%2033.png"><img style="width:288px" src="Getnet/image%2033.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="21d39073-1e23-8029-bd4e-db54ee87e5c7" class="numbered-list" start="6"><li>Pago aprobado en terminal</li></ol></div><div style="display:contents" dir="ltr"><figure id="21d39073-1e23-80fd-b76a-c5a9a3f15b3f" class="image"><a href="Getnet/image%2034.png"><img style="width:288px" src="Getnet/image%2034.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="21d39073-1e23-80af-87de-c8358e2725e7" class="numbered-list" start="8"><li>Pago confirmado y pagado en TRM, listo para emitir Boleta en el caso que esté configurada</li></ol></div><div style="display:contents" dir="ltr"><figure id="23039073-1e23-803e-98d1-fa3413c612f1" class="image"><a href="Getnet/image%2039.png"><img style="width:288px" src="Getnet/image%2039.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="21d39073-1e23-80b8-9747-df7a9e776a0d" class=""><strong>Importante:</strong> <strong>La boleta saldrá por el terminal solamente si es que se realiza correctamente los Ajustes de equipo, si no, saldrá por la impresora asociada a la caja correspondiente.</strong></p></div><div style="display:contents" dir="auto"><p id="23039073-1e23-80bf-9499-c8e8a4d2acb4" class=""><strong>Video</strong>: </p></div><div style="display:contents" dir="ltr"><figure id="23039073-1e23-8079-9c58-c68ea88ca768"><div class="source"><a href="Getnet/POS_INTEGRADO.mp4">POS INTEGRADO.mp4</a></div></figure></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-811a-b75f-c9c236938247" class="toggle"><li><details open=""><summary><strong>Paso 3: Información de pagos</strong></summary><div style="display:contents" dir="auto"><ul id="12f39073-1e23-815a-9106-e1f0f5b773a7" class="bulleted-list"><li style="list-style-type:disc">Detalle de la información de pagos en Menú lateral &gt; Integraciones &gt; Getnet &gt; Historial. </li></ul></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-80dd-920f-ecab0e774e2c" class="image"><a href="Getnet/image%2040.png"><img style="width:651.9874877929688px" src="Getnet/image%2040.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81bb-87a9-e6ce6185ffca" class="bulleted-list"><li style="list-style-type:disc">Pagos aceptados son órdenes ya pagadas y en TRM como órdenes abiertas/cerradas en detalle de pago.</li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-81f1-83e5-d3a62fea566c" class="bulleted-list"><li style="list-style-type:disc">Pagos reversados son pagos que no se concretaron dentro del tiempo correspondiente.</li></ul></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-800b-9d0c-e2dd1939db71" class="bulleted-list"><li style="list-style-type:disc">Pagos rechazados son pagos que el terminal no procesó de manera correcta.</li></ul></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-8149-9222-dd20919d3cfd" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="13e39073-1e23-806b-be3b-ef3b2a0f474c" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="17439073-1e23-8029-8fd2-d78d88354a59" class=""><mark class="highlight-orange">6. Video Procedimiento</mark></h3></div><div style="display:contents" dir="ltr"><figure id="17439073-1e23-80e7-91c0-db479c5bc22d"><div class="source"><a href="https://youtube.com/shorts/LBgLqGML4dg?feature=share">https://youtube.com/shorts/LBgLqGML4dg?feature=share</a></div></figure></div><div style="display:contents" dir="auto"><h3 id="1dd39073-1e23-808c-b8a9-c01b41714fbe" class=""></h3></div><div style="display:contents" dir="auto"><h3 id="17439073-1e23-8018-9794-f54bf7af4005" class=""><mark class="highlight-orange">7. Contactos Getnet</mark></h3></div><div style="display:contents" dir="auto"><ol type="1" id="17439073-1e23-803e-8057-d03f3d033c67" class="numbered-list" start="1"><li>Post venta Implementación: Elias Mendez // +56 9 9622 9161 // <a href="mailto:elias.mendez@getnet.cl">elias.mendez@getnet.cl</a></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="17439073-1e23-806f-9229-f863f38d48a2" class="numbered-list" start="2"><li>Post Venta: Daniel Maldonado // <a href="mailto:Daniel.Maldonado@santander.cl">daniel.maldonado@santander.cl</a></li></ol></div><div style="display:contents" dir="auto"><h3 id="17439073-1e23-8064-b5ef-f60d9e474256" class=""><mark class="highlight-orange">8. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="17439073-1e23-8009-aa0c-c23536b353d3" class="bulleted-list"><li style="list-style-type:disc">Se configura y utiliza correctamente la integración con Getnet.</li></ul></div><div style="display:contents" dir="auto"><p id="12f39073-1e23-81f5-8ec2-d27311e848e6" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-8141-8144-c3bfbf241b84" class=""><mark class="highlight-orange">9. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8111-8820-d6b5e1a2e3c0" class="bulleted-list"><li style="list-style-type:disc">Clientes sin integración con Getnet</li></ul></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-810b-870a-dc6f54ee9977" class=""><mark class="highlight-orange">10. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="12f39073-1e23-8158-b544-db51c392a68b" class="bulleted-list"><li style="list-style-type:disc">Realizar  impresión de prueba desde configuración de la impresión.</li></ul></div><div style="display:contents" dir="auto"><ul id="23039073-1e23-8070-b264-f37cb9e79bc9" class="bulleted-list"><li style="list-style-type:disc">Realizar orden de prueba con un producto de prueba mínimo 200 pesos.</li></ul></div><div style="display:contents" dir="auto"><h3 id="12f39073-1e23-81fc-8b92-eb2c45fd5ed2" class=""><mark class="highlight-orange">11. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="12f39073-1e23-8156-a6a2-e6ccd5daa5fa" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="12f39073-1e23-813a-b443-e63f3965f0b7"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="12f39073-1e23-81ec-9560-ffbf30b9396b"><td id="nU|h" class="">30-10-2024</td><td id="WwCq" class=""><span class="user">@Francisco Ramirez</span> </td><td id="i;pn" class=""><span class="user">@Leon Vial</span> </td><td id="q^a=" class="">1.0</td></tr></div><div style="display:contents" dir="ltr"><tr id="12f39073-1e23-816a-afe2-e93902899c97"><td id="nU|h" class="">07-01-2025</td><td id="WwCq" class=""><span class="user">@Leon Vial</span> </td><td id="i;pn" class=""></td><td id="q^a=" class="">1.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="12f39073-1e23-8102-b48b-e691375a6bf3"><td id="nU|h" class="">22-04-2025</td><td id="WwCq" class=""><span class="user">@Leon Vial</span> </td><td id="i;pn" class=""></td><td id="q^a=" class="">1.2</td></tr></div><div style="display:contents" dir="ltr"><tr id="21c39073-1e23-8025-a98c-c692a1caf308"><td id="nU|h" class="">19-06-2025</td><td id="WwCq" class=""><span class="user">@Francisco Ramirez</span> </td><td id="i;pn" class=""></td><td id="q^a=" class="">1.3</td></tr></div><div style="display:contents" dir="ltr"><tr id="23039073-1e23-8067-a7fc-e5f88ecc44dd"><td id="nU|h" class="">14-07-2025</td><td id="WwCq" class=""><span class="user">@Francisco Ramirez</span> </td><td id="i;pn" class=""></td><td id="q^a=" class="">1.4</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="13439073-1e23-808f-b345-e684d93dfe72" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

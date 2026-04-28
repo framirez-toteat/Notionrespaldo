@@ -1,0 +1,753 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2.3. Impresoras</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0af06b09-00d8-4ce8-954d-d9b45d8fadff" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">2.3. Impresoras</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="28439073-1e23-808d-8fa9-e258438de57d" class="">🖨️ <strong>Tipos de Impresoras Compatibles con Toteat</strong></h1></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80b1-8bb6-f44ac6dd3fc5" class="">Para lograr <strong>impresiones eficientes y de alta calidad</strong>, es esencial comprender las características que deben cumplir las impresoras utilizadas con Toteat.</p></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-805c-a157-f84287fe80f0"/></div><div style="display:contents" dir="auto"><h2 id="28439073-1e23-803b-b8b8-f5a3004bf356" class="">⚙️ <strong>Compatibilidad con protocolo ESC/POS</strong></h2></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80be-8be9-ce9508258209" class="">Las impresoras deben contar con la característica <strong>ESC/POS</strong> (<em>Epson Standard Code for Point of Sale</em>), un estándar ampliamente utilizado en el sector de puntos de venta.</p></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-8002-a7ea-df4edf71aa61" class="">💡 Este protocolo permite imprimir:<div style="display:contents" dir="auto"><ul id="28439073-1e23-80aa-8ecd-e66ee7e9c014" class="bulleted-list"><li style="list-style-type:disc">Textos con formato.</li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-80b3-bcf8-cc47da9d4944" class="bulleted-list"><li style="list-style-type:disc">Imágenes y logotipos.</li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-80fa-8bb0-e41a8f210a16" class="bulleted-list"><li style="list-style-type:disc">Códigos QR.</li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-809e-9181-fd9db40c5429" class="bulleted-list"><li style="list-style-type:disc">Códigos de barras.</li></ul></div></blockquote></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80f0-b764-f00cfc15a8be" class="">Esta capacidad es <strong>crucial</strong> en países donde la normativa exige la emisión de <strong>documentos fiscales electrónicos</strong>, ya que estos incluyen elementos gráficos obligatorios (como QR o códigos de validación).</p></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-80a5-ae8a-d7967dca680d"/></div><div style="display:contents" dir="auto"><h2 id="28439073-1e23-8058-a92b-ef903d7e99d0" class="">🧾 <strong>Alternativa: Modo “Solo Texto”</strong></h2></div><div style="display:contents" dir="auto"><p id="28439073-1e23-800b-9e30-cc89c5c56fad" class="">Toteat también permite operar impresoras <strong>sin compatibilidad ESC/POS</strong> mediante la opción de configuración <strong>“Solo Texto”</strong>.</p></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-8049-a431-d33c61dea60a" class="">⚠️ Importante:<div style="display:contents" dir="auto"><ul id="28439073-1e23-80e1-89bd-e1e8bd443c93" class="bulleted-list"><li style="list-style-type:disc">Esta opción <strong>solo permite imprimir comandas internas</strong> (por ejemplo, de cocina o barra).</li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-802d-bf2f-eff944fe8b16" class="bulleted-list"><li style="list-style-type:disc"><strong>No permite emitir documentos fiscales electrónicos</strong> (boletas o facturas).</li></ul></div></blockquote></div><div style="display:contents" dir="auto"><p id="28439073-1e23-8072-a4a4-d61a996135eb" class="">Esta modalidad puede ser útil en locales donde se requiere una solución básica de impresión sin gráficos o logotipos.</p></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-8066-931c-c99e237a6768"/></div><div style="display:contents" dir="auto"><h2 id="28439073-1e23-8057-ba16-c1f7820f3ba1" class="">🧠 <strong>Recomendación técnica</strong></h2></div><div style="display:contents" dir="ltr"><table id="28439073-1e23-803a-86c9-f3d387c3a0f4" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="28439073-1e23-809b-b5fb-ea09ac326a3a"><th id="sCcr" class="simple-table-header-color simple-table-header">Tipo de uso</th><th id="wuZ`" class="simple-table-header-color simple-table-header">Requiere ESC/POS</th><th id="lqQ^" class="simple-table-header-color simple-table-header">Permite “Solo Texto”</th><th id="qhcY" class="simple-table-header-color simple-table-header">Ejemplos</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="28439073-1e23-8067-91c3-c22e0a687cbb"><td id="sCcr" class="">Comandas internas</td><td id="wuZ`" class="">Opcional</td><td id="lqQ^" class="">✅ Sí</td><td id="qhcY" class="">Impresora térmica genérica</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-80bb-8e69-f33ff0ee6691"><td id="sCcr" class="">Boletas o DTE</td><td id="wuZ`" class="">✅ Obligatorio</td><td id="lqQ^" class="">❌ No</td><td id="qhcY" class="">Epson, Bematech, Star, IMIN</td></tr></div><div style="display:contents" dir="ltr"><tr id="28439073-1e23-80a8-b32f-caf880a150a5"><td id="sCcr" class="">Kioskos / Autoservicio</td><td id="wuZ`" class="">✅ Recomendado</td><td id="lqQ^" class="">❌ No</td><td id="qhcY" class="">IMIN D4, IMIN M2 Max</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-809c-8635-c25bdf929bfb"/></div><div style="display:contents" dir="auto"><h2 id="28439073-1e23-80a4-8399-df4cad3cbf87" class="">📸 <strong>Ejemplo de impresión “Solo Texto”</strong></h2></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80fa-b45b-ff2ff1a2f79b" class="">A continuación se muestra un ejemplo visual del resultado de una <strong>comanda impresa en modo Solo Texto</strong>:</p></div><div style="display:contents" dir="ltr"><figure id="12339073-1e23-8043-9eef-dcdb7a20e4a2" class="image"><a href="2%203%20Impresoras/image.png"><img style="width:288px" src="2%203%20Impresoras/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12339073-1e23-801a-81c3-ed530e4c1e20" class="">
+</p></div><div style="display:contents" dir="auto"><p id="12339073-1e23-804b-9b44-cf801784b955" class=""><em><strong>En la imagen siguiente, se presenta un formato de impresión que tiene habilitada la característica ESC/POS:</strong></em></p></div><div style="display:contents" dir="ltr"><figure id="12339073-1e23-8089-86e5-d13e98695425" class="image"><a href="2%203%20Impresoras/989a69e6-3eb6-4f0b-a0b0-e4e1e6bb7539.png"><img style="width:458.50746268656707px" src="2%203%20Impresoras/989a69e6-3eb6-4f0b-a0b0-e4e1e6bb7539.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="28439073-1e23-8099-ac17-c7cad9546783" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="28439073-1e23-8039-b560-c4c194b975b8" class="">🖨️ <strong>Recomendaciones y Conectividad de Impresoras en Toteat</strong></h1></div><div style="display:contents" dir="auto"><p id="28439073-1e23-8065-83f6-c7132307df35" class="">Para asegurar un proceso de impresión confiable y de alta calidad, es importante seleccionar impresoras compatibles con el estándar <strong>ESC/POS (Epson Standard Code for Point of Sale)</strong> y utilizar una conexión adecuada según el tipo de equipo.</p></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-8090-8220-c660c1f2669f"/></div><div style="display:contents" dir="auto"><h2 id="28439073-1e23-8064-aa4f-e36a7f7eaa17" class="">🏷️ <strong>Marcas de impresoras recomendadas</strong></h2></div><div style="display:contents" dir="auto"><p id="28439073-1e23-805b-a481-fcb8a463f5c0" class="">Las siguientes marcas han demostrado <strong>mayor compatibilidad y estabilidad</strong> en su funcionamiento con Toteat:</p></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-80b8-a186-ff8840e9a1b7" class="bulleted-list"><li style="list-style-type:disc">🧩 <strong>Epson</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-80cc-8287-eb483aec83d2" class="bulleted-list"><li style="list-style-type:disc">⚙️ <strong>Bixolon</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-80ed-8f29-c2e3d5009e29" class="bulleted-list"><li style="list-style-type:disc">🖨️ <strong>Xprinter</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-8084-8a97-fe957fa223f1" class="bulleted-list"><li style="list-style-type:disc">💡 <strong>Dinon</strong></li></ul></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-8061-8854-ed006a2758da" class="">💡 Todas estas impresoras soportan el protocolo ESC/POS, lo que permite imprimir textos, códigos QR, códigos de barras e imágenes sin inconvenientes.</blockquote></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-80ba-ae11-f44f776f7cf0"/></div><div style="display:contents" dir="auto"><h2 id="28439073-1e23-8087-afbf-d61eb2a62e99" class="">🔌 <strong>Conectividad de impresoras</strong></h2></div><div style="display:contents" dir="auto"><h3 id="28439073-1e23-8019-985a-ff09fb303fb1" class="">💻 <strong>Conexión USB</strong></h3></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80df-81bf-ca13fe96b578" class="">Las impresoras conectadas mediante cable USB al <strong>PC servidor</strong> deben cumplir con los siguientes criterios:</p></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-8001-8b38-d1e2295dbdff" class="bulleted-list"><li style="list-style-type:disc">El <strong>cable USB no debe superar los 2 metros</strong> de longitud.<div style="display:contents" dir="auto"><blockquote id="28439073-1e23-80a5-b11d-c012464d4ef2" class="">⚠️ Un cable más largo puede provocar fallos de comunicación o interrupciones en la impresión.</blockquote></div></li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-8004-af65-e82e80c09a95" class="bulleted-list"><li style="list-style-type:disc">Si la impresora se conecta a <strong>un puerto USB distinto</strong>, <strong>no podrá imprimir</strong> hasta que se actualice su configuración.<div style="display:contents" dir="auto"><p id="28439073-1e23-800a-818f-f63b6d84b4d0" class="">Esto ocurre porque <strong>Windows asocia la impresora a un puerto USB específico</strong>, y al cambiarlo, se genera un nuevo identificador interno.</p></div></li></ul></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-80fb-8d87-e2454c9de359" class="">🧠 Recomendación:<div style="display:contents" dir="auto"><p id="28439073-1e23-80cb-9134-c6f8ae8dd8e5" class="">Siempre conectar la impresora al <strong>mismo puerto USB</strong> y marcarlo físicamente para evitar errores tras reinicios o desconexiones. Por ejemplo:</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-80a8-b506-ea0c74bf3784"/></div><div style="display:contents" dir="auto"><p id="12339073-1e23-8066-b49c-ebc59bfaa7a3" class=""><div class="indented"><div style="display:contents" dir="ltr"><figure id="12639073-1e23-8019-9c9f-f728cca919ff" class="image" style="text-align:center"><a href="2%203%20Impresoras/Imagen_de_WhatsApp_2024-10-15_a_las_15.38.54_41d9e1d9.jpg"><img style="width:336px" src="2%203%20Impresoras/Imagen_de_WhatsApp_2024-10-15_a_las_15.38.54_41d9e1d9.jpg"/></a></figure></div></div></p></div><div style="display:contents" dir="auto"><p id="12639073-1e23-806b-8af4-ff2082a88033" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="28439073-1e23-80f3-a904-c0aa857fb011" class="">🌐 <strong>Conexión en Red</strong></h1></div><div style="display:contents" dir="auto"><p id="28439073-1e23-8066-b143-e01e2d252f7d" class="">Cuando se utiliza una <strong>conexión de red</strong> para la impresora, es fundamental asegurarse de que:</p></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-8012-a099-dee5a90857de" class="bulleted-list"><li style="list-style-type:disc">El <strong>cable de red</strong> esté conectado a la <strong>misma red local</strong> donde se encuentra el <strong>PC servidor</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-80e5-8973-c8d32b2778d6" class="bulleted-list"><li style="list-style-type:disc">La impresora esté dentro de una <strong>red privada</strong>, nunca directamente conectada a Internet.</li></ul></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-805b-9951-cad623d2d192" class="">🔒 Las impresoras no se comunican con Toteat por Internet, sino dentro de una red local (LAN).<div style="display:contents" dir="auto"><p id="28439073-1e23-8068-91c1-dc4653dc2614" class="">Esto garantiza seguridad, privacidad y estabilidad en el flujo de impresión.</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="28439073-1e23-8017-8a29-df26de762b71"/></div><div style="display:contents" dir="auto"><h1 id="28439073-1e23-8045-889a-f5abf34ce0e1" class="">📶 <strong>Conexión Inalámbrica</strong></h1></div><div style="display:contents" dir="auto"><p id="28439073-1e23-80a0-bfdb-f0e1e8205a81" class="">En Toteat <strong>no se recomienda ni se configura</strong> impresoras con conexión <strong>Wi-Fi</strong> o <strong>Bluetooth</strong>.</p></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-8046-90f1-e9a146a29601" class="">⚠️ Estas conexiones suelen generar problemas de conectividad, pérdida de comunicación y requieren mantenimiento físico en el dispositivo para su corrección.</blockquote></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-802d-9f74-f87f3164cac4" class="">💡 Se recomienda priorizar conexiones por cable (USB o red Ethernet) para asegurar una operación más estable y sin interrupciones.</blockquote></div><div style="display:contents" dir="auto"><p id="12639073-1e23-8071-a0d2-fe1052a82015" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="28439073-1e23-80e3-a4cc-fe98a0fe81aa" class="">🧩 <strong>Partes de una impresora POS térmica</strong></h1></div><div style="display:contents" dir="auto"><p id="28439073-1e23-803c-9dbe-db3ffe861a78" class="">Es importante conocer las <strong>partes principales de una impresora POS térmica</strong>, ya que su disposición y cantidad pueden variar según el modelo o fabricante.</p></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-807f-a5d4-ef8d2a219aa4" class="">💡 Algunos modelos no incluyen puerto de red (Ethernet), lo cual debe considerarse antes de su adquisición para asegurar la compatibilidad con el tipo de conexión que se utilizará en el local.</blockquote></div><div style="display:contents" dir="auto"><p id="12639073-1e23-80ec-ac7e-c96ead611e60" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="12639073-1e23-80f8-b913-f2c1776ae257" class="image"><a href="2%203%20Impresoras/fdee0624-06c2-4819-8598-7a5781ceab1e.png"><img style="width:528px" src="2%203%20Impresoras/fdee0624-06c2-4819-8598-7a5781ceab1e.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="12639073-1e23-80fe-bbf3-f0efc232c892" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28439073-1e23-809f-a306-f91f902a9545" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="28439073-1e23-8041-9c6f-e12c15e0d515" class="">📏 <strong>Medidas de papel para impresoras POS (80 mm y 58 mm)</strong></h1></div><div style="display:contents" dir="auto"><p id="28439073-1e23-8015-a432-d750efc10ea2" class="">Las impresoras POS utilizan principalmente <strong>dos tipos de rollos de papel térmico</strong>:</p></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-8053-9a73-d7f6b43ba220" class="bulleted-list"><li style="list-style-type:disc">🧾 <strong>80 mm</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="28439073-1e23-8079-b9e3-cb19f7f82cb2" class="bulleted-list"><li style="list-style-type:disc">🧾 <strong>58 mm</strong></li></ul></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-808c-aef3-c70f2d00c538" class="">💡 Es fundamental seleccionar el ancho de papel correcto según el modelo de impresora, ya que no todos los equipos admiten ambos tamaños.</blockquote></div><div style="display:contents" dir="auto"><p id="28439073-1e23-802d-9b07-d4eddefd7809" class="">Además, este tipo de papel <strong>posee una sola cara térmica</strong> para la impresión.</p></div><div style="display:contents" dir="auto"><blockquote id="28439073-1e23-80be-8532-f7343ee70f48" class="">⚠️ Si el papel se coloca de manera incorrecta, la impresora no mostrará texto ni imágenes, ya que el calor se aplicará en el lado no sensible del rollo.</blockquote></div><div style="display:contents" dir="auto"><div id="12639073-1e23-80a8-83b7-d06b19a31a84" class="column-list"><div style="display:contents" dir="auto"><div id="12639073-1e23-80e1-abe6-eacca9c2b545" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="12639073-1e23-803f-9b24-e46361538a4e" class="image" style="text-align:center"><a href="2%203%20Impresoras/image%201.png"><img style="width:384px" src="2%203%20Impresoras/image%201.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="12639073-1e23-80fd-851f-cb82299177e4" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="12639073-1e23-80cf-94d4-c0e58537b183" class="image" style="text-align:center"><a href="2%203%20Impresoras/image%202.png"><img style="width:384px" src="2%203%20Impresoras/image%202.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="12639073-1e23-80e3-949b-efea07a152e1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="12639073-1e23-8007-8274-d38d0ab2846e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="12639073-1e23-80cf-b15b-caeac37fa5be" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

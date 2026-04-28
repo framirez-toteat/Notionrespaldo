@@ -1,0 +1,745 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>4.1. Datos para configuración Uber</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8b422ad0-ce4c-49fa-85d2-eda3cfc2c81f" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📗</span></div><h1 class="page-title" dir="auto">4.1. Datos para configuración Uber</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><nav id="b91bbc46-ba8e-4e65-8db1-791ea058ee87" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8a25a271-2ba0-4038-89c6-1b762a286d94"><mark class="highlight-orange">1. Descripción</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#618408e5-5d70-4c12-8e71-1a7cdb12a1a1"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#72304c0b-40d4-4d12-ae29-acfd27e034b2"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#02bd9eed-16bc-41e5-811e-cf299ff9bf88"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7fe497cc-301d-4661-9a7f-c6839982beb8"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f21dfd03-297f-49e4-bdfe-74480682b078"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#89d617f5-cf92-4aaa-9cae-56e7c6570eee"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b65356b2-996f-40b4-93ea-c301706fb83d"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e500b8f7-004f-482a-89ba-56fab11a51ea"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="8a25a271-2ba0-4038-89c6-1b762a286d94" class="block-color-orange"><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><p id="dd832bd2-3c66-427d-a7af-a3ff02a898fa" class="">En este módulo, abordaremos los campos de configuración más importantes durante la activación de la integración de Toteat con Uber.</p></div><div style="display:contents" dir="auto"><h3 id="618408e5-5d70-4c12-8e71-1a7cdb12a1a1" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="8199e3e1-e9c7-4421-a1c2-e58981333c5c" class="">Para iniciar el proceso de integración con Uber, es crucial comprender las configuraciones necesarias que garantizará un proceso exitoso. Las configuraciones de las APIs incluyen campos estándar que siempre deben configurarse, así como campos específicos que requieren datos exclusivos para Uber.</p></div><div style="display:contents" dir="auto"><h3 id="72304c0b-40d4-4d12-ae29-acfd27e034b2" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="b96c2e79-b9b9-4998-8394-4dc65d0685e1" class="">Cuando el cliente desea iniciar su operación con la integración de Uber, comienza este proceso de solicitud y recopilación de datos para las configuraciones de Uber.</p></div><div style="display:contents" dir="auto"><h3 id="02bd9eed-16bc-41e5-811e-cf299ff9bf88" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="9504d958-507c-4fea-b4d6-a6c0964bb073" class="toggle"><li><details open=""><summary><strong>La persona que realice y/o solicite este proceso debe tener en consideración:</strong></summary><div style="display:contents" dir="auto"><ul id="13339ae4-b156-4cb3-bee9-ecae1d075ff9" class="bulleted-list"><li style="list-style-type:disc">Ser personal autorizado de Toteat para la activación de los procesos de integraciones y tener conocimientos sólidos sobre el proceso de activación en la integración Uber-Toteat.</li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-8069-baf1-d92f2c426aae" class="bulleted-list"><li style="list-style-type:disc">Confirmar que el cliente ya esté creado y activo en Uber Eats.</li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-8053-8d9e-e01a3d2e4a97" class="bulleted-list"><li style="list-style-type:disc">Verificar que el cliente no esté vinculado a otro punto de venta (POS) antes de iniciar la integración.</li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-8087-958e-feede61c27c7" class="bulleted-list"><li style="list-style-type:disc">Si el cliente está asociado a otro POS, solicitar que realice la baja antes de proceder con nuestra integración.</li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-8026-92ba-c1140c323734" class="bulleted-list"><li style="list-style-type:disc">Asegurar que el cliente tenga los datos necesarios para la integración: UUID, precios por lista para Uber Eats y turnos a utilizar en la plataforma.</li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-8086-98d7-c51c3b8a2b4e" class="bulleted-list"><li style="list-style-type:disc">Confirmar con el cliente que los productos tengan imágenes.</li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-80f7-ab78-f80bdd17f7bc" class="bulleted-list"><li style="list-style-type:disc">Tener a mano los datos de Toteat en Uber Eats y el formulario correspondiente.</li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-801b-bc94-e9ccfb020f34" class="bulleted-list"><li style="list-style-type:disc">Programar la integración para inicios de semana e informar al cliente sobre el tiempo de activación de 1 a 3 días hábiles.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="7fe497cc-301d-4661-9a7f-c6839982beb8" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="f98a3c81-eb8d-4ec0-adc1-0a7b86ebe310" class="toggle"><li><details open=""><summary><strong>Paso 1: Solicitud de Datos vía correo</strong></summary><div style="display:contents" dir="auto"><ul id="c79e779e-1101-45c1-9fe5-16649dcb0e65" class="bulleted-list"><li style="list-style-type:disc">El agente encargado de realizar la activación de la integración Uber-Toteat debe solicitar los datos de configuración por correo electrónico. </li></ul></div><div style="display:contents" dir="auto"><ul id="11339073-1e23-8057-947f-df9721699e6a" class="bulleted-list"><li style="list-style-type:disc">Se requiere la siguiente información:<br/>1.- UUID de Uber (Ver Paso 2)<br/>2.- Turnos a manejar en Uber.<br/>3.- Precios por lista a usar en Uber, para ello se debe crear el precio por lista en el ambiente e identificarlo con el nombre de la marca-Uber, posteriormente, se debe descargar en formato de Excel, el archivo de precio por lista y enviarlo al cliente. <br/>En la columna de precio por lista, el cliente deberá colocar los precios a manejar en dicha plataforma. Si no desea que un producto sea visible en Uber, deberá dejar la celda en blanco (sin datos).<br/>Este proceso debe realizarse tanto para los productos como para los extras, asegurándonos de que la información sea completa y precisa para una correcta implementación en la plataforma de Uber.</li></ul></div><div style="display:contents" dir="auto"><ul id="9ba52491-bfd0-4174-bac4-69947750ce19" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: El cliente debe responder a lo solicitado a través del mismo correo, con el fin de mantener un registro formal de los datos.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="db03acd9-de7c-4623-8b78-d5d1a87140fc" class="toggle"><li><details open=""><summary><strong>Paso 2: Ubicación del UUID en la plataforma de Uber.</strong></summary><div style="display:contents" dir="auto"><ul id="7f45484f-5e21-48bf-8d81-8b7a4d437af6" class="bulleted-list"><li style="list-style-type:disc">Enviar el siguiente video al cliente para que pueda obtener su UUID en Uber:  </li></ul></div><div style="display:contents" dir="ltr"><figure id="e3ebace4-0d6d-448a-b572-531f0b455bd1"><div class="source"><a href="https://www.youtube.com/watch?v=XwjunMKcHSU">https://www.youtube.com/watch?v=XwjunMKcHSU</a></div></figure></div><div style="display:contents" dir="auto"><ul id="366ca84d-7cb5-41c1-98c3-57d5f79b7487" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: Esta tarea debe ser realizada por el cliente. Es importante que el cliente verifique que está en el manager correcto, especialmente si posee varias marcas. Este paso es crucial para asegurar que se esté trabajando con la marca adecuada y se eviten errores en el proceso.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="04a40549-1d6b-4090-9067-3831ea11af19" class="toggle"><li><details open=""><summary><strong>Paso 3: Datos del formulario de Uber.</strong></summary><div style="display:contents" dir="auto"><ul id="cfc1e485-5d7c-4f35-949e-e932a857fa04" class="bulleted-list"><li style="list-style-type:disc">El formulario de Uber lo pueden encontrar en el siguiente link: </li></ul></div><div style="display:contents" dir="auto"><p id="17639073-1e23-8022-ae47-eae7a158c093" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="94e83bdf-da83-452b-99a6-6a1ce1e3e5e8"><a href="https://docs.google.com/forms/d/e/1FAIpQLSf0Ais6oU-yeLqHf9AAD6yUvLZ9KTfyYchHjWtdr6ZZnoWQWQ/viewform" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Uber integration: Tech Support Request</div><div class="bookmark-description">Hello Partner!  Thanks for reaching out to our support team. We are here to help you with your technical queries regarding Uber&#x27;s two main API products: Uber Eats and Uber Direct.  Uber Eats: This includes getting help with troubleshooting integration related issues, integration configuration issues and general workflow/integration questions. Please direct any queries related to brand/location onboarding status(es) to either the merchants Account Manager, or to the Eats restaurant support team (restaurants@uber.com)  Uber Direct This technical support request form covers all technical aspects of the API, including Webhooks and general troubleshooting assistance and any feature implementation guidance. The support covers all technical aspects of the API, including Webhooks and general troubleshooting assistance and any feature implementation guidance.  BEFORE YOU SUBMIT A REQUEST Please refer to the guides/documentation on our Uber Developer site prior to submitting a request. Uber Eats Uber Direct If you work with an integration or POS provider, please ensure that you reach out to their respective support team directly for assistance - they in turn (and if needed) would reach out to the Uber technical support team.</div></div><div class="bookmark-href"><img src="https://ssl.gstatic.com/docs/forms/device_home/android_192.png" class="icon bookmark-icon"/>https://docs.google.com/forms/d/e/1FAIpQLSf0Ais6oU-yeLqHf9AAD6yUvLZ9KTfyYchHjWtdr6ZZnoWQWQ/viewform</div></div><img src="https://lh4.googleusercontent.com/jdpG5gO1a73xjRQfcCzjms_Vy3JjPMwooTORi3_94uzfky_jovHJcVwGI4v6gKcZ3KR-xLk5HMc=w1200-h630-p" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><ul id="73f05c3b-7149-4a65-af4b-956456d93985" class="bulleted-list"><li style="list-style-type:disc">Para el llenado del formulario de integración de Uber, es necesario contar con los datos que Uber para identificar y validar la integración con Toteat:<br/><strong>Store UUID:</strong><div style="display:contents" dir="auto"><p id="6e8230df-1c77-409d-8f0b-a6b41dc98134" class="">[Store UUID 1...</p></div><div style="display:contents" dir="auto"><p id="a6d433d1-7110-4819-8dbd-2cee6426a78b" class="">[Store UUID 2...]</p></div><div style="display:contents" dir="auto"><p id="99d17ece-9254-430d-bceb-b97312821186" class=""><strong>Order Manager</strong>: YES</p></div><div style="display:contents" dir="auto"><p id="1e64b14c-fe81-4dfd-a88e-0c2c6ff602e4" class=""><strong>Client ID:</strong> SIkXiw6mUduCRdfGx3yXUuSORYpHvFXt</p></div><div style="display:contents" dir="auto"><p id="8da1fd34-0a46-4719-adca-aa69915c2748" class=""><strong>App Owner UUID:</strong> 5edf772b-0b39-408b-92d6-9f10801b9040 (integra-uber@toteat.com)</p></div><div style="display:contents" dir="auto"><p id="06a5619b-af27-4552-8122-ff7eab5a6d21" class=""><strong>RD Optional</strong> ON</p></div><div style="display:contents" dir="auto"><p id="ffaca055-89db-4619-80ee-9796a5737fad" class=""><strong>AutoAccept</strong> OFF</p></div><div style="display:contents" dir="auto"><p id="951e077d-8f7f-49a7-b896-e595a0e385cb" class=""><strong>Visibility</strong> ON</p></div><div style="display:contents" dir="auto"><p id="2b6c1f60-f4e8-4866-8b39-ec1bda3f50a2" class="">Integration Enabled toggle On</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="32e9f18b-8325-4fc3-9fd2-1545c856db52" class="bulleted-list"><li style="list-style-type:disc"><strong>Nota</strong>: Es crucial tener todos estos datos disponibles antes de iniciar el llenado del formulario.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="da0f2398-d669-421b-8d36-4f827f127e3c" class="toggle"><li><details open=""><summary>P<strong>aso 4: Datos del Api de Toteat.</strong></summary><div style="display:contents" dir="auto"><ul id="36b527da-d411-4ea5-95ff-e519992e338b" class="bulleted-list"><li style="list-style-type:disc">Ver Módulo  <a href="2%202%20%C2%BFC%C3%B3mo%20se%20configura%20un%20API%207da512cd631145b287e6a7783ea96ecc.html"><span class="icon">📗</span>2.2. ¿Cómo se configura un API?</a></li></ul></div><div style="display:contents" dir="auto"><ul id="15939073-1e23-80df-9844-e62eb9cf6d9a" class="bulleted-list"><li style="list-style-type:disc">Id externo del restaurante: Ver  </li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="f21dfd03-297f-49e4-bdfe-74480682b078" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="74216a5c-f28c-473e-b2c9-5abe22587167" class="bulleted-list"><li style="list-style-type:disc">Disponer de los datos de configuración para la integración de Uber es fundamental para agilizar y garantizar una ejecución correcta. Esta información permite realizar el proceso rápidamente, asegurando que se cumplan los parámetros establecidos. Así, no sólo se optimiza el tiempo empleado en la activación de la integración, sino que también se asegura la precisión y fiabilidad del proceso.</li></ul></div><div style="display:contents" dir="auto"><h3 id="89d617f5-cf92-4aaa-9cae-56e7c6570eee" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="c3898beb-640d-4369-a6f0-19cc73bd74ca" class="bulleted-list"><li style="list-style-type:disc">Toda integración que no corresponda a Delivery.</li></ul></div><div style="display:contents" dir="auto"><ul id="c52b320d-3664-4184-ac38-e7df2fccc79b" class="bulleted-list"><li style="list-style-type:disc">Restaurantes que aún no se encuentren vinculados en la plataforma de Uber.</li></ul></div><div style="display:contents" dir="auto"><h3 id="b65356b2-996f-40b4-93ea-c301706fb83d" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="4f55e656-1e7d-4bf8-ad70-edf9674984c8" class="bulleted-list"><li style="list-style-type:disc">Revisión del proceso de obtención de datos de Uber.</li></ul></div><div style="display:contents" dir="auto"><h3 id="e500b8f7-004f-482a-89ba-56fab11a51ea" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="fddcf2bb-eba8-4403-b7c0-8f2f1edb6e5f" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="e066556e-4b13-4cda-9d63-57edb4266997"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="40c46324-7cd0-4f00-8bbf-f495c1e2b7c2"><td id="nU|h" class="">2024</td><td id="WwCq" class="">@Andrea Carolina Ruiz</td><td id="i;pn" class="">@Francisco Ramirez</td><td id="q^a=" class="">4012.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="71c8a055-729b-465a-bea4-bab362f6c521"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="fbe54c60-1ca4-47d1-a2dc-5c0127fa4954"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1a439073-1e23-808e-a012-da090e7a9c1c" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
