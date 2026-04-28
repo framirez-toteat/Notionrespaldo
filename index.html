@@ -256,10 +256,12 @@ let accessLevel = 0; // 0 = sin acceso, 1 = equipo, 2 = admin
       accessLevel = 2;
       sessionStorage.setItem('sac_level', '2');
       document.getElementById('login-screen').style.display = 'none';
+      init();
     } else if (input.value === PASSWORD_TEAM) {
       accessLevel = 1;
       sessionStorage.setItem('sac_level', '1');
       document.getElementById('login-screen').style.display = 'none';
+      init();
     } else {
       error.style.display = 'block';
       input.value = '';
