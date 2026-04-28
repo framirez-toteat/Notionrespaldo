@@ -5,6 +5,13 @@ import re
 content_dir = os.path.join(os.path.dirname(__file__), "content")
 pages = []
 
+# Recopilar todas las carpetas existentes
+all_folders = set()
+for root, dirs, _ in os.walk(content_dir):
+    for d in dirs:
+        fp = os.path.relpath(os.path.join(root, d), content_dir).replace('\\', '/')
+        all_folders.add(fp)
+
 for root, dirs, files in os.walk(content_dir):
     for file in sorted(files):
         if not file.endswith('.html'):
@@ -16,6 +23,13 @@ for root, dirs, files in os.walk(content_dir):
         if folder == '.':
             folder = ''
         pages.append({'title': title, 'path': rel_path, 'folder': folder})
+
+# Mover páginas "índice" dentro de su subcarpeta correspondiente
+# (ej: "Procesos" en "Privado y compartido" → dentro de "Privado y compartido/Procesos")
+for page in pages:
+    candidate = (page['folder'] + '/' + page['title']) if page['folder'] else page['title']
+    if candidate in all_folders:
+        page['folder'] = candidate
 
 pages.sort(key=lambda x: (x['folder'].lower(), x['title'].lower()))
 
