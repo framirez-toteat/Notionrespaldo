@@ -295,15 +295,35 @@ function init() {
   else { badge.textContent = 'General'; badge.className = 'general'; }
 }
 
-function buildTree(list) {
+function buildTree(list, searchMode = false) {
   const nav = document.getElementById('nav');
   [...nav.querySelectorAll('.folder-item, .page-link')].forEach(el => el.remove());
 
-  if (list.length === 0) {
+  // Sin búsqueda: solo mostrar páginas índice (las 4 secciones principales)
+  // Solo páginas índice de primer nivel (sin subcarpetas en su folder)
+  const toShow = searchMode ? list : list.filter(p => p.is_index && !p.folder.includes('/'));
+
+  if (toShow.length === 0) {
     document.getElementById('no-results').style.display = 'block';
     return;
   }
   document.getElementById('no-results').style.display = 'none';
+
+  if (!searchMode) {
+    // Vista plana: solo las páginas índice sin árbol de carpetas
+    toShow.forEach(page => {
+      const link = document.createElement('a');
+      link.className = 'page-link';
+      link.style.paddingLeft = '16px';
+      link.setAttribute('data-path', page.path);
+      link.setAttribute('href', '#');
+      link.innerHTML = `<span class="page-icon">📄</span><span>${page.title}</span>`;
+      link.onclick = (e) => { e.preventDefault(); loadPage(page.path, page.title, page.folder); };
+      if (page.path === currentPath) link.classList.add('active');
+      nav.insertBefore(link, document.getElementById('no-results'));
+    });
+    return;
+  }
 
   // Map: folderPath -> {el, childrenEl}
   const folderEls = {};
@@ -468,7 +488,7 @@ document.getElementById('search').addEventListener('input', function() {
 
 function filterPages(query) {
   if (!query) {
-    buildTree(pages);
+    buildTree(pages, false);
     return;
   }
   const q = query.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
@@ -477,8 +497,7 @@ function filterPages(query) {
     const f = p.folder.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
     return t.includes(q) || f.includes(q);
   });
-  buildTree(filtered);
-  // Auto-open all folders in search results
+  buildTree(filtered, true);
   document.querySelectorAll('.folder-item').forEach(el => el.classList.add('open'));
 }
 

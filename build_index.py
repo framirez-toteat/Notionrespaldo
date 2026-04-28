@@ -24,12 +24,10 @@ for root, dirs, files in os.walk(content_dir):
             folder = ''
         pages.append({'title': title, 'path': rel_path, 'folder': folder})
 
-# Mover páginas "índice" dentro de su subcarpeta correspondiente
-# (ej: "Procesos" en "Privado y compartido" → dentro de "Privado y compartido/Procesos")
+# Marcar páginas "índice" (su título coincide con el nombre de una subcarpeta del mismo nivel)
 for page in pages:
     candidate = (page['folder'] + '/' + page['title']) if page['folder'] else page['title']
-    if candidate in all_folders:
-        page['folder'] = candidate
+    page['is_index'] = candidate in all_folders
 
 pages.sort(key=lambda x: (x['folder'].lower(), x['title'].lower()))
 
