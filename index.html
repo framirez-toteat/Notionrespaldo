@@ -165,6 +165,13 @@
   }
   #open-btn:hover { border-color: var(--accent); color: var(--accent); }
 
+  #logout-btn {
+    font-size: 12px; padding: 5px 12px;
+    background: none; border: 1px solid var(--border); border-radius: 5px;
+    cursor: pointer; color: var(--text-light); white-space: nowrap;
+  }
+  #logout-btn:hover { border-color: #ff6b6b; color: #ff6b6b; }
+
   #content-frame {
     flex: 1; border: none; background: #fff;
   }
@@ -216,6 +223,7 @@
     <div id="topbar">
       <div id="breadcrumb">Selecciona una página</div>
       <button id="open-btn" style="display:none" onclick="openInNewTab()">Abrir en nueva pestaña ↗</button>
+      <button id="logout-btn" onclick="logout()" title="Cerrar sesión">🔒 Salir</button>
     </div>
     <div id="welcome">
       <div class="count">📄</div>
@@ -431,6 +439,11 @@ function loadPage(path, title, folder) {
 
 function openInNewTab() {
   if (currentPath) window.open(currentPath, '_blank');
+}
+
+function logout() {
+  sessionStorage.removeItem('sac_level');
+  location.reload();
 }
 
 // Search
