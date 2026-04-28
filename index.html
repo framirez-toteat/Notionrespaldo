@@ -334,13 +334,15 @@ function buildTree(list, searchMode = false) {
   document.getElementById('no-results').style.display = 'none';
 
   if (!searchMode) {
-    const sectionIcons = {
-      'Procesos':  { icon: '⚙️',  desc: 'Flujos y documentación técnica' },
-      'Proyectos': { icon: '📊',  desc: 'Planificación y seguimiento' },
-      'Tareas':    { icon: '✅',  desc: 'Gestión de tareas del equipo' },
+    const getSectionMeta = page => {
+      if (page.title === 'Procesos') return { icon: '⚙️', label: 'Procesos', desc: 'Flujos y documentación técnica' };
+      if (page.title === 'Tareas')   return { icon: '✅', label: 'Tareas', desc: 'Gestión de tareas del equipo' };
+      if (page.title === 'Proyectos' && page.path.includes('ac0ae8ce')) return { icon: '💼', label: 'Proyectos Equipo', desc: 'Proyectos del equipo SAC' };
+      if (page.title === 'Proyectos' && page.path.includes('405bb8e9')) return { icon: '🛠️', label: 'Mis Proyectos', desc: 'Proyectos personales' };
+      return { icon: '📄', label: page.title, desc: '' };
     };
     toShow.forEach(page => {
-      const meta = sectionIcons[page.title] || { icon: '📄', desc: '' };
+      const meta = getSectionMeta(page);
       const link = document.createElement('a');
       link.className = 'section-card';
       link.setAttribute('data-path', page.path);
@@ -348,7 +350,7 @@ function buildTree(list, searchMode = false) {
       link.innerHTML = `
         <span class="section-icon">${meta.icon}</span>
         <span class="section-info">
-          <span class="section-title">${page.title}</span>
+          <span class="section-title">${meta.label}</span>
           ${meta.desc ? `<span class="section-desc">${meta.desc}</span>` : ''}
         </span>`;
       link.onclick = (e) => { e.preventDefault(); loadPage(page.path, page.title, page.folder); };
