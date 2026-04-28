@@ -1,0 +1,744 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Minuta reunión No. 54 _ 08/09/2025</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="26839073-1e23-80df-8e06-dab58fcfb739" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/></div><h1 class="page-title" dir="auto">Minuta reunión No. 54 _ 08/09/2025</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><table id="26839073-1e23-8195-a9b7-e2316a531f66" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="26839073-1e23-81fd-81f4-d6b0ad9997f5"><th id="Cav[" class="simple-table-header-color simple-table-header" style="width:299px">Persona que convoca</th><td id="wuW}" class="" style="width:378px">Francisco Ramírez</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8125-8614-c7f107c76d37"><th id="Cav[" class="simple-table-header-color simple-table-header" style="width:299px">Fecha </th><td id="wuW}" class="" style="width:378px">08/09/2025</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8147-98bf-fd0fe24d00fa"><th id="Cav[" class="simple-table-header-color simple-table-header" style="width:299px">Asunto a tratar</th><td id="wuW}" class="" style="width:378px">Seguimiento general del proyecto</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-818f-b006-e448a0624f8b"><th id="Cav[" class="simple-table-header-color simple-table-header" style="width:299px">Grabación</th><td id="wuW}" class="" style="width:378px">Actualizar</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="26839073-1e23-81c0-b5cd-ceae442ed27c" class="">Asistentes</h2></div><div style="display:contents" dir="ltr"><table id="26839073-1e23-8139-8119-f596572f80d2" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8114-ba52-f66ec3ab4086"><th id="qy~x" class="simple-table-header-color simple-table-header" style="width:299px"><strong>Nombre</strong></th><th id="U:wz" class="simple-table-header-color simple-table-header" style="width:299px"><strong>Rol</strong></th><th id="rHtp" class="simple-table-header-color simple-table-header"><strong>Equipo</strong></th><th id="lm{l" class="simple-table-header-color simple-table-header">Asistió?</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="26839073-1e23-81a9-9de5-e5913d231cac"><td id="qy~x" class="" style="width:299px">Karen Martinez</td><td id="U:wz" class="" style="width:299px">LF</td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">Sí</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8194-83b4-d1ab7f460d2b"><td id="qy~x" class="" style="width:299px">Francisco Ramírez</td><td id="U:wz" class="" style="width:299px">PM</td><td id="rHtp" class="">Toteat</td><td id="lm{l" class="">Sí</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-818b-98a6-cf1dc9ee0321"><td id="qy~x" class="" style="width:299px">Joaquin Suazo </td><td id="U:wz" class="" style="width:299px">PM</td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">Sí</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-814c-b575-d366436150e6"><td id="qy~x" class="" style="width:299px">Ronald Binder</td><td id="U:wz" class="" style="width:299px">KU implementación </td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">No</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-81b4-b333-f011533d514e"><td id="qy~x" class="" style="width:299px">Andres Vivas</td><td id="U:wz" class="" style="width:299px">KU implementación </td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">Sí</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-811d-bb57-e5409d70c63f"><td id="qy~x" class="" style="width:299px">Pedro Flores</td><td id="U:wz" class="" style="width:299px">KU implementación </td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">Sí</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8127-a95d-de7b2566087f"><td id="qy~x" class="" style="width:299px">Claudio Ramirez</td><td id="U:wz" class="" style="width:299px">KU implementación </td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">Sí</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-816c-b66c-c8cb797127e4"><td id="qy~x" class="" style="width:299px">Mauricio Norambuena</td><td id="U:wz" class="" style="width:299px">Inventario</td><td id="rHtp" class="">Toteat</td><td id="lm{l" class="">Sí</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8139-bc28-f25edd9d04cf"><td id="qy~x" class="" style="width:299px">Luis Quintriqueo</td><td id="U:wz" class="" style="width:299px">KU implementación </td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">Sí</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8179-a4d5-d117dc57044f"><td id="qy~x" class="" style="width:299px">Maria Fernanda Soto</td><td id="U:wz" class="" style="width:299px">BA</td><td id="rHtp" class="">Toteat</td><td id="lm{l" class="">No</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-81b5-b2c7-d7ff10a66f49"><td id="qy~x" class="" style="width:299px">Pablo Busques</td><td id="U:wz" class="" style="width:299px">AF</td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">Sí</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8159-92e7-d2f48d4d5b0a"><td id="qy~x" class="" style="width:299px">M. Victoria Izquierdo</td><td id="U:wz" class="" style="width:299px">AF </td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">No</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="26839073-1e23-8112-a830-cc670de566e5" class="">Temas Tratados</h2></div><div style="display:contents" dir="ltr"><table id="26839073-1e23-8108-88a7-ed932138739f" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8184-9928-d51678c9db0a"><td id="wfJo" class="" style="width:49px"><strong>#</strong></td><td id="`iP_" class="" style="width:549px"><strong>Tema</strong></td><td id="zgp{" class="" style="width:187px"><strong>Responsable</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-813b-a20e-cc3d052de123"><td id="wfJo" class="" style="width:49px">1</td><td id="`iP_" class="" style="width:549px">Seguimiento proyecto </td><td id="zgp{" class="" style="width:187px">@todos</td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8176-b1fc-d023e7502fa9"><td id="wfJo" class="" style="width:49px">2</td><td id="`iP_" class="" style="width:549px"></td><td id="zgp{" class="" style="width:187px"></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8155-bb19-cfadb5956730"><td id="wfJo" class="" style="width:49px">3</td><td id="`iP_" class="" style="width:549px"></td><td id="zgp{" class="" style="width:187px"></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="26839073-1e23-81b0-9483-d6f82e50e999" class="">Acuerdos y compromisos</h2></div><div style="display:contents" dir="ltr"><table id="26839073-1e23-814a-b65a-c7fb96bbbce4" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8136-8655-deec19399352"><th id="Ecfg" class="simple-table-header-color simple-table-header" style="width:41px">#</th><th id="mOWW" class="simple-table-header-color simple-table-header"><strong>Tipo</strong> </th><th id="w&gt;t&lt;" class="simple-table-header-color simple-table-header" style="width:234.25px"><strong>Tema</strong>  </th><th id="ztrd" class="simple-table-header-color simple-table-header"><strong>Responsable</strong></th><th id="ASeV" class="simple-table-header-color simple-table-header" style="width:218px"><strong>Fecha</strong> </th><th id="_mS&gt;" class="simple-table-header-color simple-table-header" style="width:120px"><strong>Estado</strong></th><th id="t^VN" class="simple-table-header-color simple-table-header" style="width:199px"><strong>Observación</strong></th><th id="vj~B" class="simple-table-header-color simple-table-header"></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8165-8d52-caf1369cb1a0"><td id="Ecfg" class="" style="width:41px">1</td><td id="mOWW" class="">Compromiso</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Presentación documento requerimientos funcionales actualizados con Ingeniería</td><td id="ztrd" class=""><span class="user">@Francisco Ramirez</span> <span class="user">@Luciano Elizondo</span> </td><td id="ASeV" class="" style="width:218px">27/07/2025</td><td id="_mS&gt;" class="" style="width:120px">En proceso</td><td id="t^VN" class="" style="width:199px">Presentación documento funcional a equipo de ingeniería para su estimación y validación.<br/><mark class="highlight-default">Ya escalado, aplicado dolor y solicitud por petición de Ingeniería<br/>Entrega de documento lunes 01/09</mark><mark class="highlight-pink"><br/>Solo Stock Crítico y evaluar Pluxee</mark></td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-81e7-8c45-c357abca2af3"><td id="Ecfg" class="" style="width:41px">2</td><td id="mOWW" class="">Seguimiento </td><td id="w&gt;t&lt;" class="" style="width:234.25px">Unificar ID de maestros, crear un maestro total para administrar puntos. Reagendada por implementación</td><td id="ztrd" class=""><span class="user">@María Fernanda Soto</span> <span class="user">@karen.martinez@sodexo.com</span> @pablo busques @maria victoria</td><td id="ASeV" class="" style="width:218px"><del>12/05/2025      26/05/2025.        </del>30/05/2025</td><td id="_mS&gt;" class="" style="width:120px">Terminado</td><td id="t^VN" class="" style="width:199px">28/04/25 Se insiste en la importancia de contar con esta información.                    12/05/2025: Maestro nueva fecha desde Sodexo: <del>26/05/2025</del>, Victoria menciona que debería estar para el 30/05/25, se modifica fecha. <mark class="highlight-default">Se modifica para martes 03/06.<br/>Seguimiento<br/>Maestro único, versiones según CL se empezará por RM; con maestro general y luego solo se adicionarán ID para productos fuera RM, Inventario transaccional.</mark><mark class="highlight-blue"><br/></mark><mark class="highlight-default"><mark class="highlight-default_background">Entregado, falta configuración interna y listas de precio + incluir fotos miércoles 18 maestro listo (sin listas)</mark></mark><mark class="highlight-pink"><br/></mark><mark class="highlight-default">Se trabajará en precios de lista y carga de proveedores<br/>66% completado representan 68 puntos 57% para tótems</mark><mark class="highlight-pink"><br/></mark><mark class="highlight-default">Se incorpora Larzaid al equipo </mark><mark class="highlight-pink"><br/>Se termina elaboración de maestra única.</mark></td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26f39073-1e23-804c-9145-f96ee8580b20"><td id="Ecfg" class="" style="width:41px">3</td><td id="mOWW" class="">Seguimiento</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Configuración y segmentación de Listas de precio</td><td id="ztrd" class=""><span class="user">@Fernando Leñero</span> Pablo Busques</td><td id="ASeV" class="" style="width:218px">TBD</td><td id="_mS&gt;" class="" style="width:120px">En proceso</td><td id="t^VN" class="" style="width:199px">Determinar las listas de precios para los puntos en multisucursal y pendientes</td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-81f7-b374-ceb5c7a94df2"><td id="Ecfg" class="" style="width:41px">4</td><td id="mOWW" class="">Compromiso </td><td id="w&gt;t&lt;" class="" style="width:234.25px">Del listado de requerimientos hay uno que es necesario coordinación interna de sodexo y finanzas + mercado pago</td><td id="ztrd" class=""><span class="user">@Joaquin Suazo</span> <span class="user">@karen.martinez@sodexo.com</span> </td><td id="ASeV" class="" style="width:218px">14/05/2025</td><td id="_mS&gt;" class="" style="width:120px">En proceso</td><td id="t^VN" class="" style="width:199px">Agenda Interna 14/05/ 25.  Se tuvo reunión interna Sodexo y queda pendiente agenda finanzas sodexo y MP.19/05/2025  <br/>Reunión Sodexo MP <mark class="highlight-default_background">26/05/2025</mark><mark class="highlight-blue_background"><br/></mark><mark class="highlight-default_background">Reagenda 05/06</mark><mark class="highlight-pink"><mark class="highlight-default_background"><br/></mark></mark><mark class="highlight-default"><mark class="highlight-default_background">Reunión Técnica para factibilidad Boleta TBD<br/>12/08 piloto MP y totem</mark></mark><mark class="highlight-pink"><mark class="highlight-default_background"><br/><br/>TRABAJAR EL DESPLIEGUE DEL POINT</mark></mark></td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-81c3-99fd-d0576d681049"><td id="Ecfg" class="" style="width:41px">5</td><td id="mOWW" class="">Compromiso</td><td id="w&gt;t&lt;" class="" style="width:234.25px">UC levanta una necesidad y Joaquin y Andres lo formalizan en la reunión para que Toteat lo tome:  * Hacer pagos parciales con RDC , * Abrir gaveta solo con efectivo </td><td id="ztrd" class=""><span class="user">@Francisco Ramirez</span> <span class="user">@Pao Rodríguez</span> </td><td id="ASeV" class="" style="width:218px"><mark class="highlight-blue">15/07/2025</mark></td><td id="_mS&gt;" class="" style="width:120px">En proceso</td><td id="t^VN" class="" style="width:199px"><mark class="highlight-default">26/05/2025 Nos entregaron fecha para el 15 de julio desde ingeniería Toteat.</mark><mark class="highlight-blue"><br/></mark><mark class="highlight-pink">Se realiza entrega de Requerimientos funcionales</mark></td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8115-a439-db5fda46c462"><td id="Ecfg" class="" style="width:41px">6</td><td id="mOWW" class="">Compromiso </td><td id="w&gt;t&lt;" class="" style="width:234.25px">Sodexo, levanta necesidad de tener funcionalidad de “reservar lugar”</td><td id="ztrd" class=""><span class="user">@Francisco Ramirez</span> <span class="user">@Pao Rodríguez</span> </td><td id="ASeV" class="" style="width:218px">TBD</td><td id="_mS&gt;" class="" style="width:120px">Terminado</td><td id="t^VN" class="" style="width:199px">*26/05/2025: Este es un deseable por el lado de Sodexo y revisarán dicha funcionalidad para entender si lo pedirán formalmente con el costo asociado o esperaran a que Toteat lo incluya dentro del Road map , Toteat debe revisar la fecha estimada de priorización de esta funcionalidad.<br/><mark class="highlight-default">A la espera de doc con priorización de funcionalidades </mark><mark class="highlight-pink"><br/><br/>DESESTIMADO</mark></td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8188-8dcb-ea36cd2131ac"><td id="Ecfg" class="" style="width:41px">7</td><td id="mOWW" class="">Seguimiento</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Piloto para Toteat Shop </td><td id="ztrd" class=""><span class="user">@karen.martinez@sodexo.com</span> <span class="user">@Joaquin Suazo</span> </td><td id="ASeV" class="" style="width:218px">TBD</td><td id="_mS&gt;" class="" style="width:120px">En proceso</td><td id="t^VN" class="" style="width:199px">Validar qué punto está habilitado para realizar piloto<br/><mark class="highlight-pink">Pendiente de CC<br/></mark></td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-81b3-9db7-ec8de4b4145c"><td id="Ecfg" class="" style="width:41px">8</td><td id="mOWW" class="">Seguimiento</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Pruebas totems Raspberry</td><td id="ztrd" class="">Luis Quintriqueo</td><td id="ASeV" class="" style="width:218px">14/07</td><td id="_mS&gt;" class="" style="width:120px">En Proceso</td><td id="t^VN" class="" style="width:199px">Formateo o configuración para uso de URL Toteat en pantalla completa<br/><mark class="highlight-default">Se realiza visita al punto 14/07 con personal belltech, se llevarán el tótem para revisión.<br/></mark><mark class="highlight-pink">Pendiente de confirmación</mark></td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-81a6-bf0c-f0d7130ade51"><td id="Ecfg" class="" style="width:41px">9</td><td id="mOWW" class="">Compromiso</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Validación API ICONSTRUYE</td><td id="ztrd" class=""><span class="user">@Francisco Ramirez</span> Joaquin Suazo</td><td id="ASeV" class="" style="width:218px">29/07</td><td id="_mS&gt;" class="" style="width:120px">En proceso</td><td id="t^VN" class="" style="width:199px"><mark class="highlight-default">Se realizan pruebas en el API, se validan dudas con Jorge Cabané<br/>Se coordina reunión para el día 29/07<br/></mark><mark class="highlight-pink">Se tiene respuesta de Iconstruye, 18 días hábiles a partir de confirmación</mark></td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8111-a59d-cb7be8d10009"><td id="Ecfg" class="" style="width:41px">10</td><td id="mOWW" class="">Compromiso</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Toteat shop Manuca CC Crédito</td><td id="ztrd" class=""><span class="user">@Francisco Ramirez</span> </td><td id="ASeV" class="" style="width:218px">TBD</td><td id="_mS&gt;" class="" style="width:120px">En proceso</td><td id="t^VN" class="" style="width:199px">Validar tiempos estimados para desarrollo CC y aplicado a Toteat shop<br/><mark class="highlight-pink">CREDITO MIERCOLES A LAS 3 INVITAR CC Y ER configuracion</mark></td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8180-9249-fb42ba678073"><td id="Ecfg" class="" style="width:41px">11</td><td id="mOWW" class="">Seguimiento</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Se informa fecha de CC corrida a nueva estimación</td><td id="ztrd" class=""><span class="user">@Francisco Ramirez</span> </td><td id="ASeV" class="" style="width:218px">22/08</td><td id="_mS&gt;" class="" style="width:120px">En proceso</td><td id="t^VN" class="" style="width:199px">Se Informa retraso en desarrollo módulo CC, nueva fecha para la tercera semana de Agosto 22/08 MVP Crédito<br/><mark class="highlight-pink">Se entrega primer MVP de uso de crédito para POS, feedback Team Sodexo MIERCOELS A   A LAS 3 CON FRANCISCA UC</mark></td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-815b-9233-c4f703f4adfd"><td id="Ecfg" class="" style="width:41px">12</td><td id="mOWW" class="">Compromiso</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Validaciones Tótem </td><td id="ztrd" class=""><span class="user">@Francisco Ramirez</span> <span class="user">@Luciano Elizondo</span> </td><td id="ASeV" class="" style="width:218px">TBD</td><td id="_mS&gt;" class="" style="width:120px">En Proceso</td><td id="t^VN" class="" style="width:199px">Validaciones de Lectura código de barra, modal bienvenida, teclado en pantalla, Ocultar productos (validar factibilidad) y TAG para productos en promocion<br/><br/><mark class="highlight-pink">Solo queda pendiente tag/precio referencial, se realizará Demo para mostrar escaneo continuo</mark></td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-81c1-a66a-dddae86a21a5"><td id="Ecfg" class="" style="width:41px">13</td><td id="mOWW" class="">Seguimiento</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Seguimiento Inventario</td><td id="ztrd" class=""><span class="user">@Mauricio Norambuena</span> </td><td id="ASeV" class="" style="width:218px">TBD</td><td id="_mS&gt;" class="" style="width:120px">En proceso</td><td id="t^VN" class="" style="width:199px">Reuniones de Seguimiento uso de inventario<br/><br/><mark class="highlight-pink">AGREGAR EN PREIMENTENCACION LA CARGA DE COSTOS </mark></td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-81ba-a20a-f4d780642913"><td id="Ecfg" class="" style="width:41px">14</td><td id="mOWW" class="">Implementacion</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Implementaciones puntos del sur 12 sucursales</td><td id="ztrd" class=""><span class="user">@Francisco Ramirez</span> Andres Vivas</td><td id="ASeV" class="" style="width:218px">08/09</td><td id="_mS&gt;" class="" style="width:120px">En proceso</td><td id="t^VN" class="" style="width:199px">Instalación de puntos Zona sur durante septiembre </td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-8181-9a0a-f8626aa79529"><td id="Ecfg" class="" style="width:41px">15</td><td id="mOWW" class="">Implementación</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Instalación Multisucursal Puntos Santa Lucía- Centro del Cancer - Perez valenzuela</td><td id="ztrd" class=""><span class="user">@Francisco Ramirez</span> </td><td id="ASeV" class="" style="width:218px">04/09</td><td id="_mS&gt;" class="" style="width:120px">Terminado</td><td id="t^VN" class="" style="width:199px">Se requiere pasar a multisucursales puntos UC centro, Validar listas de precio.</td><td id="vj~B" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="26839073-1e23-818e-b26a-d5323b3eb092"><td id="Ecfg" class="" style="width:41px">16</td><td id="mOWW" class="">Seguimiento</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Reunión para validar Carta Gantt actualizada</td><td id="ztrd" class=""><span class="user">@Francisco Ramirez</span> Karen Martinez</td><td id="ASeV" class="" style="width:218px">TBD</td><td id="_mS&gt;" class="" style="width:120px">Sin comenzar</td><td id="t^VN" class="" style="width:199px">Reunion para validar puntos pendientes en relación a desarrollos y compromisos</td><td id="vj~B" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="26839073-1e23-813d-94da-c12ea9e70b93" class="block-color-brown_background">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

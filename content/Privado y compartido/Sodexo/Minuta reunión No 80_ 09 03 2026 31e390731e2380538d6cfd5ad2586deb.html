@@ -1,0 +1,746 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Minuta reunión No. 80_ 09/03/2026</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="31e39073-1e23-8053-8d6c-fd5ad2586deb" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/></div><h1 class="page-title" dir="auto">Minuta reunión No. 80_ 09/03/2026</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><table id="31e39073-1e23-81cf-89fd-f7e25260d86d" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81bc-9fc5-e92f27dd1664"><th id="Cav[" class="simple-table-header-color simple-table-header" style="width:299px">Persona que convoca</th><td id="wuW}" class="" style="width:378px">Maria Fernanda Soto</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-816f-b587-c5f27d054c84"><th id="Cav[" class="simple-table-header-color simple-table-header" style="width:299px">Fecha </th><td id="wuW}" class="" style="width:378px">09/03/2026</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81d1-810c-dcb3237b262c"><th id="Cav[" class="simple-table-header-color simple-table-header" style="width:299px">Asunto a tratar</th><td id="wuW}" class="" style="width:378px">Seguimiento general del proyecto</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="31e39073-1e23-81cf-b02d-df91dcb4690c" class="">Asistentes</h2></div><div style="display:contents" dir="ltr"><table id="31e39073-1e23-812d-a5fd-f26f2add3b57" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-816f-b773-cd6f9d2eec60"><th id="qy~x" class="simple-table-header-color simple-table-header" style="width:299px"><strong>Nombre</strong></th><th id="U:wz" class="simple-table-header-color simple-table-header" style="width:299px"><strong>Rol</strong></th><th id="rHtp" class="simple-table-header-color simple-table-header"><strong>Equipo</strong></th><th id="lm{l" class="simple-table-header-color simple-table-header">Asistió?</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81ba-a490-d136d5f50395"><td id="qy~x" class="" style="width:299px">Karen Martinez</td><td id="U:wz" class="" style="width:299px">LF</td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">Sí</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-816a-8db6-cc3241959f1d"><td id="qy~x" class="" style="width:299px">Francisco Ramírez</td><td id="U:wz" class="" style="width:299px">PM</td><td id="rHtp" class="">Toteat</td><td id="lm{l" class="">Sí</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-8163-a3a9-f2097a30970f"><td id="qy~x" class="" style="width:299px">Joaquin Suazo </td><td id="U:wz" class="" style="width:299px">PM</td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">Sí</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81fe-9331-e88c52241156"><td id="qy~x" class="" style="width:299px">Ronald Binder</td><td id="U:wz" class="" style="width:299px">KU implementación </td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">No</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-817e-bfe2-f1917d466695"><td id="qy~x" class="" style="width:299px">Andres Vivas</td><td id="U:wz" class="" style="width:299px">KU implementación </td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">No</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81e9-aeef-c82a8c25f6be"><td id="qy~x" class="" style="width:299px">Pedro Flores</td><td id="U:wz" class="" style="width:299px">KU implementación </td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">Si</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81d1-a9ce-e9db822283e5"><td id="qy~x" class="" style="width:299px">Claudio Ramirez</td><td id="U:wz" class="" style="width:299px">KU implementación </td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">Si</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-8115-92a0-ff78e37db143"><td id="qy~x" class="" style="width:299px">Mauricio Norambuena</td><td id="U:wz" class="" style="width:299px">Inventario</td><td id="rHtp" class="">Toteat</td><td id="lm{l" class="">Sí</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-8157-8086-d4e377bcea2a"><td id="qy~x" class="" style="width:299px">Luis Quintriqueo</td><td id="U:wz" class="" style="width:299px">KU implementación </td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">Si</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-8101-86ea-e601bf9b5ce4"><td id="qy~x" class="" style="width:299px">Maria Fernanda Soto</td><td id="U:wz" class="" style="width:299px">BA</td><td id="rHtp" class="">Toteat</td><td id="lm{l" class="">SI</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81e6-83d0-c89a01748c22"><td id="qy~x" class="" style="width:299px">Pablo Busques</td><td id="U:wz" class="" style="width:299px">AF</td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class="">Sí</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-8112-ae1c-d7ea05b2ae5e"><td id="qy~x" class="" style="width:299px">Marta Cortes</td><td id="U:wz" class="" style="width:299px">AF</td><td id="rHtp" class="">Sodexo</td><td id="lm{l" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="31e39073-1e23-8143-b563-fc6abff08753" class="">Temas Tratados</h2></div><div style="display:contents" dir="ltr"><table id="31e39073-1e23-8151-9286-cb6c036406ed" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81c2-b8a2-c96010e7b11b"><td id="wfJo" class="" style="width:49px"><strong>#</strong></td><td id="`iP_" class="" style="width:549px"><strong>Tema</strong></td><td id="zgp{" class="" style="width:187px"><strong>Responsable</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-810b-ba3b-f089263bad13"><td id="wfJo" class="" style="width:49px">1</td><td id="`iP_" class="" style="width:549px">Seguimiento general del proyecto </td><td id="zgp{" class="" style="width:187px">@todos</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-812e-a493-e950c2f64325"><td id="wfJo" class="" style="width:49px">2</td><td id="`iP_" class="" style="width:549px">Validación de requerimientos funcionales</td><td id="zgp{" class="" style="width:187px"></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-8101-9d51-caed278c6557"><td id="wfJo" class="" style="width:49px">3</td><td id="`iP_" class="" style="width:549px">Avances en desarrollos e implementaciones regionales</td><td id="zgp{" class="" style="width:187px"></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="31e39073-1e23-814c-bab1-de442ee88406" class="">⚙️ Desarrollos</h2></div><div style="display:contents" dir="auto"><p id="31e39073-1e23-818e-9796-cbd5ca37e9bc" class="">Sin Comenzar-En Proceso-Finalizado</p></div><div style="display:contents" dir="ltr"><table id="31e39073-1e23-8194-85df-c2091192b483" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81bc-ace7-dc892c3a9bff"><th id="Ecfg" class="simple-table-header-color simple-table-header" style="width:35px">#</th><th id="mOWW" class="simple-table-header-color simple-table-header" style="width:146px"><strong>Tipo</strong> </th><th id="w&gt;t&lt;" class="simple-table-header-color simple-table-header" style="width:234.25px"><strong>Tema</strong>  </th><th id="ztrd" class="simple-table-header-color simple-table-header"><strong>Responsable</strong></th><th id="ASeV" class="simple-table-header-color simple-table-header" style="width:144px"><strong>Fecha</strong> </th><th id="_mS&gt;" class="simple-table-header-color simple-table-header" style="width:133px"><strong>Estado</strong></th><th id="LGL;" class="simple-table-header-color simple-table-header">Observaciones</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81d5-aad0-ec9ef909af72"><td id="Ecfg" class="" style="width:35px">1</td><td id="mOWW" class="" style="width:146px">Inventarios</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Exportación en PDF de inventario</td><td id="ztrd" class="">Toteat</td><td id="ASeV" class="" style="width:144px">por definir</td><td id="_mS&gt;" class="" style="width:133px">En Proceso</td><td id="LGL;" class="">- Revisar factibilidad con Alex PO INV. <br/>Deberia estar tomandose esta semana<mark class="highlight-default">. comenzando hoy miercoles</mark><mark class="highlight-teal"><br/>  • Proxima semana queda en produccion</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-819d-b2de-eb57b76795a3"><td id="Ecfg" class="" style="width:35px">2</td><td id="mOWW" class="" style="width:146px">Inventarios</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Costo teórico manual (convenios)</td><td id="ztrd" class="">Toteat</td><td id="ASeV" class="" style="width:144px">por definir</td><td id="_mS&gt;" class="" style="width:133px">En proceso</td><td id="LGL;" class="">• No a todos los productos se les esta asociaciando el proveedor.<br/>Revisar con Alex estos temas y traer un diagnostico y solución.<br/><mark class="highlight-default">  • continua en revisión, consultar status actual<br/>Tomarlo con urgencia, dadas las nuevas implementaciones semanales que vamos sumando.</mark><mark class="highlight-teal"><br/>  • Se encuentra en QA y deberia estar subiendose la proxima semana</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-8157-9fab-f4ec49b465ee"><td id="Ecfg" class="" style="width:35px">3</td><td id="mOWW" class="" style="width:146px">Pluxee</td><td id="w&gt;t&lt;" class="" style="width:234.25px">- Envío de documentación de Pluxee<br/>- Organizar reunión con Pluxee y Toteat</td><td id="ztrd" class=""><span class="user">@Joaquin Suazo</span> </td><td id="ASeV" class="" style="width:144px">por definir</td><td id="_mS&gt;" class="" style="width:133px">En proceso</td><td id="LGL;" class=""><mark class="highlight-default">Mismo Status<br/>Planificado para Marzo</mark><mark class="highlight-yellow"><br/>  • Se solicita a PLuxee documentacion actualizada para comenzar. Dar seguimiento</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-8129-a942-d3f2a09a98c8"><td id="Ecfg" class="" style="width:35px">4</td><td id="mOWW" class="" style="width:146px">Codigos de Barra</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Mercadopago</td><td id="ztrd" class="">Toteat-CC</td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133px">Por Comenzar</td><td id="LGL;" class=""><mark class="highlight-teal">Luis probo y le funciona bien.</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-8166-85f4-df44b08bc86f"><td id="Ecfg" class="" style="width:35px">5</td><td id="mOWW" class="" style="width:146px">Formulario de Seguridad</td><td id="w&gt;t&lt;" class="" style="width:234.25px">NDA y otros</td><td id="ztrd" class="">Toteat</td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133px">Por Comenzar</td><td id="LGL;" class=""><mark class="highlight-default">Faltaria el NDA<br/></mark><br/>Url y Password basico para poder hacer test de vulnerabilidad.<br/><mark class="highlight-default">consultar con Leon sobre este usuario para compartirles y hacer la prueba<br/> </mark><mark class="highlight-teal"> •</mark> se compartio el usuario y falta que realicen las pruebas. Quedamos atentos a los resultados.<mark class="highlight-teal"><br/>Se necesita revisar los puntos pendientes enviados por mail. Dar seguimiento</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81a2-975c-f7117de82f2f"><td id="Ecfg" class="" style="width:35px">6</td><td id="mOWW" class="" style="width:146px">Producto no permite venderse en efectivo</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Brownie tiene problemas al momento de querer pagar con efectivo</td><td id="ztrd" class="">Toteat</td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133px">Por Comenzar</td><td id="LGL;" class="">Luis hizo prueba con el nuevo TPS sin embargo no funciona la venta de este <mark class="highlight-default">producto. Coordinar Fran/Luis<br/>Esperando respuesta por parte de Carlos para poder probar.</mark><mark class="highlight-teal"><br/></mark><mark class="highlight-default">  • La proxima semana deberiamos tener alguna actualizacion para probar el nuevo TPS.<br/>Fran coordinara con luis para hacer pruebas cuando este ok<br/> </mark><mark class="highlight-teal"> • </mark><em><mark class="highlight-teal">Falta tener claridad de fecha, consultar con Joaquin Toteat posible fecha. consultar nuevamente cuando estaria resuelto. LISTO (se le pide a luis hacer prueba)</mark></em></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81ce-b5f3-d45e6e2eadbe"><td id="Ecfg" class="" style="width:35px">6.1</td><td id="mOWW" class="" style="width:146px">Descuento en boleta con efectivo</td><td id="w&gt;t&lt;" class="" style="width:234.25px">El descuento se aplica al neto, pero luego se suma al iva</td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px"></td><td id="_mS&gt;" class="" style="width:133px"></td><td id="LGL;" class="">Se hizo prueba, pero no sale correcto en pagos parciales, pero si en pago completo con descuento.<br/>Fran lo iba a reportar con Carlos.<br/>.<em><mark class="highlight-teal"> Continua en revisión. Esta semana se empieza con ese desarrollo. LISTO (se le pide a luis hacer prueba)</mark></em></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-813f-a6c1-e2e26a6bf586"><td id="Ecfg" class="" style="width:35px">7</td><td id="mOWW" class="" style="width:146px">Tshop y pagos.</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Cobros Post Aprobación de pedidos TShop</td><td id="ztrd" class="">Toteat</td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133px">Por Comenzar</td><td id="LGL;" class="">- Se envió video, se debe validar la factibilidad en la operación, pendiente de confirmación. Revisar tiempo de expirar el URL de pago.<mark class="highlight-default"> (Se puede hacer que dure 24hrs)<br/>Pese a que existe la opcion de enviar el link y tiene un amplio tiempo de uso, no cumpliria con la necesidad</mark><mark class="highlight-teal"><br/>-Se debe evaluar el desarrollo para pago post aprobación. Leon lo revisara con Agus<br/>  </mark><em><mark class="highlight-teal">• Finales de la proxima semana se podria tener algun indicio de fechas posibles de desarrollo.</mark></em></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81b5-a368-ca19e4c1dc9a"><td id="Ecfg" class="" style="width:35px">9</td><td id="mOWW" class="" style="width:146px">TShop</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Crear comercio para poder recibir pedidos y pasen por aprobación de un superior.<br/></td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133px">En Revisión</td><td id="LGL;" class="">- Revisar si es posible limitar a un usuario en especifico que sea solo aprobador.<br/>-<mark class="highlight-default"> Que llegue una notidicación por correo con estas solicitudes.<br/>Esta solicitud va de la mano, con el pago post aprobacion.<br/></mark><mark class="highlight-default"><mark class="highlight-default_background">Solicitud pendiente para niveles de aprobación </mark></mark><em><mark class="highlight-default"><mark class="highlight-default_background">En espera</mark></mark></em><mark class="highlight-default"><mark class="highlight-default_background"><br/>Solicitud pendiente sobre integración de info con Betterfly.<br/>Sodexo: Presentara una Ppt para entender lo que necesitan. Coordinar reunion.<br/>Cupones y aprobacion de varios usuarios antes de hacerlo efectivo.</mark></mark><mark class="highlight-teal"><mark class="highlight-default_background"><br/></mark></mark><mark class="highlight-default"><mark class="highlight-default_background">  • </mark></mark><mark class="highlight-default">Debemos coordinar dia y hora para llevar a cabo la reunion y entender las solicitudes.</mark><mark class="highlight-teal"><br/>  • se realizo la sesion y agustin se llevo los  puntos para analizar y dar diagnostico.</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-816b-9ecf-ec0d7525e868"><td id="Ecfg" class="" style="width:35px">10</td><td id="mOWW" class="" style="width:146px">Promociones inteligentes</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Poder vender distintos productos que estan creados por si solos, que combinados me genera una promoción</td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133px">En Revisión</td><td id="LGL;" class="">-Se esta trabajando en la construccion de combos, pero se validara si está contemplado la asociación inteligente<br/>-Prioridad considerando el uso de Inventarios.<br/>Tener claridad de fechas.<br/>Fecha de planificación para combos manuales e inteligentes.<br/><mark class="highlight-teal">Fines de marzo Combos manuales<br/>Fines de Mayo Combos Inteligentes.</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-8185-b9bc-cfd806c00845"><td id="Ecfg" class="" style="width:35px">11</td><td id="mOWW" class="" style="width:146px">Totem</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Crear configuración que permita ocultar el boton de escaneo.</td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133px">En Revisión</td><td id="LGL;" class="">Levantar solicitud de mejora, para que el boton de escaneo del Totem se pueda desactivar la visual. Eliminar función de precarga, añadir productos <mark class="highlight-default">al carro en medida que se scanee. <br/>Tomado por Agus<br/>Lo revisaran internamente con la operación y nos entregaran el feedback final.</mark><mark class="highlight-teal"><br/></mark><mark class="highlight-default">  • Deben revisar internamente con la operación por lo que agendaran la reunión.</mark><mark class="highlight-teal"><br/></mark>•<mark class="highlight-teal"> Se aprueba y se da el ok para realizar las mejoras al Totem.<br/>Esperar resuesta de tiempos de Agustin para poder tenerlo en produccion.</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81f4-b4d5-f47f93fef7db"><td id="Ecfg" class="" style="width:35px">12</td><td id="mOWW" class="" style="width:146px">Homologación de códigos.</td><td id="w&gt;t&lt;" class="" style="width:234.25px"></td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133px">En proceso</td><td id="LGL;" class="">Ok por parte de evaluación comercial. Gestionar OC por Andrés<br/><mark class="highlight-default">En proceso.<br/>Pablo estara trabajando esta semana en el sitio.</mark><mark class="highlight-teal"><br/>- Al final de esta semana se enviara la homologacion completa de SK LAmpa</mark><mark class="highlight-default">-</mark><mark class="highlight-teal"><br/></mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81ba-a5e6-e783581975cf"><td id="Ecfg" class="" style="width:35px">13</td><td id="mOWW" class="" style="width:146px">Toteat shop</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Establecer precios por franjas horarias.</td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133px">Por Comenzar</td><td id="LGL;" class="">Crear prueba con precios turno.<br/>Coordinar hacer prueba piloto con UC (Fer) <br/><mark class="highlight-default">  • Francisca enviara listado de productos para crear los precios por turno y luego hacer una prueba.</mark><mark class="highlight-teal"><br/> </mark><mark class="highlight-default"> • QR por habitación<br/>  • Que salga un listado para seleccionar la mesa(habitación)<br/>  • Que sea alfanumerico<br/>  • Evaluar alternativas</mark><br/><mark class="highlight-teal"> </mark><mark class="highlight-default"> • Volver agendar con Fran un espacio para probar en ambiente de prueba.</mark><mark class="highlight-teal"><br/>  • Se realizara segunda sesion de pruebas con QA</mark><br/></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81db-b31e-e37345e63c26"><td id="Ecfg" class="" style="width:35px">14</td><td id="mOWW" class="" style="width:146px">Totem</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Mejoras para el Totem<br/>Kiosko Rapido<br/>Kiosko Hibrido</td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px"></td><td id="_mS&gt;" class="" style="width:133px"></td><td id="LGL;" class=""><mark class="highlight-default">Consulta: <br/>Poder reducir en pantalla de cajero la visual de los productos, pero que si se puedan scanear y me traiga el producto a la venta. (Simil al totem)</mark><mark class="highlight-teal"><br/>Se responde que no es posible.<br/>  • En proceso</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-819f-b2c7-e8d07c8b2c39"><td id="Ecfg" class="" style="width:35px">15</td><td id="mOWW" class="" style="width:146px">Toteat Shop</td><td id="w&gt;t&lt;" class="" style="width:234.25px">UC indicó tener requerimientos para Room service:<br/>  • Posibilidad de pagar con cupones una parte del pedido.<br/>  • Limitar cantidad de uso de los cupones por horario.</td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px"></td><td id="_mS&gt;" class="" style="width:133px"></td><td id="LGL;" class="">Evaluaran internamente en sodexo sobre posibles solicitudes.<br/><mark class="highlight-default">  • continuan evaluando internamente</mark><mark class="highlight-teal"><br/>  • Hay que tomar la mejora de que en Toteat Shop se pueda utilizar cupones. (Ver Status)</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81fe-83ba-c2d6e2daf17e"><td id="Ecfg" class="" style="width:35px">16</td><td id="mOWW" class="" style="width:146px">Maestra Unica</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Verificación en codigo de barra, ya que permite crear productos con codigo de barra repetido</td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px"></td><td id="_mS&gt;" class="" style="width:133px"></td><td id="LGL;" class="">Esta conversado y se debe incorporar como una mejora.</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81be-8a50-e52cc7555759"><td id="Ecfg" class="" style="width:35px">17</td><td id="mOWW" class="" style="width:146px">Reportes</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Clinica Biobio</td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px"></td><td id="_mS&gt;" class="" style="width:133px"></td><td id="LGL;" class=""><mark class="highlight-teal">  </mark><mark class="highlight-default">• Se requiere poder obtener el detalle de lo consumido en la cuenta corriente, no solo el total, sino que incluya que productos utilizaron.</mark><mark class="highlight-teal"><br/>  • Consultar que es mas viable, si corregir el Resumen de ventas totales o mejorar el reporte de CRM<br/></mark><br/></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-8152-897a-e61696591405"><td id="Ecfg" class="" style="width:35px">18</td><td id="mOWW" class="" style="width:146px">Cuenta corriente</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Blue Express</td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px"></td><td id="_mS&gt;" class="" style="width:133px"></td><td id="LGL;" class=""><mark class="highlight-teal">  </mark><mark class="highlight-default">• Se requiere que en voucher de pago, aparezca el detalle del saldo que le queda al usuario.<br/>  • verificar porque motivo permitió comprar mas del monto cargado.<br/>Luis probara cuenta corriente en Totem.</mark><mark class="highlight-teal"><br/><br/>  - si funciona el scaneo, pero muestra una pantalla diferente al ingresar el rut.<br/>Revisar que beneficio aplica al ingresar manual el rut. (En validación)</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81c4-b8b3-cc48cae660ae"><td id="Ecfg" class="" style="width:35px">19</td><td id="mOWW" class="" style="width:146px">T Shop</td><td id="w&gt;t&lt;" class="" style="width:234.25px"></td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px"></td><td id="_mS&gt;" class="" style="width:133px"></td><td id="LGL;" class="">No está tomando el horario de TShop, ya que estan ingresando pedidos fuera de horario.<br/>Ticket levantado para revisar.</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81a3-96dd-f3500108ec14"><td id="Ecfg" class="" style="width:35px">20</td><td id="mOWW" class="" style="width:146px">Reportes</td><td id="w&gt;t&lt;" class="" style="width:234.25px"></td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px"></td><td id="_mS&gt;" class="" style="width:133px"></td><td id="LGL;" class="">Revisar con Leon si efectivamente se corrigio la carga lenta del reporte completo.<br/>A algunos usuarios le carga Rapido (joaquin) pero a otros no les carga.<br/>Revisar si es tema de permisos u otro</td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-818f-bbf3-de8fe6dd17a5"><td id="Ecfg" class="" style="width:35px">21</td><td id="mOWW" class="" style="width:146px">Carga de lista de precios</td><td id="w&gt;t&lt;" class="" style="width:234.25px"></td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px"></td><td id="_mS&gt;" class="" style="width:133px"></td><td id="LGL;" class="">Se demora la carga y no actualiza la pantalla con los cambios. solo al forzar el actualizar la pagina.<br/></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81f8-bd24-fef87bf41b3c"><td id="Ecfg" class="" style="width:35px">22</td><td id="mOWW" class="" style="width:146px">Multisucursal <br/>Lista de precio desaparecida</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Dávila en maestra unica.</td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px"></td><td id="_mS&gt;" class="" style="width:133px"></td><td id="LGL;" class="">Sistema escalado con ingenieria para que nos puedan dar diagnostico y solución.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="31e39073-1e23-81ec-beae-edd0066e8540" class="">🕑 Seguimientos</h2></div><div style="display:contents" dir="auto"><p id="31e39073-1e23-813e-928d-c4c2112935dc" class="">
+</p></div><div style="display:contents" dir="ltr"><table id="31e39073-1e23-8130-9194-c3ea00c52385" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81a0-9a8a-d593251b9bd9"><th id="Ecfg" class="simple-table-header-color simple-table-header" style="width:40.99431610107422px">#</th><th id="mOWW" class="simple-table-header-color simple-table-header" style="width:153px"><strong>Tipo</strong> </th><th id="w&gt;t&lt;" class="simple-table-header-color simple-table-header" style="width:234.25px"><strong>Tema</strong>  </th><th id="ztrd" class="simple-table-header-color simple-table-header"><strong>Responsable</strong></th><th id="ASeV" class="simple-table-header-color simple-table-header" style="width:144px"><strong>Fecha</strong> </th><th id="_mS&gt;" class="simple-table-header-color simple-table-header" style="width:133.99716186523438px"><strong>Estado</strong></th><th id="AfTG" class="simple-table-header-color simple-table-header">Observaciones</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-8179-b47d-ecf09415fa69"><td id="Ecfg" class="" style="width:40.99431610107422px">1</td><td id="mOWW" class="" style="width:153px">Maestra Base</td><td id="w&gt;t&lt;" class="" style="width:234.25px">- Configuración y segmentación de Listas de precio.<br/>- Reflejar los dolores que tienen con Multisucursal.</td><td id="ztrd" class="">@pablo busques <span class="user">@María Fernanda Soto</span> </td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133.99716186523438px">En proceso</td><td id="AfTG" class="">Continuar revisando con ingenieria lentitudes del sistema (carga de productos y uso de multisucursal)<br/>Sodexo hará gestiones para poder utilizar JAM y grabar el uso del sistema para ayudar a revisar las incidencias.<br/><mark class="highlight-teal">  • se continua esperando aprobacion de seguridad para poder probar esta extención<br/></mark><em><mark class="highlight-teal">”se identifica que los cambios de listas de precio, se debe dar actualizar la pagina para poder visualizarlos, como si fuera tema de cache” </mark></em></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81dd-8650-c8242bc3372c"><td id="Ecfg" class="" style="width:40.99431610107422px">2</td><td id="mOWW" class="" style="width:153px">Inventario</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Seguimiento Inventario</td><td id="ztrd" class=""><span class="user">@Mauricio Norambuena</span> </td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133.99716186523438px">En proceso</td><td id="AfTG" class="">Piloto iconstruye ok, facturas ingresadas y movimientos sin problemas.<br/>Solo falta video de integración para el curso capacitación. <span class="user">@Mauricio Norambuena</span> <br/><mark class="highlight-default"> - Grabar video por partes, inicialmente con lo que esta funcionando bien, y en segunda instancia con lo restante.</mark><mark class="highlight-teal"><br/>  • se debe continuar para grabar<br/>  • Revisar posible planificacion de sitios que requieran presencialidad en implementacion.</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-813b-947b-e7b689736cfa"><td id="Ecfg" class="" style="width:40.99431610107422px">3</td><td id="mOWW" class="" style="width:153px">Inventarios</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Trabajan en el plan de despliegue para bajar el modulo a los sitios.</td><td id="ztrd" class="">Karen</td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133.99716186523438px">En proceso</td><td id="AfTG" class="">-23 de febrero Hospital del profesor<br/>- 2 Marzo, Bupa la florida y san joaquín<br/>- 9 marzo Dávila ED A,G vespucio piso 1 torre A<br/>-16 Marzo sta maria  completo, clínica viña del mar corner<br/> <mark class="highlight-default"> • Este miercoles se sabrá las fechas exactas de implementacion en Hospital del profesor.<br/>sodexo tendra reunion interna para la planificacion que se nos viene con el cambio de maestra y de inventario.<br/>Solo transaccional y luego restaurant.Este miercoles se sabrá las fechas exactas de implementacion en Hospital del profesor.<br/>sodexo tendra reunion interna para la planificacion que se nos viene con el cambio de maestra y de inventario.<br/>Solo transaccional y luego restaurant.</mark><mark class="highlight-teal"><br/>Enviar credenciales hoy.<br/> 09/03: 2 sitios de davila, 4 santa maria.<br/>16/03: <br/>3 bupa la florida<br/>1 clinica davila vespucio.</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-818e-8361-cd6b7b42c575"><td id="Ecfg" class="" style="width:40.99431610107422px">5</td><td id="mOWW" class="" style="width:153px">Totem Bupa La Florida</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Tiene lentitud en el uso, se levanto la incidencia a Fran y a hay que revisar los pendientes.</td><td id="ztrd" class=""><span class="user">@Francisco Ramirez</span> </td><td id="ASeV" class="" style="width:144px"></td><td id="_mS&gt;" class="" style="width:133.99716186523438px">En proceso</td><td id="AfTG" class=""><mark class="highlight-default"> Finalmente se encontró lo que generaba lentitud, debido a la categorización en las configuraciones.</mark><mark class="highlight-teal"><br/>Agustin va a revisar <br/>  • Se soluciono, aun falta saber por parte de Agustin posibles mejoras.</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-813a-9b21-ef6e594d001c"><td id="Ecfg" class="" style="width:40.99431610107422px">6</td><td id="mOWW" class="" style="width:153px">Carga masiva de usuarios</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Falla en carga masiva registrada en Blue Express</td><td id="ztrd" class=""><span class="user">@María Fernanda Soto</span> </td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133.99716186523438px">En proceso</td><td id="AfTG" class=""><mark class="highlight-teal">• Modificar los permisos de los usuarios que pueden modificar CC, y crear nuevos beneficiarios. (AGUS)<br/>  • Se solicita con urgencia que el saldo aparezca en el ticket de pago. (levantado a agus)<br/>  • Totem se debe probar en Perez valenzuela.<br/>Para probar cuentas corrientes y lector de cedula de identidad. (Se aprobo)</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-8188-91dc-f629db1753be"><td id="Ecfg" class="" style="width:40.99431610107422px">7</td><td id="mOWW" class="" style="width:153px">Mercadopago</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Lentitud en respuesta de pago a Toteat</td><td id="ztrd" class=""><span class="user">@Francisco Ramirez</span> </td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133.99716186523438px">Sin comenzar.</td><td id="AfTG" class="">Revisar porque a veces se queda pegado el mensaje de pedido pagado.<br/><mark class="highlight-default">Se requiere mas antecedente<br/> • Mejora en integracion con kiosko ya levantado. Le comunicaron a luis que ya lo tenian tomado.<br/>  • Clinica Davila se podria pilotear. Revisar internamente con luis y fran como podemos revisar esta situación y encontrar el origen.<br/>  •</mark><mark class="highlight-teal"> De debe obtener nuevos videos de evidencia para solicitar algun diagnostico y mejora</mark></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-812d-b271-dd2927155781"><td id="Ecfg" class="" style="width:40.99431610107422px">8</td><td id="mOWW" class="" style="width:153px">Multisucursal</td><td id="w&gt;t&lt;" class="" style="width:234.25px">-Lentitud en creaciones y modificaciones de productos.<br/>Intermitente uso de multisucursal ya que no siempre guarda o se quedan procesos pegados.</td><td id="ztrd" class=""></td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133.99716186523438px">En revisión</td><td id="AfTG" class="">  • Se envia a revisión porque no aparece nueva lista de precios al momento de configurar un menu de <mark class="highlight-default">marca.<br/>  • Si funciona cuando se crea un menu de marca nuevo.<br/>Se debe realizar un mejor diagnostico para lograr soluciones concretas.<br/>  • Sodexo hará gestiones para poder utilizar JAM y grabar el uso del sistema para ayudar a revisar las incidencias.</mark><mark class="highlight-teal"><br/>Se probara en un equipo personal para poder tener información</mark></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="31e39073-1e23-819a-91a2-f67a860e7c79" class="">🚧 Implementaciones</h2></div><div style="display:contents" dir="ltr"><table id="31e39073-1e23-81ef-90da-e92a1af20be0" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-8147-9543-e6fac1777a1d"><th id="Ecfg" class="simple-table-header-color simple-table-header" style="width:41px">#</th><th id="mOWW" class="simple-table-header-color simple-table-header"><strong>Tipo</strong> </th><th id="w&gt;t&lt;" class="simple-table-header-color simple-table-header" style="width:234.25px"><strong>Tema</strong>  </th><th id="ztrd" class="simple-table-header-color simple-table-header"><strong>Responsable</strong></th><th id="ASeV" class="simple-table-header-color simple-table-header" style="width:144px"><strong>Fecha</strong> </th><th id="_mS&gt;" class="simple-table-header-color simple-table-header" style="width:133px"><strong>Estado</strong></th><th id="uwTC" class="simple-table-header-color simple-table-header">Observaciones</th><th id="fY[?" class="simple-table-header-color simple-table-header"></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-814b-8d38-e7a946fdd2a6"><td id="Ecfg" class="" style="width:41px">1</td><td id="mOWW" class="">Implementación Zona Norte</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Implementación Piloto Totem Zona Norte</td><td id="ztrd" class="">luis Quintriqueo</td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133px">En proceso</td><td id="uwTC" class="">- Agendar una sesión con Joaquin, para validar temas pendientes de usabilidad.<br/>- Enviaron una solicitud de menos click para realizar una compra.<br/>- ver posibilidad de apenas se realice el scaneo el producto pase al carro, y no a un recuadro previo de resumen. Esto haría mas simple la toma de pedido. <em><mark class="highlight-yellow">(Ya esta tomado por el equipo de ing)</mark></em><br/></td><td id="fY[?" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-81d6-a903-c1403add4fb0"><td id="Ecfg" class="" style="width:41px">2</td><td id="mOWW" class="">Implementación proximos sitios</td><td id="w&gt;t&lt;" class="" style="width:234.25px">- Clinica Bupa La florida Restaurante piso 1 <br/>- CM San Joaquin (Activa Solo Totem) (12/11)<br/>- Gasco Santiago Take away con CC<br/>- 2do de Puerto Montt (11/11)<br/>- Puerto Varas 2 sitios (21/11)</td><td id="ztrd" class="">Toteat-Sodexo</td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133px">En proceso</td><td id="uwTC" class="">Pedro se encuentra haciendo Pre-implementaciones.<br/><mark class="highlight-default">  • Campos de Chile Debe mejorar su internet par poder implementar<br/>  • Existen varios sitios gestionando temas administrativos, equipos, etc.<br/>  • Se implementaran 3 puntos de banco estado. Falta la preimplementacion y que adquieran internet. Teoricamente saldrian el 23.</mark><mark class="highlight-teal"><br/>  • Se implementaria esta semana banco estado, viernes 27 (coordinar capacitación grupal a las 09:00 o 10:00)</mark><br/></td><td id="fY[?" class="">  • Umag (Validar lista de precios y remote)<br/>  • TEVA (Validar lista de precios y remote)<br/>  • SQM Las Condes (crear el ambiente para que prueben el Totem) Hacer el cruce de menu<br/></td></tr></div><div style="display:contents" dir="ltr"><tr id="31e39073-1e23-819c-955a-e53b4413f774"><td id="Ecfg" class="" style="width:41px">3</td><td id="mOWW" class="">Implementación</td><td id="w&gt;t&lt;" class="" style="width:234.25px">Santa Maria</td><td id="ztrd" class="">Luis</td><td id="ASeV" class="" style="width:144px">TBD</td><td id="_mS&gt;" class="" style="width:133px">Sin comenzar</td><td id="uwTC" class="">Revisar que se soluciono el bloqueo de puertos que tenian.<br/>  • <mark class="highlight-teal">Se sigue a la espera de que confirmen si se hizo el trabajo<br/><br/>Van aceptar colocar otro internet y formalizaran la conexion.</mark></td><td id="fY[?" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="31e39073-1e23-8191-9f1d-f2bd404389f2" class="">
+</p></div><div style="display:contents" dir="auto"><p id="31e39073-1e23-81ff-851e-d5723c74ba8b" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

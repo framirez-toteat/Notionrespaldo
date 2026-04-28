@@ -18,6 +18,12 @@
     "is_index": true
   },
   {
+    "title": "Sodexo",
+    "path": "content/Privado y compartido/Sodexo 19ae6467a9f443948eb3f4750f22c995.html",
+    "folder": "Privado y compartido",
+    "is_index": true
+  },
+  {
     "title": "Tareas",
     "path": "content/Privado y compartido/Tareas f7b4b1a0646c4a24b6ae90b4a9772471.html",
     "folder": "Privado y compartido",
@@ -8571,6 +8577,1422 @@
     "title": "TPS Nivel 2",
     "path": "content/Privado y compartido/Proyectos/Tareas/Soporte Sodexo SAC/Soporte SAC SODEXO/TPS Nivel 2 18b390731e2380f9a98fe1065cdfc147.html",
     "folder": "Privado y compartido/Proyectos/Tareas/Soporte Sodexo SAC/Soporte SAC SODEXO",
+    "is_index": false
+  },
+  {
+    "title": "Gantt Sodexo General",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General 13c390731e2380febd24c4e8b13c3c94.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": true
+  },
+  {
+    "title": "Minuta reunión Bajada Tótem 10 06 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión Bajada Tótem 10 06 2025 210390731e23804ebae0eb99e7abc10e.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión Cuenta corriente 06 06 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión Cuenta corriente 06 06 2025 20d390731e23810c8d39f2f2ae9a34c5.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 1 _ 12 09 2024",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 1 _ 12 09 2024 117390731e23803c9c96efea705593be.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": true
+  },
+  {
+    "title": "Minuta reunión No 10 _ 08 11 2024_Requerimientos m",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 10 _ 08 11 2024_Requerimientos m 144390731e23802cad44f9ed903483cd.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": true
+  },
+  {
+    "title": "Minuta reunión No 11 _ 11 11 2024_Check point proy",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 11 _ 11 11 2024_Check point proy 144390731e23803e9f15c6e36459dd9f.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 12 _ 12 11 2024_Requerimientos m",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 12 _ 12 11 2024_Requerimientos m 144390731e23807a99ffc5d0b95a5ee4.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 13 _ 14 11 2024_Check point proy",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 13 _ 14 11 2024_Check point proy 144390731e23804381efebff21afc269.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 14 _ 18 11 2024_Weekly Proyecto",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 14 _ 18 11 2024_Weekly Proyecto 144390731e2380c38149e39c420fdafe.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 15 _ 22 11 2024_Reunión KU opera",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 15 _ 22 11 2024_Reunión KU opera 14a390731e23802ca245eea5a58522ae.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 16 _ 25 11 2024_Weekly Proyecto",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 16 _ 25 11 2024_Weekly Proyecto 14a390731e23803d88bcfb11fe3280ec.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 17 _ 26 11 2024_Definición visit",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 17 _ 26 11 2024_Definición visit 14a390731e23809c8349e6ffe87148a2.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 19 _ 02 12 2024_Weekly Proyecto",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 19 _ 02 12 2024_Weekly Proyecto 150390731e2380c697d0ca1d63a232e0.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 2 _ 26 09 2024",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 2 _ 26 09 2024 118390731e23804e9acbf5e5d36a3e78.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 23 _ 13 01 2025_Weekly Proyecto",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 23 _ 13 01 2025_Weekly Proyecto 17a390731e23806e9260c3ca099fda6c.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 24 _ 05 02 2025_Proceso soporte",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 24 _ 05 02 2025_Proceso soporte 192390731e2380b9b9a4d59bff1c8b0e.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 25 _ 10 02 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 25 _ 10 02 2025 198390731e2380f4a1c6c53b3965acc2.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 26 _ 17 02 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 26 _ 17 02 2025 19d390731e23806da4faf544e51d1509.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": true
+  },
+  {
+    "title": "Minuta reunión No 27 _ 24 02 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 27 _ 24 02 2025 1ae390731e2380e7b780edee93670616.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 28 _ 03 03 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 28 _ 03 03 2025 1ae390731e2380fe8398c1e0be37ddc5.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 29 _ 10 03 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 29 _ 10 03 2025 1b2390731e2380339880d1a379666964.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 3 _ 03 10 2024_ Demo Inventario",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 3 _ 03 10 2024_ Demo Inventario 118390731e2380a5b328ffbbc5b0bdb1.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 30 _ 17 03 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 30 _ 17 03 2025 1b9390731e2380488254e011aaea7a1b.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 31 _ 24 03 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 31 _ 24 03 2025 1c0390731e23807da5e4db42165bc18a.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 32 _ 31 03 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 32 _ 31 03 2025 1c8390731e238079a0c4c9c13b226392.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 33 _ 07 04 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 33 _ 07 04 2025 1ce390731e238004bd70f3669f6942ef.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 34 _ 14 04 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 34 _ 14 04 2025 1d5390731e2380b093f3d8dd47752fb9.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 35 _ 28 04 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 35 _ 28 04 2025 1e3390731e2380179b46c5f6658e6fa0.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 36 _ 05 05 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 36 _ 05 05 2025 1ed390731e238012bbbdce94be24e4cb.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 37 _ 12 05 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 37 _ 12 05 2025 1f1390731e2380ad8049f76e6cae6fee.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 38 _ 19 05 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 38 _ 19 05 2025 1f8390731e2380c9bf3dc5e10d111e0f.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 39 _ 26 05 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 39 _ 26 05 2025 1fc390731e2380ba89eac8e0ed238c86.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 4 _ 08 10 2024",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 4 _ 08 10 2024 119390731e23801caa30c278368d2123.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 40 _ 02 06 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 40 _ 02 06 2025 206390731e23802d9f73ca97658c4b15.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 41 _ 09 06 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 41 _ 09 06 2025 20d390731e23803eb230c6f474f9c1a2.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 42 _ 16 06 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 42 _ 16 06 2025 214390731e23809e963de620ec1668ac.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 43 _ 23 06 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 43 _ 23 06 2025 21b390731e2380db86a2c921326dca9b.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 44 _ 30 06 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 44 _ 30 06 2025 222390731e2380cd8a91f675a3cc1d1a.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 45 _ 07 07 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 45 _ 07 07 2025 229390731e2380c7aa2acbf817ce4d3d.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 46 _ 14 07 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 46 _ 14 07 2025 229390731e23804e8d25f4069f7892a4.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 47 _ 21 07 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 47 _ 21 07 2025 237390731e2380e4b407c406fb3872b9.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 48 _ 28 07 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 48 _ 28 07 2025 23e390731e238055a8f7f64d4e49a654.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 49 _ 04 08 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 49 _ 04 08 2025 245390731e23809180aac7c6433c3552.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 5 _ 16 10 2024 _ Demo Producto B",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 5 _ 16 10 2024 _ Demo Producto B 12a390731e2380699f97dc9efa6273f2.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 50 _ 11 08 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 50 _ 11 08 2025 24c390731e238074a0b1c8e9687f298f.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 51 _ 18 08 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 51 _ 18 08 2025 253390731e2380dbab13c248408eeeef.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 52 _ 25 08 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 52 _ 25 08 2025 25a390731e2380be8431c58c55e9f843.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 53 _ 01 09 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 53 _ 01 09 2025 268390731e2380bba70dcadb082fba8f.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 54 _ 08 09 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 54 _ 08 09 2025 268390731e2380df8e06dab58fcfb739.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 55 _ 15 09 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 55 _ 15 09 2025 26f390731e238045814cc968a7a9f65a.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 56 _ 22 09 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 56 _ 22 09 2025 276390731e2380a8b5c0e9796535263d.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 57 _ 29 09 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 57 _ 29 09 2025 27d390731e2380e9bf75df8cbc6846f8.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 58 _ 06 09 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 58 _ 06 09 2025 27f390731e2380fd920dfb3589c03338.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 59 _ 13 10 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 59 _ 13 10 2025 28b390731e23809bb016c89deed1cdf5.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 6 _ 18 10 2024",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 6 _ 18 10 2024 12d390731e23800c89d7c18c4aeff581.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 60 _ 20 10 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 60 _ 20 10 2025 299390731e2380fd8472e86e31ac4cae.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 61 _ 27 10 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 61 _ 27 10 2025 2a0390731e2380489c54f0013ae77586.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 62 _ 03 11 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 62 _ 03 11 2025 2a0390731e238017abade04c79f85072.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 63_ 10 11 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 63_ 10 11 2025 2a7390731e2380799887e336735e2432.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 64_ 17 11 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 64_ 17 11 2025 2ae390731e238059a5fafb8be52f2b5f.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 65_ 24 11 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 65_ 24 11 2025 2b5390731e23801e867ef67179e94bb0.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 66_ 01 01 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 66_ 01 01 2025 2bc390731e238098a158ebb4b33bbf76.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 67_ 09 12 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 67_ 09 12 2025 2c4390731e2380f2b59fc4fe149d3865.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 68_ 15 12 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 68_ 15 12 2025 2ca390731e2380c9b8d6e0498b58c41b.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 69_ 22 12 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 69_ 22 12 2025 2d1390731e2380c08463dd1822683695.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 7 _ 22 10 2024 _ Demo Producto B",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 7 _ 22 10 2024 _ Demo Producto B 12f390731e23804f99a2fb78eeb9d458.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 70_ 29 12 2025",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 70_ 29 12 2025 2d8390731e2380a281a0c6d0f0f38257.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 71_ 05 01 2026",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 71_ 05 01 2026 2df390731e23801798f6f609573af961.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 72_ 12 01 2026",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 72_ 12 01 2026 2e3390731e2380d7aa66db50855b8e56.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 73_ 19 01 2026",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 73_ 19 01 2026 2ed390731e23809d9492eb4514e2cef4.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 74_ 26 01 2026",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 74_ 26 01 2026 2f4390731e23805abe9eeb073d2475de.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 75_ 02 02 2026",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 75_ 02 02 2026 2fb390731e238059a302e74135fa18bf.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 76_ 09 02 2026",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 76_ 09 02 2026 302390731e2380759cf3d2da94042737.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 77_ 16 02 2026",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 77_ 16 02 2026 309390731e2380b1a5dcc21f270ef83e.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 78_ 24 02 2026",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 78_ 24 02 2026 311390731e2380f18280e5e1437b6f02.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 79_ 04 03 2026",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 79_ 04 03 2026 319390731e23803fa3ccc359081b8ca2.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 8 _ 04 11 2024",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 8 _ 04 11 2024 136390731e2380bdbbfee023464033fd.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 80_ 09 03 2026",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 80_ 09 03 2026 31e390731e2380538d6cfd5ad2586deb.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 81_ 23 03 2026",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 81_ 23 03 2026 32c390731e2380588ad7c44103098879.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 82_ 30 03 2026",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 82_ 30 03 2026 333390731e2380d0a343e76f19ab5329.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 83_ 06 04 2026",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 83_ 06 04 2026 33a390731e238052b74af3bc81c38332.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 84_ 27 04 2026",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 84_ 27 04 2026 34f390731e238097abc0c4e5375137d0.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No 9 _ 07 11 2024_Capacitación inst",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No 9 _ 07 11 2024_Capacitación inst 13e390731e2380949117e7791052b157.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No F2 _ 28 11 2024_Reunión SOVOS",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No F2 _ 28 11 2024_Reunión SOVOS 150390731e23811699a6d6844f3289fa.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No F5 _ 05 02 2025_Reunión Totem To",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No F5 _ 05 02 2025_Reunión Totem To 192390731e2381968563c7c514db1e94.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No I1 _06 02 2025_Inventario i-cons",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No I1 _06 02 2025_Inventario i-cons 197390731e2380ac9c95e575ffbce54b.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Minuta reunión No SAC1 _12 06 2025_Bolsa de horas",
+    "path": "content/Privado y compartido/Sodexo/Minuta reunión No SAC1 _12 06 2025_Bolsa de horas  210390731e2381dea02ecf824cdfe9f3.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Proceso de facturación",
+    "path": "content/Privado y compartido/Sodexo/Proceso de facturación 18c390731e2380428f5bfc044a339966.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Propuesta bolsa de horas",
+    "path": "content/Privado y compartido/Sodexo/Propuesta bolsa de horas 210390731e23804d8555f41b3814f4c5.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Totem",
+    "path": "content/Privado y compartido/Sodexo/Totem 312390731e2380a59b63ee2517925b22.html",
+    "folder": "Privado y compartido/Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Tareas Sodexo",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo 13c390731e2381d5a995d3c0aefdacf0.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General",
+    "is_index": true
+  },
+  {
+    "title": "Análisis",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Análisis 13c390731e23804e919ef8e2abff7191.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Bug",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Bug 13c390731e2381f398eec891b5ecf539.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Configuración Software e implementación",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Configuración Software e implementación 13d390731e2380009a05c00f6bce27bd.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Configuración Software e implementación",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Configuración Software e implementación 13d390731e23801fbfccf2f6597c3fec.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Configuración Software e implementación",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Configuración Software e implementación 13d390731e238026aa93d40a8743ee7f.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Configuración Software e implementación",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Configuración Software e implementación 13d390731e23802894dbc0e5ad6e39bd.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Configuración Software e implementación",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Configuración Software e implementación 13d390731e23802dba2dcf14ffe1ea90.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Configuración Software e implementación",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Configuración Software e implementación 13d390731e23803281e7e31b4d6338be.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Configuración Software e implementación",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Configuración Software e implementación 13d390731e238059b777dd1600f7c05a.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Configuración Software e implementación",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Configuración Software e implementación 13d390731e238099b625fa143787e855.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Configuración Software e implementación",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Configuración Software e implementación 13d390731e2380fd8651e44aa3b1388d.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Conformidad producto base",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Conformidad producto base 13c390731e238134af9edd6c0b97d4a7.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Construcción",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Construcción 13c390731e2380d19a86c92e9d1b4535.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Coordinación visita de campo locales tipo Corporat",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Coordinación visita de campo locales tipo Corporat 13c390731e2381c896d5d44678801149.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Coordinación visita de campo locales tipo Mining”",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Coordinación visita de campo locales tipo Mining” 13c390731e23810bbeadea568215d84f.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Demostración producto base Pos (Toteat)",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Demostración producto base Pos (Toteat) 13c390731e2381018e41f1b460ad1cff.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Diseño",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Diseño 13c390731e2380229c46fd269ffe2c5b.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Entrega información “pack de inicio” + “Formato PD",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Entrega información “pack de inicio” + “Formato PD 13c390731e238053807bcfb0b1924b93.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Entrega información “pack de inicio” + “Formato PD",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Entrega información “pack de inicio” + “Formato PD 13d390731e23802e8ee6c28f275f0b60.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Entrega información “pack de inicio” + “Formato PD",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Entrega información “pack de inicio” + “Formato PD 13d390731e238065b5d9c05fcb8c392b.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Entrega información “pack de inicio” + “Formato PD",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Entrega información “pack de inicio” + “Formato PD 13d390731e238089960bde35176a1dbb.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Entrega información “pack de inicio” + “Formato PD",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Entrega información “pack de inicio” + “Formato PD 13d390731e238090bed7e5ba87add70d.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Entrega información “pack de inicio” + “Formato PD",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Entrega información “pack de inicio” + “Formato PD 13d390731e2380c08319d1a7444823ce.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Entrega información “pack de inicio” + “Formato PD",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Entrega información “pack de inicio” + “Formato PD 13d390731e2380c69cb9e8990ae43e3b.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Entrega información “pack de inicio” + “Formato PD",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Entrega información “pack de inicio” + “Formato PD 13d390731e2380dfb6beed7c883b8845.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Entrega información “pack de inicio” + “Formato PD",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Entrega información “pack de inicio” + “Formato PD 13d390731e2380e28303d39eb9244b87.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Entrega integración a operaciones",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Entrega integración a operaciones 13c390731e2380f6a877cd00a9eb6171.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Etapa de Pruebas",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Etapa de Pruebas 13c390731e238057b649f35248a26982.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Etapa Implementación",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Etapa Implementación 13d390731e2380249cd2c018a6ab3d26.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Etapa Integración",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Etapa Integración 13c390731e23800987ffd9952533b4f6.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Fase 1 Implementación sin desarrollo",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Fase 1 Implementación sin desarrollo 13c390731e2381588aa2c0ecbfe5bec7.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Fase 2 Implementación_integración SOVOS",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Fase 2 Implementación_integración SOVOS 13c390731e23802099bded31052f222e.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Go Live en producción",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Go Live en producción 13d390731e23800aac4fc3b3a0180a16.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Go Live en producción",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Go Live en producción 13d390731e238012b612c254cab90f5b.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Go Live en producción",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Go Live en producción 13d390731e23805ca292ebfdb45248f1.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Go Live en producción",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Go Live en producción 13d390731e23807084a5dd8445a25ac7.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Go Live en producción",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Go Live en producción 13d390731e23807daf38f735ab802402.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Go Live en producción",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Go Live en producción 13d390731e2380a1a718f8ae44fc1ee4.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Go Live en producción",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Go Live en producción 13d390731e2380b1ba5dd02f6830a90c.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Go Live en producción",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Go Live en producción 13d390731e2380c8b9f4d09da948f780.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Go Live en producción",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Go Live en producción 13d390731e2380d6b954e3000c830a53.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Implementación 12 locales",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Implementación 12 locales 13d390731e23803598aced988ed1ea4c.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Implementación 12 locales",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Implementación 12 locales 13d390731e23806db4d1f55bf66dcf29.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Implementación 12 locales",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Implementación 12 locales 13d390731e238077b6cef34372e3feb4.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Implementación 12 locales",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Implementación 12 locales 13d390731e2380a9a06fe5e3ad78feb7.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Implementación 12 locales",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Implementación 12 locales 13d390731e2380b9a596d3bcf513df03.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Implementación 12 locales",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Implementación 12 locales 13d390731e2380f0a3e1fa9a6763563b.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Implementación local Piloto “Blue express”",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Implementación local Piloto “Blue express” 13c390731e2380cc9223dac0a1ce7e3d.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Implementación local Piloto “BUPA”",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Implementación local Piloto “BUPA” 13d390731e23805b9ff7dfb59dcafe0e.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Implementación Primeros 10 locales",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Implementación Primeros 10 locales 13d390731e2380f6a743fb5e8ab8b05c.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Monitoreo y acompañamiento",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Monitoreo y acompañamiento 13d390731e2380218882c1b5c7735f79.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Monitoreo y acompañamiento",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Monitoreo y acompañamiento 13d390731e238022bbeff70605edb669.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Monitoreo y acompañamiento",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Monitoreo y acompañamiento 13d390731e23805e864ec41062dab878.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Monitoreo y acompañamiento",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Monitoreo y acompañamiento 13d390731e238071bcdfdca2c80d591d.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Monitoreo y acompañamiento",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Monitoreo y acompañamiento 13d390731e238099bbe2c6b57a0a34d4.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Monitoreo y acompañamiento",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Monitoreo y acompañamiento 13d390731e2380a3badad5a8f56f5549.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Monitoreo y acompañamiento",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Monitoreo y acompañamiento 13d390731e2380c7a3a8f22498361111.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Monitoreo y acompañamiento",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Monitoreo y acompañamiento 13d390731e2380ddb8a5d6fe20bc743e.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Monitoreo y acompañamiento",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Monitoreo y acompañamiento 13d390731e2380e78146c4f1c923aaf3.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Nueva Tarea",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Nueva Tarea 13c390731e2381dfa483c6a3cb568702.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Nuevo Requerimiento",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Nuevo Requerimiento 13c390731e2381fcad83c015186ed342.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Planificación",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Planificación 13d390731e238024a35dd4d22af42462.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Aprobación cliente",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Aprobación cliente 13c390731e2380808487e437f31931fc.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Aprobación cliente",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Aprobación cliente 13d390731e238037ab91cb001b79805a.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Aprobación cliente",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Aprobación cliente 13d390731e238071bdb8eeb22ee5c7aa.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Aprobación cliente",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Aprobación cliente 13d390731e2380c19fb0c14fcdbe8f49.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Aprobación cliente",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Aprobación cliente 13d390731e2380c59d96f145a570aec3.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Aprobación cliente",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Aprobación cliente 13d390731e2380e0a5f9d1125eb6a0ae.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Aprobación cliente",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Aprobación cliente 13d390731e2380e79c96f539cdf37b30.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Aprobación cliente",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Aprobación cliente 13d390731e2380e995d2e51214842e3a.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Aprobación cliente",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Aprobación cliente 13d390731e2380fda874c0747e64b222.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Capacitación y entrega material Key users",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Capacitación y entrega material Key users 13c390731e238062a68dec917d5993f0.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Capacitación y entrega material Key users",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Capacitación y entrega material Key users 13d390731e238005914ce5d61ccfb1a1.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Capacitación y entrega material Key users",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Capacitación y entrega material Key users 13d390731e238022a23ad5f84019d9b3.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Capacitación y entrega material Key users",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Capacitación y entrega material Key users 13d390731e23802d8714e814fc678172.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Capacitación y entrega material Key users",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Capacitación y entrega material Key users 13d390731e2380399d22cfe062431282.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Capacitación y entrega material Key users",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Capacitación y entrega material Key users 13d390731e238093aa33f0e981b9585c.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Capacitación y entrega material Key users",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Capacitación y entrega material Key users 13d390731e2380acb32ad8ff733d5954.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Capacitación y entrega material Key users",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Capacitación y entrega material Key users 13d390731e2380bcb0e6f6b61e802b97.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Capacitación y entrega material Key users",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Capacitación y entrega material Key users 13d390731e2380e59c1cee36f3d1fa17.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Configuración Menú, perfiles, Redelcom",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Configuración Menú, perfiles, Redelcom 13c390731e23802a90a4d59c2acbab52.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Configuración Menú, perfiles, Redelcom",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Configuración Menú, perfiles, Redelcom 13d390731e23803a80aefe6dc84d9960.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Configuración Menú, perfiles, Redelcom",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Configuración Menú, perfiles, Redelcom 13d390731e23807eb8ccf74207a8555c.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Configuración Menú, perfiles, Redelcom",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Configuración Menú, perfiles, Redelcom 13d390731e23809294e2e5e855ab4c12.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Configuración Menú, perfiles, Redelcom",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Configuración Menú, perfiles, Redelcom 13d390731e2380afa194e3e13d4ccc28.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Configuración Menú, perfiles, Redelcom",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Configuración Menú, perfiles, Redelcom 13d390731e2380c4883cde55749a7576.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Configuración Menú, perfiles, Redelcom",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Configuración Menú, perfiles, Redelcom 13d390731e2380d89ccad4523e48334d.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Configuración Menú, perfiles, Redelcom",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Configuración Menú, perfiles, Redelcom 13d390731e2380daaa1ee74dc0ef58cd.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Configuración Menú, perfiles, Redelcom",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Configuración Menú, perfiles, Redelcom 13d390731e2380e9822bf06cb731d832.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Creación códigos remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Creación códigos remote 13c390731e2380ffa5b9e3734caa358e.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Creación códigos remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Creación códigos remote 13d390731e23800f9b3defec40b00757.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Creación códigos remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Creación códigos remote 13d390731e238053901ace61baba93f1.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Creación códigos remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Creación códigos remote 13d390731e238060b309cc7ab2c463a7.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Creación códigos remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Creación códigos remote 13d390731e238073a68fc10af5cdd8b5.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Creación códigos remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Creación códigos remote 13d390731e238088ab08c0be2c6bb81e.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Creación códigos remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Creación códigos remote 13d390731e238088befefc8e78fb6c4d.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Creación códigos remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Creación códigos remote 13d390731e2380d092d6c1fbd5241592.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Creación códigos remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Creación códigos remote 13d390731e2380f89727f933bfdc3c53.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Instalación Remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Instalación Remote 13c390731e2380ddbd0fdfb964ed73cd.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Instalación Remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Instalación Remote 13d390731e238002a35fd9b238ccd323.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Instalación Remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Instalación Remote 13d390731e23803d9617ef0d4261079f.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Instalación Remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Instalación Remote 13d390731e238043a975e39172689138.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Instalación Remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Instalación Remote 13d390731e238064872cfdaec4cfebb6.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Instalación Remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Instalación Remote 13d390731e238070bac9d5380323a6c4.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Instalación Remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Instalación Remote 13d390731e2380868510fa31187c3c3c.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Instalación Remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Instalación Remote 13d390731e23808c9620f9b3c9153250.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Instalación Remote",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Instalación Remote 13d390731e2380f08807f0bd6924a5a3.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Equipo servidor",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Equipo servidor 13c390731e23802c91a4dbd4fa02b71c.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Equipo servidor",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Equipo servidor 13d390731e23802a8607d0e35f086639.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Equipo servidor",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Equipo servidor 13d390731e23803a956fe615f200dcc5.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Equipo servidor",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Equipo servidor 13d390731e2380499708dc5180054755.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Equipo servidor",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Equipo servidor 13d390731e23804c913fe6aed6bf5533.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Equipo servidor",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Equipo servidor 13d390731e2380639a46f08ac552f278.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Equipo servidor",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Equipo servidor 13d390731e23806ba8b9d0a26cb67081.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Equipo servidor",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Equipo servidor 13d390731e2380b79bc8fe8c683b189d.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Equipo servidor",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Equipo servidor 13d390731e2380c8a1bfda450c2a1434.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Internet",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Internet 13c390731e23809da1a5e85c2b4d3e03.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Internet",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Internet 13d390731e2380128cb3ea36daf56bb3.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Internet",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Internet 13d390731e23803d83f6f5386645ff92.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Internet",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Internet 13d390731e238045bb24c0d345e24728.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Internet",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Internet 13d390731e238049bb70d6684de694e9.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Internet",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Internet 13d390731e2380bbbe81c8011f31424f.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Internet",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Internet 13d390731e2380bc9f25ea3f48145fae.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Internet",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Internet 13d390731e2380beb440fa573dab7ce4.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "POS - Viabilidad Técnica Internet",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/POS - Viabilidad Técnica Internet 13d390731e2380f5a9f1cf51ee44a34a.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Presencial",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Presencial 13c390731e238002ab24ef14a47c5eaa.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Pruebas de usuarios (impresiones)",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Pruebas de usuarios (impresiones) 13d390731e2380108c67d469450e4ca6.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Pruebas de usuarios (impresiones)",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Pruebas de usuarios (impresiones) 13d390731e238010bbdbf62a619998f5.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Pruebas de usuarios (impresiones)",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Pruebas de usuarios (impresiones) 13d390731e23801c9b23ffcbb77b3c3c.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Pruebas de usuarios (impresiones)",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Pruebas de usuarios (impresiones) 13d390731e238028b632e7013bcfd040.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Pruebas de usuarios (impresiones)",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Pruebas de usuarios (impresiones) 13d390731e23804ea5d5c153e34bec19.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Pruebas de usuarios (impresiones)",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Pruebas de usuarios (impresiones) 13d390731e23806b81e2c6ba6846129c.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Pruebas de usuarios (impresiones)",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Pruebas de usuarios (impresiones) 13d390731e2380e580c2d8ff594f8f16.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Pruebas de usuarios (impresiones)",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Pruebas de usuarios (impresiones) 13d390731e2380e7a279e69e89fd2229.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Pruebas de usuarios (impresiones)",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Pruebas de usuarios (impresiones) 13d390731e2380ffbe74c6b2875378df.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Reunión de Coordinación Inicial ( Pre - Kick Off)",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Reunión de Coordinación Inicial ( Pre - Kick Off) 13c390731e2380d08f51e67f7e1dee64.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Reunión kick off",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Reunión kick off 13c390731e2381c6801fcd10d52197dd.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Sin título",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Sin título 13d390731e238026888cc7767b32c94e.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Sin título",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Sin título 13d390731e23805597f7d24d0ca7ede2.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Solicitud “pack de inicio”",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Solicitud “pack de inicio” 13c390731e238058a680ea6ae1f74fdc.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Tareas Generales",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Tareas Generales 13c390731e23811b83b3fecc2c0bb113.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Virtual",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Virtual 13c390731e2380be99d3e0a41a33eedb.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Visita de campo locales tipo Corporate”",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Visita de campo locales tipo Corporate” 13c390731e238150ab36c34354171c50.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Visita de campo locales tipo Defense”",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Visita de campo locales tipo Defense” 13c390731e238105b9fcf07ccb3438a7.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
+    "is_index": false
+  },
+  {
+    "title": "Visita de campo locales tipo Mining”",
+    "path": "content/Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo/Visita de campo locales tipo Mining” 13c390731e2381f1bc5ad76d20c72f4f.html",
+    "folder": "Privado y compartido/Sodexo/Gantt Sodexo General/Tareas Sodexo",
     "is_index": false
   },
   {

@@ -1,0 +1,769 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Sodexo</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="19ae6467-a9f4-4394-8eb3-f4750f22c995" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="Sodexo/sodexo_2.png"/></div><h1 class="page-title" dir="auto">Sodexo</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-default callout" style="white-space:pre-wrap;display:flex" id="c323ce04-5516-4526-954c-6d35aa37ed03"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/token_gray.svg"/></div><div style="width:100%"><strong>Objetivo:</strong> Implementar en las tiendas de Sodexo Retail,  la solución tecnológica (TRM: Toteat Restaurant Manager) y los diferentes módulos contratados, que permitirá:<div style="display:contents" dir="auto"><ul id="9b3b9d79-1069-40d5-ae70-4bb2cbd565c5" class="bulleted-list"><li style="list-style-type:disc">Optimizar y flexibilizar las operaciones: Mejorar la eficiencia en la gestión de procesos y recursos.</li></ul></div><div style="display:contents" dir="auto"><ul id="e5808a82-cf1f-47b4-ae8e-4ef80c178a27" class="bulleted-list"><li style="list-style-type:disc">Proporcionar información en línea en tiempo real: Acceder a datos actualizados de manera instantánea.</li></ul></div><div style="display:contents" dir="auto"><ul id="f79309c2-8e5c-43a7-835c-a53259259d70" class="bulleted-list"><li style="list-style-type:disc">Garantizar buena experiencia: Interacción con la plataforma de manera intuitiva, fácil.</li></ul></div><div style="display:contents" dir="auto"><ul id="aea340d7-9f5c-4498-8803-523eb684ef4e" class="bulleted-list"><li style="list-style-type:disc">Integrarse eficazmente con aplicaciones de entrega y sistemas ERP: Facilitar la comunicación y la sincronización con otras herramientas.</li></ul></div><div style="display:contents" dir="auto"><ul id="4c3b77d7-a32f-4233-b217-1e85480be519" class="bulleted-list"><li style="list-style-type:disc">Promover un cambio cultural y adaptación de las personas: Fomentar la adopción y comprensión del nuevo sistema.</li></ul></div></div></figure></div><div style="display:contents" dir="auto"><div id="407e6325-9684-4505-abf7-d3ffd684a0db" class="column-list"><div style="display:contents" dir="auto"><div id="dcb27109-b738-4a8e-bb5e-bbd6bc77c93a" style="width:68.75%" class="column"><div style="display:contents" dir="auto"><h1 id="3d812a88-8c9c-41da-b8f9-e3bf5dc000a2" class="">Equipo</h1></div><div style="display:contents" dir="ltr"><table id="893f6931-c5d1-42ca-8077-11df96db65c4" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="bed93fe6-fbff-4883-ab56-8cb260121052"><th id="YA~v" class="simple-table-header-color simple-table-header" style="width:138.828125px">Nombre</th><th id="nJGA" class="simple-table-header-color simple-table-header" style="width:183.828125px">Rol Proyecto</th><th id="pJm}" class="simple-table-header-color simple-table-header" style="width:72px">Equipo</th><th id="PXey" class="simple-table-header-color simple-table-header" style="width:211px">Contacto</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="e8d68aa6-f3dc-4055-8b32-c945a250264e"><td id="YA~v" class="" style="width:138.828125px">Joaquín Suazo</td><td id="nJGA" class="" style="width:183.828125px">C. ejecutivo / PM</td><td id="pJm}" class="" style="width:72px">Sodexo</td><td id="PXey" class="" style="width:211px"><a href="mailto:Joaquin.Suazo@sodexo.com">Joaquin.Suazo@sodexo.com</a></td></tr></div><div style="display:contents" dir="ltr"><tr id="6226b66e-711f-4f1b-8643-179dd0069c52"><td id="YA~v" class="" style="width:138.828125px">Camila Santana</td><td id="nJGA" class="" style="width:183.828125px">Funcional Sodexo </td><td id="pJm}" class="" style="width:72px">Sodexo</td><td id="PXey" class="" style="width:211px"><a href="mailto:Camila.Santana@sodexo.com">Camila.Santana@sodexo.com</a></td></tr></div><div style="display:contents" dir="ltr"><tr id="bcf81c11-e4f8-4ae7-b5ce-ebec0b186767"><td id="YA~v" class="" style="width:138.828125px">Karen Martinez</td><td id="nJGA" class="" style="width:183.828125px">Lider funcional Sodexo </td><td id="pJm}" class="" style="width:72px">Sodexo</td><td id="PXey" class="" style="width:211px"><a href="mailto:karen.martinez@sodexo.com">karen.martinez@sodexo.com</a></td></tr></div><div style="display:contents" dir="ltr"><tr id="e1e8de28-547b-44a0-a448-b26195f551b7"><td id="YA~v" class="" style="width:138.828125px">Paola Rodriguez</td><td id="nJGA" class="" style="width:183.828125px">Squad operations / Head</td><td id="pJm}" class="" style="width:72px">Toteat</td><td id="PXey" class="" style="width:211px"><a href="mailto:prodriguez@toteat.com">prodriguez@toteat.com</a></td></tr></div><div style="display:contents" dir="ltr"><tr id="e496204e-d800-4ab0-be4c-9cdd543f268a"><td id="YA~v" class="" style="width:138.828125px">Luciano Elizondo</td><td id="nJGA" class="" style="width:183.828125px">C. ejecutivo / COO</td><td id="pJm}" class="" style="width:72px">Toteat</td><td id="PXey" class="" style="width:211px"><a href="mailto:luciano@toteat.com">luciano@toteat.com</a></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="49e493f0-348b-4404-aa6b-c08347782eea" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="8d00bc61-5669-4dd6-bb7a-1e880cf187c7" style="width:31.25%" class="column"><div style="display:contents" dir="auto"><h1 id="be1e5135-ab22-4479-9c68-3cd5d74a91d8" class="">Alcance (en trabajo)</h1></div><div style="display:contents" dir="auto"><h3 id="fea5c0d0-343d-4079-8bcf-2cf993763e03" class="">✨ Funcionalidades estándar TRM:</h3></div><div style="display:contents" dir="auto"><ul id="c6e20662-df67-4d27-915a-6a3664ee0bac" class="bulleted-list"><li style="list-style-type:disc">Procesamiento de pagos</li></ul></div><div style="display:contents" dir="auto"><ul id="b83ddda8-9aa9-47c4-b9ba-32a04572fde0" class="bulleted-list"><li style="list-style-type:disc">Gestión inventario</li></ul></div><div style="display:contents" dir="auto"><ul id="0ddbcbd4-8024-46f0-8ef0-f99ad1bce6c7" class="bulleted-list"><li style="list-style-type:disc">Gestión de pedidos</li></ul></div><div style="display:contents" dir="auto"><ul id="f3664ba5-252d-4c1f-94f1-a6fe150f12d3" class="bulleted-list"><li style="list-style-type:disc">E-commerce</li></ul></div><div style="display:contents" dir="auto"><ul id="d83b6f22-7237-42fc-a339-d11f1148e813" class="bulleted-list"><li style="list-style-type:disc">emisión de facturas</li></ul></div><div style="display:contents" dir="auto"><ul id="a209c96e-85ec-4d29-ae69-4be56087576e" class="bulleted-list"><li style="list-style-type:disc">Integración con Delivery</li></ul></div><div style="display:contents" dir="auto"><ul id="2b4a34d6-83c0-4cf3-81e1-1e2a54a9d135" class="bulleted-list"><li style="list-style-type:disc">Reportería</li></ul></div><div style="display:contents" dir="auto"><h3 id="2323b118-f860-49eb-ab81-64ecc69915fb" class="">🛠️ Desarrollo específicos:</h3></div><div style="display:contents" dir="auto"><ul id="8b2d4714-0319-4c04-b542-4de348f5efea" class="bulleted-list"><li style="list-style-type:disc"><strong>Fase 2</strong>: Integración con SOVOS</li></ul></div><div style="display:contents" dir="auto"><ul id="299053b3-95de-4f19-bda5-4e79be97188b" class="bulleted-list"><li style="list-style-type:disc"><strong>Fase 3:</strong> Integración con iconstruye</li></ul></div><div style="display:contents" dir="auto"><ul id="17014ed1-c690-4435-b9eb-7c8a6f563b44" class="bulleted-list"><li style="list-style-type:disc"><strong>Fase 4: </strong>Desarrollo funcionalidad que permita vender a Crédito a sus clientes</li></ul></div><div style="display:contents" dir="auto"><ul id="d5ea5512-2134-42fd-9052-b88a2e47674b" class="bulleted-list"><li style="list-style-type:disc"><strong>Fase 4: </strong>Desarrollo funcionalidad que permita vender a Debito a sus clientes</li></ul></div><div style="display:contents" dir="auto"><p id="5add97a3-83b2-4aad-96b0-c69e5dda3e92" class="">
+</p></div><div style="display:contents" dir="auto"><p id="349d5145-f336-4c29-a420-e84bcf8c927e" class="">
+</p></div></div></div></div></div><div style="display:contents" dir="auto"><h1 id="1d64a848-bb19-4e6f-ac55-4ff054a6ce27" class="block-color-orange_background">Documentación</h1></div><div style="display:contents" dir="auto"><p id="e8969fc7-29c6-4870-99bf-999ae8d2102e" class=""><mark class="highlight-teal"><strong><span style="border-bottom:0.05em solid">Propuesta inicial:</span></strong></mark><mark class="highlight-teal"><span style="border-bottom:0.05em solid"> </span></mark><a href="https://acrobat.adobe.com/id/urn:aaid:sc:us:cc7f96ca-2fd9-4567-a9b3-83015e7c9b51">https://acrobat.adobe.com/id/urn:aaid:sc:us:cc7f96ca-2fd9-4567-a9b3-83015e7c9b51</a></p></div><div style="display:contents" dir="auto"><p id="19a39073-1e23-807c-9e21-cb1f33b94440" class=""><mark class="highlight-teal"><strong><span style="border-bottom:0.05em solid">Contrato:</span></strong></mark> <a href="https://docs.google.com/document/d/1cwV1eZ__q5NY_ZQ1uEuJTUgranWskx0B/edit">https://docs.google.com/document/d/1cwV1eZ__q5NY_ZQ1uEuJTUgranWskx0B/edit</a></p></div><div style="display:contents" dir="auto"><h1 id="482bd62a-0164-4704-8617-165d2e90f79e" class="block-color-orange_background">Fases del proyecto</h1></div><div style="display:contents" dir="auto"><p id="c1552817-658c-4dc1-b826-1dab05f1381c" class="">La metodología considera 6 etapas hasta la salida en vivo</p></div><div style="display:contents" dir="ltr"><figure id="13c39073-1e23-80fe-bd24-c4e8b13c3c94" class="link-to-page"><a href="Sodexo/Gantt%20Sodexo%20General%2013c390731e2380febd24c4e8b13c3c94.html"><img class="icon" src="Sodexo/Gantt%20Sodexo%20General/sodexo_2.png"/>Gantt Sodexo General </a></figure></div><div style="display:contents" dir="auto"><p id="14439073-1e23-80b7-b8b5-cf47b5aee100" class=""><a href="https://docs.google.com/spreadsheets/d/1UX8TU1PVKuI2DKOuzRMfZCiLoUCiOpAGIuzrls4-Ci0/edit?gid=1541955881#gid=1541955881">https://docs.google.com/spreadsheets/d/1UX8TU1PVKuI2DKOuzRMfZCiLoUCiOpAGIuzrls4-Ci0/edit?gid=1541955881#gid=1541955881</a></p></div><div style="display:contents" dir="auto"><h1 id="14439073-1e23-80ce-a27f-d91f7a4c9c99" class="block-color-orange_background">Implementaciones</h1></div><div style="display:contents" dir="auto"><ul id="1fb39073-1e23-8037-abb9-e360804deb7b" class="bulleted-list"><li style="list-style-type:disc"><strong>Base total de Locales Sodexo:</strong> <a href="https://docs.google.com/spreadsheets/d/10ZHSjPZcmsZP0t-eM-9uXJbDOUq_cWvqBY5UgDkdxJQ/edit?gid=1035298122#gid=1035298122">https://docs.google.com/spreadsheets/d/10ZHSjPZcmsZP0t-eM-9uXJbDOUq_cWvqBY5UgDkdxJQ/edit?gid=1035298122#gid=1035298122</a></li></ul></div><div style="display:contents" dir="auto"><ul id="1fb39073-1e23-80b7-89c8-dfd37e148df9" class="bulleted-list"><li style="list-style-type:disc"><strong>Gantt implementaciones Sodexo: </strong></li></ul></div><div style="display:contents" dir="auto"><h1 id="14439073-1e23-80c2-8661-e8d816ccdbe6" class="block-color-orange_background">Requerimientos y Desarrollos</h1></div><div style="display:contents" dir="auto"><p id="19039073-1e23-8071-9e25-d902e6835451" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="19039073-1e23-801f-a8cd-f7a0328f8b82" class="bulleted-list"><li style="list-style-type:disc">Requerimientos generales proyectos: <a href="https://docs.google.com/spreadsheets/d/14_3BB5tp14L22h4Mn4PCvFEjUP5t8zcylCPZ0sW3xmg/edit?gid=0#gid=0">https://docs.google.com/spreadsheets/d/14_3BB5tp14L22h4Mn4PCvFEjUP5t8zcylCPZ0sW3xmg/edit?gid=0#gid=0</a></li></ul></div><div style="display:contents" dir="auto"><ul id="1fb39073-1e23-8032-af4d-fbed85c22a49" class="bulleted-list"><li style="list-style-type:disc">Documento funcional entregado por Sodexo: <a href="https://docs.google.com/document/d/1fz2XRt82bsWarXwRXYvWCw5hxNJZwzA3C89hzsnzK3M/edit?tab=t.0">https://docs.google.com/document/d/1fz2XRt82bsWarXwRXYvWCw5hxNJZwzA3C89hzsnzK3M/edit?tab=t.0</a></li></ul></div><div style="display:contents" dir="auto"><ul id="1fb39073-1e23-8089-8e5a-f23302bae1bd" class="bulleted-list"><li style="list-style-type:disc">Requerimientos Sodexo y fechas entregadas (interno): <a href="https://docs.google.com/spreadsheets/d/1atwQ-PC0uQiuzZwYxsiavrjZUa-dYK05DnO216PI4yM/edit?gid=0#gid=0">https://docs.google.com/spreadsheets/d/1atwQ-PC0uQiuzZwYxsiavrjZUa-dYK05DnO216PI4yM/edit?gid=0#gid=0</a></li></ul></div><div style="display:contents" dir="auto"><ul id="20339073-1e23-803d-8c5a-e7bc8ea3fdc1" class="toggle"><li><details open=""><summary><mark class="highlight-red"><mark class="highlight-gray_background"><strong>Seguimiento temas con Ingeniería:</strong></mark></mark></summary><div style="display:contents" dir="auto"><ul id="20339073-1e23-80ce-948d-c3f31add0a65" class="bulleted-list"><li style="list-style-type:disc"><strong>30/05/2025: </strong><div style="display:contents" dir="auto"><ul id="20339073-1e23-8004-8ff6-e398a3dec037" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-teal">Totem: Nos aprobaron la propuesta finalmente, hoy se facturará, como serán los siguientes pasos, le dimos nueva fecha de entrega para el 10 de junio, dado que se demoraron en la aprobación de la propuesta.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="20339073-1e23-80e4-83ad-f5d3782b7b98" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-teal">Iconstruye: Tenemos fecha de entrega para el 25 julio (Recordatorio, fines de Junio)</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="20339073-1e23-8026-9cb5-cd8dbd74349b" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-teal">Cuenta corriente: Tuvimos esta semana reu con agus y cami , nos mostraron diseño y proxima semana tenemos reu con sodexo para mostrar diseño y continuar (fecha de entrega 25/07/2025</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="20339073-1e23-807b-983d-c56438edafcc" class="bulleted-list"><li style="list-style-type:circle">Dos requerimientos que no están en new pero si en legacy: abrir gaveta solo con efectivo + pagos parciales redelcom se comprometió fecha para 15/07/2025 </li></ul></div><div style="display:contents" dir="auto"><ul id="20339073-1e23-80ca-b9b9-cd8636675ffd" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-teal">Cambio de mensaje de error cuando se queda sin folios</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="2a739073-1e23-80f8-9478-d5d5a9500493" class="bulleted-list"><li style="list-style-type:circle"></li></ul></div><div style="display:contents" dir="auto"><p id="20339073-1e23-8066-a7a7-e5ba5f1c3131" class="">
+</p></div></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="20339073-1e23-8032-86b9-ce604404b621" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="a06fb240-b171-4b03-97c9-e205608dbcd1" class="block-color-orange_background">Reuniones </h1></div><div style="display:contents" dir="auto"><ul id="bd89f58b-616a-447d-a8f7-497eb2226cdf" class="toggle"><li><details open=""><summary>Reuniones </summary><div style="display:contents" dir="ltr"><figure id="11739073-1e23-803c-9c96-efea705593be" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024%20117390731e23803c9c96efea705593be.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 1 _ 12/09/2024</a></figure></div><div style="display:contents" dir="ltr"><figure id="11839073-1e23-804e-9acb-f5e5d36a3e78" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%202%20_%2026%2009%202024%20118390731e23804e9acbf5e5d36a3e78.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 2 _ 26/09/2024 </a></figure></div><div style="display:contents" dir="ltr"><figure id="11839073-1e23-80a5-b328-ffbbc5b0bdb1" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%203%20_%2003%2010%202024_%20Demo%20Inventario%20118390731e2380a5b328ffbbc5b0bdb1.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 3 _ 03/10/2024_ Demo Inventario </a></figure></div><div style="display:contents" dir="ltr"><figure id="11939073-1e23-801c-aa30-c278368d2123" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%204%20_%2008%2010%202024%20119390731e23801caa30c278368d2123.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 4 _ 08/10/2024</a></figure></div><div style="display:contents" dir="ltr"><figure id="12a39073-1e23-8069-9f97-dc9efa6273f2" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%205%20_%2016%2010%202024%20_%20Demo%20Producto%20B%2012a390731e2380699f97dc9efa6273f2.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 5 _ 16/10/2024 _ Demo Producto Base </a></figure></div><div style="display:contents" dir="ltr"><figure id="12d39073-1e23-800c-89d7-c18c4aeff581" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%206%20_%2018%2010%202024%2012d390731e23800c89d7c18c4aeff581.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 6 _ 18/10/2024</a></figure></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-804f-99a2-fb78eeb9d458" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%207%20_%2022%2010%202024%20_%20Demo%20Producto%20B%2012f390731e23804f99a2fb78eeb9d458.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 7 _ 22/10/2024 _ Demo Producto Base (Presencial)</a></figure></div><div style="display:contents" dir="ltr"><figure id="13639073-1e23-80bd-bbfe-e023464033fd" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%208%20_%2004%2011%202024%20136390731e2380bdbbfee023464033fd.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 8 _ 04/11/2024 </a></figure></div><div style="display:contents" dir="ltr"><figure id="13e39073-1e23-8094-9117-e7791052b157" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%209%20_%2007%2011%202024_Capacitaci%C3%B3n%20inst%2013e390731e2380949117e7791052b157.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 9 _ 07/11/2024_Capacitación instalación remote</a></figure></div><div style="display:contents" dir="ltr"><figure id="14439073-1e23-802c-ad44-f9ed903483cd" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2010%20_%2008%2011%202024_Requerimientos%20m%20144390731e23802cad44f9ed903483cd.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 10 _ 08/11/2024_Requerimientos mínimos redes e infraestructura</a></figure></div><div style="display:contents" dir="ltr"><figure id="14439073-1e23-803e-9f15-c6e36459dd9f" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2011%20_%2011%2011%202024_Check%20point%20proy%20144390731e23803e9f15c6e36459dd9f.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 11 _ 11/11/2024_Check point proyectos </a></figure></div><div style="display:contents" dir="ltr"><figure id="14439073-1e23-807a-99ff-c5d0b95a5ee4" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2012%20_%2012%2011%202024_Requerimientos%20m%20144390731e23807a99ffc5d0b95a5ee4.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 12 _ 12/11/2024_Requerimientos mínimos redes e infraestructura (refuerzo)</a></figure></div><div style="display:contents" dir="ltr"><figure id="14439073-1e23-8043-81ef-ebff21afc269" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2013%20_%2014%2011%202024_Check%20point%20proy%20144390731e23804381efebff21afc269.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 13 _ 14/11/2024_Check point proyecto_ pilotos </a></figure></div><div style="display:contents" dir="ltr"><figure id="14439073-1e23-80c3-8149-e39c420fdafe" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2014%20_%2018%2011%202024_Weekly%20Proyecto%20144390731e2380c38149e39c420fdafe.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 14 _ 18/11/2024_Weekly Proyecto</a></figure></div><div style="display:contents" dir="ltr"><figure id="14a39073-1e23-802c-a245-eea5a58522ae" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2015%20_%2022%2011%202024_Reuni%C3%B3n%20KU%20opera%2014a390731e23802ca245eea5a58522ae.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 15 _ 22/11/2024_Reunión KU operación</a></figure></div><div style="display:contents" dir="ltr"><figure id="14a39073-1e23-803d-88bc-fb11fe3280ec" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2016%20_%2025%2011%202024_Weekly%20Proyecto%2014a390731e23803d88bcfb11fe3280ec.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 16 _ 25/11/2024_Weekly Proyecto </a></figure></div><div style="display:contents" dir="ltr"><figure id="14a39073-1e23-809c-8349-e6ffe87148a2" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2017%20_%2026%2011%202024_Definici%C3%B3n%20visit%2014a390731e23809c8349e6ffe87148a2.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 17 _ 26/11/2024_Definición visita mina</a></figure></div><div style="display:contents" dir="ltr"><figure id="15039073-1e23-80c6-97d0-ca1d63a232e0" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2019%20_%2002%2012%202024_Weekly%20Proyecto%20150390731e2380c697d0ca1d63a232e0.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 19 _ 02/12/2024_Weekly Proyecto</a></figure></div><div style="display:contents" dir="ltr"><figure id="17a39073-1e23-806e-9260-c3ca099fda6c" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2023%20_%2013%2001%202025_Weekly%20Proyecto%2017a390731e23806e9260c3ca099fda6c.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 23 _ 13/01/2025_Weekly Proyecto </a></figure></div><div style="display:contents" dir="ltr"><figure id="19239073-1e23-80b9-b9a4-d59bff1c8b0e" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2024%20_%2005%2002%202025_Proceso%20soporte%20192390731e2380b9b9a4d59bff1c8b0e.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 24 _ 05/02/2025_Proceso soporte</a></figure></div><div style="display:contents" dir="ltr"><figure id="19839073-1e23-80f4-a1c6-c53b3965acc2" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2025%20_%2010%2002%202025%20198390731e2380f4a1c6c53b3965acc2.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 25 _ 10/02/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="19d39073-1e23-806d-a4fa-f544e51d1509" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2026%20_%2017%2002%202025%2019d390731e23806da4faf544e51d1509.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 26 _ 17/02/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="1ae39073-1e23-80e7-b780-edee93670616" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2027%20_%2024%2002%202025%201ae390731e2380e7b780edee93670616.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 27 _ 24/02/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="1ae39073-1e23-80fe-8398-c1e0be37ddc5" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2028%20_%2003%2003%202025%201ae390731e2380fe8398c1e0be37ddc5.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 28 _ 03/03/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="1b239073-1e23-8033-9880-d1a379666964" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2029%20_%2010%2003%202025%201b2390731e2380339880d1a379666964.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 29 _ 10/03/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="1b939073-1e23-8048-8254-e011aaea7a1b" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2030%20_%2017%2003%202025%201b9390731e2380488254e011aaea7a1b.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 30 _ 17/03/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="1c039073-1e23-807d-a5e4-db42165bc18a" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2031%20_%2024%2003%202025%201c0390731e23807da5e4db42165bc18a.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 31 _ 24/03/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="1c839073-1e23-8079-a0c4-c9c13b226392" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2032%20_%2031%2003%202025%201c8390731e238079a0c4c9c13b226392.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 32 _ 31/03/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="1ce39073-1e23-8004-bd70-f3669f6942ef" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2033%20_%2007%2004%202025%201ce390731e238004bd70f3669f6942ef.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 33 _ 07/04/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="1d539073-1e23-80b0-93f3-d8dd47752fb9" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2034%20_%2014%2004%202025%201d5390731e2380b093f3d8dd47752fb9.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 34 _ 14/04/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="1e339073-1e23-8017-9b46-c5f6658e6fa0" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2035%20_%2028%2004%202025%201e3390731e2380179b46c5f6658e6fa0.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 35 _ 28/04/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="1ed39073-1e23-8012-bbbd-ce94be24e4cb" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2036%20_%2005%2005%202025%201ed390731e238012bbbdce94be24e4cb.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 36 _ 05/05/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="1f139073-1e23-80ad-8049-f76e6cae6fee" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2037%20_%2012%2005%202025%201f1390731e2380ad8049f76e6cae6fee.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 37 _ 12/05/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="1f839073-1e23-80c9-bf3d-c5e10d111e0f" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2038%20_%2019%2005%202025%201f8390731e2380c9bf3dc5e10d111e0f.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 38 _ 19/05/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="1fc39073-1e23-80ba-89ea-c8e0ed238c86" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2039%20_%2026%2005%202025%201fc390731e2380ba89eac8e0ed238c86.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 39 _ 26/05/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="20639073-1e23-802d-9f73-ca97658c4b15" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2040%20_%2002%2006%202025%20206390731e23802d9f73ca97658c4b15.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 40 _ 02/06/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="20d39073-1e23-803e-b230-c6f474f9c1a2" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2041%20_%2009%2006%202025%2020d390731e23803eb230c6f474f9c1a2.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 41 _ 09/06/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="21439073-1e23-809e-963d-e620ec1668ac" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2042%20_%2016%2006%202025%20214390731e23809e963de620ec1668ac.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 42 _ 16/06/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="21b39073-1e23-80db-86a2-c921326dca9b" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2043%20_%2023%2006%202025%2021b390731e2380db86a2c921326dca9b.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 43 _ 23/06/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="22239073-1e23-80cd-8a91-f675a3cc1d1a" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2044%20_%2030%2006%202025%20222390731e2380cd8a91f675a3cc1d1a.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 44 _ 30/06/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="22939073-1e23-80c7-aa2a-cbf817ce4d3d" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2045%20_%2007%2007%202025%20229390731e2380c7aa2acbf817ce4d3d.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 45 _ 07/07/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="22939073-1e23-804e-8d25-f4069f7892a4" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2046%20_%2014%2007%202025%20229390731e23804e8d25f4069f7892a4.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 46 _ 14/07/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="23739073-1e23-80e4-b407-c406fb3872b9" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2047%20_%2021%2007%202025%20237390731e2380e4b407c406fb3872b9.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 47 _ 21/07/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="23e39073-1e23-8055-a8f7-f64d4e49a654" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2048%20_%2028%2007%202025%2023e390731e238055a8f7f64d4e49a654.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 48 _ 28/07/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="24539073-1e23-8091-80aa-c7c6433c3552" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2049%20_%2004%2008%202025%20245390731e23809180aac7c6433c3552.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 49 _ 04/08/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="24c39073-1e23-8074-a0b1-c8e9687f298f" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2050%20_%2011%2008%202025%2024c390731e238074a0b1c8e9687f298f.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 50 _ 11/08/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="25339073-1e23-80db-ab13-c248408eeeef" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2051%20_%2018%2008%202025%20253390731e2380dbab13c248408eeeef.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 51 _ 18/08/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="25a39073-1e23-80be-8431-c58c55e9f843" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2052%20_%2025%2008%202025%2025a390731e2380be8431c58c55e9f843.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 52 _ 25/08/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="26839073-1e23-80bb-a70d-cadb082fba8f" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2053%20_%2001%2009%202025%20268390731e2380bba70dcadb082fba8f.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 53 _ 01/09/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="26839073-1e23-80df-8e06-dab58fcfb739" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2054%20_%2008%2009%202025%20268390731e2380df8e06dab58fcfb739.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 54 _ 08/09/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="26f39073-1e23-8045-814c-c968a7a9f65a" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2055%20_%2015%2009%202025%2026f390731e238045814cc968a7a9f65a.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 55 _ 15/09/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="27639073-1e23-80a8-b5c0-e9796535263d" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2056%20_%2022%2009%202025%20276390731e2380a8b5c0e9796535263d.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 56 _ 22/09/2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="27d39073-1e23-80e9-bf75-df8cbc6846f8" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2057%20_%2029%2009%202025%2027d390731e2380e9bf75df8cbc6846f8.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 57 _ 29/09/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="27f39073-1e23-80fd-920d-fb3589c03338" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2058%20_%2006%2009%202025%2027f390731e2380fd920dfb3589c03338.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 58 _ 06/09/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="28b39073-1e23-809b-b016-c89deed1cdf5" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2059%20_%2013%2010%202025%2028b390731e23809bb016c89deed1cdf5.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 59 _ 13/10/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="29939073-1e23-80fd-8472-e86e31ac4cae" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2060%20_%2020%2010%202025%20299390731e2380fd8472e86e31ac4cae.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 60 _ 20/10/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-8048-9c54-f0013ae77586" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2061%20_%2027%2010%202025%202a0390731e2380489c54f0013ae77586.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 61 _ 27/10/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-8017-abad-e04c79f85072" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2062%20_%2003%2011%202025%202a0390731e238017abade04c79f85072.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 62 _ 03/11/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="2a739073-1e23-8079-9887-e336735e2432" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2063_%2010%2011%202025%202a7390731e2380799887e336735e2432.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 63_ 10/11/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="2ae39073-1e23-8059-a5fa-fb8be52f2b5f" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2064_%2017%2011%202025%202ae390731e238059a5fafb8be52f2b5f.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 64_ 17/11/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="2b539073-1e23-801e-867e-f67179e94bb0" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2065_%2024%2011%202025%202b5390731e23801e867ef67179e94bb0.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 65_ 24/11/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="2bc39073-1e23-8098-a158-ebb4b33bbf76" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2066_%2001%2001%202025%202bc390731e238098a158ebb4b33bbf76.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 66_ 01/01/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="2c439073-1e23-80f2-b59f-c4fe149d3865" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2067_%2009%2012%202025%202c4390731e2380f2b59fc4fe149d3865.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 67_ 09/12/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="2ca39073-1e23-80c9-b8d6-e0498b58c41b" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2068_%2015%2012%202025%202ca390731e2380c9b8d6e0498b58c41b.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 68_ 15/12/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="2d139073-1e23-80c0-8463-dd1822683695" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2069_%2022%2012%202025%202d1390731e2380c08463dd1822683695.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 69_ 22/12/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="2d839073-1e23-80a2-81a0-c6d0f0f38257" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2070_%2029%2012%202025%202d8390731e2380a281a0c6d0f0f38257.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 70_ 29/12/2025</a></figure></div><div style="display:contents" dir="ltr"><figure id="2df39073-1e23-8017-98f6-f609573af961" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2071_%2005%2001%202026%202df390731e23801798f6f609573af961.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 71_ 05/01/2026</a></figure></div><div style="display:contents" dir="ltr"><figure id="2e339073-1e23-80d7-aa66-db50855b8e56" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2072_%2012%2001%202026%202e3390731e2380d7aa66db50855b8e56.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 72_ 12/01/2026</a></figure></div><div style="display:contents" dir="ltr"><figure id="2ed39073-1e23-809d-9492-eb4514e2cef4" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2073_%2019%2001%202026%202ed390731e23809d9492eb4514e2cef4.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 73_ 19/01/2026 </a></figure></div><div style="display:contents" dir="ltr"><figure id="2f439073-1e23-805a-be9e-eb073d2475de" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2074_%2026%2001%202026%202f4390731e23805abe9eeb073d2475de.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 74_ 26/01/2026 </a></figure></div><div style="display:contents" dir="ltr"><figure id="2fb39073-1e23-8059-a302-e74135fa18bf" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2075_%2002%2002%202026%202fb390731e238059a302e74135fa18bf.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 75_ 02/02/2026</a></figure></div><div style="display:contents" dir="ltr"><figure id="30239073-1e23-8075-9cf3-d2da94042737" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2076_%2009%2002%202026%20302390731e2380759cf3d2da94042737.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 76_ 09/02/2026</a></figure></div><div style="display:contents" dir="ltr"><figure id="30939073-1e23-80b1-a5dc-c21f270ef83e" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2077_%2016%2002%202026%20309390731e2380b1a5dcc21f270ef83e.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 77_ 16/02/2026</a></figure></div><div style="display:contents" dir="ltr"><figure id="31139073-1e23-80f1-8280-e5e1437b6f02" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2078_%2024%2002%202026%20311390731e2380f18280e5e1437b6f02.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 78_ 24/02/2026</a></figure></div><div style="display:contents" dir="ltr"><figure id="31939073-1e23-803f-a3cc-c359081b8ca2" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2079_%2004%2003%202026%20319390731e23803fa3ccc359081b8ca2.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 79_ 04/03/2026</a></figure></div><div style="display:contents" dir="ltr"><figure id="31e39073-1e23-8053-8d6c-fd5ad2586deb" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2080_%2009%2003%202026%2031e390731e2380538d6cfd5ad2586deb.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 80_ 09/03/2026</a></figure></div><div style="display:contents" dir="ltr"><figure id="32c39073-1e23-8058-8ad7-c44103098879" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2081_%2023%2003%202026%2032c390731e2380588ad7c44103098879.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 81_ 23/03/2026</a></figure></div><div style="display:contents" dir="ltr"><figure id="33339073-1e23-80d0-a343-e76f19ab5329" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2082_%2030%2003%202026%20333390731e2380d0a343e76f19ab5329.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 82_ 30/03/2026</a></figure></div><div style="display:contents" dir="ltr"><figure id="33a39073-1e23-8052-b74a-f3bc81c38332" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2083_%2006%2004%202026%2033a390731e238052b74af3bc81c38332.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 83_ 06/04/2026</a></figure></div><div style="display:contents" dir="ltr"><figure id="34f39073-1e23-8097-abc0-c4e5375137d0" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%2084_%2027%2004%202026%2034f390731e238097abc0c4e5375137d0.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. 84_ 27/04/2026</a></figure></div><div style="display:contents" dir="auto"><p id="33a39073-1e23-8049-8116-f03660157b4a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="32c39073-1e23-8001-824c-e3dcdc617c80" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2fb39073-1e23-80b8-ba06-e26e7518508a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2e339073-1e23-80fa-971a-c7fc078f0607" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2df39073-1e23-803f-85c9-eaefde615243" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8032-860a-fe2c4dc2abed" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2a739073-1e23-8041-89ea-c294d268449b" class="">
+</p></div><div style="display:contents" dir="auto"><p id="10d39073-1e23-800c-9c57-d3aa7c503112" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="15039073-1e23-80ad-8d0a-d8a1fa3561e8" class="toggle"><li><details open=""><summary>Reuniones SOVOS</summary><div style="display:contents" dir="ltr"><figure id="15039073-1e23-8116-99a6-d6844f3289fa" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%20F2%20_%2028%2011%202024_Reuni%C3%B3n%20SOVOS%20150390731e23811699a6d6844f3289fa.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. F2 _ 28/11/2024_Reunión SOVOS </a></figure></div><div style="display:contents" dir="auto"><p id="15039073-1e23-8110-9caa-d1c371688777" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="19239073-1e23-803b-9b11-cff45f22eac9" class="toggle"><li><details open=""><summary>Reuniones Totem y Toteat Shop </summary><div style="display:contents" dir="ltr"><figure id="19239073-1e23-8196-8563-c7c514db1e94" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%20F5%20_%2005%2002%202025_Reuni%C3%B3n%20Totem%20To%20192390731e2381968563c7c514db1e94.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. F5 _ 05/02/2025_Reunión Totem/Totet Shop</a></figure></div><div style="display:contents" dir="auto"><p id="19239073-1e23-8149-aef2-d285a1a5d7fa" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="19739073-1e23-8098-95fb-dd278f103c7f" class="toggle"><li><details open=""><summary>Reuniones Inventario - iconstruye </summary><div style="display:contents" dir="ltr"><figure id="19739073-1e23-80ac-9c95-e575ffbce54b" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%20I1%20_06%2002%202025_Inventario%20i-cons%20197390731e2380ac9c95e575ffbce54b.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. I1 _06/02/2025_Inventario/i-construye</a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="20d39073-1e23-802e-b5da-f004580b286a" class="toggle"><li><details open=""><summary>Reuniones Cuenta corriente </summary><div style="display:contents" dir="ltr"><figure id="20d39073-1e23-810c-8d39-f2f2ae9a34c5" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20Cuenta%20corriente%2006%2006%202025%2020d390731e23810c8d39f2f2ae9a34c5.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión Cuenta corriente 06/06/2025</a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="21039073-1e23-80d8-9682-f176a9070e6b" class="toggle"><li><details open=""><summary>Reuniones Bajada Tótem</summary><div style="display:contents" dir="ltr"><figure id="21039073-1e23-804e-bae0-eb99e7abc10e" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20Bajada%20T%C3%B3tem%2010%2006%202025%20210390731e23804ebae0eb99e7abc10e.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión Bajada Tótem 10/06/2025</a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="21039073-1e23-80fe-bc1f-fd02d8162289" class="toggle"><li><details open=""><summary>Reuniones Soporte: Bolsa de horas </summary><div style="display:contents" dir="ltr"><figure id="21039073-1e23-81de-a02e-cf824cdfe9f3" class="link-to-page"><a href="Sodexo/Minuta%20reuni%C3%B3n%20No%20SAC1%20_12%2006%202025_Bolsa%20de%20horas%20%20210390731e2381dea02ecf824cdfe9f3.html"><img class="icon" src="Sodexo/Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/>Minuta reunión No. SAC1 _12/06/2025_Bolsa de horas soporte </a></figure></div><div style="display:contents" dir="auto"><p id="21039073-1e23-8116-80dc-e6f09e082b33" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="27d39073-1e23-80c7-babb-c4682760bcd6" class="">
+</p></div><div style="display:contents" dir="auto"><p id="9a7f8a72-2147-4746-b695-429936f783b9" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="18c39073-1e23-807d-adbb-dfb2bcefd1a3" class="block-color-orange_background">Material de apoyo enviado a Sodexo </h1></div><div style="display:contents" dir="auto"><ul id="11839073-1e23-803f-880c-c805d0e101e0" class="bulleted-list"><li style="list-style-type:disc">Slides capacitación etapas de implementación: <a href="https://docs.google.com/presentation/d/1-IBlnI5t7DEykAyeNKbuU3i_2dPb7JKleLM_9_A29VU/edit#slide=id.g307cb59b695_2_0">https://docs.google.com/presentation/d/1-IBlnI5t7DEykAyeNKbuU3i_2dPb7JKleLM_9_A29VU/edit#slide=id.g307cb59b695_2_0</a></li></ul></div><div style="display:contents" dir="auto"><ul id="14439073-1e23-808d-bb8a-f127572d1c7c" class="bulleted-list"><li style="list-style-type:disc">Video de remote: <a href="https://drive.google.com/file/d/1bYngKbmKkvHNenxjFNMeDkmWlkSm-t7_/view?usp=drive_link">https://drive.google.com/file/d/1bYngKbmKkvHNenxjFNMeDkmWlkSm-t7_/view?usp=drive_link</a></li></ul></div><div style="display:contents" dir="auto"><ul id="14439073-1e23-80cb-ada2-d55cc1fa02db" class="bulleted-list"><li style="list-style-type:disc">Check list implementación para KU de implementación Sodexo: <a href="https://docs.google.com/spreadsheets/d/1PY4ZTzk6tSV9-Ti8_btqBfPiqUwisLg_R6rLsq49c_s/edit?gid=873413272#gid=873413272">https://docs.google.com/spreadsheets/d/1PY4ZTzk6tSV9-Ti8_btqBfPiqUwisLg_R6rLsq49c_s/edit?gid=873413272#gid=873413272</a></li></ul></div><div style="display:contents" dir="auto"><ul id="14439073-1e23-80f6-8dc7-f940c1478a1f" class="bulleted-list"><li style="list-style-type:disc">Lista de IP disponibles Toteat <a href="https://drive.google.com/file/d/1LvN8wwys8yALsxia1kC65eGcRYVGlxBP/view?usp=drive_link">https://drive.google.com/file/d/1LvN8wwys8yALsxia1kC65eGcRYVGlxBP/view?usp=drive_link</a></li></ul></div><div style="display:contents" dir="auto"><ul id="14439073-1e23-8082-b7a2-f21b63686c8c" class="bulleted-list"><li style="list-style-type:disc">Conexiones de red: <a href="https://drive.google.com/file/d/1azq8K3w8X_2Y2zlWAOPbBptdu6TlAjH5/view?usp=drive_link">https://drive.google.com/file/d/1azq8K3w8X_2Y2zlWAOPbBptdu6TlAjH5/view?usp=drive_link</a></li></ul></div><div style="display:contents" dir="auto"><ul id="14439073-1e23-808c-ad70-d8d07a29d211" class="bulleted-list"><li style="list-style-type:disc">Puertos de dominio: <a href="https://docs.google.com/spreadsheets/d/1XvEiT_yduHwa85EI7TrCFTDq0vpUNEEx/edit?usp=drive_link&amp;ouid=118271682023143190886&amp;rtpof=true&amp;sd=true">https://docs.google.com/spreadsheets/d/1XvEiT_yduHwa85EI7TrCFTDq0vpUNEEx/edit?usp=drive_link&amp;ouid=118271682023143190886&amp;rtpof=true&amp;sd=true</a></li></ul></div><div style="display:contents" dir="auto"><ul id="14439073-1e23-806e-b2a2-d35c3d613275" class="bulleted-list"><li style="list-style-type:disc">Kickoff: <a href="https://docs.google.com/presentation/d/14PPbqpYfscecUOioAiUllk0Ki3pTdS8W4JAT83hz77U/edit#slide=id.g1ec473c5f81_0_64">https://docs.google.com/presentation/d/14PPbqpYfscecUOioAiUllk0Ki3pTdS8W4JAT83hz77U/edit#slide=id.g1ec473c5f81_0_64</a></li></ul></div><div style="display:contents" dir="auto"><ul id="19739073-1e23-8074-88ee-e5e90c1ca816" class="bulleted-list"><li style="list-style-type:disc">Soporte Sodexo: <a href="https://docs.google.com/spreadsheets/d/1mXM6x778MTfAEgef62VpIBVVfADKpR5L28EakSv4d8E/edit?gid=0#gid=0">https://docs.google.com/spreadsheets/d/1mXM6x778MTfAEgef62VpIBVVfADKpR5L28EakSv4d8E/edit?gid=0#gid=0</a> Notion: <a href="https://www.notion.so/Soporte-Sodexo-SAC-18b390731e2380adb915ec4bb1023380?pvs=21"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Soporte Sodexo/SAC</a> </li></ul></div><div style="display:contents" dir="auto"><p id="18c39073-1e23-8068-a638-e7b2e279af62" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="14439073-1e23-8089-9e35-e3934c46f146" class="block-color-orange_background">Facturación </h1></div><div style="display:contents" dir="auto"><p id="18f39073-1e23-80de-a2ff-da42052bfa12" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="18f39073-1e23-8002-82a0-d2187a7f127b" class="toggle"><li><details open=""><summary><mark class="highlight-teal"><mark class="highlight-gray_background"><strong><span style="border-bottom:0.05em solid">Proceso de facturación </span></strong></mark></mark></summary><div style="display:contents" dir="ltr"><figure id="18c39073-1e23-8042-8f5b-fc044a339966" class="link-to-page"><a href="Sodexo/Proceso%20de%20facturaci%C3%B3n%2018c390731e2380428f5bfc044a339966.html"><span class="icon">🧾</span>Proceso de facturación</a></figure></div><div style="display:contents" dir="ltr"><figure id="18f39073-1e23-8038-9dc1-cb7c441101e8"><div class="source"><a href="Sodexo/Flujo_Facturacion_Sodexo_-_Page_1.pdf">Flujo Facturación Sodexo - Page 1.pdf</a></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="18f39073-1e23-80f9-8ea3-d679ab6b5eef" class="toggle"><li><details open=""><summary><mark class="highlight-teal"><strong><span style="border-bottom:0.05em solid">Listado de locales por facturar:</span></strong></mark></summary><div style="display:contents" dir="auto"><p id="18f39073-1e23-80a8-ae0a-d53f618c50b9" class=""><a href="https://docs.google.com/spreadsheets/d/1I_5d5blCmB7U70ayUmB2oYHSsbKSfJ1-PIN7pitzFxU/edit?gid=1035298122#gid=1035298122">https://docs.google.com/spreadsheets/d/1I_5d5blCmB7U70ayUmB2oYHSsbKSfJ1-PIN7pitzFxU/edit?gid=1035298122#gid=1035298122</a></p></div><div style="display:contents" dir="auto"><ul id="1ff39073-1e23-8083-9760-ea87b4616ff2" class="bulleted-list"><li style="list-style-type:disc">Plan de pagos Sodexo: <a href="https://docs.google.com/spreadsheets/d/1S7bzHiPhizmWsBATnmSRijE9uXKV_pbrMOgV-02I_Bc/edit?gid=0#gid=0">https://docs.google.com/spreadsheets/d/1S7bzHiPhizmWsBATnmSRijE9uXKV_pbrMOgV-02I_Bc/edit?gid=0#gid=0</a></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="18f39073-1e23-80f8-87a0-e2c1bf0d2d7d" class="toggle"><li><details open=""><summary><mark class="highlight-teal"><strong><span style="border-bottom:0.05em solid">Facturas entregadas a Sodexo:</span></strong></mark></summary><div style="display:contents" dir="auto"><ul id="18f39073-1e23-80c8-a750-d46f9e684fc5" class="bulleted-list"><li style="list-style-type:disc"><strong>Factura 20% Implementación:</strong> <a href="https://mail.google.com/mail/u/0/?tab=rm&amp;ogbl#search/factura/FMfcgzQXJGmqRjhGcNWKjwKtmGBvCzTh?projector=1&amp;messagePartId=0.1">https://mail.google.com/mail/u/0/?tab=rm&amp;ogbl#search/factura/FMfcgzQXJGmqRjhGcNWKjwKtmGBvCzTh?projector=1&amp;messagePartId=0.1</a></li></ul></div><div style="display:contents" dir="auto"><ul id="18f39073-1e23-8036-af9f-ea8a8371cab1" class="bulleted-list"><li style="list-style-type:disc"><strong>Factura 15% Implementación:</strong> <a href="https://mail.google.com/mail/u/0/?tab=rm&amp;ogbl#search/facturac/QgrcJHrnvDqQzpgjgbcRRxwvKJwkTVBmZhl?projector=1&amp;messagePartId=0.1">https://mail.google.com/mail/u/0/?tab=rm&amp;ogbl#search/facturac/QgrcJHrnvDqQzpgjgbcRRxwvKJwkTVBmZhl?projector=1&amp;messagePartId=0.1</a></li></ul></div><div style="display:contents" dir="auto"><ul id="1fb39073-1e23-8027-ab91-e4f91e6df3b2" class="bulleted-list"><li style="list-style-type:disc"><strong>Factura 10% Implementación: </strong><a href="https://mail.google.com/mail/u/0/#sent/KtbxLthdnvfMKvmDsVvFVPWRNtgVJSCZWL">https://mail.google.com/mail/u/0/#sent/KtbxLthdnvfMKvmDsVvFVPWRNtgVJSCZWL</a>: </li></ul></div><div style="display:contents" dir="auto"><ul id="20d39073-1e23-80ec-a3a6-ff51c50818f7" class="bulleted-list"><li style="list-style-type:disc"><strong>Factura Totem</strong></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="19039073-1e23-80a8-b5a3-f6daefcdb647" class="toggle"><li><details open=""><summary><mark class="highlight-teal"><strong><span style="border-bottom:0.05em solid">Notas de venta y Facturación mensual: </span></strong></mark></summary><div style="display:contents" dir="auto"><ul id="19039073-1e23-80df-8ad4-dae8fbcf8ef3" class="bulleted-list"><li style="list-style-type:disc"><strong>Notas de venta:</strong> <a href="https://docs.google.com/spreadsheets/d/186k66toISLnuhkoBBYkjqXzqpKVfFw3wUPNx42A31IU/edit?gid=0#gid=0">https://docs.google.com/spreadsheets/d/186k66toISLnuhkoBBYkjqXzqpKVfFw3wUPNx42A31IU/edit?gid=0#gid=0</a></li></ul></div><div style="display:contents" dir="auto"><ul id="19039073-1e23-805d-8e14-de22498b9dbb" class="bulleted-list"><li style="list-style-type:disc"><strong>Facturas mensuales:</strong><div style="display:contents" dir="auto"><ul id="1fb39073-1e23-803a-995d-fe653e3af2fb" class="toggle"><li><details open=""><summary><strong>Mayo</strong></summary><div style="display:contents" dir="auto"><ul id="1fb39073-1e23-806f-804d-f88cfa6de845" class="bulleted-list"><li style="list-style-type:disc"><strong>Factura Mayo bolsa horas SAC:</strong>  <a href="https://drive.google.com/drive/folders/19hinKJZXGZ9Ur8HWfL6S3FK_VlB6Hkmy">https://drive.google.com/drive/folders/19hinKJZXGZ9Ur8HWfL6S3FK_VlB6Hkmy</a><a href="https://mail.google.com/mail/u/0/#inbox/FMfcgzQbfLZJMdRFfnzmZgcMZBMTjTlX?projector=1&amp;messagePartId=0.1">https://mail.google.com/mail/u/0/#inbox/FMfcgzQbfLZJMdRFfnzmZgcMZBMTjTlX?projector=1&amp;messagePartId=0.1</a></li></ul></div><div style="display:contents" dir="auto"><ul id="1fb39073-1e23-8014-ba34-ff269a17a385" class="bulleted-list"><li style="list-style-type:disc"><strong>Factura Mayo recurrente: </strong><a href="https://drive.google.com/drive/folders/19hinKJZXGZ9Ur8HWfL6S3FK_VlB6Hkmy">https://drive.google.com/drive/folders/19hinKJZXGZ9Ur8HWfL6S3FK_VlB6Hkmy</a>, <a href="https://mail.google.com/mail/u/0/#inbox/FMfcgzQbfLZJMdQSnsHQFRFdxRKqBmhP?projector=1&amp;messagePartId=0.1">https://mail.google.com/mail/u/0/#inbox/FMfcgzQbfLZJMdQSnsHQFRFdxRKqBmhP?projector=1&amp;messagePartId=0.1</a> </li></ul></div><div style="display:contents" dir="auto"><ul id="1fb39073-1e23-80bc-aff9-fd7e3fe45848" class="bulleted-list"><li style="list-style-type:disc"><strong>Factura Mayo proporcional: </strong><a href="https://drive.google.com/drive/folders/19hinKJZXGZ9Ur8HWfL6S3FK_VlB6Hkmy">https://drive.google.com/drive/folders/19hinKJZXGZ9Ur8HWfL6S3FK_VlB6Hkmy</a></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1fb39073-1e23-80ca-8d9e-ec39e7037e40" class="">
+</p></div></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h1 id="20039073-1e23-8027-9d42-ee2a263d31bb" class="block-color-orange_background">Desarrollos</h1></div><div style="display:contents" dir="ltr"><figure id="31239073-1e23-80a5-9b63-ee2517925b22" class="link-to-page"><a href="Sodexo/Totem%20312390731e2380a59b63ee2517925b22.html">Totem</a></figure></div><div style="display:contents" dir="auto"><p id="31239073-1e23-80a9-9f45-e1065c822c88" class="">
+</p></div><div style="display:contents" dir="auto"><p id="31239073-1e23-807d-a8ea-f57e8f1f11d7" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="31239073-1e23-8062-928d-de4514db6731" class="block-color-orange_background">SAC - Bolsa de Horas </h1></div><div style="display:contents" dir="auto"><ul id="18f39073-1e23-800e-8c80-cabde239c917" class="bulleted-list"><li style="list-style-type:disc"><strong>Archivo control de bolsa de horas:  </strong><a href="https://docs.google.com/spreadsheets/d/1LVWs2q4HI-9459-o3WCojVB6IYFwYOP7_T4HLIKEhQw/edit?gid=0#gid=0">https://docs.google.com/spreadsheets/d/1LVWs2q4HI-9459-o3WCojVB6IYFwYOP7_T4HLIKEhQw/edit?gid=0#gid=0</a></li></ul></div><div style="display:contents" dir="auto"><ul id="20039073-1e23-8025-bae1-e658468a3b06" class="bulleted-list"><li style="list-style-type:disc">Guía de Servicio al cliente <a href="https://www.notion.so/Gu-a-de-uso-Chat-de-Atenci-n-al-Cliente-1f5390731e238106816ad732e06db377?pvs=21"><span class="icon">🧡</span>Guía de uso Chat de Atención al Cliente</a> </li></ul></div><div style="display:contents" dir="auto"><ul id="20039073-1e23-80a5-918d-e9c341a672db" class="bulleted-list"><li style="list-style-type:disc">Archivo definición Bolsa de Horas:</li></ul></div><div style="display:contents" dir="ltr"><figure id="21039073-1e23-804d-8555-f41b3814f4c5" class="link-to-page"><a href="Sodexo/Propuesta%20bolsa%20de%20horas%20210390731e23804d8555f41b3814f4c5.html">Propuesta bolsa de horas</a></figure></div><div style="display:contents" dir="auto"><p id="21039073-1e23-80b9-a4f4-e6d02bc6f4f6" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2d139073-1e23-80a1-88e5-fdb42a47aa2b" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

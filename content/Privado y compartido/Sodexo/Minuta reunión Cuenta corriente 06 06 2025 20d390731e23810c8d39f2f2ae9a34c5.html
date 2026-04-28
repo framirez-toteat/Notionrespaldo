@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Minuta reunión Cuenta corriente 06/06/2025</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="20d39073-1e23-810c-8d39-f2f2ae9a34c5" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="Minuta%20reuni%C3%B3n%20No%201%20_%2012%2009%202024/Captura_de_pantalla_2024-09-23_a_la(s)_16.11.39.png"/></div><h1 class="page-title" dir="auto">Minuta reunión Cuenta corriente 06/06/2025</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><table id="20d39073-1e23-81ad-a2f1-c48df7f6e8a8" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="20d39073-1e23-8127-bd53-dabfa6990726"><th id="Cav[" class="simple-table-header-color simple-table-header" style="width:299px">Persona que convoca</th><td id="wuW}" class="" style="width:378px">Paola Rodríguez</td></tr></div><div style="display:contents" dir="ltr"><tr id="20d39073-1e23-8159-88f4-e1fe66ddaa23"><th id="Cav[" class="simple-table-header-color simple-table-header" style="width:299px">Fecha </th><td id="wuW}" class="" style="width:378px">06/06/2025</td></tr></div><div style="display:contents" dir="ltr"><tr id="20d39073-1e23-8172-a581-c78a81a72eea"><th id="Cav[" class="simple-table-header-color simple-table-header" style="width:299px">Asunto a tratar</th><td id="wuW}" class="" style="width:378px">Presentación diseño Cuentas corrientes</td></tr></div><div style="display:contents" dir="ltr"><tr id="20d39073-1e23-818d-b1c3-f0ed77d4ff55"><th id="Cav[" class="simple-table-header-color simple-table-header" style="width:299px">Grabación</th><td id="wuW}" class="" style="width:378px">No </td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="20d39073-1e23-8115-b89b-cbc2a0886924" class="">Asistentes</h2></div><div style="display:contents" dir="ltr"><table id="20d39073-1e23-8118-810e-c4733a047326" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="20d39073-1e23-815b-9501-cb712f1458d2"><th id="qy~x" class="simple-table-header-color simple-table-header" style="width:299px"><strong>Nombre</strong></th><th id="U:wz" class="simple-table-header-color simple-table-header" style="width:299px"><strong>Rol</strong></th><th id="rHtp" class="simple-table-header-color simple-table-header"><strong>Equipo</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="20d39073-1e23-811c-9b79-c5aaed874c8f"><td id="qy~x" class="" style="width:299px">Paola Rodríguez</td><td id="U:wz" class="" style="width:299px">PM</td><td id="rHtp" class="">Toteat</td></tr></div><div style="display:contents" dir="ltr"><tr id="20d39073-1e23-81c2-97b6-c2d867618fd8"><td id="qy~x" class="" style="width:299px">Maria Fernanda Soto </td><td id="U:wz" class="" style="width:299px">BA</td><td id="rHtp" class="">Toteat</td></tr></div><div style="display:contents" dir="ltr"><tr id="20d39073-1e23-815e-961f-ef4b5bc47ede"><td id="qy~x" class="" style="width:299px">Agustin Nozica</td><td id="U:wz" class="" style="width:299px">PO Dinners </td><td id="rHtp" class="">Toteat</td></tr></div><div style="display:contents" dir="ltr"><tr id="20d39073-1e23-81e3-ae9b-c8a1c184108a"><td id="qy~x" class="" style="width:299px">Joaquin Suazo </td><td id="U:wz" class="" style="width:299px">PM</td><td id="rHtp" class="">Sodexo</td></tr></div><div style="display:contents" dir="ltr"><tr id="20d39073-1e23-8106-b95b-ccaa086de4de"><td id="qy~x" class="" style="width:299px">Claudio Ramírez</td><td id="U:wz" class="" style="width:299px">KU Implementación </td><td id="rHtp" class="">Sodexo</td></tr></div><div style="display:contents" dir="ltr"><tr id="20d39073-1e23-8150-817e-c77d401eacc1"><td id="qy~x" class="" style="width:299px">Andres Vivas</td><td id="U:wz" class="" style="width:299px">KU Implementación </td><td id="rHtp" class="">Sodexo</td></tr></div><div style="display:contents" dir="ltr"><tr id="20d39073-1e23-818d-b900-ea06f14b974b"><td id="qy~x" class="" style="width:299px">Karen Martínez</td><td id="U:wz" class="" style="width:299px">Gerente Proyecto </td><td id="rHtp" class="">Sodexo</td></tr></div><div style="display:contents" dir="ltr"><tr id="20d39073-1e23-8138-897a-f30da5c8e92d"><td id="qy~x" class="" style="width:299px"></td><td id="U:wz" class="" style="width:299px"></td><td id="rHtp" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="21039073-1e23-80b0-9e2a-f5e2d32f0a86" class=""><strong>Resumen</strong></h3></div><div style="display:contents" dir="auto"><p id="21039073-1e23-803e-a6a2-fe454fa1ff26" class="">Se discutió la configuración de topes de crédito categorizados por grupos, el vencimiento y reciclaje de saldos diferenciando entre crédito y débito, y el cobro en cuentas de crédito. También se abordó la gestión de bajas de usuarios, la configuración de pérdida de saldo, reportes de consumo, validación de usuarios, uso en diferentes puntos de venta, precarga de saldos en débito, medio de pago de cuenta corriente, pagos mixtos y emisión de boletas. Los principales puntos tratados incluyeron la configuración flexible de topes, el manejo diferenciado de saldos en cuentas de crédito y débito, y la validación de usuarios para el uso de cuentas corrientes en diversos puntos de venta.<br/><br/></p></div><div style="display:contents" dir="auto"><h3 id="21b39073-1e23-8072-a125-d8bd9746d836" class=""><strong>Detalles</strong></h3></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-8046-8552-edf5686481d4" class="bulleted-list"><li style="list-style-type:disc"><strong>Configuración de Topes de Crédito</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-803f-aae9-d957e26dd0db" class="">Se consultó si la configuración de tope de crédito por persona podría categorizarse en grupos. Se confirmó que eso está contemplado y se mostró que se puede elegir el grupo de clientes y restringir el consumo por días y horarios. Se aclaró que los topes de crédito son por persona dentro de cada grupo.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-809e-94d2-cbf49916ad50" class="bulleted-list"><li style="list-style-type:disc"><strong>Vencimiento y Reciclaje de Saldos</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-809c-95c4-edab32147d42" class="">Se preguntó si los saldos o topes de crédito podían vencer o reciclarse. Se explicó que en cuentas corrientes de crédito, el saldo no consumido no se acumula para el próximo mes. En cuentas corrientes de débito, será configurable si el saldo restante se acumula o no.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-80dd-bb3e-fae6f59fcae0" class="bulleted-list"><li style="list-style-type:disc"><strong>Diferenciación entre Crédito y Débito</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-8046-89bb-d5e06a3c6e9e" class="">Se solicitó una aclaración sobre la diferencia entre cuentas de crédito y débito. Se explicó que en crédito se tiene un cupo mensual que se renueva independientemente del consumo, mientras que en débito se tiene un saldo que disminuye con cada compra, y la acumulación del saldo restante es configurable. Se añadió que el crédito es un monto por cobrar al cliente, mientras que el débito es un pago anticipado.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-8053-9ef2-f6e46585ebeb" class="bulleted-list"><li style="list-style-type:disc"><strong>Cobro en Cuentas de Crédito</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-8090-ae92-e99f8f657f3a" class="">Se preguntó si en crédito se cobraría el tope anunciado o solo lo consumido. Se aclaró que siempre se cobrará lo consumido en las cuentas de crédito. Se comprendió que el crédito se utiliza como una facilidad de pago sin un tope estricto, mientras que el débito se usa con montos fijos asignados.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-80e1-b64d-c09171b8975b" class="bulleted-list"><li style="list-style-type:disc"><strong>Tope Cero en Cuentas Corrientes</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-804a-b41f-e0c1ccd354df" class="">Se preguntó si se podría dejar sin tope una cuenta corriente. Se respondió que se puede poner cero para indicar que no hay tope.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-8051-8aa3-f0660f9852df" class="bulleted-list"><li style="list-style-type:disc"><strong>Vigencia del Saldo en Débito</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-802a-b9c4-fb60d73861c2" class="">Se sugirió considerar una vigencia para el saldo en las cuentas de débito en lugar de solo si se traslada o no al próximo mes. Se estuvo de acuerdo, planteando que un saldo sin usar por varios meses debería vencer. Se acordó que la lógica de consumo debería priorizar el saldo más antiguo.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-8078-898e-e78f9113c70d" class="bulleted-list"><li style="list-style-type:disc"><strong>Gestión de Bajas de Usuarios</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-80c9-a82c-ec4e4f0b301a" class="">Se preguntó cómo dar de baja a un empleado de una cuenta corriente. Se explicó que se realizará desde los grupos de clientes, donde se podrá inhabilitar o eliminar a la persona. Se discutió si al dar de baja en débito se debería perder el saldo restante, quedando configurable. Se aclaró que pausar una cuenta no implica la pérdida del saldo.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-80c4-ac53-c6dcccb43cf3" class="bulleted-list"><li style="list-style-type:disc"><strong>Configuración de Pérdida de Saldo</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-80b4-8237-d306cbae03cb" class="">Se debatió si la configuración de la pérdida de saldo al dar de baja a un usuario debería ser a nivel de cliente o por grupo. Se opinó que debería ser por cliente, ya que las condiciones podrían variar.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-8082-b29b-e6fc91cfafc3" class="bulleted-list"><li style="list-style-type:disc"><strong>Reportes de Consumo</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-8053-ae0a-e1f9d2428e75" class="">Se presentaron los reportes de consumo, mencionando el historial de órdenes que permite filtrar por fechas para facilitar el cobro en cuentas de crédito. También se mencionó el historial de clientes, que muestra los consumos por cliente individual. Se planea agregar una sección para gestionar los cobros, permitiendo marcar órdenes como pendientes o cobradas.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-8077-a2d7-ca60adf6b1cd" class="bulleted-list"><li style="list-style-type:disc"><strong>Validación de Usuarios al Consumir</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-80f8-bc47-cf3bcf716877" class="">Se explicó que los usuarios podrán identificarse manualmente con su RUT o acercando una tarjeta física a escáneres QR para realizar consumos con la cuenta corriente. Se acordó que ambas opciones deberían estar disponibles. Una vez validado el usuario, al tomar el pedido se mostrarán solo los productos de la lista de precios asociada al grupo de clientes.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-80a3-bd5a-f2084e77af91" class="bulleted-list"><li style="list-style-type:disc"><strong>Uso en Diferentes Puntos de Venta</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-80ae-ad9b-ff4f6dc2ddab" class="">Se consultó si esto funcionaría en diferentes puntos de venta como TRM, Kosco y Toteat Shop (e-commerce). Se confirmó que sí, incluyendo la Toteat Shop, aunque la validación en el e-commerce será por usuario logueado y el mail coincidente con el registrado en el grupo de clientes.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-8063-844e-c43e3f33f23d" class="bulleted-list"><li style="list-style-type:disc"><strong>Precarga de Saldos en Débito</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-8087-b191-ef9de4c454ea" class="">Se preguntó sobre el proceso de precarga de saldos en cuentas de débito. Se indicó que será configurable si la carga es automática o manual. Se añadió que si es automática, debería indicarse la fecha de la carga. Se sugirió que en cargas automáticas haya una validación o recordatorio previo al responsable de la cuenta. Se acordó solicitar un correo del responsable de la cuenta corriente para enviar estas notificaciones. También se mencionó la posibilidad de realizar cargas manuales adicionales si fuera necesario.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-80de-bd80-c23e00700441" class="bulleted-list"><li style="list-style-type:disc"><strong>Medio de Pago de Cuenta Corriente</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-8068-b3bc-ea6641862596" class="">Se explicó que al crear una cuenta corriente, se generará un medio de pago con el nombre de la cuenta. Este medio de pago estará disponible en el checkout solo si el usuario se validó correctamente. Se confirmó que no aparecerán todas las cuentas corrientes como formas de pago, sino solo la correspondiente al usuario validado. Se proporcionará información al cajero sobre el saldo disponible o el límite de consumo al seleccionar este medio de pago.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-801b-a02d-fccc4fbf367c" class="bulleted-list"><li style="list-style-type:disc"><strong>Pagos Mixtos y Emisión de Boletas</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-80e6-9fda-d2f681d31048" class="">Se consultó si se podrían realizar pagos combinando la cuenta corriente con otros medios de pago. Se confirmó que sí, permitiendo pagar una parte con la cuenta corriente y el resto con otro método. Se señaló que los pagos con cuenta corriente no deberían generar boletas. Se explicó que en la primera etapa no se emitirán comprobantes fiscales, asumiendo que la facturación se realizará de otra manera.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-80bc-99da-e0a5e7dc7baf" class="bulleted-list"><li style="list-style-type:disc"><strong>Próximos Pasos y Plazos</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-8012-9ae7-f54c54c39178" class="">Se consultó sobre los plazos para la implementación. Se indicó que se revisará el lunes para dar una respuesta en la reunión de ese día o a más tardar el miércoles. Se solicitó que se informe sobre la fecha en que se entregarán los plazos finales. También se mencionó que es necesario definir la lógica de las recargas de débito.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="21b39073-1e23-8040-8827-c0e4a0d5613e" class="bulleted-list"><li style="list-style-type:disc"><strong>Solicitud de Pantallazos de Informes</strong><div style="display:contents" dir="auto"><p id="21b39073-1e23-8089-9cb4-f5ac93e225ba" class="">Se solicitó pantallazos de los informes para validarlos con otros miembros del equipo. Se ofreció crear un flujo resumido de lo visto y enviarlo en PDF.</p></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="21039073-1e23-806a-86c6-fda48386e6b0" class=""><strong>Compromisos Pendientes</strong></h3></div><div style="display:contents" dir="auto"><ol type="1" id="21039073-1e23-809a-becb-eb33ee08b595" class="numbered-list" start="1"><li><strong>Definición de plazos de implementación:</strong> Paola, Agustín, León y Luciano revisarán los tiempos y darán respuesta el lunes o miércoles. Joaquin pidió que se confirme la fecha en que se comunicarán los plazos. <strong>Último viernes de Julio definido.</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="21039073-1e23-80c5-bdd3-c2596188f8c5" class="numbered-list" start="2"><li><strong>Definir lógica de recargas en débito:</strong> Aún debe establecerse cómo funcionarán las recargas automáticas o manuales.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="21039073-1e23-8069-8dcb-c2e0de641507" class="numbered-list" start="3"><li><strong>Envío de pantallazos de informes:</strong> Agustin se comprometió a armar un flujo resumido en PDF con los informes solicitados por Karen.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="21039073-1e23-8056-b431-d99a5b6440c7" class="numbered-list" start="4"><li><strong>Configuración de vigencia del saldo en débito:</strong> Se acordó que el saldo más antiguo debe consumirse primero y que los saldos deberían vencer tras cierto tiempo sin uso. Falta definir cómo se aplicará.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="21039073-1e23-805d-be5c-e048eb921a85" class="numbered-list" start="5"><li><strong>Notificaciones previas a precargas automáticas:</strong> Se acordó enviar recordatorios al responsable antes de una carga automática. Es necesario solicitar su correo.</li></ol></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
