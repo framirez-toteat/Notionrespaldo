@@ -8,6 +8,37 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
+  /* Login */
+  #login-screen {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #1e1e2e;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #login-box {
+    background: #2a2a3e; border-radius: 12px;
+    padding: 40px 36px; width: 320px;
+    display: flex; flex-direction: column; gap: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  #login-box h2 { color: #fff; font-size: 20px; font-weight: 600; text-align: center; }
+  #login-box p  { color: #9b9b9b; font-size: 13px; text-align: center; margin-top: -8px; }
+  #login-input {
+    padding: 10px 14px; border-radius: 7px;
+    border: 1px solid #3a3a52; background: #1e1e2e;
+    color: #fff; font-size: 14px; outline: none;
+  }
+  #login-input:focus { border-color: #7c6af7; }
+  #login-btn {
+    padding: 10px; border-radius: 7px; border: none;
+    background: #7c6af7; color: #fff; font-size: 14px;
+    font-weight: 600; cursor: pointer;
+  }
+  #login-btn:hover { background: #6a59e0; }
+  #login-error {
+    color: #ff6b6b; font-size: 12px; text-align: center;
+    display: none;
+  }
+
   :root {
     --sidebar-w: 300px;
     --bg: #f7f7f5;
@@ -157,6 +188,16 @@
 </style>
 </head>
 <body>
+<div id="login-screen">
+  <div id="login-box">
+    <h2>🔒 Procesos SAC</h2>
+    <p>Ingresa la contraseña para continuar</p>
+    <input id="login-input" type="password" placeholder="Contraseña" autofocus>
+    <button id="login-btn">Ingresar</button>
+    <div id="login-error">Contraseña incorrecta</div>
+  </div>
+</div>
+
 <div id="app">
   <aside id="sidebar">
     <div id="sidebar-header">
@@ -187,6 +228,30 @@
 </div>
 
 <script>
+const PASSWORD = "Fj5183034";
+
+(function checkAuth() {
+  if (sessionStorage.getItem('sac_auth') === '1') {
+    document.getElementById('login-screen').style.display = 'none';
+    return;
+  }
+  const btn = document.getElementById('login-btn');
+  const input = document.getElementById('login-input');
+  const error = document.getElementById('login-error');
+  function attempt() {
+    if (input.value === PASSWORD) {
+      sessionStorage.setItem('sac_auth', '1');
+      document.getElementById('login-screen').style.display = 'none';
+    } else {
+      error.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  }
+  btn.addEventListener('click', attempt);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') attempt(); });
+})();
+
 let pages = [];
 let currentPath = null;
 
