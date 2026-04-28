@@ -321,7 +321,7 @@ function init() {
 
 function buildTree(list, searchMode = false) {
   const nav = document.getElementById('nav');
-  [...nav.querySelectorAll('.folder-item, .page-link')].forEach(el => el.remove());
+  [...nav.querySelectorAll('.folder-item, .page-link, .section-card')].forEach(el => el.remove());
 
   // Sin búsqueda: solo mostrar páginas índice (las 4 secciones principales)
   // Solo páginas que están en el primer nivel (folder sin subcarpetas)
