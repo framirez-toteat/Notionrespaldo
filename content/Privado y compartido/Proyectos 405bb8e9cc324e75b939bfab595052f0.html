@@ -1,0 +1,746 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Proyectos</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="405bb8e9-cc32-4e75-b939-bfab595052f0" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🛠️</span></div><h1 class="page-title" dir="auto">Proyectos</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="53a16a42-594f-44a1-899e-618dcd737193" class="">
+</p></div><div style="display:contents" dir="auto"><p id="af840353-f943-4acb-84cf-935b5b04f746" class=""><mark class="highlight-gray">↓ Haz clic en las distintas pestañas de la base de datos para ver los mismos datos de distintas formas. Empieza haciendo clic en “📬 Campaña de marketing” para ver un proyecto de ejemplo y sus tareas asociadas.</mark></p></div><div style="display:contents" dir="ltr"><div id="c4400de3-ee39-426e-a28f-209a88fd83b5" class="collection-content"><h4 class="collection-title">Tareas</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Nombre de la tarea</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha límite</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Prioridad</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/no-entry_gray.svg" style="width:14px;height:14px;display:block"/></span>Bloqueado por</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>Bloqueando</th></tr></thead><tbody><tr id="05805b74-676f-4125-abc9-bb34bfb80acd"><td class="cell-title"><a href="Proyectos/Tareas/Crear%20un%20plan%20de%20redes%20sociales%2005805b74676f4125abc9bb34bfb80acd.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Crear un plan de redes sociales</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos/Tareas/Crear%20un%20plan%20de%20redes%20sociales/nate.jpg" class="icon user-icon"/>Nate Martins</span></td><td class="cell-notion://tasks/due_date_property"><time>2 de mayo de 2023</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-green">Marketing</span><span class="selected-value select-value-color-pink">Mejoras</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="9b3500ac-3a82-4c70-aa2c-54ccca1d9219"><td class="cell-title"><a href="Proyectos/Tareas/Crear%20un%20plan%20de%20marketing%20de%20resultados%209b3500ac3a824c70aa2c54ccca1d9219.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Crear un plan de marketing de resultados</a></td><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><img src="Proyectos/Tareas/Crear%20un%20plan%20de%20redes%20sociales/nate.jpg" class="icon user-icon"/>Nate Martins</span></td><td class="cell-notion://tasks/due_date_property"><time>2 de mayo de 2023</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-green">Marketing</span><span class="selected-value select-value-color-pink">Mejoras</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="85b85fde-d43e-4571-b901-5fd4d2a40cac"><td class="cell-title"><a href="Proyectos/Tareas/Plan%20de%20trabajo%20por%20cada%20proveedor%20para%20garantizar%2085b85fded43e4571b9015fd4d2a40cac.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Plan de trabajo por cada proveedor para garantizar continuidad operativa </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-orange"><div class="status-dot status-dot-color-orange"></div>Pospuesto</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>26 de mayo de 2023</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Sitio web</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="1a281940-14fb-471b-ad13-da3d56fe7fff"><td class="cell-title"><a href="Proyectos/Tareas/Proceso%20incidencias%20cr%C3%ADticas%201a28194014fb471bad13da3d56fe7fff.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Proceso incidencias críticas</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>31 de mayo de 2023</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Sitio web</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="6a8e0da5-5c64-472a-99a4-f1f3d4b4bfe9"><td class="cell-title"><a href="Proyectos/Tareas/Definici%C3%B3n%20procesos%20generales%206a8e0da55c64472a99a4f1f3d4b4bfe9.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Definición procesos generales </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>31 de mayo de 2023</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-green">Marketing</span><span class="selected-value select-value-color-pink">Mejoras</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="b2c023cf-9722-456b-84ad-b457189c6fc8"><td class="cell-title"><a href="Proyectos/Tareas/Propuesta%20modelo%20Soporte%20IV%20b2c023cf9722456b84adb457189c6fc8.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Propuesta modelo Soporte IV</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>31 de mayo de 2023</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-green">Marketing</span><span class="selected-value select-value-color-pink">Mejoras</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="d6c63a63-ff15-4a43-993e-e84fe6f6c2be"><td class="cell-title"><a href="Proyectos/Tareas/Cuadro%20proveedores%20d6c63a63ff154a43993ee84fe6f6c2be.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Cuadro proveedores</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-orange"><div class="status-dot status-dot-color-orange"></div>Pospuesto</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>31 de mayo de 2023</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">Sitio web</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="ef792f6e-7fe9-47ab-8ac9-70bba13029d2"><td class="cell-title"><a href="Proyectos/Tareas/Conformaci%C3%B3n%20equipo%20Tech%20ef792f6e7fe947ab8ac970bba13029d2.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Conformación equipo Tech </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>6 de marzo de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="bfa25298-47ab-4c4e-be14-9c45e966cc5e"><td class="cell-title"><a href="Proyectos/Tareas/Definici%C3%B3n%20funciones%20bfa2529847ab4c4ebe149c45e966cc5e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Definición funciones </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>10 de mayo de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="033060ca-0315-4174-b15f-c5c6a44cf64f"><td class="cell-title"><a href="Proyectos/Tareas/Plantilla%20Onboarding%20a%20Implementaci%C3%B3n%20033060ca03154174b15fc5c6a44cf64f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Plantilla Onboarding a Implementación</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>14 de mayo de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="d97904db-2314-4a73-829a-87df4d56f572"><td class="cell-title"><a href="Proyectos/Tareas/Piloto%20grabaci%C3%B3n%20contenido%20integraciones%20d97904db23144a73829a87df4d56f572.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Piloto grabación contenido integraciones</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-notion://tasks/due_date_property"><time>16 de mayo de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="4b40ee42-6189-45c2-9850-da80dfaad4c1"><td class="cell-title"><a href="Proyectos/Tareas/Revisar%20una%20forma%20de%20darnos%20cuenta%20con%20anticipaci%C3%B3%204b40ee42618945c29850da80dfaad4c1.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Revisar una forma de darnos cuenta con anticipación, que la red no es adecuada para evitar situaciones como la de patio central. </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-orange"><div class="status-dot status-dot-color-orange"></div>Pospuesto</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>20 de mayo de 2024</time></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="8ae160f4-0ceb-4ded-9ba5-62fb40e24d20"><td class="cell-title"><a href="Proyectos/Tareas/Proceso%20implementaci%C3%B3n%208ae160f40ceb4ded9ba562fb40e24d20.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Proceso implementación </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>30 de mayo de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="3688554a-81ac-4ac2-aac6-cd5f028e633a"><td class="cell-title"><a href="Proyectos/Tareas/Documentaci%C3%B3n%20proceso%20de%20excepciones%203688554a81ac4ac2aac6cd5f028e633a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Documentación proceso de excepciones </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-orange"><div class="status-dot status-dot-color-orange"></div>Pospuesto</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>30 de mayo de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="7683a395-80d8-42e8-8fc1-7abb5a744a2a"><td class="cell-title"><a href="Proyectos/Tareas/Plan%20de%20documentaci%C3%B3n%20Integraciones%207683a39580d842e88fc17abb5a744a2a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Plan de documentación Integraciones</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>31 de mayo de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="0f58c144-8040-4eef-914f-af67c1b2f48b"><td class="cell-title"><a href="Proyectos/Tareas/Crear%20una%20pieza%20para%20enviar%20al%20cliente%20y%20que%20este%20%200f58c14480404eef914faf67c1b2f48b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Crear una pieza para enviar al cliente y que este preparado para la implementación </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-orange"><div class="status-dot status-dot-color-orange"></div>Pospuesto</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>31 de mayo de 2024</time></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="71f78800-fadc-46ad-bd91-ea155382afbb"><td class="cell-title"><a href="Proyectos/Tareas/Definici%C3%B3n%20equipo%20KPIS%2071f78800fadc46adbd91ea155382afbb.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Definición equipo KPIS</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-orange"><div class="status-dot status-dot-color-orange"></div>Pospuesto</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>31 de mayo de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="8e3a5d6e-0905-443b-86c1-623f7e87e78e"><td class="cell-title"><a href="Proyectos/Tareas/Plan%20de%20capacitaciones%208e3a5d6e0905443b86c1623f7e87e78e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Plan de capacitaciones</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>31 de mayo de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="b34967da-57db-45fc-bb94-9eac9e163cfd"><td class="cell-title"><a href="Proyectos/Tareas/Definici%C3%B3n%20modelo%20de%20trabajo%20b34967da57db45fcbb949eac9e163cfd.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Definición modelo de trabajo </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>31 de mayo de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="78de3879-cbaf-43b1-a062-548468e2616f"><td class="cell-title"><a href="Proyectos/Tareas/Discovery%20integraciones%20no%20masivas%2078de3879cbaf43b1a062548468e2616f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Discovery integraciones no masivas</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Rechazado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>6 de junio de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="12f39073-1e23-80a5-ae26-fc490247f8e5"><td class="cell-title"><a href="Proyectos/Tareas/Proceso%20Priorizaci%C3%B3n%20RFP%2012f390731e2380a5ae26fc490247f8e5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Proceso Priorización RFP</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>14 de noviembre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="12f39073-1e23-804c-bae2-d2d5fb849f78"><td class="cell-title"><a href="Proyectos/Tareas/Proceso%20creaci%C3%B3n%20incidencias%20migraci%C3%B3n%2012f390731e23804cbae2d2d5fb849f78.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Proceso creación incidencias migración </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://tasks/due_date_property"><time>14 de noviembre de 2024</time></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2ed39073-1e23-8012-8ec5-ca4e3711527f"><td class="cell-title"><a href="Proyectos/Tareas/Sodexo%20pendientes%20vacaciones%20fer%202ed390731e2380128ec5ca4e3711527f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Sodexo pendientes vacaciones fer</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2e239073-1e23-8054-8515-eb1b5f6aae4d"><td class="cell-title"><a href="Proyectos/Tareas/Detalle%20backoffice%20Mantenimiento%202e2390731e2380548515eb1b5f6aae4d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Detalle backoffice Mantenimiento </a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2e139073-1e23-8069-9795-d3e875421fdd"><td class="cell-title"><a href="Proyectos/Tareas/Plan%20de%20trabajo%20Ops%202026%202e1390731e2380699795d3e875421fdd.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Plan de trabajo Ops 2026</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2cb39073-1e23-8069-88cf-d4c7fb2419aa"><td class="cell-title"><a href="Proyectos/Tareas/Par%C3%A1metros%20criterios%20casos%202cb390731e23806988cfd4c7fb2419aa.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Parámetros criterios casos</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2b239073-1e23-8000-9001-ee8f63ef6f1f"><td class="cell-title"><a href="Proyectos/Tareas/Solicitud%20Buffet%20Express%202b2390731e2380009001ee8f63ef6f1f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Solicitud Buffet Express</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-orange"><div class="status-dot status-dot-color-orange"></div>Pospuesto</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="2ae39073-1e23-803e-9261-d2960b32ef37"><td class="cell-title"><a href="Proyectos/Tareas/Criterios%20para%20cierre%20de%20caso%202ae390731e23803e9261d2960b32ef37.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Criterios para cierre de caso</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-yellow">Procesos</span></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="28439073-1e23-8002-b314-ffaa3177b372"><td class="cell-title"><a href="Proyectos/Tareas/Definir%20documento%20agenda%20presencialidades%20284390731e238002b314ffaa3177b372.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Definir documento/agenda presencialidades</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="28139073-1e23-80de-9bb4-f229ffdfc920"><td class="cell-title"><a href="Proyectos/Tareas/Plan%20de%20capacitaci%C3%B3n%20rol%20Implementador%20281390731e2380de9bb4f229ffdfc920.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Plan de capacitación rol Implementador</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="27d39073-1e23-806e-8b93-e07e7cc30d30"><td class="cell-title"><a href="Proyectos/Tareas/Traspasos%20Ferny%2027d390731e23806e8b93e07e7cc30d30.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Traspasos Ferny</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="27839073-1e23-801c-ae03-df37f10d4c45"><td class="cell-title"><a href="Proyectos/Tareas/Registro%20de%20logs%20278390731e23801cae03df37f10d4c45.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Registro de logs</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="27839073-1e23-8099-ad5b-e28f07f9d525"><td class="cell-title"><a href="Proyectos/Tareas/Plan%20de%20trabajo%20TECH%20general%20278390731e238099ad5be28f07f9d525.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Plan de trabajo TECH general</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIeXJP50n2oNMn3ITT9go-fZiu3cEmUJ2PVqjWjUJ5KVVbCe8M=s100" class="icon user-icon"/>Valeria García Arce</span></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="27139073-1e23-80fa-9852-de4df3c93963"><td class="cell-title"><a href="Proyectos/Tareas/Perfil%20TECH%20Implementaciones%20271390731e2380fa9852de4df3c93963.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Perfil TECH Implementaciones</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="24239073-1e23-8072-9fac-feaa8914e16f"><td class="cell-title"><a href="Proyectos/Tareas/Propuesta%20Tech%20implementaciones%20242390731e2380729facfeaa8914e16f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Propuesta Tech implementaciones</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Rechazado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="1ff39073-1e23-80c3-ba13-fa23564f7087"><td class="cell-title"><a href="Proyectos/Tareas/Apoyo%20Isra%201ff390731e2380c3ba13fa23564f7087.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Apoyo Isra</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="19039073-1e23-80e6-9e5f-f4ef55047687"><td class="cell-title"><a href="Proyectos/Tareas/Bajada%20funcionalidades%20New%202025%20190390731e2380e69e5ff4ef55047687.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Bajada funcionalidades New 2025</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr><tr id="18b39073-1e23-80ad-b915-ec4bb1023380"><td class="cell-title"><a href="Proyectos/Tareas/Soporte%20Sodexo%20SAC%2018b390731e2380adb915ec4bb1023380.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Soporte Sodexo/SAC</a></td><td class="cell-notion://tasks/status_property"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td><td class="cell-notion://tasks/assign_property"></td><td class="cell-notion://tasks/due_date_property"></td><td class="cell-notion://tasks/priority_property"></td><td class="cell-notion://tasks/tags_property"></td><td class="cell-notion://tasks/task_blocked_by_relation"></td><td class="cell-notion://tasks/task_blocking_relation"></td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><p id="0a575f89-3fc4-4d34-8d63-49910813398f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="043e9da5-e178-49f9-806e-921e241493b5" class=""><mark class="highlight-gray">↓ Haz clic en las distintas pestañas de la base de datos para ver los mismos datos de distintas formas. Pasa el cursor por encima de cualquier nombre de proyecto y haz clic en </mark><mark class="highlight-gray"><code>◨ ABRIR</code></mark><mark class="highlight-gray"> para ver más información y sus tareas asociadas.</mark></p></div><div style="display:contents" dir="ltr"><div id="93d42908-110d-4937-a40d-adf38d36f51d" class="collection-content"><h4 class="collection-title">Proyectos</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Project name</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Periodo</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Prioridad</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/activity_gray.svg" style="width:14px;height:14px;display:block"/></span>% completado</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/no-entry_gray.svg" style="width:14px;height:14px;display:block"/></span>Bloqueado por</th></tr></thead><tbody><tr id="ff1b2294-48a0-46e8-9614-b3458d230ef2"><td class="cell-title"><a href="Proyectos/Proyectos/Continuidad%20operacional%20ff1b229448a046e89614b3458d230ef2.html"><span class="icon">🎨</span>Continuidad operacional </a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Planeando</span></td><td class="cell-notion://projects/people_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://projects/project_dates_property"><time>10 de mayo de 2023 → 26 de mayo de 2023</time></td><td class="cell-notion://projects/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://projects/completion_rollup">0.5294117647058824</td><td class="cell-notion://projects/project_blocked_by_relation"></td></tr><tr id="2d59fb60-d676-461c-a155-f847e483a3bf"><td class="cell-title"><a href="Proyectos/Proyectos/Plan%20de%20trabajo%20General%202d59fb60d676461ca155f847e483a3bf.html"><span class="icon">🧑‍💻</span>Plan de trabajo General </a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Planeando</span></td><td class="cell-notion://projects/people_property"></td><td class="cell-notion://projects/project_dates_property"></td><td class="cell-notion://projects/priority_property"></td><td class="cell-notion://projects/completion_rollup">0.8</td><td class="cell-notion://projects/project_blocked_by_relation"></td></tr><tr id="64538847-4a06-4cc1-8ba5-31fe105ed636"><td class="cell-title"><a href="Proyectos/Proyectos/Plan%20de%20trabajo%20Integraciones%20645388474a064cc18ba531fe105ed636.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/sync_purple.svg"/>Plan de trabajo Integraciones </a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Planeando</span></td><td class="cell-notion://projects/people_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://projects/project_dates_property"><time>31 de mayo de 2024</time></td><td class="cell-notion://projects/priority_property"><span class="selected-value select-value-color-red">Alta</span></td><td class="cell-notion://projects/completion_rollup">0.8333333333333334</td><td class="cell-notion://projects/project_blocked_by_relation"></td></tr><tr id="08862acf-1505-491a-87f3-c504750e7309"><td class="cell-title"><a href="Proyectos/Proyectos/Plan%20de%20trabajo%20DTE%2008862acf1505491a87f3c504750e7309.html"><span class="icon">🧾</span>Plan de trabajo DTE </a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Planeando</span></td><td class="cell-notion://projects/people_property"><span class="user"><img src="Proyectos/Proyectos/Plan%20de%20trabajo%20DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://projects/project_dates_property"><time>31 de mayo de 2024</time></td><td class="cell-notion://projects/priority_property"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-notion://projects/completion_rollup"></td><td class="cell-notion://projects/project_blocked_by_relation"></td></tr><tr id="7108928e-ec25-45a6-b9f5-2f3b55ab8cf5"><td class="cell-title"><a href="Proyectos/Proyectos/Plan%20de%20trabajo%20factibilidad%20t%C3%A9cnica%207108928eec2545a6b9f52f3b55ab8cf5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/bone_yellow.svg"/>Plan de trabajo factibilidad técnica  </a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Planeando</span></td><td class="cell-notion://projects/people_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://projects/project_dates_property"><time>31 de mayo de 2024</time></td><td class="cell-notion://projects/priority_property"><span class="selected-value select-value-color-yellow">Media</span></td><td class="cell-notion://projects/completion_rollup">0</td><td class="cell-notion://projects/project_blocked_by_relation"></td></tr><tr id="4363523f-9f79-498d-83d1-f5e056294a63"><td class="cell-title"><a href="Proyectos/Proyectos/Procesos%204363523f9f79498d83d1f5e056294a63.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/bullseye_green.svg"/>Procesos</a></td><td class="cell-notion://projects/status_property"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Planeando</span></td><td class="cell-notion://projects/people_property"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-notion://projects/project_dates_property"><time>31 de mayo de 2024</time></td><td class="cell-notion://projects/priority_property"><span class="selected-value select-value-color-green">Baja</span></td><td class="cell-notion://projects/completion_rollup">0.8</td><td class="cell-notion://projects/project_blocked_by_relation"></td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><p id="b2247a4c-a985-4370-8c7b-68ce0afa8642" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,746 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Definir documento/agenda presencialidades</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="28439073-1e23-8002-b314-ffaa3177b372" class="page sans"><header><div class="page-header-icon undefined"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/></div><h1 class="page-title" dir="auto">Definir documento/agenda presencialidades</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/target_gray.svg" style="width:14px;height:14px;display:block"/></span>Proyecto</th><td><a href="../Proyectos/Plan%20de%20trabajo%20factibilidad%20t%C3%A9cnica%207108928eec2545a6b9f52f3b55ab8cf5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/bone_yellow.svg"/>Plan de trabajo factibilidad técnica  </a></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Prioridad</th><td><span class="selected-value select-value-color-red">Alta</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="28639073-1e23-8026-bb44-cf310bb9a1cb" class=""><strong>Propuesta para Definir Criterios de Visitas Presenciales en Instalaciones e Incidencias Críticas</strong></h1></div><div style="display:contents" dir="auto"><hr id="28639073-1e23-80ba-8d96-d43c30b021ec"/></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-8037-86a8-f4fc8334e88e" class=""><strong>1. Contexto y Fundamentación</strong></h3></div><div style="display:contents" dir="auto"><p id="28639073-1e23-8038-9426-f90cc57f7fdf" class="">Ante el incremento de implementaciones y la necesidad de administrar de manera eficiente los recursos técnicos disponibles, se plantea establecer <strong>criterios formales que definan cuándo corresponde realizar una visita presencial</strong>, ya sea en el marco de una <strong>implementación planificada</strong> o de una <strong>incidencia crítica posterior</strong>.</p></div><div style="display:contents" dir="auto"><p id="28639073-1e23-80b2-a07c-ce1ecfea8e82" class="">El objetivo principal es <strong>reducir al mínimo las presencialidades</strong>, asegurando que estas solo se realicen cuando sean realmente necesarias y generen valor técnico o estratégico, manteniendo la calidad del servicio y la continuidad operativa de los clientes.</p></div><div style="display:contents" dir="auto"><hr id="28639073-1e23-800e-83c6-ca7a395dd541"/></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-8053-a7ba-da31f5c1788e" class=""><strong>2. Objetivo General</strong></h3></div><div style="display:contents" dir="auto"><p id="28639073-1e23-808c-9adc-e213f3287bcf" class="">Definir un marco formal, sostenible y consistente en el tiempo para la <strong>evaluación, aprobación y ejecución de visitas presenciales</strong>, diferenciando entre:</p></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-80a5-8197-c5541764b163" class="bulleted-list"><li style="list-style-type:disc"><strong>Implementaciones presenciales (planificadas)</strong>, donde la complejidad técnica lo justifique.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-802c-8df7-d43170aaa7b5" class="bulleted-list"><li style="list-style-type:disc"><strong>Presencialidades por incidencias críticas (reactivas)</strong>, donde la observación en terreno sea esencial para el diagnóstico o la resolución.</li></ul></div><div style="display:contents" dir="auto"><hr id="28639073-1e23-80ad-9a73-feee7b473841"/></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-800c-a8bf-cbb176405759" class=""><strong>3. Principios de la Política</strong></h3></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-804e-aad2-d2f9f7e08109" class="numbered-list" start="1"><li><strong>Ejecución remota como estándar:</strong><div style="display:contents" dir="auto"><p id="28639073-1e23-8078-bb82-db37acbda91e" class="">Todas las implementaciones y revisiones deben planificarse inicialmente bajo modalidad remota.</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-8015-8209-c3a85c36384c" class="numbered-list" start="2"><li><strong>Presencialidad como excepción controlada:</strong><div style="display:contents" dir="auto"><p id="28639073-1e23-805b-ae8c-e9088f3c909a" class="">Solo se autorizará cuando existan condiciones técnicas o de diagnóstico que impidan resolver el caso de manera remota con garantías de estabilidad.</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-809a-b621-c4f9f1ef49f6" class="numbered-list" start="3"><li><strong>Trazabilidad y justificación:</strong><div style="display:contents" dir="auto"><p id="28639073-1e23-801c-bd53-d6ee0f004952" class="">Cada solicitud de presencialidad debe documentarse con evidencia técnica y contar con la aprobación formal del líder correspondiente.</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-80e6-b3ad-fb9a62cf785a" class="numbered-list" start="4"><li><strong>Consistencia y equidad:</strong><div style="display:contents" dir="auto"><p id="28639073-1e23-802a-a9ad-dc693cd295dc" class="">Los criterios se aplicarán de forma homogénea, sin depender del tipo de cliente, tamaño de operación o preferencia individual.</p></div></li></ol></div><div style="display:contents" dir="auto"><hr id="28639073-1e23-80d9-9c66-d46279702ab9"/></div><div style="display:contents" dir="auto"><h2 id="28639073-1e23-80fa-9f0c-da84711ad1e8" class=""><strong>4. Tipos de Presencialidad</strong></h2></div><div style="display:contents" dir="auto"><hr id="28639073-1e23-800d-824e-ea64d77b831f"/></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-80f1-a142-cf4962a43c64" class=""><strong>4.1. Implementación Presencial (Planificada)</strong></h3></div><div style="display:contents" dir="auto"><p id="28639073-1e23-805a-a698-c6748093d2fe" class="">Corresponde a la visita presencial <strong>previa o durante la instalación inicial del sistema</strong>, cuando las condiciones técnicas o de infraestructura <strong>impidan completar la implementación de forma remota con garantías de estabilidad</strong>.</p></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-80e7-ab5b-d8fad5eb5251" class=""><strong>Criterios de Autorización</strong></h3></div><div style="display:contents" dir="auto"><p id="28639073-1e23-8024-8a86-df648308077b" class="">Una implementación podrá ser considerada para modalidad presencial únicamente cuando cumpla con <strong>una o más</strong> de las siguientes condiciones:</p></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-8026-99c3-ffe3dba339e5" class="numbered-list" start="1"><li><strong>Complejidad de impresión</strong><div style="display:contents" dir="auto"><ul id="28639073-1e23-80b6-ab3e-d26f94aa3f03" class="bulleted-list"><li style="list-style-type:disc">Existencia de <strong>más de tres impresoras físicas</strong> con reglas de impresión diferenciadas o configuraciones que involucren múltiples áreas (cocina, barra, despacho, producción).</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-8092-83d0-cd72c5c0b6d1" class="numbered-list" start="2"><li><strong>Dependencia de red local o topología compleja</strong><div style="display:contents" dir="auto"><ul id="28639073-1e23-800f-a892-f5e3f54f5b3c" class="bulleted-list"><li style="list-style-type:disc">Presencia de <strong>varios equipos servidor–terminal</strong> conectados en red local.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-80ee-aeb1-f18858fd55b7" class="bulleted-list"><li style="list-style-type:disc">Infraestructura con <strong>segmentación de red (LAN/Wi-Fi)</strong> o necesidad de validar conectividad física entre dispositivos.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-80c5-adac-de9d901d9587" class="numbered-list" start="3"><li><strong>Validación de infraestructura técnica en sitio</strong><div style="display:contents" dir="auto"><ul id="28639073-1e23-8070-a57f-c422df258da0" class="bulleted-list"><li style="list-style-type:disc">Requerimiento de <strong>verificación física de red, cableado o dispositivos</strong> que no puedan diagnosticarse remotamente.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-8019-83da-de3bad628d1f" class="bulleted-list"><li style="list-style-type:disc">Detección previa de <strong>intermitencia o pérdida de conexión</strong> durante el monitoreo remoto que impida validar la estabilidad del sistema.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-80af-b0e5-c4bc9b017da7" class="numbered-list" start="4"><li><strong>Casos estratégicos o de alto impacto</strong><div style="display:contents" dir="auto"><ul id="28639073-1e23-8085-b194-c64044f12e3b" class="bulleted-list"><li style="list-style-type:disc">Implementaciones en <strong>proyectos corporativos, pilotos o multi-sucursal</strong>, donde sea necesario asegurar la correcta réplica técnica en múltiples puntos.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-8025-a89d-f3a06c713c91" class="bulleted-list"><li style="list-style-type:disc">Solicitud formal del <strong>líder técnico</strong>, respaldada con evidencia y análisis técnico.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-8067-b4b3-e4a1ff7c44f5" class=""><strong>Criterios Excluyentes</strong></h3></div><div style="display:contents" dir="auto"><p id="28639073-1e23-8092-b495-fdaaad51061a" class="">No se aprobarán visitas presenciales por los siguientes motivos:</p></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-808a-9f7f-f1ca3e79cf9b" class="bulleted-list"><li style="list-style-type:disc">Falta de personal capacitado o de acompañamiento por parte del cliente.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-8070-b9a6-fc3b95fe39e2" class="bulleted-list"><li style="list-style-type:disc">Preferencia del cliente por atención en sitio sin justificación técnica.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-801c-98dd-ec6150863985" class="bulleted-list"><li style="list-style-type:disc">Incidencias o dificultades menores que puedan resolverse mediante asistencia remota guiada.</li></ul></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-8058-8a17-fb506f6ec410" class=""><strong>Proceso de Aprobación</strong></h3></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-804e-8a37-e4d2dc7b8b39" class="numbered-list" start="1"><li><strong>Detección:</strong> El ejecutivo identifica la necesidad técnica y documenta evidencia (capturas, reportes, diagnóstico de red, etc.).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-803a-bb7e-f2d7c50e5c1e" class="numbered-list" start="2"><li><strong>Evaluación:</strong> El equipo tech revisa la evidencia y determina si se cumplen los criterios.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-800b-be10-e35715c9da08" class="numbered-list" start="3"><li><strong>Aprobación:</strong> Validación final por parte del <strong>Team Leader </strong>, considerando carga operativa y disponibilidad de recursos.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-803b-b6f5-d0346f838640" class="numbered-list" start="4"><li><strong>Planificación:</strong> Coordinación de la visita, registro de resultados y documentación de configuraciones aplicadas.</li></ol></div><div style="display:contents" dir="auto"><hr id="28639073-1e23-8074-a856-f820a5b2e9d1"/></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-8032-99ac-e11bfa14d6a0" class=""><strong>4.2. Presencialidad por Incidencia Crítica (Reactiva)</strong></h3></div><div style="display:contents" dir="auto"><p id="28639073-1e23-805b-9da6-df7d8b4cd194" class="">Corresponde a una visita <strong>posterior a la instalación</strong>, destinada a resolver <strong>incidencias críticas o comportamientos anómalos del sistema</strong> que no puedan diagnosticarse o corregirse de forma remota con garantías de continuidad operativa.</p></div><div style="display:contents" dir="auto"><p id="28639073-1e23-807e-8ce6-c2e0df7838bd" class="">Estas visitas se ejecutan con el propósito de <strong>acelerar la detección de la causa raíz</strong>, permitiendo al equipo técnico <strong>observar el comportamiento del sistema en el entorno real de operación</strong> y aplicar su conocimiento especializado del producto para validar hipótesis o identificar errores funcionales.</p></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-8037-a6d8-eaf511cb8636" class=""><strong>Criterios de Activación</strong></h3></div><div style="display:contents" dir="auto"><p id="28639073-1e23-8074-bf85-e3f21d097d46" class="">Una presencialidad por incidencia crítica podrá aprobarse solo cuando se cumpla <strong>al menos una</strong> de las siguientes condiciones:</p></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-80d9-b693-d030496e68af" class="numbered-list" start="1"><li><strong>Impacto operativo alto</strong><div style="display:contents" dir="auto"><ul id="28639073-1e23-8056-b5a7-c097a573afab" class="bulleted-list"><li style="list-style-type:disc">Interrupción total o intermitente del sistema que afecte la <strong>emisión de boletas, toma de pedidos o cobros</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-80f4-893f-d1c0328e4601" class="bulleted-list"><li style="list-style-type:disc">Pérdida de sincronización entre equipos principales o imposibilidad de operar el punto de venta.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-80bc-8442-d97c1c5e559a" class="numbered-list" start="2"><li><strong>Limitaciones técnicas o de conectividad</strong><div style="display:contents" dir="auto"><ul id="28639073-1e23-80a9-b197-fa7e4015c94b" class="bulleted-list"><li style="list-style-type:disc">Fallas de red local, dispositivos o servidores <strong>no diagnosticables ni reproducibles remotamente</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-80c8-9084-ef3125a570e1" class="bulleted-list"><li style="list-style-type:disc">Inconsistencias detectadas en el monitoreo remoto que impidan validar la causa del incidente.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-806c-8696-cb122bcb04e3" class="numbered-list" start="3"><li><strong>Comportamiento anómalo del producto o errores no reproducibles</strong><div style="display:contents" dir="auto"><ul id="28639073-1e23-803f-b755-e3ea55eca122" class="bulleted-list"><li style="list-style-type:disc">Detección de <strong>bugs o comportamientos erráticos</strong> que solo ocurren bajo condiciones específicas del local (flujo operativo, periféricos, conectividad, etc.).</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-80b7-b611-cfe50918b818" class="bulleted-list"><li style="list-style-type:disc">Necesidad de <strong>observación directa del flujo real</strong> para levantar evidencia técnica y colaborar con Desarrollo o QA.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-800b-b309-f08b5c1441d6" class="bulleted-list"><li style="list-style-type:disc">Casos en que la revisión presencial <strong>aporte conocimiento técnico especializado</strong> del producto, permitiendo confirmar o aislar el origen del problema.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28e39073-1e23-80db-9080-e26d375d51cd" class="numbered-list" start="4"><li><strong>Validación o reconfiguración de reglas de impresión</strong><div style="display:contents" dir="auto"><ul id="28e39073-1e23-804b-9787-ecff989cb595" class="bulleted-list"><li style="list-style-type:disc">Reglas de impresión con distintos puntos de producción y sectorización.</li></ul></div><div style="display:contents" dir="auto"><ul id="28e39073-1e23-8008-b928-c1b7f1832416" class="bulleted-list"><li style="list-style-type:disc">Problemas de emisión de documentos por sectores incorrectos.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-8024-ad32-fd4e6370b987" class=""><strong>Proceso de Aprobación y Ejecución</strong></h3></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-8030-a586-fa802b1d2ca3" class="numbered-list" start="1"><li><strong>Escalamiento formal:</strong> El ejecutivo registra el caso en Salesforce con descripción, evidencia y pasos de reproducción.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-80e4-83cc-eec3c4fbf6eb" class="numbered-list" start="2"><li><strong>Validación técnica:</strong> El equipo Tech evalúa la criticidad y el valor agregado de la presencialidad.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-80a0-baa7-e274f7611450" class="numbered-list" start="3"><li><strong>Aprobación:</strong> Confirmación por el <strong>Team Leader</strong>, priorizando según impacto y recursos disponibles.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-807f-9398-fae75c26940d" class="numbered-list" start="4"><li><strong>Planificación y ejecución:</strong> Coordinación logística y documentación del resultado, diagnóstico y hallazgos relevantes.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28639073-1e23-8030-9663-d2a42660302e" class="numbered-list" start="5"><li><strong>Retroalimentación al producto:</strong> Los hallazgos que consideren un bug/error y no puedan ser resueltos en la visita, se comunican al equipo de Desarrollo y QA para corrección y seguimiento a través del canal correspondiente.</li></ol></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-80b6-8c60-daa5d47f0e53" class=""><strong>Criterios Excluyentes</strong></h3></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-80f4-8de1-f2e613ed7785" class="bulleted-list"><li style="list-style-type:disc">Casos sin impacto operativo o con solución ya conocida.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-80f1-9aae-f4bdc490e87c" class="bulleted-list"><li style="list-style-type:disc">Incidencias bajo diagnóstico remoto activo.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-805d-b84d-d489e1e2fe36" class="bulleted-list"><li style="list-style-type:disc">Solicitudes sin evidencia técnica o sin validación del líder correspondiente.</li></ul></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-808a-8552-d5bf74e88ac1" class=""><strong>Valor Agregado del Rol Técnico en Sitio</strong></h3></div><div style="display:contents" dir="auto"><p id="28639073-1e23-805d-8685-cce3970de139" class="">La presencialidad por incidencia crítica tiene un <strong>enfoque diagnóstico y de conocimiento</strong>, no únicamente correctivo.</p></div><div style="display:contents" dir="auto"><p id="28639073-1e23-80c3-80d7-d4274b807037" class="">Permite identificar causas raíz, validar comportamientos en contexto y <strong>transferir aprendizaje técnico</strong> al equipo, fortaleciendo la calidad del soporte y reduciendo recurrencias futuras.</p></div><div style="display:contents" dir="auto"><hr id="28639073-1e23-8058-8a4e-e442f1c90f73"/></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-80f5-bd60-cfd15b76cb4e" class=""><strong>5. Roles y Responsabilidades</strong></h3></div><div style="display:contents" dir="ltr"><table id="28639073-1e23-80b9-ba25-dcf79b46c2c8" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="28639073-1e23-80dd-b267-e5e87cb314b4"><th id="y[J;" class="simple-table-header-color simple-table-header">Rol</th><th id="NlVd" class="simple-table-header-color simple-table-header">Responsabilidad</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="28639073-1e23-80af-a38b-fb042dbc3a27"><td id="y[J;" class=""><strong>Ejecutivo (OB/KAM/otros)</strong></td><td id="NlVd" class="">Detectar y documentar la necesidad de presencialidad con evidencia técnica.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28639073-1e23-8002-bdb8-c82e65805e8b"><td id="y[J;" class=""><strong>Equipo Tech / Team Leader</strong></td><td id="NlVd" class="">Evaluar y aprobar la visita según criterios y disponibilidad.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28639073-1e23-803f-8159-d73f9ce6ab18"><td id="y[J;" class=""><strong>KAM</strong></td><td id="NlVd" class="">Coordinar fechas,horarios, traslados y reportes posteriores.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28639073-1e23-806f-82fb-d0131e28d617"><td id="y[J;" class=""><strong>Soporte</strong></td><td id="NlVd" class="">Escalar incidencias críticas no resolubles remotamente.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28639073-1e23-80ae-814d-f0641c186379"><td id="y[J;" class=""><strong>Cliente / Responsable local</strong></td><td id="NlVd" class="">Garantizar acceso a equipos, red y personal durante la visita.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="28639073-1e23-80b7-a862-f6673ab2b013"/></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-8075-a315-dd870ecddc7d" class=""><strong>6. Beneficios Esperados</strong></h3></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-8049-9976-cd0f8df1db7b" class="bulleted-list"><li style="list-style-type:disc">Reducción de presencialidades no críticas.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-80d2-ad7e-c40aeb547c7e" class="bulleted-list"><li style="list-style-type:disc">Uso eficiente de recursos técnicos especializados.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-8038-b473-ee12e2516e38" class="bulleted-list"><li style="list-style-type:disc">Consistencia en la toma de decisiones y trazabilidad documental.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-80ba-8b10-db5f8eac903a" class="bulleted-list"><li style="list-style-type:disc">Fortalecimiento del modelo remoto como estándar operativo.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-8036-84cf-ff90c0945e9d" class="bulleted-list"><li style="list-style-type:disc">Mayor conocimiento técnico y diagnóstico de producto en terreno.</li></ul></div><div style="display:contents" dir="auto"><hr id="28639073-1e23-8089-a564-d575816f9b8b"/></div><div style="display:contents" dir="auto"><h3 id="28639073-1e23-8076-a830-e15985d85563" class=""><strong>7. Seguimiento y Mejora Continua</strong></h3></div><div style="display:contents" dir="auto"><p id="28639073-1e23-8095-b8e1-c68c73c87f68" class="">La política será revisada trimestralmente según indicadores de:</p></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-8016-aada-c1fde3db8530" class="bulleted-list"><li style="list-style-type:disc">Presencialidades solicitadas vs. aprobadas.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-8027-b0ca-f3616e33dbe9" class="bulleted-list"><li style="list-style-type:disc">Causales recurrentes.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-8098-8dfb-fc646af79ea3" class="bulleted-list"><li style="list-style-type:disc">Tiempos de resolución y satisfacción del cliente.</li></ul></div><div style="display:contents" dir="auto"><ul id="28639073-1e23-8076-b492-eb468b0fce64" class="bulleted-list"><li style="list-style-type:disc">Retroalimentación técnica y oportunidades de mejora.</li></ul></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-80f8-962c-cc40fc8f9abb" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-80fe-8c22-cd0799188e0d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-804a-9c10-f74065253ff4" class=""><mark class="highlight-red">Pendientes</mark></p></div><div style="display:contents" dir="auto"><ol type="1" id="28e39073-1e23-802b-b52b-fe4502287022" class="numbered-list" start="1"><li><mark class="highlight-red">Entregable post presencialidad, documento de qué se revisó o hizo (Roman fin de oct)</mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28e39073-1e23-80d1-8362-de0887673443" class="numbered-list" start="2"><li><mark class="highlight-red">Cómo realizar la solicitud, en SF, correo, donde? creo que es por SF, para poder alimenar un panel de status y observaciones (donde dejar el entrgable tmb)</mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28e39073-1e23-80db-962b-dbe31264228a" class="numbered-list" start="3"><li><mark class="highlight-red">Panel de solicitudes de presencialidad (revisar con nacha si es posible obtenerlo de SF o crear sheet)</mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28e39073-1e23-8054-887c-e83656519975" class="numbered-list" start="4"><li><mark class="highlight-red">Será necesario definir % de visitas según tipo de cliente? Vip/no Vip? (ver con Val,Lu)</mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28e39073-1e23-8052-84a6-f5e0bcc33faa" class="numbered-list" start="5"><li><mark class="highlight-red">Hay otros criterios que crean importantes para determinar presencialidad?</mark><mark class="highlight-red">  </mark></li></ol></div><div style="display:contents" dir="auto"><p id="29939073-1e23-8061-afdc-f44674e0f400" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

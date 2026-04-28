@@ -1,0 +1,756 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Registro de logs</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="27839073-1e23-801c-ae03-df37f10d4c45" class="page sans"><header><div class="page-header-icon undefined"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/></div><h1 class="page-title" dir="auto">Registro de logs</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Completado</span></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/target_gray.svg" style="width:14px;height:14px;display:block"/></span>Proyecto</th><td><a href="../Proyectos/Continuidad%20operacional%20ff1b229448a046e89614b3458d230ef2.html"><span class="icon">🎨</span>Continuidad operacional </a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><ul id="27839073-1e23-800e-90be-c6c8a9e3c2aa" class="toggle"><li><details open=""><summary>Logs actuales</summary><div style="display:contents" dir="auto"><ul id="27839073-1e23-8037-8529-f08c362c7bdd" class="toggle"><li><details open=""><summary>TRM</summary><div style="display:contents" dir="auto"><ul id="27839073-1e23-801f-9e29-cbe1a70f7aec" class="toggle"><li><details open=""><summary>Menú lateral → Restaurante</summary><div style="display:contents" dir="auto"><ol type="1" id="27839073-1e23-80f1-bd76-dfc4911564fa" class="numbered-list" start="1"><li>Ajustes Generales:<div style="display:contents" dir="auto"><ol type="a" id="27839073-1e23-8090-9d33-dac7d102ba1c" class="numbered-list" start="1"><li>Formas de pago: El log registra quién fue la última persona que hizo una modificación en la forma de pago </li></ol></div><div style="display:contents" dir="ltr"><figure id="27839073-1e23-8010-b5a8-d3f5294c8e8b" class="image"><a href="Registro%20de%20logs/image.png"><img style="width:432px" src="Registro%20de%20logs/image.png"/></a></figure></div></li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="27839073-1e23-80ff-a250-deb695c348b1" class="toggle"><li><details open=""><summary>Menú lateral → Productos</summary><div style="display:contents" dir="auto"><ol type="a" id="27839073-1e23-80c9-b01f-f0435b20985b" class="numbered-list" start="1"><li> Productos: El log registra quién fue la última persona en realizar un cambio en el producto.<div style="display:contents" dir="ltr"><figure id="27839073-1e23-809a-b98c-e25ebb1eea86" class="image"><a href="Registro%20de%20logs/image%201.png"><img style="width:432px" src="Registro%20de%20logs/image%201.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="27839073-1e23-805b-b85e-de0430097b72" class="numbered-list" start="2"><li>Extras: El log registra quién fue la última persona en realizar un cambio en el extra.<div style="display:contents" dir="ltr"><figure id="27839073-1e23-80f0-a0bb-df2485a02552" class="image"><a href="Registro%20de%20logs/image%202.png"><img style="width:432px" src="Registro%20de%20logs/image%202.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="27839073-1e23-8020-9de6-df64c5b0cf6a" class="numbered-list" start="3"><li>Ingredientes y recetas → Ingredientes: El log registra quién fue la última persona en realizar un cambio en el ingrediente.<div style="display:contents" dir="ltr"><figure id="27839073-1e23-8080-a70d-dc77ed43a375" class="image"><a href="Registro%20de%20logs/image%203.png"><img style="width:432px" src="Registro%20de%20logs/image%203.png"/></a></figure></div></li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="27839073-1e23-80ba-b9be-e5657b267e31" class="toggle"><li><details open=""><summary>Menú lateral → Operaciones</summary><div style="display:contents" dir="auto"><ol type="a" id="27839073-1e23-80c7-8e69-e4a4a130b028" class="numbered-list" start="1"><li>Turnos: No existe log de turnos en operaciones, sin embargo, esto se puede encontrar en el <em>Reporte → Efectivo en caja, </em>en donde muestra el usuario que abrió/cerró el turno, y en qué hora lo realizó.<div style="display:contents" dir="ltr"><figure id="27839073-1e23-800e-8960-d8477af18ded" class="image"><a href="Registro%20de%20logs/image%204.png"><img style="width:432px" src="Registro%20de%20logs/image%204.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="27839073-1e23-80c8-9f5d-d6302d1772a1" class="numbered-list" start="2"><li>Cajas: En la apertura o cierre de caja, se puede clickear sobre el botón “i” para tener el registro de los movimientos en la caja. Además, en <em>Reporte → Efectivo en caja</em>, se puede ver el historial si es que hay reaperturas de cajas.<div style="display:contents" dir="ltr"><figure id="27839073-1e23-806b-a555-c0e94027e2d4" class="image"><a href="Registro%20de%20logs/image%205.png"><img style="width:432px" src="Registro%20de%20logs/image%205.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="27839073-1e23-80ef-ba53-d91518a6e4af" class="numbered-list" start="3"><li>Registro contable: En este reporte queda el registro de quién realizó movimientos de caja o contables, con la hora de creación, modificación y usuario.<div style="display:contents" dir="ltr"><figure id="27839073-1e23-80e3-b496-fa4e595140e6" class="image"><a href="Registro%20de%20logs/image%206.png"><img style="width:432px" src="Registro%20de%20logs/image%206.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><p id="27839073-1e23-80f9-92fc-cde58951ff7a" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="27839073-1e23-806d-9e52-e03dad365988" class="toggle"><li><details open=""><summary>Menú lateral → Multisucursal</summary><div style="display:contents" dir="auto"><ol type="a" id="27839073-1e23-804d-a1dd-f6237d920c9d" class="numbered-list" start="1"><li>Historial: Se tiene registro de quién ejecutó una operación multilocal y a qué grupo de sucursales se envió.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="27839073-1e23-8055-b453-fd0e065b3be2" class="toggle"><li><details open=""><summary>Menú lateral → Reportes</summary><div style="display:contents" dir="auto"><ol type="a" id="27839073-1e23-806b-8f16-f2fde9b0c4b2" class="numbered-list" start="1"><li>Efectivo en Caja: Muestra una bitacora de acciones realizadas operativas. <div style="display:contents" dir="ltr"><figure id="27839073-1e23-805c-9f73-eb39576ce265" class="image"><a href="Registro%20de%20logs/image%207.png"><img style="width:432px" src="Registro%20de%20logs/image%207.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="27839073-1e23-809c-b843-f2c19327fd44" class="numbered-list" start="2"><li>Detalle de pagos: El reporte muestra un detalle de la venta registrada en el formado de las órdenes. <div style="display:contents" dir="auto"><ol type="i" id="27839073-1e23-80c2-9838-f6774299ca7e" class="numbered-list" start="1"><li>Si se realiza un doble click sobre el número de la orden, muestra un registro de los estados de la orden y sus cambios en KDS.<div style="display:contents" dir="ltr"><figure id="27839073-1e23-80ae-8c95-e2bb86e0c4c0" class="image"><a href="Registro%20de%20logs/image%208.png"><img style="width:336px" src="Registro%20de%20logs/image%208.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="i" id="27839073-1e23-80de-92fe-f8d3626cc9bc" class="numbered-list" start="2"><li>Si se realiza un doble click sobre un producto comandado, muestra un registro de los estados aplicados a ese producto en particular y sus cambios en KDS.<div style="display:contents" dir="ltr"><figure id="27839073-1e23-808c-8e1a-f4c8a85134b5" class="image"><a href="Registro%20de%20logs/image%209.png"><img style="width:336px" src="Registro%20de%20logs/image%209.png"/></a></figure></div></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="27839073-1e23-8018-8ed0-d2dbb949282d" class="numbered-list" start="3"><li>Reporte de anulaciones: El reporte muestra un registro de quién realizó una anulación, si es recuperable o no, y en qué momento lo hizo. <div style="display:contents" dir="ltr"><figure id="27839073-1e23-80df-823c-e7f125be0d31" class="image"><a href="Registro%20de%20logs/image%2010.png"><img style="width:480px" src="Registro%20de%20logs/image%2010.png"/></a></figure></div></li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="27839073-1e23-8027-996f-ce7e2e95bc4e" class="toggle"><li><details open=""><summary>Menú lateral → Inventarios</summary><div style="display:contents" dir="auto"><ol type="a" id="27839073-1e23-80b7-a70f-ee94853ef6ee" class="numbered-list" start="1"><li>Compras: Se mantiene el registro de qué usuario ingresó la compra, en qué fecha y el detalle de esta.<div style="display:contents" dir="ltr"><figure id="27839073-1e23-8088-a716-da7a82a07540" class="image"><a href="Registro%20de%20logs/image%2011.png"><img style="width:432px" src="Registro%20de%20logs/image%2011.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="27839073-1e23-80fd-ab4a-ea2f4c533a8e" class="numbered-list" start="2"><li>Autorizaciones: Muestra el registro de quién aprobo y en qué momento; tomas de inventario, transferencia entre bodegas, transformaciones y cierre de mes.<div style="display:contents" dir="ltr"><figure id="27839073-1e23-80cc-8d77-d2258ce948c6" class="image"><a href="Registro%20de%20logs/image%2012.png"><img style="width:432px" src="Registro%20de%20logs/image%2012.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="27939073-1e23-8083-b489-db5fd0e54f81" class="numbered-list" start="3"><li>Transferencias Multilocal: Historial de envío y recepción del movimiento enviado, fecha/hora de modificación<div style="display:contents" dir="ltr"><figure id="27939073-1e23-80dc-835f-d27d8c9848b1" class="image"><a href="Registro%20de%20logs/image%2013.png"><img style="width:432px" src="Registro%20de%20logs/image%2013.png"/></a></figure></div></li></ol></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="27e39073-1e23-80fe-8d00-e7fad382844a" class="toggle"><li><details open=""><summary>Versiones/backoffice</summary><div style="display:contents" dir="auto"><ul id="27e39073-1e23-80f4-beb5-ec08c69abf57" class="toggle"><li><details open=""><summary>Menú lateral → Rene/Crítico</summary><div style="display:contents" dir="auto"><ol type="1" id="27e39073-1e23-80d9-a5c4-fe7080670b47" class="numbered-list" start="1"><li>Log Restaurante: Este apartado registra quién fue la última persona en realizar cambios en un precio de lista, y qué cambio realizó.<div style="display:contents" dir="ltr"><figure id="27e39073-1e23-80c7-abfa-c0e1c7187b70" class="image"><a href="Registro%20de%20logs/image%2014.png"><img style="width:528px" src="Registro%20de%20logs/image%2014.png"/></a></figure></div></li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="27e39073-1e23-80e1-b7aa-d634b91b38fe" class="toggle"><li><details open=""><summary>Menú lateral → Toteat</summary><div style="display:contents" dir="auto"><ol type="1" id="28039073-1e23-80f1-acf8-d8d4e3366791" class="numbered-list" start="1"><li>Datastore: En este apartado hay muchos parámetros a buscar, sin embargo, no hay un documento que indique qué es lo que realiza cada uno, los que más solemos utilizar son:</li></ol></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8067-b7b2-de30344c2aa3" class="">a. Órdenes: Acá podemos revisar todo el registro de la orden, la misma información que se puede obtener desde la orden abierta con S.orden, desde acá podemos extraer mucha información relevante como a qué local corresponde, fecha, apertura, cierre, pagos, entre otros. <br/></p></div><div style="display:contents" dir="ltr"><figure id="28039073-1e23-804f-93f0-e34a0909aa8d" class="image"><a href="Registro%20de%20logs/image%2015.png"><img style="width:625.9750366210938px" src="Registro%20de%20logs/image%2015.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8036-9c19-e369a5c4b902" class="">b. Usuarios: Acá se puede validar quien creó un usuario, qué restaurantes tiene asociados, quien le mandó la invitación, entre otros. </p></div><div style="display:contents" dir="ltr"><figure id="28039073-1e23-80db-9766-e9cb5cbc1527" class="image"><a href="Registro%20de%20logs/image%2016.png"><img style="width:336px" src="Registro%20de%20logs/image%2016.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="28039073-1e23-80b4-ab71-d9bb3c0b48c6" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8047-90aa-cf6b6b15dc75" class=""><em><strong>Este módulo en particular tiene mucha información que muy probablemente no sepamos leer o utilizar, es importante tener documentación al respecto.</strong></em></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28039073-1e23-8096-ad93-c90f7f5208ed" class="toggle"><li><details open=""><summary>Menú lateral → Delivery</summary><div style="display:contents" dir="auto"><ol type="1" id="28039073-1e23-8072-ba56-e50f8d0423c3" class="numbered-list" start="1"><li>Sync Menú: Aquí podemos ver un registro de carga de menúes a deliverys, en donde podemos apreciar si es que este se subió, y de hacerlo, si fue una carga correcta o no. Esto carga solamente las últimas 400 solicitudes a partir de la fecha de búsqueda, podemos filtrar por ID/Restaurante con el buscador del navegador. Además, es posible revisar la información enviada en el JSON hacia el delivery.<br/></li></ol></div><div style="display:contents" dir="ltr"><figure id="28039073-1e23-80e6-891b-c0b2d0ae08aa" class="image"><a href="Registro%20de%20logs/image%2017.png"><img style="width:625.9750366210938px" src="Registro%20de%20logs/image%2017.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="28039073-1e23-80f6-8ea1-ffdca087b28c" class="image"><a href="Registro%20de%20logs/image%2018.png"><img style="width:625.9874877929688px" src="Registro%20de%20logs/image%2018.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="28039073-1e23-8076-a24f-d0a64dbc73c6" class="numbered-list" start="2"><li>Ubereats/Justo/Rappi/Peya/didi: En este apartado podemos ver la información del api correspondiente a la búsqueda, además, del estado de la integración interna.</li></ol></div><div style="display:contents" dir="ltr"><figure id="28039073-1e23-8034-bb79-f9e864804802" class="image"><a href="Registro%20de%20logs/image%2019.png"><img style="width:626px" src="Registro%20de%20logs/image%2019.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="28039073-1e23-8086-b5df-ef8ce0682bd8" class="image"><a href="Registro%20de%20logs/image%2020.png"><img style="width:625.9625244140625px" src="Registro%20de%20logs/image%2020.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="28039073-1e23-80cb-a492-ef6c70dc0a84" class="numbered-list" start="3"><li>Órdenes no ingresadas: En este módulo se puede revisar órdenes que llegaron a TRM pero no fueron ingresadas, principalmente, por turno cerrado. <br/></li></ol></div><div style="display:contents" dir="ltr"><figure id="28039073-1e23-80ea-9a6a-ca03f36faba5" class="image"><a href="Registro%20de%20logs/image%2021.png"><img style="width:624px" src="Registro%20de%20logs/image%2021.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28039073-1e23-80b8-9e08-c5f155a22771" class="toggle"><li><details open=""><summary>Menú lateral → Soporte</summary><div style="display:contents" dir="auto"><ol type="1" id="28039073-1e23-806f-813d-fe02174f8be1" class="numbered-list" start="1"><li>Versiones drone: Aquí podemos revisar información al TPS instalado en el ambiente, partiendo por qué versión de drone está instalada, nos entrega detalles del equipo en donde está instalado, y además, si tiene turno abierto o no actualmente el restaurante.<div style="display:contents" dir="auto"><p id="28039073-1e23-8098-98a3-e6edacf41836" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="28039073-1e23-8073-97ac-ed48bb3bcce6" class="image"><a href="Registro%20de%20logs/image%2022.png"><img style="width:597.9750366210938px" src="Registro%20de%20logs/image%2022.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><p id="28039073-1e23-805a-a864-f70549c66ae3" class="">
+</p></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-80c3-b39c-d7f0e424aa5d" class="toggle"><li><details open=""><summary>Otros</summary><div style="display:contents" dir="auto"><p id="28139073-1e23-804e-9316-f6483392a6cf" class="">Información de órdenes/DTE en proyectos Cloud, Json de documentos enviados entre proveedores</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="28039073-1e23-80b1-bbb8-e9814e28059b" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-80f2-898c-ca42eabbca81" class="">Estos son los logs que usamos, si existen más logs o tienen otro modo de uso, no hay información.</p></div><div style="display:contents" dir="auto"><p id="27839073-1e23-804d-9ce2-f415350417aa" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28039073-1e23-80b4-8b59-db5260eb2ccf" class="toggle"><li><details open=""><summary>Logs deseados</summary><div style="display:contents" dir="auto"><ul id="28139073-1e23-80c9-8438-c021af24686d" class="toggle"><li><details open=""><summary>TRM</summary><div style="display:contents" dir="auto"><ul id="28139073-1e23-807f-b61b-fc7a2ff119f6" class="toggle"><li><details open=""><summary>Menú lateral → Restaurante</summary><div style="display:contents" dir="auto"><ul id="28139073-1e23-805d-a9e2-e249814f49e1" class="toggle"><li><details open=""><summary>Información</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-802e-a9a2-d77e9cf8ab3b" class="numbered-list" start="1"><li>Información: Sería interesante tener registro de quién es el KAM del ambiente/cuenta, directamente en algún lugar de TRM, aquí parece el punto adecuado para ello, así, si es que el cliente entra al chat es más sencilla la comunicación con el responsable.</li></ol></div><div style="display:contents" dir="auto"><p id="28139073-1e23-80ba-8a17-d6e42188254e" class=""><div class="indented"><div style="display:contents" dir="auto"><p id="28139073-1e23-808f-acc8-fbedfb3efb70" class="">
+</p></div></div></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-80f8-aa84-ef43e8fcec35" class="toggle"><li><details open=""><summary>Ajustes generales</summary><div style="display:contents" dir="auto"><p id="28139073-1e23-8019-a462-d52392c59875" class="">Se requiere que cada acción modificada en ajustes generales quede registrada en algún lugar, entre los más importantes</p></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-8091-8006-d2927de822b3" class="toggle"><li><details open=""><summary>General</summary><div style="display:contents" dir="auto"><ol type="a" id="28139073-1e23-801b-9c71-f5f02160a950" class="numbered-list" start="1"><li>Quién activa/inactiva Offline.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="28139073-1e23-80fb-856c-cea7bb1e6b97" class="numbered-list" start="2"><li>Quién activa/inactiva Cuentas corrientes.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="28139073-1e23-8083-9930-cfefba761a62" class="numbered-list" start="3"><li>Quién activa/inactiva Funcionalidades delivery.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-8077-9e31-f8a395326039" class="toggle"><li><details open=""><summary>Impuestos</summary><div style="display:contents" dir="auto"><p id="28139073-1e23-80ec-bad2-f84c4b2351dd" class="">Es necesario saber quien crea un impuesto, quien edita un impuesto, y quien elimina un impuesto, además, si es que se hizo una edición qué valor se cambió (registrando el valor anterior)</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-8030-8b26-ff51b4f98eef" class="toggle"><li><details open=""><summary>Inventarios</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80b9-89b9-f3fae4273134" class="numbered-list" start="1"><li>Quién activa/inactiva el módulo de inventarios</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80c8-b06f-f1fc5fc75872" class="numbered-list" start="2"><li>Quién modifica “Costo a usar para ingredientes en recetas”</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8054-b826-e624996125d1" class="numbered-list" start="3"><li>Quién modifica “Costo a usar para productos/extras en recetas”</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-806b-9b75-dbbd8071322e" class="toggle"><li><details open=""><summary>Impresoras</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80be-9db7-fe07ac6b9a4d" class="numbered-list" start="1"><li>Quién activa/inactiva “Desactivar Temporalmente Documentos Fiscales/DTE”.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80d3-aca9-f72d3ab567e0" class="numbered-list" start="2"><li>Quién activa/inactiva “Impresión automatica de Factura Electrónica”.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80d9-81e1-cb83f84884af" class="numbered-list" start="3"><li>Quién activa/inactiva “Imprimir Boleta Electrónica con Toteat Print Server”.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28839073-1e23-80e5-96f8-e8dd36ff1de8" class="numbered-list" start="4"><li>Quién activa/inactiva “Desactivar enviar propinas en facturas”.</li></ol></div><div style="display:contents" dir="auto"><p id="28139073-1e23-800e-997d-d6f5365d766c" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-80a7-aa1d-dea3fc2c95a8" class="toggle"><li><details open=""><summary>Formas de pago</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8031-96e2-ecbec93dd371" class="numbered-list" start="1"><li>Qué cambio realizó la última persona en el log actual, siendo el parámetro más importante “Sirve como Comprobante Fiscal”.</li></ol></div><div style="display:contents" dir="auto"><p id="28139073-1e23-80d8-b741-e504873d327a" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-8025-8f87-f7a87db84e5f" class="toggle"><li><details open=""><summary>Seguridad</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-808f-a5de-ca608598fa26" class="numbered-list" start="1"><li>Debe quedar el registro de quién modificó qué permiso.</li></ol></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-8050-9588-d77985314b2b" class="toggle"><li><details open=""><summary>Config. Turnos</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8009-be3a-fed407ef1f72" class="numbered-list" start="1"><li>Debe quedar registro de quién edita turnos.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8059-b945-caa576536eb8" class="numbered-list" start="2"><li>Debe quedar el registro de qué cambio fue el último realizado.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-809a-a56d-c1a2158946c6" class="toggle"><li><details open=""><summary>Cajas/Carro de compras</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-806d-b959-c649f5c9fc86" class="numbered-list" start="1"><li>Quién editó el cierre de cajas</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-8099-b029-e0bd9d998a17" class="toggle"><li><details open=""><summary>Personal</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80db-9fc5-efe6c773c5fe" class="numbered-list" start="1"><li>Quién invitó a X usuario.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-801d-952d-d24b21dfde9f" class="numbered-list" start="2"><li>Quién editó perfil a un usuario.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8097-9466-d01d9de07b1a" class="numbered-list" start="3"><li>Quién elimino/desactivó un usuario.</li></ol></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-804e-a523-d3ab59796112" class="toggle"><li><details open=""><summary>Menú lateral → Productos</summary><div style="display:contents" dir="auto"><ul id="28139073-1e23-804c-ad35-c6aaec204a98" class="toggle"><li><details open=""><summary>Jerarquía de menú</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-804f-8ccf-ec2a97677b94" class="numbered-list" start="1"><li>Quién creó/editó/eliminó una jerarquía de menú.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-805f-b823-d809c6088c2a" class="numbered-list" start="2"><li>Si se editó, qué cambio se realizó.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-8095-ae55-f881670804bd" class="toggle"><li><details open=""><summary>Productos</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80d9-90a4-e43cb5cf71b2" class="numbered-list" start="1"><li>Quién eliminó productos.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8039-a072-c85b612bda1d" class="numbered-list" start="2"><li>Qué modificación se realizó en un producto editado.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-80f3-8e64-e42d13ab76f8" class="toggle"><li><details open=""><summary>Jerarquía de extras</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8024-a884-e00f138b3a3f" class="numbered-list" start="1"><li>Quién creó/editó/eliminó una jerarquía de extras.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-800d-ae7b-d2bed09f93b2" class="numbered-list" start="2"><li>Si se editó, qué cambio se realizó.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-8002-960a-f4ac2f57a36c" class="toggle"><li><details open=""><summary>Extras</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80a1-9e1a-f67d0de2e819" class="numbered-list" start="1"><li>Quién eliminó productos.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-809f-8baa-d2e9cd71828b" class="numbered-list" start="2"><li>Qué modificación se realizó en un extra editado.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-80d7-ad9a-f0a9d99589dc" class="toggle"><li><details open=""><summary>Ingredientes y recetas</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8053-b3b0-d9d7a348bb05" class="numbered-list" start="1"><li>Quién eliminó Ingredientes y recetas.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80bf-8ed4-e7684c22fe28" class="numbered-list" start="2"><li>Qué modificación se realizó en un ingrediente editado (especialmente unidades de medida y costos)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8069-980a-f4a7a5fed020" class="numbered-list" start="3"><li>Qué modificación se realizó en una receta editada. </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-806b-be26-cf62f0ef98d8" class="numbered-list" start="4"><li>Quién crea/modifica Conversiones</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-8023-9560-f7d2ce80036c" class="toggle"><li><details open=""><summary>Precios por turno</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8048-8ad0-ef30142d825e" class="numbered-list" start="1"><li>Quién creó un precio de turno</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8097-9403-fb7e84d43c09" class="numbered-list" start="2"><li>Qué cambios se hicieron en un precio de turno editado</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-804d-af37-c043c2fe084b" class="toggle"><li><details open=""><summary>Precios por lista</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80c8-a517-ff1026572173" class="numbered-list" start="1"><li>Quién creó un precio de lista</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-809f-ac96-cb5ed4343682" class="numbered-list" start="2"><li>Qué cambios se hicieron en el precio de lista  (poder visualizarlo en TRM)</li></ol></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-80ac-8721-c1242f283988" class="toggle"><li><details open=""><summary>Menú lateral → Configuración</summary><div style="display:contents" dir="auto"><ul id="28139073-1e23-805b-b589-f102caa80f67" class="toggle"><li><details open=""><summary>Print server y API</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80f3-bcec-e1c978f341ab" class="numbered-list" start="1"><li>Print Server config: <div style="display:contents" dir="auto"><ol type="a" id="28139073-1e23-8092-a90b-f73faf8c9c1b" class="numbered-list" start="1"><li>Quién eliminó el API del TPS.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="28139073-1e23-80db-8e04-e8048c0bd99a" class="numbered-list" start="2"><li>Quién modificó Token.</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8097-a65e-d788598a278c" class="numbered-list" start="2"><li>API Config:<div style="display:contents" dir="auto"><ol type="a" id="28139073-1e23-800e-9cc5-d23caf40854b" class="numbered-list" start="1"><li>Quién creó el API.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="28139073-1e23-8080-a335-f1188a96b53f" class="numbered-list" start="2"><li>Quién activo/inactivo el API.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="28139073-1e23-8023-9f0d-dc87d744048a" class="numbered-list" start="3"><li>Quien dio a  “Grabar send and Hook”.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="28139073-1e23-803a-920c-c9093e6213c1" class="numbered-list" start="4"><li>Modificación de lista de precio/turno asociado</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="28139073-1e23-8060-9146-d9e1130f6875" class="numbered-list" start="5"><li>Cualquier modificación en el API.</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><p id="28139073-1e23-8055-b1f6-eae9b911dc1f" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-805e-8295-cd06ba5222d3" class="toggle"><li><details open=""><summary>Impresoras</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80b4-96fc-ee8c188ef756" class="numbered-list" start="1"><li>Quién creó/eliminó una impresora.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-801b-89b8-e29d4d28ba9d" class="numbered-list" start="2"><li>Registro de reglas de impresión asociadas a la impresora.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-808b-86a9-c326aad8df6c" class="numbered-list" start="3"><li>Registro de modificaciones en las reglas de impresión.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8062-a799-c498fb80a1d1" class="numbered-list" start="4"><li>Registro de quién realizó modificaciones en reglas de impresión.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8089-a2d9-d8e0f64679a6" class="numbered-list" start="5"><li>Registro de modificación parámetros clave; impresora en sistema operativo, caracteres, copias, etc.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="28139073-1e23-801e-9f34-f4e36a6f0a72" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-8077-8e27-d291ad65f0b6" class="toggle"><li><details open=""><summary>Menú lateral → Multisucursal</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-807d-aa37-ea53ca4f0fbf" class="numbered-list" start="1"><li>Historial: Qué modificaciones van en el envío de menú en multisucursal.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8042-882f-fa45c003627e" class="numbered-list" start="2"><li>Grupo de sucursal: Quién creó/editó un grupo de sucursales.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80bd-b8e9-cf6c39fd8733" class="numbered-list" start="3"><li>Menú de marca: Quién creó/editó un menú de marca.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-8052-9eed-e7afc8ece60e" class="toggle"><li><details open=""><summary>Menú lateral → CRM</summary><div style="display:contents" dir="auto"><ul id="28139073-1e23-80c3-9ba0-efd9bca5e09a" class="toggle"><li><details open=""><summary>Promociones</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-802d-8180-c05f0398616b" class="numbered-list" start="1"><li>Quién creó/editó una Promocion.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8023-a814-d5f33270341a" class="numbered-list" start="2"><li>Qué modificación se hizo en la Promocion.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-8071-9c8d-ca8e1a85357b" class="toggle"><li><details open=""><summary>Cuentas corrientes</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80ea-bb2d-c0a4b1196f39" class="numbered-list" start="1"><li>Quién creó/editó una Cuenta Corriente.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80c3-a6ea-f955a42cfcf0" class="numbered-list" start="2"><li>Qué modificación se hizo en la Cuenta Corriente.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-80e3-9287-ce5f4b33a6e3" class="toggle"><li><details open=""><summary>Audiencia</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-807a-b7b9-f0d1d1a4c1f0" class="numbered-list" start="1"><li>Quién crea/edita un cliente o grupo de clientes</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-807a-8974-c1a8904ca39e" class="numbered-list" start="2"><li>Qué cambios se hicieron en la edición del cliente o grupo de clientes</li></ol></div></details></li></ul></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-8079-93b9-c7abbf52eb3f" class="toggle"><li><details open=""><summary>Versiones/backoffice</summary><div style="display:contents" dir="auto"><ul id="28139073-1e23-8023-b3f9-e37564602765" class="toggle"><li><details open=""><summary>Menú lateral → Rene/Crítico</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80cb-95d8-e9f7cbf5524c" class="numbered-list" start="1"><li>Logs de restaurante: Tener registro de cambios realizados en el ambiente.<div style="display:contents" dir="auto"><ol type="a" id="28139073-1e23-80f1-b43d-d07f4222f269" class="numbered-list" start="1"><li>Nombre del ambiente, nombres anteriores</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="28139073-1e23-8005-b0bb-e0578e040be1" class="numbered-list" start="2"><li>Reinstalaciones de TPS (número de tokens creados)</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="28139073-1e23-801c-9828-ca29689f8cac" class="numbered-list" start="3"><li>Centralizar información de operación crítica: Qué turno está abierto, quienes están conectados actualmente con sesión abierta en el ambiente, qué caja están abiertas, etc. </li></ol></div></li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-803e-9140-c96e82095236" class="toggle"><li><details open=""><summary>Menú lateral → Mantenimiento</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80f1-a339-e680868b46d3" class="numbered-list" start="1"><li>Corrección turno a orden: Búsqueda total de órdenes modificadas en un ambiente en X periodo de tiempo, quién realizó la acción.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-809d-9ba6-cf2fa1227986" class="numbered-list" start="2"><li>Eliminar orden: Búsqueda total de órdenes eliminadas en un ambiente en X periodo de tiempo, quién realizó la acción.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80ac-9e15-ddc6ae955467" class="numbered-list" start="3"><li>Corrige Caja órdenes: Búsqueada total de órdenes modificadas de caja en X periodo de tiempo, quién realizó la acción.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-80d1-b048-de810e6afbd4" class="toggle"><li><details open=""><summary>Menú lateral → Toteat</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80bf-b825-d4b456c07a52" class="numbered-list" start="1"><li>Datastore: Registro de Json e información extraída desde cloud run, información de proyectos para las órdenes/DTE solicitadas.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8023-8e61-d168762bf79a" class="numbered-list" start="2"><li>Uso centralizado de servicios y funcionalidades de clientes, uso de inventario, uso de payments, uso de DTE, operaciones activas.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-8075-af06-feb2b5d03ef6" class="toggle"><li><details open=""><summary>Menú lateral → Delivery</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8081-82bf-d38b36f206f8" class="numbered-list" start="1"><li>Panel de status integradores.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-800f-bf90-e6bfb462c644" class="numbered-list" start="2"><li>Panel de status órdenes entrantes.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80e6-ba6d-ee37b482091b" class="numbered-list" start="3"><li>Comunicación con integrador para reconocer órdenes no entrantes por motivos ajenos a turno.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80fc-bd8e-d0f764b7da51" class="numbered-list" start="4"><li>Panel de quién realiza cambios en c/API y qué cambios fueron realizados.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80db-9466-eb9b793d4831" class="numbered-list" start="5"><li>Panel de APIS dadas de baja o inactivadas.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-80ca-9320-f64c5973b103" class="toggle"><li><details open=""><summary>Menú lateral → Soporte</summary><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8041-8892-c2d9cfa19b18" class="numbered-list" start="1"><li>Panel status servicio de facturación/DTE.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-806c-8c38-e79b0807ef3a" class="numbered-list" start="2"><li>Panel de status servicio de TPS.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8000-94de-df9ff2e67e3b" class="numbered-list" start="3"><li>Panel de status servicio Gae/Cloudrun.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-801e-9f09-cdf76c17fc83" class="numbered-list" start="4"><li>Registro de versiones de TRM/TOTEM/SHOP.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-8077-8529-d1c63f495f5b" class="numbered-list" start="5"><li>Información de uso de intercom, chats activos y qué ambientes están en el momento. </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-800e-be50-cb7f87e4c218" class="numbered-list" start="6"><li>Uso actual de TRM (órdenes o montos x hora/periodo)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="28139073-1e23-80c3-ab90-e9b2f0489883" class="numbered-list" start="7"><li>Drone Versiones: Incluir MAC del equipo en donde está instalado el TPS para así evitar errores de equipos con acceso remoto habilitado pero no correspondan al servidor real</li></ol></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="28139073-1e23-8019-9331-c440e9ddef0f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28139073-1e23-80f0-9512-efc562715a81" class="">Logs deseados considerando mantener los actuales, en general toda modificación realizada debe quedar registrada al menos por un tiempo posterior al cambio (30 días mín)</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8094-af10-d95e82684a8c" class="">
+</p></div></details></li></ul></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

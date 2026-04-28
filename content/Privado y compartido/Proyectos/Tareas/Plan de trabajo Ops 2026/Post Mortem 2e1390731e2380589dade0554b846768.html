@@ -1,0 +1,748 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Post Mortem </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2e139073-1e23-8058-9dad-e0554b846768" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📝</span></div><h1 class="page-title" dir="auto">Post Mortem </h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2e139073-1e23-8018-afbf-e86799629e83" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-804b-a624-c0d626e97983" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80df-8f84-e71352770fb7" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="2e139073-1e23-8098-9a7b-e135647ee16b" class="">🧩 Post-Mortem de Incidencias</h1></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-8008-9bc3-cd7b661d20eb" class=""><strong>Marco de análisis y comunicación</strong></p></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-800f-b532-e3bb72366edc" class=""><em>SAC TECH · Ingeniería · Operaciones · Enablement</em></p></div><div style="display:contents" dir="auto"><hr id="2e139073-1e23-80a1-8340-d36dfe9254db"/></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-80f0-ab98-d7887301a1a4" class="">Propósito del documento</h2></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80c9-87be-e5800e886d1f" class="">Este post-mortem tiene como objetivo:</p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8066-b711-fe2db26d0848" class="bulleted-list"><li style="list-style-type:disc">Documentar el <strong>origen, impacto y resolución</strong> de una incidencia</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-805a-817c-f7312aafcc0d" class="bulleted-list"><li style="list-style-type:disc">Asegurar una <strong>bajada clara y consistente</strong> desde Ingeniería hacia Operaciones</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80bd-a1fc-c8ce88b8acb6" class="bulleted-list"><li style="list-style-type:disc">Facilitar el <strong>aprendizaje organizacional</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8003-ba8e-d9751ceb0172" class="bulleted-list"><li style="list-style-type:disc">Evitar reprocesos, malas interpretaciones y dobles explicaciones</li></ul></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-806a-a2a4-e68c9a605047" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2e139073-1e23-8024-b5f2-c544a3e83a98"/></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-803c-9f20-f83c86f9995b" class="">1. Origen de la Incidencia</h2></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80f9-86ba-c329456cb814" class="">Describe <strong>cómo se detectó el problema y desde dónde se originó la señal inicial</strong>.</p></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-80ae-8343-d2c52dc1abe2" class="">Posibles orígenes</h3></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-8048-a1be-ce09c3b180ce" class=""><strong>Desde cliente</strong></p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8060-a3f7-f360f348095a" class="bulleted-list"><li style="list-style-type:disc">Reporte vía Salesforce (KAM o caso)</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8027-95cb-cdbffaee6d31" class="bulleted-list"><li style="list-style-type:disc">Chat de soporte</li></ul></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80a4-93b8-ceb76cd96016" class=""><strong>Desde servicios internos</strong></p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-802a-b3b1-dc04b11cf1b6" class="bulleted-list"><li style="list-style-type:disc">Monitoreos</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8067-8d9d-fcacbe078a0f" class="bulleted-list"><li style="list-style-type:disc">Alertas internas</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-800d-bee4-e7b601e27127" class="bulleted-list"><li style="list-style-type:disc">Detección proactiva del equipo</li></ul></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-8015-9914-c52f68783423" class=""><strong>Desde servicios externos</strong></p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80c7-8c88-f931d783edc7" class="bulleted-list"><li style="list-style-type:disc">Partner</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80d6-8227-d8210dddde9e" class="bulleted-list"><li style="list-style-type:disc">Proveedor</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8039-b594-c1e33ab2368a" class="bulleted-list"><li style="list-style-type:disc">Servicio de terceros</li></ul></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-801c-be7d-fd1ef291f8f7" class="">Detalle requerido</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8049-9891-e4831916fc66" class="bulleted-list"><li style="list-style-type:disc">Quién detectó la incidencia</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8000-9f69-ccaf74ff2747" class="bulleted-list"><li style="list-style-type:disc">Cómo se diagnóstico inicialmente</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80f8-b00e-ecc3f0a15d79" class="bulleted-list"><li style="list-style-type:disc">Si hubo reportes duplicados o escalamientos paralelos</li></ul></div><div style="display:contents" dir="auto"><hr id="2e139073-1e23-8075-a4e4-e27dd0a04a2c"/></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-8044-993c-f8a02cc7bcb1" class="">2. Impacto de la Incidencia</h2></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-806f-baf7-d24a893834f5" class="">Busca responder <strong>qué tan relevante fue el problema para el negocio y la operación</strong>.</p></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-8006-81e3-d50f741249e5" class="">Impacto técnico</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8040-8e2b-e48dc870b650" class="bulleted-list"><li style="list-style-type:disc">Afectación total, parcial o intermitente</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8078-aa53-fd68d2097397" class="bulleted-list"><li style="list-style-type:disc">Servicios o módulos involucrados</li></ul></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-8061-b0a1-db65aee1fb98" class="">Impacto operativo</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8046-b5e0-f920b02e0a0a" class="bulleted-list"><li style="list-style-type:disc">Qué acciones no pudo realizar el cliente</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-801c-934b-e439ac035d13" class="bulleted-list"><li style="list-style-type:disc">Áreas operativas afectadas (venta, stock, pagos, facturación, etc.)</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80e8-b925-c5d0630e302c" class="bulleted-list"><li style="list-style-type:disc">Cantidad de locales impactados</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-802c-94c7-dcb70471c47d" class="bulleted-list"><li style="list-style-type:disc">Horarios críticos involucrados</li></ul></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-802f-bc99-e22708a630a9" class="">Contexto de severidad</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80b4-820e-e1088dae499d" class="bulleted-list"><li style="list-style-type:disc">Incidencia menor</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8013-9ef7-d4bece1f2f84" class="bulleted-list"><li style="list-style-type:disc">Incidencia relevante</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8070-a693-cde602f6b368" class="bulleted-list"><li style="list-style-type:disc">Incidencia crítica para la operación</li></ul></div><div style="display:contents" dir="auto"><hr id="2e139073-1e23-80d1-91de-dd61e50f8d0a"/></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-80a5-bbe8-ed15653aec37" class="">3. Línea de Tiempo (Gestión de Tiempos)</h2></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80bd-9b4c-d4ff1ab2333a" class="">Permite entender <strong>cuándo ocurrió realmente el problema y cómo fue gestionado</strong>.</p></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-809c-913d-c00baf92184f" class="">Debe quedar claramente definido:</p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8089-9461-e080e34b5ad7" class="bulleted-list"><li style="list-style-type:disc">Inicio estimado de la incidencia</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-803d-b529-ebf3d644ea9f" class="bulleted-list"><li style="list-style-type:disc">Momento de detección</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8073-9341-c57527d8232a" class="bulleted-list"><li style="list-style-type:disc">Confirmación técnica</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80a5-aa56-e52ef7d41400" class="bulleted-list"><li style="list-style-type:disc">Acciones de mitigación (si existieron)</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8059-b57f-fc33ac66b6e5" class="bulleted-list"><li style="list-style-type:disc">Resolución definitiva</li></ul></div><div style="display:contents" dir="auto"><blockquote id="2e139073-1e23-8005-90f1-db36eef13bb1" class="">Importante: dejar explícita la hora de término validada, especialmente cuando la incidencia fue reportada por cliente. Para incidencias, dejar fecha de paso a producción</blockquote></div><div style="display:contents" dir="auto"><hr id="2e139073-1e23-8063-80a8-cf47d00a56f4"/></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-8027-97f5-c708eebc867d" class="">4. Resolución</h2></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-8098-9160-c6478d5721b3" class="">Describe <strong>qué se hizo para resolver el problema y qué estado dejó al sistema</strong>.</p></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-80f2-80b3-f63e66dc09f9" class="">Elementos clave</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80ad-b353-d72cc366119e" class="bulleted-list"><li style="list-style-type:disc">Corrección aplicada</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80eb-9771-c5c615aad5e2" class="bulleted-list"><li style="list-style-type:disc">Si fue una solución parcial o definitiva</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80e2-918b-d62c56c8523a" class="bulleted-list"><li style="list-style-type:disc">Validaciones realizadas para confirmar la resolución</li></ul></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-8058-9a81-db336a8d0da8" class="">Seguimiento</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80e2-b78e-f989b0907cbb" class="bulleted-list"><li style="list-style-type:disc">Si se generó o no un ticket de mejora</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8009-896f-d66045a22eb8" class="bulleted-list"><li style="list-style-type:disc">Relación con deuda técnica o mejoras futuras</li></ul></div><div style="display:contents" dir="auto"><hr id="2e139073-1e23-8021-b045-e6bcea9440fb"/></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-80f4-a350-e1c073cdd762" class="">5. Esfuerzo Técnico</h2></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-8021-be54-fc56192c72f3" class="">Este punto busca <strong>dar visibilidad al esfuerzo involucrado</strong>, sin justificar ni minimizar impacto.</p></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-8050-b5df-d09e91f59c40" class="">Debe incluir:</p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80da-ad88-c8067a147d07" class="bulleted-list"><li style="list-style-type:disc">Horas hombre aproximadas</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80f2-a7dc-c210ad82395a" class="bulleted-list"><li style="list-style-type:disc">Cantidad de personas involucradas</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8060-910f-dba932ceaa45" class="bulleted-list"><li style="list-style-type:disc">Equipos participantes</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80ed-8a9e-ed0aea0c68d8" class="bulleted-list"><li style="list-style-type:disc">Nivel de complejidad técnica percibida</li></ul></div><div style="display:contents" dir="auto"><hr id="2e139073-1e23-8030-bf23-f19c649b7f39"/></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-806d-8f61-f028138b8e6b" class="">6. Post-Mortem Técnico (Ingeniería)</h2></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80ee-b01e-d910c44ff094" class="">Sección de <strong>uso técnico interno</strong>, no orientada a cliente.</p></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80a1-9b83-e6173d6e580b" class="">Debe responder:</p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80a7-aeda-e80ec90a714e" class="bulleted-list"><li style="list-style-type:disc">Qué falló exactamente</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8038-9961-f96dbb2c6bb6" class="bulleted-list"><li style="list-style-type:disc">Cuál fue la causa raíz</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8044-aa25-f50ed91c15fb" class="bulleted-list"><li style="list-style-type:disc">Por qué no se detectó antes</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8082-b860-c57573cb1c96" class="bulleted-list"><li style="list-style-type:disc">Qué acciones se definieron para evitar recurrencia</li></ul></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-8010-a3ce-f08f63cd2251" class="">Referencias esperadas:</p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8072-91a2-d0f81fa1a10f" class="bulleted-list"><li style="list-style-type:disc">Issue o PR en GitHub</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-805a-a731-e47b7e4b0772" class="bulleted-list"><li style="list-style-type:disc">Hilo de Slack correspondiente a la incidencia</li></ul></div><div style="display:contents" dir="auto"><hr id="2e139073-1e23-8013-9470-c475e1340ecd"/></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-808b-87d2-e94d47bd42c0" class="">7. Traducción Técnica a Operación (SAC TECH)</h2></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80e5-aa14-eb05da993e86" class="">Esta sección es responsabilidad de <strong>SAC TECH</strong> y es el punto más crítico del proceso.</p></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-80aa-a674-f42819343e51" class="">Resumen ejecutivo</h3></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-806d-88a7-d98bdcfd9aca" class="">Explicación breve y clara que responda:</p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-805f-89d3-c5d2e995cfe4" class="bulleted-list"><li style="list-style-type:disc">Qué pasó</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8092-9a7e-db46aef1996e" class="bulleted-list"><li style="list-style-type:disc">Por qué el cliente lo notó</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8037-9824-dfac315d69f2" class="bulleted-list"><li style="list-style-type:disc">Estado actual del servicio</li></ul></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-8000-a165-f850f219336e" class="">Impacto operacional</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8001-9741-ef9dc67df161" class="bulleted-list"><li style="list-style-type:disc">Qué funciones se vieron afectadas desde la perspectiva del local</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-805e-aca5-eb98afd4be2b" class="bulleted-list"><li style="list-style-type:disc">Qué escenarios pueden haberse visto alterados</li></ul></div><div style="display:contents" dir="auto"><hr id="2e139073-1e23-8006-b44b-f36d8e1a573c"/></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-80a3-8eb9-e9f5329c549b" class="">8. Bajada Oficial a Operaciones</h2></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-8044-8102-fdca170fa24d" class="">Documento de referencia para equipos operativos.</p></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80f5-94ab-c4c8d6999987" class="">Debe responder claramente:</p></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-802c-b36b-e20e1b6b7773" class="">¿Qué pasó?</h3></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-8019-af27-ecd81be80d2a" class="">Explicación simple, sin lenguaje técnico.</p></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-805a-9fec-ed592ce0b69d" class="">¿Cómo impactó?</h3></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-8018-8862-c0abc3086ddb" class="">Desde el punto de vista de la operación diaria.</p></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-80da-90ae-ecff234679ae" class="">¿Qué se hizo?</h3></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-8077-805a-d5f3a1fc7e68" class="">Corrección aplicada y estado actual.</p></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-807e-9817-cd48e2907482" class="">¿Qué deben hacer ahora?</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8086-9181-f14f25f0d46b" class="bulleted-list"><li style="list-style-type:disc">Nada</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80c6-9c08-ec8398a9dff5" class="bulleted-list"><li style="list-style-type:disc">Ejecutar pasos específicos</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80c8-bad5-fe1119ee803d" class="bulleted-list"><li style="list-style-type:disc">Solo monitorear</li></ul></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-80a2-87c1-fb68adcdef77" class="">¿Puede volver a pasar?</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80b1-9428-d153186f465e" class="bulleted-list"><li style="list-style-type:disc">Riesgo bajo, medio o alto</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80a0-a2a2-fc34a16137dd" class="bulleted-list"><li style="list-style-type:disc">Señales de alerta a observar</li></ul></div><div style="display:contents" dir="auto"><hr id="2e139073-1e23-8099-aabc-f04593731140"/></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-8048-93c2-fbd70ac3d79e" class="">9. Enablement y Aprendizaje</h2></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-803f-b419-dd337848b85e" class="">La incidencia debe transformarse en <strong>conocimiento reutilizable</strong>.</p></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80a9-be45-e2ed4967cf38" class="">Acciones esperadas:</p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-809e-a7e5-f1f8c335d7eb" class="bulleted-list"><li style="list-style-type:disc">Inclusión en boletín de Enablement</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8020-a25c-c7312e415fd6" class="bulleted-list"><li style="list-style-type:disc">Caso de estudio interno</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80be-ae77-c2d2c4513895" class="bulleted-list"><li style="list-style-type:disc">Ajustes en documentación o capacitaciones existentes</li></ul></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-800c-912f-d77563e93713" class="">Objetivo:</p></div><div style="display:contents" dir="auto"><blockquote id="2e139073-1e23-80bc-902a-c64016ea1a3d" class="">Que la misma incidencia no genere la misma duda dos veces.</blockquote></div><div style="display:contents" dir="auto"><hr id="2e139073-1e23-80fa-9e03-dfbc1e6ad2e6"/></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-808d-9b5e-cb4298b6ba18" class="">10. Observaciones Finales</h2></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80c3-8931-dcd7655e10cb" class="">Espacio para dejar registro de:</p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8069-9315-f9661850d075" class="bulleted-list"><li style="list-style-type:disc">Dificultades de comunicación detectadas</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80c3-838b-c31a7421a271" class="bulleted-list"><li style="list-style-type:disc">Ambigüedades en la bajada</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80de-8e03-ebe66e8f24d9" class="bulleted-list"><li style="list-style-type:disc">Oportunidades de mejora en procesos o herramientas</li></ul></div><div style="display:contents" dir="auto"><hr id="2e139073-1e23-80f6-b75e-ebb08c5a4b63"/></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-8046-86ea-e0465f61f055" class="">Principios clave del Post-Mortem</h2></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-804c-9a75-d1f3f49e937d" class="bulleted-list"><li style="list-style-type:disc">No es para buscar culpables</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80fa-a529-e290febdb366" class="bulleted-list"><li style="list-style-type:disc">Es para <strong>entender, aprender y mejorar</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8046-bdba-fe70791ec7ce" class="bulleted-list"><li style="list-style-type:disc">Debe ser claro para alguien que <strong>no participó</strong> en la incidencia</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8020-9ad7-cdaf353759a7" class="bulleted-list"><li style="list-style-type:disc">Si genera dudas, el post-mortem <strong>no está bien hecho</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-801d-b39f-ed0a336865c8" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-8016-b2d0-e72877a8004d" class="">Proceso actual</h2></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8071-9dae-c60e1e98e8f8" class="bulleted-list"><li style="list-style-type:disc">Para incidencias clientes:<div style="display:contents" dir="auto"><ul id="2e139073-1e23-80a2-895f-edcf52ed7f5b" class="bulleted-list"><li style="list-style-type:circle">Origen: Escalamiento en SF</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-807f-8e60-cf51ef52209e" class="bulleted-list"><li style="list-style-type:circle">Impacto: Priorización de caso según criterios establecidos <a href="../Par%C3%A1metros%20criterios%20casos%202cb390731e23806988cfd4c7fb2419aa.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/>Parámetros criterios casos</a> </li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-800f-8acc-e61080d522b7" class="bulleted-list"><li style="list-style-type:circle">Línea de tiempo: Tiempo aperturado caso en SF / Panel SAC TECH <a href="https://lookerstudio.google.com/u/1/reporting/e361da37-22e2-44ed-a8b3-c9e5315f4942/page/TAhcF">https://lookerstudio.google.com/u/1/reporting/e361da37-22e2-44ed-a8b3-c9e5315f4942/page/TAhcF</a></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80fe-8c07-e6325d3e4f79" class="bulleted-list"><li style="list-style-type:circle">Resolución, esfuerzo técnico y post mortem técnico: Detalle en github, ticket correspondiente <a href="https://docs.google.com/spreadsheets/d/1ecaY91PuCsdyIxYKucLGoszG1LfR_P9PiFTSHVJ3qiY/edit?gid=886801578#gid=886801578&amp;fvid=833989913">https://docs.google.com/spreadsheets/d/1ecaY91PuCsdyIxYKucLGoszG1LfR_P9PiFTSHVJ3qiY/edit?gid=886801578#gid=886801578&amp;fvid=833989913</a></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-800d-848b-dc7807b8a08c" class="bulleted-list"><li style="list-style-type:circle">Traducción: Publicación en caso SF</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8041-80fc-e78ffdb123af" class="bulleted-list"><li style="list-style-type:circle">Bajada a operaciones: Publicación del caso en SF y repositorio de incidencias corregias <a href="https://www.notion.so/Entregas-Solicitudes-migraci-n-Resueltos-287390731e2380dfa38dfb3504837a6e?pvs=21"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_blue.svg"/>Entregas Solicitudes migración (Resueltos)</a> </li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8048-9e0f-f84518bd2e22" class="bulleted-list"><li style="list-style-type:circle">Enablement y aprendizaje: Solo casos particulares en boletín.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8005-84f8-e4ef918f6171" class="bulleted-list"><li style="list-style-type:disc">Para caídas generales:<div style="display:contents" dir="auto"><ul id="2e139073-1e23-804b-88ef-cee5c9dbbafd" class="bulleted-list"><li style="list-style-type:circle">Origen: Detección interna o intercom</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-807a-a8a6-d1526972b4a1" class="bulleted-list"><li style="list-style-type:circle">Impacto: Depende de tipo de caída</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-809f-8bde-fb73667f9618" class="bulleted-list"><li style="list-style-type:circle">Línea de tiempo: Desde el levantamiento interno hasta solución entregada.</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-804c-bf57-d27433480d08" class="bulleted-list"><li style="list-style-type:circle">Resolución, esfuerzo técnico y post mortem técnico: Detalle en canal #incidencias-general <a href="https://toteat-espacio.slack.com/archives/C069RN5J0DD">https://toteat-espacio.slack.com/archives/C069RN5J0DD</a></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8050-b0e2-ead49778165b" class="bulleted-list"><li style="list-style-type:circle">Traducción: No se realiza</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8077-9176-eb17843342a3" class="bulleted-list"><li style="list-style-type:circle">Enablement y aprendizaje: Para casos particulares</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-803d-a6ec-e9ffbfa90c94" class="bulleted-list"><li style="list-style-type:disc">Para retenciones: <div style="display:contents" dir="auto"><ul id="2e139073-1e23-8018-b773-c9b16fc71db4" class="bulleted-list"><li style="list-style-type:circle">Solicitud de retención: <a href="https://www.notion.so/Flujo-escalamiento-Opps-de-retenci-n-CSE-R-2cb390731e2380d8b986f797571539d1?pvs=21">Flujo escalamiento Opps de retención [CSE&amp;R]</a> </li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8056-83fb-d315b0789772" class="bulleted-list"><li style="list-style-type:circle">Estructura de entrega post mortem <a href="https://www.notion.so/Gu-a-de-Retenci-n-2aa390731e238072ae26f3a08a92d82e?pvs=21">Guía de Retención</a> </li></ul></div></li></ul></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,744 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Criterios para cierre de caso</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2ae39073-1e23-803e-9261-d2960b32ef37" class="page sans"><header><div class="page-header-icon undefined"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/></div><h1 class="page-title" dir="auto">Criterios para cierre de caso</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/target_gray.svg" style="width:14px;height:14px;display:block"/></span>Proyecto</th><td><a href="../Proyectos/Continuidad%20operacional%20ff1b229448a046e89614b3458d230ef2.html"><span class="icon">🎨</span>Continuidad operacional </a></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Prioridad</th><td><span class="selected-value select-value-color-red">Alta</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td><span class="selected-value select-value-color-yellow">Procesos</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><div><div style="display:contents" dir="auto"><h1 id="2ae39073-1e23-8064-9301-d866642f1304" class="">🧭 <strong>Protocolo de Cierre de Casos – SAC TECH / Ingeniería</strong></h1></div><div style="display:contents" dir="auto"><hr id="2ae39073-1e23-80ee-94a4-cd494b20b12c"/></div><div style="display:contents" dir="auto"><h2 id="2ae39073-1e23-80e8-b8b2-f4f807962a66" class="">🎯 <strong>Objetivo</strong></h2></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-801f-81f7-ef4d9c3f9ae5" class="">Estandarizar el flujo de gestión y cierre de casos, asegurando trazabilidad, consistencia, y alineación entre SAC, KAM, SAC TECH e Ingeniería.</p></div><div style="display:contents" dir="auto"><hr id="2ae39073-1e23-80a8-b1d2-e8556f55cb6e"/></div><div style="display:contents" dir="auto"><h1 id="2ae39073-1e23-80c1-9d4d-f2e8e5c3a0ab" class="">🔵 <strong>1. Estado: NUEVO</strong></h1></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8027-8ff8-eae80ffaaf23" class=""><strong>Definición:</strong> Caso recién ingresado por SAC o KAM.</p></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-8089-82bf-eaa6370279d9" class="">✔ Acciones de SAC TECH</h3></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80a7-9c0b-e069c782cbe2" class="bulleted-list"><li style="list-style-type:disc">Validar información mínima:<div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80e2-bc06-e3f5898dcb82" class="bulleted-list"><li style="list-style-type:circle">ID de ambiente</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80b6-8272-c12bb59f2189" class="bulleted-list"><li style="list-style-type:circle">Descripción</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80b8-a85c-ce95e4145b0e" class="bulleted-list"><li style="list-style-type:circle">Evidencia (si aplica)</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8039-882b-f70baf61bb76" class="bulleted-list"><li style="list-style-type:circle">Categoría correcta</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80b1-aaa5-d8e3a73f2bbf" class="bulleted-list"><li style="list-style-type:disc">Confirmar si corresponde a soporte operativo o análisis técnico.</li></ul></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-8028-9c7c-cbb558223e4b" class="">➡ <strong>Movimiento a otro estado</strong></h3></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-803e-b1e6-c61d01e01911" class="bulleted-list"><li style="list-style-type:disc"><strong>A “En proceso”</strong> → cuando SAC TECH toma el caso para análisis activo.</li></ul></div><div style="display:contents" dir="auto"><hr id="2ae39073-1e23-80b8-994a-f6875e68c3ba"/></div><div style="display:contents" dir="auto"><h1 id="2ae39073-1e23-80b5-a421-f75fa995bfc3" class="">🟡 <strong>2. Estado: EN PROCESO</strong></h1></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80f2-a5b2-ee0fd3dc5b9c" class=""><strong>Definición:</strong> Caso asignado y siendo trabajado por SAC TECH.</p></div><div style="display:contents" dir="auto"><hr id="2ae39073-1e23-80c8-85fe-d112cce864c4"/></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-80f5-ae47-d801360bcaf6" class="">▶️ <strong>Cuándo mover a “En espera”</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2ae39073-1e23-80c0-906f-c784b8bccf2b" class="">Falta información o acción del solicitante.</blockquote></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-806a-864b-e736df4b95bd" class="">Ejemplos:</p></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8073-b83a-f007a41ee125" class="bulleted-list"><li style="list-style-type:disc">Falta evidencia</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80e2-a80c-d7b99c5f8e1a" class="bulleted-list"><li style="list-style-type:disc">Falta pasos para replicar</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80b9-90ea-f1ac8dde7fb6" class="bulleted-list"><li style="list-style-type:disc">Falta acceso</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80d5-b835-d03e7fecb362" class="bulleted-list"><li style="list-style-type:disc">Falta contexto o autorización</li></ul></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8001-8c52-f17165f288af" class="">Debe quedar registrado <strong>qué información falta</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2ae39073-1e23-80b8-be9b-d99722c8129c"/></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-80b9-9aee-fb2a92923df7" class="">▶️ <strong>Cuándo mover a “Escalado Ing”</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2ae39073-1e23-80b2-a248-fc06de700163" class="">El escalamiento ocurre antes de la priorización.<div style="display:contents" dir="auto"><p id="2ae39073-1e23-80df-861a-f40740c23be4" class="">Usar cuando:</p></div></blockquote></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8085-ac6a-cea9b619ce7a" class="bulleted-list"><li style="list-style-type:disc">El caso corresponde a un <strong>bug/error real y replicable</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-805a-b7da-f4b963173d0f" class="bulleted-list"><li style="list-style-type:disc">SAC TECH ya reunió la documentación necesaria</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80ed-ba8f-e2d498c45666" class="bulleted-list"><li style="list-style-type:disc">No puede resolverse desde SAC TECH</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8050-89e5-fac77de9f2b6" class="bulleted-list"><li style="list-style-type:disc">Requiere análisis y/o fix de Ingeniería</li></ul></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80b3-9d9c-fd1428ef7fc9" class="">Acciones:</p></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80ac-8ef0-ddb6735da011" class="bulleted-list"><li style="list-style-type:disc">Crear thread en <strong>Slack #new-seguimiento</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8095-95e3-cb1c1473fd85" class="bulleted-list"><li style="list-style-type:disc">Agregar pasos, evidencia, ID del ambiente y contexto</li></ul></div><div style="display:contents" dir="auto"><hr id="2ae39073-1e23-80b5-8c2e-ca109cbd5680"/></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-805a-ad1f-c9f54cda94f3" class="">▶️ <strong>Cuándo mover a “Cerrado” (desde SAC TECH)</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2ae39073-1e23-806a-8328-cf19bdc1b66b" class="">Se cierra directamente si SAC TECH resuelve completamente el caso.</blockquote></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-802e-b5ae-c7f7d643cf4f" class="">Casos típicos:</p></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-805c-922b-e1221f47e1c2" class="bulleted-list"><li style="list-style-type:disc">Configuración mal aplicada</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80f7-86e1-fcec7202e635" class="bulleted-list"><li style="list-style-type:disc">Error de uso</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80a0-880b-c098143e8c02" class="bulleted-list"><li style="list-style-type:disc">Ajuste operativo (reglas, permisos, configuraciones, impresoras, horarios, otros)</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-801a-989f-e7009bce3d8f" class="bulleted-list"><li style="list-style-type:disc">Resolución interna sin necesidad de Ingeniería</li></ul></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-806b-8e10-fea7ec67c2aa" class="">Sub-estados aplicables:</p></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-803f-be94-dc65e4f00e5a" class="bulleted-list"><li style="list-style-type:disc"><strong>Resuelto</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8093-a4a2-d4b7e158d3a0" class="bulleted-list"><li style="list-style-type:disc"><strong>Sin respuesta</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80cf-abd9-e2366f71d0cb" class="bulleted-list"><li style="list-style-type:disc"><strong>Rechazado – No replicable</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80ab-99dd-c48a2daa906f" class="bulleted-list"><li style="list-style-type:disc"><strong>Rechazado – No factible</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-803f-9a75-e2d1742add8a" class="bulleted-list"><li style="list-style-type:disc"><strong>Duplicado</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-809b-adfd-d003103d9c28" class="">Requisitos:</p></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8061-a5fa-cdb1705d5114" class="bulleted-list"><li style="list-style-type:disc">Evidencia de solución</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8080-befa-c59d78cff153" class="bulleted-list"><li style="list-style-type:disc">Comentario final claro</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8019-a1d6-f6c33e9a00a2" class="bulleted-list"><li style="list-style-type:disc">Campos de resultado completados</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8059-bce6-f63facebb3c3" class="bulleted-list"><li style="list-style-type:disc">Comunicación al solicitante (si corresponde)</li></ul></div><div style="display:contents" dir="auto"><hr id="2ae39073-1e23-80a0-88ff-c25835bb968d"/></div><div style="display:contents" dir="auto"><h1 id="2ae39073-1e23-8079-8447-f11e75b7bc20" class="">🔴 <strong>3. Estado: ESCALADO ING</strong></h1></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8028-bc03-c30075db27de" class=""><strong>Definición:</strong> Caso enviado al equipo de Ingeniería.</p></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-8014-965c-ebb7477cf58b" class="">✔ Lo que ocurre en esta etapa</h3></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8034-a730-d1c0717da833" class="bulleted-list"><li style="list-style-type:disc">Caso escalado sin necesidad de haber sido priorizado previamente</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8030-aa95-da0a8ecff7fe" class="bulleted-list"><li style="list-style-type:disc">Se crea hilo en Slack #New-seguimiento <a href="https://toteat-espacio.slack.com/archives/C06EJHC9NHL">https://toteat-espacio.slack.com/archives/C06EJHC9NHL</a></li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8093-889c-e074f27ce99c" class="bulleted-list"><li style="list-style-type:disc">SAC TECH queda en seguimiento</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80f1-805b-dabc2885c1b9" class="bulleted-list"><li style="list-style-type:disc">Ingeniería aún no toma acción hasta tener prioridad</li></ul></div><div style="display:contents" dir="auto"><hr id="2ae39073-1e23-80d1-9ddb-e9a74babb685"/></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-802f-92de-c453bf966cf2" class="">▶️ <strong>Priorización (posterior al escalamiento)</strong></h3></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80d0-9d9d-c78f23d03e0b" class=""><strong>Responsables:</strong> <em>Francisco Ramírez / Carlos Apablaza</em></p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-800f-a900-de8080797bfd" class="">Resultado de esta evaluación:</p></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-804d-a949-f127438121d7" class="">🔥 <strong>Prioridad P4–P5</strong></h3></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8007-8c9d-e6a9ff26bc0d" class="">→ Ingeniería toma el caso</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80c3-b577-f5ff3e8ffa2e" class="">→ Se crea ticket en GitHub</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80f9-831a-fc8715f9cd96" class="">→ Se registra en:</p></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80e3-8af3-d80ff9504248" class="bulleted-list"><li style="list-style-type:disc">Sheet <strong>“</strong><strong><a href="https://docs.google.com/spreadsheets/d/1ecaY91PuCsdyIxYKucLGoszG1LfR_P9PiFTSHVJ3qiY/edit?gid=886801578#gid=886801578">Solicitudes migración</a></strong><strong>”</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-807f-9612-e10f0326904c" class="bulleted-list"><li style="list-style-type:disc">Notion <strong>“</strong><strong><a href="https://www.notion.so/Entregas-Solicitudes-migraci-n-Resueltos-287390731e2380dfa38dfb3504837a6e?pvs=21"><img class="icon notion-static-icon" src="https://www.notion.so/icons/arrow-right_blue.svg"/>Entregas Solicitudes migración (Resueltos)</a></strong><strong> ” una vez esté en producción.</strong></li></ul></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-8003-b480-ceeacc0ba87a" class="">💤 <strong>Prioridad P3 o menor → Sub-estado en Salesforce “Despriorizado”</strong></h3></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8045-94b2-c9bce940be77" class="">→ No se trabajará en corto/mediano plazo</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80ad-b4d3-d13db1d02e37" class="">→ Puede ser reevaluado más adelante</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8014-a5f0-e01b8a5c8faa" class="">→ Se registra en:</p></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8065-9071-e37898da1576" class="bulleted-list"><li style="list-style-type:disc">Sheet <strong>“</strong><strong><a href="https://docs.google.com/spreadsheets/d/1ecaY91PuCsdyIxYKucLGoszG1LfR_P9PiFTSHVJ3qiY/edit?gid=886801578#gid=886801578">Solicitudes migración</a></strong><strong>”</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80ce-8fb8-d0c0dc70a39b" class="">→ No se cerrará el caso</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80a5-85ed-e06e4c13e86c" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8051-84ad-d4c13c13c277" class=""><em><strong>Nota:  </strong></em>El resultado de esta priorización será informado en el caso en Salesforce tras cada revisión.</p></div><div style="display:contents" dir="auto"><hr id="2ae39073-1e23-80da-aa35-dbd185cf67f2"/></div><div style="display:contents" dir="auto"><h1 id="2ae39073-1e23-80a0-ae53-f8066628bb72" class="">🟢 <strong>4. Estado: CERRADO</strong></h1></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8023-82f2-cec9a5a6191d" class=""><strong>Definición:</strong> Caso finalizado con su resultado correspondiente.</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80c1-ae7d-ddcc5f8cb9a1" class="">Sub-estados:</p></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-800e-af42-dff94ff1203f" class="">✔ <strong>Resuelto</strong></h3></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80a4-a231-ee35bbb3031f" class="">Se solucionó correctamente (por SAC TECH o Ingeniería).</p></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-804f-acf8-e5da8575c602" class="">✔ <strong>Sin respuesta</strong></h3></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80d7-9686-e0cc181fc7f0" class="">El solicitante no respondió luego de varios intentos, se considerarán 7 días <em>(reevaluar post análisis de casos).</em></p></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-803d-91eb-feb339742768" class="">✔ <strong>Rechazado – No replicable</strong></h3></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8038-bb5d-e0e90efac70a" class="">El error no pudo ser reproducido por ingeniería, se dará el aviso al ejecutivo para levantar nuevamente en caso de volver a ocurrir el problema, para intentar extraer más información. </p></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-803a-b75b-c01635efa92f" class="">✔ <strong>Rechazado – No factible</strong></h3></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80bc-b67d-e14fd92009fc" class="">No es técnicamente viable, queda fuera del alcance actual o no pertenece a la estrategia de negocio vigente.</p></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-809c-bc8d-e8eaeba29eaa" class="">✔ <strong>Duplicado</strong></h3></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8045-b6f7-c2e6b3e93da5" class="">Existe otro caso principal asociado.</p></div><div style="display:contents" dir="auto"><h3 id="2ae39073-1e23-8047-b4fc-f5636f2e87ed" class="">✔ Sin error encontrado</h3></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80e9-9e08-e28ec18cc101" class="">No se encontró registro del error a validar.</p></div><div style="display:contents" dir="auto"><hr id="2ae39073-1e23-807c-9903-c0551e76e62d"/></div><div style="display:contents" dir="auto"><h1 id="2ae39073-1e23-8005-9b60-e3d353938c61" class="">🧩 <strong>Criterios generales para cerrar un caso</strong></h1></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80f1-822c-f02a881c6615" class="">Un caso solo debe cerrarse cuando:</p></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80cd-b84c-cfa5bc392046" class="bulleted-list"><li style="list-style-type:disc">Tiene diagnóstico final completo informado como publicación o comentario interno.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-803c-b229-d65241776b46" class="bulleted-list"><li style="list-style-type:disc">La solución está “En producción”. </li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8048-9055-ec932e7ca2e9" class="bulleted-list"><li style="list-style-type:disc">El sub-estado refleja el desenlace real.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8036-b6f8-d987b6877f0c" class="bulleted-list"><li style="list-style-type:disc">Se han completado los campos obligatorios para categorizar el caso.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80a2-a6ed-cb01af3c43a4" class="bulleted-list"><li style="list-style-type:disc">Se etiqueta al solicitante en la publicación para asegurar la bajada de la resolución.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8074-8ffc-ed60f821aa88" class="bulleted-list"><li style="list-style-type:disc">(Si fue escalado) Tiene trazabilidad en Slack / GitHub / Sheet / Notion</li></ul></div><div style="display:contents" dir="auto"><h1 id="2ae39073-1e23-807e-b0d3-cc571410ac4c" class="">❌ <strong>Cuando no cerrar un caso</strong></h1></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-801d-bf9a-e73518e46b14" class="">Un caso no debe cerrarse:</p></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8021-b0fb-eb302865a8b2" class="bulleted-list"><li style="list-style-type:disc">No tiene claridad en el diagnóstico o no está completamente definido.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80cf-b8bf-fbc64039e72b" class="bulleted-list"><li style="list-style-type:disc">La solución no es definitiva, Ingeniería aún está analizando o no está en producción el Fix.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80a5-99b2-ca783ecef32f" class="bulleted-list"><li style="list-style-type:disc">No se ha validado la solución.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80b5-8128-cd8eee252c45" class="bulleted-list"><li style="list-style-type:disc">La persona que escaló el caso no ha sido informada.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80f6-aabd-f9763fd3ca65" class="bulleted-list"><li style="list-style-type:disc">El caso está despriorizado o es una mejora.</li></ul></div></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,762 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Propuesta Tech implementaciones</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="24239073-1e23-8072-9fac-feaa8914e16f" class="page sans"><header><div class="page-header-icon undefined"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_lightgray.svg"/></div><h1 class="page-title" dir="auto">Propuesta Tech implementaciones</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Rechazado</span></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/target_gray.svg" style="width:14px;height:14px;display:block"/></span>Proyecto</th><td><a href="../Proyectos/Continuidad%20operacional%20ff1b229448a046e89614b3458d230ef2.html"><span class="icon">🎨</span>Continuidad operacional </a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h3 id="24239073-1e23-8012-8285-ce5104113a94" class="">1. Organigrama actual</h3></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8064-b4f2-dbf135afb38e" class=""><strong>Team Leader - Customer Service TECH</strong><br/>│<br/>├── Implementaciones<br/>│       ├── Jeremy Araujo<br/>│       └── Israel Bermejo<br/>│<br/>├── TRM<br/>│       └── Jeremy Araujo<br/>│<br/>├── Integraciones<br/>│       ├── Andrea Ruiz<br/>│       └── Nicolás Álvarez<br/>│<br/>├── DTE<br/>│       ├── Lorena Moreno<br/>│       └── Doymar Raga<br/>│<br/>└── Stock Control<br/>          └── Sergio Muñoz</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-807b-870a-d10352b42d6a" class="">Tareas Actuales</p></div><div style="display:contents" dir="auto"><ol type="1" id="24239073-1e23-80e6-96c4-e623548d2d45" class="numbered-list" start="1"><li>Israel Bermejo: <div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8076-a518-ce58fbd4134f" class="numbered-list" start="1"><li>Revisión Remotes.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-80b3-908c-c92715047f4e" class="numbered-list" start="2"><li>Ejecución implementaciones según calendario.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-80c3-880c-e330d049ed3e" class="numbered-list" start="3"><li>Revisión Slack implementaciones.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-800d-a66d-dcf1bf92ba17" class="numbered-list" start="4"><li>Carga formulario implementaciones (data).</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8001-888a-eb1a9edf68c1" class="numbered-list" start="5"><li>Implementaciones presenciales.</li></ol></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8066-bee0-d05c12b53469" class="">
+</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="24239073-1e23-8068-85b8-c6b98acd32d9" class="numbered-list" start="2"><li>Jeremy Araujo: <div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8072-b48a-f4bd76fbc248" class="numbered-list" start="1"><li>Back up Israel Bermejo en caso de necesidad (presencialidad o coordinación por ausencia vacaciones, día adm. etc.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8025-b8d5-c33082679f02" class="numbered-list" start="2"><li>Respuesta correos <a href="mailto:soporte@toteat.com">soporte@toteat.com</a> (sin SLA)</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-806b-9754-daa0c9d0117d" class="numbered-list" start="3"><li>Apoyo consultas Slack para diversos canales.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-80be-9af9-f2a900404311" class="numbered-list" start="4"><li>Visitas presenciales clientes con problemas Stgo.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-80a5-ac85-ff85d372eb02" class="numbered-list" start="5"><li>Implementaciones presenciales Chile.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-80fa-ac71-ef3ffd6dcf4f" class="numbered-list" start="6"><li>Coordinación y gestión ETL.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-808e-8f8d-e699662b0e2c" class="numbered-list" start="7"><li>Capacitación agente implementación.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8077-a3c1-ff48239a0490" class="numbered-list" start="8"><li>Mejora continua y calidad (ideal)</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-809e-ac13-ea9f91cfc7b9" class="numbered-list" start="9"><li>Consultas Redes y hardware.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8007-b629-d3ec61add72e" class="numbered-list" start="10"><li>Reuniones clientes críticos coordinados.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8066-b784-c88f3db57dac" class="numbered-list" start="11"><li>Aprobación Factibilidades técnicas.</li></ol></div><div style="display:contents" dir="auto"><p id="24239073-1e23-801a-9c33-f2de9e88633a" class="">
+</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="24239073-1e23-80ca-b133-f685e3e62fab" class="numbered-list" start="3"><li>Andrea Ruiz:<div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8007-862c-ed393e65945f" class="numbered-list" start="1"><li>Validación formularios incidencias Slack (SAC).</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8046-9526-ccefafc4e758" class="numbered-list" start="2"><li>Validación casos levantados SF.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8069-9889-fcdb75bdd798" class="numbered-list" start="3"><li>Comunicación y coordinación con Partners de delivery.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-807a-9e9b-fdba8187586f" class="numbered-list" start="4"><li>Capacitaciones delivery.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-80f6-967f-e5f0d939496b" class="numbered-list" start="5"><li>Coodinación con Ingeniería para casos que correspondan.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-80f4-84e5-f48aaad31192" class="numbered-list" start="6"><li>Reuniones con ingeniería para actualización de información.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-80e2-81dc-fadef8ef6657" class="numbered-list" start="7"><li>Mejora continua y calidad (ideal)</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8067-84e1-f8109a2fd84d" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="24239073-1e23-8066-9a3a-d90f68626460" class="numbered-list" start="4"><li>Nicolás Álvarez (en formación)<div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-80a9-bf7d-e932d0554432" class="numbered-list" start="1"><li>Validación formularios incidencias Slack (SAC).</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8094-b515-c0c847ed4c1b" class="numbered-list" start="2"><li>Validación casos levantados SF.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-80d0-a269-ebd64ced047b" class="numbered-list" start="3"><li>Comunicación y coordinación con Partners de delivery.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8067-acb5-c06ac4ee3484" class="numbered-list" start="4"><li>Capacitaciones delivery.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-801e-be35-c1d4005f521f" class="numbered-list" start="5"><li>Coodinación con Ingeniería para casos que correspondan.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8095-86dd-c39c6d7d2a13" class="numbered-list" start="6"><li>Reuniones con ingeniería para actualización de información.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8050-bbc9-c368cf881382" class="numbered-list" start="7"><li>Mejora continua y calidad (ideal)</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80fb-92b2-f6fd6edd2049" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="24239073-1e23-809d-9e40-e4d6c07e1f97" class="numbered-list" start="5"><li>Lorena Moreno<div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-806f-9b2c-e87d19f90851" class="numbered-list" start="1"><li>Validación formularios incidencias Slack (SAC).</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-801c-88c9-c98550879474" class="numbered-list" start="2"><li>Validación casos levantados SF.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8071-94fb-fe826885df44" class="numbered-list" start="3"><li>Comunicación y coordinación con Partners de facturación.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-80be-8f40-ee5f80dfeec6" class="numbered-list" start="4"><li>Capacitaciones DTE.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-80a8-b272-c157045c1777" class="numbered-list" start="5"><li>Coordinación con ingeniería para casos correspondientes</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-805e-942a-e3e46af46faf" class="numbered-list" start="6"><li>Reuniones con Ingeniería para actualización de información.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-807d-8c44-c5704ac1d127" class="numbered-list" start="7"><li>Capacitación equipo OB relacionado a activaciones DTE.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8098-b2c0-d1340c784ee3" class="numbered-list" start="8"><li>Mejora continua y calidad (ideal)</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><p id="24239073-1e23-800c-a8e4-f1e94d952402" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="24239073-1e23-801a-986d-e2433d8d84fa" class="numbered-list" start="6"><li>Doymar Raga (en formación)<div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-805c-8da0-cd1596042d70" class="numbered-list" start="1"><li>Validación formularios incidencias Slack (SAC).</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8071-8f94-d89684f0efb1" class="numbered-list" start="2"><li>Validación casos levantados SF.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-80b6-8c35-c00581e45785" class="numbered-list" start="3"><li>Comunicación y coordinación con Partners de facturación.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8036-8b8d-f091082d1cb2" class="numbered-list" start="4"><li>Capacitaciones DTE.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8033-92eb-d77cc1c1fbfc" class="numbered-list" start="5"><li>Coordinación con ingeniería para casos correspondientes</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-808c-abab-e41d26142140" class="numbered-list" start="6"><li>Reuniones con Ingeniería para actualización de información.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8066-bf5d-fbfdc9d9a26c" class="numbered-list" start="7"><li>Mejora continua y calidad (ideal)</li></ol></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8044-b617-c40964e5dbd8" class="">
+</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="24239073-1e23-80b7-b94e-c69b1a547cac" class="numbered-list" start="7"><li>Sergio Muñoz<div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8049-929b-d83aa630e4b9" class="numbered-list" start="1"><li>Validación formularios incidencias Slack (SAC).</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-80c9-abaf-caf88bec2db8" class="numbered-list" start="2"><li>Validación casos levantados SF.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8066-84f4-e85711cb4c09" class="numbered-list" start="3"><li>Reunión clientes Críticos por stock control regional.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8009-b973-c2befbca0431" class="numbered-list" start="4"><li>Gestión ETL.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8036-a1a0-d48713956d98" class="numbered-list" start="5"><li>Coordinación con ingeniería para casos correspondientes</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8045-8030-c4b01f1fb860" class="numbered-list" start="6"><li>Reuniones con Ingeniería para actualización de información.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-808a-8479-ea3caa617c37" class="numbered-list" start="7"><li>Implementaciones presenciales. Chile</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="24239073-1e23-8006-ab72-f7013bd7c708" class="numbered-list" start="8"><li>Mejora continua y calidad (ideal)</li></ol></div><div style="display:contents" dir="auto"><p id="24239073-1e23-807c-8ca2-cef2ec3770ec" class="">
+</p></div></li></ol></div><div style="display:contents" dir="auto"><p id="24239073-1e23-805b-854e-d84a31377bf5" class=""><strong>Recopilación de información:</strong></p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80b8-904a-f7678859b2ed" class=""><strong>Implementaciones</strong>:</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-803d-afca-ec3d40e651cf" class="">Instalaciones 2023: <a href="https://docs.google.com/spreadsheets/d/1m_l9e2kFRHftQzuUTN1hejZFKWsGELtYGY1SuhJmXlA/edit?gid=1909224096#gid=1909224096">https://docs.google.com/spreadsheets/d/1m_l9e2kFRHftQzuUTN1hejZFKWsGELtYGY1SuhJmXlA/edit?gid=1909224096#gid=1909224096</a></p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-801d-bb3a-f6281601563d" class="">Instalaciones 2024: <a href="https://docs.google.com/spreadsheets/d/1Caciqs3rqupj0Lb67FcZuHvRgx4ed0MmQRYS3MAIJiM/edit?resourcekey=&amp;gid=252143881#gid=252143881">https://docs.google.com/spreadsheets/d/1Caciqs3rqupj0Lb67FcZuHvRgx4ed0MmQRYS3MAIJiM/edit?resourcekey=&amp;gid=252143881#gid=252143881</a></p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8005-a4b8-d035dc5baf82" class="">Instalaciones 2025: <a href="https://docs.google.com/spreadsheets/d/17ZPRr25aLewTZVs_dYZgl0Q2LAL1OcQwPY01t9S3Tdc/edit?gid=18144330#gid=18144330">https://docs.google.com/spreadsheets/d/17ZPRr25aLewTZVs_dYZgl0Q2LAL1OcQwPY01t9S3Tdc/edit?gid=18144330#gid=18144330</a></p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8084-b75f-fcf0dbbd15c4" class="">
+</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80c7-a1c6-da40b4dde55e" class=""><strong>Formularios: <br/></strong>Stock Control: <a href="https://docs.google.com/spreadsheets/d/1StKUQp5NUeBbHohoE-xXKkB9Vm0lTL2-1Se-pE8Dkak/edit?pli=1&amp;gid=1586680709#gid=1586680709">https://docs.google.com/spreadsheets/d/1StKUQp5NUeBbHohoE-xXKkB9Vm0lTL2-1Se-pE8Dkak/edit?pli=1&amp;gid=1586680709#gid=1586680709</a></p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8097-80b6-e8e94512aa86" class="">Integraciones: <a href="https://docs.google.com/spreadsheets/d/1ZR-m77bn5Cxq9oWDzU1lsOn0G8cIXskc38vPkhbyKcg/edit?resourcekey=&amp;gid=1599518983#gid=1599518983">https://docs.google.com/spreadsheets/d/1ZR-m77bn5Cxq9oWDzU1lsOn0G8cIXskc38vPkhbyKcg/edit?resourcekey=&amp;gid=1599518983#gid=1599518983</a></p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80da-b4f5-d7f960685743" class="">DTE: <a href="https://toteat-espacio.slack.com/archives/C040VVASSHY">https://toteat-espacio.slack.com/archives/C040VVASSHY</a></p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-809a-a3ec-d8c0ddc35411" class="">
+</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8091-a48b-e886b8fbb36b" class=""><strong>Panel SF:</strong></p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8010-a996-e6b5cc7ff52c" class=""><a href="https://toteat.lightning.force.com/lightning/r/Dashboard/01ZQr000002HXknMAG/view">https://toteat.lightning.force.com/lightning/r/Dashboard/01ZQr000002HXknMAG/view</a></p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-805d-a9e5-e9d314efefd6" class="">
+</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8033-8cca-f573fd0cd5c8" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="24239073-1e23-804d-9c69-f75fcfba5ca9" class="">2. Organigrama propuesto</h3></div><div style="display:contents" dir="auto"><p id="24239073-1e23-800a-9db9-cc88eae6c9fa" class=""><strong>Team Leader - Customer Service TECH</strong><br/>│<br/>├── <strong>Implementaciones</strong><br/>│       └── Israel Bermejo (Por confirmar)</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8083-a052-c2fa1b266a7a" class="">│       └── Agente 2</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-805a-93b6-cda4d97b8a08" class="">│       └── Agente 3<br/>│<br/>└── <strong>Soporte IV</strong><br/>├── Jeremy Araujo (Integral) 2do Líder? <br/>├── Andrea Ruiz (Integral)<br/>├── Nicolás Álvarez (Integral)<br/>├── Lorena Moreno (Integral)<br/>├── Doymar Raga (Integral)</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80b7-ab73-e9f915504018" class="">├── Agente Tech México (Integral)<br/>└── Sergio Muñoz (integral) 2do Lider?</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80c1-a1cc-f374254aa6e0" class="">
+</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8082-9a4f-f251883336f3" class="">Implementaciones: </p></div><div style="display:contents" dir="auto"><ol type="1" id="24239073-1e23-8031-9a58-eb9b2d1b53fb" class="numbered-list" start="1"><li>Revisión Remotes.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="24239073-1e23-80e7-8f2e-c654ddbe122d" class="numbered-list" start="2"><li>Ejecución implementaciones según calendario.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="24239073-1e23-80b5-a0ac-d534bb7e7dcb" class="numbered-list" start="3"><li>Revisión Slack implementaciones.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="24239073-1e23-8021-ad0e-e4ff76a26c9f" class="numbered-list" start="4"><li>Carga formulario implementaciones (data).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="24239073-1e23-8010-90ae-ea8f4eb0c379" class="numbered-list" start="5"><li>Implementaciones presenciales.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="24239073-1e23-80a2-810c-dd27f0948bcd" class="numbered-list" start="6"><li>Aprobación factibilidades técnicas.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="24239073-1e23-800a-a603-c66c0c475866" class="numbered-list" start="7"><li>Implementaciones +3 impresoras derivadas chat sin agenda.</li></ol></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8000-9f6b-c17425a1dca7" class="">
+</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8028-be6d-ec44e3b46583" class="">Horarios</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80da-b798-c93c964b7896" class="">Agente 1 Chile:  horario 08:00 - 17:00  Hora Chile</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8011-a14f-e7b4ff498d24" class="">Agente 2 Colombia:  08:00 - 17:00   Hora Colombia</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8057-8a01-f3e6b3069ad9" class="">Agente 3 México: 10:00 - 19:00 Hora México</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8091-aeee-e7a1c915d5d3" class="">
+</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8058-8399-c5a289401230" class="">Rango cubierto 08:00 a 21:00 Chile (22:00 en verano)</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-807b-bf3a-eecf55cabbbb" class="">Agentes regidos bajo 6 puntos anteriores, reparto equitativo para implementaciones con/sin agenda, Visitas presenciales coordinadas 24 horas previas dentro de rango geográfico definido. </p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8007-bc0a-f2d18d5f5e93" class="">Búsqueda de partners de estructura y hardware. Aprobación TL.</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80d7-bdf1-e4a0ec75d840" class="">Mantención Showroom Local.</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8008-9724-c5d2ee4dcf78" class="">
+</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80df-9e70-eae4f2b2064e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8051-b190-c74baa1edf77" class="">Soporte IV:</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8042-8de3-ec612c3b1dab" class="">
+</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-8071-9c29-fc2414105401" class="">Todos los puntos mencionados anteriormente. Ingresos únicos por SF para soporte, cola única de casos derivados a quien tenga menos chats o menos prioritarios (según configuración)</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80ea-8ac5-dce831574528" class="">Realizar capacitaciones proactivas.</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80a9-a86c-e6ad6f94e60f" class="">Establecer reuniones reactivas con KAM.</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80a1-9ef5-d4acb146f403" class="">Reuniones clientes críticos.</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80c5-aea5-eccb096a2859" class="">Revisar calidad servicio.</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80bb-82d8-cf34a5739022" class="">Inclusión Payments al soporte IV.</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-80d5-b4db-da66aa1ab352" class="">
+</p></div><div style="display:contents" dir="auto"><p id="24239073-1e23-805b-8df3-e3deafd81785" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

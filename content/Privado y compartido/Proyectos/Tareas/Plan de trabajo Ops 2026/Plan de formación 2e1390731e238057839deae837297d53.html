@@ -1,0 +1,747 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Plan de formación</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2e139073-1e23-8057-839d-eae837297d53" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📝</span></div><h1 class="page-title" dir="auto">Plan de formación</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2e139073-1e23-807b-94a2-ca5506b2f938" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-807a-ac31-ca0b97f9f2b3" class="">1. Planes de formación</h2></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-8070-9b0f-cec407d91200" class="">1.1 Estructura General </h3></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-809f-afe5-c0bacb17c0c2" class="">Principios base</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8039-ae01-ca2da7cbd894" class="bulleted-list"><li style="list-style-type:disc"><strong>Una arquitectura común</strong>, múltiples recorridos</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-806e-b95c-d7f1a843f4d4" class="bulleted-list"><li style="list-style-type:disc">Formación definida por:<div style="display:contents" dir="auto"><ul id="2e139073-1e23-80ef-98b0-f32fbe1df284" class="bulleted-list"><li style="list-style-type:circle">Rol</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80f5-837d-dc78ed2a023f" class="bulleted-list"><li style="list-style-type:circle">Seniority (Junior / Senior)</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80f3-a9a0-cb0b6a05e3e0" class="bulleted-list"><li style="list-style-type:circle">Momento (Ingreso / Continuo)</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80ae-b874-e04eb2a78e47" class="bulleted-list"><li style="list-style-type:disc">Fundamentos transversales obligatorios:<div style="display:contents" dir="auto"><ul id="2e139073-1e23-8081-901b-f18e218f084d" class="bulleted-list"><li style="list-style-type:circle">Cultura Toteat</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80cf-a1aa-fb1eaae865a4" class="bulleted-list"><li style="list-style-type:circle">Journey del cliente</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80cd-84c0-d4f6b6b98902" class="bulleted-list"><li style="list-style-type:circle">Ecosistema de producto</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80e5-92e5-e06b54906dbf" class="bulleted-list"><li style="list-style-type:circle">Cultura operacional y escalamiento</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-80fa-b0fe-e642dc00939c" class="">1.2 Nuevos Ingresos – Bootcamp Operaciones</h3></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-8050-9f55-c7a5291199c4" class="">Estructura</h3></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-807a-8293-e9022a3d8e45" class=""><strong>Bootcamp de 4 semanas (1 mes)</strong></p></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-809d-b6e5-d8087e2a9e49" class=""><strong>Semana 1 – Fundamentos comunes</strong></p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8079-aaea-e810c3aa092c" class="bulleted-list"><li style="list-style-type:disc">Cultura y estructura Toteat</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8061-bf63-c09d86aad76d" class="bulleted-list"><li style="list-style-type:disc">Productos y módulos</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8045-a30d-effb59477816" class="bulleted-list"><li style="list-style-type:disc">Journey del cliente</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8081-b542-e68741ba1384" class="bulleted-list"><li style="list-style-type:disc">Herramientas internas</li></ul></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-8052-9818-dceebe948a7c" class=""><strong>Semana 2 – Rol específico</strong></p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8078-ac4a-e265359d9391" class="bulleted-list"><li style="list-style-type:disc">Flujos operativos por rol</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80d9-93e6-f06cb3bd88ca" class="bulleted-list"><li style="list-style-type:disc">Casos frecuentes</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8037-9599-c824365fe703" class="bulleted-list"><li style="list-style-type:disc">Procesos estándar</li></ul></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80ac-8f71-f5a5d9d36466" class=""><strong>Semana 3 – Simulación</strong></p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80bc-b52c-dbe6bc3b5cff" class="bulleted-list"><li style="list-style-type:disc">Casos reales simulados</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80d1-ab25-e58ef8a593a4" class="bulleted-list"><li style="list-style-type:disc">Roleplays</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80fd-b5be-ced83ee99964" class="bulleted-list"><li style="list-style-type:disc">Ejercicios prácticos</li></ul></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-807b-9090-d8665a1ca2af" class=""><strong>Semana 4 – Cierre</strong></p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80e0-b075-c9b2285f0aba" class="bulleted-list"><li style="list-style-type:disc">Caso práctico final<div style="display:contents" dir="auto"><ul id="2e139073-1e23-806a-8a43-e1027343dc25" class="bulleted-list"><li style="list-style-type:circle">Ej: habilitación de local / atención completa simulada</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-803e-9170-c330d6ac0dd7" class="bulleted-list"><li style="list-style-type:disc">Evaluación teórica + práctica</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8024-9877-ccbc45a24763" class="bulleted-list"><li style="list-style-type:disc">Certificación inicial</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80a1-aac8-fecc7a458ca1" class="bulleted-list"><li style="list-style-type:disc">Asignación de mentor</li></ul></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80b5-bb53-fcef33cbf9a7" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2e139073-1e23-80f4-abdc-e4ee6945e367" class="">2. Medición de efectividad</h2></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-8080-962e-f34317422f5c" class="">2.1 Metas diferenciadas por rol</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8077-aa2b-da3ea5d79453" class="bulleted-list"><li style="list-style-type:disc">Objetivos de formación:<div style="display:contents" dir="auto"><ul id="2e139073-1e23-809e-978f-f76467b36c95" class="bulleted-list"><li style="list-style-type:circle">Semanales <em>(Definir)</em></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80c0-a310-ea213ca46073" class="bulleted-list"><li style="list-style-type:circle">Mensuales <em>(Definir)</em></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-800d-bddf-c62f6571006e" class="bulleted-list"><li style="list-style-type:disc">Ajustadas por:<div style="display:contents" dir="auto"><ul id="2e139073-1e23-80ff-808d-ff24b8ce1123" class="bulleted-list"><li style="list-style-type:circle">Rol <em>(Definir)</em></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8098-b082-e8007b9d6b1b" class="bulleted-list"><li style="list-style-type:circle">Seniority <em>(Definir)</em></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-80cd-b96c-edb06718b52e" class="">2.2 Sistema de niveles y aprobación</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80c6-b4b7-fc2fe3707210" class="bulleted-list"><li style="list-style-type:disc">Certificaciones internas por nivel</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8084-a04b-fa55eba3662d" class="bulleted-list"><li style="list-style-type:disc">Incentivos: Insignias / medallas</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8080-91a4-c4639a09bf78" class="bulleted-list"><li style="list-style-type:disc">El nivel habilita:<div style="display:contents" dir="auto"><ul id="2e139073-1e23-802d-a314-ebf89165a506" class="bulleted-list"><li style="list-style-type:circle">Nuevos módulos</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8052-a52a-ef2797c8bedf" class="bulleted-list"><li style="list-style-type:circle">Mayor autonomía</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80db-a8f9-df85b6fcf008" class="bulleted-list"><li style="list-style-type:circle">Nuevas responsabilidades</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-8037-91e2-f4f69284d329" class="">2.3 Evaluaciones</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80de-95b7-c8253cb72577" class="bulleted-list"><li style="list-style-type:disc">Tests teóricos online</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80c7-adcf-e2588afc35c1" class="bulleted-list"><li style="list-style-type:disc">Evaluaciones prácticas</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8028-bd2e-c9f36c9ad557" class="bulleted-list"><li style="list-style-type:disc">Registro histórico de: <em>(Definir Modelo evaluaciones)</em><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80b0-a6b5-e867ab49ef4b" class="bulleted-list"><li style="list-style-type:circle">Puntajes</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8015-a9fb-c6eb07f4b5cd" class="bulleted-list"><li style="list-style-type:circle">Avance</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80e0-b83e-e3079565fd60" class="bulleted-list"><li style="list-style-type:circle">Revalidaciones</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-80ef-bfe7-c6f78e6d72e3" class="">2.4 Caso final</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-802c-ace9-f2b803c1de22" class="bulleted-list"><li style="list-style-type:disc">Defensa de un caso frente a:<div style="display:contents" dir="auto"><ul id="2e139073-1e23-8006-8a98-f28e157bd203" class="bulleted-list"><li style="list-style-type:circle">Formadores</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8019-b8e3-c9d60bf2e8a6" class="bulleted-list"><li style="list-style-type:circle">Líderes</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8009-ab34-f82f02fff50e" class="bulleted-list"><li style="list-style-type:disc">Objetivo:<div style="display:contents" dir="auto"><ul id="2e139073-1e23-80e2-a74f-d8a5df8eca9f" class="bulleted-list"><li style="list-style-type:circle">Validación técnica</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80c5-baa2-e325b65df2e1" class="bulleted-list"><li style="list-style-type:circle">Reconocimiento público</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80b5-a46c-e987a0ec8450" class="bulleted-list"><li style="list-style-type:circle">Cierre de ciclo de aprendizaje</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-80bc-8d1b-fd96c5b383c6" class="">2.5 Herramientas de medición</h3></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80c5-82b3-f98e5d78ed85" class=""><strong>A definir / proponer</strong></p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80c4-937a-d2ea80153355" class="bulleted-list"><li style="list-style-type:disc">LMS / Notion</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-805f-b0ed-fe9a8bdca36b" class="bulleted-list"><li style="list-style-type:disc">Formularios</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80ec-9fc5-e55f7c9a9525" class="bulleted-list"><li style="list-style-type:disc">Dashboards</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-804b-a7e5-dbf5fc48074a" class="bulleted-list"><li style="list-style-type:disc">Vinculación con KPIs operativos</li></ul></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-800e-923f-ff6567772606" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-8064-8c76-e53d93c29894" class="">3. Programa “Toteaters Formadores”</h3></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-80a7-ab96-cd789e3b3a2e" class=""><strong>Lineamientos</strong></p></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8051-8cc6-df5bbebab9b7" class="bulleted-list"><li style="list-style-type:disc">Referentes técnicos o líderes dictan:<div style="display:contents" dir="auto"><ul id="2e139073-1e23-8036-bd76-f9e988395483" class="bulleted-list"><li style="list-style-type:circle">Microcapacitaciones</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8044-9bd8-f1bd5de7a08f" class="bulleted-list"><li style="list-style-type:circle">Roleplays</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80ac-9f16-f58b2f740592" class="bulleted-list"><li style="list-style-type:circle">Casos reales</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8096-af25-e764369c3de6" class="bulleted-list"><li style="list-style-type:disc">Modalidad:<div style="display:contents" dir="auto"><ul id="2e139073-1e23-8035-bfc8-c7cafa4f20ab" class="bulleted-list"><li style="list-style-type:circle">Live</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-806a-9e0c-ca205bb9337e" class="bulleted-list"><li style="list-style-type:circle">Grabado</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80a0-971d-eabbb2ba1e9d" class="bulleted-list"><li style="list-style-type:disc">Reconocimiento:<div style="display:contents" dir="auto"><ul id="2e139073-1e23-8046-822e-c99b2ccbed66" class="bulleted-list"><li style="list-style-type:circle">Distintivo interno</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80b1-b082-ef0581a7d6f7" class="bulleted-list"><li style="list-style-type:circle">Visibilidad</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-80dd-9bb8-eeb702ff0252" class="bulleted-list"><li style="list-style-type:circle">Beneficio simbólico</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="2e139073-1e23-8055-8f28-fbae793e5841" class="">4. Formación continua</h3></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8037-b6fb-c0d3f6d2d510" class="bulleted-list"><li style="list-style-type:disc">Generación de contenido</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-8044-b373-c30f2d96ac7c" class="bulleted-list"><li style="list-style-type:disc">Actualización de contenido</li></ul></div><div style="display:contents" dir="auto"><ul id="2e139073-1e23-808d-9a9b-ee4308236e45" class="bulleted-list"><li style="list-style-type:disc">Elaborar guías de ayuda y evaluaciones</li></ul></div><div style="display:contents" dir="auto"><p id="2e139073-1e23-8010-a7c9-d5cb7ff985e3" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
