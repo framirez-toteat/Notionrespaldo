@@ -202,6 +202,22 @@
   /* Search results highlight */
   .page-link mark { background: #ffd700; color: #000; border-radius: 2px; }
 
+  /* Section cards */
+  .section-card {
+    display: flex; align-items: center; gap: 12px;
+    margin: 6px 10px; padding: 12px 14px;
+    border-radius: 8px; border: 1px solid #2a2a2a;
+    background: #222; cursor: pointer;
+    text-decoration: none; color: #e8ddd0;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .section-card:hover { background: #2a2a2a; border-color: #e8411c; }
+  .section-card.active { background: #2a2a2a; border-color: #e8411c; }
+  .section-icon { font-size: 22px; flex-shrink: 0; }
+  .section-info { display: flex; flex-direction: column; gap: 2px; overflow: hidden; }
+  .section-title { font-size: 14px; font-weight: 600; color: #e8ddd0; }
+  .section-desc { font-size: 11px; color: #8a8078; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
   #no-results {
     padding: 20px 16px; color: var(--folder-color); font-size: 13px; text-align: center;
     display: none;
@@ -318,14 +334,23 @@ function buildTree(list, searchMode = false) {
   document.getElementById('no-results').style.display = 'none';
 
   if (!searchMode) {
-    // Vista plana: solo las páginas índice sin árbol de carpetas
+    const sectionIcons = {
+      'Procesos':  { icon: '⚙️',  desc: 'Flujos y documentación técnica' },
+      'Proyectos': { icon: '📊',  desc: 'Planificación y seguimiento' },
+      'Tareas':    { icon: '✅',  desc: 'Gestión de tareas del equipo' },
+    };
     toShow.forEach(page => {
+      const meta = sectionIcons[page.title] || { icon: '📄', desc: '' };
       const link = document.createElement('a');
-      link.className = 'page-link';
-      link.style.paddingLeft = '16px';
+      link.className = 'section-card';
       link.setAttribute('data-path', page.path);
       link.setAttribute('href', '#');
-      link.innerHTML = `<span class="page-icon">📄</span><span>${page.title}</span>`;
+      link.innerHTML = `
+        <span class="section-icon">${meta.icon}</span>
+        <span class="section-info">
+          <span class="section-title">${page.title}</span>
+          ${meta.desc ? `<span class="section-desc">${meta.desc}</span>` : ''}
+        </span>`;
       link.onclick = (e) => { e.preventDefault(); loadPage(page.path, page.title, page.folder); };
       if (page.path === currentPath) link.classList.add('active');
       nav.insertBefore(link, document.getElementById('no-results'));
