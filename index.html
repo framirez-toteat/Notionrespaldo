@@ -15,7 +15,7 @@
     display: flex; align-items: center; justify-content: center;
   }
   #login-box {
-    background: #2a2a3e; border-radius: 12px;
+    background: #2a2a2a; border-radius: 12px;
     padding: 40px 36px; width: 320px;
     display: flex; flex-direction: column; gap: 16px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.4);
@@ -24,16 +24,16 @@
   #login-box p  { color: #9b9b9b; font-size: 13px; text-align: center; margin-top: -8px; }
   #login-input {
     padding: 10px 14px; border-radius: 7px;
-    border: 1px solid #3a3a52; background: #1e1e2e;
-    color: #fff; font-size: 14px; outline: none;
+    border: 1px solid #3a3a3a; background: #1a1a1a;
+    color: #e8ddd0; font-size: 14px; outline: none;
   }
-  #login-input:focus { border-color: #7c6af7; }
+  #login-input:focus { border-color: #e8411c; }
   #login-btn {
     padding: 10px; border-radius: 7px; border: none;
-    background: #7c6af7; color: #fff; font-size: 14px;
+    background: #e8411c; color: #fff; font-size: 14px;
     font-weight: 600; cursor: pointer;
   }
-  #login-btn:hover { background: #6a59e0; }
+  #login-btn:hover { background: #c73518; }
   #login-error {
     color: #ff6b6b; font-size: 12px; text-align: center;
     display: none;
@@ -41,14 +41,14 @@
 
   :root {
     --sidebar-w: 300px;
-    --bg: #f7f7f5;
-    --sidebar-bg: #1e1e2e;
-    --sidebar-hover: #2a2a3e;
-    --sidebar-active: #3b3b55;
-    --accent: #7c6af7;
+    --bg: #f7f6f4;
+    --sidebar-bg: #1a1a1a;
+    --sidebar-hover: #2a2a2a;
+    --sidebar-active: #333333;
+    --accent: #e8411c;
     --text: #37352f;
     --text-light: #9b9b9b;
-    --folder-color: #a8a8c0;
+    --folder-color: #e8ddd0;
     --border: #e0e0e0;
   }
 
@@ -91,10 +91,10 @@
   #search-wrap { padding: 10px 12px; }
   #search {
     width: 100%; padding: 7px 10px;
-    background: #2a2a3e; border: 1px solid #3a3a52; border-radius: 6px;
-    color: #fff; font-size: 13px; outline: none;
+    background: #2a2a2a; border: 1px solid #3a3a3a; border-radius: 6px;
+    color: #e8ddd0; font-size: 13px; outline: none;
   }
-  #search::placeholder { color: var(--folder-color); }
+  #search::placeholder { color: #8a8078; }
   #search:focus { border-color: var(--accent); }
 
   #nav { flex: 1; overflow-y: auto; overflow-x: hidden; padding-bottom: 20px; }
@@ -183,8 +183,8 @@
     font-size: 11px; padding: 3px 8px; border-radius: 10px;
     font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
   }
-  #role-badge.admin  { background: #ede9ff; color: #7c6af7; }
-  #role-badge.general { background: #e8f5e9; color: #2e7d32; }
+  #role-badge.admin  { background: #e8411c; color: #fff; }
+  #role-badge.general { background: #e8ddd0; color: #1a1a1a; }
 
   #content-frame {
     flex: 1; border: none; background: #fff;
