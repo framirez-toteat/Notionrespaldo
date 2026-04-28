@@ -165,6 +165,13 @@
   }
   #open-btn:hover { border-color: var(--accent); color: var(--accent); }
 
+  #back-btn {
+    font-size: 12px; padding: 5px 12px;
+    background: none; border: 1px solid var(--border); border-radius: 5px;
+    cursor: pointer; color: var(--text-light); white-space: nowrap;
+  }
+  #back-btn:hover { border-color: var(--accent); color: var(--accent); }
+
   #logout-btn {
     font-size: 12px; padding: 5px 12px;
     background: none; border: 1px solid var(--border); border-radius: 5px;
@@ -229,6 +236,7 @@
   <main id="main">
     <div id="topbar">
       <div id="breadcrumb">Selecciona una página</div>
+      <button id="back-btn" style="display:none" onclick="goBack()">← Volver</button>
       <button id="open-btn" style="display:none" onclick="openInNewTab()">Abrir en nueva pestaña ↗</button>
       <span id="role-badge"></span>
       <button id="logout-btn" onclick="logout()" title="Cerrar sesión">🔒 Salir</button>
@@ -459,6 +467,7 @@ function loadPage(path, title, folder) {
   bc.innerHTML = parts.map(p => `${p}`).join(' / ') + (parts.length ? ' / ' : '') + `<span>${title}</span>`;
 
   document.getElementById('open-btn').style.display = 'inline-block';
+  document.getElementById('back-btn').style.display = 'inline-block';
 
   // Update active link
   document.querySelectorAll('.page-link').forEach(l => {
@@ -472,6 +481,11 @@ function loadPage(path, title, folder) {
 
 function openInNewTab() {
   if (currentPath) window.open(currentPath, '_blank');
+}
+
+function goBack() {
+  const frame = document.getElementById('content-frame');
+  try { frame.contentWindow.history.back(); } catch(e) {}
 }
 
 function logout() {
