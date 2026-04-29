@@ -311,7 +311,7 @@ function init() {
   const all = window.PAGES || [];
   pages = accessLevel === 2
     ? all
-    : all.filter(p => !p.folder.includes('Proyectos') && !p.path.includes('Proyectos'));
+    : all.filter(p => !p.folder.includes('Proyectos') && !p.path.includes('Proyectos') && !p.path.includes('Lideres SAC'));
   document.getElementById('page-count').textContent = `${pages.length} páginas disponibles`;
   buildTree(pages);
   const badge = document.getElementById('role-badge');
