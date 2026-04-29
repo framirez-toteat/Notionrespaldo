@@ -1,0 +1,744 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Procesos de Feedback</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2cc39073-1e23-8073-9417-fe98ec6966c4" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🎯</span></div><h1 class="page-title" dir="auto">Procesos de Feedback</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="17c39073-1e23-80aa-830d-c4023a2e1546" class="link-to-page"><a href="Procesos%20de%20Feedback/Bitacora%20de%20Calidad%202025%2017c390731e2380aa830dc4023a2e1546.html"><span class="icon">✅</span>Bitacora de Calidad 2025</a></figure></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-806b-8cdb-e543aa577802" class="">
+</p></div><div style="display:contents" dir="ltr"><div id="2cc39073-1e23-802f-8bcb-c5be239561b8" class="collection-content"><h4 class="collection-title">Registro de feedback por persona</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Entrada</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Nombre</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Rol</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado Feedback</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha próximo feedback</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>Bitacora de Calidad 2025</th></tr></thead><tbody><tr id="2cc39073-1e23-808e-8853-cfc055baf3a8"><td class="cell-title"><a href="Procesos%20de%20Feedback/Registro%20de%20feedback%20por%20persona/Registro%20de%20feedback%20%5BModelo%5D%202cc390731e23808e8853cfc055baf3a8.html">Registro de feedback [Modelo]</a></td><td class="cell-uhoI"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Gonzalo Soffia</span></td><td class="cell-J\C?"><span class="selected-value select-value-color-default">Coordinador</span></td><td class="cell-b]_e"><span class="selected-value select-value-color-brown">Entregado</span></td><td class="cell-_mHx"><time>18 de marzo de 2026</time></td><td class="cell-`R?y"></td></tr><tr id="2cc39073-1e23-80f9-8754-ec3456aca8ab"><td class="cell-title"><a href="Procesos%20de%20Feedback/Registro%20de%20feedback%20por%20persona/Registro%20de%20feedback%202cc390731e2380f98754ec3456aca8ab.html">Registro de feedback</a></td><td class="cell-uhoI"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-J\C?"><span class="selected-value select-value-color-gray">Agente Assistant</span></td><td class="cell-b]_e"><span class="selected-value select-value-color-brown">Entregado</span></td><td class="cell-_mHx"><time>6 de abril de 2026</time></td><td class="cell-`R?y"></td></tr><tr id="2cc39073-1e23-80ea-9d56-c0915c5905cf"><td class="cell-title"><a href="Procesos%20de%20Feedback/Registro%20de%20feedback%20por%20persona/Registro%20de%20feedback%202cc390731e2380ea9d56c0915c5905cf.html">Registro de feedback</a></td><td class="cell-uhoI"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jhonatan Valenzuela</span></td><td class="cell-J\C?"><span class="selected-value select-value-color-gray">Agente Assistant</span></td><td class="cell-b]_e"><span class="selected-value select-value-color-brown">Entregado</span></td><td class="cell-_mHx"><time>23 de diciembre de 2025</time></td><td class="cell-`R?y"></td></tr><tr id="2cc39073-1e23-8079-a279-e02e1da3d2d3"><td class="cell-title"><a href="Procesos%20de%20Feedback/Registro%20de%20feedback%20por%20persona/Registro%20de%20feedback%202cc390731e238079a279e02e1da3d2d3.html">Registro de feedback</a></td><td class="cell-uhoI"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Camila Velásquez</span></td><td class="cell-J\C?"><span class="selected-value select-value-color-gray">Agente Assistant</span></td><td class="cell-b]_e"><span class="selected-value select-value-color-brown">Entregado</span></td><td class="cell-_mHx"><time>8 de enero de 2026</time></td><td class="cell-`R?y"></td></tr><tr id="2cc39073-1e23-80ec-aefa-fff0e3343da0"><td class="cell-title"><a href="Procesos%20de%20Feedback/Registro%20de%20feedback%20por%20persona/Registro%20de%20feedback%202cc390731e2380ecaefafff0e3343da0.html">Registro de feedback</a></td><td class="cell-uhoI"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">D</span></span>Daniela Bernal</span></td><td class="cell-J\C?"><span class="selected-value select-value-color-gray">Agente Assistant</span></td><td class="cell-b]_e"><span class="selected-value select-value-color-green">Programado</span></td><td class="cell-_mHx"><time>25 de marzo de 2026</time></td><td class="cell-`R?y"></td></tr><tr id="2cc39073-1e23-8006-85d1-fe9feb51ef78"><td class="cell-title"><a href="Procesos%20de%20Feedback/Registro%20de%20feedback%20por%20persona/Registro%20de%20feedback%202cc390731e23800685d1fe9feb51ef78.html">Registro de feedback</a></td><td class="cell-uhoI"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJCTfELGdvkKOD18v5gWTCXCSCqgWgNi5yzWWdLYftKen2eZA=s100" class="icon user-icon"/>Marisela Carrrasco</span></td><td class="cell-J\C?"><span class="selected-value select-value-color-gray">Agente Assistant</span></td><td class="cell-b]_e"><span class="selected-value select-value-color-brown">Entregado</span></td><td class="cell-_mHx"><time>26 de diciembre de 2025</time></td><td class="cell-`R?y"></td></tr><tr id="2f039073-1e23-80c9-8f45-fad404deaf49"><td class="cell-title"><a href="Procesos%20de%20Feedback/Registro%20de%20feedback%20por%20persona/Registro%20de%20feedback%202f0390731e2380c98f45fad404deaf49.html">Registro de feedback</a></td><td class="cell-uhoI"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-J\C?"><span class="selected-value select-value-color-gray">Agente Assistant</span></td><td class="cell-b]_e"><span class="selected-value select-value-color-brown">Entregado</span></td><td class="cell-_mHx"><time>26 de enero de 2026</time></td><td class="cell-`R?y"></td></tr><tr id="32639073-1e23-80a5-9053-cc0ebb9c8eb8"><td class="cell-title"><a href="Procesos%20de%20Feedback/Registro%20de%20feedback%20por%20persona/Registro%20de%20feedback%20326390731e2380a59053cc0ebb9c8eb8.html">Registro de feedback</a></td><td class="cell-uhoI"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-J\C?"><span class="selected-value select-value-color-blue">Agente Senior</span></td><td class="cell-b]_e"><span class="selected-value select-value-color-brown">Entregado</span></td><td class="cell-_mHx"><time>18 de marzo de 2026</time></td><td class="cell-`R?y"></td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-805c-86a7-e772d45f1345" class="toggle"><li><details open=""><summary>Análisis de Gemini de meses Nov/Dic/Ene</summary><div style="display:contents" dir="auto"><p id="2fc39073-1e23-8020-924a-e1beeca69520" class="">A continuación, presento las <strong>Tarjetas de Desempeño SAC</strong> individuales para todo el equipo, integrando los indicadores históricos y los ejemplos detallados de <strong>Enero 2026</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-803e-9133-ec619787d33e"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-805a-bed3-fab22072f52d" class="">👤 Johana Vasquez (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-8051-b5ea-ee3ad0476ab5" class=""><strong>Evolución CX Score:</strong> Nov: 75.6% | Dic: 70.4% | Ene: 74.6%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8015-bf6b-da49c8239e45" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Asistencia Técnica Resolutiva):</strong> Muestra una excelente capacidad para resolver incidencias complejas mediante asistencia remota, logrando resoluciones definitivas que los clientes valoran positivamente por su agilidad y la claridad en las instrucciones.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-808b-9c83-fccb20412449" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472678526398</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80d7-816d-c5bf11d84701" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472678489591</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8074-851c-f17b3a244f00" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Gestión de Interacciones):</strong> Debe mejorar en el seguimiento de las conversaciones y evitar cierres por inactividad sin confirmar la resolución completa, asegurando que el cliente no perciba un alto esfuerzo innecesario.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80c7-9b7f-d3d80396c70c" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472678677690</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80e9-a852-fc29bbc270ed" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472678631302</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-8076-bddb-c6ca349a5bf0"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-8070-8c59-fda4a0667b95" class="">👤 Lorena Ramos (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-806e-9072-f8f51117b7e2" class=""><strong>Evolución CX Score:</strong> Nov: 78.3% | Dic: 72.5% | Ene: 75.7%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-809a-881c-c17d9e5c98c6" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Eficiencia en Soporte Crítico):</strong> Sobresale en la rapidez para solucionar fallas de hardware y cierres de turno, generando un alto índice de gratitud por parte del cliente al restaurar la operatividad de forma inmediata.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80a0-9b73-e853244125a3" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472595408730</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-809c-b8e3-f90ed60ff812" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472595386075</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-809d-a66b-ea5dec001848" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Optimización del Diagnóstico):</strong> Oportunidad en reducir la cantidad de pasos en diagnósticos de inventario, evitando que el usuario perciba un esfuerzo excesivo para obtener un resultado que a veces se reporta como parcial.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8066-b855-deb0a19cecac" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472595360002</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8078-80eb-f8278a1fa1b5" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472595247112</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-802a-a6bf-d7b2db1397fc"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-804e-a3c9-c45ec09e4568" class="">👤 Mariel García (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-806b-9e4f-e01fa0f97727" class=""><strong>Evolución CX Score:</strong> Nov: 81.0% | Dic: 75.1% | Ene: 75.4%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80ba-b29a-dbf6fae10de8" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Empatía en Crisis Operativa):</strong> Excelente manejo de la frustración del cliente ante bloqueos críticos, manteniendo un tono amable y profesional que logra revertir experiencias negativas iniciales en cierres totalmente satisfactorios.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8042-a6f2-faab85292193" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472577942922</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-805a-93c4-f784da642522" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472577468083</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80ef-8220-cd99136e2b21" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Claridad en Reportes Financieros):</strong> Se recomienda mayor profundidad al explicar discrepancias en ventas o cierres de caja, evitando que el cliente deba re-contactar o repetir sus dudas por falta de una explicación integral.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80d2-9e2a-dee348f681a4" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472578107544</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8038-8f9e-c911aa5f862c" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472577645365</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-80dc-87c7-fbc1f33e69b7"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-8033-8cae-e9c3152c41c0" class="">👤 Brandon Villamil (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-80c2-bb39-fc18ba73c6c0" class=""><strong>Evolución CX Score:</strong> Nov: 85.6% | Dic: 76.4% | Ene: 73.1%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80c2-8edc-dfaf1d035364" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Precisión Administrativa):</strong> Muy eficaz resolviendo dudas sobre pagos y discrepancias fiscales, entregando respuestas técnicas sólidas que son aceptadas con rapidez, lo que transmite seguridad a los tomadores de decisiones.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8003-ba9c-f2d35ec0e9bc" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472580561703</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80e6-b3a8-e2029d7bd9f7" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472580477498</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-800f-9e6b-c0a419780a43" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Cierre Integral de Hardware):</strong> Debe asegurar que las soluciones de impresión no sean temporales, validando la funcionalidad completa de las comanderas antes de finalizar el ticket para evitar la recurrencia de fallos.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8082-89a3-fa71e4167a55" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472580316764</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-803e-a75e-fd14e8ad4fcd" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472580068310</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-809d-a545-e62d9b29bfc2"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-80c4-b22a-db1cd2e4aa61" class="">👤 Felipe Rincon (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-804d-9431-d7a2f61f5bef" class=""><strong>Evolución CX Score:</strong> Nov: 74.8% | Dic: 70.7% | Ene: 72.8%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-803f-86a8-dd6388908ea3" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Personalización de Soporte Remoto):</strong> Hábil en ajustes de configuración avanzados vía acceso remoto, logrando adaptar formatos de visualización y tamaños de letra que mejoran directamente la experiencia operativa diaria.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-809f-9db3-daf716d40383" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472574431841</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80d7-b0ce-d093eeb43e16" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472574150378</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8075-84dd-f8cc4a2da148" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Manejo de Incertidumbre):</strong> Debe mejorar la comunicación cuando existen errores de facturación externa, proporcionando respuestas más definitivas que disminuyan la sensación de incertidumbre y el tiempo de espera percibido.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-803d-9b2c-f558673b8312" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472573710600</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-808f-9d52-cf00a350d124" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472573640988</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-80ed-bc80-c580549adf49"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-80f5-8ff3-e0be06aef40a" class="">👤 Cristian Llanos (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-80d1-942a-c2d12c7cffc6" class=""><strong>Evolución CX Score:</strong> Nov: 77.6% | Dic: 71.0% | Ene: 70.8%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-801f-82a5-c9a5ca706ac0" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Guía Práctica Autogestionable):</strong> Especialista en asistir procesos de carga de documentos y folios, permitiendo que el cliente logre sus objetivos de forma independiente gracias a instrucciones directas y sencillas.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80ab-966e-fec76e1ec6e0" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472578867363</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80ad-82e1-e6c9cd84118b" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472578679975</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8069-8de3-da0731f7c972" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Seguimiento de Periféricos):</strong> Oportunidad en garantizar la resolución total en impresoras de barra, evitando cierres de ticket cuando el problema persiste de forma intermitente o sin confirmación clara.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8059-aca3-c78187302318" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472579239111</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80eb-beba-e87bfd877e19" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472578564539</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-80c3-9663-f8e31a9116da"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-80bb-b05a-e8355b2fe696" class="">👤 Marisela Carrasco (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-80bf-a75b-f0c650fb8529" class=""><strong>Evolución CX Score:</strong> Nov: 100% | Dic: 64.6% | Ene: 67.8%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8036-ad86-c9dc26e2336c" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Asistencia en Servidores):</strong> Destaca su compromiso al conectarse remotamente para corregir fallas en el print server, resolviendo incidencias que otros agentes no lograron mediante una guía técnica asertiva.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8056-a5a9-d6f4d2e248ac" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472577511621</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80ce-af3f-f71f35da5a7a" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472577408058</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80a5-8cdd-e08c4e3b3a37" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Resolución de Inventarios):</strong> Debe evitar depender de servicios externos para problemas de carga masiva, buscando dar una solución o alternativa inmediata dentro de la plataforma Toteat para reducir demoras.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-806e-a0be-ff24ca6be482" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472578092874</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8012-8508-faaf350edb6a" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472577418827</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-80d9-a87b-f62faabca608"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-801c-afbf-dbdc05178722" class="">👤 Daniela Bernal (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-8044-882e-d1ad1be6dc0c" class=""><strong>Evolución CX Score:</strong> Nov: 77.2% | Dic: 59.6% | Ene: 69.8%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-806b-bc98-e08e4e50b25e" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Eficacia en Actualizaciones):</strong> Excelente manejo de reinstalaciones de software y mejoras de visualización, logrando que el sistema opere correctamente en pocos minutos con soluciones claras aceptadas por el usuario.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-804d-8511-dd184f7e8f44" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472578745515</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8004-8c38-f714b607a7ab" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472578629921</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8006-8be6-e9167e55914f" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Optimización de TMO):</strong> Oportunidad en agilizar explicaciones sobre el estado offline de las cajas, asegurando que las interacciones no se extiendan innecesariamente y mantengan el foco en la solución definitiva.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8093-bb74-c26a2c842323" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472579468298</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8049-a95a-d69de8421c3a" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472579336822</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-80e2-9eba-d6c66f1bd40a"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-804a-bf76-f50c6a67f6a1" class="">👤 Jaime Medalla (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-80ae-9129-fb85fc10cb98" class=""><strong>Evolución CX Score:</strong> Nov: 67.7% | Dic: 62.7% | Ene: 68.2%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80fe-9f1d-e4fd770b4f41" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Resolución de Órdenes):</strong> Destaca por su rapidez en la identificación y corrección de errores en mesas y pedidos duplicados, logrando limpiar el sistema de forma eficiente y con confirmación directa del cliente.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-800c-ac40-ef3ef83a2f9c" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472582805310</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80e3-8e2e-d7261d63097d" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472582764552</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-809f-8583-c7d90a6c46cb" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Validación de Desbloqueos):</strong> Debe evitar cerrar interacciones sin confirmar que el cliente pudo aplicar efectivamente el desbloqueo de servicios, reduciendo la incertidumbre en casos administrativos de alta urgencia.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8068-a201-ec1c6f718b50" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472582878272</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8013-94c3-ffd7813b8a7a" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472582730025</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-807a-a346-e50876e5772d"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-8074-bdcf-c1fc71e20593" class="">👤 Nicolas Andres Diaz Ramirez (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-8003-9551-d710d3823625" class=""><strong>Evolución CX Score:</strong> Nov: 76.4% | Dic: 66.2% | Ene: 68.3%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80e4-9c38-c56345d693cd" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Consultas Complejas):</strong> Capacidad superior para explicar conceptos técnicos y fallas en pre-cuentas desde móviles, resultando en una experiencia sólida que satisface las dudas más exigentes de los usuarios administradores.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8043-8968-d316ca046b08" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472573916374</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8009-923c-d3385ee6ca10" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472573657950</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-801c-a4ac-fc0446ed7abc" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Estructura de Escalamiento):</strong> Oportunidad en la creación de casos para el equipo de tecnología; debe asegurar que el cliente comprenda los próximos pasos para evitar la sensación de falta de solución.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80ac-b62c-ccbff10ed240" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472604227328</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8012-93ea-fe96406edb42" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472604151628</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-8040-a17a-c5c6136159e0"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-808c-a85c-d1c8fe084d43" class="">👤 Luis Arias (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-8028-b45d-d3af212bd9c4" class=""><strong>Evolución CX Score:</strong> Nov: 62.8% | Dic: 60.4% | Ene: 65.6%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-800d-a4b3-d0c51bdabafd" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Resolución de Pagos):</strong> Resuelve de manera efectiva problemas técnicos con las funciones de boleteo y errores de caja, brindando soluciones claras que son aceptadas con entusiasmo por clientes con urgencia operativa.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-804a-a2f2-de32f42cecc1" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472577093058</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8074-a718-ca377edf70bf" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472576948313</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80f8-a9a2-f5a242a05df1" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Validación de Pruebas):</strong> Necesita asegurar la confirmación de resolución tras solicitar pruebas al cliente, evitando que el ticket se perciba como incompleto o sin una validación emocional/técnica final exitosa.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80ab-8913-ee931eece150" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472578056273</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80ec-a974-f398eac1851d" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472577216541</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-801a-8a14-fbb6bfbc5dc9"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-8027-a587-f5fc5c06842e" class="">👤 Jessica González (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-80f9-92a6-f8bfdc96caa5" class=""><strong>Evolución CX Score:</strong> Nov: 61.4% | Dic: 64.2% | Ene: 65.2%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80b7-8cee-c848f72ebaac" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Soporte en Configuración):</strong> Destaca su habilidad para asistir en la creación de productos y recetas, logrando que el cliente comprenda y acepte la solución sin inconvenientes adicionales en su flujo diario.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-803f-bf0e-cc320ee82036" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472579674435</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-800b-b588-fc6db6448651" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472579417467</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8007-b04b-e514ec7c6768" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Seguimiento de Comandas):</strong> Oportunidad en reducir cierres de chat prematuros durante el servicio, garantizando que el cliente reciba una resolución definitiva para problemas de impresión antes de que la sesión expire.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-806e-bfff-f35f78a4280a" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472580066412</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8027-b5e9-f86564df7cea" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472579616389</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-805f-8623-e68e7619bdef"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-80fd-bb99-ccb08dbc5100" class="">👤 Carlos Caro Umbarila (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-8085-b816-e301e65ec4f6" class=""><strong>Evolución CX Score:</strong> Nov: 65.2% | Dic: 68.5% | Ene: 64.7%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80aa-b4b9-e333a4e80430" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Guía en Promociones):</strong> Muestra gran paciencia y detalle al explicar ítems de efectivo y configuración de promociones, logrando mejorar la experiencia del cliente a través de guías claras y bien estructuradas.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80be-b6a5-fae7d1636cf9" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472723070898</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80ed-af73-f5fe2f22f0ea" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472723040833</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8091-a10d-c0d1af25257a" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Diagnóstico de Precios):</strong> Debe agilizar la resolución de problemas donde los precios aparecen en cero, evitando escalamientos sin antes agotar la explicación técnica inmediata que reduzca el esfuerzo del cliente.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-809d-9518-d8176314bd96" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472722898307</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-805b-99ff-e27b47ec4264" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472722839734</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-8020-a5f2-e61d435675d1"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-80d4-9429-d240854d8348" class="">👤 María Camila Velásquez (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-80a7-9169-d88736577ca1" class=""><strong>Evolución CX Score:</strong> Nov: 91.3% | Dic: 59.6% | Ene: 63.4%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-809c-b061-cb070e8718ca" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Claridad en Resúmenes):</strong> Efectiva en proporcionar información técnica sobre impresoras y resúmenes de venta, logrando que el cliente reciba y confirme la información necesaria de manera directa y funcional.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-801d-8f75-ce33ee4a8724" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472579634303</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8069-bb5b-c29dca12f743" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472581860783</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8025-bf27-eefb19b7a097" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Proactividad en el Chat):</strong> Oportunidad en evitar cierres por inactividad cuando el cliente saluda pero no plantea su duda de inmediato; se recomienda un seguimiento más activo para identificar la consulta antes del cierre.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80d2-9395-cfbc125bd166" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472582167872</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8009-93e4-c81ca488fc16" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472581944103</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-8073-ab5a-d551ab837c6c"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-8069-8a97-fc7a85137e6d" class="">👤 Jhonatan Valenzuela (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-8088-9950-fd07431c722a" class=""><strong>Evolución CX Score:</strong> Nov: 75.8% | Dic: 58.9% | Ene: 63.4%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80a8-934b-e88d5a70277c" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Soporte Técnico Directo):</strong> Muy eficaz en resolver problemas de impresión de comandas y boletas mediante asistencia clara, logrando resoluciones exitosas tras varias interacciones técnicas con agradecimiento final del cliente.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80a9-b61e-c773181488ee" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472585589910</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-804d-ae4a-d0cd4db51294" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472573690436</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80d9-904d-e09b5f569cd3" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Precisión en Folios):</strong> Debe asegurar la correcta asignación de tipos de documentos (facturas vs boletas) al asignar folios, evitando insatisfacción y esfuerzo adicional por errores en la configuración administrativa solicitada.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80f9-9da9-fa2147e81842" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472585761421</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80d8-b0d6-d23459763e83" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472573779372</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-8078-89f6-d49dc07b4601"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-8040-9227-eb34b4810044" class="">👤 Verónica López (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-80c0-8eee-f235dfb31066" class=""><strong>Evolución CX Score:</strong> Nov: 58.1% | Dic: 58.3% | Ene: 61.5%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8094-aea0-ef5b27f56439" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Resolución vía Reinicios):</strong> Hábil en solucionar problemas de servidor y entrega de resúmenes de venta, logrando que el sistema se estabilice tras acciones directas que el cliente confirma y agradece.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80f0-b34b-c037ac4fea24" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472576823424</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80f9-ac2a-c11e58f9f140" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472576673320</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8077-8f1c-eb0f4d55a400" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Efectividad en Hardware):</strong> Oportunidad en fortalecer el conocimiento sobre limitaciones de edición de facturas y fallas de hardware intermitentes, asegurando que las soluciones propuestas no pierdan efectividad durante la operación del cliente.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80e6-b677-d0cd20baed16" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472575121826</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8030-90e8-fb3e3a1554f6" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472574570027</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-8088-926e-d598055fe604"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-8043-9775-f06bf4e5c5c9" class="">👤 Daniela Ramírez (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-8063-a60b-df84026e3f36" class=""><strong>Evolución CX Score:</strong> Nov: 61.7% | Dic: 55.1% | Ene: 61.1%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-803f-9edc-e75d36c8303d" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Configuración de Impresoras):</strong> Destaca por su amabilidad y eficacia al configurar impresoras, logrando cierres de caso con confirmación operativa total y una percepción de soporte atento y funcional.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80ba-be5e-d6d43bafbf72" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472573808096</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8067-8043-ca77122c799f" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472573769820</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8030-acf1-cdb02e997ba0" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Seguimiento de Mesas):</strong> Debe asegurar que el cliente confirme la eliminación de mesas virtuales o el reinicio de dispositivos, evitando cierres de chat donde no existe una validación explícita de éxito técnico.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80d7-9fd2-f58ebddd6ced" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472574100826</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80a8-bed8-f0eec0098ac7" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472573674823</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-806b-a0c6-deee8d55fbe8"/></div><div style="display:contents" dir="auto"><h3 id="2fc39073-1e23-800b-8826-ec31cd8d05fb" class="">👤 Diego Alejandro Martin Clavijo (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-80de-b66c-c991f0e60bff" class=""><strong>Evolución CX Score:</strong> Nov: 64.8% | Dic: 56.7% | Ene: 58.5%</p></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8018-b15f-d2b35212ae97" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Manejo de Integraciones):</strong> Eficaz en guiar procesos de reactivación de integraciones y resolución de fallas en tickets, proporcionando asistencia detallada que termina con la satisfacción del usuario tras un soporte cercano.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-807a-a08c-d381b218834c" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472587052113</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8016-bb4f-f68ad7833755" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472586847420</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-800a-88c0-c188d3437e70" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Resolución en Impresión):</strong> Oportunidad en mejorar la efectividad ante problemas recurrentes de comandas y fallas en nombres de marcas, buscando soluciones definitivas que eviten la frustración prolongada del cliente.<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-8083-9487-c1913ca19931" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472587189693</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80b6-a98e-d4715b57c91c" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472586830542</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2fc39073-1e23-8081-824a-d4955d9ac534"/></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-8040-86d1-db687c9b7b57" class=""><em>Nota: Los scores de Nov/Dic se han extraído del reporte histórico unificado, mientras que los IDs y descripciones cualitativas detalladas provienen del archivo de detalle técnico de enero.</em></p></div></details></li></ul></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

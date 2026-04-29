@@ -1,0 +1,771 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>General </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="17639073-1e23-81ea-bebd-f199588fc6e7" class="page sans"><header><div class="page-header-icon undefined"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shop_yellow.svg"/></div><h1 class="page-title" dir="auto"><mark class="highlight-default"><mark class="highlight-orange_background"><strong>General </strong></mark></mark></h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Matías - 16 Feb</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>9 Marzo</th><td><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Analyst</th><td><div class="checkbox checkbox-on"></div></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Senior</th><td><div class="checkbox checkbox-off"></div></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Coordinador</th><td><div class="checkbox checkbox-on"></div></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>ítem principal</th><td><a href="M%C3%B3dulo%206%20-%20TRM%20%E2%86%92%20Restaurant%20%E2%86%92%20Ajustes%20Generales%20305390731e23809cb9e8ebf0f0aa9c2f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shop_yellow.svg"/>Módulo 6 - TRM → Restaurant → Ajustes Generales</a></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="1c439073-1e23-804f-9cbf-c32992897946" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c439073-1e23-8051-b97b-d3657c612558" class="image"><a href="General/image.png"><img style="width:672px" src="General/image.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c439073-1e23-80c1-820d-dd3046652800" class=""></h3></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-80a5-95a0-fa9154407c32" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-805c-b3f4-c83daecd9c03"><th id="[xS`" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id=":W[x" class="simple-table-header-color simple-table-header" style="width:485px"><strong>Definición / Uso</strong></th><th id=":me|" class="simple-table-header-color simple-table-header">Uso frecuente</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80c5-a2a8-f856378db473"><td id="[xS`" class=""><strong>Activar funcionalidades offline ✅</strong></td><td id=":W[x" class="" style="width:485px">Disponible en la versión TPS 508. Permite continuar con ciertas funciones del sistema en caso de pérdida de conexión a Internet.</td><td id=":me|" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-805b-bb09-d2d42b38fea9"><td id="[xS`" class=""><strong>Dirección IP TPS</strong></td><td id=":W[x" class="" style="width:485px">Corresponde a la dirección IP del equipo donde está instalado el Toteat Print Server (TPS). Este equipo es el <strong>PC servidor</strong>. La dirección IP configurada debe coincidir siempre con la dirección IP real del PC servidor.<br/></td><td id=":me|" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80f0-ab4c-e3a8a5ddd123"><td id="[xS`" class=""><strong>Vía de Impresiones Especiales</strong></td><td id=":W[x" class="" style="width:485px">Debe estar configurada por defecto en <strong>“Automático, espera normal”</strong>. Aplica para precuentas, recibos y mensajes. ⚠️ Solo modificar en caso de problemas de conexión a Internet.</td><td id=":me|" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8067-8771-d4b00996eb4d"><td id="[xS`" class=""><strong>SSL</strong></td><td id=":W[x" class="" style="width:485px">Funcionalidad pendiente de definición. Actualmente <strong>no debe utilizarse</strong>.</td><td id=":me|" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80ca-b269-dcd399c7f95d"><td id="[xS`" class=""><strong>Transferencia y unión de mesas en modo offline</strong></td><td id=":W[x" class="" style="width:485px">Permite transferir y unir mesas aun cuando el sistema esté operando en modo offline.</td><td id=":me|" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8063-a24b-cf963366d64a"><td id="[xS`" class=""><strong>Deshabilitar actualización automática TPS</strong></td><td id=":W[x" class="" style="width:485px">Permite instalar el TPS y mantenerlo en la misma versión, evitando que se actualice automáticamente a versiones posteriores.</td><td id=":me|" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80c1-9711-d887aa03deae"><td id="[xS`" class="">Calidad de conexión a la red ✅</td><td id=":W[x" class="" style="width:485px">Permite elegir el tipo de conexión de red para la transmisión de datos: <strong>FAST con UDP</strong> para velocidad máxima aunque con posibles pérdidas de información, o <strong>FAST sin UDP (TCP)</strong> para mayor control y fiabilidad, sacrificando algo de rapidez.</td><td id=":me|" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c439073-1e23-801f-b708-e713ea942a74" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-809e-be90-fd5605be95f2" class="image"><a href="General/image%201.png"><img style="width:709.9874877929688px" src="General/image%201.png"/></a></figure></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-8003-bcaa-deb0c6bc43bf" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8023-9e29-f526c8a2f361"><th id="~}CS" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="`G]@" class="simple-table-header-color simple-table-header" style="width:469px"><strong>Definición / Uso</strong></th><th id="KMw{" class="simple-table-header-color simple-table-header">Ejemplo</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80f4-8ed1-d4e52953c131"><td id="~}CS" class=""><mark class="highlight-default"><strong>Activar flujo de aprobación, Apertura/Cierre de caja <br/>*</strong></mark><mark class="highlight-gray"><strong>Ajuste para dukin pero se visualiza en todos los ambientes new.</strong></mark></td><td id="`G]@" class="" style="width:469px">Permite que, al momento de abrir o cerrar una caja, el sistema solicite la validación de un usuario con <strong>perfil autorizado</strong>, asegurando control y trazabilidad en el proceso.</td><td id="KMw{" class=""><a href="https://toteat-espacio.slack.com/archives/C047GS75V9U/p1774381850185449">https://toteat-espacio.slack.com/archives/C047GS75V9U/p1774381850185449</a></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-808f-9db6-dc8fcfdb59bc" class=""></h3></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-808f-9504-c0925a3715db" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-80a3-8b53-fdeebfd9d267" class="image"><a href="General/image%202.png"><img style="width:709.9000244140625px" src="General/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-805b-8649-d913b9a986ff" class=""></h3></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-804f-acb4-eb9a82350421" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8029-981d-d9a64f69928d"><th id="qwPV" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="nR}g" class="simple-table-header-color simple-table-header" style="width:535px"><strong>Definición / Uso</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8030-9d9f-ffe0ff2cd957"><td id="qwPV" class=""><strong>Visualiza copy mesa* </strong></td><td id="nR}g" class="" style="width:535px">Funcionalidad actualmente en pruebas. Permite, en modalidad <strong>take away</strong>, copiar productos desde un archivo Excel. La búsqueda se realiza a partir del <strong>ID del producto</strong>, por lo que el nombre puede diferir sin afectar el proceso. Está pensada principalmente para <strong>comandar productos de forma masiva</strong>.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-803b-b3b9-e7674d7d2972" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-809d-a37f-df8bb0b7a008" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-80bf-aa4d-f511b4824a23" class="image"><a href="General/image%203.png"><img style="width:709.9750366210938px" src="General/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-80e3-b762-c93f9df3176f" class=""></h3></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-80a8-8940-efd7ba3dd124" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-802d-b8ba-fb3d72d078b1"><th id="wUdQ" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="irZF" class="simple-table-header-color simple-table-header" style="width:529px"><strong>Definición / Uso</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8080-84d8-c1f4d28efc01"><td id="wUdQ" class=""><strong>Idioma por defecto del restaurant</strong></td><td id="irZF" class="" style="width:529px">Define el idioma en el que se visualizará el ambiente del sistema. ⚠️ No aplica al idioma del PC.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8017-a193-fceeffcd1551"><td id="wUdQ" class=""><strong>Impuesto en listas de precios</strong></td><td id="irZF" class="" style="width:529px">Determina si, en la toma de pedidos, los precios se mostrarán <strong>con impuestos incluidos</strong> o <strong>sin impuestos</strong>.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80ea-bf75-c16f752f6697"><td id="wUdQ" class=""><strong>Jerarquía para ingresar pedidos</strong></td><td id="irZF" class="" style="width:529px">Define la jerarquía que se mostrará en la toma de pedidos. Puede configurarse como <strong>AB</strong> o <strong>AD</strong> según la necesidad del restaurante.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8019-929d-c520c192ec83"><td id="wUdQ" class=""><strong>Jerarquía para reportes</strong></td><td id="irZF" class="" style="width:529px">Determina la jerarquía que se utilizará en los reportes del ambiente.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80e9-bc27-f7bda511cc84"><td id="wUdQ" class=""><strong>Día de inicio de semana</strong></td><td id="irZF" class="" style="width:529px">Establece el día en que comienza la semana en el ambiente (opciones disponibles: <strong>lunes</strong> o <strong>domingo</strong>).</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80a4-a87b-c441da486eea"><td id="wUdQ" class=""><strong>Jerarquía para Contabilidad</strong></td><td id="irZF" class="" style="width:529px">Configura la jerarquía contable del sistema. Por defecto, el sistema asigna la jerarquía <strong>CB</strong>.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80bd-917b-fc75fe9e04bd"><td id="wUdQ" class=""><strong>Tasa de Impuestos en Compras por Defecto</strong></td><td id="irZF" class="" style="width:529px">Corresponde al IVA (u otro impuesto aplicable según el país). Ejemplos: <strong>19% - 21% - 10% - 8%, va a depender del pais.</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80c8-8cb3-c627a73ba81c"><td id="wUdQ" class=""><strong>ID Tasa de Impuestos en Compras por Defecto</strong></td><td id="irZF" class="" style="width:529px">Identificador correspondiente al IVA (u otro impuesto equivalente en cada país).</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-8024-b7de-ce10c58f6444" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-80d5-a9cf-c6f68bb15a3d" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-8022-a55c-f9676feebb7d" class="image"><a href="General/image%204.png"><img style="width:709.9874877929688px" src="General/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-802d-8c01-e8e2f0964eb7" class=""></h3></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-8077-85e1-d3b938077eed" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8024-812d-e3dc0c37aaca"><th id="aVEs" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="BdMa" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="LtBa" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80b5-8574-f77da8b74224"><td id="aVEs" class=""><strong>Mensaje de alerta si el turno está abierto más de ✅</strong></td><td id="BdMa" class="">Genera una notificación cuando un turno permanece abierto por más tiempo del configurado.</td><td id="LtBa" class="">10 horas → el sistema alerta si el turno sobrepasa ese tiempo.</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure id="1ee39073-1e23-8044-a624-dd4183efba9e" class="image"><a href="General/image%205.png"><img style="width:480px" src="General/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="25639073-1e23-80a0-b80a-d2ca878738f5" class="">
+</p></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-800c-8f90-e26e81973193" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8019-b6d1-f68da4b05680"><th id="Jczu" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="_ssp" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="NVAx" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8064-a614-cfacd799f70d"><td id="Jczu" class=""><strong>Bloquear pedidos si turno abierto excede máximo de horas ✅</strong></td><td id="_ssp" class="">Bloquea la operación de mesas si no se abre el siguiente turno dentro del tiempo establecido.</td><td id="NVAx" class="">Si el turno supera las <strong>12 horas</strong> → se bloquea la operación hasta abrir el nuevo turno.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80da-94b8-ff2dacac752d"><td id="Jczu" class=""><strong>Obligar a ingresar el número de comensales para abrir mesa</strong></td><td id="_ssp" class="">Al abrir una mesa, el sistema solicita obligatoriamente ingresar el número de comensales. Si no se indica, la mesa se inicia con <strong>1 comensal por defecto</strong>.</td><td id="NVAx" class="">Mesa abierta → por defecto se asigna <strong>1 comensal</strong>.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80d3-adcf-cab02b389d95"><td id="Jczu" class=""><strong>Número de mesas virtuales ✅</strong></td><td id="_ssp" class="">Define la cantidad de mesas virtuales que tendrá disponible el cliente en el sistema.</td><td id="NVAx" class="">Configurar <strong>20 mesas virtuales</strong>.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8039-8a3d-f32e3dbb88ff"><td id="Jczu" class=""><strong>ID de mesas ✅</strong></td><td id="_ssp" class="">Determina el formato de identificación de las mesas: solo números, solo letras o combinación de ambos.</td><td id="NVAx" class="">Ej.: <strong>A1, A2, A3</strong> (letra + número).</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8093-af08-dc0d7d26daf1"><td id="Jczu" class=""><strong>Promociones </strong></td><td id="_ssp" class="">Disponible únicamente en <strong>New</strong>. Permite crear diferentes tipos de promociones. 📎 <a href="https://www.notion.so/CRM-190390731e238012a43bc2a277d144ad?pvs=21">Detalle en CRM</a></td><td id="NVAx" class="">Ej.: 2x1 en bebidas </td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80f9-9a76-eb7369be22b7"><td id="Jczu" class=""><strong>Propina sugerida ✅</strong></td><td id="_ssp" class="">Configura el monto de propina sugerida que se mostrará al entregar la precuenta a los comensales.</td><td id="NVAx" class="">Propina sugerida: <strong>10%</strong>.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80f9-8003-d384c2e39024"><td id="Jczu" class=""><strong>Mostrar pop-up con opciones de propina sugerida ✅</strong></td><td id="_ssp" class="">Muestra al cliente distintas opciones de propina sugerida antes de finalizar la cuenta.</td><td id="NVAx" class="">Opciones: <strong>5%, 10%, 15%</strong>.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-800a-b128-fb3478ee9a02" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="25539073-1e23-8015-8b78-f7be699af2bb" class="image"><a href="General/image%206.png"><img style="width:682px" src="General/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-801b-8258-ed7b1a86798c" class="">
+</p></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-80ef-b2d8-fa22f6cde47a" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80e8-a35a-cdda950d88f6"><th id="un\d" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="ezmL" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="JgBq" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-808e-8e84-e9b63de5e421"><td id="un\d" class=""><strong>Cálculo de propina ✅</strong></td><td id="ezmL" class="">Define si la propina se calculará <strong>antes o después de los descuentos</strong> aplicados en la cuenta.</td><td id="JgBq" class="">Calcular <strong>después de descuentos</strong> → la propina se aplica sobre el total con descuento.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80bd-aacd-fdf46ef132a7"><td id="un\d" class=""><strong>Calcular propina sobre valores netos sin impuestos ✅</strong></td><td id="ezmL" class="">Determina si la propina se calculará <strong>antes o después de impuestos</strong>, lo que afecta el valor final de la propina.</td><td id="JgBq" class="">Calcular sobre valores <strong>sin impuestos</strong> → propina menor que sobre el total bruto.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8048-a8b3-c44253cb3b57"><td id="un\d" class=""><strong>Redondeo de propina sugerida en precuentas </strong></td><td id="ezmL" class="">Aplica solo para precuentas y cálculo automático de propina en <strong>efectivo</strong>, redondeando el valor sugerido.</td><td id="JgBq" class="">Redondear al número entero más cercano → Ej.: $4.73 → $5.00</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80a8-907e-c6f4875309c2"><td id="un\d" class=""><strong>Desglose alternativo de propina en cuenta cajero</strong></td><td id="ezmL" class="">Al hacer clic en el botón de propina, no aplica un porcentaje predefinido, sino que muestra opciones de selección (funcionalidad actualmente no disponible).</td><td id="JgBq" class="">Sin funcionalidad activa → no disponible en sistema.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8031-bd56-d6a1d926d1dc"><td id="un\d" class=""><strong>Ingresar propinas por forma de pago ✅</strong></td><td id="ezmL" class="">Permite agregar propina individualmente por cada forma de pago registrada en la mesa.</td><td id="JgBq" class="">Ej.: 50% de la propina en efectivo, 50% en tarjeta.</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure id="25539073-1e23-808a-8b6b-c085f748ff01" class="image"><a href="General/Captura_de_pantalla_2025-08-20_a_la(s)_15.24.38.png"><img style="width:480px" src="General/Captura_de_pantalla_2025-08-20_a_la(s)_15.24.38.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="25539073-1e23-8023-b5cc-fcbc06679183" class="">
+</p></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-8092-a6e1-f9432b038cf9" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-800b-8a0b-ebc9bacae4a5"><th id="F@~j" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="p?Et" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="nB:I" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80cb-b211-cd93c2c4f705"><td id="F@~j" class=""><strong>Ver propina total en cierre de caja ✅</strong></td><td id="p?Et" class="">Muestra el <strong>total acumulado de propina</strong> registrada en cada venta durante el turno, permitiendo control y seguimiento.</td><td id="nB:I" class="">Ej.: Durante el turno se registran propinas: $5 + $3 + $7 → total de <strong>$15</strong> al cierre de caja.</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure id="25539073-1e23-809f-8e09-dbc59a51a4c2" class="image"><a href="General/Captura_de_pantalla_2025-08-20_a_la(s)_15.32.56.png"><img style="width:384px" src="General/Captura_de_pantalla_2025-08-20_a_la(s)_15.32.56.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="25539073-1e23-80c1-8a42-c107daccfee0" class="">
+</p></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-80c9-a0b9-de7882eee7b9" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-808b-8884-cb91b26ca74c"><th id="M=ym" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id=";sRr" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="ZY[\" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80f4-97f0-fc9f6132d532"><td id="M=ym" class=""><strong>Mostrar opciones de propina sugerida en precuentas ✅</strong></td><td id=";sRr" class="">Permite que al generar la precuenta se muestren diferentes <strong>opciones de propina sugerida</strong> al cliente, facilitando la selección antes del pago.</td><td id="ZY[\" class="">Opciones de propina: <strong>5%, 10%, 15%</strong>.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><div id="25539073-1e23-8050-9d11-ea2df89f836a" class="column-list"><div style="display:contents" dir="auto"><div id="25539073-1e23-807a-81be-c4d9c1c0f1b7" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="25539073-1e23-8088-8d86-f5f098eb277d" class="image" style="text-align:left"><a href="General/image%207.png"><img style="width:297.98828125px" src="General/image%207.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="25539073-1e23-80e9-9582-e7db84c8ec59" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="25539073-1e23-802a-8dee-c5959d29fdc3" class="image" style="text-align:right"><a href="General/image%208.png"><img style="width:283.984375px" src="General/image%208.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-80b9-988e-c4ba92857824" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80da-80d4-d5f33cf003f6"><th id="z}Ms" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="e]\:" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="W_pK" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80d8-a54b-fa68980fec04"><td id="z}Ms" class=""><strong>Valor máximo en una forma de pago ✅</strong></td><td id="e]\:" class="">Define el <strong>monto máximo permitido</strong> por cada forma de pago. El valor predeterminado es $10.000.000, pero se puede modificar para establecer límites mayores o menores según la necesidad del restaurante.</td><td id="W_pK" class="">Valor predeterminado: <strong>$10.000.000</strong> → se puede ajustar a $5.000.000 o $15.000.000.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8061-99cb-eedae8732283"><td id="z}Ms" class=""><strong>Mostrar precios y totales en otras monedas</strong></td><td id="e]\:" class="">Permite configurar un <strong>tipo de cambio</strong> para mostrar los precios y totales en la moneda local y en otra moneda (USD, EU, o ambas). ⚠️ Actualmente no funciona en <strong>New</strong>.</td><td id="W_pK" class="">Ej.: Tipo de cambio 1 USD = $920 → mostrar precios en <strong>USD y moneda local</strong>.</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure id="25539073-1e23-8010-bc73-fa2db85bd630" class="image"><a href="General/image%209.png"><img style="width:288px" src="General/image%209.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-80b4-a57c-e6a9df6bc0c7" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-8042-9040-d88f4a9334bb" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-80ac-ae4f-e807d9e25b52" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-809b-b942-ce4e36a3f52d" class="image"><a href="General/image%2010.png"><img style="width:709.9750366210938px" src="General/image%2010.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-80fc-89dc-e604f72650de" class=""></h3></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-80b7-8526-d7db36e7fc9d" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80af-89c4-ff94b21c95e6"><th id="T^JW" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="aiJV" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="jr}p" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80bd-b1a6-cb91ada2ce3f"><td id="T^JW" class=""><strong>Activar asignación de clientes a órdenes ✅</strong></td><td id="aiJV" class="">Permite <strong>asignar un cliente existente a una orden</strong> al momento de pagar, facilitando el registro y seguimiento de los pedidos por cliente.</td><td id="jr}p" class="">Ej.: Orden en mesa 5 → se asigna el cliente <strong>Juan Pérez</strong> al pagar.</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure id="1ee39073-1e23-8057-8104-d02402045a70" class="image"><a href="General/image%2011.png"><img style="width:624px" src="General/image%2011.png"/></a></figure></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-8069-8d4c-e53346b229b5" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8063-abbe-c717e2418435"><th id="PMjX" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="mfko" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="\C]g" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80d4-8ab9-df7fc5cc06cc"><td id="PMjX" class=""><strong>Habilitar alivio de caja</strong></td><td id="mfko" class="">Permite realizar <strong>retiros de efectivo de la caja</strong> durante el turno para reducir la cantidad de dinero disponible en efectivo.</td><td id="\C]g" class="">Retiro de $200.000 de la caja → disminuye efectivo disponible.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8070-bec4-ef87ec741557"><td id="PMjX" class=""><strong>Info nutricional</strong></td><td id="mfko" class="">Funcionalidad pendiente de definición. Actualmente <strong>no disponible o sin uso asignado</strong>.</td><td id="\C]g" class="">N/A</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80e8-99cc-eb8b19ef6b8e"><td id="PMjX" class=""><strong>Modificar cantidades en pedidos ✅</strong></td><td id="mfko" class="">Permite abrir la hoja de detalle al lado de cada producto en la toma de pedidos para <strong>modificar la cantidad</strong> de productos o extras agrupados.</td><td id="\C]g" class="">Producto: Hamburguesa → cambiar cantidad de 1 a 2 unidades.</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure id="25539073-1e23-80bc-b42f-d4b96a4caaad" class="image"><a href="General/Captura_de_pantalla_2025-08-20_a_la(s)_16.25.42.png"><img style="width:624px" src="General/Captura_de_pantalla_2025-08-20_a_la(s)_16.25.42.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="25539073-1e23-8057-a672-ca357c398131" class="image"><a href="General/Captura_de_pantalla_2025-08-20_a_la(s)_16.28.58.png"><img style="width:624px" src="General/Captura_de_pantalla_2025-08-20_a_la(s)_16.28.58.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="25639073-1e23-80f5-96bb-c35238b524b8" class="">
+</p></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-8019-a08f-ffdf7f965643" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-805c-b48e-d435d490b050"><th id="q`Bw" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="`WF&gt;" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="tAID" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8045-ae9b-edca062b3ad6"><td id="q`Bw" class=""><strong>Máximo número de asignaciones de extras a jerarquías ✅</strong></td><td id="`WF&gt;" class="">Permite definir cuántas veces se puede asignar un <strong>extra</strong> a una jerarquía específica de extras dentro del sistema.</td><td id="tAID" class="">Ej.: Máximo <strong>3 asignaciones</strong> → un extra solo puede asignarse hasta 3 veces a la misma jerarquía.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-8080-aa41-e699414d4a63" class="">
+</p></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-804c-8b83-c6283cd8f46b" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80e8-ba4f-d15adfba1ce3"><th id="&gt;gPc" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="{jc=" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="U@{S" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-808e-b502-d8568fe2c0ea"><td id="&gt;gPc" class=""><strong>Número correlativo en comandas</strong></td><td id="{jc=" class="">Asigna un <strong>número consecutivo</strong> a cada comanda para llevar un registro ordenado de los pedidos.</td><td id="U@{S" class="">Comanda 1 → Comanda 2 → Comanda 3 …</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8067-b8c9-f47371aac057"><td id="&gt;gPc" class=""><strong>Campos obligatorios en clientes </strong></td><td id="{jc=" class="">Define qué campos deben ser <strong>obligatorios</strong> al registrar un cliente, asegurando que la información mínima requerida siempre se complete.</td><td id="U@{S" class="">Ej.: Nombre, teléfono y correo electrónico obligatorios.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-8063-b224-d893ced120e8" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-805a-b852-e2be30f82803" class="image"><a href="General/image%2012.png"><img style="width:681.9921875px" src="General/image%2012.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-8005-afb7-e5838acc7599" class=""></h3></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-80aa-a730-f5887c43b6ef" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80be-a896-d14b2053d3e4"><th id="VFPW" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="G;DT" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="Rxdn" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8094-8b4c-cad3aa5c93a1"><td id="VFPW" class=""><strong>Autocompletar direcciones usando Google Maps API ✅</strong></td><td id="G;DT" class="">Al ingresar la dirección del cliente, el sistema la <strong>autocompleta automáticamente</strong> según el país configurado en el ambiente.</td><td id="Rxdn" class="">Dirección: “Av. Libertador 123” → autocompleta con ciudad, región y código postal correspondiente.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8066-aece-f67f40ef63c7"><td id="VFPW" class=""><strong>Corregir orden de extras en integraciones y app</strong></td><td id="G;DT" class="">Ajusta el <strong>orden de los extras</strong> en la aplicación y en integraciones externas. ⚠️ Actualmente <strong>no funciona para delivery</strong>.</td><td id="Rxdn" class="">Orden de extras: Queso, Jamón, Tomate → mantiene el orden configurado en la app.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-804d-bcde-ee304053f312"><td id="VFPW" class=""><strong>Pausar comandas de pedidos de cajeros en pagos por integraciones</strong></td><td id="G;DT" class="">Bloquea temporalmente las comandas hasta que se <strong>complete el pago</strong> vía integraciones externas.</td><td id="Rxdn" class="">Pedido en mesa 5 → comanda pausada hasta recibir confirmación de pago.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8087-be22-f2eec9107eea"><td id="VFPW" class=""><strong>Mostrar códigos de jerarquías y productos en reportes</strong></td><td id="G;DT" class="">Permite visualizar los <strong>ID de productos y jerarquías</strong> dentro de los reportes del sistema para control más preciso.</td><td id="Rxdn" class="">Producto: Hamburguesa → ID: 101, Jerarquía: AD.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80df-8e13-cdfa16029063"><td id="VFPW" class=""><strong>Toma de inventarios <br/>*</strong><mark class="highlight-gray"><strong>ajuste creado para dunkin pero se visualiza en todos los ambientes</strong></mark></td><td id="G;DT" class="">Configura la toma de inventarios como <strong>condicional previa al cierre</strong>, asegurando que se realice antes de finalizar el turno.</td><td id="Rxdn" class="">Inventario bloqueado hasta realizar la toma → permite cierre solo tras completar inventario.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80ea-9e78-dcbdc78ef2b6"><td id="VFPW" class=""><strong>Devoluciones de productos</strong></td><td id="G;DT" class="">Permite que, antes de cerrar el turno, se <strong>realicen las devoluciones de productos</strong> en el inventario básico para mantener la consistencia.</td><td id="Rxdn" class="">Producto devuelto: 2 hamburguesas → inventario actualizado antes del cierre.</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure id="1ee39073-1e23-808c-b7b5-fe8a77ddbdf6" class="image"><a href="General/image%2013.png"><img style="width:600.9921875px" src="General/image%2013.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-80cb-8083-cb57c49c2234" class="">
+</p></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-802f-b3a2-f8798155f181" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-805c-84a4-e95195e7ff7f"><th id="Ww|r" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="lzt_" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="C{:[" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-808a-8487-ca53c5a4f190"><td id="Ww|r" class=""><strong>Turnos para los que aplican estas validaciones</strong></td><td id="lzt_" class="">Indica en qué <strong>turnos específicos</strong> se deben aplicar las validaciones configuradas en el sistema, permitiendo control selectivo según horario.</td><td id="C{:[" class="">Ej.: Validaciones activas solo en <strong>turno mañana</strong> (8:00–14:00) y <strong>turno tarde</strong> (14:00–20:00).</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-80c0-90e4-ec0138732c75" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-80aa-814a-c749c5d939ad" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-808a-a214-e969b4e87915" class="image"><a href="General/image%2014.png"><img style="width:709.9625244140625px" src="General/image%2014.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-8095-bffc-e27c100f2157" class=""></h3></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-80a2-b027-f16c67e4e9e8" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8073-92ae-ccdb802565a5"><th id="LTef" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="]VZR" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="oDCk" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8028-9c9c-ea6fe29d4a6e"><td id="LTef" class=""><strong>Código de productos</strong></td><td id="]VZR" class="">Indica el <strong>número que se asignará</strong> al intentar completar el campo <strong>ID producto</strong> mediante doble clic.</td><td id="oDCk" class="">Ej.: Doble clic → se asigna ID producto <strong>10</strong> automáticamente.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80f5-af54-fcb441f9438d"><td id="LTef" class=""><strong>Código de mesas</strong></td><td id="]VZR" class="">Indica el <strong>número que se asignará</strong> al intentar completar el campo <strong>ID mesa</strong> mediante doble clic.</td><td id="oDCk" class="">Ej.: Doble clic → se asigna ID mesa <strong>10</strong> automáticamente.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-8073-a248-deed15fe750e" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-80a6-8aa8-cffea5d39917" class="image"><a href="General/image%2015.png"><img style="width:710px" src="General/image%2015.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-80a0-a685-d48a7e85e77d" class=""></h3></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-8013-85b2-e40bbde76878" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80cd-a56b-dcb3b2c17db2"><th id="aKzf" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="`zzN" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="e=x_" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8044-bab2-e6abaac70162"><td id="aKzf" class=""><strong>Agregar clasificación</strong></td><td id="`zzN" class="">Permite agregar <strong>clasificaciones personalizadas</strong> para los clientes según las categorías que el restaurante considere pertinentes.</td><td id="e=x_" class="">Ej.: Clasificaciones: <strong>VIP, Socios, Empleados</strong>.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-8081-887d-eb9d0e27e3b0" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-8072-b946-f813c7c3d566" class="image"><a href="General/image%2016.png"><img style="width:709.9874877929688px" src="General/image%2016.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-8034-8641-eec4b45d488f" class=""></h3></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-8070-b080-ddea960d1056" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-802b-8f32-ddfb58e3fe9f"><th id="DjUa" class="simple-table-header-color simple-table-header"><mark class="highlight-default"><strong>Parámetro</strong></mark></th><th id="l]xf" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="EZ|Z" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-802a-b54e-d4edfd211427"><td id="DjUa" class=""><strong>Sector para deliveries ✅</strong></td><td id="l]xf" class="">Define el <strong>sector asignado</strong> para los pedidos de delivery, permitiendo organizarlos según la ubicación o zona.</td><td id="EZ|Z" class="">Ej.: Sector <strong>Zona Norte</strong> → todos los pedidos delivery asignados aquí.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80a2-bea8-d178c483689b"><td id="DjUa" class=""><strong>Sector para retiro en local ✅</strong></td><td id="l]xf" class="">Define el <strong>sector asignado</strong> para los pedidos que se retiran en el local.</td><td id="EZ|Z" class="">Ej.: Sector <strong>Mostrador 1</strong> → pedidos para retiro en local.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80fb-8775-e2af392b90a6"><td id="DjUa" class=""><strong>Código de producto para recargo </strong></td><td id="l]xf" class="">Al activarse, utiliza un <strong>producto específico</strong> del maestro de productos llamado “Costo Delivery” para calcular el costo de delivery.</td><td id="EZ|Z" class="">Producto: <strong>Costo Delivery</strong> → suma al valor total del pedido.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80fc-8c87-e4761dbef1a0"><td id="DjUa" class=""><strong>Tiempo mínimo de espera</strong></td><td id="l]xf" class="">Indica el <strong>tiempo mínimo</strong> que el cliente debe esperar para la entrega del pedido.</td><td id="EZ|Z" class="">Ej.: 30 minutos → no se permite confirmar pedidos antes de ese tiempo.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8076-86c2-c477ebacef31"><td id="DjUa" class=""><strong>Tiempo de advertencia</strong></td><td id="l]xf" class="">Configura un <strong>tiempo de alerta</strong> para notificar sobre retrasos o posibles inconvenientes en deliveries.</td><td id="EZ|Z" class="">Ej.: 10 minutos antes del tiempo estimado de entrega.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8078-9bb6-ef719beb3254"><td id="DjUa" class=""><strong>Incrementos de tiempo de despacho</strong></td><td id="l]xf" class="">Define el <strong>tiempo adicional</strong> que se añade al despacho de productos o pedidos, para ajustar tiempos de entrega.</td><td id="EZ|Z" class="">Ej.: Incremento de 5 minutos por cada producto extra.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8001-8ccc-fbeffc74c46e"><td id="DjUa" class=""><strong>Máximo de pedidos pendientes por repartidor</strong></td><td id="l]xf" class="">Permite limitar la <strong>cantidad de pedidos activos</strong> que puede tener un repartidor simultáneamente.</td><td id="EZ|Z" class="">Ej.: Máximo <strong>5 pedidos</strong> por repartidor.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-80fe-8a37-dc1cffcdd817" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-803c-93a0-d60cc0bfdade" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-80e1-886f-e1340504f1ad" class="image"><a href="General/image%2017.png"><img style="width:709.9874877929688px" src="General/image%2017.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-8021-8ca6-f084d5928fec" class=""></h3></div><div style="display:contents" dir="ltr"><table id="25a39073-1e23-80f0-b0d1-e18129cb65db" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25a39073-1e23-80bb-9c79-d524adb445f1"><th id="mG[V" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="RRJz" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="{E`e" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25a39073-1e23-80fe-9c2d-eb8dc3bc2d2e"><td id="mG[V" class="">Impresora Copia Despacho ✅</td><td id="RRJz" class="">Imprime las copias para el despacho (igual a la copia de armado).</td><td id="{E`e" class="">Configurar impresora en el sector de despacho para imprimir esta copia.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25a39073-1e23-8077-a326-f0abd6bde78c"><td id="mG[V" class="">Impresora Copia Caja ✅</td><td id="RRJz" class="">Imprime las copias de caja, parecidas a la copia de armado, pero con precios.</td><td id="{E`e" class="">Definir impresora de caja para generar copia con detalle de precios.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25a39073-1e23-8003-9708-e87820cfca2b"><td id="mG[V" class="">Imprimir cantidad total de productos</td><td id="RRJz" class="">Sirve como guía de cantidad de bultos para el despachador y como documento para el transporte de mercadería.</td><td id="{E`e" class="">Activar esta opción para que al imprimir se genere un consolidado de productos.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25a39073-1e23-80ba-8a51-dbbfd9205e7c"><td id="mG[V" class="">Campos obligatorios en clientes</td><td id="RRJz" class="">Campos que deben solicitarse de forma obligatoria al cliente en pedidos de delivery.</td><td id="{E`e" class="">Ej.: Nombre, dirección, teléfono.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25a39073-1e23-8034-8500-ee44e8346fb3"><td id="mG[V" class="">Campos ocultables</td><td id="RRJz" class="">Campos que se pueden ocultar en la vista de delivery para simplificar el formulario.</td><td id="{E`e" class="">Ej.: Ocultar “Departamento” o “Referencia” si no aplica.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-80d5-8992-dc309ac8d445" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="25539073-1e23-808c-8e38-cfc8d8128633" class="image"><a href="General/image%2018.png"><img style="width:681.9921875px" src="General/image%2018.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-807b-9b95-d8c54878732a" class=""></h3></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-80b7-9a49-d956ba0b9feb" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-802b-8269-e8833a23ecf2"><th id="=bzz" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="i?lP" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="jQWV" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-802b-aa64-ddfe02bad949"><td id="=bzz" class=""><strong>Visualización de recargo delivery</strong></td><td id="i?lP" class="">Permite ver el <strong>recargo aplicado</strong> por el servicio de delivery en la orden o precuenta.</td><td id="jQWV" class="">Ej.: Recargo delivery: <strong>$2.000</strong> → aparece reflejado en la precuenta.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-801e-a1db-c5aae492efc4"><td id="=bzz" class=""><strong>Usar polígonos para costo de despacho ✅</strong></td><td id="i?lP" class="">Configura <strong>zonas geográficas</strong> (polígonos) para calcular automáticamente el costo de despacho según la ubicación del cliente.</td><td id="jQWV" class="">Zona 1 → $2.000, Zona 2 → $3.500.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8085-9546-ebeeb030ba17"><td id="=bzz" class=""><strong>Recargo según zona de despacho</strong></td><td id="i?lP" class="">Aplica un <strong>costo adicional</strong> en función de la zona de despacho configurada.</td><td id="jQWV" class="">Zona Norte → +$500, Zona Sur → +$1.000.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80b4-bd3d-ca62c67b7d27"><td id="=bzz" class=""><strong>Fuentes de origen</strong></td><td id="i?lP" class="">Indica el <strong>origen del pedido</strong> o plataforma desde la que se realiza.</td><td id="jQWV" class="">Ej.: <strong>Didi</strong>, <strong>PYA</strong>.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80d8-b08a-f8722b55e78a"><td id="=bzz" class=""><strong>Motopartner</strong></td><td id="i?lP" class="">Funcionalidad antigua que actualmente <strong>no funciona</strong>.</td><td id="jQWV" class="">N/A</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8098-9137-cdc5a9dc98d7"><td id="=bzz" class=""><strong>Uber Direct</strong></td><td id="i?lP" class="">Integración de <strong>Uber</strong> a través de Toteat Shop, configurable únicamente por el área de Ingeniería.</td><td id="jQWV" class="">Activado por ing → pedidos enviados vía Uber Direct.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80bc-98ab-c688da54bea3"><td id="=bzz" class=""><strong>Lectura y formato de códigos con peso</strong></td><td id="i?lP" class="">Funcionalidad en pruebas que permite manejar códigos con peso, actualmente <strong>no disponible</strong>.</td><td id="jQWV" class="">N/A</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="24d39073-1e23-8054-92ad-ef7b43b3520c" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="24d39073-1e23-8079-858a-c5bc663dc3f7" class="image"><a href="General/image%2019.png"><img style="width:681.984375px" src="General/image%2019.png"/></a></figure></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-804b-b157-fd311bd45a57" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80f8-b012-c0a287ced51a"><th id="rmVe" class="simple-table-header-color simple-table-header" style="width:235.66666666666666px"><strong>Parámetro</strong></th><th id="f;^y" class="simple-table-header-color simple-table-header" style="width:235.66666666666666px"><strong>Definición / Uso</strong></th><th id="Zm}Y" class="simple-table-header-color simple-table-header" style="width:235.66666666666666px"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-806b-8487-e54345a46d5a"><td id="rmVe" class="" style="width:235.66666666666666px"><strong>Código de restaurante en Staff Planner</strong></td><td id="f;^y" class="" style="width:235.66666666666666px">Código único que identifica al restaurante dentro del <strong>Staff Planner</strong>, usado para asignaciones y reportes.</td><td id="Zm}Y" class="" style="width:235.66666666666666px">Ej.: Restaurante ID: <strong>101</strong>.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80ba-a0cb-fe713cdc1613"><td id="rmVe" class="" style="width:235.66666666666666px"><strong>Usar sector seleccionado en Home para Mesas Virtuales</strong></td><td id="f;^y" class="" style="width:235.66666666666666px">Permite que las <strong>mesas virtuales</strong> tomen el sector seleccionado en la pantalla principal (Home), salvo que haya un sector definido en <strong>Ajustes de Equipo</strong> o en <strong>Caja abierta</strong>.</td><td id="Zm}Y" class="" style="width:235.66666666666666px">Sector Home → <strong>Zona Norte</strong>, aplica para mesas virtuales.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8087-8c65-d92786167601"><td id="rmVe" class="" style="width:235.66666666666666px"><strong>No permitir seleccionar Lista de Precio Normal </strong></td><td id="f;^y" class="" style="width:235.66666666666666px">Bloquea la posibilidad de elegir la <strong>lista de precios normal</strong>, forzando el uso de listas alternativas o configuradas.</td><td id="Zm}Y" class="" style="width:235.66666666666666px">Lista de precios normal → <strong>bloqueada</strong>, solo se permite lista VIP.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8098-b478-e1954730e22f"><td id="rmVe" class="" style="width:235.66666666666666px"><strong>Mostrar cantidad de ítems servidos por meseros en reporte</strong></td><td id="f;^y" class="" style="width:235.66666666666666px">Permite visualizar la <strong>cantidad de productos servidos</strong> por cada mesero dentro de los reportes.</td><td id="Zm}Y" class="" style="width:235.66666666666666px">Mesero Juan → 25 ítems servidos.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8086-8714-dc90bcc32edb"><td id="rmVe" class="" style="width:235.66666666666666px"><strong>Permitir grabado temporal de pedidos en el dispositivo sin mandar a cocina/bar</strong></td><td id="f;^y" class="" style="width:235.66666666666666px">Permite <strong>comandar productos sin enviar la impresión</strong> a cocina/bar, similar al “pausado de productos”.</td><td id="Zm}Y" class="" style="width:235.66666666666666px">Pedido grabado → no imprime hasta confirmación.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8066-9f1b-fc9c4f05597c"><td id="rmVe" class="" style="width:235.66666666666666px"><strong>Mostrar Comentario General de Mesa en Detalle de Pagos</strong></td><td id="f;^y" class="" style="width:235.66666666666666px">Permite que cualquier <strong>comentario general de la mesa</strong> se refleje en el detalle de pagos, facilitando la revisión de observaciones.</td><td id="Zm}Y" class="" style="width:235.66666666666666px">Comentario: “Sin sal” → aparece en detalle de pagos.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80e0-9c56-f949dd6b1ffc"><td id="rmVe" class="" style="width:235.66666666666666px"><strong>Sectores con comentario obligatorio al abrir mesa</strong></td><td id="f;^y" class="" style="width:235.66666666666666px">Permite definir <strong>sectores específicos</strong> donde es obligatorio ingresar un comentario al abrir la mesa.</td><td id="Zm}Y" class="" style="width:235.66666666666666px">Sector Bar → comentario obligatorio: “Cliente VIP”.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="25539073-1e23-8068-9b75-ca9f2f3b8333" class="">            </p></div><div style="display:contents" dir="auto"><p id="25639073-1e23-8001-9986-fc797111751a" class=""><mark class="highlight-gray"><strong>                   </strong></mark><mark class="highlight-red"><mark class="highlight-gray_background"><strong> *Ajustes solo para legacy</strong></mark></mark></p></div><div style="display:contents" dir="ltr"><figure id="25539073-1e23-80de-a13c-f41894fd9e0c" class="image"><a href="General/image%2020.png"><img style="width:624px" src="General/image%2020.png"/></a></figure></div><div style="display:contents" dir="ltr"><table id="25639073-1e23-8072-9f8d-e8a0afa9587c" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="25639073-1e23-80e9-a192-e5acb6c254ea"><th id="Iv}l" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="b|;i" class="simple-table-header-color simple-table-header"><strong>Definición / Uso</strong></th><th id="xP?s" class="simple-table-header-color simple-table-header"><strong>Ejemplo de configuración</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="25639073-1e23-800c-98d6-c20640d0ea55"><td id="Iv}l" class=""><strong>Permitir pegado directo de líneas de pedido al tomar orden</strong></td><td id="b|;i" class="">Funcionalidad que permite <strong>toma masiva de pedidos</strong> mediante el botón <strong>PASTE</strong> en la toma de pedidos. ⚠️ Actualmente <strong>no funciona</strong>.</td><td id="xP?s" class="">Intento de pegar varias líneas de pedido → no operativo en sistema.</td></tr></div><div style="display:contents" dir="ltr"><tr id="25639073-1e23-8014-b9c6-f16d068d47a2"><td id="Iv}l" class=""><strong>Impresión de reporte al cerrar caja (</strong><mark class="highlight-gray"><strong>Ajuste creado para cadena butcher</strong></mark><strong>)</strong></td><td id="b|;i" class="">Genera que, al cerrar la caja y contar con <strong>cierre ciego</strong>, se <strong>imprima automáticamente</strong> el reporte de cierre de caja.</td><td id="xP?s" class="">Cierre de caja turno mañana → se imprime automáticamente reporte de caja.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="34139073-1e23-8073-bcbf-ff471c4cb751"/></div><div style="display:contents" dir="auto"><p id="34139073-1e23-80a5-8f0e-c168f72e53bf" class="">Hemos registrado un par de situaciones respecto a la sección de Ajustes generales que pueden darse en el chat. </p></div><div style="display:contents" dir="auto"><p id="34139073-1e23-8030-9b3f-d471df89a39c" class="">Durante la revisión de este material, ten presente que no solo hay cuestiones de la primera pestaña “General”, si no también de las demás como Impuesto, Comentario, Inventarios, etc… por lo tanto, revísalo con calma, pues te servirá en más de un momento.</p></div><div style="display:contents" dir="auto"><p id="31a39073-1e23-8014-b56c-d4a8a9d45402" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

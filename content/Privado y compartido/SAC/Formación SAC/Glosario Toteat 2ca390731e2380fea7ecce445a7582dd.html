@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Glosario Toteat</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2ca39073-1e23-80fe-a7ec-ce445a7582dd" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🔤</span></div><h1 class="page-title" dir="auto">Glosario Toteat</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8076-a200-d5515b2ded5a" class="">Documento de referencia con definiciones de los conceptos utilizados en el sistema Toteat.</p></div><div style="display:contents" dir="auto"><hr id="2ca39073-1e23-80bb-8309-f3e122dce7dc"/></div><div style="display:contents" dir="auto"><h2 id="2ca39073-1e23-80e8-9dff-c02dac31f2aa" class="">Operación y Servicio</h2></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80c0-9982-c4167b2b9368" class=""><strong>Garzón: </strong>Personal encargado de tomar pedidos o comandas en mesa. <div class="indented"><div style="display:contents" dir="auto"><p id="2cc39073-1e23-80a0-8f18-c70df5147f49" class="">En Chile: Mesero o garzón.</p></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-80d2-aec4-d57c360c3602" class="">En México: Mesero o camarero.</p></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-803a-93cc-c6257d4855f2" class="">En Colombia: Mesero o camarero</p></div></div></p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80a6-b1b7-e15b7113f314" class=""><strong>Orden: </strong>Registro del pedido que realiza un cliente. Contiene los productos solicitados, cantidades y estados del pedido, y puede estar asociado a una mesa o canal de venta.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8090-bf23-f6b3bf0600da" class=""><strong>Mesa: </strong>Representación digital de una mesa física del local dentro del sistema.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8060-b8b4-db58df63f36b" class=""><strong>Mesa virtual: </strong>Modalidad digital de mesa que no existe físicamente en el local, pero permite registrar pedidos como si fuese una mesa real.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8089-bb6c-d5afe80fe439" class=""><strong>Liberar mesa: </strong>Acción que finaliza una mesa ya pagada y la deja disponible para recibir nuevos clientes.<strong> </strong></p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80b2-9c2a-ce6cf046d296" class=""><strong>Mesas Check-in: </strong>Funcionalidad que permite la auto atención del cliente desde la mesa, generalmente mediante código QR.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8031-9a8b-dccf67995c99" class=""><strong>Take away: </strong>Pedidos realizados para llevar, sin consumo dentro del local.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-808f-b96c-d83c50270e59" class=""><strong>Pedidos delivery: </strong>Función que permite recibir y gestionar pedidos a domicilio desde distintos canales (página web, app, teléfono o carta digital) y administrarlos desde una sola plataforma.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80ae-9c86-e00498ed2068" class=""><strong>Zona de despacho: </strong>Área geográfica definida por el local donde se realizan entregas a domicilio.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80d1-bbe5-f6acde83cba9" class=""><strong>Clientes: </strong>Consumidores finales que realizan pedidos en el local, para llevar o por delivery.</p></div><div style="display:contents" dir="auto"><hr id="2ca39073-1e23-8010-a517-e01463ea0b33"/></div><div style="display:contents" dir="auto"><h2 id="2ca39073-1e23-801b-a6d0-fe9beac7f4d5" class="">Carta y Productos</h2></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80c3-ae07-c51e6d7a93f4" class=""><strong>Carta / Maestro de productos: </strong>Menú del restaurante y listado de productos disponibles. En Toteat puede ser digital (Menú QR) y está sincronizado con el sistema central, permitiendo actualizar platos, precios y categorías en tiempo real.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-802e-952e-e13b49e6a090" class=""><strong>Maestro de productos: </strong>Base central donde se crean y administran los productos, precios, costos, recetas y configuraciones.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8040-95c6-d8f8d3195e29" class=""><strong>Jerarquías: </strong>Categorías que agrupan productos y/o extras. Son la base de la estructura y configuración de la carta.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-807d-94bf-cf19130a511d" class=""><strong>Productos: </strong>Elementos asociados a jerarquías que el cliente puede pedir.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80da-adb7-fa5ba50020b4" class=""><strong>Extras: </strong>Adicionales que pueden agregarse a un producto, como toppings, acompañamientos, productos extra o combos.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-804e-a49f-c2348a6d492e" class=""><strong>Precio base: </strong>Monto que paga el cliente por un producto sin considerar extras, descuentos o recargos.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8079-925f-ced1581bb813" class=""><strong>Precio por turno: </strong>Valor asignado a un producto, servicio o reserva según el turno o franja horaria.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8034-8cab-edfc0e3732a9" class=""><strong>Precio por lista: </strong>Permite asignar un valor a un producto dentro de una lista de precios específica (general, delivery, mayorista, corporativa, etc.).</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-809c-8df1-c8415c97c086" class=""><strong>Costo: </strong>Monto que le cuesta al restaurante producir un producto.</p></div><div style="display:contents" dir="auto"><hr id="2ca39073-1e23-8015-aaf0-c8a8b5c1159e"/></div><div style="display:contents" dir="auto"><h2 id="2ca39073-1e23-80a2-af43-f84d3e30ceb0" class="">Inventario y Producción</h2></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80b3-8388-d8e8e17b7852" class=""><strong>Inventarios: </strong>Herramienta de Toteat donde se administran los productos, ingredientes y materiales en stock.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80b3-b50e-d857d8f8ae69" class=""><strong>Inventario en línea: </strong>Sistema que muestra y actualiza en tiempo real las existencias mientras se realizan ventas, consumos o movimientos de stock.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8058-af11-f8d3cf11ed59" class=""><strong>Stock control: </strong>Módulo que permite gestionar, monitorear y actualizar las existencias del restaurante, asegurando control y reposición oportuna.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8098-92d4-e7ade69a5297" class=""><strong>Bodegas: </strong>Ubicaciones físicas o lógicas donde se almacena el stock (cocina, bar, almacén, sucursal, etc.).</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-802f-88ea-f74d5d511e32" class=""><strong>Centros de producción: </strong>Áreas donde se elaboran los productos (cocina, bar, pastelería). Se utilizan para organización operativa, impresión y control de preparación.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8063-a7ef-cffcf97fe700" class=""><strong>Recetas: </strong>Definición de ingredientes y cantidades necesarias para producir un producto.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-805c-8481-ebd4a14f5f63" class=""><strong>Subrecetas: </strong>Preparaciones intermedias que forman parte de una receta principal.</p></div><div style="display:contents" dir="auto"><hr id="2ca39073-1e23-80ff-a286-dc569f31a5d5"/></div><div style="display:contents" dir="auto"><h2 id="2ca39073-1e23-8055-9852-e48d4c407c30" class="">Caja, Turnos y Pagos</h2></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8036-9464-fcc95dbf8d10" class=""><strong>Caja: </strong>Espacio donde se controla la apertura, ingresos, egresos y cierre del dinero que pasa por el POS.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8005-b337-cea75e0437ee" class=""><strong>Efectivo inicial: </strong>Monto con el que se abre la caja al inicio de un turno.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80a6-b4ec-fce71ebdeeb7" class=""><strong>Turno: </strong>Franja horaria de trabajo donde se registran ventas, movimientos de caja y precios específicos.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8024-918c-f977917fb787" class=""><strong>Sub-turnos: </strong>Divisiones internas de un turno principal (por ejemplo, mañana y tarde).</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-809b-b937-ca8f0910b252" class=""><strong>Reabrir caja: </strong>Acción que permite volver a abrir una caja cerrada, según permisos.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8054-a0ed-e1302d15164e" class=""><strong>Reabrir turno: </strong>Permite reactivar un turno ya cerrado para ajustes o revisión.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8011-ab26-d5a2928d1e92" class=""><strong>Formas de pago: </strong>Métodos registrados en el sistema que permiten cerrar y cobrar una venta (efectivo, tarjeta, transferencia, etc.).</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80fe-9c83-dca9198fe7ff" class=""><strong>Pagos: </strong>Registro del método y monto con el que se cancela una cuenta.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-803c-ba41-ce277271bb79" class=""><strong>Propina: </strong>Monto adicional voluntario entregado al personal de atención.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8047-880f-d23e49073ac5" class=""><strong>Descuento: </strong>Reducción aplicada al precio de un producto o cuenta.</p></div><div style="display:contents" dir="auto"><hr id="2ca39073-1e23-8067-8fc5-e3a0b19cb6be"/></div><div style="display:contents" dir="auto"><h2 id="2ca39073-1e23-80ea-bb44-cad572546f1d" class="">Documentos Fiscales y Contables</h2></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80e6-8f5e-e1c501afe7f6" class=""><strong>Precuenta: </strong>Documento preliminar que muestra el total del consumo antes de emitir el documento fiscal. No tiene validez tributaria.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8000-86b8-c6a90874204f" class=""><strong>Ticket:</strong> es el comprobante informativo impreso o digital que muestra el detalle del consumo por producto, precios y pagos. Se entrega al cliente y no es valido como documento fiscal.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8048-b640-fda043a6303e" class=""><strong>Boleta: </strong>Documento fiscal no asociado a un cliente identificado, pero informado al ente regulador correspondiente.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80b3-b035-ce809def2fc8" class=""><strong>Factura: </strong>Documento fiscal asociado a un cliente identificado y reportado al ente tributario.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80eb-b728-feb2bac5cbb0" class=""><strong>Factura anónima: </strong>Factura emitida sin asociarla a un cliente específico, pero registrada ante el ente fiscal (por ejemplo, DIAN).</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80e4-8a1c-d6fd4fe484cc" class=""><strong>Nota de crédito: </strong>Documento fiscal que reduce o anula total o parcialmente una boleta o factura.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8036-a064-d1285d2dc2f0" class=""><strong>Nota de débito: </strong>Documento fiscal que incrementa el monto de una factura ya emitida.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-806c-8965-e64cc18c498e" class=""><strong>Comprobante fiscal: </strong>Documento que respalda legalmente una transacción ante el ente regulador.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80ce-8421-c610ffc45f30" class=""><strong>Registro contable: </strong>Cada operación del POS (ventas, pagos, documentos fiscales, ajustes de inventario) que se convierte en una entrada contable.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80fb-aa9e-de806311ae9e" class=""><strong>Folio: </strong>Número único y secuencial que identifica un documento fiscal.<div class="indented"><div style="display:contents" dir="auto"><p id="2cc39073-1e23-8031-b394-ddacc5390c66" class="">En Colombia: también se le llama consecutivo.</p></div></div></p></div><div style="display:contents" dir="auto"><hr id="2ca39073-1e23-80b1-9919-e7e0a5c6997e"/></div><div style="display:contents" dir="auto"><h2 id="2ca39073-1e23-802f-9ecd-dc5d05670e28" class="">Sistema y Configuración</h2></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-800a-b192-dc5c032171a1" class=""><strong>Perfil: </strong>Configuración asignada a cada usuario del sistema que define permisos y accesos.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-808d-b881-e7fedc0874aa" class=""><strong>Permisos: </strong>Autorizaciones que determinan qué acciones puede realizar un usuario.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8080-8ee9-f642fe2edf9e" class=""><strong>Acceso directo: </strong>Atajo que permite acceder rápidamente a una función o sección del sistema.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80a6-bb2a-c47826aff8a1" class=""><strong>Comentario: </strong>Texto libre agregado a una orden, producto o apertura de mesa (ejemplo: indicaciones especiales).</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8001-a69c-e3a08641f39f" class=""><strong>Anulación: </strong>Proceso mediante el cual se invalida una orden, venta o documento.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80ae-bd67-f093480ca441" class=""><strong>Impresora por red: </strong>Impresora conectada vía red (Ethernet o WiFi).</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8072-90c8-fd48a4b84ca1" class=""><strong>Impresora USB: </strong>Impresora conectada directamente al equipo mediante cable USB.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80c1-a929-f323f04ab392" class=""><strong>Offline: </strong>Modo de funcionamiento sin conexión a internet; la información se sincroniza al restablecer conexión.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80f9-99c5-e6ec9f83dbbc" class=""><strong>Sistema operativo: </strong>Software base del dispositivo (Windows, Android, iOS, Linux).</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-808d-95a3-cc6db1d6cf28" class=""><strong>Navegador: </strong>Programa utilizado para acceder al sistema web (Chrome, Edge, Firefox, Safari).</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80aa-a748-f67704a3e98c" class=""><strong>Integración: </strong>Conexión entre Toteat y sistemas externos (pagos, contabilidad, delivery, ERP).</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8086-89cb-fdf30e3adcb6" class=""><strong>La nube: </strong>Infraestructura online donde se almacenan los datos del sistema y se permite el acceso remoto.</p></div><div style="display:contents" dir="auto"><hr id="2ca39073-1e23-8045-922c-c2db8bf96d4f"/></div><div style="display:contents" dir="auto"><h2 id="2ca39073-1e23-802a-b8f0-ee9195191b79" class="">Documentos Tributarios Electrónicos (DTE) por País</h2></div><div style="display:contents" dir="auto"><h3 id="2ca39073-1e23-8026-8eae-f8f35cd97ba8" class="">Chile (SII)</h3></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-806e-b06b-d54d1e621676" class=""><strong>DTE (Chile): </strong>Documento Tributario Electrónico regulado por el SII.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80ad-9701-ff867adab4d7" class=""><strong>Boleta electrónica: </strong>Documento fiscal electrónico para ventas a consumidor final.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8092-88ed-ca2be415dfea" class=""><strong>Factura electrónica: </strong>Documento fiscal electrónico asociado a un cliente con RUT.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8084-9aeb-e7bcabd2c418" class=""><strong>Folio (Chile): </strong>Número único autorizado por el SII para cada documento.</p></div><div style="display:contents" dir="auto"><p id="2e839073-1e23-8015-8ada-cf5c391401a5" class="">Certificado Digital: ?</p></div><div style="display:contents" dir="auto"><hr id="2ca39073-1e23-804e-913d-f3631553426f"/></div><div style="display:contents" dir="auto"><h3 id="2ca39073-1e23-80e5-ab7f-f58ba9e01c0d" class="">Colombia (DIAN)</h3></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-808f-be3e-e2886a47d434" class=""><strong>Documento electrónico (DIAN): </strong>Comprobante fiscal electrónico regulado por la DIAN. Incluye factura electrónica, notas crédito y débito.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-803e-a492-c073c0521a04" class=""><strong>Factura electrónica (Colombia): </strong>Documento fiscal electrónico que puede ser nominativo o anónimo, pero siempre reportado a la DIAN.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-802d-8e50-f02fe4846a12" class=""><strong>Factura anónima: </strong>Factura emitida sin datos del cliente, válida fiscalmente y registrada ante la DIAN.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80b1-82ab-f1675ed45197" class=""><strong>CUFE: </strong>Código Único de Facturación Electrónica que identifica de forma única cada factura electrónica.</p></div><div style="display:contents" dir="auto"><hr id="2ca39073-1e23-8059-81a7-c0df29bb21c5"/></div><div style="display:contents" dir="auto"><h3 id="2ca39073-1e23-8001-be8f-ec91b995a3d4" class="">Perú (SUNAT)</h3></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-807c-94eb-d19554c44c4c" class=""><strong>Comprobante de pago electrónico: </strong>Documento fiscal electrónico regulado por SUNAT. Incluye boleta electrónica, factura electrónica y notas.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80c6-b5e2-f8fa140df42a" class=""><strong>Boleta electrónica (Perú): </strong>Documento electrónico utilizado para ventas a consumidores finales.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8035-afd0-fb166830e0de" class=""><strong>Factura electrónica (Perú): </strong>Documento electrónico asociado a un cliente con RUC.</p></div><div style="display:contents" dir="auto"><hr id="2ca39073-1e23-80f5-98de-ca5b0ad74c84"/></div><div style="display:contents" dir="auto"><h3 id="2ca39073-1e23-8025-b5b8-c9dab80817aa" class="">Argentina (ARCA / AFIP)</h3></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80c4-a05c-ce70e799175f" class=""><strong>Comprobante electrónico: </strong>Documento fiscal electrónico regulado por AFIP (ARCA). Incluye facturas, notas de crédito y débito.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8063-8031-c8de747c6442" class=""><strong>Factura A / B / C: </strong>Tipos de factura electrónica según condición fiscal del emisor y receptor.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-800b-8c74-f43e9acc979b" class=""><strong>CAE: </strong>Código de Autorización Electrónico otorgado por AFIP para validar un comprobante.</p></div><div style="display:contents" dir="auto"><hr id="2ca39073-1e23-808e-95d6-cc29b67b88f8"/></div><div style="display:contents" dir="auto"><h3 id="2ca39073-1e23-800e-b07f-fe55c95cc6e4" class="">México (SAT)</h3></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-803c-be39-d63c471ec5e6" class=""><strong>CFDI (Comprobante Fiscal Digital por Internet): </strong>Documento fiscal electrónico obligatorio en México, regulado por el SAT. Sustituye a boletas y facturas tradicionales.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80c4-81b9-f082297a1720" class=""><strong>Factura CFDI: </strong>CFDI emitido con datos fiscales del cliente (RFC). Es el comprobante más común para ventas formales.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8049-9b35-e0e256e48b17" class=""><strong>CFDI al público en general: </strong>CFDI emitido sin identificar a un cliente específico, usado para ventas a consumidores finales.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8067-9ad9-f2602fe1e8a0" class=""><strong>UUID: </strong>Identificador único del CFDI, generado al momento de la validación.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-808a-99be-cf5dc8402507" class=""><strong>PAC (Proveedor Autorizado de Certificación): </strong>Entidad autorizada por el SAT para validar y timbrar los CFDI.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8066-bf25-c6a4b3a7920e" class=""><strong>Timbrado: </strong>Proceso mediante el cual el CFDI es validado y autorizado por el SAT a través de un PAC.</p></div><div style="display:contents" dir="auto"><p id="2e839073-1e23-80b1-8f5e-c6cffd039dee" class="">CSD ¿certificado de sello digital?</p></div><div style="display:contents" dir="auto"><hr id="2ca39073-1e23-80e5-b932-e8f1bb7e0f73"/></div><div style="display:contents" dir="auto"><h2 id="2ca39073-1e23-8006-b43e-ce3df8d78d96" class="">Reportes y Exportaciones</h2></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-803a-86d4-f10ae33c91d1" class=""><strong>Reporte: </strong>Funcionalidad que permite visualizar datos y estadísticas del restaurante (ventas, costos, inventario, turnos, canales, etc.).</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80c6-8df4-d1cefccb77df" class=""><strong>Cierre X: </strong>Corte de caja informativo, no fiscal.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80ba-b865-fa6cda7cd4a0" class=""><strong>Cierre Z: </strong>Cierre fiscal definitivo que reinicia contadores y reporta al ente tributario.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8089-ae2a-f3c80bf186b9" class=""><strong>CSV: </strong>Formato de archivo de texto separado por comas, usado para exportación e importación de datos.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-8079-a9ee-ce52227a6e89" class=""><strong>XLS: </strong>Formato de archivo de Excel utilizado para reportes y análisis.</p></div><div style="display:contents" dir="auto"><p id="2ca39073-1e23-80f7-8f6d-dc9eb43c2059" class=""><strong>TPS: </strong>Toteat Print Server, programa encargado de gestionar la impresión de comandas, precuentas y documentos desde el sistema.</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

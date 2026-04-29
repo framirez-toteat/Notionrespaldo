@@ -1,0 +1,745 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Reuniones de líderes SAC</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="10a39073-1e23-8066-bbd9-cbc1e17092e6" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📆</span></div><h1 class="page-title" dir="auto">Reuniones de líderes SAC</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><div id="26f39073-1e23-8009-8f62-dbd44f3ba7db" class="collection-content"><h4 class="collection-title">Minutas de reuniones Líderes SAC</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Minuta de reunión</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/formula_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th></tr></thead><tbody><tr id="35039073-1e23-819b-b8c6-f5685b07fdff"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%20350390731e23819bb8c6f5685b07fdff.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">4 mayo</td><td class="cell-iU\["><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td></tr><tr id="34939073-1e23-810b-a6dc-d4ea20b87901"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%20349390731e23810ba6dcd4ea20b87901.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">27 abril</td><td class="cell-iU\["><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td></tr><tr id="34239073-1e23-81fd-ac6a-ddc9d9101857"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%20342390731e2381fdac6addc9d9101857.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">20 abril</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="33b39073-1e23-81ee-be63-edc98a4a12ce"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%2033b390731e2381eebe63edc98a4a12ce.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">13 abril</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="33439073-1e23-81a8-94e1-e82a6424bfa6"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%20334390731e2381a894e1e82a6424bfa6.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">6 abril</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="32d39073-1e23-8199-b477-f6d5b373d18b"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%2032d390731e238199b477f6d5b373d18b.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">30 marzo</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="32639073-1e23-81f0-be60-ef65ffeae7b2"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%20326390731e2381f0be60ef65ffeae7b2.html"><img class="icon" src="../Formaci%C3%B3n%20SAC/Onboarding%20SAC/Cronograma%20Base/Bienvenida%20a%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">23 marzo</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="31f39073-1e23-8162-85bc-da3db6d17df2"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%2031f390731e23816285bcda3db6d17df2.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">16 marzo</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="31839073-1e23-81b4-bdb3-c3421cfb816d"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%20318390731e2381b4bdb3c3421cfb816d.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">9 marzo</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="31139073-1e23-81f2-92c8-ccb276cc2d56"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%20311390731e2381f292c8ccb276cc2d56.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">2 marzo</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="30a39073-1e23-815c-b577-cd6106f55d1d"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%2030a390731e23815cb577cd6106f55d1d.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">23 febrero</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="30339073-1e23-811d-991a-e03c7c756840"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%20303390731e23811d991ae03c7c756840.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">16 febrero</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="2fc39073-1e23-81e3-9a25-dea5ff4179b7"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%202fc390731e2381e39a25dea5ff4179b7.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">9 febrero</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="2f539073-1e23-8173-bd76-d82a4a30d385"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%202f5390731e238173bd76d82a4a30d385.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">2 febrero</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="2ee39073-1e23-8198-8ca7-fe383d9a297a"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%202ee390731e2381988ca7fe383d9a297a.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">26 enero</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="2e739073-1e23-8146-8044-f549a1b748e5"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%202e7390731e2381468044f549a1b748e5.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">19 enero</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="2e039073-1e23-8107-9f43-d5e3b6423a53"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%202e0390731e2381079f43d5e3b6423a53.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">12 enero</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="2d939073-1e23-8170-bf74-cebc8e18bd1a"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%202d9390731e238170bf74cebc8e18bd1a.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">5 enero</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="2d239073-1e23-81fe-aefd-ef68f8c59bd8"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%202d2390731e2381feaefdef68f8c59bd8.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">29 diciembre</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="2cb39073-1e23-8175-bdec-c7c8adc6c15c"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%202cb390731e238175bdecc7c8adc6c15c.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">22 diciembre</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="2c439073-1e23-81cd-b6a8-eb6e150f7aef"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%202c4390731e2381cdb6a8eb6e150f7aef.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">15 diciembre</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="2bd39073-1e23-81d1-92ec-f9f50e2237a0"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%202bd390731e2381d192ecf9f50e2237a0.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">8 diciembre</td><td class="cell-iU\["><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Cancelada</span></td></tr><tr id="2b639073-1e23-81de-bf8b-c1338db80df6"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%202b6390731e2381debf8bc1338db80df6.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">1 diciembre</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="2af39073-1e23-8164-9903-dbd50dec42a8"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%202af390731e2381649903dbd50dec42a8.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">24 noviembre</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="2a839073-1e23-813f-8988-cc49e1112f50"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%202a8390731e23813f8988cc49e1112f50.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">17 noviembre</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="2a139073-1e23-81ba-a80c-eff1e2930033"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%202a1390731e2381baa80ceff1e2930033.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">10 noviembre</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="29a39073-1e23-8193-bcd7-e358c1cd0119"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%2029a390731e238193bcd7e358c1cd0119.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">3 noviembre</td><td class="cell-iU\["><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Cancelada</span></td></tr><tr id="29339073-1e23-81b3-8dc9-c1679ca19716"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%20293390731e2381b38dc9c1679ca19716.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">27 octubre</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="28c39073-1e23-8146-838b-cb43724c4210"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%2028c390731e238146838bcb43724c4210.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">20 octubre</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="28539073-1e23-8195-b7db-dd82d32a5b7e"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%20285390731e238195b7dbdd82d32a5b7e.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">13 octubre</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="28139073-1e23-819e-802f-ccaacaaa414d"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%20281390731e23819e802fccaacaaa414d.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">6 octubre</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr id="27a39073-1e23-811b-8360-ee18e5612241"><td class="cell-title"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%2027a390731e23811b8360ee18e5612241.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Minutas%20de%20reuniones%20L%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Weekly Líderes SAC</a></td><td class="cell-&gt;o&lt;n">29 septiembre</td><td class="cell-iU\["><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><p id="2b239073-1e23-80cb-8ccf-f0830c9a3b96" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="26f39073-1e23-802d-a161-f26f1a99dd0c" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%20L%C3%ADderes%20SAC%20Introducci%C3%B3n%20al%20formato%2026f390731e23802da161f26f1a99dd0c.html">Weekly Líderes SAC: Introducción al formato</a></figure></div><div style="display:contents" dir="auto"><ul id="27039073-1e23-8074-bc0d-fc33f2e9abc1" class="toggle"><li><details open=""><summary>Reuniones 2025 (Legacy)</summary><div style="display:contents" dir="ltr"><figure id="21b39073-1e23-80b8-819a-ca2ee93d36c4" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25%2021b390731e2380b8819aca2ee93d36c4.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 23-06-25</a></figure></div><div style="display:contents" dir="ltr"><figure id="1dc39073-1e23-8017-a45e-c145999ff840" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2021-04-25%201dc390731e238017a45ec145999ff840.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 21-04-25 </a></figure></div><div style="display:contents" dir="ltr"><figure id="1dc39073-1e23-809a-8916-fd5dfeee1c6c" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2014-04-25%201dc390731e23809a8916fd5dfeee1c6c.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 14-04-25</a></figure></div><div style="display:contents" dir="ltr"><figure id="1d039073-1e23-8050-937a-d626be460082" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Reuni%C3%B3n%20con%20Lu%20-%2002-04-25%201d0390731e238050937ad626be460082.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Reunión con Lu - 02-04-25</a></figure></div><div style="display:contents" dir="ltr"><figure id="1b239073-1e23-8059-a92b-db3305ac678c" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2010-0-2025%201b2390731e238059a92bdb3305ac678c.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 10-0-2025 </a></figure></div><div style="display:contents" dir="ltr"><figure id="1a439073-1e23-80d8-ab26-cd940e318832" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2024-02-25%201a4390731e2380d8ab26cd940e318832.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 24-02-25</a></figure></div><div style="display:contents" dir="ltr"><figure id="18839073-1e23-8026-9195-c989e492bf9b" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2027-01-25%20188390731e2380269195c989e492bf9b.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 27-01-25 </a></figure></div><div style="display:contents" dir="ltr"><figure id="18139073-1e23-8080-a657-d08e7cd35d25" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2020-01-25%20181390731e238080a657d08e7cd35d25.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 20-01-25 </a></figure></div><div style="display:contents" dir="ltr"><figure id="17c39073-1e23-8035-b125-ca8cacfaa17c" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2013-01-25%2017c390731e238035b125ca8cacfaa17c.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 13-01-25</a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="28139073-1e23-809a-858a-cd8a966d3fb3" class="toggle"><li><details open=""><summary>Reuniones 2024</summary><div style="display:contents" dir="ltr"><figure id="8e31e6ca-32d0-4aae-a78e-76ee3d58f2d2" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2004_09_2024%208e31e6ca32d04aaea78e76ee3d58f2d2.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 04_09_2024</a></figure></div><div style="display:contents" dir="ltr"><figure id="10a39073-1e23-803a-a868-cc34f575b158" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2010_09_2024%2010a390731e23803aa868cc34f575b158.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 10_09_2024 </a></figure></div><div style="display:contents" dir="ltr"><figure id="10a39073-1e23-8099-bd8b-c2e05a221b86" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Retro%2017_09_2024%2010a390731e238099bd8bc2e05a221b86.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Retro 17_09_2024 </a></figure></div><div style="display:contents" dir="ltr"><figure id="10a39073-1e23-8019-95b3-d1d204248214" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023_09_2024%2010a390731e23801995b3d1d204248214.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 23_09_2024 </a></figure></div><div style="display:contents" dir="ltr"><figure id="11139073-1e23-80e4-b64f-eeffefe462bf" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2030_09_2024%20111390731e2380e4b64feeffefe462bf.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 30_09_2024</a></figure></div><div style="display:contents" dir="ltr"><figure id="11f39073-1e23-80a8-a4cc-ecc62ca40d2d" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2014_10_2024%2011f390731e2380a8a4ccecc62ca40d2d.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 14_10_2024</a></figure></div><div style="display:contents" dir="ltr"><figure id="12839073-1e23-8078-a016-e2d542f5eae9" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023_10_2024%20128390731e238078a016e2d542f5eae9.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 23_10_2024 </a></figure></div><div style="display:contents" dir="ltr"><figure id="12f39073-1e23-8018-ab2a-db0d1110a318" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2029_10_2024%2012f390731e238018ab2adb0d1110a318.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 29_10_2024</a></figure></div><div style="display:contents" dir="ltr"><figure id="13539073-1e23-804d-a8d2-ed4b155931b7" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2005_11_2024%20135390731e23804da8d2ed4b155931b7.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 05_11_2024 </a></figure></div><div style="display:contents" dir="ltr"><figure id="13c39073-1e23-80d9-9dc9-c3ef3e64b493" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2012_11_2024%2013c390731e2380d99dc9c3ef3e64b493.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 12_11_2024</a></figure></div><div style="display:contents" dir="ltr"><figure id="14939073-1e23-8065-8d3a-c0abdc36a863" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2025_11_2024%20149390731e2380658d3ac0abdc36a863.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 25_11_2024</a></figure></div><div style="display:contents" dir="ltr"><figure id="15039073-1e23-80cd-8cb0-d932a2f0a257" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2002_12_2024%20150390731e2380cd8cb0d932a2f0a257.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 02_12_2024 </a></figure></div><div style="display:contents" dir="ltr"><figure id="15f39073-1e23-8094-a7a0-f0a2d20fe557" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2017_12_2024%2015f390731e238094a7a0f0a2d20fe557.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Weekly 17_12_2024 </a></figure></div><div style="display:contents" dir="ltr"><figure id="14a39073-1e23-8030-8377-f7e6f65fba1f" class="link-to-page"><a href="Reuniones%20de%20l%C3%ADderes%20SAC/Reuni%C3%B3n%2026-11-2024%2014a390731e2380308377f7e6f65fba1f.html"><img class="icon" src="Reuniones%20de%20l%C3%ADderes%20SAC/Weekly%2023-06-25/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.png"/>Reunión 26-11-2024</a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="28139073-1e23-807d-82d6-d68d48cbcd72" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

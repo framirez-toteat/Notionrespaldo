@@ -1,0 +1,750 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Estrategias de formación SAC</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ef311bcb-fade-4afa-a792-1489447e2ce0" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/webb4.jpg" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">⛰️</span></div><h1 class="page-title" dir="auto"><strong>Estrategias de formación SAC</strong></h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><div id="12df1a39-54b8-44d6-a8c8-e46777a31615" class="column-list"><div style="display:contents" dir="auto"><div id="5cd29d3a-cb48-49fc-8e91-6b2ec4cd8d2b" style="width:50%" class="column"><div style="display:contents" dir="auto"><h1 id="21e1b85f-3871-47d6-a116-a5eeaaec9705" class="">🧭 Descripción</h1></div><div style="display:contents" dir="auto"><hr id="98688999-2664-4efc-97d6-3e3d2f7254d3"/></div><div style="display:contents" dir="auto"><blockquote id="fb2abd6c-f297-4458-9214-aaffa8ab5b62" class="">Se realiza plan de formación continua al equipo de SAC para reforzar conocimientos y alinear los mismos entre todos los integrantes del equipo, con el fin de entregar la mejor experiencia al cliente.</blockquote></div></div></div><div style="display:contents" dir="auto"><div id="3f112b9d-73aa-498c-8de7-689af221bfa8" style="width:50%" class="column"><div style="display:contents" dir="auto"><h1 id="54c4c9d3-95a6-4446-95b1-8a164045e141" class="">🔍 Propósito</h1></div><div style="display:contents" dir="auto"><hr id="06c23fd3-ec9c-4183-a586-3b85ca7a7f77"/></div><div style="display:contents" dir="auto"><blockquote id="bfea9b6e-d346-4b02-8856-8b8c63c18f2c" class="">Este manual está diseñado para mantener al equipo con el conocimiento necesario  para poder atender a los clientes y sus requerimientos a través del chat de manera eficaz y eficiente.</blockquote></div><div style="display:contents" dir="auto"><p id="34a5cf45-aa6e-4be3-bb2b-51a8811060c7" class="">
+</p></div></div></div></div></div><div style="display:contents" dir="auto"><h1 id="a6ac45ba-7062-4d67-bcd0-80f04dca68f4" class="">Condiciones generales para el personal nuevo</h1></div><div style="display:contents" dir="auto"><ul id="60ad3783-e9d7-43a6-abf0-9afd3e461c52" class="bulleted-list"><li style="list-style-type:disc">Se realizará de acuerdo al cronograma y contenidos definidos en el <a href="Onboarding%20SAC%20176390731e2380df9b81d4e54e6fa3f9.html">Onboarding SAC</a> </li></ul></div><div style="display:contents" dir="auto"><ul id="0fff4163-8222-445d-9373-0138a09164c4" class="bulleted-list"><li style="list-style-type:disc">Los horarios de capacitación serán ajustados a los horarios de los formadores que participen en cada módulo.</li></ul></div><div style="display:contents" dir="auto"><ul id="ba4d507a-c959-43d4-9958-a52a300cf7d1" class="bulleted-list"><li style="list-style-type:disc">En el primer mes, se generarán los accesos necesarios, estudio teórico elemental y prácticas progresivas. Al finalizar el primer mes un nuevo ingreso debería ser capaz de conocer las herramientas de trabajo y responder <strong><span style="border-bottom:0.05em solid">consultas</span></strong> básicas de clientes.</li></ul></div><div style="display:contents" dir="auto"><ul id="86756881-5cf4-42ed-a26d-8a3f37385964" class="bulleted-list"><li style="list-style-type:disc">En el segundo mes, el estudio teórico sigue profundizándose al igual que la práctica en casos reales. Este mes se caracteriza por comenzar a utilizar herramientas internas y resolver casos de incidencias y solicitudes. La mayor parte del tiempo se dedica a la práctica. Este período culmina con un plan intenso de prácticas con apoyo, llamado Plan Canguro</li></ul></div><div style="display:contents" dir="auto"><ul id="49dc5c61-a6cd-4760-bdc4-b2c893d6fea3" class="bulleted-list"><li style="list-style-type:disc">Para finalizar esta etapa, se realizará una evaluación de conocimiento.</li></ul></div><div style="display:contents" dir="auto"><div><div style="display:contents" dir="auto"><ul id="84ddb871-6a84-42a3-b136-b8ffa3bbd961" class="bulleted-list"><li style="list-style-type:disc">En sus primeras dos semanas post onboarding, los agentes nuevos activos en el chat tomarán simultáneamente un máximo de 7 chats; al alcanzar esta cifra, pueden colocarse en <em>away</em> para evacuar y, al tener un mínimo de 3, deberán activarse nuevamente. Esto para evitar que se sobrecarguen y saturen en sus primeros días.</li></ul></div></div></div><div style="display:contents" dir="auto"><p id="4f62a959-0654-4933-98ac-9a92d24093e9" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="30439073-1e23-808a-b114-c1b31f187fc4"/></div><div style="display:contents" dir="auto"><h1 id="30439073-1e23-8071-bfd9-fc34ebe1b7f5" class="">Condiciones generales para el personal antiguo</h1></div><div style="display:contents" dir="auto"><ol type="1" id="dc410b02-904f-4291-b624-9653826dfd32" class="numbered-list" start="1"><li>Horario de capacitación: el indicado por parte de los Coordinadores de SAC.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="b38fd020-1bec-4981-b50d-b75e52a64bd3" class="numbered-list" start="2"><li>El cronograma de capacitación podrá verse en el siguiente apartado: <a href="Capacitaciones%20continuas%20960b4515ded446508df8ed1b289e0c58.html">¡Calendario de capacitaciones!</a></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="18883043-cea2-4694-8604-8f93ddb1fd22" class="numbered-list" start="3"><li>Cada sesión tendrá un tiempo de 60 minutos, incluyendo el apartado para dudas y preguntas.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="5aad9268-3515-43f6-b898-e49033641c3e" class="numbered-list" start="4"><li>Cada sesión debe tener material y quedar grabada para futura referencia y/o consulta.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="f2495e4e-a682-469b-a7ed-6a07e534649e" class="numbered-list" start="5"><li>Al finalizar cada capacitación, se debe realizar una pequeña actividad (Kahoot, Forms, etc.) para comprobar que la información fue aprendida por parte de los asistentes.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="ccbbce21-64c2-49af-b89f-c19a5567eef5" class="numbered-list" start="6"><li>Al finalizar el mes, se hará una pequeña prueba de conocimiento para validar lo aprendido durante la jornada de capacitación.</li></ol></div><div style="display:contents" dir="auto"><p id="596c7d3e-cfa9-431f-8e3d-a135b0a28f1f" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="f814a801-637e-4ab3-8f7b-86946fcb3b63" class="">2- Capacitación Personal Antiguo</h2></div><div style="display:contents" dir="auto"><ol type="1" id="b4cbc28e-e1b8-42a5-b0f1-dc01deb0938b" class="numbered-list" start="1"><li>Verificar la asistencia de los participantes, máx. 5 minutos.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="93a73236-739f-4757-a0ab-cdf940d8feec" class="numbered-list" start="2"><li>Proceder con el inicio de la capacitación luego de confirmar que la grabación ha iniciado.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="974c0686-cbfc-483e-b1db-056b4bc91e5d" class="numbered-list" start="3"><li>Realizar la actividad de validación de conocimiento.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="47b03786-4119-43fc-aaf9-ede29778c4e2" class="numbered-list" start="4"><li>Agradecer a los asistentes, terminar la sesión y grabación.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="b002d4b4-7c00-436a-a0c7-ca55147a3438" class="numbered-list" start="5"><li>Envío del material usado en la presentación por parte de los coordinadores del equipo SAC.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2a6cfcb8-66b6-4dfc-a2bd-a4d11a9c3f72" class="numbered-list" start="6"><li>Actividad de validación del mes al final del mismo.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="d76ad2ae-9f41-4326-850b-b11c1bb369ee" class="numbered-list" start="7"><li>Tener el temario de capacitación del mes a principio del mismo.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="a08418db-5ece-425f-bf1e-43ba30579612" class="numbered-list" start="8"><li>Dejar documentada la capacitación en el file compartido (asistencia, material, grabación, evaluaciones): <a href="https://drive.google.com/drive/folders/1dw2xmG0g6TxSQ04DUGleEhoYOifr5TcD">CAPACITACIONES SAC</a></li></ol></div><div style="display:contents" dir="auto"><h3 id="64f56b12-1df0-4da2-88a3-fc08fc964361" class="">2- Evaluación de conocimiento.<br/>Personal nuevo</h3></div><div style="display:contents" dir="auto"><ul id="d283b740-862b-4719-a0d0-2c7d7c7b737a" class="bulleted-list"><li style="list-style-type:disc">Al finalizar el temario de capacitación, se realizará una evaluación que abarcará diferentes temas de los módulos de capacitación; algunas preguntas serán de opción múltiple, verdadero/falso y respuesta corta.</li></ul></div><div style="display:contents" dir="auto"><ul id="a7a1c7d3-7136-4544-8fda-bfba4315fac9" class="bulleted-list"><li style="list-style-type:disc">Una vez realizada, evaluada y durante la semana de implementación, se dará la oportunidad de reforzar los temas en los que no se obtuvo una calificación favorable y poder aclarar la información.</li></ul></div><div style="display:contents" dir="auto"><h3 id="3fcc4ce2-9133-4031-bd42-43e58d6cdaf9" class="">Personal antiguo</h3></div><div style="display:contents" dir="auto"><ul id="5fc37b9d-6621-4f51-8c37-bf11216ab755" class="bulleted-list"><li style="list-style-type:disc">Al finalizar el mes, se realizará un pequeño examen por Google Forms limitado a un determinado tiempo para realizar el mismo.</li></ul></div><div style="display:contents" dir="auto"><ul id="693c2b72-72a3-4156-bf58-12c02e95ac84" class="bulleted-list"><li style="list-style-type:disc">Una vez realizada, se socializarán los resultados para poder resolver todos los puntos y unificar el conocimiento.</li></ul></div><div style="display:contents" dir="auto"><h3 id="d61cfdac-8cca-4b45-b525-6e1c42e497e6" class="">Trivias - Kahoot</h3></div><div style="display:contents" dir="auto"><ul id="67daa9a5-70a5-4ef5-8f98-9b4c087b4cba" class="bulleted-list"><li style="list-style-type:disc">Se realizarán en ciertos momentos de las capacitaciones y/o módulos de capacitación, actividades tipo trivia o Kahoot para confirmar que la información recibida fue entendida por parte del equipo.</li></ul></div><div style="display:contents" dir="auto"><h3 id="1ce8ea9d-ca92-409f-83e7-d549a32f4c02" class="">Salida</h3></div><div style="display:contents" dir="auto"><p id="a8a0d233-a25b-4d0c-bffc-fa81e764fca8" class="">Equipo mejor capacitado y alineado para brindar el soporte requerido por parte de los clientes.</p></div><div style="display:contents" dir="auto"><h3 id="71247445-fdec-47ec-b449-63ea040430cd" class=""><strong>Excepciones del flujo</strong></h3></div><div style="display:contents" dir="auto"><p id="72efb245-4703-40d4-85cc-925f8ae23cda" class="">N/A Todo el personal debe completar su capacitación.</p></div><div style="display:contents" dir="auto"><h3 id="93020e1c-03ff-4899-ab5b-1f716bfde999" class="">Puntos de control</h3></div><div style="display:contents" dir="auto"><p id="a051f3f5-182c-41a4-85d9-f0cf1a4d69f2" class="">Chats diarios de soporte, preguntas en el grupo de Slack.</p></div><div style="display:contents" dir="auto"><p id="30439073-1e23-80ce-a5e9-c9806ff52c0a" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="30439073-1e23-803b-8b5f-c222257eb240" class="block-color-orange"><strong>Control de actualizaciones</strong></h3></div><div style="display:contents" dir="auto"><div id="93285869-fd79-442b-a06f-385cdb5d9e89" class="column-list"><div style="display:contents" dir="auto"><div id="184e6cbf-5037-4e2a-846d-6f3115325b4c" style="width:93.75%" class="column"><div style="display:contents" dir="ltr"><table id="c43848ab-5ce3-4d78-8739-8513201c102c" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="32e42fe1-81e6-4a96-814f-37e70c13c938"><td id="PLbx" class=""><strong>Fecha de actualización:</strong></td><td id="lq?Q" class=""><strong>Actualizado por: </strong></td><td id="E`?I" class=""><strong>Aprobado por:</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="778fbd56-ac22-4afe-9de1-4cf1bcfe721f"><td id="PLbx" class="">08/03/2024</td><td id="lq?Q" class="">Andres Vanegas</td><td id="E`?I" class="">Paola Rodríguez</td></tr></div><div style="display:contents" dir="ltr"><tr id="25239073-1e23-8008-8e1f-d1fa69eb6b29"><td id="PLbx" class="">17/08/2025</td><td id="lq?Q" class="">Maria Martinez</td><td id="E`?I" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="30439073-1e23-80df-8ec0-cc832f065887"><td id="PLbx" class="">11/01/2026</td><td id="lq?Q" class="">Gonzalo Soffia</td><td id="E`?I" class="">Gonzalo Soffia</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="30439073-1e23-8010-af1c-c4ab6e25a65e" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="a4622e36-0caf-41d3-88cb-0de64456b3f3" style="width:6.25%" class="column"><div style="display:contents" dir="auto"><p id="3bd69e3d-f4f2-4e2d-b3e4-ca0349b69031" class=""><br/></p></div><div style="display:contents" dir="auto"><p id="4ae078a3-dc8a-4c98-8f62-897c71b431ab" class="">
+</p></div></div></div></div></div><div style="display:contents" dir="auto"><p id="aa10e5b4-9fe8-40ff-aa8f-deed6c6dac1a" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

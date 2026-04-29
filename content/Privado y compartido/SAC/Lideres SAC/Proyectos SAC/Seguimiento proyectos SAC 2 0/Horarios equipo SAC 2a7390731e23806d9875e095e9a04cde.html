@@ -1,0 +1,750 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Horarios equipo SAC</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2a739073-1e23-806d-9875-e095e9a04cde" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🗓️</span></div><h1 class="page-title" dir="auto">Horarios equipo SAC</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable (R)</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Gonzalo Soffia</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Aprobador</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIeXJP50n2oNMn3ITT9go-fZiu3cEmUJ2PVqjWjUJ5KVVbCe8M=s100" class="icon user-icon"/>Valeria García Arce</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Colaboradores</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Teresa Martinez</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Informados</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">L</span></span>Luciano Elizondo</span><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJYKiug9P3lZjXWyOwIIM0YXfSmQ3vcbnFp0ShnJgGZvg=s100" class="icon user-icon"/>Rocío Herrera Gómez</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Descripción</th><td>Optimización del método de planificación de la capacidad del equipo SAC</td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Última actualización</th><td><time>17 de diciembre de 2025 13:53</time></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="2ae39073-1e23-801d-819f-fb03b03cedd7" class="">📘 Documentación del proyecto</h2></div><div style="display:contents" dir="auto"><h2 id="2ae39073-1e23-8004-803c-dc3ed3c4881a" class="">Caso de negocio</h2></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80d2-b736-c912dd57b553" class="bulleted-list"><li style="list-style-type:disc">Buscar en Slack los reclamos de entradas y salidas<div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80fa-b4a3-c939bd95fa7a" class="bulleted-list"><li style="list-style-type:circle">Visibilidad poco intuitiva y limitada.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8037-88ea-e3e05604c47d" class="bulleted-list"><li style="list-style-type:circle">Cambios de turno sin avisar.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-809d-bfeb-c46fb1bc5504" class="bulleted-list"><li style="list-style-type:circle">Atrasos sin registro.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8044-bdd5-ff0d6cfc1f63" class="bulleted-list"><li style="list-style-type:disc">Tiempo que toma armar los horarios.<div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8092-b0af-deff24cf6d8f" class="bulleted-list"><li style="list-style-type:circle">Cerca de 4 medios días por semana.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80bd-bce6-fe89e81b65f3" class="bulleted-list"><li style="list-style-type:disc">Tareas necesarias:<div style="display:contents" dir="auto"><ul id="2ae39073-1e23-805a-888b-c24ad7f39e74" class="bulleted-list"><li style="list-style-type:circle">Descargar y traspasar demanda.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80c3-add5-cccd2c7d72ed" class="bulleted-list"><li style="list-style-type:circle">Definir necesidad de horas extras y publicar.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80a7-ac6a-d418f64e776b" class="bulleted-list"><li style="list-style-type:circle">Verificar cumplimiento de horas extras y horas nocturnas para informar a People, considerando ajustes y cambios de turno.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80cb-882f-f663365fa167" class="bulleted-list"><li style="list-style-type:circle">Registrar vacaciones, permisos y licencias + ajustar capacidad</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8045-9059-d695a258fe7f" class="bulleted-list"><li style="list-style-type:circle">Validar solicitudes de cambio de turno.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80cb-bbc8-f17e717cd1e2" class="bulleted-list"><li style="list-style-type:disc">Casos de CSAT porque no respondemos a tiempo / CSAT por horarios.</li></ul></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-802e-8141-db82d7bdd0f2" class="">
+</p></div><div style="display:contents" dir="ltr"><table id="2b039073-1e23-8015-b69b-c862e7e0cc83" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2b039073-1e23-80bd-bf6f-f3009ecead4f"><th id="FT=o" class="simple-table-header-color simple-table-header" style="width:205.46875px">Empresa</th><th id="v=~L" class="simple-table-header-color simple-table-header">País de origen</th><th id="Nv&lt;u" class="simple-table-header-color simple-table-header">Año de creación</th><th id="rqtm" class="simple-table-header-color simple-table-header">Nº de empleados (aprox.)</th><th id="~~v@" class="simple-table-header-color simple-table-header" style="width:133px">Nº de clientes actualmente</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2b039073-1e23-807e-82ad-fce03bcb016b"><td id="FT=o" class="" style="width:205.46875px"><strong>Assembled</strong></td><td id="v=~L" class="">EE.UU. </td><td id="Nv&lt;u" class="">2018</td><td id="rqtm" class="">51-200</td><td id="~~v@" class="" style="width:133px">10,022 followers</td></tr></div><div style="display:contents" dir="ltr"><tr id="2b039073-1e23-80a7-b5db-c2f0506db7b7"><td id="FT=o" class="" style="width:205.46875px"><strong><a href="http://Workforce.com">Workforce.com</a></strong><strong> LATAM</strong></td><td id="v=~L" class="">EE.UU.</td><td id="Nv&lt;u" class="">1922</td><td id="rqtm" class="">51-200</td><td id="~~v@" class="" style="width:133px">14,956 followers</td></tr></div><div style="display:contents" dir="ltr"><tr id="2b039073-1e23-807c-bffc-e99fcdd9d475"><td id="FT=o" class="" style="width:205.46875px"><strong>Breik App</strong></td><td id="v=~L" class="">Chile</td><td id="Nv&lt;u" class="">2021</td><td id="rqtm" class="">~ 10</td><td id="~~v@" class="" style="width:133px">1,223 followers</td></tr></div><div style="display:contents" dir="ltr"><tr id="2b039073-1e23-8018-8c18-e518dc34d020"><td id="FT=o" class="" style="width:205.46875px">VozDigital /<strong> Omnia WFM</strong></td><td id="v=~L" class="">Argentina</td><td id="Nv&lt;u" class="">2012</td><td id="rqtm" class="">11-50</td><td id="~~v@" class="" style="width:133px">1,424 followers</td></tr></div><div style="display:contents" dir="ltr"><tr id="2b039073-1e23-8044-9dfd-dea4d5bbc1c4"><td id="FT=o" class="" style="width:205.46875px"><strong>SHIFT - WFM</strong></td><td id="v=~L" class="">Chile</td><td id="Nv&lt;u" class="">2006</td><td id="rqtm" class="">51-200</td><td id="~~v@" class="" style="width:133px">6,479 followers</td></tr></div><div style="display:contents" dir="ltr"><tr id="2b039073-1e23-8033-b223-df8974e8c3f2"><td id="FT=o" class="" style="width:205.46875px"><strong>Frontline group</strong></td><td id="v=~L" class="">EE.UU.</td><td id="Nv&lt;u" class="">1999</td><td id="rqtm" class="">11-50</td><td id="~~v@" class="" style="width:133px">2,371 followers</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="2ae39073-1e23-8073-b80a-dda6bd1853ab" class="">Soluciones disponibles</h2></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Assembled - Logan Small</summary><div class="indented"><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80e8-90d5-d02f6ca1cafb" class="">✅ Se paga solo por asientos de agentes, los accesos para Administradores no se pagan.</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-809e-8e9c-cdea465e47ab" class="">✅ Se integra con Intercom, Google Calendar, Slack</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8059-83e5-fb8a88f523cd" class="">✅ Definir perfiles según seniority / squad</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8020-bf16-f82d3f4389e2" class="">✅ Permite cambios de turnos ya asignados entre agentes</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8031-b0a2-cfafec8f9b56" class="">✅ Registra la adherencia real a lo planificado, pausas, lunch, horas nocturnas, etc.</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8072-ae32-f5cd4e56ac3d" class="">✅ Ofrecer crear horarios en base a la demanda y capacidad de manejo por agente.</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8013-8067-d327c69200ac" class="">❌ La plataforma está en Inglés. La versión Español está en alguna parte de su <em>roadmap.</em></p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8052-b8e2-faf7622bf736" class="">✅ La implementación (que se paga a parte) la puede hacer un tipo en Español</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80c0-a634-fa0a351d0102" class="">✅ No hay un período de prueba sin pago, pero si un período de retracto de 30 días</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-808b-8754-c7c60b540ad6" class="">✅ Enviaron deck: <a href="https://docs.google.com/presentation/d/1fPJ2zNA95rto9Ro9AmP5eXqHDM3S5MEJjxV8oRGXTOY/edit?slide=id.g258e2bd7bb1_0_526#slide=id.g258e2bd7bb1_0_526">Assembled Deck presentation</a></p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80d3-a974-c178e59c11f1" class=""><strong>Pricing and Implementation</strong></p></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80ba-96f9-dcb7235afa48" class="bulleted-list"><li style="list-style-type:disc">Un poco menos de 6 semanas para completar la implementación, o menos por las integraciones que ya poseen con Google Calendar, Slack e Intercom.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8058-a283-c6cff886aab6" class="bulleted-list"><li style="list-style-type:disc">Traspaso a Customer Success y Soporte.<div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80d3-86ed-c30cfc651387" class="bulleted-list"><li style="list-style-type:circle">Ellos poseen hartos recursos asíncronos para soporte y dudas.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-802d-a9f4-d36bafd2c0ff" class="bulleted-list"><li style="list-style-type:circle">Todas las semanas realizan sesiones en vivo para resolver dudas.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-807c-af51-c5c223067c77" class="bulleted-list"><li style="list-style-type:disc">Estiman impacto en un 12% sobre adherencia y reducción en un 30% del tiempo de gestión de capacidad.</li></ul></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-80fd-a103-ebdb40e679c3" class="">La experiencia completa de seguimiento en la venta ha sido muy buena, muy detallada y muy consistente. Proyectan credibilidad de ser expertos en lo que hacen.</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Workforce.com - Rocio Pla</summary><div class="indented"><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8091-a62b-ec3d3dbbb83b" class=""><strong>Origen: Australia 🇦🇺<br/>Costos:</strong></p></div><div style="display:contents" dir="auto"><ul id="2b239073-1e23-80e6-8d6d-ccb1ec0df1a5" class="bulleted-list"><li style="list-style-type:disc"><strong>💸 $6 por asiento en pago mensual - $5 por asiento en pago anual</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2b239073-1e23-8057-a269-f75d65433b56" class="bulleted-list"><li style="list-style-type:disc">Implementación sin costo. </li></ul></div><div style="display:contents" dir="auto"><ul id="2b239073-1e23-80e4-ab48-e18844c976d4" class="bulleted-list"><li style="list-style-type:disc">Crear integración con Intercom: 25 horas desarrollo a $70 = $1,750. Ofrecen dcto de 35% dcto a cambio de realizar un<strong> video testimonial</strong> (de acuerdo) y entregarles asesoría para integrar Toteat como otro sistema POS integrado a <a href="http://Workforce.com">Workforce.com</a> para futuros clientes (de acuerdo).<div style="display:contents" dir="auto"><ul id="2b239073-1e23-800f-a9ad-e924d654954c" class="bulleted-list"><li style="list-style-type:circle">Alternativa: que nosotros construyéramos la integración, para lo cual ellos pueden disponer de un ingeniero para consultas sobre su API. </li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8014-a4de-dc923d6209e7" class="bulleted-list"><li style="list-style-type:disc">Tienen app y web.</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="2b639073-1e23-804f-819e-d173f25c5e0a" class="numbered-list" start="1"><li><strong>Control de adherencia y asistencia: </strong>Respecto a la medición de adherencia cruzando los turnos de Workforce.com con los estados de conexión de Intercom:<div style="display:contents" dir="auto"><ul id="2b639073-1e23-80f2-9bcc-c665cd9aaf07" class="bulleted-list"><li style="list-style-type:disc">Sí es posible comparar la <strong>planificación de turnos</strong> con el comportamiento real para medir adherencia por agente.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80e6-b591-f104f3636fd6" class="bulleted-list"><li style="list-style-type:disc">Lo que no es posible es usar Workforce como herramienta oficial de <strong>control de asistencia para efectos legales en Chile</strong>, ya que la legislación exige sistemas homologados.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80ad-bffa-eb6458979903" class="bulleted-list"><li style="list-style-type:disc">Sin embargo, sí pueden utilizar Workforce para verificar si un empleado:<div style="display:contents" dir="auto"><ul id="2b639073-1e23-80f5-ac1e-f4f01cb55832" class="bulleted-list"><li style="list-style-type:circle">Inició su turno en hora</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80fd-b377-c9e1da27976d" class="bulleted-list"><li style="list-style-type:circle">Tomó descansos en los momentos asignados</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80b6-acc1-c1fd2f72e1cd" class="bulleted-list"><li style="list-style-type:circle">Cumplió con los tiempos programados</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80b0-ab04-c5bc66943985" class="bulleted-list"><li style="list-style-type:disc">Es importante considerar que <strong>todos los descansos dentro del turno figuran como “descanso”</strong>, sin distinguir el tipo (almuerzo, break, colación). Workforce no puede mostrar los nombres específicos que usa Intercom, solo el concepto general.</li></ul></div><div style="display:contents" dir="auto"><p id="2b639073-1e23-80f0-aa9c-f2e673d8c138" class="">En relación con la detección en tiempo real:</p></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-808a-ab10-c678f3059b2c" class="bulleted-list"><li style="list-style-type:disc">Podemos emitir alertas cuando una persona no inicia su turno según lo planificado.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80bd-b3b9-ecf2b6136194" class="bulleted-list"><li style="list-style-type:disc">Si necesitan un reporte fiable de adherencia posterior, eso sí está disponible desde el sistema.<br/></li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b639073-1e23-80b0-ac69-c8a95fa8ec7d" class="numbered-list" start="2"><li><strong>Integración con Toteat – Alcance y propósito</strong><div style="display:contents" dir="auto"><p id="2b639073-1e23-804b-9696-f28f055d70d7" class="">El descuento que mencionamos está asociado a nuestra intención de desarrollar una integración oficial con Toteat como POS.</p></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80de-b04f-dc8178241bb0" class="bulleted-list"><li style="list-style-type:disc">Hemos tenido clientes que usan Toteat y por eso buscamos contar con esta integración lista, al igual que con otras que ya tenemos:<div style="display:contents" dir="auto"><p id="2b639073-1e23-800a-b9a8-d2663cfc7a3a" class=""><a href="https://es.workforce.com/integrations">https://es.workforce.com/integrations</a></p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80c0-8817-c73d23ec791f" class="bulleted-list"><li style="list-style-type:disc">Esta integración se usa solo si tenemos un cliente usuario de toteats que quiera conectar su demanda a Workforce.com</li></ul></div><div style="display:contents" dir="auto"><p id="2b639073-1e23-8010-a630-dfcda5669469" class="">
+</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b639073-1e23-80a3-b1a2-c5e52a0328cc" class="numbered-list" start="3"><li><strong>Propuesta económica y plazos</strong><div style="display:contents" dir="auto"><p id="2b639073-1e23-80bd-a0a3-d033529b2915" class=""><strong>Inicio del cobro:</strong></p></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-8041-a792-ed92ba60737c" class="bulleted-list"><li style="list-style-type:disc">El cobro comienza una vez que <strong>se crea la cuenta y se carga personal</strong> dentro de la plataforma.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80ac-873e-d38c4af609a5" class="bulleted-list"><li style="list-style-type:disc">Una buena práctica es comenzar con <strong>3 o 4 personas</strong> para validar la integración y luego incorporar al resto del equipo cuando todo esté finalizado.</li></ul></div><div style="display:contents" dir="auto"><p id="2b639073-1e23-8029-8c57-c3c3bd92a73a" class=""><strong>Modalidades de pago:</strong></p></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-8030-aac9-cd8057da38f8" class="bulleted-list"><li style="list-style-type:disc">La <strong>integración</strong> (pago único) puede abonarse por transferencia bancaria internacional (UK).</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-802e-9728-fab091814254" class="bulleted-list"><li style="list-style-type:disc">La <strong>licencia</strong> requiere una tarjeta de crédito, ya que:<div style="display:contents" dir="auto"><ul id="2b639073-1e23-80c5-8596-de5b707b5a3f" class="bulleted-list"><li style="list-style-type:circle">En plan anual, el sistema verifica mensualmente si superan la cantidad contratada de colaboradores.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80b5-ba3d-d2dfe46f566f" class="bulleted-list"><li style="list-style-type:circle">Si hay excedentes, esos se cobran al valor mensual correspondiente.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="2b639073-1e23-80db-807f-cddf675656ae" class=""><strong>Planes disponibles:</strong></p></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80c0-aed5-d65dc71c11e2" class="bulleted-list"><li style="list-style-type:disc">Modalidad <strong>mensual</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-808c-8be3-faadc6aadf7c" class="bulleted-list"><li style="list-style-type:disc">Modalidad <strong>anual</strong><div style="display:contents" dir="auto"><p id="2b639073-1e23-8099-ac23-cf50b0c2adac" class="">Muchos clientes comienzan de forma mensual hasta tener todo configurado, y luego migran al anual.</p></div><div style="display:contents" dir="auto"><p id="2b639073-1e23-80d1-aa36-c89a6ea17ee7" class="">No cobramos implementación, así que nuestra prioridad es que su operación quede lista lo antes posible.</p></div></li></ul></div><div style="display:contents" dir="auto"><p id="2b639073-1e23-8039-b013-f1e78a4c26fd" class=""><strong>Capacidades de la plataforma</strong></p></div><div style="display:contents" dir="auto"><p id="2b639073-1e23-80df-8723-f85048d41464" class=""><strong>Planificación automática según reglas de negocio y legales:</strong></p></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-804f-98e0-ddac59655bea" class="bulleted-list"><li style="list-style-type:disc">Workforce puede automatizar turnos basándose en:<div style="display:contents" dir="auto"><ul id="2b639073-1e23-80a6-ae1a-c2f0e2bcea2a" class="bulleted-list"><li style="list-style-type:circle">Demanda</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-8054-999a-c5c8f229d322" class="bulleted-list"><li style="list-style-type:circle">Disponibilidad</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-809f-8be1-f143a9b168ad" class="bulleted-list"><li style="list-style-type:circle">Reglas del negocio</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-8048-9a41-c0fea602fe07" class="bulleted-list"><li style="list-style-type:circle">Restricciones legales (descanso mínimo entre turnos, máximos por día/semana, límites de días trabajados en la semana, etc.)</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80ac-89cd-ffc61f62ee9c" class="bulleted-list"><li style="list-style-type:disc">Todas estas reglas pueden configurarse y el sistema puede:<div style="display:contents" dir="auto"><ul id="2b639073-1e23-80a2-8587-e5b7dd70789b" class="bulleted-list"><li style="list-style-type:circle">Emitir alertas</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80d6-97b7-c49ed7204798" class="bulleted-list"><li style="list-style-type:circle">O incluso <strong>bloquear</strong> la programación que incumpla los parámetros.</li></ul></div></li></ul></div></li></ol></div><div style="display:contents" dir="auto"><p id="2b639073-1e23-80d1-8448-e4fe2dc7bd53" class=""><strong>Bloques internos dentro de turnos (almuerzos, breaks, capacitaciones):</strong></p></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-8037-bbee-d79f61766f40" class="bulleted-list"><li style="list-style-type:disc">Sí se pueden incluir descansos y bloques dentro de los turnos.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-8015-90e2-f0dfadb7a569" class="bulleted-list"><li style="list-style-type:disc">Todos se clasifican bajo el concepto general de <strong>“descanso”</strong>, no con nombres personalizados.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-808f-bab4-c7e9891e4e6c" class="bulleted-list"><li style="list-style-type:disc">Para capacitaciones, muchos clientes las manejan como <strong>otro equipo interno</strong> y asignan horas allí, lo que permite más control.</li></ul></div><div style="display:contents" dir="auto"><p id="2b639073-1e23-806a-8bf0-f4e7acb299c6" class=""><strong>Diferenciación de perfiles (senior / junior):</strong></p></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-8072-a970-e763b34166aa" class="bulleted-list"><li style="list-style-type:disc">Workforce permite definir diferentes roles como senior y junior.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80d8-a8b3-c2893c2ed34d" class="bulleted-list"><li style="list-style-type:disc">Se pueden crear equipos separados y luego agruparlos, asignando:<div style="display:contents" dir="auto"><ul id="2b639073-1e23-80d5-bdce-c371c829307f" class="bulleted-list"><li style="list-style-type:circle">Índices de productividad distintos</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-801d-bb45-c12eea435e8d" class="bulleted-list"><li style="list-style-type:circle">Cantidad mínima requerida por turno</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-802d-84d3-c4b57049f0f3" class="bulleted-list"><li style="list-style-type:circle">Máximos de horas</li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-8004-8889-ebd2b2ef40ee" class="bulleted-list"><li style="list-style-type:circle">Reglas específicas por tipo de agente</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2b639073-1e23-80f5-969f-e2b0856761ba" class="bulleted-list"><li style="list-style-type:disc">Esto garantiza que, por ejemplo, <strong>siempre haya un senior disponible</strong>.</li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Voz Digital (Omnia) - Marcia Pizarro (Jeremías) <code>DESCARTADO</code></summary><div class="indented"><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8079-883a-e8bc509501a5" class="bulleted-list"><li style="list-style-type:disc">Plataforma robusta que maneja planificación de horarios y además gestión de payroll (RRHH) y gestión de desempeño.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-802e-baa7-d842adcecbe2" class="bulleted-list"><li style="list-style-type:disc">90 días de try-and-buy, que se cobra el 20% de la propuesta. </li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8081-be7b-c2a9fe26d24c" class="bulleted-list"><li style="list-style-type:disc">Puede hacer planificación automática, ingresar diferentes parámetros en los perfiles, ausencias, permisos, capacitaciones y entregar reportería de adherencia y horas.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8087-8bab-f7e49a9bbf52" class="bulleted-list"><li style="list-style-type:disc">✅ Soporte en Español</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80c4-8929-f36017e3be00" class="bulleted-list"><li style="list-style-type:disc">❌ No se integra en tiempo real con Intercom, por lo que no ofrece alertas en Slack si ocurren incumplimientos en la planificación. </li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-8052-ba2e-c5da82ed2072" class="bulleted-list"><li style="list-style-type:disc">❌ /❔ Sus propuestas económicas inicial y final son altas. Indican que para ellos no cambia mucho el costo si es que utilizamos menos asientos de los que trae el plan base (25 en lugar de 100 base).</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-803d-ad2f-fe9692c703de" class="bulleted-list"><li style="list-style-type:disc">❔ Debe revisar si hay opción de determinar seniority y asegurar cobertura</li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-801f-97c5-d44e42bdebd6" class="bulleted-list"><li style="list-style-type:disc">Todo es en web, no app. </li></ul></div><div style="display:contents" dir="auto"><ul id="2ae39073-1e23-80a0-b559-fd8a0e089c42" class="bulleted-list"><li style="list-style-type:disc">Ver reporte reunión <time>@17 de noviembre de 2025</time> <a href="https://app.read.ai/analytics/meetings/01KA94ZWWFYP9V8RG2QB165VRA?utm_source=sendgrid&amp;utm_medium=email&amp;utm_campaign=pcp_meeting_recap&amp;utm_content=access_report&amp;mInvite=01KA94ZWWFYP9V8RG2QB165VRA%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJraW5kIjoic2Vzc2lvbl9lbWFpbF9hY2Nlc3NfaW52aXRlIiwiZXhwaXJlc19hdCI6MTc5NDkzMTAyNzcwMCwic2Vzc2lvbl9pZCI6IjAxS0E5NFpXV0ZZUDlWOFJHMlFCMTY1VlJBIiwiZW1haWwiOiJnb256YWxvQHRvdGVhdC5jb20ifQ.7eOIEkofkdGCpdHHqUjlN47mDvmjlnyZHRqXbTlO49I&amp;ssid=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdvbnphbG9AdG90ZWF0LmNvbSJ9.C2LMdqK3IugeXACelsY3DPl8jCYuhE8Gkj4G2JPNhFY&amp;exp_domain=toteat.com&amp;exp_du=112">acá</a></li></ul></div><div style="display:contents" dir="ltr"><figure id="2ae39073-1e23-80ce-a897-c5cd37e8fa2e" class="image"><a href="Horarios%20equipo%20SAC/Captura_de_pantalla_2025-11-17_a_la(s)_12.46.55.png"><img style="width:144px" src="Horarios%20equipo%20SAC/Captura_de_pantalla_2025-11-17_a_la(s)_12.46.55.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ae39073-1e23-80fb-9ce0-ff8a190bab01" class="image"><a href="Horarios%20equipo%20SAC/Captura_de_pantalla_2025-11-17_a_la(s)_12.49.29.png"><img style="width:2452px" src="Horarios%20equipo%20SAC/Captura_de_pantalla_2025-11-17_a_la(s)_12.49.29.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8010-9829-eb06293abed7" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Nice y Frontline - Mormon Olivas y Aaron Pemberton <code>DESCARTADO</code></summary><div class="indented"><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8029-8b0b-fdbf2708485f" class="">Tras varias iteraciones desde PlayVox WFN, nos derivaron a Nice quien provee el servicio, pero su modelo de ventas apuntaba a un cliente objetivo diferente de nosotros (mayor volumen). Me traspasaron hacia otro proveedor relacionado (Frontline) y estos acusaron no poder resolver lo que buscamos.</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">SHIFT<strong> WFM</strong> - Cristian Dalmazzo <code>DESCARTADO</code></summary><div class="indented"><div style="display:contents" dir="auto"><p id="2ae39073-1e23-8025-8616-eccc07b53b26" class="">Venden el software para empresas que requieran planificar desde 1000 personas en adelante, a $8 &gt; $8,000 mensuales. No es nuestra realidad (necesitamos planificar 25 agentes)</p></div><div style="display:contents" dir="auto"><p id="2b639073-1e23-80ea-8e6f-e0373089c3ee" class="">Les pedí una recomendación alternativa y me apuntaron hacia Breik.</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Breik App - Santiago Brunet <code>DESCARTADO</code></summary><div class="indented"><div style="display:contents" dir="auto"><p id="2b039073-1e23-807a-a433-de0f58d5a4ab" class="">✅ Su C-Level lo define como un excel con esteroides. </p></div><div style="display:contents" dir="auto"><p id="2b039073-1e23-8074-8a79-f47ad33a7313" class="">✅ Considera normativas código del trabajo Chile.</p></div><div style="display:contents" dir="auto"><p id="2b039073-1e23-8098-ac5c-f1ffaea26fae" class="">❌ No se integra con Intercom.</p></div><div style="display:contents" dir="auto"><p id="2b039073-1e23-80ab-a777-d5989c7a88db" class="">❌ No ofrece planificación automática.</p></div><div style="display:contents" dir="auto"><p id="2b639073-1e23-8056-8642-c4f2f1ac54c1" class="">❌ Según Luciano no resolverá lo que necesitamos.</p></div><div style="display:contents" dir="auto"><p id="2b039073-1e23-8026-88d2-d0442f161549" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2ae39073-1e23-805b-8d19-dbb3766985bf" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><h2 id="2ae39073-1e23-803b-a4b3-d6d84551d160" class=""><strong>Resumen propuestas de costos ($ en USD)</strong></h2></div><div style="display:contents" dir="ltr"><table id="2ae39073-1e23-80c7-9567-e33b6605bab0" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2ae39073-1e23-80a6-b7e2-f1b384042331"><th id="liQC" class="simple-table-header-color simple-table-header"></th><th id=":pUG" class="simple-table-header-color simple-table-header" style="width:143.078125px"><strong>Precio mensual por agente</strong></th><th id="PLW{" class="simple-table-header-color simple-table-header" style="width:77.765625px"><strong>Asientos</strong></th><th id="}fsl" class="simple-table-header-color simple-table-header" style="width:163px"><strong>Subtotal anual agentes</strong></th><th id="_tsx" class="simple-table-header-color simple-table-header" style="width:134.5234375px"><strong>Subtotal anual plataforma</strong></th><th id="l`Uf" class="simple-table-header-color simple-table-header" style="width:146.625px"><strong>Implementación </strong>(pago único)</th><th id="wOwN" class="simple-table-header-color simple-table-header" style="width:197.4765625px">Tiempo de implementación</th><th id="&lt;^Mk" class="simple-table-header-color simple-table-header" style="width:184.0703125px"><strong>Total</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2ae39073-1e23-807c-827c-dadddac6e7ca"><td id="liQC" class="">Assembled</td><td id=":pUG" class="" style="width:143.078125px">$25 (50% dcto)</td><td id="PLW{" class="" style="width:77.765625px">25</td><td id="}fsl" class="" style="width:163px">$7,500 (50% dcto)</td><td id="_tsx" class="" style="width:134.5234375px">$4,500</td><td id="l`Uf" class="" style="width:146.625px">$1,000 (50% dcto)</td><td id="wOwN" class="" style="width:197.4765625px">&lt; 6 semanas</td><td id="&lt;^Mk" class="" style="width:184.0703125px">$13,000 (40% dcto)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ae39073-1e23-80ec-92e2-e224c4dc99c5"><td id="liQC" class="">Workforce.com</td><td id=":pUG" class="" style="width:143.078125px">$6 - Pago mensual</td><td id="PLW{" class="" style="width:77.765625px">25</td><td id="}fsl" class="" style="width:163px">$1,800 pago mensual</td><td id="_tsx" class="" style="width:134.5234375px">$0</td><td id="l`Uf" class="" style="width:146.625px"><del>$1,750</del>  $1,135 <br/>(Integración IC)</td><td id="wOwN" class="" style="width:197.4765625px">4 - 5 semanas</td><td id="&lt;^Mk" class="" style="width:184.0703125px">$2,935 primer año <br/>$1,800 siguientes</td></tr></div><div style="display:contents" dir="ltr"><tr id="2b639073-1e23-80b9-923c-f4cd57d01f27"><td id="liQC" class="">Workforce.com</td><td id=":pUG" class="" style="width:143.078125px">$5 - Pago anual</td><td id="PLW{" class="" style="width:77.765625px">25</td><td id="}fsl" class="" style="width:163px">$1,500 pago anual</td><td id="_tsx" class="" style="width:134.5234375px">$0</td><td id="l`Uf" class="" style="width:146.625px">$1,135 <br/>(Integración IC)</td><td id="wOwN" class="" style="width:197.4765625px"></td><td id="&lt;^Mk" class="" style="width:184.0703125px">$2,635 primer año<br/>$1,500 siguientes</td></tr></div><div style="display:contents" dir="ltr"><tr id="2b039073-1e23-802e-8a40-cf2a88ad9a29"><td id="liQC" class="block-color-gray">Breik App</td><td id=":pUG" class="block-color-gray" style="width:143.078125px">-</td><td id="PLW{" class="block-color-gray" style="width:77.765625px">&lt; 50</td><td id="}fsl" class="block-color-gray" style="width:163px">$24,300 </td><td id="_tsx" class="block-color-gray" style="width:134.5234375px"></td><td id="l`Uf" class="block-color-gray" style="width:146.625px">$203</td><td id="wOwN" class="block-color-gray" style="width:197.4765625px"></td><td id="&lt;^Mk" class="block-color-gray" style="width:184.0703125px">~ $24,500</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ae39073-1e23-8079-8040-c8f8f7e2f70c"><td id="liQC" class="block-color-gray">Voz Digital / Omnia WFM</td><td id=":pUG" class="block-color-gray" style="width:143.078125px">-</td><td id="PLW{" class="block-color-gray" style="width:77.765625px">&lt; 100</td><td id="}fsl" class="block-color-gray" style="width:163px">$0</td><td id="_tsx" class="block-color-gray" style="width:134.5234375px">$24,000</td><td id="l`Uf" class="block-color-gray" style="width:146.625px">$4,500</td><td id="wOwN" class="block-color-gray" style="width:197.4765625px">8 semanas</td><td id="&lt;^Mk" class="block-color-gray" style="width:184.0703125px">$34,500</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ae39073-1e23-80d3-8c72-e2431b5a3bba"><td id="liQC" class="block-color-gray">Shift WFM</td><td id=":pUG" class="block-color-gray" style="width:143.078125px">$8</td><td id="PLW{" class="block-color-gray" style="width:77.765625px">&gt;1000</td><td id="}fsl" class="block-color-gray" style="width:163px">$96,000</td><td id="_tsx" class="block-color-gray" style="width:134.5234375px"></td><td id="l`Uf" class="block-color-gray" style="width:146.625px"></td><td id="wOwN" class="block-color-gray" style="width:197.4765625px"></td><td id="&lt;^Mk" class="block-color-gray" style="width:184.0703125px">$96,000</td></tr></div><div style="display:contents" dir="ltr"><tr id="2b039073-1e23-8037-bfc2-fa5c014a6d5f"><td id="liQC" class="block-color-gray">Nice / Frontline</td><td id=":pUG" class="block-color-gray" style="width:143.078125px">Declararon no resolver la necesidad</td><td id="PLW{" class="block-color-gray" style="width:77.765625px">N/A</td><td id="}fsl" class="block-color-gray" style="width:163px">N/A</td><td id="_tsx" class="block-color-gray" style="width:134.5234375px">N/A</td><td id="l`Uf" class="block-color-gray" style="width:146.625px">N/A</td><td id="wOwN" class="block-color-gray" style="width:197.4765625px">N/A</td><td id="&lt;^Mk" class="block-color-gray" style="width:184.0703125px">N/A</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="2b739073-1e23-80aa-a7b1-dc482cbf8cf7" class="">Presentación del caso - <time>@26 de noviembre de 2025</time> </h2></div><div style="display:contents" dir="auto"><p id="2b739073-1e23-807b-b414-ec9f2de7a5b2" class=""><strong>Participantes</strong>: Luciano y Valeria<br/><a href="https://gamma.app/docs/WFM-Optimizacion-Operativa-SAC-8fekhh26awk3lji?mode=doc">https://gamma.app/docs/WFM-Optimizacion-Operativa-SAC-8fekhh26awk3lji?mode=doc</a></p></div><div style="display:contents" dir="auto"><ul id="2b739073-1e23-803f-9dd1-e0aad80c72ab" class="bulleted-list"><li style="list-style-type:disc">Se resolvió que en lugar de dedicar presupuesto a contratar nuevos servicios externos, se intentará optimizar a través de Excelencia Operacional con el <strong>n8n</strong> que se contrató.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c739073-1e23-80da-9d44-c657aaa0b243" class="bulleted-list"><li style="list-style-type:disc">Si en 3 meses no se consiguen avances significativos, debería existir un nuevo levantamiento del dolor al C level.</li></ul></div><div style="display:contents" dir="auto"><p id="2c739073-1e23-80d4-bbe3-cbc5902c4f86" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2c739073-1e23-8072-b118-d4150c9041bd" class="">Reunión con Excelencia Operacional - <time>@9 de diciembre de 2025</time> </h2></div><div style="display:contents" dir="auto"><p id="2c739073-1e23-809b-9277-ee6727347034" class="">Conversación con el equipo de Excelencia representado por <span class="user">@JuanPablo Melo</span> sobre todos los pasos que involucra este proceso. Se toma nota inicial y esperamos feedback sobre qué pasos pueden ser primeros objetivos.</p></div><div style="display:contents" dir="auto"><p id="2b739073-1e23-80b4-b94f-eea5902cccb6" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

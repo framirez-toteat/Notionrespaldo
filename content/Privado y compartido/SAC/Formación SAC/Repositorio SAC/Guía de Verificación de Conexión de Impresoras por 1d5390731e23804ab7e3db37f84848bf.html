@@ -1,0 +1,745 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Guía de Verificación de Conexión de Impresoras por Red (LAN)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1d539073-1e23-804a-b7e3-db37f84848bf" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🖨️</span></div><h1 class="page-title" dir="auto"><strong>Guía de Verificación de Conexión de Impresoras por Red (LAN)</strong></h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h3 id="1d539073-1e23-800d-a2dc-eedf35b9db44" class="">✅ <strong>1. Verificar conexión física y red</strong></h3></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-808e-9aa4-d7bdeb7b1413" class="bulleted-list"><li style="list-style-type:disc">Confirmar que la impresora esté encendida y <strong>conectada por cable de red (no USB)</strong> al router o switch.</li></ul></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-801b-80dc-c96c90fb57e7" class="bulleted-list"><li style="list-style-type:disc">Solicitar al cliente realizar el <strong>self-test de la impresora</strong> para validar IP y MAC.</li></ul></div><div style="display:contents" dir="auto"><hr id="1d539073-1e23-80ec-9052-e9c1da714a0c"/></div><div style="display:contents" dir="auto"><h3 id="1d539073-1e23-80e6-953b-de3338c7b8a0" class="">🧾 <strong>2. Cómo hacer el self-test de la impresora (modelo estándar)</strong></h3></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-80d7-9322-db9e6941734b" class="numbered-list" start="1"><li>Apagar la impresora.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-8063-8868-f070fc9f8756" class="numbered-list" start="2"><li>Presionar y mantener el botón <strong>FEED</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-8085-9b33-e3bc9d2d7cfd" class="numbered-list" start="3"><li>Encender la impresora <strong>sin soltar</strong> el botón FEED.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-80c5-aa79-ec3bf963a40c" class="numbered-list" start="4"><li>Apenas salga el papel con la configuración, <strong>soltar el botón FEED</strong>.</li></ol></div><div style="display:contents" dir="auto"><blockquote id="1d539073-1e23-8042-82d3-cfe73f356e9d" class="">El papel debe mostrar la IP y MAC Address de la impresora.</blockquote></div><div style="display:contents" dir="ltr"><figure id="29439073-1e23-8065-81ee-c36f81aaf2ac" class="image"><a href="Gu%C3%ADa%20de%20Verificaci%C3%B3n%20de%20Conexi%C3%B3n%20de%20Impresoras%20por/image.png"><img style="width:417.96875px" src="Gu%C3%ADa%20de%20Verificaci%C3%B3n%20de%20Conexi%C3%B3n%20de%20Impresoras%20por/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1d539073-1e23-80d9-a8db-c1029b2fdb1c" class=""><strong>🟡 Si no aparece la IP/MAC:</strong></p></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-809f-ae02-f8e8a7198048" class="bulleted-list"><li style="list-style-type:disc">Verificar que esté conectada por red, <strong>no por USB</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-80ac-8f24-d23e06503046" class="bulleted-list"><li style="list-style-type:disc">Si imprime papel en blanco: revisar si el <strong>papel está al revés</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-8039-9f3f-da434e488d56" class="bulleted-list"><li style="list-style-type:disc">Si imprime un &quot;Hexadecimal dump&quot;: probablemente es una <strong>impresora china</strong>, aplicar procedimiento especial.</li></ul></div><div style="display:contents" dir="auto"><hr id="1d539073-1e23-80bd-b65e-e69253e83505"/></div><div style="display:contents" dir="auto"><h3 id="1d539073-1e23-8039-8434-ffae312ecc48" class="">🇨🇳 <strong>Self-test impresoras chinas</strong></h3></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-8069-ba79-ca0b27fd8a4a" class="numbered-list" start="1"><li>Apagar la impresora.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-80f3-abeb-e22606b68687" class="numbered-list" start="2"><li>Presionar el botón FEED.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-8072-837e-cfac70102cac" class="numbered-list" start="3"><li>Encender la impresora y soltar el botón FEED.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-80ef-aae0-cf4701090566" class="numbered-list" start="4"><li>Inmediatamente volver a presionar el botón FEED hasta que salga la hoja de configuración.</li></ol></div><div style="display:contents" dir="auto"><p id="29439073-1e23-80f7-99d0-f44d2dda36db" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="1d539073-1e23-80e4-baa1-ce3cd6455b50"/></div><div style="display:contents" dir="auto"><h3 id="1d539073-1e23-80c9-814e-f55e0b2dece3" class="">💻 <strong>3. Verificar IP del PC del cliente</strong></h3></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-8014-af69-f8f0e4b60854" class="numbered-list" start="1"><li>Pedir al cliente abrir el ejecutador: <code>WIN + R</code> y escribir: <code>CMD ADMIN</code></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-80f8-8cfe-d9b94eb2768c" class="numbered-list" start="2"><li>En la consola, escribir:</li></ol></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-801f-a525-c945a86ff972" class="bulleted-list"><li style="list-style-type:disc">ipconfig</li></ul></div><div style="display:contents" dir="auto"><blockquote id="1d539073-1e23-8031-a68f-cc3f1dc52ab2" class="">Comparar IP del PC con la IP de la impresora.</blockquote></div><div style="display:contents" dir="auto"><p id="1d539073-1e23-803e-a0bf-deca2958e936" class=""><strong>Ejemplo de diferentes segmentos (no hay conexión):</strong></p></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-8092-9da1-e4d555211161" class="bulleted-list"><li style="list-style-type:disc">IP Impresora: 192.168.10.7</li></ul></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-8022-854c-cfb004db097d" class="bulleted-list"><li style="list-style-type:disc">IP PC: 26.14.101.96</li></ul></div><div style="display:contents" dir="auto"><p id="1d539073-1e23-802a-8b14-d12dfc4a6ea6" class=""><strong>Ejemplo de mismo segmento (debería haber conexión):</strong></p></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-80ad-a519-cc27e58ba709" class="bulleted-list"><li style="list-style-type:disc">IP Impresora: 26.14.101.80</li></ul></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-80f2-a4ee-e938a77c3acb" class="bulleted-list"><li style="list-style-type:disc">IP PC: 26.14.101.96</li></ul></div><div style="display:contents" dir="auto"><hr id="1d539073-1e23-8025-a7c1-ea67e49f6988"/></div><div style="display:contents" dir="auto"><h3 id="1d539073-1e23-80f5-9ced-ca036e78433b" class="">🕵️‍♂️ <strong>4. Verificar duplicidad de IP / detección de MAC</strong></h3></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-8030-ba6a-ce0e1b1c0952" class="numbered-list" start="1"><li>Abrir <code>CMD ADMIN</code> nuevamente.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-809c-9bff-dfc21f0c7bb5" class="numbered-list" start="2"><li>Ejecutar el comando:</li></ol></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-809b-9008-f43047c87099" class="bulleted-list"><li style="list-style-type:disc">arp -a</li></ul></div><div style="display:contents" dir="auto"><blockquote id="1d539073-1e23-8040-8ae1-ee5995b270b1" class="">Revisar si la IP de la impresora aparece y si la MAC Address coincide.</blockquote></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-8073-914d-ebe4ede6f7da" class="bulleted-list"><li style="list-style-type:disc">Si la IP aparece con otra MAC ➤ <strong>conflicto de IP duplicada</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-8013-84d9-f7272df79f69" class="bulleted-list"><li style="list-style-type:disc">Si no aparece ➤ usar <strong>scanner de red</strong> como:<div style="display:contents" dir="auto"><p id="1d539073-1e23-804a-af32-efe4eac9dcbc" class=""><a href="https://www.advanced-ip-scanner.com/es/">Advanced IP Scanner</a></p></div></li></ul></div><div style="display:contents" dir="auto"><hr id="1d539073-1e23-8071-8d05-d9625d30f767"/></div><div style="display:contents" dir="auto"><h3 id="1d539073-1e23-80c4-8863-ffbfe999605d" class="">🔌 <strong>5. Si no detecta la impresora, verificar físicamente:</strong></h3></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-802a-8f9a-cdca587ed8a7" class="bulleted-list"><li style="list-style-type:disc">¿Está conectada al router correcto?</li></ul></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-8025-bfbe-db7b3d6dd2ac" class="bulleted-list"><li style="list-style-type:disc">¿Está usando un <strong>puerto funcional</strong> del router o switch?</li></ul></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-803b-a64f-fab318023f08" class="bulleted-list"><li style="list-style-type:disc">¿Está el <strong>cable de red dañado</strong>?</li></ul></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-80cf-9fd9-eac97b7c9578" class="bulleted-list"><li style="list-style-type:disc">¿Está conectada a un switch <strong>apagado</strong>?</li></ul></div><div style="display:contents" dir="auto"><hr id="1d539073-1e23-808b-9f23-c0929821d4dc"/></div><div style="display:contents" dir="auto"><h3 id="1d539073-1e23-800a-9367-c4d60442c178" class="">🔁 <strong>6. Reiniciar impresora y red</strong></h3></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-80ff-9256-c195919aa2e8" class="numbered-list" start="1"><li>Apagar impresora.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-807b-8804-ff3bed32162b" class="numbered-list" start="2"><li>Desconectar cable de red (de ambas puntas si es posible).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-8021-b252-e9f16a6eab5a" class="numbered-list" start="3"><li>Esperar 10 segundos.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-8014-9cf4-d4b794c93aa5" class="numbered-list" start="4"><li>Encender impresora.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-80cb-9e62-d9947b373ab3" class="numbered-list" start="5"><li>Conectar nuevamente el cable de red.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1d539073-1e23-8014-9834-fae4ddbfbc7d" class="numbered-list" start="6"><li>Cambiar de puerto si persiste el problema.</li></ol></div><div style="display:contents" dir="auto"><p id="1d539073-1e23-80f4-990d-ead31fab7f63" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

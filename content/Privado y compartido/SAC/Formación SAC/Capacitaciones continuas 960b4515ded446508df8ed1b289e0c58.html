@@ -1,0 +1,748 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Capacitaciones continuas</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="960b4515-ded4-4650-8df8-ed1b289e0c58" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🎓</span></div><h1 class="page-title" dir="auto">Capacitaciones continuas</h1><p class="page-description" dir="auto">Haga un seguimiento de los proyectos de contenido, como artículos, podcasts, vídeos, etc., a través de las etapas de desarrollo.
+Almacena investigaciones, notas, grabaciones, recursos visuales y borradores dentro de cada tarjeta.
+Ve a quién se le ha asignado y cuándo deben entregarse los proyectos.
+Utiliza una plantilla de base de datos haciendo clic en el botón azul Nuevo y seleccionando una de las opciones de plantilla.
+↓ Haz clic en las diferentes pestañas de la base de datos para agrupar los proyectos por persona asignada, ver los plazos en un calendario y mucho más.
+</p></header><div class="page-body"><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Status</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Nombre</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha de publicación</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px;display:block"/></span>Link Grabación</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/attachment_gray.svg" style="width:14px;height:14px;display:block"/></span>Notas y documentación</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Observaciones</th></tr></thead><tbody><tr id="f88f5f68-c016-473d-8ed1-eb1407e97498"><td class="cell-~@Fg"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>No Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/KDS%20f88f5f68c016473d8ed1eb1407e97498.html">KDS</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-aGAa"><time>10 de mayo de 2024</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/15q7BnUo9d64sbxvtZBRqhRwo8gHVTa2Z/view?usp=drive_web" class="url-value">https://drive.google.com/file/d/15q7BnUo9d64sbxvtZBRqhRwo8gHVTa2Z/view?usp=drive_web</a></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="3375ec33-cf66-4540-ab0f-1b7811bebff3"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Staff%20Planner%203375ec33cf664540ab0f1b7811bebff3.html">Staff Planner</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>José Matías </span></td><td class="cell-aGAa"><time>14 de mayo de 2024</time></td><td class="cell-[,|O"></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="8c23c163-65c1-4fda-a1d4-6ea799270483"><td class="cell-~@Fg"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>No Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Redelcom%20(Oficina%208c23c16365c14fdaa1d46ea799270483.html">Redelcom (Oficina</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-aGAa"><time>16 de mayo de 2024</time></td><td class="cell-[,|O"></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="1578d940-740c-48bf-8d09-3be450582cfc"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Espacio%20para%20Conectar%201578d940740c48bf8d093be450582cfc.html">Espacio para Conectar</a></td><td class="cell-V&amp;aB"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWS-ifDJDzblG3HBp5Bth7hK95njh7YPfeA0Yw6HOy=s100" class="icon user-icon"/>Ornella Baccelliere De La Paz</span></td><td class="cell-aGAa"><time>24 de mayo de 2024</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1vHx-LnVsR1wJxhNArR_BAWILxaxBlGkz/view?usp=sharing" class="url-value">https://drive.google.com/file/d/1vHx-LnVsR1wJxhNArR_BAWILxaxBlGkz/view?usp=sharing</a></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="2d516a9e-aa89-43c1-9d05-350ee4286f2d"><td class="cell-~@Fg"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>No Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Integraciones%202d516a9eaa8943c19d05350ee4286f2d.html">Integraciones</a></td><td class="cell-V&amp;aB"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-aGAa"><time>24 de mayo de 2024</time></td><td class="cell-[,|O"></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="a045b149-98b3-4718-bbce-e956547fcd7c"><td class="cell-~@Fg"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>No Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Experiencia%20del%20Cliente%20a045b14998b34718bbcee956547fcd7c.html">Experiencia del Cliente</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">P</span></span>Pao Rodríguez</span><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWS-ifDJDzblG3HBp5Bth7hK95njh7YPfeA0Yw6HOy=s100" class="icon user-icon"/>Ornella Baccelliere De La Paz</span></td><td class="cell-aGAa"><time>29 de mayo de 2024</time></td><td class="cell-[,|O"></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="7bbc1681-ca68-4368-b8dd-3eaec3afc976"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Dudas%20DTE%20COL%207bbc1681ca684368b8dd3eaec3afc976.html">Dudas DTE COL</a></td><td class="cell-V&amp;aB"><span class="user"><img src="Onboarding%20SAC/Cronograma%20Base/DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-aGAa"><time>14 de junio de 2024</time></td><td class="cell-[,|O"></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="cafcf2fa-a3c6-48ae-9678-dc1d19a607a5"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Exp%20del%20Cliente%20cafcf2faa3c648ae9678dc1d19a607a5.html">Exp. del Cliente</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">P</span></span>Pao Rodríguez</span></td><td class="cell-aGAa"><time>27 de junio de 2024</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1aB46n5aktMfuph-GbQQTtfoGG1UMcU8S/view?usp=sharing" class="url-value">https://drive.google.com/file/d/1aB46n5aktMfuph-GbQQTtfoGG1UMcU8S/view?usp=sharing</a></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="18139073-1e23-8069-ad2b-c1a32173053d"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Reglas%20de%20Impresion%20181390731e238069ad2bc1a32173053d.html">Reglas de Impresion</a></td><td class="cell-V&amp;aB"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKhln606UjkXbBY_7ggRbFD1ScVKNlrn0ejyOekIs9Pyem9Wg=s100" class="icon user-icon"/>Yurani Torres</span></td><td class="cell-aGAa"><time>29 de enero de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/13zI6Yb_hlOskgmLB5XvfZqrxecrE9Zw8/view?usp=drive_web" class="url-value">https://drive.google.com/file/d/13zI6Yb_hlOskgmLB5XvfZqrxecrE9Zw8/view?usp=drive_web</a></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="Capacitaciones%20continuas/Reglas%20de%20Impresion/Reglas_de_Impresion_(1).pptx">Reglas de Impresion (1).pptx</a></span></td><td class="cell-WqOX"></td></tr><tr id="18139073-1e23-8071-bf03-d3b58c88a2f8"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Protocolos%20de%20Atencion%20181390731e238071bf03d3b58c88a2f8.html">Protocolos de Atencion</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Teresa Martinez</span><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKhln606UjkXbBY_7ggRbFD1ScVKNlrn0ejyOekIs9Pyem9Wg=s100" class="icon user-icon"/>Yurani Torres</span></td><td class="cell-aGAa"><time>12 de febrero de 2025</time></td><td class="cell-[,|O"></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="18139073-1e23-8025-becc-ff9aad0eb58f"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Stock%20Control%20(Inicial)%20G1%20181390731e238025beccff9aad0eb58f.html">Stock Control (Inicial)  G1</a></td><td class="cell-V&amp;aB"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIfdmQa1sU9RSIBpwRErslZNIx8VnartZED4-xTi-itsXoFpu8=s100" class="icon user-icon"/>Sergio Muñoz</span></td><td class="cell-aGAa"><time>13 de febrero de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1p96CV16RcBA7f4LqiO3_DJJzHC0_aeM6/view" class="url-value">https://drive.google.com/file/d/1p96CV16RcBA7f4LqiO3_DJJzHC0_aeM6/view</a></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="19239073-1e23-80a2-8ea9-c3837fc59a2a"><td class="cell-~@Fg"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>No Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Stock%20Control%20(Inicial)%20G2%20192390731e2380a28ea9c3837fc59a2a.html">Stock Control (Inicial) G2</a></td><td class="cell-V&amp;aB"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIfdmQa1sU9RSIBpwRErslZNIx8VnartZED4-xTi-itsXoFpu8=s100" class="icon user-icon"/>Sergio Muñoz</span></td><td class="cell-aGAa"><time>14 de febrero de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1p96CV16RcBA7f4LqiO3_DJJzHC0_aeM6/view?usp=drive_web" class="url-value">https://drive.google.com/file/d/1p96CV16RcBA7f4LqiO3_DJJzHC0_aeM6/view?usp=drive_web</a></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="18139073-1e23-80c9-9dd5-f3a6172b81c7"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Reportes%20G1%20G2%20181390731e2380c99dd5f3a6172b81c7.html">Reportes G1 / G2</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-aGAa"><time>20 de febrero de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/13XuKBRAXl4n6L8YMGvlKvYFOAgNNzNGV/view?usp=drive_web" class="url-value">https://drive.google.com/file/d/13XuKBRAXl4n6L8YMGvlKvYFOAgNNzNGV/view?usp=drive_web</a></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="18139073-1e23-800d-ad80-eba658b5fd10"><td class="cell-~@Fg"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>No Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Getnet%20G1%20181390731e23800dad80eba658b5fd10.html">Getnet G1 </a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-aGAa"><time>6 de marzo de 2025</time></td><td class="cell-[,|O"></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="18139073-1e23-80a7-b5bf-c367b5c1926f"><td class="cell-~@Fg"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>No Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Getnet%20G2%20181390731e2380a7b5bfc367b5c1926f.html">Getnet G2</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-aGAa"><time>6 de marzo de 2025</time></td><td class="cell-[,|O"></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="19039073-1e23-80b6-8b0b-c708aeed9db7"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Bajada%20de%20Info%20Notion%20Tech%20190390731e2380b68b0bc708aeed9db7.html">Bajada de Info Notion / Tech</a></td><td class="cell-V&amp;aB"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-aGAa"><time>13 de marzo de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1ex5_IsO4V4IOm4kwI7q6l07uCaPiT0bU/view?usp=sharing" class="url-value">https://drive.google.com/file/d/1ex5_IsO4V4IOm4kwI7q6l07uCaPiT0bU/view?usp=sharing</a></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://docs.google.com/presentation/d/1zaufTQQAChePONXMvl5NoHUP1efuz_Ia_W9m1tHI5xo/edit?usp=sharing">https://docs.google.com/presentation/d/1zaufTQQAChePONXMvl5NoHUP1efuz_Ia_W9m1tHI5xo/edit?usp=sharing</a></span></td><td class="cell-WqOX">Enviado por MAIL 17/03</td></tr><tr id="19039073-1e23-80d3-abab-f1077a410f1c"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Facturaci%C3%B3n%20MX%20Costa%20Rica%20190390731e2380d3ababf1077a410f1c.html">Facturación MX/Costa Rica</a></td><td class="cell-V&amp;aB"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLr8bmXbx-u9XKiSH_X0MM5ks53P6Ws5BX5WM86btnzs9YLA0pj=s100" class="icon user-icon"/>Javiera C.Ramos</span></td><td class="cell-aGAa"><time>25 de marzo de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1apKEH8cnDr2GdGAucnCTP81LmHV9AM95/view?usp=sharing" class="url-value">https://drive.google.com/file/d/1apKEH8cnDr2GdGAucnCTP81LmHV9AM95/view?usp=sharing</a></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="1a639073-1e23-807f-a7a1-f6a49d9716ce"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Jueves%20con%20Pancho%201a6390731e23807fa7a1f6a49d9716ce.html">Jueves con Pancho</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-aGAa"><time>31 de marzo de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1yW3Xqn9MqvxQl1cEJf9kSy9xkWrGxVoa/view?usp=sharing" class="url-value">https://drive.google.com/file/d/1yW3Xqn9MqvxQl1cEJf9kSy9xkWrGxVoa/view?usp=sharing</a></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="1ca39073-1e23-8099-883b-fb0c55dd78ea"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Cap%20Imin%20totem%201ca390731e238099883bfb0c55dd78ea.html">Cap Imin / totem</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jeremy Araujo</span></td><td class="cell-aGAa"><time>15 de abril de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1QmsuWtXlle9k25T3ssZMYKJddXKcflN4/view" class="url-value">https://drive.google.com/file/d/1QmsuWtXlle9k25T3ssZMYKJddXKcflN4/view</a></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="1a639073-1e23-8086-b3c3-dbe93e0bd1f4"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Charla%20de%20Gesti%C3%B3n%20de%20Clientes%20x%20Pao%20R%201a6390731e238086b3c3dbe93e0bd1f4.html">Charla de Gestión de Clientes x Pao R.</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">P</span></span>Pao Rodríguez</span></td><td class="cell-aGAa"><time>24 de abril de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1EXfUYZIvuQrEJwSwaXNF90GOKRV0qVTD/view" class="url-value">https://drive.google.com/file/d/1EXfUYZIvuQrEJwSwaXNF90GOKRV0qVTD/view</a></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="1ca39073-1e23-80e5-8e1d-dbde0811f9c3"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Customer%20Journey%201ca390731e2380e58e1ddbde0811f9c3.html">Customer Journey</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">L</span></span>Luciano Elizondo</span></td><td class="cell-aGAa"><time>16 de mayo de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1hU0SlmSoIde_Jx75bULnzhlSjAD_3a3k/view" class="url-value">https://drive.google.com/file/d/1hU0SlmSoIde_Jx75bULnzhlSjAD_3a3k/view</a></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://www.notion.so/121390731e23801d8f58c6d8aa90822e?pvs=21">https://www.notion.so/Payments-121390731e23801d8f58c6d8aa90822e</a></span></td><td class="cell-WqOX"></td></tr><tr id="1ca39073-1e23-800e-83cf-e8e2536a3522"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Boot%20Camp%20con%20Ren%C3%A9%20I%201ca390731e23800e83cfe8e2536a3522.html">Boot Camp con René I</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">R</span></span>Rene Marty</span></td><td class="cell-aGAa"><time>27 de mayo de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1P6W3e_Zhtd99ZEzrW8nYel0nJlI9RkVF/view" class="url-value">https://drive.google.com/file/d/1P6W3e_Zhtd99ZEzrW8nYel0nJlI9RkVF/view</a></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://docs.google.com/document/d/1QMeTD9m0eQAGDcLwdNhDNSsXCduCu82dfgqW42rl3h0/edit?tab=t.s36hwag9k1p5">https://docs.google.com/document/d/1QMeTD9m0eQAGDcLwdNhDNSsXCduCu82dfgqW42rl3h0/edit?tab=t.s36hwag9k1p5</a></span></td><td class="cell-WqOX"></td></tr><tr id="20139073-1e23-8081-81ba-dacf79e345e9"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Reuni%C3%B3n%20Sac%2028-05%20201390731e23808181badacf79e345e9.html">Reunión Sac 28-05</a></td><td class="cell-V&amp;aB"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Teresa Martinez</span></td><td class="cell-aGAa"><time>28 de mayo de 2025</time></td><td class="cell-[,|O"><a href="https://docs.google.com/document/d/1Nfk0lhHovlWeuxdgVweetaILsICiEQ-b8QnInmaQohQ/edit?tab=t.9t79dxleekyn" class="url-value">https://docs.google.com/document/d/1Nfk0lhHovlWeuxdgVweetaILsICiEQ-b8QnInmaQohQ/edit?tab=t.9t79dxleekyn</a></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="20739073-1e23-8010-a7e3-e3003a643d21"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Cap%20Analytics%20207390731e238010a7e3e3003a643d21.html">Cap Analytics</a></td><td class="cell-V&amp;aB"><span class="user"><img src="https://lh3.googleusercontent.com/a/AGNmyxZ6RarpYP-NeewJ0P5r4qIWCtMybJ7LJXSz3OnI=s100" class="icon user-icon"/>José Vinés</span></td><td class="cell-aGAa"><time>29 de mayo de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1Z3vx0mC5XKLwIE0k-LYtvp_vpzEcfM8c/view" class="url-value">https://drive.google.com/file/d/1Z3vx0mC5XKLwIE0k-LYtvp_vpzEcfM8c/view</a></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://docs.google.com/document/d/1tqY-zJrdnWu7NQ5pa0VVGlfRHi19eBirMf7aj6DvRNc/edit?tab=t.ggt3ta2z78rn#heading=h.q9n1ki2d2s6y">https://docs.google.com/document/d/1tqY-zJrdnWu7NQ5pa0VVGlfRHi19eBirMf7aj6DvRNc/edit?tab=t.ggt3ta2z78rn#heading=h.q9n1ki2d2s6y</a></span></td><td class="cell-WqOX"></td></tr><tr id="20739073-1e23-8011-b032-cb21111be395"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Cap%20A&amp;F%20207390731e238011b032cb21111be395.html">Cap. A&amp;F</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">N</span></span>Nesyer Rincón Rojas</span></td><td class="cell-aGAa"><time>4 de junio de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1FWIlutXfQlStBPKc4vfpXluAxj6bPYQZ/view" class="url-value">https://drive.google.com/file/d/1FWIlutXfQlStBPKc4vfpXluAxj6bPYQZ/view</a></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://docs.google.com/document/d/1-dBZhIVUKfQGUyx5sx-lO17wCui_59KJSQkNmPQpHZ8/edit?tab=t.20p0x1l84isk">https://docs.google.com/document/d/1-dBZhIVUKfQGUyx5sx-lO17wCui_59KJSQkNmPQpHZ8/edit?tab=t.20p0x1l84isk</a></span></td><td class="cell-WqOX"></td></tr><tr id="1ca39073-1e23-806c-a14f-fc737a0aa6af"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Mercado%20Pago%201ca390731e23806ca14ffc737a0aa6af.html">Mercado Pago</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>José Matías </span></td><td class="cell-aGAa"><time>26 de junio de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1rKLMF6U0WTmSqOWZqDCe0f7ArmOpZKXj/view?usp=sharing" class="url-value">https://drive.google.com/file/d/1rKLMF6U0WTmSqOWZqDCe0f7ArmOpZKXj/view?usp=sharing</a></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://docs.google.com/document/d/1bSG3oDEknft2xXkaOs5jnAgAhaM-I81XmTJeXeebNUk/edit?tab=t.f28bkhg10ixr">https://docs.google.com/document/d/1bSG3oDEknft2xXkaOs5jnAgAhaM-I81XmTJeXeebNUk/edit?tab=t.f28bkhg10ixr</a></span><span style="margin-inline-end:6px"><a href="Capacitaciones%20continuas/Mercado%20Pago/2._Toteat_-_Integracion_Point_-_N950.pdf">2. Toteat - Integracion Point - N950.pdf</a></span></td><td class="cell-WqOX"></td></tr><tr id="1ca39073-1e23-805e-99e0-c1eadfbbe71b"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Preguntas%20con%20Pancho%201ca390731e23805e99e0c1eadfbbe71b.html">Preguntas con Pancho</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-aGAa"><time>11 de julio de 2025</time></td><td class="cell-[,|O"></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://docs.google.com/document/d/1issNWX2BwxbXXxCP317bHMAvOq6ZZbQ7FzDwkD_MCsQ/edit?tab=t.x74ysi7p2mqy">https://docs.google.com/document/d/1issNWX2BwxbXXxCP317bHMAvOq6ZZbQ7FzDwkD_MCsQ/edit?tab=t.x74ysi7p2mqy</a></span></td><td class="cell-WqOX"></td></tr><tr id="24c39073-1e23-80d9-8398-f66db43bc171"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/DTE%20COSTA%20RICA%2024c390731e2380d98398f66db43bc171.html">DTE COSTA RICA</a></td><td class="cell-V&amp;aB"><span class="user"><img src="Onboarding%20SAC/Cronograma%20Base/DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-aGAa"><time>17 de julio de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/12MGnd_L3XVlJAkqtkc-tr9gSppzWJrQ_/view" class="url-value">https://drive.google.com/file/d/12MGnd_L3XVlJAkqtkc-tr9gSppzWJrQ_/view</a></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="25039073-1e23-8081-bc1f-e009eab36d4e"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Changelog%20250390731e238081bc1fe009eab36d4e.html">Changelog</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-aGAa"><time>14 de agosto de 2025</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/16kVZ_BAllic4MVmmq-RxFKLTaibMXuc0/view?usp=sharing " class="url-value">https://drive.google.com/file/d/16kVZ_BAllic4MVmmq-RxFKLTaibMXuc0/view?usp=sharing </a></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://docs.google.com/document/d/1-PRDUtO_mi2tZp1XM_5rzZH6LJaDAnYlzmBnRUV1FcI/edit?usp=sharing">https://docs.google.com/document/d/1-PRDUtO_mi2tZp1XM_5rzZH6LJaDAnYlzmBnRUV1FcI/edit?usp=sharing</a></span></td><td class="cell-WqOX"></td></tr><tr id="2a139073-1e23-80fe-bbde-d3dd57959cc5"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Reuniones%20SAC%202025%20(desde%20SEM%2042)%202a1390731e2380febbded3dd57959cc5.html">Reuniones SAC 2025 (desde SEM 42)</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Gonzalo Soffia</span></td><td class="cell-aGAa"><time>4 de noviembre de 2025</time></td><td class="cell-[,|O"></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://docs.google.com/presentation/d/1CvWhl-_Di9ZKCRn7s0zMJX1gfmC3yI8kG4taUMOaY-k/edit?slide=id.g3161c38e7f5_0_228#slide=id.g3161c38e7f5_0_228">https://docs.google.com/presentation/d/1CvWhl-_Di9ZKCRn7s0zMJX1gfmC3yI8kG4taUMOaY-k/edit?slide=id.g3161c38e7f5_0_228#slide=id.g3161c38e7f5_0_228</a></span></td><td class="cell-WqOX">Nuevo formato para apoyo de reuniones bisemanales del equipo SAC. El material está disponible para consulta del equipo.</td></tr><tr id="32239073-1e23-8009-a688-f041b4216d3a"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/1%C2%AA%20sesi%C3%B3n%20de%20Taller%20Reinicio%20TPS%20322390731e238009a688f041b4216d3a.html">1ª sesión de Taller: Reinicio TPS</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">A</span></span>Andrés Felipe Rincón Moyano</span></td><td class="cell-aGAa"><time>12 de marzo de 2026</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1P6fLKtX9asfr_qU-RY77SmHaWcv2b8Gz/view" class="url-value">https://drive.google.com/file/d/1P6fLKtX9asfr_qU-RY77SmHaWcv2b8Gz/view</a></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://docs.google.com/document/d/1t4tmwUuAjUyq3WM-XpY3BdH_042St0NLQ6BLBv_OPW8/edit?tab=t.2yxsjbbl7e0d">https://docs.google.com/document/d/1t4tmwUuAjUyq3WM-XpY3BdH_042St0NLQ6BLBv_OPW8/edit?tab=t.2yxsjbbl7e0d</a></span><span style="margin-inline-end:6px"><a href="https://www.notion.so/2f8390731e2380ceaacdd4029e448be2?pvs=21">https://www.notion.so/Reinicio-TPS-2f8390731e2380ceaacdd4029e448be2</a></span><span style="margin-inline-end:6px"><a href="https://drive.google.com/file/d/1Xcy_CCxmJEnt3quHVz_lArSw3E1wiuML/view">https://drive.google.com/file/d/1Xcy_CCxmJEnt3quHVz_lArSw3E1wiuML/view</a></span></td><td class="cell-WqOX">Primera instancia de ciclos de capacitación impulsadas por Coordinación SAC que buscan crear y mantener espacios de profundización en temáticas de soporte, de y para el equipo. Una oportunidad de actualización y participación que se espera tengan temáticas mensuales. </td></tr><tr id="32239073-1e23-8001-8a24-f1ebe38bfc79"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Reporter%C3%ADa%20para%20SAC%20322390731e2380018a24f1ebe38bfc79.html">Reportería para SAC</a></td><td class="cell-V&amp;aB"><span class="user"><img src="https://lh3.googleusercontent.com/a-/ALV-UjXxxToDSj84GdqTyLYY-IGS2QSkfzhePH8UW_nsW9K2ZjoTcncQr8mVxWyjz2Od_uGq9o9u9sP3qslqO01YgwlaBOqMfmlc2Im7woZCzKVM6KtMv58JfHHClTQfvfSb0TVTMHSztkoL3GLZvbe7wOQ7ff3QmaSWgegh7A4wdjU5ofcOrxETwpTrLLcosj_BUcSD6bglwj6p_ppUP4TyP4xXxahF9JyIi4Yp3J2mFC8Nc8-6DAQSbdKpNS3y8WqKj1WRzmHmsguWl42cYmZfLLlC5zBqCp-LK8QYEiHareElzpAtTO1JoF8KkTysK51tXfZqLKeX4tEHHsVeKELC9eT4lqjZZUgJl7_db0sodsV1VBvkyjEIqFnaklZvc0eMjufZ60pmK2IZrsLDvEi_HEGc569Z8_LHnjolBs1DdQd7vidsM1b9N6xB95jwYfOOtX9g4bv-FByNyv5qj1jAlCHGEOWLHCbQ8IMLdfXhW7MvDjSc4nNGEDWSaQQbBsPDBDi2yJNU3KC8Nsq6sFDG4ScCVECYlyFBxRMPFEp0o1y4YQggslNAppbmUMdejDBb-UH1wwauwoDthfb4U2sn5Cmc-erSWF4MV31Q0H8sdvutDohUgEpcLYeEzfK8gVv4iA9v898m7xUPlmlEkpIrPRu-NAp4u_C8JpFRu-BzYzzv-MQRqZx_DbHXW3Z7JJKGbKSciQZmeUGMr3X9kOE3FQpYWNVtuq9T0CmY5JN1hlmN-yMn4tiPGW0tf7xbr92q8fLRPxF0m_zNO_DdPpILMrgQ1fuBrFxtUpJmJPKj3aP1A3QEAXSwdhm6RHdYIBhqxjIYH8uyxm46JwtLchm_23lHheHPFumtN_XR6-LQV4n55Vdbt7ubljl1S8NcAmmvkY4IjxjJEySO3WX2ocTUahGj3brX3YPQ01Vh0BMQt3-i13yt8cR5ok6TB0e9jjNrPH1HTbYWEhoQIPVq6ZAzxz1Qo7mv=s100" class="icon user-icon"/>America Garcia</span></td><td class="cell-aGAa"><time>20 de marzo de 2026</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1s4xZNHP_GBRty3IxaZSOMALelE_VfTbV/view" class="url-value">https://drive.google.com/file/d/1s4xZNHP_GBRty3IxaZSOMALelE_VfTbV/view</a></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://docs.google.com/document/d/1WC-XOzOOpgmhwtVoZ5RmvMZW8u6O6kJgEMai4BTlXI4/edit?tab=t.egn32f7ljol4">https://docs.google.com/document/d/1WC-XOzOOpgmhwtVoZ5RmvMZW8u6O6kJgEMai4BTlXI4/edit?tab=t.egn32f7ljol4</a></span></td><td class="cell-WqOX"></td></tr><tr id="32239073-1e23-8037-b754-eb40cd5b64b9"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/2%C2%AA%20sesi%C3%B3n%20de%20Taller%20Reinicio%20TPS%20322390731e238037b754eb40cd5b64b9.html">2ª sesión de Taller: Reinicio TPS</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">A</span></span>Andrés Felipe Rincón Moyano</span></td><td class="cell-aGAa"><time>26 de marzo de 2026</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1HFmDnFhOSBEZC_9SL7fYPWE_UdCFqTFq/view" class="url-value">https://drive.google.com/file/d/1HFmDnFhOSBEZC_9SL7fYPWE_UdCFqTFq/view</a></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://docs.google.com/document/d/1Lu0v876r58zR_XyF_R6p_B-K8W3a6pDUZRvNNh62Ejo/edit?tab=t.opdom1vkig6q">https://docs.google.com/document/d/1Lu0v876r58zR_XyF_R6p_B-K8W3a6pDUZRvNNh62Ejo/edit?tab=t.opdom1vkig6q</a></span></td><td class="cell-WqOX"></td></tr><tr id="34b39073-1e23-80bc-8c0a-e160f85d9b23"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/1%C2%AA%20sesi%C3%B3n%20de%20taller%20impresoras%2034b390731e2380bc8c0ae160f85d9b23.html">1ª sesión de taller: impresoras</a></td><td class="cell-V&amp;aB"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKvMfOges0sz-hJn7a7OoM2Rke06wYUT0B7mzcvWRE6ckrkWA=s100" class="icon user-icon"/>Brandon Villamil</span></td><td class="cell-aGAa"><time>20 de abril de 2026</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1EACyyGjKpgA3TuJ2kFTy4rMkYoY8X6uA/view" class="url-value">https://drive.google.com/file/d/1EACyyGjKpgA3TuJ2kFTy4rMkYoY8X6uA/view</a></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://docs.google.com/document/d/1OjQBUwuTChHfSuhju1mbSbXqgxXU6dn5XpztyDq1Ois/edit?tab=t.u4i39y23wpn">https://docs.google.com/document/d/1OjQBUwuTChHfSuhju1mbSbXqgxXU6dn5XpztyDq1Ois/edit?tab=t.u4i39y23wpn</a></span></td><td class="cell-WqOX"></td></tr><tr id="34b39073-1e23-805f-a924-d6e4a8b2de90"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/2%C2%AA%20sesi%C3%B3n%20de%20taller%20impresoras%2034b390731e23805fa924d6e4a8b2de90.html">2ª sesión de taller: impresoras</a></td><td class="cell-V&amp;aB"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKvMfOges0sz-hJn7a7OoM2Rke06wYUT0B7mzcvWRE6ckrkWA=s100" class="icon user-icon"/>Brandon Villamil</span></td><td class="cell-aGAa"><time>23 de abril de 2026</time></td><td class="cell-[,|O"><a href="https://drive.google.com/file/d/1ObI71o1bq3vieSVN_eNDn_J7BiGDJLny/view" class="url-value">https://drive.google.com/file/d/1ObI71o1bq3vieSVN_eNDn_J7BiGDJLny/view</a></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://docs.google.com/document/d/1E0gfAX_VVp9_CJEKo3v-Qm769W_sk2TTfWANAHGwVL8/edit?tab=t.wk8if1djb3xh">https://docs.google.com/document/d/1E0gfAX_VVp9_CJEKo3v-Qm769W_sk2TTfWANAHGwVL8/edit?tab=t.wk8if1djb3xh</a></span></td><td class="cell-WqOX"></td></tr><tr id="34c39073-1e23-80d3-b61d-ee7e9fde313c"><td class="cell-~@Fg"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Realizado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Multisucursales%2034c390731e2380d3b61dee7e9fde313c.html">Multisucursales</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Fernanda Soto</span></td><td class="cell-aGAa"><time>28 de abril de 2026</time></td><td class="cell-[,|O"></td><td class="cell-BOqz"><span style="margin-inline-end:6px"><a href="https://docs.google.com/document/d/1PwC7RC2RgneRIV7UW1zXW0iCa16Bj4AoYLc4lYSzs-g/edit?tab=t.djqfmugie996">https://docs.google.com/document/d/1PwC7RC2RgneRIV7UW1zXW0iCa16Bj4AoYLc4lYSzs-g/edit?tab=t.djqfmugie996</a></span></td><td class="cell-WqOX"></td></tr><tr id="34b39073-1e23-8018-8179-f6cc4fd34364"><td class="cell-~@Fg"><span class="status-value select-value-color-default"><div class="status-dot status-dot-color-default"></div>Programado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/1%C2%AA%20sesi%C3%B3n%20de%20taller%20reporter%C3%ADa%2034b390731e2380188179f6cc4fd34364.html">1ª sesión de taller: reportería</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>José Matías </span></td><td class="cell-aGAa"><time>14 de mayo de 2026</time></td><td class="cell-[,|O"></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="34b39073-1e23-8034-bf76-e457f6d9df57"><td class="cell-~@Fg"><span class="status-value select-value-color-default"><div class="status-dot status-dot-color-default"></div>Programado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/2%C2%AA%20sesi%C3%B3n%20de%20taller%20reporter%C3%ADa%2034b390731e238034bf76e457f6d9df57.html">2ª sesión de taller: reportería</a></td><td class="cell-V&amp;aB"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>José Matías </span></td><td class="cell-aGAa"><time>21 de mayo de 2026</time></td><td class="cell-[,|O"></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="1a639073-1e23-803c-af92-fadd660c852a"><td class="cell-~@Fg"><span class="status-value select-value-color-default"><div class="status-dot status-dot-color-default"></div>Programado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Charla%20Stock%20Control%201a6390731e23803caf92fadd660c852a.html">Charla Stock Control</a></td><td class="cell-V&amp;aB"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIfdmQa1sU9RSIBpwRErslZNIx8VnartZED4-xTi-itsXoFpu8=s100" class="icon user-icon"/>Sergio Muñoz</span></td><td class="cell-aGAa"></td><td class="cell-[,|O"></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr><tr id="19039073-1e23-805c-91e0-fc51d6574b0f"><td class="cell-~@Fg"><span class="status-value select-value-color-default"><div class="status-dot status-dot-color-default"></div>Programado</span></td><td class="cell-title"><a href="Capacitaciones%20continuas/Charla%20Uber%20Direct%20190390731e23805c91e0fc51d6574b0f.html">Charla Uber Direct</a></td><td class="cell-V&amp;aB"><span class="user"><img src="https://lh3.googleusercontent.com/a/AAcHTteSfioDO01OvAKIq2OV4sXwXHEdwJHfEpOnxOvx5okrog=s100" class="icon user-icon"/>Andrea Carolina Ruiz</span></td><td class="cell-aGAa"></td><td class="cell-[,|O"></td><td class="cell-BOqz"></td><td class="cell-WqOX"></td></tr></tbody></table></div><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

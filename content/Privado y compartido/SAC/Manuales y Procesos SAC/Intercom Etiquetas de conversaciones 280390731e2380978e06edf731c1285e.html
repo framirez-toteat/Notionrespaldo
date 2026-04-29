@@ -1,0 +1,765 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Intercom | Etiquetas de conversaciones</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="28039073-1e23-8097-8e06-edf731c1285e" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/nasa_robert_stewart_spacewalk.jpg" style="object-position:center 71.93%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Macros%20-%20Intercom/images.png"/></div><h1 class="page-title" dir="auto">Intercom | Etiquetas de conversaciones</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/person-masculine_gray.svg" style="width:14px;height:14px;display:block"/></span>Creado Por:</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Teresa Martinez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td><span class="selected-value select-value-color-brown">Manuales y procesos</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Creación</th><td><time>02/10/2025</time></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="28039073-1e23-80f9-86c2-cef9f2e7d57c" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="28039073-1e23-8060-b17f-e0c8241bee71"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="28039073-1e23-806d-9904-f17365237bc7" class="">Este documento tiene como finalidad detallar la nueva modalidad para gestionar los cierres de chat, incorporando el uso de botones de selección por parte de los agentes. Con esta mejora buscamos optimizar el proceso, haciéndolo más ágil, estandarizado y sencillo de aplicar en la operación diaria.</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8086-a340-cd3ef5ba19f8" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-80f1-8e9b-f2fdef4f914a" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="28039073-1e23-808a-90a8-ed72fd85956c" class="">                              <mark class="highlight-default"> </mark><mark class="highlight-default"><mark class="highlight-blue_background">¡Nuevos botones!</mark></mark><mark class="highlight-default"> </mark></h1></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8077-9318-cbfd4a5d47d3" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="28039073-1e23-800e-88ca-f3dd74225b13" class="image"><a href="Intercom%20Etiquetas%20de%20conversaciones/image.png"><img style="width:429.9750061035156px" src="Intercom%20Etiquetas%20de%20conversaciones/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8007-a0ef-ff93601be7a5" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8085-8309-eee0c691a2c6" class="">
+</p></div><div style="display:contents" dir="auto"><div id="28039073-1e23-80f7-b220-ed98ee5d0caa" class="column-list"><div style="display:contents" dir="auto"><div id="28039073-1e23-8082-9d31-c1a7f91ee417" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="28039073-1e23-8000-b177-e46e39593431" class="image" style="text-align:left"><a href="Intercom%20Etiquetas%20de%20conversaciones/image%201.png"><img style="width:384px" src="Intercom%20Etiquetas%20de%20conversaciones/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="28039073-1e23-806f-b84d-e82d2cda14de" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="28039073-1e23-803b-a198-d61f5ed65cdc" class=""><mark class="highlight-default"><mark class="highlight-blue_background"><strong>Tipos de Conversaciones:</strong></mark></mark></h3></div><div style="display:contents" dir="auto"><p id="28039073-1e23-803a-aefe-f6483825d13c" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-80fd-b1dc-cc915fe0b7a0" class="">Al cerrar una conversación en Intercom, es necesario clasificar el requerimiento en uno de tres tipos: Consulta, Incidente o Solicitud. Cada uno representa un tipo específico de contacto.</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-80ca-babd-dd8484186811" class="">Para clasificar la conversación, haga clic en el botón &quot;Cerrar&quot; ubicado en la esquina superior derecha. Inmediatamente aparecerá la opción &quot;Tipo de conversación&quot; en el panel derecho. Al hacer clic allí, se mostrarán los tres tipos disponibles, de los cuales debe seleccionar uno.</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8067-a8af-f4aeb3a2af36" class="">
+</p></div><div style="display:contents" dir="ltr"><table id="28039073-1e23-80a3-8e4b-efc0aa2ff0ae" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80e5-8b73-fa7dbb75c753"><td id="uRmz" class=""><strong>Tipo de Conversación</strong></td><td id="AO&lt;H" class=""><strong>Concepto</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8014-ab2a-c69c05dc4965"><td id="uRmz" class=""><strong>Consulta</strong></td><td id="AO&lt;H" class="">Conversaciones de nuestros clientes, donde solicitan información sobre sus servicios o los servicios que ofrece Toteat, sobre personal, datos de correspondencia, correos electrónicos para solicitud de formatos, comunicación con el personal comercial o KAM, entre otros.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-804a-a1fd-eb6ba5da1fe6"><td id="uRmz" class=""><strong>Incidente</strong></td><td id="AO&lt;H" class="">Conversaciones de nuestros clientes, donde reportan novedades y fallas con el correcto funcionamiento de sus servicios, también pueden ser contactos de fallas presentadas por caídas masivas, cambios normativos, actualizaciones, entre otros.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80a5-920f-ec2290454490"><td id="uRmz" class=""><strong>Solicitud</strong></td><td id="AO&lt;H" class="">Conversaciones de nuestros clientes, donde realizan solicitudes sobre sus servicios y que no están relacionadas con caídas masivas o fallas, estas solicitudes pueden incluir escalamientos de diferentes áreas como el área “Comercial y Kam”.</td></tr></div></tbody></table></div></div></div><div style="display:contents" dir="auto"><div id="28039073-1e23-8075-b38f-d16259853d55" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="28039073-1e23-80bb-a08c-f3ef50f4697a" class="image" style="text-align:left"><a href="Intercom%20Etiquetas%20de%20conversaciones/image%202.png"><img style="width:336px" src="Intercom%20Etiquetas%20de%20conversaciones/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="28039073-1e23-804c-a9a0-dea4c4a3b02d" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="28039073-1e23-801f-9b69-cec7ac8d7c07" class=""><mark class="highlight-default"><mark class="highlight-blue_background"><strong>Estado de cierre de la conversación:</strong></mark></mark></h3></div><div style="display:contents" dir="auto"><p id="28039073-1e23-805e-870e-f236fcb470f3" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8074-a807-e5d3ba54efc7" class="">Al cerrar una conversación en Intercom, es necesario clasificar el resultado final en una de estas cinco categorías: Solucionado, Solucionado sin confirmación, Cliente no sigue la conversación, Escalado o Error externo a Toteat. Cada categoría representa un tipo específico de solución proporcionada al cliente.</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8028-ba14-d06f34b30af6" class="">Para clasificar el estado de cierre, haga clic en el botón &quot;Cerrar&quot; ubicado en la esquina superior derecha de la conversación. Inmediatamente aparecerá la opción &quot;Estado de Cierre&quot; en el panel derecho. Al hacer clic allí, se mostrarán los cinco tipos de cierre disponibles, de los cuales debe seleccionar uno.</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-806e-b5ae-f7ddace4de29" class="">
+</p></div><div style="display:contents" dir="ltr"><table id="28039073-1e23-80f3-a41e-d381bedeead6" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80b6-9b09-e617350f967b"><td id="AlDy" class="" style="width:192px"><strong>Estado de Cierre</strong></td><td id="]zGB" class="" style="width:192px"><strong>Concepto</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8050-af2d-e1e199f80127"><td id="AlDy" class="" style="width:192px"><strong>Solucionado</strong></td><td id="]zGB" class="" style="width:192px">Conversaciones de nuestros clientes, donde el Customer Service Assitant da una solución a su requerimiento y el cliente confirma mediante la misma conversación estar de acuerdo y conforme con la solución ofrecida.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8051-988c-c1cfc9b67d7d"><td id="AlDy" class="" style="width:192px"><strong>Solucionado sin confirmación</strong></td><td id="]zGB" class="" style="width:192px">Conversaciones de nuestros clientes, donde el Customer Service Assitant da una solución a su requerimiento y tras 15 minutos de espera este no confirma la efectividad de la solución.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80bd-955d-f45fa846c2cc"><td id="AlDy" class="" style="width:192px"><strong>Cliente no sigue la conversación</strong></td><td id="]zGB" class="" style="width:192px">Conversaciones de nuestros clientes, donde el Customer Service Assitant no puede ofrecer una solución debido a que el usuario no suministra información suficiente y necesaria para realizar un análisis y gestión adecuada del requerimiento tras 15 minutos de espera.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-806e-92a7-e4ef1ee16471"><td id="AlDy" class="" style="width:192px"><strong>Escalado</strong></td><td id="]zGB" class="" style="width:192px">Conversaciones de nuestros clientes, donde el Customer Service Assitant no puede ofrecer una solución inmediata o incluso en la misma conversación debido a que el requerimiento debe ser escalado a otra área como “Comercia, Tech, Ingeniería, entre otros”, y el tiempo de respuesta y la solución del caso depende de la gestión del área escalada.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-809e-8389-df2a76be7377"><td id="AlDy" class="" style="width:192px"><strong>Error Externo a TOTEAT</strong></td><td id="]zGB" class="" style="width:192px">Conversaciones de nuestros clientes, donde el Customer Service Assitant no puede ofrecer una solución inmediata o incluso en la misma conversación debido a que el requerimiento corresponde a fallas o errores externos a TOTEAT, como fallas en el servidor del Usuario, incidentes en los equipos del cliente entre otros.</td></tr></div></tbody></table></div></div></div></div></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8030-8a52-ed5c005ab79a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8089-8f40-cfd6daca173d" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="28039073-1e23-80a1-9492-cdb09769c3df" class="image"><a href="Intercom%20Etiquetas%20de%20conversaciones/image%203.png"><img style="width:436.9875183105469px" src="Intercom%20Etiquetas%20de%20conversaciones/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8079-8067-c5232c264c18" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="28039073-1e23-803e-bc21-e64fd7539165" class="block-color-blue"><mark class="highlight-default"><strong>                             </strong></mark><mark class="highlight-default"><mark class="highlight-blue_background"><strong>Etiquetas - Tags - de Conversaciones:</strong></mark></mark></h3></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8033-840c-fc0ee008924a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-80e8-bb81-d79075913401" class="">Al cerrar una conversación en Intercom, es necesario identificar si se trata de una Consulta, Incidente o Solicitud. Cada categoría representa un tipo específico de contacto, y para clasificarla correctamente debemos etiquetar el chat.</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8091-941e-ec11275a1712" class="">Para realizar esta clasificación, haga clic en el botón &quot;Cerrar&quot; ubicado en la esquina superior derecha de la conversación. En el panel derecho aparecerá la opción &quot;Tipo de conversación&quot;. Al hacer clic allí, se mostrarán los tres tipos disponibles, de los cuales debe seleccionar uno.</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-80cb-98da-e5e2093dff5e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-8038-a2ac-d7fbbc030e6b" class=""><mark class="highlight-blue"><strong>📌🚨</strong></mark><mark class="highlight-default"><strong>Recordatorio:</strong></mark><mark class="highlight-blue"><strong> </strong></mark><mark class="highlight-default"><strong>no es necesario usar el etiquetado sobre los mensajes en el chat*</strong></mark></p></div><div style="display:contents" dir="auto"><p id="28039073-1e23-80c9-82e5-c4a7bffeb926" class="">
+</p></div><div style="display:contents" dir="ltr"><table id="28039073-1e23-80df-9652-c93b8fd46cd3" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80e9-a4f5-fd816d053331"><td id="dyI@" class="" style="width:353.5px"><strong>Etiqueta</strong></td><td id="Qb&lt;s" class="" style="width:353.5px"><strong>Concepto</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-809a-9be1-c54c43eeb4a5"><td id="dyI@" class="" style="width:353.5px">Cliente insatisfecho con el servicio</td><td id="Qb&lt;s" class="" style="width:353.5px">Cliente manifiesta que no se encuentra satisfecho con el servicio de Toteat.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8080-9b1e-de9f585bbbb8"><td id="dyI@" class="" style="width:353.5px">Falla o Intermitencias Masivas</td><td id="Qb&lt;s" class="" style="width:353.5px">Caída de servidores o novedades con los proveedores que generan fallas masivas en los servicios del cliente y que afectan a más de 15 clientes.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8041-9ad6-c937da0aa4b1"><td id="dyI@" class="" style="width:353.5px">TOTEAT Restaurant Manager- BUG TRM</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando evidenciamos un Bug directo del TRM, que no permita la actualización de servicios.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-802a-845b-fc83f7a68cb6"><td id="dyI@" class="" style="width:353.5px">Escalado con CX - Comercial, Certificados, Baja y otros.</td><td id="Qb&lt;s" class="" style="width:353.5px">Para escalar solicitudes de adquisición de nuestros productos, solicitar certificados comerciales, dar de baja a los servicios, reactivación de locales, reportar clientes complejos o críticos, novedades con la oferta comercial, entre otros.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8038-8424-cf2383f3febd"><td id="dyI@" class="" style="width:353.5px">Escalado Tech- Tecnología</td><td id="Qb&lt;s" class="" style="width:353.5px">Para escalar incidencias que después de realizar las validaciones pertinentes, encuentras que es un BUG que requiere apoyo de un nivel superior de ingeniería.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8012-b1bf-cc3ed2b77716"><td id="dyI@" class="" style="width:353.5px">BSALE</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando identificadas fallas, realizamos configuraciones o resolver dudas de BSALE, únicamente Perú y Chile.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8020-a846-c8abc0869049"><td id="dyI@" class="" style="width:353.5px">Consultas DTE ADMIN</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando aclaras información sobre el uso y funcionalidades del Admin en DTE.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80a1-8293-c9ff1ed19985"><td id="dyI@" class="" style="width:353.5px">DTE - Carga de Resoluciones</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando se genera la carga la resolución de los clientes, se utiliza únicamente en Colombia.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8062-9b64-db9791959c3b"><td id="dyI@" class="" style="width:353.5px">Facturador Externo - Caída</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando los proveedores externos presentan fallas incurran en el correcto funcionamiento y emisión de facturación electrónica.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80ab-98e5-ffa877ff4828"><td id="dyI@" class="" style="width:353.5px">TOTEAT DTE - Carga de Folios</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando realizas carga de documentos fiscales, únicamente debe ser utilizada para Chile.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80cd-b75a-f76cbd4bbdd9"><td id="dyI@" class="" style="width:353.5px">Impresora Fiscal</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando se configura y se revisa los fiscales, únicamente para Argentina.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80cf-a5ad-d2394203a3a6"><td id="dyI@" class="" style="width:353.5px">NUBOX</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando identificadas fallas, realizamos configuraciones o resolver dudas de NUBOX. únicamente en Chile.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80ec-bbcc-dd1ffc5ddc73"><td id="dyI@" class="" style="width:353.5px">Caja - Configuración</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando configuras o realizar ajustes en las cajas.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8054-b66c-f51e8c74b4a8"><td id="dyI@" class="" style="width:353.5px">Gestión Ajustes Generales</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando ajustas o le entregas al cliente ruta sobre impuestos, comentarios, general, impresoras, formas de pago y seguridad, de Ajustes generales.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8018-8df0-d94c55fc39cf"><td id="dyI@" class="" style="width:353.5px">Información General - uso y otros</td><td id="Qb&lt;s" class="" style="width:353.5px">Para poder clasificar conversaciones sobre cómo utilizar nuestros servicios, consultas generales de Toteat y consultas no clasificadas en otras etiquetas.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8072-89be-f0dc4324599a"><td id="dyI@" class="" style="width:353.5px">Delivery TRM</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando se activa, configura el delivery del local.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-804f-92c9-f809b51f7979"><td id="dyI@" class="" style="width:353.5px">Ajustes de Equipo - Ajustes Personales</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando realizamos configuraciones u ofrecen información al cliente sobre los ajustes de equipo y ajustes personales.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8085-ae7d-eed264fc399d"><td id="dyI@" class="" style="width:353.5px">TOTEATSHOP</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando activa, configura y resuelve consultas sobre la ToteatShop.,</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80cf-b6fd-f0990a85eb46"><td id="dyI@" class="" style="width:353.5px">Configuración Turnos</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando configuras o apoyas en los cambios de turnos.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80e7-872a-c7ffe973c231"><td id="dyI@" class="" style="width:353.5px">Permisos y Perfiles</td><td id="Qb&lt;s" class="" style="width:353.5px">Solicitudes sobre los cambios en el perfil del cliente para el manejo de las diferentes funciones del servicio.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8036-8bee-c8d2cad720bd"><td id="dyI@" class="" style="width:353.5px">Impresoras - RED o USB</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando haces gestión en la configuración y reconfiguración, solucionar Bug, haces algún ajuste en el correcto funcionamiento de las impresoras.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8041-8067-c9c3d5fda292"><td id="dyI@" class="" style="width:353.5px">Payments (GETNET, RDC, KLAP, MERCADO PAGO)</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando configuras, evidencias fallas o novedades en el funcionamiento de las integraciones con las pasarelas de pago.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-804d-853f-d86a93551b44"><td id="dyI@" class="" style="width:353.5px">Integraciones - General, Precios, API, Menú)</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando realizas cambios e informar al cliente sobre las integraciones de plataformas de delivery, cambios en los menú, precios, API, entre otros.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8089-891b-e790f35e30b2"><td id="dyI@" class="" style="width:353.5px">Integraciones - UBER (General, Turnos, Precios, API)</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando realizas cambios e informar al cliente sobre las integraciones de Uber, cambios en los turnos, precios, API, entre otros.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80d7-9dff-f9c57cbe42a7"><td id="dyI@" class="" style="width:353.5px">Integraciones - Fallas</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando se evidencian fallas o novedades en el correcto funcionamiento de las integraciones.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-809c-91ef-fe1d21239d2e"><td id="dyI@" class="" style="width:353.5px">Inventarios</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando haces activaciones, resolver consultas o te informan de incidentes en los inventarios.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8012-b3a3-d106d82f39c1"><td id="dyI@" class="" style="width:353.5px">Gestión Menú/Carta</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando realizas cambios, ajustes e informas configurar la Carta o Menú.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80ff-bcb2-c6df7150d804"><td id="dyI@" class="" style="width:353.5px">Error en Mesas</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando se identifican mesas con BUG.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80e2-85ff-e21ca2883745"><td id="dyI@" class="" style="width:353.5px">Gestión Mesas</td><td id="Qb&lt;s" class="" style="width:353.5px">Utilizada cuando se crean mesas, se asignan sectores, se configuran mesas, entre otros.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8030-8c2f-fb6b033ddf36"><td id="dyI@" class="" style="width:353.5px">Reglas de Impresión</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando se configura el punto de salida de cada comanda, ticket y documento fiscal.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-803e-bb93-d6559b318ce6"><td id="dyI@" class="" style="width:353.5px">Reservas</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando se activa, configura e identifica fallas en la reserva de mesas.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8066-bb70-dbcb68781a39"><td id="dyI@" class="" style="width:353.5px">Cliente No presenta Error *</td><td id="Qb&lt;s" class="" style="width:353.5px"></td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80c1-9450-c48797374353"><td id="dyI@" class="" style="width:353.5px">Cliente Problemático</td><td id="Qb&lt;s" class="" style="width:353.5px">Clientes que falta al respeto, no acepta la solución ofrecida o solicita cambio de agente.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-806f-8976-d1824c163661"><td id="dyI@" class="" style="width:353.5px">Multisesión</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando identifica varias sesiones abiertas con el mismo dominio y datos que afectan el ingreso nuevamente.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-800f-8462-d9a344059347"><td id="dyI@" class="" style="width:353.5px">Re-Abierto</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando el cliente reabre la misma conversación para agradecer, confirmar la solución, indicar que todo está bien, entre otros, pero que no genere algún tipo de gestión.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-804b-b7b5-e255d0855b33"><td id="dyI@" class="" style="width:353.5px">KDS Consultas/Configuración</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando realizas configuración, crear y revisar los errores o novedades presentadas en los KDS.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8036-822b-fbeb57be825f"><td id="dyI@" class="" style="width:353.5px">TOTEM</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando configura, crea, modifica y corrige errores presentados en el Totem.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80f3-9b25-f8817b8a4f2d"><td id="dyI@" class="" style="width:353.5px">Reportes</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando validan y consultas información de los informes con TRM.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80f7-86d5-eca68f4b55d1"><td id="dyI@" class="" style="width:353.5px">Desbloqueo por pagos de Servicios</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando el cliente relaciona soporte de pago y realizamos el desbloqueo de los servicios.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-8039-ad50-e79438481254"><td id="dyI@" class="" style="width:353.5px">Reinicio TPS</td><td id="Qb&lt;s" class="" style="width:353.5px">Cuando realizamos un reset o reinicio del TPS desde el computador del cliente.</td></tr></div><div style="display:contents" dir="ltr"><tr id="28039073-1e23-80cf-99b5-ef99f026f991"><td id="dyI@" class="" style="width:353.5px">Reinstalación TPS</td><td id="Qb&lt;s" class="" style="width:353.5px">Es cuando eliminas ey instalas el TPS en el equipo (Computador del cliente)</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="28039073-1e23-80ce-b3e6-f71e44a9bd8a" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="28039073-1e23-80e2-84c8-e3cd938c24e3" class=""><mark class="highlight-default"><strong>             </strong></mark><mark class="highlight-default"><mark class="highlight-blue_background"><strong>Ejemplo de uso de los nuevos botones de selección </strong></mark></mark></h2></div><div style="display:contents" dir="auto"><p id="28039073-1e23-80be-b26b-d091014be774" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="28039073-1e23-80f3-a0a0-e428b2227bb1"><div class="source"><a href="Intercom%20Etiquetas%20de%20conversaciones/Grabacion_de_pantalla_2025-10-02_a_la(s)_12.11.23.mov">attachment:9975a95b-1d13-4820-bc53-5c36449e776c:Grabacion_de_pantalla_2025-10-02_a_la(s)_12.11.23.mov</a></div></figure></div><div style="display:contents" dir="auto"><p id="28039073-1e23-80be-b45b-d3f721950047" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="28039073-1e23-80ed-8251-d10149234299" class="image"><a href="Intercom%20Etiquetas%20de%20conversaciones/image%204.png"><img style="width:709.984375px" src="Intercom%20Etiquetas%20de%20conversaciones/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="28039073-1e23-802d-bfc6-ce570012e848" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,745 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Definición del rol Agente Senior en SAC</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2cc39073-1e23-80a4-a9de-c9c83f149982" class="page sans"><header><h1 class="page-title" dir="auto">Definición del rol Agente Senior en SAC</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Plazos</th><td><time>5 de enero de 2026 → 24 de abril de 2026</time></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>Proyecto</th><td><a href="../Seguimiento%20proyectos%20SAC%202%200/Estructura%20de%20roles%202a7390731e2380278e96f2db33de4168.html"><span class="icon">👨‍👨‍👧‍👦</span>Estructura de roles</a></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2b139073-1e23-8080-b884-da9a500fb7e9" class=""><strong>Versión:</strong> Borrador</p></div><div style="display:contents" dir="auto"><p id="2b139073-1e23-804d-85f7-d1a707e42eea" class=""><strong>Preparado por:</strong> <span class="user">@Gonzalo Soffia</span> </p></div><div style="display:contents" dir="auto"><p id="2b139073-1e23-80f5-a31a-e3f991b71a6e" class=""><strong>Última actualización:</strong> <time>@5 de enero de 2026</time> </p></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>1. Objetivo del Rol</strong></summary><div class="indented"><div style="display:contents" dir="auto"><p id="2b139073-1e23-80ee-855d-fe59d5140b85" class="">El Agente Senior del equipo SAC es responsable de asegurar la resolución de casos operacionales complejos y la coherencia técnica del equipo SAC, actuando como referente interno de conocimiento dentro del dominio de soporte. El Agente Senior eleva el estándar de atención mediante la validación de escalamientos, la ejecución de tareas avanzadas y la identificación de mejoras en procesos.</p></div></div></details></div><div style="display:contents" dir="auto"><hr id="2b139073-1e23-80aa-8125-fa92b49bcff8"/></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>2. Principios del Rol</strong></summary><div class="indented"><div style="display:contents" dir="auto"><p id="2b139073-1e23-8012-959e-c65109fe7d4a" class="">El Agente Senior es un agente que:</p></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-80fa-a616-ff709e6c97bd" class="bulleted-list"><li style="list-style-type:disc">Domina profundamente el funcionamiento del producto Toteat, así como sus herramientas internas de trabajo (Backoffice, Facturación, ScreenConnect y Changelog).</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8059-9183-e1b8039c33ba" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background">Es capaz de resolver la mayor parte de los casos operacionales complejos que no dependen exclusivamente de SAC Tech ni KAM.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8004-9d97-c8be9020f19a" class="bulleted-list"><li style="list-style-type:disc">Actúa como asegurador interno del conocimiento, apoyando a Assistant y Analyst en sus consultas diarias.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8011-9d9e-d4f8ea3f670a" class="bulleted-list"><li style="list-style-type:disc">Posee una visión integral del funcionamiento de SAC, sus procesos, documentación, zonas habituales de error, criterios de derivación y límites de seguridad.</li></ul></div></div></details></div><div style="display:contents" dir="auto"><hr id="2b139073-1e23-8053-a93a-ec0fe9343e5e"/></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>3. Alcance General del Rol</strong></summary><div class="indented"><div style="display:contents" dir="auto"><p id="2b139073-1e23-80d8-8434-eefe81e783a8" class="">El Agente Senior se ubica en el punto intermedio entre el rol de Analyst y el equipo SAC Tech. Es un operador experto dentro del dominio SAC, con autonomía para resolver casos complejos y ejecutar acciones sensibles dentro de límites definidos. No asume funciones ni responsabilidades propias de SAC Tech ni opera como jefatura o “mini líder”.</p></div><div style="display:contents" dir="auto"><p id="2b139073-1e23-8040-a001-fd374bd09958" class=""><strong>El alcance del Senior incluye:</strong></p></div><div style="display:contents" dir="auto"><ul id="2b239073-1e23-8039-8584-dc96a9f6aacd" class="bulleted-list"><li style="list-style-type:disc">Atender y resolver casos complejos que lleguen al chat de SAC.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b239073-1e23-80b6-b563-df5332aeb1aa" class="bulleted-list"><li style="list-style-type:disc">Apoyar en procesos internos claves (documentación, orden operativo, criterios de derivación).</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd39073-1e23-80b3-b1c2-ecb50258a48b" class="bulleted-list"><li style="list-style-type:disc">Validar y prepara escalamientos técnicos (bugs) hacia SAC Tech o Coordinación, sin gestionar directamente áreas externas.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b239073-1e23-8034-9d50-fc681ddbdf5d" class="bulleted-list"><li style="list-style-type:disc">Responsabilidad de algunos procesos internos, no de personas.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b239073-1e23-8071-ac51-d3260a47e5ad" class="bulleted-list"><li style="list-style-type:disc">Contactar directamente a clientes cuando sea necesario para asegurar un diagnóstico o resolución efectiva.</li></ul></div></div></details></div><div style="display:contents" dir="auto"><hr id="2b139073-1e23-8040-84ee-f0f106144546"/></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>4. Responsabilidades del Rol</strong></summary><div class="indented"><div style="display:contents" dir="auto"><h3 id="2b139073-1e23-80bc-8868-c4fb3422ff6b" class=""><strong>A. Tareas Operacionales – </strong><mark class="highlight-red_background"><strong>Alta Complejidad</strong></mark></h3></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8044-9cf3-fa20d064b4e0" class="bulleted-list"><li style="list-style-type:disc">Diagnóstico de casos operacionales complejos (DTE, Stock control) cuando sea requerido por otros agentes.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b239073-1e23-8089-8737-dfffcec1979f" class="bulleted-list"><li style="list-style-type:disc">Ejecutar acciones de <strong>mantenimiento operacional</strong> en de BO y VS, dentro de límites definidos para este rol. (p. ej. regeneraciones, correcciones de órdenes).</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-80ab-805c-e8ebed349d41" class="bulleted-list"><li style="list-style-type:disc">Revisión de posibles escalamientos hacia SAC Tech y KAM, validando evidencia, contexto y clasificación.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-807c-9e25-df843edbfb5e" class="bulleted-list"><li style="list-style-type:disc">Participación activa en el diagnóstico y resolución de incidencias operacionales críticas (diagnóstico, acciones operativas dentro de su alcance)</li></ul></div><div style="display:contents" dir="auto"><ul id="2b239073-1e23-80bc-9995-e2aa4551458b" class="bulleted-list"><li style="list-style-type:disc">Contactar directamente al cliente cuando la comunicación escrita impida el diagnóstico o solución efectiva de un caso complejo (casos excepcionales, criterio interno).</li></ul></div><div style="display:contents" dir="auto"><h3 id="2b139073-1e23-8050-aaf7-e210b2776083" class=""><strong>B. Tareas Operacionales – Apoyo a la </strong><mark class="highlight-orange_background"><strong>Mediana Complejidad</strong></mark></h3></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-801d-97a5-c309d5a1588e" class="bulleted-list"><li style="list-style-type:disc">Apoyo en la revisión de casos compartidos por otros agentes, relacionados a configuraciones o ajustes de complejidad media (ej.: reglas de impresión).<div style="display:contents" dir="auto"><ul id="2dc39073-1e23-807a-865c-e5458dc22f52" class="bulleted-list"><li style="list-style-type:circle">No es responsable del monitoreo general del equipo ni gestionar los tiempos de respuesta acordados (SLA).</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="2b139073-1e23-802d-8526-f31d962f4863" class=""><strong>C. Tareas Internas – Mejora operacional continua</strong></h3></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8077-8a36-e8fe824dbd55" class="bulleted-list"><li style="list-style-type:disc">Identificar y proponer oportunidades de mejora a partir de la operación diaria, sin responsabilidad de implementación ni seguimiento:<div style="display:contents" dir="auto"><ul id="2dc39073-1e23-80db-8fbc-de029c6fde75" class="bulleted-list"><li style="list-style-type:circle">En diferenciar consultas de incidencias.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-80d3-8ee1-fd91c231648d" class="bulleted-list"><li style="list-style-type:circle">Patrones en CSAT negativos.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8035-b0de-e8c43a5cb925" class="bulleted-list"><li style="list-style-type:circle">Mejoras en el etiquetar o derivación de conversaciones.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-80ad-be73-c3349624e051" class="bulleted-list"><li style="list-style-type:disc">Colaborar en la mantención y actualización de documentación y guías operativas, bajo lineamientos definidos por Coordinación. </li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8033-b789-d0e10c03b1fb" class="bulleted-list"><li style="list-style-type:disc">Actualizar artículos de ayuda en ayuda.toteat.com de manera continua.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b239073-1e23-8025-a92f-d41f451c7220" class="bulleted-list"><li style="list-style-type:disc">Participación activa en planes de capacitación a nuevas incorporaciones o de áreas hermanas, como canguros.</li></ul></div><div style="display:contents" dir="auto"><h3 id="2b139073-1e23-80b3-8047-d1fe3e747c28" class=""><strong>D. Cultura, Comunicación y Participación</strong></h3></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8051-b95f-c9011554d9c6" class="bulleted-list"><li style="list-style-type:disc">Participar activamente en reuniones bisemanales del equipo, aportando una visión técnica.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-805b-b87d-f8d8fcc95abc" class="bulleted-list"><li style="list-style-type:disc">Ser un puente de comunicación entre Coordinación y el equipo, elevando inquietudes o sugerencias operativas.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8058-bbf1-e3bd998a6772" class="bulleted-list"><li style="list-style-type:disc">Apoyar la difusión y explicación de nuevos flujos, procesos o lineamientos definidos por el área.</li></ul></div></div></details></div><div style="display:contents" dir="auto"><hr id="2b139073-1e23-8047-b956-e3c415918592"/></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>5. Límites del Rol</strong></summary><div class="indented"><div style="display:contents" dir="auto"><p id="2b139073-1e23-80b1-bc02-c427f72efbc8" class="">El Agente Senior <strong>no</strong>:</p></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-801a-b0fc-c4970510bb68" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid">Realiza liderazgo formal</span>, retroalimentación de desempeño ni gestión de personas.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8066-8d2d-f2593b99ffb9" class="bulleted-list"><li style="list-style-type:disc">Marca límites en el cumplimiento de responsabilidades de sus pares.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-80a2-9ac7-c4fc8245e126" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background">Ejecuta tareas propias de SAC Tech, salvo validaciones operativas previas.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8058-8b30-d2049e18c25b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background">Realiza cambios sensibles en la cuenta del cliente fuera del alcance SAC.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8067-945f-f1f49e6488ad" class="bulleted-list"><li style="list-style-type:disc">Asume responsabilidades comerciales, de <em>roadmap</em> o de relación con KAM.</li></ul></div></div></details></div><div style="display:contents" dir="auto"><hr id="2b139073-1e23-806a-af88-eb1c347e9c9a"/></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>6. Requisitos del Rol</strong></summary><div class="indented"><div style="display:contents" dir="auto"><ul id="2b139073-1e23-80c3-ae50-cb3958013caf" class="bulleted-list"><li style="list-style-type:disc">Experiencia comprobable como Analyst en SAC o equivalente.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-80fa-918c-dec16474236b" class="bulleted-list"><li style="list-style-type:disc">Dominio avanzado del producto Toteat y sus flujos operacionales clave.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-806c-888c-c1206170a36c" class="bulleted-list"><li style="list-style-type:disc">Manejo avanzado de conectividad (config. redes) y herramientas internas (Intercom, VS, BO, ScreenConnect)</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8051-a57d-e71ed3314717" class="bulleted-list"><li style="list-style-type:disc">Capacidad analítica para diagnosticar y resolver casos complejos con criterio y autonomía.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8087-a025-de74311f4571" class="bulleted-list"><li style="list-style-type:disc">Habilidad para documentar procesos y comunicar hallazgos de forma clara.</li></ul></div><div style="display:contents" dir="auto"><ul id="2dc39073-1e23-8067-9602-c0f00069f6ab" class="bulleted-list"><li style="list-style-type:disc">Habilidades interpersonales sólidas: escucha activa, criterio neutral y manejo respetuoso de situaciones de tensión.</li></ul></div></div></details></div><div style="display:contents" dir="auto"><hr id="2b139073-1e23-8068-b557-e036f942a2c8"/></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>7. Métricas del Rol</strong></summary><div class="indented"><div style="display:contents" dir="auto"><p id="2cd39073-1e23-805d-8eb4-dff4d6432b45" class="">Comunicadas por Val el <time>@12 de diciembre de 2025</time> en reunión de Coordinadores.</p></div><div style="display:contents" dir="auto"><ul id="2cd39073-1e23-800b-805c-ea9a27ec6ee5" class="bulleted-list"><li style="list-style-type:disc">NPS</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd39073-1e23-800e-90ec-ef6f76c48104" class="bulleted-list"><li style="list-style-type:disc">CSAT</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd39073-1e23-8043-bf50-f6aa4ade870b" class="bulleted-list"><li style="list-style-type:disc">TME</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd39073-1e23-80b1-b505-fbe83063c6e5" class="bulleted-list"><li style="list-style-type:disc">TMO</li></ul></div></div></details></div><div style="display:contents" dir="auto"><hr id="2b139073-1e23-808d-907c-e7984df3198e"/></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>8. Relación con Otros Roles</strong></summary><div class="indented"><div style="display:contents" dir="auto"><ul id="2b139073-1e23-80a7-842f-f2a01fb3878d" class="bulleted-list"><li style="list-style-type:disc"><strong>Con Analysts/Assistants:</strong> apoyo técnico y referencia para casos complejos.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-80fd-ab35-e7b4f29029e8" class="bulleted-list"><li style="list-style-type:disc"><strong>Con Coordinación SAC:</strong> colabora como apoyo técnico-operativo, sin asumir responsabilidades de liderazgo, gestión de personas, definición de procesos, análisis de métricas ni toma de decisiones estratégicas.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8035-a7b7-dc7d3b1c5260" class="bulleted-list"><li style="list-style-type:disc"><strong>Con SAC Tech:</strong> revisión preliminar y derivación correcta de escalamientos.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-806a-9c32-f44201358fed" class="bulleted-list"><li style="list-style-type:disc"><strong>Con KAM y CX:</strong> interacción excepcional, siempre canalizada por Coordinación.</li></ul></div></div></details></div><div style="display:contents" dir="auto"><hr id="2b139073-1e23-8031-837b-ceec0c1dce76"/></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>9. Propósito del Rol en la Estructura SAC</strong></summary><div class="indented"><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8082-9a1b-c8a0089c041e" class="bulleted-list"><li style="list-style-type:disc">Crear un puente de experiencia interna sin depender completamente de Coordinadores o SAC Tech.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8086-ac85-e6b388dd1df7" class="bulleted-list"><li style="list-style-type:disc">Reducir variabilidad en diagnósticos y aumentar calidad de atención.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8099-9609-d958fbcc754c" class="bulleted-list"><li style="list-style-type:disc">Levantar dolores operacionales históricos.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-8006-bade-f93a470e8f69" class="bulleted-list"><li style="list-style-type:disc">Profesionalizar la operación del equipo SAC.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b139073-1e23-80a0-b313-ee4436298393" class="bulleted-list"><li style="list-style-type:disc">Habilitar un plan de carrera claro y sostenible dentro de SAC.</li></ul></div><div style="display:contents" dir="auto"><p id="2b039073-1e23-80ca-88af-f4447cb9ca05" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><p id="2cd39073-1e23-80b4-8603-c6ed80b750d1" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

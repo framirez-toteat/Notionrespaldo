@@ -1,0 +1,746 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Onboarding SAC</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="17639073-1e23-80df-9b81-d4e54e6fa3f9" class="page sans"><header><img class="page-cover-image" src="Onboarding%20SAC/image1.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Onboarding%20SAC/Recurso_51.png"/></div><h1 class="page-title" dir="auto">Onboarding SAC</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="30539073-1e23-8012-a702-f101202b04a1" class="">El <strong>Onboarding SAC</strong> es una ruta modular diseñada para que cada nuevo integrante alcance la maestría técnica y cultural necesaria para proteger la operación de nuestros clientes.</p></div><div style="display:contents" dir="auto"><h3 id="30539073-1e23-804e-8cba-f2b52fdbef18" class="">🎯 Objetivos y Plazos</h3></div><div style="display:contents" dir="auto"><ul id="30539073-1e23-80f0-9f86-d71613c0a628" class="bulleted-list"><li style="list-style-type:disc"><strong>Assistant y Coordinador:</strong> 2 meses para completar la formación integral.</li></ul></div><div style="display:contents" dir="auto"><ul id="30539073-1e23-80ed-9209-c8918fc5e6e6" class="bulleted-list"><li style="list-style-type:disc"><strong>Analyst y Senior:</strong> 1 mes enfocado en especialización avanzada.</li></ul></div><div style="display:contents" dir="auto"><ul id="30539073-1e23-801d-a609-cd17dbb1d668" class="bulleted-list"><li style="list-style-type:disc"><strong>Meta:</strong> Lograr autonomía operativa bajo los estándares de calidad de Toteat.</li></ul></div><div style="display:contents" dir="auto"><h3 id="30539073-1e23-80af-8ff8-c2a34cb59896" class="">🛠️ Metodología de Aprendizaje</h3></div><div style="display:contents" dir="auto"><p id="30539073-1e23-8019-9db3-d6e2a3a0ca30" class="">Se espera que para cada sub módulo se realicen cuatro actividades críticas para asegurar la retención:</p></div><div style="display:contents" dir="auto"><ol type="1" id="30539073-1e23-80a6-8bea-fe4f74863bcb" class="numbered-list" start="1"><li><strong>Teoría:</strong> Revisión de documentación y e-learning.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30539073-1e23-8063-8b60-fd7fddc543e3" class="numbered-list" start="2"><li><strong>Práctica:</strong> Uso de ambientes de prueba y/o showrooom.<strong> </strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30539073-1e23-803c-8130-df66a8e37317" class="numbered-list" start="3"><li><strong>Análisis:</strong> Exposición temprana a casos reales.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30539073-1e23-80ba-81ab-d0d0db62b7c2" class="numbered-list" start="4"><li><strong>Q&amp;A:</strong> Sesión de dudas y feedback con el responsable del módulo.</li></ol></div><div style="display:contents" dir="auto"><h3 id="30539073-1e23-8064-801a-fd2e32c0b1b6" class="">📋 Lineamientos Administrativos</h3></div><div style="display:contents" dir="auto"><ul id="30539073-1e23-80da-a633-ebbbe4f509a2" class="bulleted-list"><li style="list-style-type:disc"><strong>Gestión:</strong> Existirá un cronograma para cada ingreso o grupo de ingreso.</li></ul></div><div style="display:contents" dir="auto"><ul id="30539073-1e23-8064-9b04-e356b8bd0af7" class="bulleted-list"><li style="list-style-type:disc"><strong>Evaluación:</strong> Incluye validaciones al cierre de cada módulo y una evaluación final de conocimientos.</li></ul></div><div style="display:contents" dir="auto"><ul id="30539073-1e23-806b-b0ef-d27aa060adc9" class="bulleted-list"><li style="list-style-type:disc"><strong>Flexibilidad:</strong> El coordinador podrá ajustar responsables y tiempos según el progreso del agente, priorizando el máximo provecho de la jornada.</li></ul></div><div style="display:contents" dir="auto"><p id="30539073-1e23-806f-a630-ea765aca82f9" class="">
+</p></div><div style="display:contents" dir="ltr"><div id="30239073-1e23-807a-8409-fdc70b5ba3fc" class="collection-content"><h4 class="collection-title">Cronograma Base</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Sub módulo / evento</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/hashtag_gray.svg" style="width:14px;height:14px;display:block"/></span>Días</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Matías - 16 Feb</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>9 Marzo</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>comentarios</th></tr></thead><tbody><tr id="30339073-1e23-80b2-9e51-e06e597c9b35"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Prueba%20conocimientos%20m%C3%B3dulo%2010%20303390731e2380b29e51e06e597c9b35.html"><span class="icon">🏁</span>Prueba conocimientos módulo 10</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-purple"><div class="status-dot status-dot-color-purple"></div>No aplica</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30439073-1e23-8070-a62e-d5131eb2f86b"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Prueba%20de%20conocimientos%20m%C3%B3dulo%209%20304390731e238070a62ed5131eb2f86b.html"><span class="icon">🏁</span>Prueba de conocimientos módulo 9</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-purple"><div class="status-dot status-dot-color-purple"></div>No aplica</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30439073-1e23-804a-8caf-eed29d1ac502"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Prueba%20de%20conocimientos%20M%C3%B3dulo%201%20304390731e23804a8cafeed29d1ac502.html"><span class="icon">🏁</span>Prueba de conocimientos Módulo 1</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-purple"><div class="status-dot status-dot-color-purple"></div>No aplica</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30239073-1e23-80e7-9438-f94a7beef4c6"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Turnos,%20horarios%20y%20cambios%20de%20turno%20302390731e2380e79438f94a7beef4c6.html"><span class="icon">📚</span>Turnos, horarios y cambios de turno</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30439073-1e23-803f-9d0c-f4736a3c9caa"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Conociendo%20al%20equipo%20SAC%20304390731e23803f9d0cf4736a3c9caa.html"><span class="icon">📚</span>Conociendo al equipo SAC</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-8175-a79d-d7140d5dc7ab"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Herramientas%20en%20SAC%20176390731e238175a79dd7140d5dc7ab.html"><span class="icon">📚</span>Herramientas en SAC</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30439073-1e23-80e8-8174-c4d5a2dc1411"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/%C2%BFQu%C3%A9%20atiende%20SAC%20304390731e2380e88174c4d5a2dc1411.html"><span class="icon">📚</span>¿Qué atiende SAC?</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30439073-1e23-80c7-9700-f70cc0486d8f"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Prueba%20de%20conocimientos%20m%C3%B3dulo%203%20304390731e2380c79700f70cc0486d8f.html"><span class="icon">🏁</span>Prueba de conocimientos módulo 3</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-purple"><div class="status-dot status-dot-color-purple"></div>No aplica</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-80f2-a1bf-cef8193e5636"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Prueba%20de%20conocimientos%20m%C3%B3dulo%205%20305390731e2380f2a1bfcef8193e5636.html"><span class="icon">🏁</span>Prueba de conocimientos módulo 5</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-purple"><div class="status-dot status-dot-color-purple"></div>No aplica</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30439073-1e23-80ad-a120-e80f5b218319"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Prueba%20de%20conocimientos%20m%C3%B3dulo%204%20304390731e2380ada120e80f5b218319.html"><span class="icon">🏁</span>Prueba de conocimientos módulo 4</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-purple"><div class="status-dot status-dot-color-purple"></div>No aplica</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-8080-acf4-fa1eb4329a0a"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Vista%20general%20de%20los%20productos%20Toteat%20305390731e238080acf4fa1eb4329a0a.html"><span class="icon">📚</span>Vista general de los productos Toteat</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30439073-1e23-8071-9edd-f7bd418b2b7f"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Prueba%20de%20conocimientos%20m%C3%B3dulo%208%20304390731e2380719eddf7bd418b2b7f.html"><span class="icon">🏁</span>Prueba de conocimientos módulo 8</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-purple"><div class="status-dot status-dot-color-purple"></div>No aplica</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-80f4-b002-c1949c16bfd5"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Gu%C3%ADa%20complementaria%20instalaci%C3%B3n%20impresoras%20305390731e2380f4b002c1949c16bfd5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/database_yellow.svg"/>Guía complementaria instalación impresoras</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30d39073-1e23-809b-9327-fc6cbb5b5123"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Pr%C3%A1cticas%20m%C3%B3dulo%20Restaurant%2030d390731e23809b9327fc6cbb5b5123.html">Prácticas módulo Restaurant</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-^dvZ"></td></tr><tr id="1c139073-1e23-8097-bd70-e12c05907b47"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Pr%C3%A1ctica%20en%20Showroom%201c1390731e238097bd70e12c05907b47.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/electric-plug_yellow.svg"/>Práctica en Showroom</a></td><td class="cell-CmAc">1</td><td class="cell-]HD\"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-|]Xu"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-8006-b25f-e4e853f5afa5"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Toteat%20Shop%20305390731e238006b25fe4e853f5afa5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shopping-cart_yellow.svg"/>Toteat Shop</a></td><td class="cell-CmAc">1</td><td class="cell-]HD\"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>José Matías </span></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="32239073-1e23-8043-acba-e17e7d1e848a"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Multisucursal%20322390731e238043acbae17e7d1e848a.html">Multisucursal</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-8069-bf0d-e9691f28d0f2"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Bienvenida%20a%20oficina%20305390731e238069bf0de9691f28d0f2.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/Bienvenida%20a%20oficina/Toteat_logos-02.png"/>Bienvenida a oficina</a></td><td class="cell-CmAc">0</td><td class="cell-]HD\"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">V</span></span>Valeria Vicuña</span></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-804b-8fe0-fc5d243222dd"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Bienvenida%20a%20SAC%20305390731e23804b8fe0fc5d243222dd.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/Bienvenida%20a%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Bienvenida a SAC</a></td><td class="cell-CmAc">0</td><td class="cell-]HD\"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIeXJP50n2oNMn3ITT9go-fZiu3cEmUJ2PVqjWjUJ5KVVbCe8M=s100" class="icon user-icon"/>Valeria García Arce</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Gonzalo Soffia</span><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-8077-a092-d67c15f80c94"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Bienvenida%20con%20a%20Toteat%20305390731e238077a092d67c15f80c94.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/Bienvenida%20a%20oficina/Toteat_logos-02.png"/>Bienvenida con a Toteat</a></td><td class="cell-CmAc">0</td><td class="cell-]HD\"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">V</span></span>Valeria Vicuña</span></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-8090-9745-dc78eeec2a2f"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Plan%20de%20onboarding%20305390731e2380909745dc78eeec2a2f.html">Plan de onboarding</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-807e-9aa4-e55eaca779f7"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Verificaci%C3%B3n%20de%20cuentas%20y%20permisos%20305390731e23807e9aa4e55eaca779f7.html">Verificación de cuentas y permisos</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-80c7-957a-ffa2002ac47f"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Modulo%201%20-%20Introducci%C3%B3n%20a%20SAC%20en%20Toteat%20305390731e2380c7957affa2002ac47f.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/Bienvenida%20a%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/>Modulo 1 - Introducción a SAC en Toteat</a></td><td class="cell-CmAc">1</td><td class="cell-]HD\"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Gonzalo Soffia</span></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-8127-91c8-ce7d3ae821da"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/%C2%BFQu%C3%A9%20es%20Toteat%20y%20%C2%BFCu%C3%A1l%20es%20la%20labor%20de%20un%20agente%20de%20176390731e23812791c8ce7d3ae821da.html"><span class="icon">📚</span>¿Qué es Toteat? y ¿Cuál es la labor de un agente de SAC?</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1e239073-1e23-80e1-b328-e705da0336e0"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%202%20-%20TRM%20%E2%86%92%20Restaurants%201e2390731e2380e1b328e705da0336e0.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shop_yellow.svg"/>Módulo 2 - TRM → Restaurants</a></td><td class="cell-CmAc">2</td><td class="cell-]HD\"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Gonzalo Soffia</span></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-80ea-819b-c391cfcba465"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Prueba%20de%20conocimientos%20m%C3%B3dulo%202%20305390731e2380ea819bc391cfcba465.html"><span class="icon">🏁</span>Prueba de conocimientos módulo 2</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-purple"><div class="status-dot status-dot-color-purple"></div>No aplica</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-804c-bec0-e52eb8aa3f03"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Men%C3%BA%20Lateral%20Restaurant%20Centro%20de%20ayuda%20de%20Toteat%20305390731e23804cbec0e52eb8aa3f03.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/link_yellow.svg"/>Menú Lateral: Restaurant | Centro de ayuda de Toteat</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-^dvZ"></td></tr><tr id="30439073-1e23-80b7-b219-eb90d8b29d8f"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Material%20en%20Drive%20(Modulo%201%20restaurant)%20304390731e2380b7b219eb90d8b29d8f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/link_yellow.svg"/>Material en Drive (Modulo 1 restaurant)</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-^dvZ"></td></tr><tr id="17d39073-1e23-80f8-9d6e-c051e78b84e2"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Creaci%C3%B3n%20de%20ambiente%2017d390731e2380f89d6ec051e78b84e2.html">Creación de ambiente</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-^dvZ"></td></tr><tr id="2c439073-1e23-80ae-a2ca-f5fd7096ea50"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Tu%20nombre%20(nombre%20usuario)%202c4390731e2380aea2caf5fd7096ea50.html">Tu nombre (nombre usuario)</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-^dvZ"></td></tr><tr id="2ca39073-1e23-8079-a29b-e62b2099ba6f"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Permisos%20perfiles%20de%20usuarios%202ca390731e238079a29be62b2099ba6f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/groups_gray.svg"/>Permisos perfiles de usuarios </a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-^dvZ"></td></tr><tr id="19e39073-1e23-8000-b99c-d0860b5b2697"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Revisi%C3%B3n%20de%20m%C3%B3dulo%20a%20m%C3%B3dulo,%20contemplando%20lo%20neces%2019e390731e238000b99cd0860b5b2697.html">Revisión de módulo a módulo, contemplando lo necesario para complementar la creación del ambiente.</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-^dvZ"></td></tr><tr id="17d39073-1e23-806c-81fe-eecbd1718b6c"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Errores%20m%C3%A1s%20comunes%20en%20el%20m%C3%B3dulo%20Restaurant%2017d390731e23806c81feeecbd1718b6c.html">Errores más comunes en el módulo Restaurant</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-purple"><div class="status-dot status-dot-color-purple"></div>No aplica</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-80a1-8826-cd541eed4122"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%203%20-%20TRM%20%E2%86%92%20Productos%20305390731e2380a18826cd541eed4122.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/tag_yellow.svg"/>Módulo 3 - TRM → Productos</a></td><td class="cell-CmAc">3</td><td class="cell-]HD\"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKuoMOnCVzrOiY71uvjDZs2bhdcBEC0Tejgn6n-vXj__MKDtME=s100" class="icon user-icon"/>Doymar Raga Flores</span><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-81af-b876-e0d61990d1ed"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Carta,%20Productos%20y%20Jerarqu%C3%ADas%20176390731e2381afb876e0d61990d1ed.html"><span class="icon">📚</span>Carta, Productos y Jerarquías</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-80b7-9399-d818d52b4f1a"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%204%20-%20TRM%20%E2%86%92%20Configuraci%C3%B3n%20+%20Showroom%20305390731e2380b79399d818d52b4f1a.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/gear_yellow.svg"/>Módulo 4 - TRM → Configuración + Showroom</a></td><td class="cell-CmAc">4</td><td class="cell-]HD\"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">A</span></span>Andrés Felipe Rincón Moyano</span></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-81c5-ae99-ffc884635ab5"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Toteat%20Print%20Server%20y%20API%20176390731e2381c5ae99ffc884635ab5.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/gear_yellow.svg"/>Toteat Print Server y API</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-8138-b478-e3fc3791b5f7"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Ajustes%20de%20equipo%20y%20personales%20176390731e238138b478e3fc3791b5f7.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/Ajustes%20de%20equipo%20y%20personales/ajustes.png"/>Ajustes de equipo y personales</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-81a7-9aa7-faf1dd2a956e"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Instalaci%C3%B3n%20TPS%20176390731e2381a79aa7faf1dd2a956e.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/Instalaci%C3%B3n%20TPS/prints.png"/>Instalación TPS</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-8155-ac43-cd64e0b09ea0"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%20impresoras%20176390731e238155ac43cd64e0b09ea0.html"><span class="icon">🖨️</span>Módulo impresoras </a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-819a-b9d5-d97ed7b1a121"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Reglas%20de%20impresi%C3%B3n%20176390731e23819ab9d5d97ed7b1a121.html"><span class="icon">🖨️</span>Reglas de impresión</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-812c-abbb-d32a042c0725"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/KDS%20176390731e23812cabbbd32a042c0725.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/KDS/Screenshot_at_Apr_27_00-07-32.png"/>KDS</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-^dvZ"></td></tr><tr id="28d39073-1e23-80ea-9ece-efff91ba5abf"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Totem%2028d390731e2380ea9eceefff91ba5abf.html">Totem</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-802c-b19a-dd44271a3086"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%205%20-%20TRM%20%E2%86%92%20Operaciones%20305390731e23802cb19add44271a3086.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/iterate_yellow.svg"/>Módulo 5 - TRM → Operaciones</a></td><td class="cell-CmAc">3</td><td class="cell-]HD\"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">D</span></span>Diego Carpio</span></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-^dvZ"></td></tr><tr id="30439073-1e23-80db-8ff2-de616eaa8865"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Ciclo%20de%20Ventas%20Centro%20de%20ayuda%20de%20Toteat%20304390731e2380db8ff2de616eaa8865.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/link_yellow.svg"/>Ciclo de Ventas | Centro de ayuda de Toteat</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30439073-1e23-807c-9544-db3b4df186af"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Men%C3%BA%20Lateral%20Operaciones%20Centro%20de%20ayuda%20de%20Toteat%20304390731e23807c9544db3b4df186af.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/link_yellow.svg"/>Menú Lateral: Operaciones | Centro de ayuda de Toteat</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1e239073-1e23-8021-b1ff-daca59b88f4f"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Abrir%20turno%201e2390731e238021b1ffdaca59b88f4f.html">Abrir turno</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1e339073-1e23-80cf-947b-f0ba1c6c46f9"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Cerrar%20turno%201e3390731e2380cf947bf0ba1c6c46f9.html">Cerrar turno</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1e339073-1e23-803b-896e-fb48b747400f"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Reabrir%20turno%201e3390731e23803b896efb48b747400f.html">Reabrir turno</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1e339073-1e23-8024-a461-c811d38d0b9a"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Abrir%20caja%201e3390731e238024a461c811d38d0b9a.html">Abrir caja</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1e339073-1e23-8049-b1d6-ccc2b08d7018"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Cerrar%20caja%201e3390731e238049b1d6ccc2b08d7018.html">Cerrar caja</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1e339073-1e23-8080-a0d9-f24b975b2c1a"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Transferir%20productos%201e3390731e238080a0d9f24b975b2c1a.html">Transferir productos</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1e339073-1e23-8098-b753-ed090accd889"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Registro%20contable%201e3390731e238098b753ed090accd889.html">Registro contable</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1e339073-1e23-803e-af37-f74b024e3e77"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Reservas%201e3390731e23803eaf37f74b024e3e77.html">Reservas</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-815d-a910-fdca3a5ecf53"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Errores%20m%C3%A1s%20comunes%20dentro%20del%20m%C3%B3dulo%20de%20operacion%20176390731e23815da910fdca3a5ecf53.html"><span class="icon">📚</span>Errores más comunes dentro del módulo de operaciones</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30439073-1e23-80d8-981b-fe4d1b8476ea"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Toteat%20Shop%20CONFIGURACI%C3%93N%20DETALLADA%20Centro%20de%20ayud%20304390731e2380d8981bfe4d1b8476ea.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/link_yellow.svg"/>Toteat Shop / CONFIGURACIÓN DETALLADA | Centro de ayuda de T…</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1e239073-1e23-8007-986c-fe08dc5509ee"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Toteat%20Shop%20NUEVA%20CONFIGURACI%C3%93N%20Centro%20de%20ayuda%20de%201e2390731e238007986cfe08dc5509ee.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/link_yellow.svg"/> Toteat Shop / NUEVA CONFIGURACIÓN | Centro de ayuda de Totea…</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-81ce-9636-d64917bd8d95"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Configuraci%C3%B3n%20Toteat%20Shop%20176390731e2381ce9636d64917bd8d95.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shopping-cart_yellow.svg"/>Configuración Toteat Shop</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-81fe-8029-d70dbd4f10e3"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Errores%20m%C3%A1s%20comunes%20del%20m%C3%B3dulo%20Toteat%20Shop%20176390731e2381fe8029d70dbd4f10e3.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shopping-cart_yellow.svg"/>Errores más comunes del módulo Toteat Shop</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-809c-b9e8-ebf0f0aa9c2f"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%206%20-%20TRM%20%E2%86%92%20Restaurant%20%E2%86%92%20Ajustes%20Generales%20305390731e23809cb9e8ebf0f0aa9c2f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shop_yellow.svg"/>Módulo 6 - TRM → Restaurant → Ajustes Generales</a></td><td class="cell-CmAc">4</td><td class="cell-]HD\"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-^dvZ"></td></tr><tr id="30439073-1e23-80f9-b74b-dc36cdcc0d42"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Prueba%20de%20conocimientos%20m%C3%B3dulo%206%20304390731e2380f9b74bdc36cdcc0d42.html"><span class="icon">🏁</span>Prueba de conocimientos módulo 6</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-purple"><div class="status-dot status-dot-color-purple"></div>No aplica</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-81ea-bebd-f199588fc6e7"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/General%20176390731e2381eabebdf199588fc6e7.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shop_yellow.svg"/>General </a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-8108-b46a-f300cb16132b"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Impuestos%20176390731e238108b46af300cb16132b.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shop_yellow.svg"/>Impuestos</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-81d7-bb58-f7f0c708edca"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Comentarios%20176390731e2381d7bb58f7f0c708edca.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shop_yellow.svg"/>Comentarios</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-8112-8677-e9553ead3d61"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Inventarios%20176390731e2381128677e9553ead3d61.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shop_yellow.svg"/>Inventarios</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-81ed-8f84-d5469831913e"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Impresoras%20176390731e2381ed8f84d5469831913e.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shop_yellow.svg"/>Impresoras</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-81e9-8de7-d15ca24431d9"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Formas%20de%20pago%20176390731e2381e98de7d15ca24431d9.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shop_yellow.svg"/>Formas de pago</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-8162-95c3-ddc87b0ea9c1"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Seguridad%20176390731e23816295c3ddc87b0ea9c1.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shop_yellow.svg"/>Seguridad</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-807b-82a0-c85bff62421d"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%207%20-%20TRM%20%E2%86%92%20Reportes%20305390731e23807b82a0c85bff62421d.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/chart_yellow.svg"/>Módulo 7 - TRM → Reportes</a></td><td class="cell-CmAc">2</td><td class="cell-]HD\"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIfdmQa1sU9RSIBpwRErslZNIx8VnartZED4-xTi-itsXoFpu8=s100" class="icon user-icon"/>Sergio Muñoz</span></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-809c-a52c-d94731064cfa"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Prueba%20de%20conocimientos%20m%C3%B3dulo%207%20305390731e23809ca52cd94731064cfa.html"><span class="icon">🏁</span>Prueba de conocimientos módulo 7</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-8080-9ec0-f13a447cb823"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%208%20-%20TRM%20%E2%86%92%20M%C3%B3dulos%20especiales%20305390731e2380809ec0f13a447cb823.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/ghost_yellow.svg"/>Módulo 8 - TRM → Módulos especiales</a></td><td class="cell-CmAc">5</td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td><td class="cell-^dvZ"></td></tr><tr id="30439073-1e23-805b-8a49-f32f71d01013"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Material%20en%20Drive%20304390731e23805b8a49f32f71d01013.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/database_yellow.svg"/>Material en Drive</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-81f1-b88c-f63ac5d501b6"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Integraciones%20de%20Delivery%20176390731e2381f1b88cf63ac5d501b6.html">Integraciones de Delivery</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-8115-8237-f8e95f7b755d"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Inventario%20Avanzando%20(Stock%20control)%20176390731e2381158237f8e95f7b755d.html">Inventario Avanzando (Stock control)</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-819f-87e4-f3c8c02fab28"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/DTE%20176390731e23819f87e4f3c8c02fab28.html">DTE </a></td><td class="cell-CmAc"></td><td class="cell-]HD\"><span class="user"><img src="Onboarding%20SAC/Cronograma%20Base/DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1c139073-1e23-80c7-95fe-f8e6249592ba"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Klap%201c1390731e2380c795fef8e6249592ba.html">Klap</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-8173-8db7-fd0303e2b188"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Imin%20176390731e2381738db7fd0303e2b188.html">Imin</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="17639073-1e23-819d-ae03-cd79d066825d"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Getnet%20176390731e23819dae03cd79d066825d.html">Getnet</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1e339073-1e23-8062-922f-d61d62f2267b"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Amipass%201e3390731e238062922fd61d62f2267b.html">Amipass</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="2a039073-1e23-80f5-aadc-d854ae4a325d"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/CRM%202a0390731e2380f5aadcd854ae4a325d.html">CRM</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-80d8-8544-e8f3518acd5b"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%209%20-%20Versiones%20y%20Backoffice%20305390731e2380d88544e8f3518acd5b.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%209%20-%20Versiones%20y%20Backoffice/Captura_de_pantalla_2026-02-12_a_la(s)_16.02.24.png"/>Módulo 9 - Versiones y Backoffice</a></td><td class="cell-CmAc">2</td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1c739073-1e23-80f5-9652-decd48335dfe"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Cambio%20de%20estado%20para%20locales%20(desbloqueo)%201c7390731e2380f59652decd48335dfe.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%209%20-%20Versiones%20y%20Backoffice/Captura_de_pantalla_2026-02-12_a_la(s)_16.02.24.png"/>Cambio de estado para locales (desbloqueo)</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1c139073-1e23-80fc-a4a9-df1e9b4c6b16"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Crear%20toteat%20login%201c1390731e2380fca4a9df1e9b4c6b16.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%209%20-%20Versiones%20y%20Backoffice/Captura_de_pantalla_2026-02-12_a_la(s)_16.02.24.png"/>Crear toteat login</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1c739073-1e23-80bf-b875-cd1b3d8278da"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Regenerar%20cierres%20(solo%20legacy)%201c7390731e2380bfb875cd1b3d8278da.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%209%20-%20Versiones%20y%20Backoffice/Captura_de_pantalla_2026-02-12_a_la(s)_16.02.24.png"/>Regenerar cierres (solo legacy)</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1c739073-1e23-806e-bc57-ff3b72173fac"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Regenerar%20%C3%B3rdenes%201c7390731e23806ebc57ff3b72173fac.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%209%20-%20Versiones%20y%20Backoffice/Captura_de_pantalla_2026-02-12_a_la(s)_16.02.24.png"/>Regenerar órdenes</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1c739073-1e23-8063-864e-f0c9ed7f7ab5"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Eliminar%20orden%20(sin%20doc%20fiscal%20asociado)%201c7390731e238063864ef0c9ed7f7ab5.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%209%20-%20Versiones%20y%20Backoffice/Captura_de_pantalla_2026-02-12_a_la(s)_16.02.24.png"/>Eliminar orden (sin doc. fiscal asociado)</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1c739073-1e23-80f6-bdec-fe17a02f3f33"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Corregir%20orden%20de%20caja%201c7390731e2380f6bdecfe17a02f3f33.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%209%20-%20Versiones%20y%20Backoffice/Captura_de_pantalla_2026-02-12_a_la(s)_16.02.24.png"/>Corregir orden de caja</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1c739073-1e23-80c1-ae72-efc6e4710d4e"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Regenerar%20reservas%201c7390731e2380c1ae72efc6e4710d4e.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%209%20-%20Versiones%20y%20Backoffice/Captura_de_pantalla_2026-02-12_a_la(s)_16.02.24.png"/>Regenerar reservas</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1c739073-1e23-808d-8e05-c490d927255a"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Buscar%20orden%20en%20limbo%201c7390731e23808d8e05c490d927255a.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%209%20-%20Versiones%20y%20Backoffice/Captura_de_pantalla_2026-02-12_a_la(s)_16.02.24.png"/>Buscar orden en limbo</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1d139073-1e23-802c-bab1-cbcf5aeab892"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Manual%20de%20implementaci%C3%B3n%201d1390731e23802cbab1cbcf5aeab892.html"><span class="icon">🖨️</span>Manual de implementación</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30539073-1e23-807f-ac91-e30fc643d0c6"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%2010%20-%20Gesti%C3%B3n%20proactiva%20305390731e23807fac91e30fc643d0c6.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/magic-wand_yellow.svg"/>Módulo 10 - Gestión proactiva</a></td><td class="cell-CmAc">3</td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="31b39073-1e23-808d-bb7c-ebe1b8cc6202"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%2011%20-%20Pr%C3%A1ctica%20implementaciones%2031b390731e23808dbb7cebe1b8cc6202.html">Módulo 11 - Práctica implementaciones</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="2b139073-1e23-8046-a06b-ff8f4133cefb"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Plan%20Canguro%202b1390731e238046a06bff8f4133cefb.html"><span class="icon">🦘</span>Plan Canguro</a></td><td class="cell-CmAc">10</td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30239073-1e23-8052-9ed5-fb7134186c89"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Correo%20soporte%20302390731e2380529ed5fb7134186c89.html">Correo soporte</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30239073-1e23-801c-81ac-e678704cadb5"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Problemas%20avanzados%20302390731e23801c81ace678704cadb5.html">Problemas avanzados</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30239073-1e23-801f-b2f0-d8cce45fe46b"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Escalamientos%20a%20otras%20%C3%A1reas%20302390731e23801fb2f0d8cce45fe46b.html">Escalamientos a otras áreas</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30439073-1e23-8074-abca-d7ec4272d6c0"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Men%C3%BA%20Lateral%20Reportes%20Centro%20de%20ayuda%20de%20Toteat%20304390731e238074abcad7ec4272d6c0.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/chart_yellow.svg"/>Menú Lateral: Reportes | Centro de ayuda de Toteat</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1e239073-1e23-8020-8289-e59604743696"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Superset%201e2390731e2380208289e59604743696.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/chart_yellow.svg"/>Superset</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="2a039073-1e23-8063-9ce6-e7892c5a9ac9"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Reportes%202a0390731e2380639ce6e7892c5a9ac9.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/chart_yellow.svg"/>Reportes</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="1e139073-1e23-80ac-8437-eadd40217193"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Toma%20de%20pedidos%201e1390731e2380ac8437eadd40217193.html">Toma de pedidos</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="30939073-1e23-8030-8010-cfaca9fd0091"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Indicadores%20y%20comisiones%20309390731e2380308010cfaca9fd0091.html"><span class="icon">📚</span>Indicadores y comisiones</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="31b39073-1e23-800b-bfe5-fc9d92d37d21"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Mercado%20Pago%20(MP)%2031b390731e23800bbfe5fc9d92d37d21.html">Mercado Pago (MP)</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="31b39073-1e23-8032-b47f-c89a6907ab4c"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Integraciones%20de%20pago%20(Payments)%2031b390731e238032b47fc89a6907ab4c.html">Integraciones de pago (Payments)</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="31b39073-1e23-8096-bf71-ecf29bf1cc45"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Corregir%20orden%20de%20turno%2031b390731e238096bf71ecf29bf1cc45.html"><img class="icon" src="Onboarding%20SAC/Cronograma%20Base/M%C3%B3dulo%209%20-%20Versiones%20y%20Backoffice/Captura_de_pantalla_2026-02-12_a_la(s)_16.02.24.png"/>Corregir orden de turno</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="31b39073-1e23-8066-891e-f5fb5300cac1"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/Plan%20final%2031b390731e238066891ef5fb5300cac1.html">Plan final</a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr><tr id="32839073-1e23-8034-b8ca-c4dad890319d"><td class="cell-title"><a href="Onboarding%20SAC/Cronograma%20Base/@Glosario%20Toteat%20328390731e238034b8cac4dad890319d.html">@Glosario Toteat </a></td><td class="cell-CmAc"></td><td class="cell-]HD\"></td><td class="cell-|]Xu"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-N?h&gt;"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-^dvZ"></td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><p id="30939073-1e23-808e-b2d7-f5038de5ab78" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-800f-a482-c935f3d6f513" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="24d39073-1e23-8076-bda1-d7f2860813a5" class="image"><a href="Onboarding%20SAC/image.png"><img style="width:1px" src="Onboarding%20SAC/image.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="24d39073-1e23-8049-8449-cfa91a434b32" class="image"><a href="Onboarding%20SAC/image%201.png"><img style="width:1px" src="Onboarding%20SAC/image%201.png"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

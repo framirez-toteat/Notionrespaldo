@@ -1,0 +1,749 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Weekly Líderes SAC</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="28c39073-1e23-8146-838b-cb43724c4210" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/></div><h1 class="page-title" dir="auto">Weekly Líderes SAC</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Creado</th><td><time>14 de octubre de 2025 6:20</time></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr class="property-row property-row-formula"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/formula_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha</th><td>20 octubre</td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h3 id="28c39073-1e23-8171-9076-f381a8188eec" class="">1.  Inicio y Semáforo (5 min)</h3></div><div style="display:contents" dir="auto"><p id="28c39073-1e23-81af-ae16-d8cd066f38aa" class=""><div class="indented"><div style="display:contents" dir="auto"><p id="28c39073-1e23-8192-ad91-c93cf9554c80" class="">🥵 Rojo = estoy con alta carga / no me siento bien / necesito compartir algo importante.</p></div><div style="display:contents" dir="auto"><p id="28c39073-1e23-818f-861b-f9e1a4d3a613" class="">😅 Amarillo = he logrado avanzar en las dificultades / necesito solucionar algo.</p></div><div style="display:contents" dir="auto"><p id="28c39073-1e23-81f4-973b-e9becce629ea" class="">🥬 Verde = llevo buen ritmo / estoy como lechuga, fresco / puedo apoyar a otros.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="28c39073-1e23-8135-a045-dee24b06578c" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="28c39073-1e23-8135-a84f-fdd148459a4b" class="">2. Resumen funnel / Personas (5 min)</h3></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-8161-b668-dee876d1df81" class="bulleted-list"><li style="list-style-type:disc">Felipe (posible paso a KAM?)<div style="display:contents" dir="auto"><ul id="29239073-1e23-80f5-b620-e6cdfd33b7f4" class="bulleted-list"><li style="list-style-type:circle">Posible postulación interna a la vacante de KAM en Colombia: mejorar la coordinación de estos casos.</li></ul></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-80d7-af13-f983e8332f6d" class="bulleted-list"><li style="list-style-type:circle">Se continuará el proceso con postulantes internos.</li></ul></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-80ff-9239-c75f8e741d15" class="bulleted-list"><li style="list-style-type:circle">Conversar con Felipe para alinear intereses y expectativas en el corto y mediano plazo.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-8105-8f98-c50d6094c822" class="bulleted-list"><li style="list-style-type:disc">[Mari] Avances del onboarding de nuevos integrantes:<div style="display:contents" dir="auto"><ul id="29239073-1e23-8062-8f78-eddd6a7ca6e6" class="bulleted-list"><li style="list-style-type:circle">Capacitaciones avanzando: creación de productos, cartas.</li></ul></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-807b-a90d-e850c56e4d80" class="bulleted-list"><li style="list-style-type:circle">En general avances sustanciales: buena disposición y responsabilidad con las actividades asignadas.</li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-81a7-86c1-c9289d00f593" class="bulleted-list"><li style="list-style-type:circle">Se espera que puedan estar en operación (guiada) a mediados de noviembre.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="28c39073-1e23-81af-9e71-cdbd22cf34df" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="28c39073-1e23-8111-b9a0-cb4647fd888f" class="">3. Revisión de Indicadores y tareas (10 min)</h3></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-809c-9265-de2ba2df1ab2" class="bulleted-list"><li style="list-style-type:disc">Cantidad de Chats 4.426 (+325) / 11.387 acumulado al mes</li></ul></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-8047-8b81-f168746d855c" class="bulleted-list"><li style="list-style-type:disc">Cantidad de Chats Calificados: 17.6% <strong>799</strong>/4.531</li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-81bf-a01e-e7877427ac92" class="bulleted-list"><li style="list-style-type:disc">CSAT: 95.5% (95.2 acumulado)</li></ul></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-80f2-ae23-ea4fe697e4ba" class="bulleted-list"><li style="list-style-type:disc">TME: 28s (27s acumulado)</li></ul></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-802b-97dc-e00ce87606a4" class="bulleted-list"><li style="list-style-type:disc">TMO: 15m 23s (15m 59s acumulado)</li></ul></div><div style="display:contents" dir="auto"><p id="28c39073-1e23-8129-a615-fb2a2885c71b" class="">Compromisos</p></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-8104-a34d-c810df036d8c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><span class="user">@Gonzalo Soffia</span> Revisar proceso de bloqueo leve y grave, para ver opciones que permitan descongestionar los mensajes al equipo.</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-8186-8ab0-ddca40b31cb7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Incorporar revisión en new y legacy.</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-81cc-be5c-c89b27c24d1c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"></span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><p id="28c39073-1e23-8157-bafb-f62a842ce8d8" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="28c39073-1e23-813c-8b53-f4f48470bd55" class="">4. Temas críticos y desafíos (35 min)</h3></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-81d7-898d-e1fc6548a7bf" class="bulleted-list"><li style="list-style-type:disc">Proyectos estratégicos y avances<div style="display:contents" dir="auto"><ul id="28c39073-1e23-81ca-8d0e-dad43f2b6dc4" class="bulleted-list"><li style="list-style-type:circle">[Val] Solicitudes a SAC Tech: Rol del coordinador y uso de Salesforce</li></ul></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-80b9-97f7-fc0970abaa81" class="bulleted-list"><li style="list-style-type:circle">[Val] Levantamiento de Retenciones y uso de Salesforce: accionar proactivo y revisiones de casos<div style="display:contents" dir="auto"><ul id="29239073-1e23-8067-a991-f880c6fb7edb" class="bulleted-list"><li style="list-style-type:square">Nacha estará grabando cápsulas de videos de los procesos en Salesforce y haremos sesión de reforzamiento con el equipo de SAC Tech. Coordinadores debieran sumarse a esas instancias.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-8182-a6e1-f53b02bcb09c" class="bulleted-list"><li style="list-style-type:circle">[Val] Capacitaciones y reforzar el conocimiento [Multisucursal e Inventario]<div style="display:contents" dir="auto"><ul id="29239073-1e23-80ac-999f-f5f81c45c58b" class="bulleted-list"><li style="list-style-type:square">Levantar listado de temas para abordar con Nacha, Mati Demian y Luciano.</li></ul></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-8019-a002-fb6e4f264252" class="bulleted-list"><li style="list-style-type:square">Incorporar Formación como punto fijo en la reunión.<div style="display:contents" dir="auto"><ul id="29239073-1e23-80f1-bba2-c655a9a00399" class="bulleted-list"><li style="list-style-type:disc">Definir fecha final para hacer y aprobar el curso de Inventarios</li></ul></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-80e2-8aba-c6e565fdda7f" class="bulleted-list"><li style="list-style-type:disc">Usar el canal de slack para obtener casos de uso y preguntas frecuentes. <span class="user">@Valeria García Arce</span> </li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-803d-9142-cc8a653d9ee5" class="bulleted-list"><li style="list-style-type:square">Para el módulo Multisucursal, <span class="user">@Luciano Elizondo</span> apoyará con las primeras definiciones para hacer sesiones grabadas.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-8162-b094-ecdffa396cdf" class="bulleted-list"><li style="list-style-type:circle">[Val] Nuevo calendario de capacitaciones a clientes<div style="display:contents" dir="auto"><ul id="29239073-1e23-8065-91e5-f992b97b9624" class="bulleted-list"><li style="list-style-type:square"><a href="https://calendly.com/toteat">https://calendly.com/toteat</a></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-8077-9b14-d62de9ab2776" class="bulleted-list"><li style="list-style-type:circle">Fran:<div style="display:contents" dir="auto"><ol type="1" id="29239073-1e23-80ef-8ad7-d2f32d7a7ea4" class="numbered-list" start="1"><li>Documento presencialidades<div style="display:contents" dir="auto"><ol type="a" id="29239073-1e23-80eb-bb59-c07836a884d3" class="numbered-list" start="1"><li><span class="user">@Luciano Elizondo</span> revisará y validará en esta semana.</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="29239073-1e23-8014-bcfd-c0dfc29dc6e8" class="numbered-list" start="2"><li>Registro de Logs (qué paso con él, ver con Lu)<div style="display:contents" dir="auto"><ol type="a" id="29239073-1e23-8032-b4fe-d090e2519992" class="numbered-list" start="1"><li>Carlos Apablaza entregará el levantamiento de la migración.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="29239073-1e23-8041-a1d3-e9bb25023d16" class="numbered-list" start="2"><li>Revisar el listado en la reunión de priorización de los viernes. Incorporar estos requerimientos como bugs que ayuden a dar un mejor soporte.</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="29239073-1e23-8051-ac7f-e335ac9ace45" class="numbered-list" start="3"><li>Primeras impresiones proceso nuevo</li></ol></div></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-81a9-8bc2-e5ede37848c9" class="bulleted-list"><li style="list-style-type:disc">Contingencias y preocupaciones<div style="display:contents" dir="auto"><ul id="28c39073-1e23-8131-84a1-e426393765b1" class="bulleted-list"><li style="list-style-type:circle"><span class="user">@Gonzalo Soffia</span> - Formato de horarios. Consumo de tiempo de Coordinador.<div style="display:contents" dir="auto"><ul id="29239073-1e23-806a-b68c-c11a51e52e54" class="bulleted-list"><li style="list-style-type:square"><span class="user">@Gonzalo Soffia</span> Revisar viabilidad de la organización de horarios de la propuesta con People para verificar viabilidad de aplicarlo en la próxima organización de turnos.</li></ul></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-806a-a9ac-e416f4144cb6" class="bulleted-list"><li style="list-style-type:square"><span class="user">@Luciano Elizondo</span> </li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-81e1-bf15-ed766671eb79" class="bulleted-list"><li style="list-style-type:circle">[Lu] Criterios de casos resueltos + derivación de usuarios a mail de clientes@toteat.com</li></ul></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-80ae-841b-edac6c7a18ac" class="bulleted-list"><li style="list-style-type:circle">[Val] Contingencias:<div style="display:contents" dir="auto"><ul id="29239073-1e23-80bf-a18c-c163b064d1d8" class="bulleted-list"><li style="list-style-type:square">Documentos tributarios sábado 18</li></ul></div><div style="display:contents" dir="auto"><ul id="29239073-1e23-80a5-8980-c09c342ace46" class="bulleted-list"><li style="list-style-type:square">Intercom lunes 20</li></ul></div></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-8189-99ff-fb583f72d1fb" class="bulleted-list"><li style="list-style-type:disc">Aprendizajes (3 casos de CSAT)<div style="display:contents" dir="auto"><ul id="28c39073-1e23-81c5-9f05-f9ee2c948329" class="bulleted-list"><li style="list-style-type:circle"></li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-810b-9a7f-dc5b2a01b9d6" class="bulleted-list"><li style="list-style-type:circle"></li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-813b-92a4-daeb6a28f139" class="bulleted-list"><li style="list-style-type:circle"></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="28c39073-1e23-815b-8c5d-d1a9fbd5712e" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="28c39073-1e23-8195-9cec-c9f9f53968d5" class="">5. Cierre y compromisos (5 min)</h3></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-81fc-ab99-e48b8eb831db" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><em><mark class="highlight-gray">Tarea / Compromiso </mark></em></span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-810c-831b-de125f0b7307" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><em><mark class="highlight-gray">Tarea / Compromiso </mark></em></span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-81d2-8dc2-c11de4ba27ff" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><em><mark class="highlight-gray">Tarea / Compromiso </mark></em></span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="28c39073-1e23-81b7-b7b0-d5faaaaece57" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><em><mark class="highlight-gray">Tarea / Compromiso</mark></em></span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><p id="28c39073-1e23-81e2-9ca3-ef034c52e6f1" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="28c39073-1e23-8132-b39f-f67477a8b775"/></div><div style="display:contents" dir="auto"><h3 id="28c39073-1e23-81a8-953e-d4e7100d0270" class="">Notas de Gemini</h3></div><div style="display:contents" dir="auto"><div style="display:contents" dir="auto"><div><div style="display:contents" dir="auto"><ul id="27139073-1e23-80da-bf60-e9fdf0115939" class="toggle"><li><details open=""><summary>👴🏻 Temas antiguos / resueltos</summary><div style="display:contents" dir="auto"><ul id="27639073-1e23-8013-98d9-cdf13271227a" class="bulleted-list"><li style="list-style-type:disc">Se informa al equipo la fecha máxima para realizar el curso de Inventario Avanzado. (31 de octubre).  Hasta ahora sólo hay 2 inscritos y 1 finalizado.</li></ul></div><div style="display:contents" dir="auto"><p id="29939073-1e23-80b1-8878-f6ba2f36491a" class="">
+</p></div></details></li></ul></div></div></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

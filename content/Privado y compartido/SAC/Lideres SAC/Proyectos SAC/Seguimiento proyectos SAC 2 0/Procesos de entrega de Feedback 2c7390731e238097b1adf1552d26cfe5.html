@@ -1,0 +1,752 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Procesos de entrega de Feedback</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2c739073-1e23-8097-b1ad-f1552d26cfe5" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🎯</span></div><h1 class="page-title" dir="auto">Procesos de entrega de Feedback</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable (R)</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Gonzalo Soffia</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Aprobador</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIeXJP50n2oNMn3ITT9go-fZiu3cEmUJ2PVqjWjUJ5KVVbCe8M=s100" class="icon user-icon"/>Valeria García Arce</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Colaboradores</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Teresa Martinez</span><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Informados</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">L</span></span>Luciano Elizondo</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Descripción</th><td>Queremos registrar feedback que se dé a tiempo oportuno, tanto el lo que es más inmediato (a penas se detecta) como un proceso más formativo con una cadencia de cada 3 o 4 meses.</td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fechas</th><td><time>16 de diciembre de 2025 → 31 de diciembre de 2025</time></td></tr><tr class="property-row property-row-formula"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/formula_gray.svg" style="width:14px;height:14px;display:block"/></span>Progreso (%)</th><td>0 %</td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>Hitos</th><td><a href="../Hitos/Crear%20estructuras%20de%20feedback%20seg%C3%BAn%20ocasi%C3%B3n%202cc390731e23806cb530f36908bfac28.html">Crear estructuras de feedback según ocasión</a>, <a href="../Hitos/Documentar%20rutas%20de%20obtenci%C3%B3n%20de%20KPIs%20CX%20Score,%20TM%202cc390731e2380bd881bd81b06d26f31.html">Documentar rutas de obtención de KPIs: CX Score, TME, TMO, CSAT</a>, <a href="../Hitos/Documentar%20proceso%20de%20auditar%20casos%202cc390731e23800abeb8da0fee6b19bf.html">Documentar proceso de auditar casos</a>, <a href="../Hitos/Aprendizajes%20del%20proyecto%202cc390731e2380cfb21afb943dd53e45.html">Aprendizajes del proyecto</a>, <a href="../Hitos/Definir%20procesos%20generales%20para%20entrega%20de%20feedbac%202cc390731e2380ce8824e9cede057a8a.html">Definir procesos generales para entrega de feedback</a>, <a href="../Hitos/Incorporar%20informaci%C3%B3n%20en%20procesos%20de%20onboarding%20j%202cc390731e23804ab38fcd8aedb2c051.html">Incorporar información en procesos de onboarding junto a People</a></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Última actualización</th><td><time>26 de diciembre de 2025 9:49</time></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="2c739073-1e23-800e-b11f-e1cd7abfe0ac"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h2 id="2c739073-1e23-8045-abaf-eace57c937d6" class="">🎯 Propósito del proyecto</h2></div><div style="display:contents" dir="auto"><p id="2c739073-1e23-8072-ae01-da88e08e8eb5" class="">Definir estrategias para elevar el nivel de servicio de los agentes.<br/>Inmediatamente urge entregar feedback para los 5 ingresos de Sept 2025 antes de que completen sus 3 meses.</p></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="2c739073-1e23-80df-b2bc-f230f68f6aa5"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h2 id="2c739073-1e23-800c-a478-c7911b3a211f" class="">🧩 Enfoque y metodología</h2></div><div style="display:contents" dir="auto"><ul id="2c739073-1e23-80ee-846e-edf8c82736a8" class="bulleted-list"><li style="list-style-type:disc">Queremos entregar y registrar todo feedback que nazca de la revisión <strong><span style="border-bottom:0.05em solid">conjunta</span></strong> entre agentes y coordinadores, a tiempo oportuno.</li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-80a7-8755-f427f2cbf305" class="bulleted-list"><li style="list-style-type:disc">Buscamos definir dos estrategias de feedback: constante y periódico.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c739073-1e23-80a0-b84a-d55737d5b8e0" class="bulleted-list"><li style="list-style-type:disc">Utilizaremos información detectada en:<div style="display:contents" dir="auto"><ul id="2c739073-1e23-8031-bc4f-d78c1784fe42" class="bulleted-list"><li style="list-style-type:circle">KPIs: TME, TMO, CSAT y CX Score.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c739073-1e23-8093-a13a-c884cb5ded02" class="bulleted-list"><li style="list-style-type:circle">Auditoría de conversaciones.</li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-8086-8707-e1f1509eff98" class="bulleted-list"><li style="list-style-type:circle">Cualquier otro input que recibamos dentro de la empresa.</li></ul></div></li></ul></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="2c739073-1e23-80f5-8615-ee9087ac62c9"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h2 id="2c739073-1e23-80ac-b889-ca6e02119e69" class="">📊 Apuesta de impacto (logro de objetivos)</h2></div><div style="display:contents" dir="auto"><p id="2c739073-1e23-806b-978c-d95a064898d5" class="">Todo agente debería tener feedback oportuno y registrado que permitan:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2cc39073-1e23-80a3-88c8-ce472dc63a60" class="numbered-list" start="1"><li>Reconocer fortalezas y áreas de mejora de manera oportuna.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cc39073-1e23-8038-9dba-fcf9081db557" class="numbered-list" start="2"><li>Ayudar a la toma de decisiones internas como postulaciones, solicitudes y término. </li></ol></div></div></figure></div><div style="display:contents" dir="auto"><hr id="2c739073-1e23-8051-9e29-ec9553f06481"/></div><div style="display:contents" dir="auto"><p id="2c739073-1e23-80dc-9c6d-c33f7951ca3d" class=""><strong>Tareas:</strong></p></div><div style="display:contents" dir="auto"><ul id="2c739073-1e23-803c-9a0b-c9cbfa09c9ca" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Crear estructura del feedback para esta ocasión</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c739073-1e23-80e5-bf71-fb2488c7cb2f" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Crear reuniones:</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c739073-1e23-80b6-aeba-fc73c47b8841" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><span class="user">@Gonzalo Soffia</span> - <del>Lunes </del>Martes todos juntos con los ingresos</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c739073-1e23-803c-9f64-f5529500a300" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><span class="user">@Gonzalo Soffia</span> - <del>Lunes</del> Martes coordinadores para definir datos.</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c739073-1e23-8060-b33c-dc709bffb7d7" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><span class="user">@Gonzalo Soffia</span> - Miércoles cada 1:1 de 30 min con los agentes.</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-80d0-b6ff-f1ba3a7aa9cb" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><span class="user">@Gonzalo Soffia</span> - Documentar y obtener rutas para el CX Score</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-800a-8210-e265b322abe0" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><span class="user">@Andrés Vanegas</span> - Documentar y obtener rutas para KPIs</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-80c2-8b78-f50c5329c143" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Optimizar integración Bitacora-Slack para que agente marque leído y se registre.</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="ltr"><nav id="2cc39073-1e23-8017-8c17-f6a36a5e1e22" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2c739073-1e23-8045-abaf-eace57c937d6">🎯 Propósito del proyecto</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2c739073-1e23-800c-a478-c7911b3a211f">🧩 Enfoque y metodología</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2c739073-1e23-80ac-b889-ca6e02119e69">📊 Apuesta de impacto (logro de objetivos)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2cb39073-1e23-8055-9956-ef048ca658bf">Introducción</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2cb39073-1e23-8092-aedc-fc40c141eea0">Estructura general para procesos de Feedback en SAC</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2cb39073-1e23-80b9-b600-c5d47682f688">Estructura para proceso de Feedback técnico (constante)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2cb39073-1e23-8033-b0c6-c05ead8c6c6d">Estructura para proceso de Feedback general (c/3 meses)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2cb39073-1e23-8002-b755-ef655992c8b1">🐻‍❄️ <strong>Marcha blanca ingresos Sept 2025</strong></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="2cb39073-1e23-8055-9956-ef048ca658bf" class="">Introducción</h3></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-8099-ad7a-e4dcbbf29ea8" class="">Tomando en consideración la información entregada por el área de People en , consideraremos los siguientes propósitos como referencia de enfoque:</p></div><div style="display:contents" dir="auto"><ul id="2cb39073-1e23-80fc-a088-f8f27c46e6f1" class="toggle"><li><details open=""><summary><strong>Propósito (Ev. de desempeño 2025)</strong></summary><div style="display:contents" dir="auto"><p id="2cb39073-1e23-808b-a921-ff81d4341bf4" class="">El propósito de este proceso es impulsar el desarrollo de cada persona y alinear nuestro trabajo con las metas de Toteat. Para lograrlo, realizaremos una evaluación que combina criterios claros y cuantificables con preguntas que abren conversaciones honestas, asegurando que todos tengamos las mismas oportunidades para crecer.</p></div><div style="display:contents" dir="auto"><p id="2cb39073-1e23-80a7-b289-d3d92a05c698" class="">El proceso se sostiene en cuatro ideas:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2cb39073-1e23-8062-a078-f727a7609373" class="numbered-list" start="1"><li><strong>Promover una cultura de feedback continuo</strong>: Para consolidar un equipo de alto rendimiento, es fundamental que todo Toteater reciba retroalimentación sobre su desempeño. Solo de esta forma podrá saber qué hace bien y qué podría mejorar.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cb39073-1e23-808d-a06b-fbf12ac2076d" class="numbered-list" start="2"><li><strong>Medir para crecer</strong>: La evaluación nos da una foto clara de dónde estamos parados como organización y como individuos, identificando tanto nuestros puntos fuertes como las áreas donde podemos mejorar. Es el punto de partida para trazar un plan de desarrollo que realmente sirva a cada Toteater.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cb39073-1e23-8033-a35c-c8655f8cef91" class="numbered-list" start="2"><li><strong>Alinear nuestro impacto</strong>: Nos ayuda a tener un mapa común sobre lo que se espera de cada rol y cómo el trabajo de todos conecta con los objetivos más grandes. Las calificaciones son una herramienta para asegurar que medimos ese impacto de forma consistente para todos.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cb39073-1e23-8017-a36e-fc7a7a2d11ba" class="numbered-list" start="3"><li><strong>Decisiones justas y transparentes</strong>: Al usar un sistema con criterios definidos, nos aseguramos de que las decisiones sobre desarrollo, nuevas oportunidades y reconocimiento se tomen de la manera más objetiva y equitativa posible, valorando la contribución de cada uno sin sesgos.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-8064-b459-f03af0e2141e" class="">
+</p></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Estructura general para procesos de Feedback en SAC</summary><div class="indented"><div style="display:contents" dir="auto"><p id="2cc39073-1e23-8029-9686-d482aad5def0" class="">Observada la necesidad de tener al menos dos instancias de feedback continuo en el área, hemos definido dos instancias para entrega de feedback:</p></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-8093-ab09-ddee7e2c2642" class="bulleted-list"><li style="list-style-type:disc">Feedback técnico constante (<a href="Procesos%20de%20entrega%20de%20Feedback%202c7390731e238097b1adf1552d26cfe5.html">ver apartado</a>)</li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-80e5-add3-ef447985d9ba" class="bulleted-list"><li style="list-style-type:disc">Feedback general periódico (<a href="Procesos%20de%20entrega%20de%20Feedback%202c7390731e238097b1adf1552d26cfe5.html">ver apartado</a>)</li></ul></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-8071-8f58-fff68a0a3de9" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-80d0-b2d0-ee6e515c89b4" class="">Una vez definidos, estos procesos deben ser socializados y conocidos todos.</p></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-80e1-930c-ff12cc3d8114" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Estructura para proceso de Feedback técnico (constante)</summary><div class="indented"><div style="display:contents" dir="auto"><ol type="1" id="2cb39073-1e23-801e-aace-d3f14573031f" class="numbered-list" start="1"><li>Basado en uso de <a href="../../Procesos%20de%20Feedback/Bitacora%20de%20Calidad%202025%2017c390731e2380aa830dc4023a2e1546.html"><span class="icon">✅</span>Bitacora de Calidad 2025</a></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cb39073-1e23-80f6-bca4-e85e38d0368a" class="numbered-list" start="2"><li>Cada vez que se registra un caso, por integración con Slack, se envía un mensaje al agente identificado como responsable.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cc39073-1e23-8068-b084-df0ee47dcf8f" class="numbered-list" start="3"><li>El agente debe responder a esta notificación (pendiente)</li></ol></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Estructura para proceso de Feedback general (c/3 meses)</summary><div class="indented"><div style="display:contents" dir="auto"><p id="2cc39073-1e23-80cf-b749-f56a517093de" class="">Definimos un proceso general para preparar una instancia de feedback<div class="indented"><div style="display:contents" dir="auto"><ol type="1" id="2cc39073-1e23-80b2-acb2-e0b89e2f9de9" class="numbered-list" start="1"><li>Recopilar información.<div style="display:contents" dir="auto"><ol type="a" id="2cc39073-1e23-80a3-854b-dc2210e21dbc" class="numbered-list" start="1"><li>Rutas para obtención de KPIs<div style="display:contents" dir="auto"><ul id="2cc39073-1e23-800d-8872-c5d3b7416f15" class="toggle"><li><details open=""><summary>CX Score:</summary><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-8038-ba1f-f9be438a9ee7" class="bulleted-list"><li style="list-style-type:disc">En Intercom, ir a <a href="https://app.intercom.com/a/apps/nry7bg4q/reports/overview">Informes</a> &gt; <a href="https://app.intercom.com/a/apps/nry7bg4q/reports/data-export">Exportación de conjunto de datos</a><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-80ad-ab0e-eb11cf0da16a" class="bulleted-list"><li style="list-style-type:circle">Filtros: <code>Fecha</code> y <code>Último cierre por un compañero de equipo es</code></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-80ed-b04e-d9115d329936" class="bulleted-list"><li style="list-style-type:disc">Análisis de datos <a href="https://docs.google.com/spreadsheets/d/1jC7CEuuTnH9jaGHDdA5MJVDfg9rpXNoqblZCMcIxVQ4/edit?gid=604818488#gid=604818488">https://docs.google.com/spreadsheets/d/1jC7CEuuTnH9jaGHDdA5MJVDfg9rpXNoqblZCMcIxVQ4/edit?gid=604818488#gid=604818488</a></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-8071-9056-eeda33fb5269" class="toggle"><li><details open=""><summary>CSAT:</summary><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-8050-a1b8-dcc5fe7be3e4" class="numbered-list" start="1"><li>En Intercom, ir a <a href="https://app.intercom.com/a/apps/nry7bg4q/reports/overview">informes</a> &gt; Asistencia humana &gt; <a href="https://app.intercom.com/a/apps/nry7bg4q/reports/custom-reports/report/3047869">Satisfacción del cliente</a></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-80aa-a659-c35b963b2b1f" class="numbered-list" start="2"><li>Filtrar conversaciones dentro del período a evaluar</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-80ce-8f8a-df339f6cde51" class="numbered-list" start="3"><li>Filtrar conversaciones para el agente a evaluar <code>Asignado a</code></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-80ee-88ab-c2a26bcf122f" class="numbered-list" start="4"><li>(Opcional) Según nivel del agente, filtrar por <code>Motivo de contacto</code> a temáticas más relevantes.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-809a-a835-c1e744339bac" class="numbered-list" start="5"><li><strong>A</strong>uditar 6 a 8 casos de manera random y revisar:<div style="display:contents" dir="auto"><ul id="2ce39073-1e23-80ae-a2e4-e5e8fffcf326" class="bulleted-list"><li style="list-style-type:disc">Mínimos: saludos, gestión y cierres. </li></ul></div><div style="display:contents" dir="auto"><ul id="2ce39073-1e23-8055-ae1b-c0375a0c4a54" class="bulleted-list"><li style="list-style-type:disc">Enfoque en el cliente. </li></ul></div></li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-803a-b234-d1a8c0f814d9" class="bulleted-list"><li style="list-style-type:disc">TMO:</li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-80ed-a414-ebb5b478b38e" class="bulleted-list"><li style="list-style-type:disc">TME:</li></ul></div></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cc39073-1e23-80a4-9ba5-d8e83893e90e" class="numbered-list" start="2"><li>Citar al agente y compartir puntos de revisión con 1 semana de anticipación.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cc39073-1e23-808f-8d6c-d4557bad023f" class="numbered-list" start="3"><li>Registrar información para y generada durante la entrega en la página del agente.<div style="display:contents" dir="auto"><ol type="a" id="2cc39073-1e23-80b2-ad03-f1ebd922e148" class="numbered-list" start="1"><li>Hoja tipo para crear registros de feedback: <a href="../../Procesos%20de%20Feedback/Registro%20de%20feedback%20por%20persona/Registro%20de%20feedback%20%5BModelo%5D%202cc390731e23808e8853cfc055baf3a8.html">Registro de feedback [Modelo]</a> </li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cc39073-1e23-8004-bae4-d4cc4a54d7c9" class="numbered-list" start="4"><li>Registrar compromisos / objetivos</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cc39073-1e23-8093-97b1-e2c60227df97" class="numbered-list" start="5"><li>Crear cita de seguimiento o revisar qué paso (ahorro de tiempo).</li></ol></div></div></p></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-8044-bba5-c53749c1c162" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-8067-a95a-e51b859c6a3a" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><p id="2ce39073-1e23-8003-b8b1-dde56d2c9beb" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2ce39073-1e23-8090-b810-c70cead14a94" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2ce39073-1e23-8071-b60e-d5ccd9564526"/></div><div style="display:contents" dir="auto"><p id="2ce39073-1e23-80e9-8a59-d14c1a0e0c43" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2ce39073-1e23-8086-9989-d544f601c898"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h1 id="2cb39073-1e23-8002-b755-ef655992c8b1" class="">🐻‍❄️ <strong>Marcha blanca ingresos Sept 2025</strong></h1></div></div></figure></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-8030-b5ae-e2909b0fd3f9" class="">Pauta de contenidos para entrega de Feedback</p></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-806b-aec5-d90ece09a527" class="bulleted-list"><li style="list-style-type:disc">Duración: 30 minutos.</li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-800b-be85-c36eedaccfaf" class="bulleted-list"><li style="list-style-type:disc">Formato: agente + 2 coordinadores.<div style="display:contents" dir="ltr"><table id="2cc39073-1e23-800d-9eea-d16180b6a3fd" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="2cc39073-1e23-80cf-9713-cda4f9ac6f33"><td id="}guh" class="" style="width:110.328125px"><strong>Agente</strong></td><td id="wBxU" class="" style="width:161.328125px"><strong>Coordinador a cargo</strong></td><td id="tMcP" class="" style="width:266.328125px"><strong>Enfoque propuesto</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2cc39073-1e23-80e2-8aa4-fee25fc8700a"><td id="}guh" class="" style="width:110.328125px">Jhonathan</td><td id="wBxU" class="" style="width:161.328125px">Andrew</td><td id="tMcP" class="" style="width:266.328125px">Participación, CX Score y Volumen</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cc39073-1e23-802c-b3cf-f2f378036251"><td id="}guh" class="" style="width:110.328125px">Mariel</td><td id="wBxU" class="" style="width:161.328125px">Gonzalo</td><td id="tMcP" class="" style="width:266.328125px">Conexiones</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cc39073-1e23-8030-a622-e3907c17a592"><td id="}guh" class="" style="width:110.328125px">Marisela</td><td id="wBxU" class="" style="width:161.328125px">Mari</td><td id="tMcP" class="" style="width:266.328125px">Conexiones y CX Score</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cc39073-1e23-8095-8d2d-e270e3f4ddd1"><td id="}guh" class="" style="width:110.328125px">Dani Bernal</td><td id="wBxU" class="" style="width:161.328125px">Mari</td><td id="tMcP" class="" style="width:266.328125px">CX Score</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cc39073-1e23-806a-9f55-d8bdfd6a2bd1"><td id="}guh" class="" style="width:110.328125px">Maca</td><td id="wBxU" class="" style="width:161.328125px">Andrew</td><td id="tMcP" class="" style="width:266.328125px"></td></tr></div></tbody></table></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-808d-8632-cc65accb10f2" class="bulleted-list"><li style="list-style-type:disc">KPIs de las últimas 4 semanas, 📅 Lunes 17 Nov → Domingo 14 Dic<div style="display:contents" dir="auto"><ul id="2ce39073-1e23-800f-aa07-d13aa1f363e9" class="toggle"><li><details open=""><summary>CX Score</summary><div style="display:contents" dir="ltr"><table id="2cc39073-1e23-805c-84aa-c772c1369093" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="2cc39073-1e23-80a9-bf94-f6f65d96ad65"><td id="aRVj" class=""><em>Last closed by teammate</em></td><td id="V}:k" class="">CX Score</td><td id="huqs" class="">Conversaciones</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cc39073-1e23-8055-88c7-d7a7872bd2f6"><td id="aRVj" class="">Jhonatan Valenzuela</td><td id="V}:k" class="">3,6</td><td id="huqs" class="">600</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cc39073-1e23-80da-b461-d76c2b6268f5"><td id="aRVj" class="">Daniela Bernal</td><td id="V}:k" class="">3,7</td><td id="huqs" class="">498</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cc39073-1e23-805b-a543-db89c4e819f2"><td id="aRVj" class="">Marisela Carrasco</td><td id="V}:k" class="">3,8</td><td id="huqs" class="">298</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cc39073-1e23-80c0-b6be-c9c2ccb7f2b0"><td id="aRVj" class="">María Camila Velásquez</td><td id="V}:k" class="">3,9</td><td id="huqs" class="">280</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cc39073-1e23-8055-b1a2-f4d27b99c439"><td id="aRVj" class="">Mariel García</td><td id="V}:k" class="">4,1</td><td id="huqs" class="">440</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cc39073-1e23-80f4-b533-f93aab3c40fc"><td id="aRVj" class=""><strong>Suma total</strong></td><td id="V}:k" class=""><strong>3,8</strong></td><td id="huqs" class=""><strong>2116</strong></td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><table id="2ce39073-1e23-8077-b125-d9208b945794" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="2ce39073-1e23-80d1-b6eb-e72f788945b6"><td id="]tkf" class="">Media CX Score</td><td id="j;m&lt;" class="">3,8</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ce39073-1e23-8087-a4f2-da9a463151ad"><td id="]tkf" class="">Media Conversaciones</td><td id="j;m&lt;" class="">379</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><table id="2ce39073-1e23-805a-b545-c584027593ea" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="2ce39073-1e23-80b7-bb83-f60e94532349"><td id="tkqk" class=""><strong>Período del 17 de Nov al 14 de Dic</strong></td><td id="KNGt" class="">Conversaciones</td><td id="Vr\n" class="">CX Score</td><td id="g\`u" class="">CSAT</td><td id="iYkh" class="">Ranking Ev. Conocimiento</td><td id="FJUu" class="">TME</td><td id="f?lZ" class="">TMO</td><td id="F`N~" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ce39073-1e23-80a7-ad24-d0f19fb9589b"><td id="tkqk" class="">Mariel</td><td id="KNGt" class="">452</td><td id="Vr\n" class="">4,1</td><td id="g\`u" class="">96,1</td><td id="iYkh" class="">12</td><td id="FJUu" class="">200 (44.2%)</td><td id="f?lZ" class="">254 (56.1%)</td><td id="F`N~" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ce39073-1e23-803c-8877-e566e909588b"><td id="tkqk" class="">Marisela</td><td id="KNGt" class="">310</td><td id="Vr\n" class="">3,8</td><td id="g\`u" class="">94,1</td><td id="iYkh" class="">19</td><td id="FJUu" class="">132 (42.5%)</td><td id="f?lZ" class="">160 (51.6%)</td><td id="F`N~" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ce39073-1e23-80ec-bdde-f53f7d392cb0"><td id="tkqk" class="">Jhonathan</td><td id="KNGt" class="">606</td><td id="Vr\n" class="">3,6</td><td id="g\`u" class="">88,9</td><td id="iYkh" class="">18</td><td id="FJUu" class="">307 (50.6%)</td><td id="f?lZ" class="">431 (71.1%)</td><td id="F`N~" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ce39073-1e23-8003-9333-e2639c0e9919"><td id="tkqk" class="">Maca</td><td id="KNGt" class="">284</td><td id="Vr\n" class="">3,9</td><td id="g\`u" class="">98,4</td><td id="iYkh" class="">17</td><td id="FJUu" class="">156 (54.9%)</td><td id="f?lZ" class="">185 (65.1%)</td><td id="F`N~" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ce39073-1e23-8085-8c92-c1d318c6192e"><td id="tkqk" class="">Daniela</td><td id="KNGt" class="">510</td><td id="Vr\n" class="">3,7</td><td id="g\`u" class="">93,8</td><td id="iYkh" class="">14</td><td id="FJUu" class="">244 (47.8%)</td><td id="f?lZ" class="">323 (63.3%)</td><td id="F`N~" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ce39073-1e23-8089-8011-eb9e631599a8"><td id="tkqk" class="">Prom equipo</td><td id="KNGt" class="">1.120</td><td id="Vr\n" class="">3,8</td><td id="g\`u" class="">96,5</td><td id="iYkh" class=""></td><td id="FJUu" class="">208 (48%) </td><td id="f?lZ" class="">271	(61%)</td><td id="F`N~" class=""></td></tr></div></tbody></table></div></details></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-807a-a42b-e593a756dc43" class="bulleted-list"><li style="list-style-type:disc"><strong>Conexiones:</strong> <br/>¿Están siendo bien utilizadas? ¿Tenemos una acuerdo actual?<div style="display:contents" dir="auto"><ul id="2cc39073-1e23-803c-a8c7-cae526dc5d36" class="bulleted-list"><li style="list-style-type:circle">Acuerdo actual: 5 chats para ponerse <em>away. No debería anunciarse.</em></li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-8095-b1e2-d24facf1ef19" class="bulleted-list"><li style="list-style-type:circle">Actualización: Debe reactivase cuando tenga 2 (primer mes) y 3 (segundo mes).</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-806a-93cb-ddccbb86bc18" class="bulleted-list"><li style="list-style-type:disc"><strong>Auditoría de casos:</strong><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-8071-b6e8-e6b643015a59" class="numbered-list" start="1"><li>Ir al <a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/search">Inbox de Intercom</a></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-800f-9987-fe86afed29f1" class="numbered-list" start="2"><li>Filtrar conversaciones dentro del período a evaluar</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-803b-a5f7-e8a01fb2ac37" class="numbered-list" start="3"><li>Filtrar conversaciones para el agente a evaluar <code>Asignado a</code></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-804a-8389-d31deabc466c" class="numbered-list" start="4"><li>(Opcional) Según nivel del agente, filtrar por <code>Motivo de contacto</code> a temáticas más relevantes.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-8090-8f86-fc75ac613785" class="numbered-list" start="5"><li><strong>A</strong>uditar 6 a 8 casos de manera random y revisar:<div style="display:contents" dir="auto"><ul id="2cc39073-1e23-80d2-bae8-ce9fd1267e70" class="bulleted-list"><li style="list-style-type:disc">Mínimos: saludos, gestión y cierres. </li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-802b-8caf-fb6d4b6ddcf1" class="bulleted-list"><li style="list-style-type:disc">Enfoque en el cliente. </li></ul></div></li></ol></div></li></ul></div><div style="display:contents" dir="auto"><p id="2d539073-1e23-80db-9a2f-f6a697df9292" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

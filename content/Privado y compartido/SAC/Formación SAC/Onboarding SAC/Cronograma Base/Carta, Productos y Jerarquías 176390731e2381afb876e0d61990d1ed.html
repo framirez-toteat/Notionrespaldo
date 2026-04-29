@@ -1,0 +1,770 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Carta, Productos y Jerarquías</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="17639073-1e23-81af-b876-e0d61990d1ed" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📚</span></div><h1 class="page-title" dir="auto">Carta, Productos y Jerarquías</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Matías - 16 Feb</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>9 Marzo</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Analyst</th><td><div class="checkbox checkbox-on"></div></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Senior</th><td><div class="checkbox checkbox-off"></div></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Coordinador</th><td><div class="checkbox checkbox-on"></div></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>ítem principal</th><td><a href="M%C3%B3dulo%203%20-%20TRM%20%E2%86%92%20Productos%20305390731e2380a18826cd541eed4122.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/tag_yellow.svg"/>Módulo 3 - TRM → Productos</a></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h3 id="31b39073-1e23-80ef-8938-edad6eca7809" class=""><strong>Lectura desde Ayuda Toteat:</strong></h3></div><div style="display:contents" dir="auto"><p id="30439073-1e23-8031-8dfe-c11b440fb1f1" class=""><a href="https://ayuda.toteat.com/es/collections/1666131-menu-lateral-productos">https://ayuda.toteat.com/es/collections/1666131-menu-lateral-productos</a></p></div><div style="display:contents" dir="auto"><p id="32039073-1e23-805e-9bc3-c509918379e2" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="30439073-1e23-80d8-9012-c3a03dc6accc" class=""><strong>Material de apoyo y aprendizaje:</strong></h3></div><div style="display:contents" dir="auto"><ul id="32039073-1e23-8047-b6d4-e86031b93190" class="bulleted-list"><li style="list-style-type:disc"><a href="https://drive.google.com/drive/folders/1WJ8PrkR7j1H5SwiV2vU5NXfc51qL6WQH">Drive con material (Módulo 2 producto)</a></li></ul></div><div style="display:contents" dir="auto"><ul id="32039073-1e23-80ff-936a-e518c15b3073" class="bulleted-list"><li style="list-style-type:disc">Capacitaciones <strong>Precios por lista →</strong><a href="https://drive.google.com/drive/folders/1To3JNRuJ5Vmcv2cOxh9RIDbjOmzu14D_?usp=drive_link">https://drive.google.com/drive/folders/1To3JNRuJ5Vmcv2cOxh9RIDbjOmzu14D_?usp=drive_link</a> (2,5 hrs)</li></ul></div><div style="display:contents" dir="auto"><ul id="32039073-1e23-80e1-ada1-d6a8f1a64ca8" class="bulleted-list"><li style="list-style-type:disc">Capacitación <strong>Gestión de cartas</strong> → <a href="https://drive.google.com/drive/folders/1PpOu3qPQIIPgu0GqDX707uagjZY1D8n_?usp=drive_link">https://drive.google.com/drive/folders/1PpOu3qPQIIPgu0GqDX707uagjZY1D8n_?usp=drive_link</a> (1,7 hrs)</li></ul></div><div style="display:contents" dir="auto"><ul id="32039073-1e23-8084-a07d-d34176e8ea65" class="bulleted-list"><li style="list-style-type:disc">Inscribir y realizar curso <a href="https://learning.toteat.com/product/ingenieria-de-menu-basico">https://learning.toteat.com/product/ingenieria-de-menu-basico</a></li></ul></div><div style="display:contents" dir="auto"><p id="32039073-1e23-80a1-a5d4-c6f89f39d5ca" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="32039073-1e23-8033-bb3f-dd184b814613"/></div><div style="display:contents" dir="auto"><h3 id="32039073-1e23-801a-a798-dbe4b3a5d2a4" class="">Contenido de lectura en Notion</h3></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-808e-95d4-de307d1625b3" class="toggle"><li><details open=""><summary>🧩 <mark class="highlight-default"><mark class="highlight-red_background"><strong>Glosario básico para organizar tu carta en Toteat.</strong></mark></mark></summary><div style="display:contents" dir="auto"><h3 id="1de39073-1e23-806a-a626-e916ef97b4a4" class="">🍽️ <strong>Jerarquía de menú</strong></h3></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-804a-914b-e70a1e3d0f55" class="">Es la <strong>categoría principal</strong> donde agrupas tus productos para que sea más fácil encontrarlos en la toma de pedidos.</p></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-80f1-a119-c9b6d7442355" class="">Ejemplos: <em>Aperitivos, ensaladas, sopas, bebidas.</em></p></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-806f-ae5c-d82997b12e9d" class="">💡 <strong>Tip:</strong> Puedes subdividirlas usando <strong>subjerarquías</strong>, por ejemplo:</p></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-809c-a0c6-f59187d4b799" class=""><strong>Bebidas</strong> → <em>No alcohólicas, vinos, destilados</em>.</p></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8064-a4c2-e7e8ee7d2199" class="">Así ayudas al garzón/cajero a encontrar más rápido lo que busca el cliente.</p></div><div style="display:contents" dir="auto"><hr id="1de39073-1e23-807b-ae38-d82a62d216d3"/></div><div style="display:contents" dir="auto"><h3 id="1de39073-1e23-80cf-ba1f-da35c0bca38f" class="">🛍️ <strong>Productos</strong></h3></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8044-b59d-e69c76bb3e1e" class="">Son todos los ítems que ofreces a la venta.</p></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8013-8451-facf70dc1573" class="">Incluyen:</p></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-80d0-936b-e02e753f7d7c" class="bulleted-list"><li style="list-style-type:disc">Nombre y descripción</li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-80ec-a654-fc54bf148357" class="bulleted-list"><li style="list-style-type:disc">Precio base (⚠️ obligatorio para que se muestre en la toma de pedidos)</li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-806a-a50a-eda9f6296d6b" class="bulleted-list"><li style="list-style-type:disc">Jerarquía de menú (⚠️ también obligatoria)</li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-805b-8b8e-d6d38e07ebfc" class="bulleted-list"><li style="list-style-type:disc">Estado (Activo o Inactivo)</li></ul></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8096-a7cc-e7f6f30b462d" class="">También puedes:</p></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-801c-b356-ee7e0b223285" class="bulleted-list"><li style="list-style-type:disc">Modificar precios</li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-8016-8919-d37155c89039" class="bulleted-list"><li style="list-style-type:disc">Cambiar nombre</li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-80a8-8a70-de60548afda3" class="bulleted-list"><li style="list-style-type:disc">Inactivar productos</li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-8074-9b86-ce26fcc63b71" class="bulleted-list"><li style="list-style-type:disc">Eliminar productos (solo si tienes perfil dueño)</li></ul></div><div style="display:contents" dir="auto"><hr id="1de39073-1e23-80ec-9fd4-c8b9863b7752"/></div><div style="display:contents" dir="auto"><h3 id="1de39073-1e23-8082-b49c-c3c7bea417a1" class="">🧂 <strong>Jerarquía de extras</strong></h3></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-80ae-a5fa-e7d14b3b4960" class="">Es un “grupo” de opciones que puedes ofrecer con un producto.</p></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8092-91d8-cbef14b1cdd1" class="">Ejemplo:</p></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-8002-9172-f9daf323e91d" class="bulleted-list"><li style="list-style-type:disc">Para una ensalada: <em>Tipo de aderezo</em></li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-806f-9ed6-f9629148ee08" class="bulleted-list"><li style="list-style-type:disc">Para un café: <em>Tipo de leche</em></li></ul></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8013-96ad-dc34f06ecc85" class="">Puedes configurar si el cliente <strong>debe sí o sí elegir una opción</strong>, cuántas mínimo o máximo puede seleccionar y si tienen costo adicional.</p></div><div style="display:contents" dir="auto"><hr id="1de39073-1e23-80fc-89d9-caa4a1bac252"/></div><div style="display:contents" dir="auto"><h3 id="1de39073-1e23-8067-9ee4-ea377b534913" class="">➕ <strong>Extras</strong></h3></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-806f-95bb-e1e1a45195b3" class="">Son las <strong>opciones específicas</strong> que el cliente puede elegir.</p></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-807c-bca0-e12c7341f42c" class="">Ejemplos:</p></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-80cb-983f-c402a8e0ca4b" class="bulleted-list"><li style="list-style-type:disc"><em>Leche de almendras, leche descremada, salsa tártara, término medio.</em></li></ul></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-808a-8d89-d962f405b65a" class="">Estas opciones pueden tener o no un precio adicional. También puedes asignarles un costo y definir a qué <strong>jerarquía de extras</strong> pertenecen.</p></div><div style="display:contents" dir="auto"><hr id="1de39073-1e23-8092-afb1-ce771f470204"/></div><div style="display:contents" dir="auto"><h3 id="1de39073-1e23-8089-af50-defdd52ddbab" class="">⏰ <strong>Precio por turno</strong></h3></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8088-8a7d-cafa3dfb5981" class="">Permite cambiar el precio de algunos productos según el <strong>día y la hora</strong>.</p></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-800c-b510-ceaecf60c16d" class="">Ejemplo: <em>Happy Hour todos los viernes de 18:00 a 20:00</em> 🥂</p></div><div style="display:contents" dir="auto"><hr id="1de39073-1e23-80e8-a158-d2982393bf98"/></div><div style="display:contents" dir="auto"><h3 id="1de39073-1e23-8067-bce2-e712ffe42eba" class="">📋 <strong>Precio por lista</strong></h3></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8007-8fe5-d347db767205" class="">También puedes modificar precios, pero aplicados a:</p></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-8011-980c-ec84b843a067" class="bulleted-list"><li style="list-style-type:disc">Zonas específicas de venta</li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-80b6-b015-f480bfa8a4d6" class="bulleted-list"><li style="list-style-type:disc">Al momento de cerrar la venta<div style="display:contents" dir="auto"><p id="1de39073-1e23-80cf-8689-d69aea2dfadc" class="">Ideal para manejar precios por salón, delivery, etc.</p></div></li></ul></div><div style="display:contents" dir="auto"><hr id="1de39073-1e23-8095-b633-d659d6edc1ae"/></div><div style="display:contents" dir="auto"><h3 id="1de39073-1e23-80f7-af0d-f9ae7347855e" class="">🖼️ <strong>Imágenes</strong></h3></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-80b8-99c9-e91cee359fcc" class="">Puedes subir imágenes para:</p></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-80b7-be9d-cbe715a5d1ed" class="bulleted-list"><li style="list-style-type:disc">Tus productos</li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-80b6-a2e5-e85292ce26b6" class="bulleted-list"><li style="list-style-type:disc">Extras</li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-800d-bc41-c67bd37baee7" class="bulleted-list"><li style="list-style-type:disc">Logo de tu local</li></ul></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8058-9e78-cc733b62611a" class="">Estas se muestran en Precuentas y Recibos. Le da un toque visual muy pro a tu carta 🖼️✨</p></div><div style="display:contents" dir="auto"><hr id="1de39073-1e23-80bc-9dc9-e442bd7c783b"/></div><div style="display:contents" dir="auto"><h3 id="1de39073-1e23-804b-a349-d5e6a17e3eb0" class="">📝 <strong>Notas importantes:</strong></h3></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-8085-8c66-eb8766c8191d" class="bulleted-list"><li style="list-style-type:disc">Todos los productos, jerarquías y extras tienen un <strong>ID único</strong>.<div style="display:contents" dir="auto"><p id="1de39073-1e23-80ad-aa2e-d72690c51a9c" class="">🧠 Estos IDs pueden ser <strong>numéricos o alfanuméricos</strong> (por ejemplo: <code>BEB001</code>, <code>10</code>, <code>1010P</code>).</p></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-80e6-bdf9-ec94bfefca3f" class="">✅ El sistema los organiza de menor a mayor por ID, pero puedes cambiar el orden a <strong>alfabético</strong> desde tus <strong>ajustes personales</strong>.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-8097-9220-fbe99a15eae2" class="bulleted-list"><li style="list-style-type:disc">⚠️ Si usas un <strong>ID que ya está en uso</strong>, el sistema te lo indicará poniendo el recuadro de ID <strong>en rojo</strong>.<div style="display:contents" dir="auto"><p id="1de39073-1e23-80c5-98c2-d5e8f49f4e70" class="">Solo debes corregirlo para continuar.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-804e-9939-c254cc5ffca0" class="bulleted-list"><li style="list-style-type:disc">📌 Recuerda que los <strong>ID de productos y extras no deben repetirse</strong>.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="17639073-1e23-813c-aa96-f1a8f47295f6" class=""><mark class="highlight-orange">Elaboración de: jerarquías de menú, productos, jerarquías de extras, extras, precios por lista/turno, entre otros.</mark></h3></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8009-af4c-e742ebcec9c8" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-801a-ab29-e41d4c98d89d" class="toggle"><li><details open=""><summary>🧱 P<mark class="highlight-red_background">aso a paso: c</mark><mark class="highlight-red_background"><strong>ómo crear una nueva jerarquía en tu menú.</strong></mark></summary><div style="display:contents" dir="auto"><h3 id="1de39073-1e23-8049-a2bb-ff0771d7e9c8" class="">1️⃣ Ve al Menú Lateral → Productos → Jerarquía Menú.</h3></div><div style="display:contents" dir="auto"><h3 id="1de39073-1e23-80f9-9a31-e36a400a1f40" class="">2️⃣ Selecciona la <strong>Jerarquía AB.</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="1de39073-1e23-80b0-91bb-e9deb5f234af" class="">⚠️ Importante:<div style="display:contents" dir="auto"><p id="1de39073-1e23-8058-be46-e1bedef7b6d1" class="">Siempre debes trabajar sobre la j<strong>erarquía AB</strong>, ya que <strong>todas las configuraciones de Toteat están optimizadas</strong> para esta estructura. Es nuestra base principal para ordenar y mostrar productos en la toma de pedidos.</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="1de39073-1e23-80c4-9f29-f8756fdaa205"/></div><div style="display:contents" dir="auto"><h3 id="1de39073-1e23-8074-ad09-f1bff44cc569" class="">3️⃣ Ingresa los datos de tu nueva jerarquía.</h3></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-8022-82b4-d7f0f1dc74f9" class="bulleted-list"><li style="list-style-type:disc">🆔 <strong>ID NODO:</strong><div style="display:contents" dir="auto"><p id="1de39073-1e23-80b6-a108-c8cf0b888aa2" class="">Este número define <strong>la posición en la carta</strong> donde se mostrará tu nueva jerarquía.</p></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-80ba-abe2-c3bf1e7fa017" class="bulleted-list"><li style="list-style-type:circle">Si la quieres ubicar entre dos jerarquías ya existentes, elige un número que esté <strong>entre sus IDs</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-800b-93eb-fc787f9136be" class="bulleted-list"><li style="list-style-type:circle">Si quieres que aparezca <strong>al final</strong>, solo coloca un número <strong>más alto que el último</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-8028-bc92-ffcda3c4ecd9" class="bulleted-list"><li style="list-style-type:circle"><strong>Tip recomendado:</strong> Usa saltos de <strong>10 en 10</strong> para dejar espacio y facilitar futuros cambios.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-80b4-b97a-f7b9e4a1e6cb" class="">📌 <strong>Ejemplo:</strong></p></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-80c4-ba31-d80a01950e96" class="">Queremos agregar una nueva jerarquía llamada <strong>Pizzas</strong> entre <em>Pastas (ID 30)</em> y <em>Bebidas (ID 40)</em>.</p></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-809f-bc2c-d2cb73bb69d5" class="">En este caso, puedes usar el ID <strong>35</strong>, escribir el nombre <em>Pizzas</em> y presionar el botón <strong>(+)</strong> para agregarla.</p></div><div style="display:contents" dir="ltr"><figure id="1de39073-1e23-8027-8af5-d6050d760064"><div class="source"><a href="Carta,%20Productos%20y%20Jerarqu%C3%ADas/Grabacion_de_pantalla_2025-04-23_a_la(s)_19.18.56.mov">attachment:c938ffa1-6b50-4680-aba8-133b09980820:Grabacion_de_pantalla_2025-04-23_a_la(s)_19.18.56.mov</a></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-804d-9c6f-e4a1005c16cb" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-8092-954a-d54336fdb5ac" class="toggle"><li><details open=""><summary>🛠 <mark class="highlight-red_background">Paso a paso:</mark><mark class="highlight-red_background"><strong> Cómo crear productos.</strong></mark></summary><div style="display:contents" dir="auto"><ol type="1" id="1de39073-1e23-802a-ad9c-fd72f7ff17be" class="numbered-list" start="1"><li><strong>Ingresa al menú lateral:</strong></li></ol></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8072-bbbf-cfced4ea8e40" class="">        Ve a <strong>Productos → Productos</strong>.</p></div><div style="display:contents" dir="auto"><ol type="1" id="1de39073-1e23-8094-b414-e9a10e6da25d" class="numbered-list" start="1"><li><strong>Completa la primera línea en blanco</strong> (parte superior del listado) con los siguientes campos obligatorios:<div style="display:contents" dir="auto"><ul id="1de39073-1e23-8002-a215-fd03ab2cdc40" class="bulleted-list"><li style="list-style-type:disc"><strong>ID del producto</strong><div style="display:contents" dir="auto"><p id="1de39073-1e23-8098-b8bd-e391664a02e1" class="">👉 <em>Tip:</em> Si no sabes qué ID usar, copia el de un producto existente, pégalo en el campo ID y haz doble clic. El sistema te asignará automáticamente el siguiente correlativo disponible.</p></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-805e-b9de-f7140529ac77" class="">⚠️ <strong>Si usas un ID que ya existe, el campo se pondrá en rojo</strong> como alerta, y no te dejará avanzar hasta que uses un ID único.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-80d3-9b30-e230836d8783" class="bulleted-list"><li style="list-style-type:disc"><strong>Nombre del producto</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-8069-838a-d7b6584b8555" class="bulleted-list"><li style="list-style-type:disc"><strong>Precio base</strong><div style="display:contents" dir="auto"><p id="1de39073-1e23-80e0-90bd-d40f093ed5be" class="">⚠️ <em>Este campo es </em><em><strong>obligatorio</strong></em><em> para que el producto se muestre al momento de tomar pedidos.</em></p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-8059-a100-ebcccb1b767e" class="bulleted-list"><li style="list-style-type:disc"><strong>Activo:</strong> selecciona “Sí” para activarlo.</li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-80bd-a1a4-cf02b82e8d53" class="bulleted-list"><li style="list-style-type:disc"><strong>Jerarquía de producto</strong><div style="display:contents" dir="auto"><p id="1de39073-1e23-808c-a030-cd9bc7f53a26" class="">⚠️ <em>El producto debe estar </em><em><strong>asociado a una jerarquía de menú</strong></em><em> para aparecer en la toma de pedidos.</em></p></div></li></ul></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8008-8cbb-f93ddbda5985" class="">👉 El resto de los campos son opcionales (como tipo de impresión o descripción), pero pueden completarse según se necesite.</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1de39073-1e23-80a2-abdb-da5fbe1a6b33" class="numbered-list" start="2"><li>Una vez que completes todos los campos, haz clic en el botón <strong>“+”</strong> (al final de la línea) para agregar el producto.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1de39073-1e23-8017-9dfd-ee18bbbc418a" class="numbered-list" start="3"><li>Luego, haz clic en <strong>“Guardar productos”</strong> (esquina superior derecha).<div style="display:contents" dir="auto"><p id="1de39073-1e23-80a4-b7fa-f0c5489f7667" class="">Espera unos segundos hasta que el sistema muestre un mensaje verde que diga:</p></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-801c-828a-e44e51c1385f" class=""><strong>&quot;Se ha actualizado el maestro de productos&quot;</strong>.</p></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8013-8300-f294cc4d729a" class="">Eso indica que el producto fue creado exitosamente.</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1de39073-1e23-8056-ade0-e406c9e467cb" class="numbered-list" start="4"><li>Para verificar que se agregó bien, puedes <strong>actualizar Toteat haciendo clic en el logo</strong> (arriba a la izquierda) y buscar el producto en la toma de pedidos en el maestro de productos escribiendo el ID o nombre y filtrando con la lupa.</li></ol></div><div style="display:contents" dir="auto"><hr id="1de39073-1e23-8083-86ba-cf5915c4eab0"/></div><div style="display:contents" dir="auto"><h3 id="1de39073-1e23-804d-9169-e088bec461e3" class="">✅ Importante: Para que el producto se muestre en pedidos.</h3></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-800a-88c3-d2cea36bba04" class="bulleted-list"><li style="list-style-type:disc"><strong>Debe tener un precio base asignado.</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="1de39073-1e23-8062-bf06-f2a80ae5cc84" class="bulleted-list"><li style="list-style-type:disc"><strong>Debe estar asociado a una jerarquía de menú.</strong></li></ul></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8084-b77a-f25b5d7d4f55" class="">Si falta uno de estos dos elementos, el producto <strong>no aparecerá en la interfaz de toma de pedidos</strong>.</p></div><div style="display:contents" dir="ltr"><figure id="1df39073-1e23-8036-80e0-da2dfb02d386"><div class="source"><a href="Carta,%20Productos%20y%20Jerarqu%C3%ADas/Grabacion_de_pantalla_2025-04-23_a_la(s)_21.54.43.mov">attachment:14eea986-349e-45b8-82d2-5a84c2c37a5f:Grabacion_de_pantalla_2025-04-23_a_la(s)_21.54.43.mov</a></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1de39073-1e23-8031-9a8c-c30a75730401" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1df39073-1e23-802e-955d-d0413c6dccf2" class="toggle"><li><details open=""><summary>🧩 <mark class="highlight-red_background">Paso a paso: c</mark><mark class="highlight-red_background"><strong>ómo crear jerarquías de extras (opciones para tus platos).</strong></mark></summary><div style="display:contents" dir="auto"><p id="1df39073-1e23-800f-91fa-ea584f91e3ff" class="">Tus platos pueden tener <strong>opciones personalizables</strong>, como elegir el tipo de bebida, acompañamiento o aderezo. Aquí te explicamos paso a paso cómo crearlas de forma sencilla:</p></div><div style="display:contents" dir="auto"><hr id="1df39073-1e23-80eb-a2a4-d04474cba87d"/></div><div style="display:contents" dir="auto"><h3 id="1df39073-1e23-806f-aaf5-d9e4b1a7b989" class="">1️⃣ Ve al Menú Lateral → Productos → Jerarquía de Extra.</h3></div><div style="display:contents" dir="auto"><hr id="1df39073-1e23-8020-82fa-f99d4e7afc53"/></div><div style="display:contents" dir="auto"><h3 id="1df39073-1e23-805a-bab7-cc6ac759fd76" class="">2️⃣ Selecciona la j<strong>erarquía BA.</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="1df39073-1e23-80fa-b00b-cbee23b7967d" class="">⚠️ Importante:<div style="display:contents" dir="auto"><p id="1df39073-1e23-80da-9000-cff29bf3f169" class="">Siempre debes trabajar sobre la j<strong>erarquía BA</strong>, ya que <strong>todas las configuraciones de opciones en Toteat están optimizadas para esta estructura</strong>.</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="28e39073-1e23-8008-a396-cfba79c45e14" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="1df39073-1e23-8095-9f97-c22c85812272"/></div><div style="display:contents" dir="auto"><h3 id="1df39073-1e23-8016-97c8-c3a37590fa23" class="">3️⃣ Ingresa los datos de la nueva jerarquía.</h3></div><div style="display:contents" dir="auto"><ul id="1df39073-1e23-80ed-824c-db70320e2d8b" class="bulleted-list"><li style="list-style-type:disc">🆔 <strong>ID</strong>: Este código <strong>no puede repetirse</strong>. Puedes usar números o combinaciones alfanuméricas (ej: 105 o BEB01).</li></ul></div><div style="display:contents" dir="auto"><ul id="1df39073-1e23-8090-8e42-d3ea23c355b3" class="bulleted-list"><li style="list-style-type:disc">🏷️ <strong>Nombre</strong>: Escribe un nombre claro que identifique la opción (ej: Tipo de bebida).</li></ul></div><div style="display:contents" dir="auto"><ul id="1df39073-1e23-8082-b0a7-ee354f5bc368" class="bulleted-list"><li style="list-style-type:disc">🔢 <strong>MIN y MAX</strong>: Define cuántas opciones debe o puede elegir el cliente:<div style="display:contents" dir="auto"><ul id="1df39073-1e23-8071-969c-d669b29f4443" class="bulleted-list"><li style="list-style-type:circle"><strong>Min 1 / Max 1</strong>: Debe elegir <strong>una sola opción</strong> (ej.: elegir una bebida).</li></ul></div><div style="display:contents" dir="auto"><ul id="1df39073-1e23-8009-9647-ce3eb68810f3" class="bulleted-list"><li style="list-style-type:circle"><strong>Min 1 / Max 2</strong>: Debe elegir <strong>una o dos opciones</strong> (ej.: elegir hasta 2 acompañamientos).</li></ul></div><div style="display:contents" dir="auto"><ul id="1df39073-1e23-8094-bc05-e01e73f224c2" class="bulleted-list"><li style="list-style-type:circle"><strong>Min 0 / Max 0</strong>: La opción <strong>es voluntaria</strong>, el cliente puede no elegir nada.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="1df39073-1e23-8073-b693-fc7682fb3c35" class="">✅ <strong>Marca la casilla &quot;Multi&quot;</strong> si el cliente puede elegir la <strong>misma opción más de una vez</strong> (ej: dos papas fritas).</p></div><div style="display:contents" dir="auto"><hr id="1df39073-1e23-8075-a9b8-d7016bd55000"/></div><div style="display:contents" dir="auto"><h3 id="1df39073-1e23-80e3-864c-f4c7f5efe48e" class="">4️⃣ Haz clic en <strong>Grabar jerarquía BA.</strong></h3></div><div style="display:contents" dir="auto"><p id="1df39073-1e23-8044-8a97-fa1c279a24e7" class="">Con esto, tus opciones quedarán guardadas y listas para usarse en los productos.</p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-8011-98e4-cf102b1f4d91"><div class="source"><a href="Carta,%20Productos%20y%20Jerarqu%C3%ADas/Grabacion_de_pantalla_2025-04-26_a_la(s)_18.46.20.mov">attachment:16fb1e61-96f0-47ce-9524-16281be99503:Grabacion_de_pantalla_2025-04-26_a_la(s)_18.46.20.mov</a></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80cb-843a-fb57dd23289b" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1e139073-1e23-80b4-b4b5-e517beb8cf40" class="toggle"><li><details open=""><summary>🛠️ <mark class="highlight-default"><mark class="highlight-red_background">Paso a paso: Cómo crear un extra</mark></mark></summary><div style="display:contents" dir="auto"><p id="1e139073-1e23-802a-91d5-caed9ab79ffa" class="">Puedes crear opciones adicionales para tus productos siguiendo estos pasos:</p></div><div style="display:contents" dir="auto"><ol type="1" id="1e139073-1e23-80c1-8261-d8b2d8c65a46" class="numbered-list" start="1"><li>En el menú lateral, ingresa a <strong>Productos → Extras</strong>.</li></ol></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80a7-8e31-e50fae0e2bce" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="1e139073-1e23-80ca-b265-c894f7f7b0cd" class="numbered-list" start="1"><li>Completa los campos obligatorios en la primera línea:</li></ol></div><div style="display:contents" dir="auto"><ul id="1e139073-1e23-8097-841c-c30b715b86dd" class="bulleted-list"><li style="list-style-type:disc"><strong>ID</strong> (doble clic para asignar el próximo disponible, aumenta de 10 en 10, no repetir IDs de productos)</li></ul></div><div style="display:contents" dir="auto"><ul id="1e139073-1e23-806d-881f-da7644b7ddf7" class="bulleted-list"><li style="list-style-type:disc"><strong>Nombre</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="1e139073-1e23-80b2-b103-c0f648eb8630" class="bulleted-list"><li style="list-style-type:disc"><strong>Precio base</strong> (coloca <strong>0</strong> si es solo una opción de selección)</li></ul></div><div style="display:contents" dir="auto"><ul id="1e139073-1e23-8041-9bca-e11496f260dc" class="bulleted-list"><li style="list-style-type:disc"><strong>Estatus</strong> (Activo o Inactivo)</li></ul></div><div style="display:contents" dir="auto"><ul id="1e139073-1e23-80a3-a25d-dc15151f4693" class="bulleted-list"><li style="list-style-type:disc"><strong>Jerarquía de extras</strong> (opcional; puedes dejarlo en blanco y asignarlo después).</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="1e139073-1e23-80aa-a804-f58b8a1e95bf" class="numbered-list" start="1"><li>Opcionalmente, puedes agregar:</li></ol></div><div style="display:contents" dir="auto"><ul id="1e139073-1e23-80f2-8195-ce2b6827a28d" class="bulleted-list"><li style="list-style-type:disc"><strong>Descripción</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="1e139073-1e23-804a-86bf-dd10d786bf67" class="bulleted-list"><li style="list-style-type:disc"><strong>Costo</strong> (si no lo ingresas, el sistema lo calculará al asignar ingredientes).</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="1e139073-1e23-80a8-951c-f6c0cc3ecbd5" class="numbered-list" start="1"><li>Haz clic en <strong>(+)</strong> para agregarlo al listado y luego en <strong>Guardar Extras</strong>.</li></ol></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-808d-893d-ee8c20bb1294" class="">✅ <strong>Importante:</strong> Espera el mensaje verde de confirmación que indica que se actualizó el maestro de productos.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-800c-9fb8-f55359f7aa18" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-80ef-8e5a-d9640ee4aa20" class="toggle"><li><details open=""><summary><mark class="highlight-default_background">⛓️💥</mark><mark class="highlight-red_background"> Paso a paso: Cómo asignar un producto a una jerarquía de extras.</mark></summary><div style="display:contents" dir="auto"><p id="1e239073-1e23-80ab-a840-dbf3deca4b4e" class="">Sigue estos pasos para asignar productos a su jerarquía:</p></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8057-85bb-e713e50b51d6" class="numbered-list" start="1"><li>En el menú lateral, ve a <strong>Productos → Productos</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80be-83e8-d8813f3223c8" class="numbered-list" start="2"><li>En la pestaña <strong>Asignar jerarquía</strong>, selecciona la jerarquía que deseas asignar.<div style="display:contents" dir="auto"><ul id="1e239073-1e23-80ac-b7ea-d0d552bbefed" class="bulleted-list"><li style="list-style-type:disc">A la izquierda, verás los productos sin jerarquía asignada.</li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-8085-b8f0-d67b712cb4eb" class="bulleted-list"><li style="list-style-type:disc">Al centro, están todas las jerarquías disponibles.</li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-805d-ad83-f6ec48e0767a" class="bulleted-list"><li style="list-style-type:disc">A la derecha, los productos asignados a la jerarquía seleccionada.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8010-bec9-f9023aaed444" class="numbered-list" start="3"><li>Para asignar un producto:<div style="display:contents" dir="auto"><ul id="1e239073-1e23-8078-bc0e-eb11547d0fdd" class="bulleted-list"><li style="list-style-type:disc">Selecciona el producto de la columna izquierda.</li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-806e-9fa7-e832e099f0d2" class="bulleted-list"><li style="list-style-type:disc">Escoge la jerarquía en el centro.</li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-8081-8530-c15dfd374415" class="bulleted-list"><li style="list-style-type:disc">Haz clic en <strong>Asignar</strong> o doble clic en el producto para moverlo a la columna derecha.</li></ul></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80bf-8413-e03c4a017d26" class=""><strong>Consejo:</strong> Puedes usar la lupa para buscar productos por ID o nombre.</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8088-aa39-c15f5d45c9f2" class="numbered-list" start="4"><li>Si el producto tiene más de una opción, ajusta el <strong>máximo de asignaciones</strong> en la parte inferior izquierda.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80a9-b68c-c1e15b30757b" class="numbered-list" start="5"><li>Finalmente, haz clic en <strong>Guardar productos</strong>.</li></ol></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80d3-9cbe-dd18bd0e62cc" class="">⚡ <strong>Importante:</strong> Espera el mensaje verde de confirmación de actualización.</p></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80eb-887b-d6f9b6af0897" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-8076-94a8-e4512754255a" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-80cf-8f63-d6874c469229" class="toggle"><li><details open=""><summary>🔨 <mark class="highlight-red_background">Paso a paso: Cómo cambiar un producto de jerarquía</mark></summary><div style="display:contents" dir="auto"><p id="1e239073-1e23-80d6-b9b8-ff81943d6cc5" class="">Sigue estos pasos para reorganizar los productos en diferentes jerarquías:</p></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80cf-8233-dd5db9ede378" class="numbered-list" start="1"><li>En el menú lateral, ve a <strong>Productos → Productos</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8037-932b-e4e0b4c15707" class="numbered-list" start="2"><li>En la pestaña <strong>Asignar Jerarquía</strong>, selecciona la jerarquía actual.<div style="display:contents" dir="auto"><ul id="1e239073-1e23-802c-842a-c0e2f985aaf8" class="bulleted-list"><li style="list-style-type:disc">A la izquierda, están los productos sin jerarquía asignada.</li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-80d5-8596-eb44539ec2bf" class="bulleted-list"><li style="list-style-type:disc">Al centro, las jerarquías disponibles.</li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-8013-bb51-e70a17d348ea" class="bulleted-list"><li style="list-style-type:disc">A la derecha, los productos asignados a la jerarquía seleccionada.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80d9-844f-c94826d865ca" class="numbered-list" start="3"><li>Para cambiar un producto de jerarquía:<div style="display:contents" dir="auto"><ul id="1e239073-1e23-8034-99bc-e14b19bc96fa" class="bulleted-list"><li style="list-style-type:disc">Haz clic en la jerarquía de origen.</li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-80eb-b25f-cbc9feb213d2" class="bulleted-list"><li style="list-style-type:disc">Selecciona los productos a mover de la columna derecha.</li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-805a-8cf8-fd97629d853c" class="bulleted-list"><li style="list-style-type:disc">Haz clic en <strong>Borrar asignación</strong>.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80e5-91c0-e3bcd870dbc7" class="numbered-list" start="4"><li>Los productos se moverán a la columna izquierda. Luego, selecciona la jerarquía de destino y haz clic en <strong>Asignar</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80a2-8e6f-df92aeedd936" class="numbered-list" start="5"><li>Finalmente, presiona <strong>(+)</strong> para agregar y luego <strong>Guardar Productos</strong>.</li></ol></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80d2-af94-e9702050dcb8" class="">⚡ <strong>Importante:</strong> Espera el mensaje verde de confirmación de actualización.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80b7-853d-ce9880540375" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-80a3-886a-fbd86cfcb67d" class="toggle"><li><details open=""><summary>🗜️ <mark class="highlight-red_background">Paso a paso: Cómo modificar nombre o precio de un producto</mark></summary><div style="display:contents" dir="auto"><p id="1e239073-1e23-806e-9268-d9dde3f0e4aa" class="">Sigue estos pasos para cambiar el nombre o el precio de un producto:</p></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8060-8288-c3cbfeb984b8" class="numbered-list" start="1"><li>En el menú lateral, ve a <strong>Productos → Productos</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8035-9b76-c46d33a0ff5d" class="numbered-list" start="2"><li>Usa la primera línea como filtro, ingresa el <strong>nombre del producto</strong> y presiona la lupa para encontrarlo fácilmente.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8026-bb3a-cfd3918851c3" class="numbered-list" start="3"><li>Para modificar el nombre o precio, solo edita el campo correspondiente y presiona <strong>Guardar Productos</strong>.</li></ol></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-808f-8667-c5b51a80982e" class="">⚡ <strong>Importante:</strong> Espera el mensaje verde de confirmación de actualización.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80b1-8fee-d81fcc974e95" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-8011-952c-f0c3688eabce" class="toggle"><li><details open=""><summary>💽 <mark class="highlight-red_background">Paso a paso: Cómo agregar productos con códigos de barra</mark></summary><div style="display:contents" dir="auto"><p id="1e239073-1e23-800e-9294-e987663d0963" class="">Sigue estos pasos para agregar un código de barra a tus productos:</p></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8095-949d-d0c61b0a0229" class="numbered-list" start="1"><li>En el menú lateral, ve a <strong>Productos → Productos</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-801e-ae08-d76fbe1fbe42" class="numbered-list" start="2"><li>Haz clic en el <strong>lápiz</strong> para editar el producto.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8004-afde-dd819ef805da" class="numbered-list" start="3"><li>Ingresa el <strong>código de barra</strong> manualmente o usa el <strong>lector de código de barras</strong> en el campo correspondiente.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8048-88a1-ccd44615cb32" class="numbered-list" start="4"><li>No olvides <strong>guardar los cambios</strong> para actualizar el producto.</li></ol></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-806c-bc2e-c59575ebe287" class="">⚡ <strong>Consejo:</strong> Realiza este procedimiento fuera de los horarios de alta carga de trabajo.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-8092-b2b2-c353ab4cdf4c" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-80cb-8027-e399803361df" class="toggle"><li><details open=""><summary><mark class="highlight-default_background">💾 </mark><mark class="highlight-red_background">Paso a paso: Historial de cambios de precio</mark></summary><div style="display:contents" dir="auto"><div><div style="display:contents" dir="auto"><p id="1e239073-1e23-801c-9e42-dfaedc71b8fe" class="">Para ver el historial de cambios de precio de productos, extras o ingredientes, sigue estos pasos:</p></div></div></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8010-8dc4-ecbd91398336" class="numbered-list" start="1"><li>Ve al producto, extra o ingrediente cuyo historial deseas consultar.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8070-8057-dcddd85700ed" class="numbered-list" start="2"><li>Haz clic en el <strong>lápiz</strong> al lado derecho para editar.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8065-b2f4-f66a00279984" class="numbered-list" start="3"><li>Haz <strong>doble clic</strong> en la fecha de modificación.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-801a-9a7a-eee5b672d3a3" class="numbered-list" start="4"><li>Se mostrará el listado con los cambios de precio, incluyendo fecha, usuario y precio.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-801f-9849-eb547e3f792a" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-8003-89c0-e91fedeb2115" class="toggle"><li><details open=""><summary>↔️ <mark class="highlight-red_background">Paso a paso: Ordenamiento del menú</mark></summary><div style="display:contents" dir="auto"><p id="1e239073-1e23-808b-b378-f9bb0416a804" class="">Puedes reorganizar tu carta y cambiar el orden de jerarquías, productos y extras como prefieras. Este cambio se reflejará en <strong>ToteatApp</strong> y en la toma de pedidos en mesas.</p></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8089-83ea-f57fc04975b8" class="numbered-list" start="1"><li>Ve a <strong>Menú lateral → Productos → Ordenamiento menú</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80a3-9831-e808009afaf7" class="numbered-list" start="2"><li>Selecciona si deseas ordenar <strong>Jerarquías</strong>, <strong>Productos</strong>, <strong>Jerarquías de Extras</strong> o <strong>Extras</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8079-bd36-ea01e266bd63" class="numbered-list" start="3"><li>Elige la categoría a ordenar.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80d0-be01-e226b771c5e6" class="numbered-list" start="4"><li>Haz <strong>clic</strong> en el elemento que deseas mover y <strong>arrástralo</strong> a la posición deseada.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-804b-b848-e83b36bec084" class="numbered-list" start="5"><li>Guarda los cambios.</li></ol></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-8052-a354-c509b6dae6ca" class="">⚡ <strong>Importante:</strong> Una vez guardado, refresca la página desde el logo de Toteat para ver los cambios reflejados.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-8016-a95e-e4c0524cc9dd" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-80a4-9ea1-e7dcc2fcd160" class="toggle"><li><details open=""><summary>🕰️ <mark class="highlight-red_background">Paso a paso: cómo crear precios por turnos</mark></summary><div style="display:contents" dir="auto"><p id="1e239073-1e23-803d-b197-ff83db733ae5" class="">Configura ofertas especiales, como Happy Hour o menús para almuerzo, para que se apliquen en ciertos horarios y días de la semana.</p></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-807e-a77e-ff833119dfbe" class="numbered-list" start="1"><li><strong>Crea un turno</strong> antes de comenzar (si no sabes cómo, revisa las instrucciones aquí).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8025-a828-fd1775aa626d" class="numbered-list" start="2"><li>Ve a <strong>Productos → Precios por turno</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8071-bed7-cabea622edd8" class="numbered-list" start="3"><li>Selecciona el turno donde quieres aplicar los descuentos.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8009-8fa4-d64a98d84f8a" class="numbered-list" start="4"><li>Aparecerán todos los productos con un campo llamado <strong>&quot;Precio Turno&quot;</strong>. Ingresa el precio especial para ese turno. Si dejas el campo vacío, el producto mantendrá su precio regular.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80b5-9098-eddfc791b1ff" class="numbered-list" start="5"><li>Activa la casilla <strong>&quot;Activo&quot;</strong> para permitir que el producto se pueda pedir durante ese turno. Desactívalo si no debe estar disponible.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8039-81cb-edd42fcc7332" class="numbered-list" start="6"><li>Haz clic en <strong>&quot;Grabar cambios&quot;</strong>. Un mensaje verde confirmará que los cambios se guardaron correctamente.</li></ol></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-805c-b399-d66a0f33e495" class="">⚡ <strong>Importante:</strong> Los cambios se activarán automáticamente cuando inicie el turno modificado. Si deseas cambiar algo en el futuro, solo vuelve a esta sección.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-8079-8a42-e649b815cfb9" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-8026-9a23-fb7911d172b8" class="toggle"><li><details open=""><summary>🔨 <mark class="highlight-red_background">Paso a paso: cómo crear Precio por Lista</mark></summary><div style="display:contents" dir="auto"><p id="1e239073-1e23-80fc-9a2e-fbff792a47de" class="">Crea descuentos especiales para tus clientes sin restricciones de horario o día, como descuentos para socios preferenciales o promociones con empresas asociadas.</p></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8097-a7ec-dfb4d0310aee" class="numbered-list" start="1"><li>Ve a <strong>Menú lateral → Productos → Precios x lista</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8010-abbb-f0deb9546f30" class="numbered-list" start="2"><li>A la derecha, selecciona el <strong>&quot;Lista&quot;</strong> (por defecto será <strong>Lista 1</strong>). Si deseas crear una nueva lista o editar la existente, haz clic en el <strong>lápiz</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8020-8bfb-ee3efe0956a2" class="numbered-list" start="3"><li>Para crear una nueva lista:<div style="display:contents" dir="auto"><ul id="1e239073-1e23-8048-b676-c4f5332a9952" class="bulleted-list"><li style="list-style-type:disc">Haz clic en el <strong>símbolo &quot;+&quot;</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-8061-b363-d83d4f54841b" class="bulleted-list"><li style="list-style-type:disc">Asigna un nombre a la lista (ej. &quot;Pedidos Ya&quot;).</li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-8098-8b71-ea829f515f1e" class="bulleted-list"><li style="list-style-type:disc">Configura opciones como si el <strong>garzón</strong> puede seleccionar esta lista, la <strong>prioridad</strong> frente a los precios por turno y los <strong>sectores</strong> o <strong>turnos</strong> donde se aplicará.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80b7-b5a1-e03e75e3f968" class="numbered-list" start="4"><li>Guarda la lista. Luego, en la columna <strong>Precio Lista</strong>, ingresa los precios correspondientes o marca productos para <strong>bloquearlos</strong> de la lista.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80fc-ba76-d33aa5793e86" class="numbered-list" start="5"><li>Para aplicar un descuento a varios productos, utiliza el cuadro <strong>&quot;Llenar precios seleccionados con&quot;</strong> para aplicar un porcentaje de descuento, y haz clic en <strong>llenar</strong> para actualizar los precios.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80ec-9571-fd23306dd25f" class="numbered-list" start="6"><li>Haz clic en <strong>&quot;Grabar cambios&quot;</strong> y espera el mensaje verde de confirmación.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-805f-8f10-d2f0c82e7bcd" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-8031-b276-cb30255a5e0b" class="toggle"><li><details open=""><summary>🛠️ <mark class="highlight-red_background">Paso a paso: Cómo cambiar un precio en los precios por lista.</mark></summary><div style="display:contents" dir="auto"><p id="1e239073-1e23-80e8-a098-db7f36a2dec5" class="">Para cambiar los precios de una lista de precios, sigue estos pasos:</p></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80ab-b48e-f6f2bfda3878" class="numbered-list" start="1"><li>Ve a <strong>Menú Lateral → Productos → Precios x Lista</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80b9-bfd7-d41e2d77200e" class="numbered-list" start="2"><li>A la derecha, selecciona la lista de precios que deseas modificar. Aparecerán todos tus productos con sus precios y opciones.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80eb-9ab5-e24b1b400152" class="numbered-list" start="3"><li>Modifica el <strong>precio</strong> de los productos y marca si el producto debe estar <strong>activo</strong> para la lista (para que los garzones puedan pedirlo).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80b4-939f-fa5263c491c3" class="numbered-list" start="4"><li>Haz clic en <strong>&quot;Grabar Cambios&quot;</strong> para guardar las modificaciones.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8077-a529-cf7b96793622" class="numbered-list" start="5"><li>Aparecerá un mensaje verde confirmando que los cambios se guardaron correctamente.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-808a-a115-e04ef20b5e14" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-8050-b2dd-d2e2ae3dc40d" class="toggle"><li><details open=""><summary><mark class="highlight-default_background"> 🔨 </mark><mark class="highlight-red_background">Paso a paso: Cómo configurar imágenes en Toteat</mark></summary><div style="display:contents" dir="auto"><p id="1e239073-1e23-8079-9866-f7e032a68094" class="">Para cargar y asignar imágenes a tus productos, sigue estos pasos:</p></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-806d-a527-e55714157e71" class="numbered-list" start="1"><li><strong>Carga de imágenes</strong>:<div style="display:contents" dir="auto"><ul id="1e239073-1e23-804a-bedd-dd1efc8ee63b" class="bulleted-list"><li style="list-style-type:disc">Ve a <strong>Menú lateral → Productos → Imágenes</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-80e8-8536-d6779aa175c1" class="bulleted-list"><li style="list-style-type:disc">Haz clic en <strong>Upload</strong> y selecciona las imágenes que quieras cargar (mínimo 1000x1000 px).</li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-8016-806c-dc1ebe6b7afd" class="bulleted-list"><li style="list-style-type:disc">Haz clic en <strong>SUBIR IMAGEN</strong> para cargarlas al sistema.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8019-b09d-e998f56d64e2" class="numbered-list" start="2"><li><strong>Asignar imágenes a productos</strong>:<div style="display:contents" dir="auto"><ul id="1e239073-1e23-8096-a2b9-ebaee3b17255" class="bulleted-list"><li style="list-style-type:disc">Dirígete a <strong>Productos → Producto</strong> y busca el producto al que le quieras asignar una imagen.</li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-8040-ab59-d6310ff63030" class="bulleted-list"><li style="list-style-type:disc">En la parte derecha, haz clic en la <strong>cámara</strong> para asignar la imagen.</li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-805e-a466-fb6178d499a4" class="bulleted-list"><li style="list-style-type:disc">Se abrirá un cuadro donde podrás elegir la imagen cargada. Selecciónala y haz clic en <strong>OK</strong>.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8038-9cf1-e0269437c1b1" class="numbered-list" start="3"><li><strong>Activar imágenes en Take Away</strong>:<div style="display:contents" dir="auto"><ul id="1e239073-1e23-8030-9c54-eb83b576d911" class="bulleted-list"><li style="list-style-type:disc">Ve a <strong>Menú Lateral → Ajustes Personales</strong> y activa la opción <strong>ACTIVAR IMÁGENES EN TAKE AWAY</strong> para visualizar las imágenes al tomar pedidos.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8091-9375-d3c505c689da" class="numbered-list" start="4"><li><strong>Guardar cambios</strong>:<div style="display:contents" dir="auto"><ul id="1e239073-1e23-808b-a293-f974650c50ba" class="bulleted-list"><li style="list-style-type:disc">Haz clic en <strong>Grabar</strong> y refresca en Toteat.</li></ul></div></li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="30639073-1e23-806f-8e61-e18761564ea9" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-8094-bfd6-dd9af3c5cc6c" class="">Acciones masivas: <a href="https://ayuda.toteat.com/toteat/es/?q=masiva">https://ayuda.toteat.com/toteat/es/?q=masiva</a></p></div><div style="display:contents" dir="auto"><hr id="1de39073-1e23-80ec-816e-e5aefdc2475d"/></div><div style="display:contents" dir="auto"><h3 id="1c139073-1e23-8012-b490-ea85adfe2b21" class=""><mark class="highlight-orange">Errores más comunes dentro del módulo productos</mark></h3></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-809a-b3a9-d5cbecd93548" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1e139073-1e23-8040-84bb-cdb96555ff50" class="toggle"><li><details open=""><summary><mark class="highlight-default"><mark class="highlight-brown_background"><strong>Utilizar ID que ya fue asignado a otro producto:</strong></mark></mark></summary><div style="display:contents" dir="ltr"><figure id="1df39073-1e23-809c-b6f9-c465c65b9638"><div class="source"><a href="Carta,%20Productos%20y%20Jerarqu%C3%ADas/Grabacion_de_pantalla_2025-04-23_a_la(s)_22.00.00.mov">attachment:f8a02dea-2435-45b3-8cf3-35bcd55e8424:Grabacion_de_pantalla_2025-04-23_a_la(s)_22.00.00.mov</a></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="30639073-1e23-8052-a0b2-e21f09421537" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="29339073-1e23-8053-a2ca-fe952e43af73" class="toggle"><li><details open=""><summary><mark class="highlight-brown_background"><strong>Carta con error</strong></mark></summary><div style="display:contents" dir="auto"><p id="30639073-1e23-80c3-b7b8-ec0793a6c46d" class="">Acá nos falta la explicación.</p></div><div style="display:contents" dir="ltr"><figure id="29339073-1e23-80bb-860d-f08aacbb8648" class="image"><a href="Carta,%20Productos%20y%20Jerarqu%C3%ADas/image.png"><img style="width:540.96875px" src="Carta,%20Productos%20y%20Jerarqu%C3%ADas/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="29339073-1e23-804f-aee0-c8fb5ebaad6c" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="29339073-1e23-8033-bd91-f7ce5d011ada" class="image"><a href="Carta,%20Productos%20y%20Jerarqu%C3%ADas/image%201.png"><img style="width:681.984375px" src="Carta,%20Productos%20y%20Jerarqu%C3%ADas/image%201.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="29339073-1e23-8054-a973-e0576cc5f916" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="1e239073-1e23-803d-8cc5-eb3e2218ee03"/></div><div style="display:contents" dir="auto"><h3 id="30639073-1e23-803c-9475-f248c970a09f" class="">Prácticas: </h3></div><div style="display:contents" dir="auto"><ol type="1" id="30639073-1e23-8039-a9b2-d1e8b795a373" class="numbered-list" start="1"><li>Deberás replicar esta carta en tu ambiente de pruebas. Este ejercicio simula lo que normalmente hacemos en el proceso de onboarding de clientes antes de comenzar a usar Toteat. <div style="display:contents" dir="auto"><ol type="a" id="31e39073-1e23-80e4-adbf-c218939b593f" class="numbered-list" start="1"><li><strong>Tarea Nº1: Carta básica</strong><br/>Completa esta tarea y revísala con el responsable para ver resultados, comentar dudas y dificultades.<div style="display:contents" dir="ltr"><figure id="31e39073-1e23-803e-828b-dde978da6054"><div class="source"><a href="Carta,%20Productos%20y%20Jerarqu%C3%ADas/CARTA_TERRAZA_ULTIMAVERSION_231226_175313_(1).pdf">CARTA_TERRAZA_ULTIMAVERSIÓN_231226_175313 (1).pdf</a></div></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="31e39073-1e23-8006-b0a8-f5bfbdf92f52" class="numbered-list" start="2"><li><strong>Tarea Nº2: Carta avanzada</strong><br/> El siguiente ejercicio es aumentar tu carta manualmente con:<div style="display:contents" dir="auto"><ul id="31e39073-1e23-8069-ab50-de3786cbccb0" class="bulleted-list"><li style="list-style-type:disc">Crea una jerarquia de barra con 3 subjerarquias</li></ul></div><div style="display:contents" dir="auto"><ul id="31e39073-1e23-802f-afc9-f80493dde222" class="bulleted-list"><li style="list-style-type:disc">Crea 3 productos por subjerarquia</li></ul></div><div style="display:contents" dir="auto"><ul id="31e39073-1e23-8027-9061-dd52ae88eb88" class="bulleted-list"><li style="list-style-type:disc">Crea una jerarquía de alimentos con las subjerarqíuas<div style="display:contents" dir="auto"><ul id="31e39073-1e23-801a-a989-fe79e0e3367d" class="bulleted-list"><li style="list-style-type:circle">pizzas</li></ul></div><div style="display:contents" dir="auto"><ul id="31e39073-1e23-809a-a336-db0a9cebef66" class="bulleted-list"><li style="list-style-type:circle">burgers</li></ul></div><div style="display:contents" dir="auto"><ul id="31e39073-1e23-8006-87da-cebbe0660deb" class="bulleted-list"><li style="list-style-type:circle">sandwich</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="31e39073-1e23-80d2-bad1-caacbdd0ccac" class="bulleted-list"><li style="list-style-type:disc">Crea un menú del día. Debe tener 3 jerarquías de extras, 1 entrada, 1 fondo, 1 postre. Cada jerarquia debe tener 3 extras.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><p id="31e39073-1e23-80e4-93df-cf2786e7a7b8" class="">
+</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="31b39073-1e23-8016-8b13-efd5bbf335fb" class="numbered-list" start="2"><li>Experiencia en Chat tipo canguro: coordinar con Responsable de módulo (1 a 2 horas)</li></ol></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-802e-ae72-f8facc4eee72" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80b1-8acb-f0ee3b1a198d" class="">Preguntas y respuestas: </h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80b0-ad08-ff98622babc0" class=""><span class="user">@Doymar Raga Flores</span> de SAC Tech</p></div><div style="display:contents" dir="auto"><p id="32639073-1e23-80b1-b31b-ff017cf016ef" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

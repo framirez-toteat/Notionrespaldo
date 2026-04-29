@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Bitacora de Calidad 2025</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="17c39073-1e23-80aa-830d-c4023a2e1546" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">✅</span></div><h1 class="page-title" dir="auto">Bitacora de Calidad 2025</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/barcode_gray.svg" style="width:14px;height:14px;display:block"/></span>Registro</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha Conversación</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Monitoreo</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/user-circle-filled_gray.svg" style="width:14px;height:14px;display:block"/></span>Coordinador</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/attachment_gray.svg" style="width:14px;height:14px;display:block"/></span>Link Chat</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/cafe_gray.svg" style="width:14px;height:14px;display:block"/></span>Restaurante</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Perfil cliente</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Pais</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/grid-dense_gray.svg" style="width:14px;height:14px;display:block"/></span>Csat</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/user-circle_gray.svg" style="width:14px;height:14px;display:block"/></span>Agente respaldo</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/user-circle_gray.svg" style="width:14px;height:14px;display:block"/></span>Agente</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>¿Es el agente responsable?</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Feedback</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/hashtag_gray.svg" style="width:14px;height:14px;display:block"/></span>Semana</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>Bitácora</th></tr></thead><tbody><tr id="28c39073-1e23-80bb-b1c2-d4827b00b33d"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2028c390731e2380bbb1c2d4827b00b33d.html">Registro</a></td><td class="cell-P;I:"><time>14 de octubre de 2025</time></td><td class="cell-UZlN"><time>14 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Gonzalo Soffia</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/shared/all/conversation/215471286377275?source=Slack-f1875072318948a3b59a63ed42d37905">https://app.intercom.com/a/inbox/nry7bg4q/inbox/shared/all/conversation/215471286377275?source=Slack-f1875072318948a3b59a63ed42d37905</a></span></td><td class="cell-v&lt;sB">Caja Malkia</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Cristian Llanos</td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLijedQMAsnMrlCnGEMqRG5dbiWf8YtyXNJ0Vh3d6Aw7v_tinI=s100" class="icon user-icon"/>Cristian David Llanos Murcia</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-brown">Chat cerrado sin explicación</span></td><td class="cell-}Foh">42</td><td class="cell-m&lt;F`"></td></tr><tr id="28e39073-1e23-80c4-8d13-e51c4a8b1abc"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2028e390731e2380c48d13e51c4a8b1abc.html">Registro</a></td><td class="cell-P;I:"><time>13 de octubre de 2025</time></td><td class="cell-UZlN"><time>16 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471270548638?source=Slack-b695aa8c17a6430a824580dd35f90be0">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471270548638?source=Slack-b695aa8c17a6430a824580dd35f90be0</a></span></td><td class="cell-v&lt;sB"><a href="https://app.intercom.com/a/apps/nry7bg4q/companies/66216a2508282e1182380e2d">Kevin &amp; Bacon</a></td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Cristian Llanos</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-orange">Respuesta correcta pero no se le explico de forma correcta al cliente</span></td><td class="cell-}Foh">42</td><td class="cell-m&lt;F`"></td></tr><tr id="28f39073-1e23-80c2-9289-e480130464b4"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2028f390731e2380c29289e480130464b4.html">Registro</a></td><td class="cell-P;I:"><time>14 de octubre de 2025</time></td><td class="cell-UZlN"><time>17 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471296913424?source=Slack-832a6d3925094b59a843262076202385">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471296913424?source=Slack-832a6d3925094b59a843262076202385</a></span></td><td class="cell-v&lt;sB"><a href="https://app.intercom.com/a/apps/nry7bg4q/companies/67e5b37368d70c067aa06254">AZZOTEA 3820</a></td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Lorena Ramos</td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-red">No realizó la correspondiente investigación</span></td><td class="cell-}Foh">42</td><td class="cell-m&lt;F`"></td></tr><tr id="28f39073-1e23-80dd-82cb-c7f3e638832d"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2028f390731e2380dd82cbc7f3e638832d.html">Registro</a></td><td class="cell-P;I:"><time>15 de octubre de 2025</time></td><td class="cell-UZlN"><time>17 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471303546482?source=Slack-2a5a3532d1b7430aa757f3a685b92bfe">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471303546482?source=Slack-2a5a3532d1b7430aa757f3a685b92bfe</a></span></td><td class="cell-v&lt;sB"><a href="https://app.intercom.com/a/apps/nry7bg4q/companies/5bf59b8bc7b5a7f4c34d7370">La Franchutería</a></td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Emmanuela Ramirez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-pink">La respuesta puede mejorar</span></td><td class="cell-}Foh">42</td><td class="cell-m&lt;F`"></td></tr><tr id="28f39073-1e23-800f-83fe-f8153d6b0fd4"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2028f390731e23800f83fef8153d6b0fd4.html">Registro</a></td><td class="cell-P;I:"><time>15 de octubre de 2025</time></td><td class="cell-UZlN"><time>17 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471306916858?source=Slack-3a5f43f1d1fe4f99a35465942b06eeb2">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471306916858?source=Slack-3a5f43f1d1fe4f99a35465942b06eeb2</a></span></td><td class="cell-v&lt;sB"><a href="https://app.intercom.com/a/apps/nry7bg4q/companies/688b8ef4cf59b7ece4c2281b">One Guy</a></td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Felipe Rincón</td><td class="cell-xa?u"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">A</span></span>Andrés Felipe Rincón Moyano</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-pink">La respuesta puede mejorar</span></td><td class="cell-}Foh">42</td><td class="cell-m&lt;F`"></td></tr><tr id="28f39073-1e23-8068-945b-c11025b0fff8"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2028f390731e238068945bc11025b0fff8.html">Registro</a></td><td class="cell-P;I:"><time>15 de octubre de 2025</time></td><td class="cell-UZlN"><time>17 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471312767960?source=Slack-d48bb88e1ca74b7eb140710d1a39d8b7">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471312767960?source=Slack-d48bb88e1ca74b7eb140710d1a39d8b7</a></span></td><td class="cell-v&lt;sB">Domani</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">3</td><td class="cell-YY}O">Luis Arias</td><td class="cell-xa?u"><span class="user"><img src="../../Acuerdos%20internos%20SAC/Pol%C3%ADtica%20de%20llegada%20y%20cambios%20de%20turno%20SAC/Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%202833-5b99/WhatsApp_Image_2023-11-03_at_6.26.25_PM.jpeg" class="icon user-icon"/>Andres Arias</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-purple">Se cierra el Chat y no se le da continuidad al caso</span></td><td class="cell-}Foh">42</td><td class="cell-m&lt;F`"></td></tr><tr id="28f39073-1e23-807f-bd19-da84c98686ad"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2028f390731e23807fbd19da84c98686ad.html">Registro</a></td><td class="cell-P;I:"><time>16 de octubre de 2025</time></td><td class="cell-UZlN"><time>17 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471325053396?source=Slack-2cec2064c7b649fcabc8be3571283122">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471325053396?source=Slack-2cec2064c7b649fcabc8be3571283122</a></span></td><td class="cell-v&lt;sB">Dulcheria</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Jessica Gonzalez</td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-gray">No se Realizo la atencion correcta al cliente</span></td><td class="cell-}Foh">42</td><td class="cell-m&lt;F`"></td></tr><tr id="28f39073-1e23-80cc-a716-f17d6ef6389d"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2028f390731e2380cca716f17d6ef6389d.html">Registro</a></td><td class="cell-P;I:"><time>16 de octubre de 2025</time></td><td class="cell-UZlN"><time>17 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471326570354?source=Slack-4c433dfaae424e65b6a056bfeefa8501">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471326570354?source=Slack-4c433dfaae424e65b6a056bfeefa8501</a></span></td><td class="cell-v&lt;sB">Cervecería Colina</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Jessica Gonzalez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">42</td><td class="cell-m&lt;F`"></td></tr><tr id="29239073-1e23-80ed-b4c7-e29082556be1"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20292390731e2380edb4c7e29082556be1.html">Registro</a></td><td class="cell-P;I:"><time>16 de octubre de 2025</time></td><td class="cell-UZlN"><time>20 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471322972178?source=Slack-49db7b53a65d4ff6a4ac7f82e33ee8b5">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471322972178?source=Slack-49db7b53a65d4ff6a4ac7f82e33ee8b5</a></span></td><td class="cell-v&lt;sB">Happy</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Colombia</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Cristian Llanos</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">42</td><td class="cell-m&lt;F`"></td></tr><tr id="29239073-1e23-8025-b4ae-fe960c27e684"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20292390731e238025b4aefe960c27e684.html">Registro</a></td><td class="cell-P;I:"><time>17 de octubre de 2025</time></td><td class="cell-UZlN"><time>20 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471335024777?source=Slack-8b7b90a2df124f1994ab7135d6fbea86">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471335024777?source=Slack-8b7b90a2df124f1994ab7135d6fbea86</a></span></td><td class="cell-v&lt;sB">Mestiere</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Cristian Llanos</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">42</td><td class="cell-m&lt;F`"></td></tr><tr id="29239073-1e23-8097-ad5a-febdb066c6a5"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20292390731e238097ad5afebdb066c6a5.html">Registro</a></td><td class="cell-P;I:"><time>17 de octubre de 2025</time></td><td class="cell-UZlN"><time>20 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471336441659?source=Slack-b9e53517ea464514b5c4ab8432b8cff2">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471336441659?source=Slack-b9e53517ea464514b5c4ab8432b8cff2</a></span></td><td class="cell-v&lt;sB">Mercado BZ</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Cristian Llanos</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">42</td><td class="cell-m&lt;F`"></td></tr><tr id="29339073-1e23-8061-8509-c81d882012ef"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20293390731e2380618509c81d882012ef.html">Registro</a></td><td class="cell-P;I:"><time>17 de octubre de 2025</time></td><td class="cell-UZlN"><time>21 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471341143980?source=Slack-12235a97e76447cb819c9846c4da417e">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471341143980?source=Slack-12235a97e76447cb819c9846c4da417e</a></span></td><td class="cell-v&lt;sB">Hola Ola Gastrobar</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Johanna Vasquez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">42</td><td class="cell-m&lt;F`"></td></tr><tr id="29339073-1e23-8046-bb9d-fa5daf0ede7b"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20293390731e238046bb9dfa5daf0ede7b.html">Registro</a></td><td class="cell-P;I:"><time>18 de octubre de 2025</time></td><td class="cell-UZlN"><time>21 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471352957052?source=Slack-9f62dc56d6f449ee916e7ba31fbd9539">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471352957052?source=Slack-9f62dc56d6f449ee916e7ba31fbd9539</a></span></td><td class="cell-v&lt;sB">Kuali Restaurante</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Mexico</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Daniela Ramirez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">42</td><td class="cell-m&lt;F`"></td></tr><tr id="29339073-1e23-8062-8299-c24e94a975b8"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20293390731e2380628299c24e94a975b8.html">Registro</a></td><td class="cell-P;I:"><time>18 de octubre de 2025</time></td><td class="cell-UZlN"><time>21 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471355360020?source=Slack-2971f418d34d4e948093f231e0bba23e">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471355360020?source=Slack-2971f418d34d4e948093f231e0bba23e</a></span></td><td class="cell-v&lt;sB">La Social Guaymalle´n</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Argentina</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Veronica Lopez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">42</td><td class="cell-m&lt;F`"></td></tr><tr id="29439073-1e23-809a-8909-e6e7d06aa42c"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20294390731e23809a8909e6e7d06aa42c.html">Registro</a></td><td class="cell-P;I:"><time>21 de octubre de 2025</time></td><td class="cell-UZlN"><time>22 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471390977159?source=Slack-f5b589d69f8745c691455e47e5ae1eae">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471390977159?source=Slack-f5b589d69f8745c691455e47e5ae1eae</a></span></td><td class="cell-v&lt;sB">El Huerto</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Brandon Villamil</td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKvMfOges0sz-hJn7a7OoM2Rke06wYUT0B7mzcvWRE6ckrkWA=s100" class="icon user-icon"/>Brandon Villamil</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-purple">Se cierra el Chat y no se le da continuidad al caso</span></td><td class="cell-}Foh">43</td><td class="cell-m&lt;F`"></td></tr><tr id="29439073-1e23-807f-a9fb-d3dcc691899a"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20294390731e23807fa9fbd3dcc691899a.html">Registro</a></td><td class="cell-P;I:"><time>21 de octubre de 2025</time></td><td class="cell-UZlN"><time>22 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471398522386?source=Slack-b3d1a7801d3b4ab385f646727af86200">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471398522386?source=Slack-b3d1a7801d3b4ab385f646727af86200</a></span></td><td class="cell-v&lt;sB">Bar La Junta</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Lorena Ramos</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-default">Disposición del Cliente</span></td><td class="cell-}Foh">43</td><td class="cell-m&lt;F`"></td></tr><tr id="29439073-1e23-8010-a1b0-ece8313003f2"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20294390731e238010a1b0ece8313003f2.html">Registro</a></td><td class="cell-P;I:"><time>22 de octubre de 2025</time></td><td class="cell-UZlN"><time>22 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471407018280?source=Slack-49074736e18e4468ad4f0b05bf8e9950">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471407018280?source=Slack-49074736e18e4468ad4f0b05bf8e9950</a></span></td><td class="cell-v&lt;sB">Restaurant del Tolkeyen</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Argentina</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Felipe Rincon</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-blue">Cliente no sigue conversación</span></td><td class="cell-}Foh">43</td><td class="cell-m&lt;F`"></td></tr><tr id="29439073-1e23-80e6-a66d-cc4c781c3cfd"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20294390731e2380e6a66dcc4c781c3cfd.html">Registro</a></td><td class="cell-P;I:"><time>22 de octubre de 2025</time></td><td class="cell-UZlN"><time>22 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471407832527?source=Slack-7915663af1434cf78f03b5901373a959">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471407832527?source=Slack-7915663af1434cf78f03b5901373a959</a></span></td><td class="cell-v&lt;sB">Toki Ramen</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Brandon</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">43</td><td class="cell-m&lt;F`"></td></tr><tr id="29439073-1e23-8025-8348-f10e016a8cd2"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20294390731e2380258348f10e016a8cd2.html">Registro</a></td><td class="cell-P;I:"><time>22 de octubre de 2025</time></td><td class="cell-UZlN"><time>22 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471409575920?source=Slack-fafce71c06e24772ae5f2a3ded5b34a9">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471409575920?source=Slack-fafce71c06e24772ae5f2a3ded5b34a9</a></span></td><td class="cell-v&lt;sB">Katai Sushi</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Carlos Caro</td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLl7R90s5joKJH_iRXqn9aik1pb-JHODyLlto_wF7ml3FQDuA=s100" class="icon user-icon"/>Carlos Caro Umbarila</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-purple">Se cierra el Chat y no se le da continuidad al caso</span></td><td class="cell-}Foh">43</td><td class="cell-m&lt;F`"></td></tr><tr id="29539073-1e23-8056-93d1-f5e7c76d5bb6"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20295390731e23805693d1f5e7c76d5bb6.html">Registro</a></td><td class="cell-P;I:"><time>22 de octubre de 2025</time></td><td class="cell-UZlN"><time>23 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471410448579?source=Slack-77aeec4ccd8b47cdb2663ed866335e3d">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471410448579?source=Slack-77aeec4ccd8b47cdb2663ed866335e3d</a></span></td><td class="cell-v&lt;sB">Vapiano Pedro de Valdivia</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Cristian Llanos</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-default">Disposición del Cliente</span></td><td class="cell-}Foh">43</td><td class="cell-m&lt;F`"></td></tr><tr id="29539073-1e23-80e3-9bf3-ec6daabedc43"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20295390731e2380e39bf3ec6daabedc43.html">Registro</a></td><td class="cell-P;I:"><time>24 de octubre de 2025</time></td><td class="cell-UZlN"><time>27 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471444826212?source=Slack-9d76382eb9354e1682c14b8fe1f5aeae">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471444826212?source=Slack-9d76382eb9354e1682c14b8fe1f5aeae</a></span></td><td class="cell-v&lt;sB">Romaria</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Jessica Gonzalez</td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-pink">La respuesta puede mejorar</span></td><td class="cell-}Foh">43</td><td class="cell-m&lt;F`"></td></tr><tr id="29939073-1e23-8009-b713-cead1f72d078"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20299390731e238009b713cead1f72d078.html">Registro</a></td><td class="cell-P;I:"><time>24 de octubre de 2025</time></td><td class="cell-UZlN"><time>27 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471437497955?source=Slack-98ac4cb4379b451cb2e0adcb34dc0d36">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471437497955?source=Slack-98ac4cb4379b451cb2e0adcb34dc0d36</a></span></td><td class="cell-v&lt;sB">Cafe Baque Vivo</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Emmanuela Ramirez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">43</td><td class="cell-m&lt;F`"></td></tr><tr id="29939073-1e23-8000-acdf-c84b328874e6"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%20299390731e238000acdfc84b328874e6.html">Registro</a></td><td class="cell-P;I:"><time>27 de octubre de 2025</time></td><td class="cell-UZlN"><time>27 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471470002833?source=Slack-84c4fcf1a8bc43c7a9a70155c8d76e7b">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471470002833?source=Slack-84c4fcf1a8bc43c7a9a70155c8d76e7b</a></span></td><td class="cell-v&lt;sB">Le Jardin</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">México</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Cristian Llanos</td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLijedQMAsnMrlCnGEMqRG5dbiWf8YtyXNJ0Vh3d6Aw7v_tinI=s100" class="icon user-icon"/>Cristian David Llanos Murcia</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-pink">La respuesta puede mejorar</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="29b39073-1e23-80fe-a9dd-d968a69b8e63"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2029b390731e2380fea9ddd968a69b8e63.html">Registro</a></td><td class="cell-P;I:"><time>27 de octubre de 2025</time></td><td class="cell-UZlN"><time>29 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471475693823?source=Slack-ffd8e20b59b440b8b1f5b82906582f27">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471475693823?source=Slack-ffd8e20b59b440b8b1f5b82906582f27</a></span></td><td class="cell-v&lt;sB">Tamago Sushi</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Brandon Villamil</td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKvMfOges0sz-hJn7a7OoM2Rke06wYUT0B7mzcvWRE6ckrkWA=s100" class="icon user-icon"/>Brandon Villamil</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-brown">Chat cerrado sin explicación</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="29b39073-1e23-8018-af53-c9162e4d4348"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2029b390731e238018af53c9162e4d4348.html">Registro</a></td><td class="cell-P;I:"><time>27 de octubre de 2025</time></td><td class="cell-UZlN"><time>29 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471478188121?source=Slack-9034306f1d444d6aa72e9c2615933d8f">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471478188121?source=Slack-9034306f1d444d6aa72e9c2615933d8f</a></span></td><td class="cell-v&lt;sB">Pastissima</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">México</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Emmanuel Ramirez</td><td class="cell-xa?u"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-pink">La respuesta puede mejorar</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="29b39073-1e23-80dd-bf95-ce9afeaab28e"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2029b390731e2380ddbf95ce9afeaab28e.html">Registro</a></td><td class="cell-P;I:"><time>28 de octubre de 2025</time></td><td class="cell-UZlN"><time>29 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471490427140?source=Slack-3994057028744da694aef5b189533e68">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471490427140?source=Slack-3994057028744da694aef5b189533e68</a></span></td><td class="cell-v&lt;sB">Coqui Castillo</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Perú</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Cristian Llanos</td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLijedQMAsnMrlCnGEMqRG5dbiWf8YtyXNJ0Vh3d6Aw7v_tinI=s100" class="icon user-icon"/>Cristian David Llanos Murcia</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-blue">Agente Sac</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="29b39073-1e23-80b3-9955-e900de663920"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2029b390731e2380b39955e900de663920.html">Registro</a></td><td class="cell-P;I:"><time>28 de octubre de 2025</time></td><td class="cell-UZlN"><time>29 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471497061776?source=Slack-395def33a4b24948a8af2c3902bfee16">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471497061776?source=Slack-395def33a4b24948a8af2c3902bfee16</a></span></td><td class="cell-v&lt;sB"><a href="https://app.intercom.com/a/apps/nry7bg4q/companies/68c19976bf3c8891769ffb63">Pigasus - Cuidad del rio</a></td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Colombia</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Nicolas Diaz</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="29b39073-1e23-8089-b63e-d786e9a54f9c"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2029b390731e238089b63ed786e9a54f9c.html">Registro</a></td><td class="cell-P;I:"><time>28 de octubre de 2025</time></td><td class="cell-UZlN"><time>29 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471498141865?source=Slack-6f39722ac29a49988f1a9078e66fcdf1">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471498141865?source=Slack-6f39722ac29a49988f1a9078e66fcdf1</a></span></td><td class="cell-v&lt;sB">Domani</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Cristian Llanos</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="29d39073-1e23-8094-8a30-e999cbddf719"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2029d390731e2380948a30e999cbddf719.html">Registro</a></td><td class="cell-P;I:"><time>29 de octubre de 2025</time></td><td class="cell-UZlN"><time>31 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471508933285?source=Slack-2cc86b25bdf84301b8221fd168cf92ab">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471508933285?source=Slack-2cc86b25bdf84301b8221fd168cf92ab</a></span></td><td class="cell-v&lt;sB">Cafetería Titanium</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Felipe Rincón</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-green">Error Externo a Toteat</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="29d39073-1e23-8087-b728-ce6ae54ebb3f"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2029d390731e238087b728ce6ae54ebb3f.html">Registro</a></td><td class="cell-P;I:"><time>29 de octubre de 2025</time></td><td class="cell-UZlN"><time>31 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471513568021?source=Slack-fc3d7a3e1ce34ee8be6157652527f39c">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471513568021?source=Slack-fc3d7a3e1ce34ee8be6157652527f39c</a></span></td><td class="cell-v&lt;sB">La Isla Cochoa</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Felipe Rincón</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-green">Error Externo a Toteat</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="29d39073-1e23-8086-8627-eb0e17700497"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2029d390731e2380868627eb0e17700497.html">Registro</a></td><td class="cell-P;I:"><time>30 de octubre de 2025</time></td><td class="cell-UZlN"><time>31 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471533503326?source=Slack-8478dbd807dc43f49e457d0a834754de">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471533503326?source=Slack-8478dbd807dc43f49e457d0a834754de</a></span></td><td class="cell-v&lt;sB">La Fuente Maestra</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Cristian Llanos</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-green">Error Externo a Toteat</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="29d39073-1e23-8075-85bb-db666615df2f"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2029d390731e23807585bbdb666615df2f.html">Registro</a></td><td class="cell-P;I:"><time>30 de octubre de 2025</time></td><td class="cell-UZlN"><time>31 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471533864591?source=Slack-9538c091673d4049bae396922d4389e1">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471533864591?source=Slack-9538c091673d4049bae396922d4389e1</a></span></td><td class="cell-v&lt;sB">Che Pizza</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Jessica Gonzalez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-blue">Cliente no sigue conversación</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="29d39073-1e23-800b-bc5c-e43c7f0599a0"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%2029d390731e23800bbc5ce43c7f0599a0.html">Registro</a></td><td class="cell-P;I:"><time>30 de octubre de 2025</time></td><td class="cell-UZlN"><time>31 de octubre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471539535180?source=Slack-04f882beb8b24cd2a3be79a606098abc">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471539535180?source=Slack-04f882beb8b24cd2a3be79a606098abc</a></span></td><td class="cell-v&lt;sB">Ginebra Pub</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Veronica López</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="2a139073-1e23-8080-87ad-e697357d2df3"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a1390731e23808087ade697357d2df3.html">Registro</a></td><td class="cell-P;I:"><time>31 de octubre de 2025</time></td><td class="cell-UZlN"><time>4 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471551331378?source=Slack-aaf95f650c0e4d019a419fb008edd29e">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471551331378?source=Slack-aaf95f650c0e4d019a419fb008edd29e</a></span></td><td class="cell-v&lt;sB">Casa Dos Salmones</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Felipe Rincón</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-blue">Cliente no sigue conversación</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="2a139073-1e23-8037-a2e3-eab7d99104ca"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a1390731e238037a2e3eab7d99104ca.html">Registro</a></td><td class="cell-P;I:"><time>2 de noviembre de 2025</time></td><td class="cell-UZlN"><time>4 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471570701447?source=Slack-0476e1228a464ee2af90efbb0db685eb">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471570701447?source=Slack-0476e1228a464ee2af90efbb0db685eb</a></span></td><td class="cell-v&lt;sB">CIROS</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Jaime Medalla</td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJecpPWhQMOGkPp09SpMsKu9HJcKe3lQEnRgSK-oKjzqSQLoQ=s100" class="icon user-icon"/>Jaime Medalla</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-purple">Se cierra el Chat y no se le da continuidad al caso</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="2a139073-1e23-80be-85be-fb1f70a48cac"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a1390731e2380be85befb1f70a48cac.html">Registro</a></td><td class="cell-P;I:"><time>2 de noviembre de 2025</time></td><td class="cell-UZlN"><time>4 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471568143961?source=Slack-759cd0ae160e4007a1698dd190e7497e">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471568143961?source=Slack-759cd0ae160e4007a1698dd190e7497e</a></span></td><td class="cell-v&lt;sB">Sodexo Centro del Cancer</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Felipe Rincón</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="2a139073-1e23-802e-ad39-ed41d7936362"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a1390731e23802ead39ed41d7936362.html">Registro</a></td><td class="cell-P;I:"><time>2 de noviembre de 2025</time></td><td class="cell-UZlN"><time>4 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471569097462?source=Slack-dec11bb8cf63417b9de48e0619c09fd5">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471569097462?source=Slack-dec11bb8cf63417b9de48e0619c09fd5</a></span></td><td class="cell-v&lt;sB">Dunkin’ Cenit</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Felipe Rincón</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-green">Error Externo a Toteat</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="2a139073-1e23-80d5-8285-ed8fb59673be"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a1390731e2380d58285ed8fb59673be.html">Registro</a></td><td class="cell-P;I:"><time>2 de noviembre de 2025</time></td><td class="cell-UZlN"><time>4 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471570622508?source=Slack-d2315d44a18349d999c083a995ae2d72">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471570622508?source=Slack-d2315d44a18349d999c083a995ae2d72</a></span></td><td class="cell-v&lt;sB">OSB WORKBAR</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Felipe Rincón</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-default">Disposición del Cliente</span></td><td class="cell-}Foh">44</td><td class="cell-m&lt;F`"></td></tr><tr id="2a139073-1e23-80b4-8387-ec5cf03bc1b3"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a1390731e2380b48387ec5cf03bc1b3.html">Registro</a></td><td class="cell-P;I:"><time>3 de noviembre de 2025</time></td><td class="cell-UZlN"><time>4 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471586028732?source=Slack-0f052323f738478abc2f577bf10bc933">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471586028732?source=Slack-0f052323f738478abc2f577bf10bc933</a></span></td><td class="cell-v&lt;sB">La membresia Foodtruck</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Brandon Villamil</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a139073-1e23-8032-8ae0-e2bd7510257d"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a1390731e2380328ae0e2bd7510257d.html">Registro</a></td><td class="cell-P;I:"><time>3 de noviembre de 2025</time></td><td class="cell-UZlN"><time>4 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471579079918?source=Slack-a17be2677fe94629984f4eb04b8e2bc8">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471579079918?source=Slack-a17be2677fe94629984f4eb04b8e2bc8</a></span></td><td class="cell-v&lt;sB">Costanera</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Brandon Villamil</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a139073-1e23-8012-9c99-e57a38dffa6f"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a1390731e2380129c99e57a38dffa6f.html">Registro</a></td><td class="cell-P;I:"><time>3 de noviembre de 2025</time></td><td class="cell-UZlN"><time>4 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471600645288?source=Slack-7f8ab4d0e8bd4da3804ec55ca7f32086">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471600645288?source=Slack-7f8ab4d0e8bd4da3804ec55ca7f32086</a></span></td><td class="cell-v&lt;sB">Caracol Coffee House</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">3</td><td class="cell-YY}O">Jaime Medalla</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a239073-1e23-8015-a1bc-ec57bfaf316f"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a2390731e238015a1bcec57bfaf316f.html">Registro</a></td><td class="cell-P;I:"><time>4 de noviembre de 2025</time></td><td class="cell-UZlN"><time>5 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471606826238?source=Slack-22e73b17121646d6b2ea2a645d44bbe5">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471606826238?source=Slack-22e73b17121646d6b2ea2a645d44bbe5</a></span></td><td class="cell-v&lt;sB">Tavola Green</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Emmanuel Ramirez</td><td class="cell-xa?u"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-pink">La respuesta puede mejorar</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a239073-1e23-80e3-b8c7-d45a9590761f"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a2390731e2380e3b8c7d45a9590761f.html">Registro</a></td><td class="cell-P;I:"><time>4 de noviembre de 2025</time></td><td class="cell-UZlN"><time>5 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471614972424?source=Slack-148cb73e4d65463287f0a24760499479">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471614972424?source=Slack-148cb73e4d65463287f0a24760499479</a></span></td><td class="cell-v&lt;sB">Zibatá</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Emmanuel Ramirez</td><td class="cell-xa?u"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-gray">No se Realizo la atencion correcta al cliente</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a439073-1e23-8023-a5c8-e8b1d44e6807"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a4390731e238023a5c8e8b1d44e6807.html">Registro</a></td><td class="cell-P;I:"><time>6 de noviembre de 2025</time></td><td class="cell-UZlN"><time>7 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471644124190?source=Slack-94fdb6f4e6294eecba8f1abbb00783df">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471644124190?source=Slack-94fdb6f4e6294eecba8f1abbb00783df</a></span></td><td class="cell-v&lt;sB">La Fabbrica 2</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Felipe Rincón</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a439073-1e23-8008-a16b-fb04aa6873b7"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a4390731e238008a16bfb04aa6873b7.html">Registro</a></td><td class="cell-P;I:"><time>6 de noviembre de 2025</time></td><td class="cell-UZlN"><time>7 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471647630148?source=Slack-f84423d00dfe4dc7bbc01d68840880c7">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471647630148?source=Slack-f84423d00dfe4dc7bbc01d68840880c7</a></span></td><td class="cell-v&lt;sB">Tololo Beef</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Jessica Gonzalez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-blue">Cliente no sigue conversación</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a739073-1e23-807a-a269-c4e8b43bc322"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a7390731e23807aa269c4e8b43bc322.html">Registro</a></td><td class="cell-P;I:"><time>7 de noviembre de 2025</time></td><td class="cell-UZlN"><time>10 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471666333529?source=Slack-8067998ab92f429d8f8420ffd5d86c13">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471666333529?source=Slack-8067998ab92f429d8f8420ffd5d86c13</a></span></td><td class="cell-v&lt;sB">Gorilas Viña del mar</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Emmamuel Ramirez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a739073-1e23-805c-a431-e7f26e80ff46"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a7390731e23805ca431e7f26e80ff46.html">Registro</a></td><td class="cell-P;I:"><time>7 de noviembre de 2025</time></td><td class="cell-UZlN"><time>10 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471667393038?source=Slack-245e641e3df7474da6ff2ba711808e67">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471667393038?source=Slack-245e641e3df7474da6ff2ba711808e67</a></span></td><td class="cell-v&lt;sB">Café Cortaderas</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Jessica Gonzalez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a739073-1e23-80b1-aad5-e03c53dafcd8"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a7390731e2380b1aad5e03c53dafcd8.html">Registro</a></td><td class="cell-P;I:"><time>8 de noviembre de 2025</time></td><td class="cell-UZlN"><time>10 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471677678938?source=Slack-a2d119afac2447eb8fd882b39423c0e9">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471677678938?source=Slack-a2d119afac2447eb8fd882b39423c0e9</a></span></td><td class="cell-v&lt;sB">DeliExpress</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">México</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Emmanuel Ramírez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a739073-1e23-8055-a4e8-e48d8ee74ce4"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a7390731e238055a4e8e48d8ee74ce4.html">Registro</a></td><td class="cell-P;I:"><time>8 de noviembre de 2025</time></td><td class="cell-UZlN"><time>10 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471678880807?source=Slack-f74348c7b4a9441c9d64138d9ec2341f">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471678880807?source=Slack-f74348c7b4a9441c9d64138d9ec2341f</a></span></td><td class="cell-v&lt;sB">No way Cookies Costanera</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Emmanuel Ramírez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a739073-1e23-8080-a024-ee773d5b2622"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a7390731e238080a024ee773d5b2622.html">Registro</a></td><td class="cell-P;I:"><time>8 de noviembre de 2025</time></td><td class="cell-UZlN"><time>10 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471679583634?source=Slack-ecb3d667c96543a0a908a0a7944c7b46">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471679583634?source=Slack-ecb3d667c96543a0a908a0a7944c7b46</a></span></td><td class="cell-v&lt;sB">Gulu Gulu Asian Ramen</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">México</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Jessica Gonzalez</td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-purple">Se cierra el Chat y no se le da continuidad al caso</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a739073-1e23-8090-8827-c824011d3312"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a7390731e2380908827c824011d3312.html">Registro</a></td><td class="cell-P;I:"><time>9 de noviembre de 2025</time></td><td class="cell-UZlN"><time>10 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471678185247?source=Slack-ca281ecbd75d458b83eb0d5ae8ec6607">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471678185247?source=Slack-ca281ecbd75d458b83eb0d5ae8ec6607</a></span></td><td class="cell-v&lt;sB">Oakberry Chile</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">3</td><td class="cell-YY}O">Cristian Llanos</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-green">Error Externo a Toteat</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a739073-1e23-8056-9202-c78ba693bce1"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a7390731e2380569202c78ba693bce1.html">Registro</a></td><td class="cell-P;I:"><time>9 de noviembre de 2025</time></td><td class="cell-UZlN"><time>10 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471685257503?source=Slack-2a3871618bb14ba9bb06f19ee7ec40f2">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471685257503?source=Slack-2a3871618bb14ba9bb06f19ee7ec40f2</a></span></td><td class="cell-v&lt;sB">Chicken Love you Gerónimo</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Emmanuel Ramírez</td><td class="cell-xa?u"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-red">No realizó la correspondiente investigación</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a739073-1e23-8008-9d2e-d1d96002ef0b"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a7390731e2380089d2ed1d96002ef0b.html">Registro</a></td><td class="cell-P;I:"><time>9 de noviembre de 2025</time></td><td class="cell-UZlN"><time>10 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471687507761?source=Slack-509c7ba382be4bb98a937602d1109b40">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471687507761?source=Slack-509c7ba382be4bb98a937602d1109b40</a></span></td><td class="cell-v&lt;sB">Bien Hecho</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Cristian Llanos</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">45</td><td class="cell-m&lt;F`"></td></tr><tr id="2a939073-1e23-8053-ade7-cd0980a20d04"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a9390731e238053ade7cd0980a20d04.html">Registro</a></td><td class="cell-P;I:"><time>10 de noviembre de 2025</time></td><td class="cell-UZlN"><time>12 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471686686588?source=Slack-a0c169995a2e48ebb5086112ae25addf">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471686686588?source=Slack-a0c169995a2e48ebb5086112ae25addf</a></span></td><td class="cell-v&lt;sB">Simona</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Cristian Llanos</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">46</td><td class="cell-m&lt;F`"></td></tr><tr id="2a939073-1e23-80de-8fe3-c32677d0bc14"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a9390731e2380de8fe3c32677d0bc14.html">Registro</a></td><td class="cell-P;I:"><time>10 de noviembre de 2025</time></td><td class="cell-UZlN"><time>12 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471687036711?source=Slack-5ad531ce98ac4581bda7a2cbbe2f53a6">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471687036711?source=Slack-5ad531ce98ac4581bda7a2cbbe2f53a6</a></span></td><td class="cell-v&lt;sB">Simona</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Emmanuel Ramírez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">46</td><td class="cell-m&lt;F`"></td></tr><tr id="2a939073-1e23-80e0-9dd3-d7a3f6f018f2"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202a9390731e2380e09dd3d7a3f6f018f2.html">Registro</a></td><td class="cell-P;I:"><time>10 de noviembre de 2025</time></td><td class="cell-UZlN"><time>12 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471702929439?source=Slack-de4381bf076e4e898bf3c5cbfdb0e176">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471702929439?source=Slack-de4381bf076e4e898bf3c5cbfdb0e176</a></span></td><td class="cell-v&lt;sB">Fabrica Quererte</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Felipe Rincon</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-blue">Cliente no sigue conversación</span></td><td class="cell-}Foh">46</td><td class="cell-m&lt;F`"></td></tr><tr id="2ae39073-1e23-801c-95c8-e46bcddcc5ac"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202ae390731e23801c95c8e46bcddcc5ac.html">Registro</a></td><td class="cell-P;I:"><time>13 de noviembre de 2025</time></td><td class="cell-UZlN"><time>17 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471756361621?source=Slack-50eb9a95251a432ca4fdd703850e1f6a">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471756361621?source=Slack-50eb9a95251a432ca4fdd703850e1f6a</a></span></td><td class="cell-v&lt;sB">Barista Coffee Shop</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Colombia</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Jesica Gonzalez</td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-red">No realizó la correspondiente investigación</span></td><td class="cell-}Foh">46</td><td class="cell-m&lt;F`"></td></tr><tr id="2ae39073-1e23-8089-bd29-d9040b845b54"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202ae390731e238089bd29d9040b845b54.html">Registro</a></td><td class="cell-P;I:"><time>14 de noviembre de 2025</time></td><td class="cell-UZlN"><time>17 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471784540440?source=Slack-7b5bb09a78d94ca38ba60362d7ad53f8">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471784540440?source=Slack-7b5bb09a78d94ca38ba60362d7ad53f8</a></span></td><td class="cell-v&lt;sB">La Cerdis</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Mexico</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Felipe Rincon</td><td class="cell-xa?u"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">A</span></span>Andrés Felipe Rincón Moyano</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-default">Respuesta equivocada</span></td><td class="cell-}Foh">46</td><td class="cell-m&lt;F`"></td></tr><tr id="2ae39073-1e23-805d-aab4-c4f6eaabcf25"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202ae390731e23805daab4c4f6eaabcf25.html">Registro</a></td><td class="cell-P;I:"><time>15 de noviembre de 2025</time></td><td class="cell-UZlN"><time>17 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471789464372?source=Slack-f7d7adac5e844c4b9f27a3550864b152">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471789464372?source=Slack-f7d7adac5e844c4b9f27a3550864b152</a></span></td><td class="cell-v&lt;sB">Basil</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Mexico</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Emmanuel Ramírez</td><td class="cell-xa?u"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-default">Respuesta equivocada</span></td><td class="cell-}Foh">46</td><td class="cell-m&lt;F`"></td></tr><tr id="2ae39073-1e23-80b8-aa31-cf6db7ae2756"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202ae390731e2380b8aa31cf6db7ae2756.html">Registro</a></td><td class="cell-P;I:"><time>15 de noviembre de 2025</time></td><td class="cell-UZlN"><time>17 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471793939132?source=Slack-fea06a115ca24185bad607de38e3d421">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471793939132?source=Slack-fea06a115ca24185bad607de38e3d421</a></span></td><td class="cell-v&lt;sB">Raices</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Felipe Rincón</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">46</td><td class="cell-m&lt;F`"></td></tr><tr id="2ae39073-1e23-80c4-924a-ca7f292df7c9"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202ae390731e2380c4924aca7f292df7c9.html">Registro</a></td><td class="cell-P;I:"><time>16 de noviembre de 2025</time></td><td class="cell-UZlN"><time>17 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471799095273?source=Slack-0482b46b984d4fe384155621bc258915">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471799095273?source=Slack-0482b46b984d4fe384155621bc258915</a></span></td><td class="cell-v&lt;sB">Santa Calma</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Argentina</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Jaime Medalla</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">46</td><td class="cell-m&lt;F`"></td></tr><tr id="2ae39073-1e23-8024-8f14-e70d7163ce8c"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202ae390731e2380248f14e70d7163ce8c.html">Registro</a></td><td class="cell-P;I:"><time>16 de noviembre de 2025</time></td><td class="cell-UZlN"><time>17 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471799632872?source=Slack-8d274ffd50554314b0a21a4ed36f6c02">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471799632872?source=Slack-8d274ffd50554314b0a21a4ed36f6c02</a></span></td><td class="cell-v&lt;sB">Pigasus Bello</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Colombia</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Emmanuel Ramírez</td><td class="cell-xa?u"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-pink">La respuesta puede mejorar</span></td><td class="cell-}Foh">46</td><td class="cell-m&lt;F`"></td></tr><tr id="2b039073-1e23-80a9-8e4c-c468a805c780"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b0390731e2380a98e4cc468a805c780.html">Registro</a></td><td class="cell-P;I:"><time>18 de noviembre de 2025</time></td><td class="cell-UZlN"><time>19 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471844471108?source=Slack-bc3baaa9a3a248c1b9e5efe0a161f91d">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471844471108?source=Slack-bc3baaa9a3a248c1b9e5efe0a161f91d</a></span></td><td class="cell-v&lt;sB">Nikkei 419</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Emmanuel Ramírez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">47</td><td class="cell-m&lt;F`"></td></tr><tr id="2b039073-1e23-802a-ba43-fc7e29fc1663"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b0390731e23802aba43fc7e29fc1663.html">Registro</a></td><td class="cell-P;I:"><time>18 de noviembre de 2025</time></td><td class="cell-UZlN"><time>19 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471846373834?source=Slack-95d28cdafe9a4d46b820c8aadee9f2ff">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471846373834?source=Slack-95d28cdafe9a4d46b820c8aadee9f2ff</a></span></td><td class="cell-v&lt;sB">Santoku Faucett</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Mexico</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Jessica Gonzalez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">47</td><td class="cell-m&lt;F`"></td></tr><tr id="2b039073-1e23-80d1-9143-d3af2e61ed8d"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b0390731e2380d19143d3af2e61ed8d.html">Registro</a></td><td class="cell-P;I:"><time>18 de noviembre de 2025</time></td><td class="cell-UZlN"><time>19 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471846341042?source=Slack-00a7fdbbb2c8418b9a5c1ea9fa947761">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471846341042?source=Slack-00a7fdbbb2c8418b9a5c1ea9fa947761</a></span></td><td class="cell-v&lt;sB">Ushi</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Mexico</td><td class="cell-kvNj">3</td><td class="cell-YY}O">Felipe Rincon</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-blue">Cliente no sigue conversación</span></td><td class="cell-}Foh">47</td><td class="cell-m&lt;F`"></td></tr><tr id="2b039073-1e23-80e8-8938-de54df61893b"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b0390731e2380e88938de54df61893b.html">Registro</a></td><td class="cell-P;I:"><time>19 de noviembre de 2025</time></td><td class="cell-UZlN"><time>19 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471858045948?source=Slack-5f84825b6cb54c38b43a48687fdc06a6">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471858045948?source=Slack-5f84825b6cb54c38b43a48687fdc06a6</a></span></td><td class="cell-v&lt;sB">Barwest</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Jessica Gonzalez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-blue">Cliente no sigue conversación</span></td><td class="cell-}Foh">47</td><td class="cell-m&lt;F`"></td></tr><tr id="2b639073-1e23-80ef-8a96-d968657987fc"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b6390731e2380ef8a96d968657987fc.html">Registro</a></td><td class="cell-P;I:"><time>19 de noviembre de 2025</time></td><td class="cell-UZlN"><time>25 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471864779358?source=Slack-f11dc0bdaa49470fb629726ff9f97986">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471864779358?source=Slack-f11dc0bdaa49470fb629726ff9f97986</a></span></td><td class="cell-v&lt;sB">Mr Takeshi Sushi</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">3</td><td class="cell-YY}O">Lorena Ramos</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">47</td><td class="cell-m&lt;F`"></td></tr><tr id="2b639073-1e23-80d9-a58e-d8a521cdc401"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b6390731e2380d9a58ed8a521cdc401.html">Registro</a></td><td class="cell-P;I:"><time>20 de noviembre de 2025</time></td><td class="cell-UZlN"><time>25 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471883784321?source=Slack-ebfd9615bd5d41a5a5b8fbef98571ca6">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471883784321?source=Slack-ebfd9615bd5d41a5a5b8fbef98571ca6</a></span></td><td class="cell-v&lt;sB">Okita</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O"></td><td class="cell-xa?u"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-purple">Se cierra el Chat y no se le da continuidad al caso</span></td><td class="cell-}Foh">47</td><td class="cell-m&lt;F`"></td></tr><tr id="2b639073-1e23-8095-9b81-c6d18ed327d0"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b6390731e2380959b81c6d18ed327d0.html">Registro</a></td><td class="cell-P;I:"><time>20 de noviembre de 2025</time></td><td class="cell-UZlN"><time>25 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471884219329?source=Slack-ad31849b0d3447b4af7d7741b8b2db6f">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471884219329?source=Slack-ad31849b0d3447b4af7d7741b8b2db6f</a></span></td><td class="cell-v&lt;sB">The Crepe Cafe</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O"></td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-purple">Se cierra el Chat y no se le da continuidad al caso</span></td><td class="cell-}Foh">47</td><td class="cell-m&lt;F`"></td></tr><tr id="2b639073-1e23-8077-89f9-ef023fd31e95"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b6390731e23807789f9ef023fd31e95.html">Registro</a></td><td class="cell-P;I:"><time>21 de noviembre de 2025</time></td><td class="cell-UZlN"><time>25 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471886142089?source=Slack-f22ab620989e461781f39d1f8d4f9c21">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471886142089?source=Slack-f22ab620989e461781f39d1f8d4f9c21</a></span></td><td class="cell-v&lt;sB">Kamikaze</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Carlos Caro</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-green">Error Externo a Toteat</span></td><td class="cell-}Foh">47</td><td class="cell-m&lt;F`"></td></tr><tr id="2b639073-1e23-80f7-8813-eaa53a7dcefa"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b6390731e2380f78813eaa53a7dcefa.html">Registro</a></td><td class="cell-P;I:"><time>22 de noviembre de 2025</time></td><td class="cell-UZlN"><time>25 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471903075391?source=Slack-08eb0919059f4dc3b5b17c194eeb1626">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471903075391?source=Slack-08eb0919059f4dc3b5b17c194eeb1626</a></span></td><td class="cell-v&lt;sB">Segreta Pizza Bar</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O"></td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLl7R90s5joKJH_iRXqn9aik1pb-JHODyLlto_wF7ml3FQDuA=s100" class="icon user-icon"/>Carlos Caro Umbarila</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-pink">La respuesta puede mejorar</span></td><td class="cell-}Foh">47</td><td class="cell-m&lt;F`"></td></tr><tr id="2b639073-1e23-8071-b5e7-d7c8ae03fd62"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b6390731e238071b5e7d7c8ae03fd62.html">Registro</a></td><td class="cell-P;I:"><time>22 de noviembre de 2025</time></td><td class="cell-UZlN"><time>25 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471907506764?source=Slack-20da7c411df64ee88c91f8bb77437d8a">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471907506764?source=Slack-20da7c411df64ee88c91f8bb77437d8a</a></span></td><td class="cell-v&lt;sB">Restaurant La Fama</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O"></td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-default">Respuesta equivocada</span></td><td class="cell-}Foh">47</td><td class="cell-m&lt;F`"></td></tr><tr id="2b639073-1e23-8043-a3f1-c9e50bf43cd5"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b6390731e238043a3f1c9e50bf43cd5.html">Registro</a></td><td class="cell-P;I:"><time>22 de noviembre de 2025</time></td><td class="cell-UZlN"><time>25 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471907967721?source=Slack-0272a36f40e446bda1407f5d3cd2d596">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471907967721?source=Slack-0272a36f40e446bda1407f5d3cd2d596</a></span></td><td class="cell-v&lt;sB">DJ Arboleda</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Colombia</td><td class="cell-kvNj">1</td><td class="cell-YY}O">Emmanuel Ramírez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">47</td><td class="cell-m&lt;F`"></td></tr><tr id="2b639073-1e23-8009-8bbd-e923bbbf5b15"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b6390731e2380098bbde923bbbf5b15.html">Registro</a></td><td class="cell-P;I:"><time>23 de noviembre de 2025</time></td><td class="cell-UZlN"><time>25 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471914354320?source=Slack-1749f8dd4b4c416c9ceae0095437ce51">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471914354320?source=Slack-1749f8dd4b4c416c9ceae0095437ce51</a></span></td><td class="cell-v&lt;sB">Laurina LD</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Brandon Villamil</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-green">Error Externo a Toteat</span></td><td class="cell-}Foh">47</td><td class="cell-m&lt;F`"></td></tr><tr id="2b639073-1e23-802b-a6c1-cc592d34f963"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b6390731e23802ba6c1cc592d34f963.html">Registro</a></td><td class="cell-P;I:"><time>23 de noviembre de 2025</time></td><td class="cell-UZlN"><time>25 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471916414427?source=Slack-ec95a6ba30904f0cb5393f0d3d869df4">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471916414427?source=Slack-ec95a6ba30904f0cb5393f0d3d869df4</a></span></td><td class="cell-v&lt;sB">Morasushibar Pucon</td><td class="cell-JC;g"><span class="selected-value select-value-color-default">B</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O"></td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-purple">Se cierra el Chat y no se le da continuidad al caso</span></td><td class="cell-}Foh">47</td><td class="cell-m&lt;F`"></td></tr><tr id="2b639073-1e23-8002-bc58-ea1fd3974aea"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b6390731e238002bc58ea1fd3974aea.html">Registro</a></td><td class="cell-P;I:"><time>23 de noviembre de 2025</time></td><td class="cell-UZlN"><time>25 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471918079871?source=Slack-2a0c363c07bc4908802adeb15b6229b2">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471918079871?source=Slack-2a0c363c07bc4908802adeb15b6229b2</a></span></td><td class="cell-v&lt;sB">Takos Wilkos</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Mexico</td><td class="cell-kvNj">2</td><td class="cell-YY}O">Veronica Lopez</td><td class="cell-xa?u"></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-green">Error Externo a Toteat</span></td><td class="cell-}Foh">47</td><td class="cell-m&lt;F`"></td></tr><tr id="2b739073-1e23-8053-b552-cac6934a6ae4"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b7390731e238053b552cac6934a6ae4.html">Registro</a></td><td class="cell-P;I:"><time>25 de noviembre de 2025</time></td><td class="cell-UZlN"><time>26 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471956851946?source=Slack-f4510a898bc94caaa6d5862f9b449782">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471956851946?source=Slack-f4510a898bc94caaa6d5862f9b449782</a></span></td><td class="cell-v&lt;sB">Crunchy Cheese</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Mexico</td><td class="cell-kvNj">1</td><td class="cell-YY}O"></td><td class="cell-xa?u"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">A</span></span>Andrés Felipe Rincón Moyano</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">48</td><td class="cell-m&lt;F`"></td></tr><tr id="2b739073-1e23-8069-97e0-e57f65139f7c"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b7390731e23806997e0e57f65139f7c.html">Registro</a></td><td class="cell-P;I:"><time>25 de noviembre de 2025</time></td><td class="cell-UZlN"><time>26 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471956810710?source=Slack-48868b409ca64498ac7cdbd820afd9e4">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471956810710?source=Slack-48868b409ca64498ac7cdbd820afd9e4</a></span></td><td class="cell-v&lt;sB">Sureño Grill</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Mexico</td><td class="cell-kvNj">1</td><td class="cell-YY}O"></td><td class="cell-xa?u"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-gray">No se Realizo la atencion correcta al cliente</span></td><td class="cell-}Foh">48</td><td class="cell-m&lt;F`"></td></tr><tr id="2b739073-1e23-803c-9c27-df978d089855"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b7390731e23803c9c27df978d089855.html">Registro</a></td><td class="cell-P;I:"><time>26 de noviembre de 2025</time></td><td class="cell-UZlN"><time>26 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471968462315?source=Slack-27ca7939f88e4e7f95507c409bd787f6">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471968462315?source=Slack-27ca7939f88e4e7f95507c409bd787f6</a></span></td><td class="cell-v&lt;sB">Fuente Mardoqueo</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">1</td><td class="cell-YY}O"></td><td class="cell-xa?u"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJecpPWhQMOGkPp09SpMsKu9HJcKe3lQEnRgSK-oKjzqSQLoQ=s100" class="icon user-icon"/>Jaime Medalla</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-default">SI</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-brown">Chat cerrado sin explicación</span></td><td class="cell-}Foh">48</td><td class="cell-m&lt;F`"></td></tr><tr id="2b739073-1e23-8040-9b3e-c47c0099a77a"><td class="cell-title"><a href="Bitacora%20de%20Calidad%202025/Registro%202b7390731e2380409b3ec47c0099a77a.html">Registro</a></td><td class="cell-P;I:"></td><td class="cell-UZlN"><time>26 de noviembre de 2025</time></td><td class="cell-VZG}"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-z?{U"><span style="margin-inline-end:6px"><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471975676604?source=Slack-0a760dab41394a88875c4bb08120cd62">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215471975676604?source=Slack-0a760dab41394a88875c4bb08120cd62</a></span></td><td class="cell-v&lt;sB">Vaivén Linares</td><td class="cell-JC;g"><span class="selected-value select-value-color-red">A</span></td><td class="cell-:Hv:">Chile</td><td class="cell-kvNj">2</td><td class="cell-YY}O"></td><td class="cell-xa?u"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-i&gt;p`"><span class="selected-value select-value-color-yellow">NO</span></td><td class="cell-iQ@{"><span class="selected-value select-value-color-yellow">Calificación Incorrecta del Cliente</span></td><td class="cell-}Foh">48</td><td class="cell-m&lt;F`"></td></tr></tbody></table></div><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

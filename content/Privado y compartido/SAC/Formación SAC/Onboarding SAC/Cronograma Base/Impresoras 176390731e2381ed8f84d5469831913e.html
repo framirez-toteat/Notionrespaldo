@@ -1,0 +1,756 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Impresoras</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="17639073-1e23-81ed-8f84-d5469831913e" class="page sans"><header><div class="page-header-icon undefined"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shop_yellow.svg"/></div><h1 class="page-title" dir="auto"><mark class="highlight-default"><mark class="highlight-orange_background"><strong>Impresoras</strong></mark></mark></h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Matías - 16 Feb</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>9 Marzo</th><td><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Analyst</th><td><div class="checkbox checkbox-on"></div></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Senior</th><td><div class="checkbox checkbox-off"></div></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Coordinador</th><td><div class="checkbox checkbox-on"></div></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>ítem principal</th><td><a href="M%C3%B3dulo%206%20-%20TRM%20%E2%86%92%20Restaurant%20%E2%86%92%20Ajustes%20Generales%20305390731e23809cb9e8ebf0f0aa9c2f.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/shop_yellow.svg"/>Módulo 6 - TRM → Restaurant → Ajustes Generales</a></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="1c339073-1e23-805b-80eb-e794f0b238b9" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-8040-999c-f187673e53ce" class="image"><a href="Impresoras/image.png"><img style="width:709.9874877929688px" src="Impresoras/image.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-8021-b31b-e14f5c197ae1" class=""></h3></div><div style="display:contents" dir="ltr"><table id="2a639073-1e23-8030-a3ff-cba09f44e910" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8015-9e79-fc96365df5fc"><th id="][M@" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="&gt;rA~" class="simple-table-header-color simple-table-header"><strong>Descripción</strong></th><th id="{UP\" class="simple-table-header-color simple-table-header"><strong>Ejemplo de uso</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-807e-a931-d0c155db3205"><td id="][M@" class=""><strong>Desactivar Temporalmente Documentos Fiscales/DTE</strong></td><td id="&gt;rA~" class="">Permite deshabilitar temporalmente la emisión de documentos fiscales o electrónicos, útil en casos de emergencia o mantenimiento.</td><td id="{UP\" class="">Si el SII o la impresora fiscal presenta fallas, puede activarse esta opción para seguir operando sin emitir documentos electrónicos.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8055-b739-cf783ddd05fb"><td id="][M@" class=""><strong>Impresora Fiscal / DTE</strong></td><td id="&gt;rA~" class="">Define el dispositivo o formato de impresión que se usará para emitir boletas o facturas electrónicas.</td><td id="{UP\" class="">Configurar la impresora fiscal Epson o el software DTE autorizado por el SII.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8044-93a5-da025960079a"><td id="][M@" class=""><strong>Documentos Activos</strong></td><td id="&gt;rA~" class="">Indica qué tipos de documentos están habilitados para emitir desde el sistema (boletas, facturas, notas de crédito, etc.).</td><td id="{UP\" class="">Activar solo “Boleta Electrónica” si el local no emite facturas.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8016-b6be-e4fa8ea0626f"><td id="][M@" class=""><strong>Permite Emitir Factura antes de Grabar Pagos</strong></td><td id="&gt;rA~" class="">Autoriza la emisión de facturas sin necesidad de registrar primero el pago.</td><td id="{UP\" class="">Útil para empresas que facturan a crédito o con pago diferido.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8029-ac10-c11d549c8af9"><td id="][M@" class=""><strong>Usa decimales para cantidades en pedidos</strong></td><td id="&gt;rA~" class="">Permite manejar unidades fraccionadas en los pedidos (por ejemplo, 0.5 kg).</td><td id="{UP\" class="">En locales que venden productos por peso o volumen, como carnicerías o tiendas a granel.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-806b-a2ee-c4d5f111ac88"><td id="][M@" class=""><strong>Incluir productos exentos en Documentos Fiscales</strong></td><td id="&gt;rA~" class="">Determina si los productos exentos de impuestos deben incluirse en los documentos fiscales.</td><td id="{UP\" class="">Si se venden productos sin IVA (como pan o frutas), se marcará esta opción para que aparezcan en la boleta.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80b2-b1c3-f2bc071d2137"><td id="][M@" class=""><strong>Mostrar Total Descuentos</strong></td><td id="&gt;rA~" class="">Muestra el total de descuentos aplicados en los documentos fiscales.</td><td id="{UP\" class="">En boletas con promociones o descuentos, el cliente verá el total descontado.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-809e-9eae-d2e8b8a51680"><td id="][M@" class=""><strong>Visor Documentos Electrónicos</strong></td><td id="&gt;rA~" class="">Define si se habilita el visor integrado para visualizar documentos electrónicos emitidos.</td><td id="{UP\" class="">Permite revisar una factura electrónica directamente desde el sistema sin salir al portal del SII.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-809c-8201-dc31a4c3a1f6"><td id="][M@" class=""><strong>Transmitir monto de descuentos por línea</strong></td><td id="&gt;rA~" class="">Envia el valor exacto de los descuentos aplicados a cada ítem dentro del documento fiscal.</td><td id="{UP\" class="">Si un producto tiene descuento individual (por ejemplo, “2x1”), el monto se reflejará por línea y no solo en el total.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-8093-88ad-eabb9eac8b9d" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-800e-ad7a-d99310b24f96" class="image"><a href="Impresoras/image%201.png"><img style="width:709.9874877929688px" src="Impresoras/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-80c0-91a7-d685fbe55e89" class=""></h3></div><div style="display:contents" dir="ltr"><table id="2a639073-1e23-800a-bfe0-f3712d3479ac" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80c7-aa0a-c5778347d9c0"><th id="&gt;B~V" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="opV;" class="simple-table-header-color simple-table-header"><strong>Descripción</strong></th><th id="lABe" class="simple-table-header-color simple-table-header"><strong>Ejemplo de uso</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8085-a3cf-ebc5fefc9970"><td id="&gt;B~V" class=""><strong>Visor Documentos Electrónicos</strong></td><td id="opV;" class="">Permite visualizar directamente desde el sistema los DTE emitidos (boletas, facturas, notas de crédito, etc.).</td><td id="lABe" class="">El usuario puede abrir una factura electrónica desde Toteat sin ingresar al portal del SII.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80da-8658-cfb51bb3cb6e"><td id="&gt;B~V" class=""><strong>Impresión automática de Factura Electrónica</strong></td><td id="opV;" class="">Habilita la impresión inmediata de la factura al momento de ser emitida, sin requerir confirmación manual.</td><td id="lABe" class="">Ideal para locales con alto flujo de clientes que necesitan entregar la factura al instante.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8065-a4aa-e4e20e5d5daf"><td id="&gt;B~V" class=""><strong>Imprimir Boleta Electrónica con Toteat Print Server</strong></td><td id="opV;" class="">Define si las boletas electrónicas deben imprimirse mediante el servicio <strong>Toteat Print Server</strong>.</td><td id="lABe" class="">Si el local tiene configurado un servidor de impresión centralizado, esta opción debe estar activa.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-806c-a998-fe616c957c10"><td id="&gt;B~V" class=""><strong>Imprime Facturas con Toteat Print Server</strong></td><td id="opV;" class="">Determina si las facturas electrónicas se imprimirán también a través del <strong>Toteat Print Server</strong>.</td><td id="lABe" class="">Útil cuando el local usa una sola impresora de red para facturas y boletas.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80f4-9b66-e7d1dfb4acf7"><td id="&gt;B~V" class=""><strong>Desactivar enviar Propinas en Facturas</strong></td><td id="opV;" class="">Excluye las propinas del detalle o monto total de las facturas electrónicas emitidas.</td><td id="lABe" class="">Si el local prefiere no incluir propinas voluntarias en los documentos tributarios.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80fb-8eab-dcf26a52db60"><td id="&gt;B~V" class=""><strong>Mantener Fecha del Turno Abierto en DTE</strong></td><td id="opV;" class="">Utiliza la fecha del turno activo en el sistema al emitir documentos, en lugar de la fecha del día actual.</td><td id="lABe" class="">En cierres nocturnos (por ejemplo, después de medianoche), se mantiene la fecha del turno para coherencia contable.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8092-8e26-e0ee36e17e46"><td id="&gt;B~V" class=""><strong>Emitir DTE en diferido si se está en modo offline</strong></td><td id="opV;" class="">Permite generar los documentos electrónicos localmente y enviarlos al SII una vez restablecida la conexión.</td><td id="lABe" class="">Si el internet se cae, el sistema guarda los DTE y los transmite automáticamente al reconectarse.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80f8-a4bc-c51a0ffa93cb"><td id="&gt;B~V" class=""><strong>Bloquear impresión de Recibos/Tickets</strong></td><td id="opV;" class="">Impide la impresión de tickets o recibos no fiscales, limitando la salida solo a documentos electrónicos válidos.</td><td id="lABe" class="">En locales donde se desea evitar duplicidad de documentos o uso de comprobantes no tributarios.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80af-90a5-ffedd66dff23"><td id="&gt;B~V" class=""><strong>Post Hook Orden al liberar</strong></td><td id="opV;" class="">Configura una acción o proceso automático que se ejecuta al liberar una orden (por ejemplo, integración con otro sistema o envío de datos).</td><td id="lABe" class="">Puede usarse para enviar automáticamente información de ventas a un sistema contable al liberar la orden.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-800f-88f8-ecba430b182d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-80d9-8cbd-dcac6911c68a" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-80c4-a750-e0cf1114e709" class="image"><a href="Impresoras/image%202.png"><img style="width:709.9874877929688px" src="Impresoras/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-8036-b862-ecda935bf59e" class=""></h3></div><div style="display:contents" dir="ltr"><table id="2a639073-1e23-806c-a95c-c6f3388b0823" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8019-87a4-e4cf32f58254"><th id="wbhb" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="[u?g" class="simple-table-header-color simple-table-header"><strong>Descripción</strong></th><th id="Ycp:" class="simple-table-header-color simple-table-header"><strong>Ejemplo de uso</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8035-90fa-d08dc3df74fa"><td id="wbhb" class=""><strong>Razón Social</strong></td><td id="[u?g" class="">Nombre legal de la empresa registrado ante el SII u organismo tributario del país.</td><td id="Ycp:" class="">“Comercial Los Sabores SpA”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-802c-8577-ce045a173ea9"><td id="wbhb" class=""><strong>R.U.T.</strong></td><td id="[u?g" class="">Rol Único Tributario o número fiscal que identifica a la empresa.</td><td id="Ycp:" class="">“76.543.210-9”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8001-bccd-e254721a2574"><td id="wbhb" class=""><strong>Giro</strong></td><td id="[u?g" class="">Actividad económica principal registrada ante el SII.</td><td id="Ycp:" class="">“Servicios de Restaurante y Comida Rápida”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80e3-ae92-d2baf4b889bf"><td id="wbhb" class=""><strong>Dirección Fiscal</strong></td><td id="[u?g" class="">Domicilio legal del contribuyente según registro tributario.</td><td id="Ycp:" class="">“Av. Providencia 1234, Santiago”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8040-9ae6-d718795ce4e3"><td id="wbhb" class=""><strong>Comuna o Localidad</strong></td><td id="[u?g" class="">Zona geográfica o municipio correspondiente al domicilio fiscal.</td><td id="Ycp:" class="">“Providencia”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-801b-b876-d23a64120dfe"><td id="wbhb" class=""><strong>Ciudad</strong></td><td id="[u?g" class="">Ciudad donde se ubica el restaurante o razón social.</td><td id="Ycp:" class="">“Santiago”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80b9-b373-ca05e99240e1"><td id="wbhb" class=""><strong>Sucursal</strong></td><td id="[u?g" class="">Nombre o código interno que identifica la sucursal en el sistema.</td><td id="Ycp:" class="">“Sucursal Viña del Mar”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80bd-b627-cc49f439637f"><td id="wbhb" class=""><strong>Oficina S.I.I.</strong></td><td id="[u?g" class="">Oficina del Servicio de Impuestos Internos a la que pertenece el contribuyente.</td><td id="Ycp:" class="">“SII Santiago Oriente”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80ed-9ccc-db3d8e9d15a6"><td id="wbhb" class=""><strong>Texto Res. SII de Timbre Electrónico</strong></td><td id="[u?g" class="">Texto oficial que identifica la resolución SII que autoriza el uso de documentos electrónicos.</td><td id="Ycp:" class="">“Resolución N°80 del 2023 SII”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8023-bfdf-f0bd0376b02f"><td id="wbhb" class=""><strong>Teléfono</strong></td><td id="[u?g" class="">Número de contacto principal del local o empresa.</td><td id="Ycp:" class="">“+56 2 2345 6789”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8091-b618-d1db542c5b8b"><td id="wbhb" class=""><strong>Info Adicional</strong></td><td id="[u?g" class="">Campo opcional para agregar observaciones o información complementaria que aparecerá en documentos.</td><td id="Ycp:" class="">“Atención de lunes a domingo de 9:00 a 22:00 hrs.”</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-803a-b650-fb259b606818"><td id="wbhb" class=""><strong>Imprimir Logo Restaurante</strong></td><td id="[u?g" class="">Permite incluir el logo del restaurante en los documentos fiscales o boletas electrónicas (requiere impresora configurada).</td><td id="Ycp:" class="">Si está activo, el logo se imprimirá en las facturas y boletas emitidas.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-8055-9216-f623a43b8038" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-80df-b0a6-d01b81900c4e" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-80a0-abef-f6491566cc6a" class="image"><a href="Impresoras/image%203.png"><img style="width:709.9750366210938px" src="Impresoras/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-8069-8204-c059ca8631bb" class=""></h3></div><div style="display:contents" dir="ltr"><table id="2a639073-1e23-807b-82f9-e37e0742ccba" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8005-acbc-ec19c3aa4a78"><th id="HTEW" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="mbZd" class="simple-table-header-color simple-table-header"><strong>Descripción</strong></th><th id="@BW&gt;" class="simple-table-header-color simple-table-header"><strong>Ejemplo de uso</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80c5-a328-c969972d63ce"><td id="HTEW" class=""><strong>Centrar Datos de Restaurant</strong></td><td id="mbZd" class="">Permite alinear al centro la información del restaurante (nombre, dirección, RUT, etc.) en los comprobantes impresos.</td><td id="@BW&gt;" class="">Si está activo, los datos del local aparecerán centrados en la parte superior de la boleta o factura.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-800e-8d04-cfb57dabc76a"><td id="HTEW" class=""><strong>Imprimir Formas de Pago</strong></td><td id="mbZd" class="">Incluye en la impresión el detalle de los métodos de pago utilizados en la transacción.</td><td id="@BW&gt;" class="">En la boleta aparecerá “Pago con: Efectivo $10.000 / Tarjeta $5.000”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-801b-a6a4-cfa609c2db9d"><td id="HTEW" class=""><strong>No imprimir Valor de Propina en Boletas</strong></td><td id="mbZd" class="">Oculta el monto de propina voluntaria en la impresión de boletas.</td><td id="@BW&gt;" class="">Útil cuando el local desea mantener las propinas fuera de los documentos tributarios.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80c3-81aa-d712d1d4b42e"><td id="HTEW" class=""><strong>Imprimir Atendido Por</strong></td><td id="mbZd" class="">Muestra el nombre del mesero o usuario que gestionó la orden en el documento impreso.</td><td id="@BW&gt;" class="">En la parte inferior del ticket aparecerá “Atendido por: María M.”</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80a5-a140-f35068833cea"><td id="HTEW" class=""><strong>Imprimir Comentario Orden Check-in</strong></td><td id="mbZd" class="">Agrega en la impresión las notas o comentarios ingresados al crear la orden (por ejemplo, mesa especial o alergias).</td><td id="@BW&gt;" class="">En la boleta aparecerá el comentario: “Cliente con alergia al maní”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80b1-b9dc-dfb708865f0c"><td id="HTEW" class=""><strong>Imprimir Datos de Delivery</strong></td><td id="mbZd" class="">Incluye información del cliente y dirección de entrega cuando se trata de pedidos a domicilio.</td><td id="@BW&gt;" class="">En la impresión se mostrará “Cliente: Juan Pérez - Dirección: Av. Libertad 345, Viña del Mar”.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-80e3-8bdd-d563c5573d10" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-8009-bca3-f58df2617c3b" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-8075-8da8-cb647fc779aa" class="image"><a href="Impresoras/image%204.png"><img style="width:709.9874877929688px" src="Impresoras/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-80d9-a6cc-c660dbc503d2" class=""></h3></div><div style="display:contents" dir="ltr"><table id="2a639073-1e23-8042-b079-e2a8fe49e8db" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8038-8ac1-e8dc3938bb1d"><th id="cYSC" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="`otT" class="simple-table-header-color simple-table-header"><strong>Descripción</strong></th><th id="~YjR" class="simple-table-header-color simple-table-header"><strong>Ejemplo de uso</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8037-bb7e-fb3203634305"><td id="cYSC" class=""><strong>Print Server</strong></td><td id="`otT" class="">Define el servidor de impresión (Toteat Print Server – TPS) encargado de enviar los documentos a las impresoras configuradas.</td><td id="~YjR" class="">“TPS 508” indica el servidor que procesa las boletas y comandas del local.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8077-9358-f238c198b78e"><td id="cYSC" class=""><strong>Sensibilidad de Alertas por Errores de Impresión</strong></td><td id="`otT" class="">Establece el tiempo y cantidad de documentos en cola que generarán una alerta por error de impresión.</td><td id="~YjR" class="">Con “1 minuto / 1 documento”, si un ticket no se imprime en un minuto, se envía una alerta.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80d0-93f1-cce4160d15d0"><td id="cYSC" class=""><strong>Jerarquía para impresión</strong></td><td id="`otT" class="">Determina el orden de prioridad en que se utilizan las impresoras configuradas.</td><td id="~YjR" class="">Si la impresora principal falla, se usa la secundaria configurada como respaldo.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80b2-aff7-c32ad6aabf74"><td id="cYSC" class=""><strong>Permite crear Reglas de Impresión para Extras</strong></td><td id="`otT" class="">Autoriza definir reglas específicas de impresión para productos adicionales o modificadores.</td><td id="~YjR" class="">Ejemplo: los “Adicionales de queso” pueden imprimirse solo en la impresora de cocina.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80f6-940b-f71410d011e2"><td id="cYSC" class=""><strong>Permite liberar órdenes no impresas automáticamente</strong></td><td id="`otT" class="">Si está activo, las órdenes que no logren imprimirse se liberarán automáticamente tras un tiempo determinado.</td><td id="~YjR" class="">Útil para evitar que las órdenes queden bloqueadas si la impresora presenta fallas.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8051-827d-c1049c541190"><td id="cYSC" class=""><strong>Imprimir productos pausados al pagar</strong></td><td id="`otT" class="">Envía a impresión los productos marcados como pausados en el momento del pago.</td><td id="~YjR" class="">Si un cliente retoma un pedido pausado y paga, el sistema imprime los ítems pendientes.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80ca-9473-c7d5a5a84624"><td id="cYSC" class=""><strong>Permite cambiar impresoras por defecto en Precuentas, Tickets</strong></td><td id="`otT" class="">Permite modificar manualmente las impresoras asignadas para precuentas o tickets desde el sistema.</td><td id="~YjR" class="">Si una impresora de tickets falla, el usuario puede redirigir la impresión a otra sin reconfigurar el sistema.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-807b-89f5-c107dec00f4c"><td id="cYSC" class=""><strong>Permitir Pausa manual en Impresión de Platos</strong></td><td id="`otT" class="">Autoriza detener temporalmente la impresión de platos desde la toma de pedidos.</td><td id="~YjR" class="">Útil cuando la cocina necesita pausar la entrada de nuevas comandas por alta demanda.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80a8-903b-fb1d57783189"><td id="cYSC" class=""><strong>Formato especial de Comandas de Mesas Virtuales para Clubes</strong></td><td id="`otT" class="">Ajusta el diseño y contenido de las comandas impresas para mesas virtuales, especialmente en clubes o eventos.</td><td id="~YjR" class="">Las comandas muestran nombre del socio, número de mesa y detalles personalizados.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8036-b497-d1b5ff36e0b2"><td id="cYSC" class=""><strong>Copia Total Comanda para armar pedido</strong></td><td id="`otT" class="">Imprime una copia completa de la comanda con todos los ítems del pedido para facilitar su preparación.</td><td id="~YjR" class="">En cocina se imprime una copia total adicional para revisar y armar el pedido completo.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-808e-b708-e491a7de0853" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-806b-915d-c96a17335d15" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-803b-9711-d16f658add76" class="image"><a href="Impresoras/image%205.png"><img style="width:709.9874877929688px" src="Impresoras/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-8012-b80a-f104c2ab1c61" class=""></h3></div><div style="display:contents" dir="ltr"><table id="2a639073-1e23-80f1-bf67-f7afbbfe1ffe" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8034-a669-e8cc73d33e81"><th id="`FuY" class="simple-table-header-color simple-table-header"><strong>Parámetro</strong></th><th id="[GA`" class="simple-table-header-color simple-table-header"><strong>Descripción</strong></th><th id="FlPg" class="simple-table-header-color simple-table-header"><strong>Ejemplo de uso</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-808f-9ef9-db0959981d04"><td id="`FuY" class=""><strong>Descripción de Copia Comanda (referencial)</strong></td><td id="[GA`" class="">Permite asignar un nombre o descripción a la copia adicional de la comanda.</td><td id="FlPg" class="">“Copia Cocina” o “Copia Bar” para identificar el destino de impresión.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80ee-b7e7-d4b0b4984e4e"><td id="`FuY" class=""><strong>Impresora Copia Total Comanda</strong></td><td id="[GA`" class="">Define en qué impresora se emitirá la copia completa de la comanda.</td><td id="FlPg" class="">La copia total se imprime en la impresora de cocina principal.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80ad-9731-fe2c80d920c1"><td id="`FuY" class=""><strong>Replica productos preparados en impresora(s)</strong></td><td id="[GA`" class="">Envía a otras impresoras los productos que ya fueron marcados como preparados, si es necesario.</td><td id="FlPg" class="">Si un producto preparado en cocina también debe verse en barra, se replica automáticamente.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8024-b7a1-d614d8ec9946"><td id="`FuY" class=""><strong>Formato</strong></td><td id="[GA`" class="">Establece el diseño del documento impreso (comanda tradicional, simplificada o personalizada).</td><td id="FlPg" class="">Se puede usar formato “Simplificado” para pedidos rápidos o “Detallado” para cocina.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80c0-9e37-f74515427890"><td id="`FuY" class=""><strong>Imprimir solo nuevos productos</strong></td><td id="[GA`" class="">Si está activo, solo se imprimirán los productos añadidos recientemente a una orden.</td><td id="FlPg" class="">Cuando se agrega un nuevo plato a una mesa ya abierta, solo se imprime ese ítem nuevo.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80eb-8272-fed0ca43d79a"><td id="`FuY" class=""><strong>Ordenamiento</strong></td><td id="[GA`" class="">Define el criterio de orden para los productos dentro de la comanda (por categoría, prioridad, o secuencia).</td><td id="FlPg" class="">Los platos pueden imprimirse ordenados por tipo: entradas, fondos y postres.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80e8-9ebc-e8b20fc1d7b3"><td id="`FuY" class=""><strong>Incluye (</strong><em><strong>nombre producto</strong></em><strong>) asociado a extras en impresora distinta</strong></td><td id="[GA`" class="">Hace que el nombre del producto principal se imprima junto a sus extras cuando estos salen por una impresora diferente.</td><td id="FlPg" class="">Si “Pizza Margarita” se imprime en cocina y su “Extra de jamón” en barra, ambos mostrarán la referencia cruzada.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8088-8bdd-f2da5109f981"><td id="`FuY" class=""><strong>Imprime número de silla</strong></td><td id="[GA`" class="">Agrega el número de asiento del cliente en la comanda para identificar a quién corresponde cada plato.</td><td id="FlPg" class="">Aparece “Silla 2 – Hamburguesa Clásica” en la impresión.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-807e-9128-c657f22e39f2"><td id="`FuY" class=""><strong>Separación según Prioridades</strong></td><td id="[GA`" class="">Separa las comandas por nivel de prioridad definido (por ejemplo, cocina fría, caliente, postres).</td><td id="FlPg" class="">Los productos se dividen automáticamente según su prioridad de preparación.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8099-a1e8-f49cea523074"><td id="`FuY" class=""><strong>No Imprimir Órdenes Mesas</strong></td><td id="[GA`" class="">Bloquea la impresión de comandas generadas desde mesas en el salón.</td><td id="FlPg" class="">Útil para locales donde solo se gestionan pedidos de delivery.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80e5-9665-fa71a8e669ed"><td id="`FuY" class=""><strong>No Imprimir Órdenes Deliveries/Retiros</strong></td><td id="[GA`" class="">Evita la impresión de comandas para pedidos de delivery o retiro en tienda.</td><td id="FlPg" class="">Se usa cuando el sistema de despacho externo maneja sus propias impresiones.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80da-be89-ef61237e42f3"><td id="`FuY" class=""><strong>No Imprimir Órdenes Mesas Virtuales</strong></td><td id="[GA`" class="">Impide que se impriman comandas asociadas a mesas virtuales (clubes, eventos, etc.).</td><td id="FlPg" class="">Se desactiva la impresión de comandas en pedidos realizados desde mesas virtuales.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-8094-bce4-cac6d666db12" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-80e7-b04a-de705ea45617" class="image"><a href="Impresoras/image%206.png"><img style="width:709.9874877929688px" src="Impresoras/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="1c339073-1e23-80a9-af3a-d0ccf5a02110" class=""></h3></div><div style="display:contents" dir="ltr"><table id="2a639073-1e23-80c5-b430-dab2f3953dad" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80a9-9112-d5466814283f"><th id="YtdA" class="simple-table-header-color simple-table-header">📘 <strong>Parámetro</strong></th><th id="yChc" class="simple-table-header-color simple-table-header">💬 <strong>Descripción</strong></th><th id="&lt;tSy" class="simple-table-header-color simple-table-header">🧩 <strong>Ejemplo de uso</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8055-96c1-d7c6c476ee42"><td id="YtdA" class=""><strong>Cabecera Línea 1</strong></td><td id="yChc" class="">Texto personalizado que aparecerá en la primera línea superior de los documentos impresos (boletas, facturas, tickets).</td><td id="&lt;tSy" class="">“Restaurante El Buen Sabor”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8013-a45e-c503a75cda94"><td id="YtdA" class=""><strong>Cabecera Línea 2</strong></td><td id="yChc" class="">Segunda línea superior del encabezado; se puede usar para agregar lema o información adicional.</td><td id="&lt;tSy" class="">“Comida Venezolana y Parrillas”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80a1-963c-fbd1dc9cf4b7"><td id="YtdA" class=""><strong>Cabecera Línea 3</strong></td><td id="yChc" class="">Tercera línea de la cabecera, útil para datos de contacto o promociones.</td><td id="&lt;tSy" class="">“Tel: +56 9 8765 4321 – Instagram: @elbuen.sabor”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80fd-a031-ed92d437d976"><td id="YtdA" class=""><strong>Pie de Página Línea 1</strong></td><td id="yChc" class="">Primera línea del pie de página, ideal para mensajes legales o de cortesía.</td><td id="&lt;tSy" class="">“Gracias por su preferencia”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8022-9f5a-fef849522e15"><td id="YtdA" class=""><strong>Pie de Página Línea 2</strong></td><td id="yChc" class="">Segunda línea inferior del documento; puede incluir información sobre devoluciones o sugerencias.</td><td id="&lt;tSy" class="">“No se aceptan devoluciones sin boleta”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-809f-b786-ed26b80874f0"><td id="YtdA" class=""><strong>Pie de Página Línea 3</strong></td><td id="yChc" class="">Línea adicional en el pie de página de boletas o facturas para notas complementarias.</td><td id="&lt;tSy" class="">“Atendemos todos los días de 9:00 a 22:00 hrs.”</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80fb-a58d-deebe623cd29"><td id="YtdA" class=""><strong>Pie de Página Línea 3 (Recibos)</strong></td><td id="yChc" class="">Texto exclusivo que aparecerá solo en recibos o tickets no fiscales.</td><td id="&lt;tSy" class="">“Este comprobante no tiene validez tributaria”.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-80e6-a0d3-de0c9c8b2c78"><td id="YtdA" class=""><strong>Código QR</strong></td><td id="yChc" class="">Permite habilitar la impresión de un código QR en los documentos, con información del local o comprobante.</td><td id="&lt;tSy" class="">El QR puede redirigir al sitio web o al documento electrónico validado por el SII.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2a639073-1e23-8067-89be-d20867553311"><td id="YtdA" class=""><strong>Título de QR</strong></td><td id="yChc" class="">Define el texto que acompañará al código QR impreso.</td><td id="&lt;tSy" class="">“Escanea para ver tu boleta electrónica”.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-806e-8136-ed3968864e8b" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-80a1-9320-cef45f6d5e33" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

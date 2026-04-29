@@ -1,0 +1,823 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Temario Soporte Dunkin’</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2b439073-1e23-81ee-98dd-e4159d38c341" class="page sans"><header><img class="page-cover-image" src="Temario%20Soporte%20Dunkin%E2%80%99/Dona-GRATIS-en-Dunkin-Donut.jpg" style="object-position:center 48.91%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Temario%20Soporte%20Dunkin%E2%80%99/Dunkin-Logo.png"/></div><h1 class="page-title" dir="auto">Temario Soporte Dunkin’</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2b439073-1e23-8106-8caf-d659c654e00d" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8001-9936-cb074cc7a091" class="toggle"><li><details open=""><summary><strong>Soporte toteat</strong></summary><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-816c-a1ae-c11392758f4b" class="link-to-page"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Check%20list%20Apertura%202b4390731e23816ca1aec11392758f4b.html"><span class="icon">🔑</span>Check list Apertura</a></figure></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-81d7-98c9-d660a097aeea" class="link-to-page"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Configuraci%C3%B3n%20TPS%202b4390731e2381d798c9d660a097aeea.html"><img class="icon" src="Repositorio%20SAC/Configuraci%C3%B3n%20TPS/TPS.png"/>Configuración TPS</a></figure></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-81da-8254-c4b0b1230bbd" class="link-to-page"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Totems%20-%20Errores%20comunes%202b4390731e2381da8254c4b0b1230bbd.html"><img class="icon" src="Onboarding%20SAC/Recurso_51.png"/>Totems - Errores comunes</a></figure></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-8104-abb1-f378780c226c" class="link-to-page"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Operaci%C3%B3n%20y%20Flujo%20de%20ventas%20(promociones)%202b4390731e238104abb1f378780c226c.html"><span class="icon">⚙️</span>Operación y Flujo de ventas (promociones)</a></figure></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-8169-b478-e6d8205b23be" class="link-to-page"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Anulaciones%20de%20ventas%20y%20Boletas%202b4390731e238169b478e6d8205b23be.html"><span class="icon">📄</span>Anulaciones de ventas y Boletas</a></figure></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-815e-990d-d462cdfbea5f" class="link-to-page"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Facturaci%C3%B3n%20-%20e-bill%202b4390731e23815e990dd462cdfbea5f.html"><span class="icon">📄</span>Facturación - e-bill</a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8106-97c4-c03c21990a91" class="toggle"><li><details open=""><summary><strong>Acceso a Toteat: Inicio de sesión</strong></summary><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-8131-8f2c-c726541c563b" class="numbered-list" start="1"><li>Usuarios que marcan asistencia en Geovictoria en el local.<div style="display:contents" dir="auto"><p id="2b439073-1e23-81c1-947d-e04d7278eae2" class="">Cajeros y gerenciales deben marcar asistencia o inicio de turno en Geovictoria antes de iniciar sesión. Toteat realiza una validación antes que el sistema permita iniciar sesión.<br/>Se valida:</p></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8169-9ef2-fcf82d44f731" class="bulleted-list"><li style="list-style-type:disc">Que haya marcado inicio de turno ese día.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81c0-9c41-f6f7a6a34814" class="bulleted-list"><li style="list-style-type:disc">Que esté iniciando sesión en el local que corresponde.</li></ul></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-818f-8c17-f5042d4a60b9" class="">Esta validación se realiza vía API, donde se debe obtener “Type”: “Ingreso” y &quot;ShiftPunchType&quot;: &quot;Entrada&quot;. En caso de que el sistema arroje error, es necesario validar que el usuario tenga la marca correspondiente en Geovictoria, y que el local configurado sea el mismo donde está ingresando.<br/><br/>(**) Agregar evidencia del error.</p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js" integrity="sha512-m3JYEI6gx5fh9jF10FjGoMzVKcV2N6nchcDcqPCdI1L3R2WQV7br2XVNR8iTLb2daOMRl3zldbcfT40xU2ntVw==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><pre id="2b439073-1e23-818d-9aa9-fa33296385c6" class="code code-wrap"><code class="language-jsx" style="white-space:pre-wrap;word-break:break-all">{
+                            &quot;Type&quot;: &quot;Ingreso&quot;,
+                            &quot;Date&quot;: &quot;20250916062900&quot;,
+                            &quot;Origin&quot;: &quot;app&quot;,
+                            &quot;Longitude&quot;: &quot;-70.6057459&quot;,
+                            &quot;Latitude&quot;: &quot;-33.4178545&quot;,
+                            &quot;Accuracy&quot;: &quot;11.77&quot;,
+                            &quot;GroupDescription&quot;: &quot;Costanera Center Local&quot;,
+                            &quot;UploadDate&quot;: &quot;20250916092953&quot;,
+                            &quot;ShiftPunchType&quot;: &quot;Entrada&quot;,
+                            &quot;AssignedInBook&quot;: true,
+                            &quot;BoxSn&quot;: &quot;&quot;,
+                            &quot;IdTask&quot;: &quot;&quot;,
+                            &quot;IdProject&quot;: &quot;&quot;,
+                            &quot;PunchId&quot;: &quot;9gnQK0Qw0RaantzvFH6wnQ&quot;,
+                            &quot;Checksum&quot;: &quot;n8uBoyW9eVpJ87teJILtsxivYfjrSRNKyRqPf0ApY0fmvQwXMOUkid7hYsB-hTw57FMonWJ95j1uYJ5nYHyACNS7Acy4kUjTOZphCentqQduOM3nMI_wB5VcVZ4GjkZ-&quot;
+                        }</code></pre></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-8180-8083-c80ef44a9c23" class="numbered-list" start="2"><li>Usuario que no marcan asistencia en Geovictoria en el local</li></ol></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-8196-a70c-f1ca02e116cd" class="">Usuarios operacionales o administrativos que no marcan asistencia en el local, solo necesitan su mail y clave para iniciar sesión en el sistema.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8118-8f2b-ec7cda95ba44" class="toggle"><li><details open=""><summary><strong>Problemas de impresión de comandas y/o boletas</strong></summary><div style="display:contents" dir="auto"><p id="2b439073-1e23-8102-8c98-f2eb680c15ad" class=""><strong>TPS</strong>: Toteat Print Service<br/>  - Requiere de red para su funcionamiento<br/>  - Se debe revisar que el antivirus para que no bloquee el funcionamiento del TPS, se crea una excepción en kaspersky<br/>  -Dicsco C debe tener espacio para que corra correctamente</p></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-81c0-b244-c00d2f741e51" class="">  - Firewell debe estar inactivo</p></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-81aa-9caa-cee2b7042e9e" class="numbered-list" start="1"><li><strong>Problemas de impresión genérico</strong></li></ol></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-812f-bb0e-c2d8d097d11c" class="">Se reporta un problema generalizado de impresión de comandas y boletas, es decir, no se está imprimiendo ningún documento.</p></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-81b3-b454-cb0f010aa256" class="">En este caso se debe validar que el TPS se encuentre funcionando correctamente.<br/>Revisar TPS ( Drone (verde), Restart TPS, Borrar Icono TPS, y dar a Toteatprint server)<div class="indented"><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8187-ae4a-c4c5fadecab3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Verificar que TPS esté ejecutado correctamente.  Si está ejecutado, reiniciarlo:</mark></li></ul></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-81df-ad52-fcd04fa5ab38" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Untitled.png"><img style="width:336px" src="Temario%20Soporte%20Dunkin%E2%80%99/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81b7-8536-e8905dfa9e3e" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Si no está ejecutándose, abrir el archivo en el escritorio:</mark></li></ul></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-81db-b807-cbb7ff96a681" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Untitled%201.png"><img style="width:336px" src="Temario%20Soporte%20Dunkin%E2%80%99/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-817a-90e4-c1868320bfaa" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default_background">Con el software ejecutado debiesen corregirse problemas de impresión y estados </mark><em><mark class="highlight-default_background">Online/Offline</mark></em><mark class="highlight-default_background">, si aún no se resuelven los problemas o no se ejecutó correctamente el software ingresar al chat de soporte.</mark></li></ul></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-8119-9a93-df1f15867a4d" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2b439073-1e23-81df-b88a-f5d86e581a61"/></div></div></p></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-819f-9c31-f7f793cb95e0" class="numbered-list" start="2"><li><strong>Problemas en una impresora en particular</strong></li></ol></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-81be-8a09-f06bc63a93e9" class="">Se reporta un problema en una impresora en particular, en este caso se debe validar:</p></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-8137-9aee-df58d4640b8d" class="">✅ 1. Verificar conexión física y red</p></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8177-95cd-ed663ddc604f" class="bulleted-list"><li style="list-style-type:disc">Validar que la impresora cuente con papel y que no esté atascado</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-815a-8b81-c10f1ea7cd91" class="bulleted-list"><li style="list-style-type:disc">Confirmar que la impresora esté encendida y <strong>conectada por cable de red (no USB)</strong> al router o switch. (luz amarilla y verde)</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8163-af14-d4f6d62198d8" class="bulleted-list"><li style="list-style-type:disc">Solicitar al cliente realizar el <strong>self-test de la impresora</strong> para validar IP y MAC.</li></ul></div><div style="display:contents" dir="auto"><hr id="2b439073-1e23-81b2-82af-deded5e0fde8"/></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-8196-b9ee-db82397f85c7" class="">🧾  2. Cómo hacer el self-test de la impresora (modelo estándar)</p></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-816e-b741-f3f34e8e0249" class="numbered-list" start="1"><li>Apagar la impresora.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-810f-b459-d047e4b24a70" class="numbered-list" start="2"><li>Presionar y mantener el botón <strong>FEED</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-8129-958a-efa01354c5fe" class="numbered-list" start="3"><li>Encender la impresora <strong>sin soltar</strong> el botón FEED.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-81e8-b1ed-f4f5d27beecb" class="numbered-list" start="4"><li>Apenas salga el papel con la configuración, <strong>soltar el botón FEED</strong>.</li></ol></div><div style="display:contents" dir="auto"><blockquote id="2b439073-1e23-818d-b710-d6e5a1d43b2e" class="">El papel debe mostrar la IP y MAC Address de la impresora.</blockquote></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-816a-b332-f5457d38494f" class=""><strong>🟡 Si no aparece la IP/MAC:</strong></p></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-819f-a1ef-de133701b558" class="bulleted-list"><li style="list-style-type:disc">Verificar que esté conectada por red, <strong>no por USB</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81c0-b114-c1b32f77fc7e" class="bulleted-list"><li style="list-style-type:disc">Si imprime papel en blanco: revisar si el <strong>papel está al revés</strong>.</li></ul></div><div style="display:contents" dir="auto"><hr id="2b439073-1e23-819f-a666-cd66e8feafbb"/></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-8151-a8e6-f12871947ce4" class="">💻 3. Verificar IP del PC del cliente</p></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-81cb-8565-deb5bc5d0c60" class="numbered-list" start="1"><li>Pedir al cliente abrir el ejecutador: <code>WIN + R</code> y escribir: <code>CMD ADMIN</code></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-81e2-b6c2-f76ace6bc2d2" class="numbered-list" start="2"><li>En la consola, escribir:</li></ol></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8128-a683-cbee69103954" class="bulleted-list"><li style="list-style-type:disc">ipconfig</li></ul></div><div style="display:contents" dir="auto"><blockquote id="2b439073-1e23-81c8-bdd6-e87bf6c4c55d" class="">Comparar IP del PC con la IP de la impresora.</blockquote></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-814e-a9e2-d4c0b949a115" class=""><strong>Ejemplo de diferentes segmentos (no hay conexión):</strong></p></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8195-8deb-e98d84b38b43" class="bulleted-list"><li style="list-style-type:disc">IP Impresora: 192.168.10.7</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81a7-a4bd-d458cbfa9e0f" class="bulleted-list"><li style="list-style-type:disc">IP PC: 26.14.101.96</li></ul></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-8197-8640-db6e3e0c8279" class=""><strong>Ejemplo de mismo segmento (debería haber conexión):</strong></p></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81a0-acaf-f9420e4a7e4b" class="bulleted-list"><li style="list-style-type:disc">IP Impresora: 26.14.101.80</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8146-a417-c054811626bf" class="bulleted-list"><li style="list-style-type:disc">IP PC: 26.14.101.96</li></ul></div><div style="display:contents" dir="auto"><hr id="2b439073-1e23-8173-a215-c836bfddb06e"/></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-81f0-b998-d6c58a21d4f8" class="">🕵️‍♂️ 4. Verificar duplicidad de IP / detección de MAC</p></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-819d-b40c-ecf1c699b7c6" class="numbered-list" start="1"><li>Abrir <code>CMD ADMIN</code> nuevamente.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-81ae-be8f-d78e1681e2ff" class="numbered-list" start="2"><li>Ejecutar el comando:</li></ol></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8121-bbf7-c4c841ace0cd" class="bulleted-list"><li style="list-style-type:disc">arp -a</li></ul></div><div style="display:contents" dir="auto"><blockquote id="2b439073-1e23-81be-b77d-d8eda4ad1ad6" class="">Revisar si la IP de la impresora aparece y si la MAC Address coincide.</blockquote></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81a5-ad6d-c453de7f5258" class="bulleted-list"><li style="list-style-type:disc">Si la IP aparece con otra MAC ➤ <strong>conflicto de IP duplicada</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8187-a1c6-c8eb2ee58d87" class="bulleted-list"><li style="list-style-type:disc">Si no aparece ➤ usar <strong>scanner de red</strong> como:<div style="display:contents" dir="auto"><p id="2b439073-1e23-81fe-8f5e-e88f240bffa9" class=""><a href="https://www.advanced-ip-scanner.com/es/">Advanced IP Scanner</a></p></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2b439073-1e23-8151-b8f7-db498d70fb05"/></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-8118-968f-d59a5e79beb1" class="">🔌 <strong>5</strong>. Si no detecta la impresora, verificar físicamente</p></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81b0-8f86-d388656ba485" class="bulleted-list"><li style="list-style-type:disc">¿Está conectada al router correcto?</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81dd-ada5-ead8ae3c58b9" class="bulleted-list"><li style="list-style-type:disc">¿Está usando un <strong>puerto funcional</strong> del router o switch?</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-819a-8738-faa8df2222dc" class="bulleted-list"><li style="list-style-type:disc">¿Está el <strong>cable de red dañado</strong>?</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-811c-a201-ff7365d15c6b" class="bulleted-list"><li style="list-style-type:disc">¿Está conectada a un switch <strong>apagado</strong>?</li></ul></div><div style="display:contents" dir="auto"><hr id="2b439073-1e23-810b-82d6-e9b8944d7c4b"/></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8104-aed6-d81985262fc9" class="toggle"><li><details open=""><summary><strong>Cómo detener una impresora térmica que imprime infinitamente desde Toteat (error en Windows)</strong></summary><div style="display:contents" dir="auto"><h3 id="2b439073-1e23-8183-b905-ed82c236d7fd" class="">✅ 1. <strong>Abre los servicios de Windows</strong></h3></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8126-b909-f7caef4517b4" class="bulleted-list"><li style="list-style-type:disc">Presiona <code><strong>Windows + R</strong></code> en el teclado.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81cc-b856-ef28e9a12d59" class="bulleted-list"><li style="list-style-type:disc">Escribe:<br/><mark class="highlight-blue"><strong>services.msc</strong></mark></li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8119-b533-d2f9901c7b85" class="bulleted-list"><li style="list-style-type:disc">Presiona <strong>Enter</strong>.</li></ul></div><div style="display:contents" dir="auto"><hr id="2b439073-1e23-81c8-be00-ff5e9a1a9311"/></div><div style="display:contents" dir="auto"><h3 id="2b439073-1e23-81b3-940b-f39b0222670f" class="">✅ 2. <strong>Detén el servicio de impresión (Print Spooler)</strong></h3></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8142-8701-e8db7a1154b8" class="bulleted-list"><li style="list-style-type:disc">En la ventana que se abre, <strong>busca</strong> el servicio llamado:<div style="display:contents" dir="auto"><p id="2b439073-1e23-81b3-a56d-d442eb1e1cda" class=""><strong>Cola de impresión</strong> o <strong>Print Spooler</strong>.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81a7-b0af-e7f45d8a1918" class="bulleted-list"><li style="list-style-type:disc">Haz <strong>clic derecho</strong> sobre él.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-812b-a2be-cef81bd4a836" class="bulleted-list"><li style="list-style-type:disc">Selecciona <strong>&quot;Detener&quot;</strong>.</li></ul></div><div style="display:contents" dir="auto"><hr id="2b439073-1e23-8126-abbb-cc43145aaa6d"/></div><div style="display:contents" dir="auto"><h3 id="2b439073-1e23-81a3-b5f4-dbfbe6280cbb" class="">✅ 3. <strong>Borra manualmente los documentos atorados</strong></h3></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8140-b91b-c0d026339b37" class="bulleted-list"><li style="list-style-type:disc">Abre el <strong>Explorador de archivos</strong> de Windows.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8150-928a-e1185e4d0ed9" class="bulleted-list"><li style="list-style-type:disc">Escribe en la barra de direcciones (o navega a):</li></ul></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-8125-a798-c70337c54e5a" class=""><mark class="highlight-blue"><strong>         C:\Windows\System32\spool\PRINTERS</strong></mark></p></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81f1-b29c-cfe470b7b3ca" class="bulleted-list"><li style="list-style-type:disc">Si pide permisos de administrador, <strong>dale “Sí”</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-815d-a191-e658de0d61a1" class="bulleted-list"><li style="list-style-type:disc">Una vez dentro de esa carpeta, <strong>borra todos los archivos</strong> que veas.</li></ul></div><div style="display:contents" dir="auto"><blockquote id="2b439073-1e23-81ff-9f68-f11eab8ccab4" class="">🔴 ¡Importante! Estos archivos son los documentos atorados que están haciendo que la impresora imprima sin parar.</blockquote></div><div style="display:contents" dir="auto"><hr id="2b439073-1e23-81dd-81ed-d463fe743e8d"/></div><div style="display:contents" dir="auto"><h3 id="2b439073-1e23-81c3-8020-d6326ff3f9ef" class="">✅ 4. <strong>Reinicia el servicio</strong></h3></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81ac-a927-d236c4eb8eac" class="bulleted-list"><li style="list-style-type:disc">Vuelve a la ventana de <code>services.msc</code>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-813a-bb59-d35e1bcaef0b" class="bulleted-list"><li style="list-style-type:disc">Haz clic derecho sobre <strong>Cola de impresión / Print Spooler</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81b2-8962-e2d31d25ad3c" class="bulleted-list"><li style="list-style-type:disc">Elige <strong>&quot;Iniciar&quot;</strong>.</li></ul></div><div style="display:contents" dir="auto"><hr id="2b439073-1e23-81c8-b2f5-ca0f3dd7ebb5"/></div><div style="display:contents" dir="auto"><h3 id="2b439073-1e23-81cf-9305-de50f59be053" class="">✅ 5. <strong>Verifica la impresora</strong></h3></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-813a-8a0b-fb326e6933cd" class="bulleted-list"><li style="list-style-type:disc">Abre el Panel de Control &gt; Dispositivos e impresoras.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8167-98c4-f4378176fd2f" class="bulleted-list"><li style="list-style-type:disc">Haz clic derecho sobre la impresora térmica (ej. POS80, XPrinter, EPSON).</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8118-80c6-de3c5bc8d091" class="bulleted-list"><li style="list-style-type:disc">Asegúrate de que <strong>no esté en “Pausa”</strong> ni marcada como “Usar sin conexión”.</li></ul></div><div style="display:contents" dir="auto"><hr id="2b439073-1e23-810a-b62e-d5eaffa7ff3a"/></div><div style="display:contents" dir="auto"><h3 id="2b439073-1e23-8101-8801-e950e0faf29a" class="">✅ 6. <strong>Abre nuevamente el POS de Toteat</strong></h3></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-811f-9c23-c79e89062e08" class="bulleted-list"><li style="list-style-type:disc">Reinicia el Print server de toteat si es necesario.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-813a-9963-dd28a98f3a53" class="bulleted-list"><li style="list-style-type:disc">Ingresa al POS y envía una impresión de prueba</li></ul></div><div style="display:contents" dir="auto"><hr id="2b439073-1e23-8163-9cf7-c56b5bffc97b"/></div><div style="display:contents" dir="auto"><h3 id="2b439073-1e23-8112-91d7-f1037f5c1439" class="">💡 <strong>Consejo preventivo:</strong></h3></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-81f0-b6bd-c719ed285e50" class="">Para evitar que se repita este problema:</p></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-816a-bbd3-f8eddc84f36e" class="bulleted-list"><li style="list-style-type:disc">Asegúrate de que <strong>solo haya una sesión del POS activa</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81e7-9497-e86da40aecd2" class="bulleted-list"><li style="list-style-type:disc">No asignes en TRM (toteat) impresoras que el TPS reconozca pero no estén creadas en Windows</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8128-bdd7-d17ffd1fa566" class="bulleted-list"><li style="list-style-type:disc">Instala siempre el driver recomendado para la impresora térmica.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-813d-ac5e-e0f59985a475" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81a3-a26d-c661e7d7899a" class="toggle"><li><details open=""><summary><strong>KDS de entrega</strong></summary><div style="display:contents" dir="auto"><p id="2b439073-1e23-814d-b78e-c7bdc526c7df" class="">El KDS es el sistema de apoyo de preparación y entrega de pedidos de los clientes. Si el sistema no está funcionando se debe validar:</p></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81f6-9bc1-c06784f3ad9b" class="bulleted-list"><li style="list-style-type:disc">Revisar que esté encendido</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8149-8c8e-c22b3a10a83d" class="bulleted-list"><li style="list-style-type:disc">Validar que esté conectado a al red</li></ul></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-8178-bca0-e1f36d4c67bd" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-07-06_a_la(s)_5.53.00_p._m..png"><img style="width:681.9921875px" src="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-07-06_a_la(s)_5.53.00_p._m..png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-81c8-a855-ecaa2089858d" class="">En caso que el problema persista se debe:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-8177-988a-d4522e7615d2" class="numbered-list" start="1"><li>Borrar caché del navegador</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-81d2-824b-f3dec9c06905" class="numbered-list" start="2"><li>Asegurarse que esté en la url correspondiente <a href="https://kitchendisplay.toteat.com/">https://kitchendisplay.toteat.com/</a></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-81e6-9fdc-c65154fb5324" class="numbered-list" start="3"><li>Iniciar sesión</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-8131-b0b1-eb34a2b2299e" class="numbered-list" start="4"><li>Seleccionar el local que corresponde, el sistema cerrará la sesión y se debe volver a ingresar.</li></ol></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-8115-92b0-d15a65909d05" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_4.39.07_p._m..png"><img style="width:2826px" src="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_4.39.07_p._m..png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-8160-bcc5-d920f02bf0f3" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_4.39.25_p._m..png"><img style="width:2786px" src="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_4.39.25_p._m..png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-81e4-a448-dfca64a49e9c" class="numbered-list" start="5"><li>Al inicial sesión seleccionar Configuración KDS desde el menú latelar, y seleccionar Refrescar Listado y Activar este KDS en este Equipo</li></ol></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-8170-84af-cd85867663ff" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_4.41.21_p._m..png"><img style="width:192px" src="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_4.41.21_p._m..png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-814b-84d0-f3c85a6d99a2" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_4.41.37_p._m..png"><img style="width:672px" src="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_4.41.37_p._m..png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-8195-812d-c6ba26f3411e" class="numbered-list" start="6"><li>Por último se seleccionar “Haga click aquí para cerrar sesión y usar KDS”</li></ol></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-819f-813a-c4343430d7d9" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_4.41.43_p._m..png"><img style="width:681.984375px" src="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_4.41.43_p._m..png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8107-9f27-ff31e1ab4de9" class="toggle"><li><details open=""><summary><strong>Funcionamiento tótem/kiosko</strong></summary><div style="display:contents" dir="auto"><p id="2b439073-1e23-810f-99dd-f7bcc8ca8d1b" class="">Cuando un Totem deja de funcionar, se deben seguir los siguientes pasos</p></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-8167-9339-eb30df258a58" class="numbered-list" start="1"><li>Actualizar o refezcar el sistema con el logo de arriba a la izquierda que muestra el sistema<div style="display:contents" dir="ltr"><figure id="2b439073-1e23-8135-a6c2-d9ded20b2eef" class="image"><a href="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdFYRKNlYxmTgPiYmpuKuGf59pytTIERTl6knTZzS12SuosjJebp3kKaLr_ejcIuMfL-3n7myyg3QxqE_1Ec0i0l0U_tnnMOtrklwdcKLHg9fyhJNATgWlUag5UvDPcEiEhMDET?key=qewvBXROmWeFsJ0HxGJisQ"><img style="width:378px" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdFYRKNlYxmTgPiYmpuKuGf59pytTIERTl6knTZzS12SuosjJebp3kKaLr_ejcIuMfL-3n7myyg3QxqE_1Ec0i0l0U_tnnMOtrklwdcKLHg9fyhJNATgWlUag5UvDPcEiEhMDET?key=qewvBXROmWeFsJ0HxGJisQ"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-8107-b98d-f4962eb29925" class="numbered-list" start="2"><li>Validad si el totem cuenta con conexión, para esto primero se debe desbloquear la pantalla, deslizando el dedo desde la parte inferior solo un poco. El sistema le pedirá ingresar una clave “2025”.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-8186-9b76-d4ec33b4660d" class="numbered-list" start="3"><li>Se debe realizar un speedtest en el navegador para validar que tenga buen internet.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b439073-1e23-81b8-ae33-e7c3e66c6276" class="numbered-list" start="4"><li>En caso que no sea problemas de internet, se debe proceder a resincronizar el Totem<div style="display:contents" dir="auto"><ol type="a" id="2b439073-1e23-814c-9ba2-d8a326001e77" class="numbered-list" start="1"><li>Borrar cache en el navegador</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="2b439073-1e23-81cf-871f-eeb6f2162d84" class="numbered-list" start="2"><li>Identificar correctamente el Totem con problemas.</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="2b439073-1e23-812a-b5e1-e85138cc0255" class="numbered-list" start="3"><li>Al borrar caché en la url <a href="https://kiosk.toteat.shop/">https://kiosk.toteat.shop/</a> se mostrará una pantalla que al seleccionar “Comenzar” entregará un código.</li></ol></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-8155-a10c-d140fa235be3" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_5.38.18_p._m..png"><img style="width:336px" src="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_5.38.18_p._m..png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-8177-8e56-cee5b963344a" class="image" style="text-align:left"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_5.38.24_p._m..png"><img style="width:336px" src="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_5.38.24_p._m..png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-8175-9200-c09899d82190" class="">d. Se debe ingresar a Toteat al ambiente que corresponde (local), e ingresar a la configuración de Kiosko de Autoatención</p></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-814b-a534-c1b143a55637" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_5.50.26_p._m..png"><img style="width:336px" src="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_5.50.26_p._m..png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-81e7-9274-c705d55bdc18" class="">e. Se debe ingresar a la sección “Dispositivos” y seleccionar “Editar” en el Totem que corresponde.</p></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-81d1-ab43-fcc54853e2c8" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_6.02.44_p._m..png"><img style="width:672px" src="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_6.02.44_p._m..png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-81a5-a677-d9c8b04d011d" class="">f. Se abrirá una ventana donde en la parte inferior se encuentra “Sincronizar”. En esta sección se debe seleccionar “ingresar código” y se debe ingresar el código entregado en el Totem y seleccionar “Verificar”</p></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-81dc-b7bd-d8500929fd35" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_6.03.23_p._m..png"><img style="width:384px" src="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_6.03.23_p._m..png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2b439073-1e23-810f-bb71-da8f77f2156d" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_6.03.35_p._m..png"><img style="width:384px" src="Temario%20Soporte%20Dunkin%E2%80%99/Captura_de_pantalla_2025-09-23_a_la(s)_6.03.35_p._m..png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-819e-bb2c-da6592452a34" class="">g. Una vez verificado se debe volver al Totem que seleccionar “Entrar”. De este modo quedará sincronizado el Totem nuevamente</p></div></li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-8085-92d0-c0488a3df521" class="toggle"><li><details open=""><summary><strong>Precios de Subturno no se reflejan en Totem</strong></summary><div style="display:contents" dir="auto"><p id="2de39073-1e23-80a7-98da-c894615f4fc1" class="">Algunos locales reportan que los <strong>descuentos o precios especiales del Subturno de la mañana</strong> no se reflejan en los <strong>tótems de autoatención</strong>, mostrando en cambio los <strong>precios normales</strong>.</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80f9-998f-dc8a2e6d6037" class=""><strong>TRM</strong></p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-800f-b666-e29808dca82f" class="">Validar configuración de Turnos:</p></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-8025-a963-e47b3a574f97" class="bulleted-list"><li style="list-style-type:disc">Que el <strong>subturno de la mañana</strong> esté <strong>activo</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-801f-8df1-df3c4cbe4872" class="bulleted-list"><li style="list-style-type:disc">Que el <strong>horario configurado</strong> sea correcto (hora inicio / hora fin).</li></ul></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-80a7-9edc-feb4068ebaf3" class="bulleted-list"><li style="list-style-type:disc">Que el subturno esté asignado al <strong>local correcto</strong>.</li></ul></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80dd-ad1c-f849797f236a" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-80fa-b012-c9eecbf27a35" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image.png"><img style="width:681.9375px" src="Temario%20Soporte%20Dunkin%E2%80%99/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80ae-be18-e8b294d8f576" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8009-a2ea-d68b94860836" class=""><strong>Precios por turno correspondiente</strong></p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8057-a18e-fea612211fdf" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-8043-8ecd-c1367c18afc2" class="bulleted-list"><li style="list-style-type:disc">Dentro del producto:<div style="display:contents" dir="auto"><ul id="2de39073-1e23-8011-97ab-d3b4c67ead41" class="bulleted-list"><li style="list-style-type:circle">Confirmar que esté <strong>Activo y con Precio por turno asignado.</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-80dd-b1ee-d337376a422d" class="bulleted-list"><li style="list-style-type:circle">Los códigos de producto empiezan con <strong>PD  (Ejemplo: PD0010 Americano S)</strong>.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-804e-a349-c2b4419302e0" class="bulleted-list"><li style="list-style-type:disc">Revisar que:<div style="display:contents" dir="auto"><ul id="2de39073-1e23-8070-954e-e5038696df74" class="bulleted-list"><li style="list-style-type:circle">No tenga restricciones o este <strong>Bloqueado.</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80f5-bfce-e91b31acb0c2" class="">
+</p></div></li></ul></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-8034-9c5e-cab0b6aaf820" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%201.png"><img style="width:681.984375px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80fe-b988-d4b34992d5e6" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80f6-84d2-e3e33d70fdcf" class="">Podrán Refrescar igualmente Los Totems desde configuración - Kiosco Autoatención -Dispositivos.</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80d0-9305-c176bcf2c9af" class="">Al darle al boton Refrescar y guardar Cambios. Se actualizaran como si se generara el codigo se sincronización y esto puede ayudar a que se actualicen los precios</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-800b-a569-eabd695d8b58" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-80be-8d98-d81cbe661262" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%202.png"><img style="width:682px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8059-b1ff-eee826855e7a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8096-98f7-e4841c741b21" class="">Verificar en el TOTEM</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-804d-9b99-f8cd2c65fb49" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="2de39073-1e23-80b0-92b8-eb992fe0b981" class="numbered-list" start="1"><li>Actualizar o refrescar el sistema con el logo de arriba a la izquierda que muestra el sistema, se sugiere realizarlo 3 veces, igualmente se sugiere Reiniciar el Totem o borrar el cache.</li></ol></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-8019-89cf-fc06c22a6da6" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/TOTEM_ICONO_CAFE_REFRESH.jpg"><img style="width:681.984375px" src="Temario%20Soporte%20Dunkin%E2%80%99/TOTEM_ICONO_CAFE_REFRESH.jpg"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="2de39073-1e23-80bf-9ab2-d9e516872d3a" class="">🧠 Consideraciones importantes</h2></div><div style="display:contents" dir="auto"><blockquote id="2de39073-1e23-8007-8060-fa13305b1284" class="">📌</blockquote></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-803c-8b44-d03d5770f261" class="bulleted-list"><li style="list-style-type:disc">Los precios de subturno dependen directamente del Precio x turno y de que el <strong>Totem</strong> este <strong>Actualizado y </strong>Conexión estable a<strong> internet </strong>del <strong>Totem</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-805d-a3b8-d9a7cc01c983" class="bulleted-list"><li style="list-style-type:disc">Cambios recientes requieren <strong>resincronización manual.</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-8037-8387-ff225dd0a7a3" class="bulleted-list"><li style="list-style-type:disc">Siempre validar primero <strong>Turno</strong>, <strong>Subturno → Precios por turno → Conexión → Sincronización.</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8016-8f4b-de2243381cac" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81d1-9b22-e07bd597cd9d" class="toggle"><li><details open=""><summary><strong>Proceso de pago</strong></summary><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8103-9fb8-c02a89d8c519" class="bulleted-list"><li style="list-style-type:disc">No se envía transacción a Mercado Pago</li></ul></div><div style="display:contents" dir="auto"><ul id="2b539073-1e23-80e2-8443-cc08a059569d" class="bulleted-list"><li style="list-style-type:disc">Validar que la redelcom se encuentre conectada (punto anterior: MP)</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81c6-bf9a-e15afa6e3f5b" class="bulleted-list"><li style="list-style-type:disc">No se envía confirmación al kiosko/caja posterior al pago (punto anterior: MP)<div style="display:contents" dir="auto"><p id="2b439073-1e23-8196-a0ad-d0a1b391511c" class="">
+</p></div></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81d5-b687-c81819d3337c" class="toggle"><li><details open=""><summary><strong>Menú (productos y extras)</strong></summary><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81d6-b30f-c7c1e79b3768" class="bulleted-list"><li style="list-style-type:disc">Activación/Desactivación variedad: validar que el producto se encuentre activo en el local. Si es un variedad nueva contactar a marketing Dunkin para validar que se haya enviado desde el menú base la actualización a los locales.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8109-9b7f-ecbebc5b5d5f" class="bulleted-list"><li style="list-style-type:disc">Disponibilidad en promociones: contartar a marketing Dunkin, encargado en manejos de promociones</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-817e-8fdd-e9832852f7fb" class="bulleted-list"><li style="list-style-type:disc">Promociones puntuales (Dozen, entel): contactar a marketing Dunkin</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8103-9d3a-e95c112cfd01" class="toggle"><li><details open=""><summary><strong>Promociones (CRM)</strong></summary><div style="display:contents" dir="auto"><ul id="2b439073-1e23-818d-85c0-f44a436a8c74" class="bulleted-list"><li style="list-style-type:disc">Cupón o promoción inexistente: contactar a marketing Dunkin.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81d0-af88-caba8290d8ae" class="bulleted-list"><li style="list-style-type:disc">Cupón no válido: contactar a marketing Dunkin.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8104-90c2-c65e197b63b5" class="bulleted-list"><li style="list-style-type:disc">Cupón de promociones bancarias agotados: comunicar a soporte. </li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81bf-9f6a-dd26e5d86f70" class="toggle"><li><details open=""><summary><strong>Emisión de nota de crédito</strong></summary><div style="display:contents" dir="auto"><p id="2b439073-1e23-8167-8f2a-eb10c5a95e87" class="">Si la emisión de una nota de crédito presenta error se debe validar:</p></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81ef-a481-fd9e364fc480" class="bulleted-list"><li style="list-style-type:disc">Que el rut del cliente esté bien ingresado, sin puntos y con guión (xxxxxxxx-x)</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81c7-ad8f-e077d222caaf" class="bulleted-list"><li style="list-style-type:disc">Validar que Ebill tenga disponible folios para la emisión de notas de crédito. Según lo que se informó mientras no estén migrados todos los locales esta gestión es manual por el lado de Ebill. Dicho esto, deben validar directamente con ellos que tengan folios disponibles.</li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81b2-9b63-f28e5adf63ae" class="bulleted-list"><li style="list-style-type:disc">Dunkin debe definir quién estará encargado de revisar la disponibilidad de folios en el servidor</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2b439073-1e23-81a8-87a1-f6cb067ae31d" class="toggle"><li><details open=""><summary><strong>Liberar mesas/venta</strong></summary><div style="display:contents" dir="auto"><ul id="2b439073-1e23-8106-81e1-dc1f75cbd8c2" class="bulleted-list"><li style="list-style-type:disc">Hay casos donde no permite liberar la mesa, desde el botón “Finalizar Pago” de la venta.<br/>Esto se puede hacer desde la consola escribiendo “S.liberarMesa()”</li></ul></div><div style="display:contents" dir="auto"><ul id="2ce39073-1e23-809d-b12b-c94b2e17a38f" class="bulleted-list"><li style="list-style-type:disc">Si la orden queda Bugueada (sin productos) y no permite cerrarla, se debe anular/eliminar la orden desde BO</li></ul></div><div style="display:contents" dir="auto"><p id="2ce39073-1e23-8028-94b4-d7c2aed252d3" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2cd39073-1e23-8060-b0fb-e98591194c70" class="toggle"><li><details open=""><summary>Que hacer / que no hacer</summary><div style="display:contents" dir="auto"><p id="2cd39073-1e23-8064-96c4-d97ab48add92" class="">Acá encontraras que procesos realizamos desde nuestro lado como gestión de apoyo a los locales de dunkin</p></div><div style="display:contents" dir="auto"><ul id="2cd39073-1e23-8001-bdc0-ea4d332e8101" class="bulleted-list"><li style="list-style-type:disc">Modificar precios por lista - No</li></ul></div><div style="display:contents" dir="auto"><ul id="2ce39073-1e23-80ad-92fa-d0130edffc17" class="bulleted-list"><li style="list-style-type:disc">No es posible cerrar cajas del personal Dunkin. En caso que el usuario no cierre caja, Paola (Dunkin) debe cerrar la caja o gestionar dicho procedimiento.</li></ul></div><div style="display:contents" dir="auto"><p id="2ce39073-1e23-80c2-9e06-e6d0fff7d17f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2ce39073-1e23-805a-8916-d91833e0bd3f" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-80b2-875c-d69c01d7c134" class="toggle"><li><details open=""><summary><strong>ERROR Toma Inventario en Cierre de Turno</strong></summary><div style="display:contents" dir="auto"><p id="2de39073-1e23-808f-bc09-c7de5e5d91b9" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-807b-b407-c3cb7877aa8a" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%203.png"><img style="width:616.9618530273438px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80ce-8eef-d8652a301f01" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80d4-b66d-cd71ec2cc04f" class="">A veces no es posible cerrar un turno porque la toma de inventario está pendiente. Es un error que puede darse por diferentes motivos:</p></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-80b5-bc50-d5285ae85f62" class="bulleted-list"><li style="list-style-type:disc">Existen <strong>problemas de conexión a internet</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-80d0-95f8-d7c7e59e18c7" class="bulleted-list"><li style="list-style-type:disc">El sistema queda <strong>pendiente de confirmación/guardado</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-80f9-8f1e-c6b699365cab" class="bulleted-list"><li style="list-style-type:disc">No permite generar <strong>devoluciones</strong> asociadas al cierre</li></ul></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8023-8842-d74173bdfb81" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2df39073-1e23-80ee-b1cc-d9e5db04d745" class="">Si no se logra realizar y confirmar la toma de inventario al momento del cierre, por configuración no podrá realizarse al día siguiente. Para solucionarlo hay que cambiar esa configuración y volver a activar una vez cerrado el turno.</p></div><div style="display:contents" dir="auto"><p id="2df39073-1e23-80b3-9daa-c84601beaa62" class="">Sigue  estos pasos:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2df39073-1e23-8058-90c3-c9b8aad3fd2e" class="numbered-list" start="1"><li>Menú Lateral - Restaurantes - Ajustes Generales - General - Validaciones adicionales cierre de turno.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2df39073-1e23-80d9-a845-c6658276f5e2" class="numbered-list" start="2"><li>Dejar la opción en <strong>NO</strong> para proceder con el cierre, guardar cambios! y volver a dejar en <strong>SI</strong> luego del <strong>Cierre del turno</strong>.</li></ol></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80e0-9f0f-e1f39035324a" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-8073-8126-fcad0d380f15" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%204.png"><img style="width:709.96875px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80ac-8f9d-c72651b4563f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8084-b823-fb92ff8ce9fc" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-8029-bade-cdd5de0e9f6c" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%205.png"><img style="width:709.984375px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80f5-a6e9-db9ef31aa05f" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="2df39073-1e23-804a-b7ef-de574bc48af8"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2de39073-1e23-80d7-a541-f6681388c1de" class="">⚠️ <strong>Importante</strong></p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8095-97af-d850f2bf9683" class="">No dejar esta opción en <strong>NO </strong>de forma permanente, ya que afecta el control de inventario.</p></div></div></figure></div><div style="display:contents" dir="auto"><h2 id="2de39073-1e23-808f-9aba-ed385f158443" class="">🧠 Consideraciones importantes</h2></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-8080-bdfe-c6afd1c157e2" class="bulleted-list"><li style="list-style-type:disc">Esta incidencia es <strong>operativa</strong>, no de configuración permanente</li></ul></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-8012-94cd-ddd237856682" class="bulleted-list"><li style="list-style-type:disc">La desactivación es <strong>temporal y controlada</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-8069-a1d8-ce302cb023d6" class="bulleted-list"><li style="list-style-type:disc">Siempre reactivar la validación después del cierre</li></ul></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-809c-a3b3-d521dd242b3d" class="bulleted-list"><li style="list-style-type:disc">Reportar si el error se repite frecuentemente</li></ul></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80d1-83ed-fe6430b7492e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80ab-aad0-e72b4030435f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8010-a3c7-fc4f812db5b4" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2de39073-1e23-8078-ba17-e6bf410c3553" class="toggle"><li><details open=""><summary><strong>Levantar TPS CMD (No es Reinstalable - Dunkin Cenit)</strong></summary><div style="display:contents" dir="auto"><p id="2de39073-1e23-80fe-8546-c956025e7a96" class="">En Dunkin <strong>Cenit</strong> Ocurre a veces que el TPS no se ejecuta correctamente y no levanta por mas que se reinicie, El TPS de este local funciona por <strong>CMD</strong> es distinto, por lo cual no se puede re instalar.</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80ef-961f-d3f4de3f977d" class="">Cuando lo reiniciamos dándole al Icono TPS, clic derecho Reiniciar se identifica que el TPS se Levanta y el <strong>CMD</strong> envía información pero <strong>NO</strong> procede a Imprimir, se observan el avión en Gris, y los pedidos continúan con icono de impresora en <strong>ROJO</strong>.</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8085-96a4-ec20e2dcc69b" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-8042-9ad9-fda14dac790b" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%206.png"><img style="width:681.984375px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-800b-a9a1-d4ed62fa9699" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80ea-8394-dd498106509c" class="">Tener presente que todos los locales de <strong>Dunkin</strong> tienen las mismas 6 impresoras 4 Térmicas y 2 Totems.</p></div><div style="display:contents" dir="auto"><ol type="1" id="2de39073-1e23-801e-8b90-d087134e7560" class="numbered-list" start="1"><li>CAJA</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2de39073-1e23-801a-b8a7-ded5d958f4b4" class="numbered-list" start="2"><li>BEBIDA CALIENTE</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2de39073-1e23-8033-95d0-f8268e4928e3" class="numbered-list" start="3"><li>SALSERA</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2de39073-1e23-80ee-b9b7-e0aefc8e5441" class="numbered-list" start="4"><li>VITRINA</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2de39073-1e23-805f-a3a0-ef8935b12b50" class="numbered-list" start="5"><li>TOTEM1</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2de39073-1e23-809e-a1a0-f2614dcb03f3" class="numbered-list" start="6"><li>TOTEM2</li></ol></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-8068-b3ce-da562a51dc96" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%207.png"><img style="width:681.984375px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%207.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80b8-b94a-fe56cb55c644" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80c6-94ef-dd19280785eb" class="">Por lo cual se sugiere Ingresar al PC Servidor y pausar Todas las impresoras (Mas que todo las <strong>4 principales</strong>), para verificar que al hacer el proceso de <strong>CONFIG </strong>si impriman las comandas y boletas pendientes.</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8059-96d5-d873b3bb9757" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-8053-a955-cb5958db0193" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%208.png"><img style="width:681.96875px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%208.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8098-a7c8-db8e9cc32d36" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2de39073-1e23-80c1-9189-ca71189fec25" class=""><strong>SOLUCIÓN:</strong></h3></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8087-9f82-c56d27058b53" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80dc-a6c5-c80c2685d409" class="">Para hacer <strong>CONFIG </strong>de TPS Primero debemos <strong>MATAR</strong> el <strong>TPS</strong>, proceso normal de TASKILL en EJECUTAR, si no se Cierra, podemos hacerlo en Administrador de Tareas y Finalizar las tareas de todos los DRONE abiertos.</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80da-84d4-d11704af7d7e" class=""><em>Este proceso pueden realizarlo en otros locales de </em><em><strong>Dunkin</strong></em><em> sin problema tal cual, siempre y cuando no se levante el </em><em><strong>TPS </strong></em><em>como habitualmente.</em></p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80d8-a14e-f25da3afd08d" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-80eb-b981-c2c784f81c11" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%209.png"><img style="width:681.953125px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%209.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-8010-9a5f-fe454fd77cb2" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%2010.png"><img style="width:681.984375px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%2010.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80de-8e21-fbb6c7164a0b" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8094-bc5d-f66b1fe41d67" class="">Una vez ya con TPS <strong>Abajo</strong>, debemos ir Configuración - Print Server Config</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8038-ba6e-eb708549bc44" class="">Ingresar al <strong>Lápiz</strong> del TPS instalado</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-806d-b7d8-c34bc2dd9239" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-80da-bef7-fe03d4b52aaf" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%2011.png"><img style="width:681.96875px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%2011.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-807e-991e-fe894f9b943b" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8024-b74f-e375bbbcc6a5" class="">En la Opción<strong> Copiar Configuración a Middleware, </strong>darle clic al icono negro de Texto, donde se desplegará la info para el config.<strong> </strong></p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-803f-a1d8-cb57ac0038f5" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-8068-842a-faa10a091b54" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%2012.png"><img style="width:681.96875px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%2012.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-807d-9543-c731c7850c4a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8047-bdec-d4767ab21922" class="">Deberán seleccionar todo el texto interno y copiarlo para luego realizarlo en el pc servidor.</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8020-abce-d4f0816753ff" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-8098-bc63-eec659988352" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%2013.png"><img style="width:385.9548645019531px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%2013.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-808f-b099-f27d7ba79722" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8083-ab56-f4cdeab093e6" class="">Nos dirigimos a la carpeta de TPS dentro del <strong>PC</strong> <strong>Servidor</strong> de Dunkin y crearemos un nuevo archivo de <strong>DOCUMENTO DE TEXTO.</strong></p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-8055-b92e-c48dbd0a0052" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%2014.png"><img style="width:613.9757080078125px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%2014.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-801c-9a0d-c83500a0f88b" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%2015.png"><img style="width:681.96875px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%2015.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80f8-a71a-cb6f455e63d9" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80cc-8984-d76a507b40cd" class="">Le pondremos de nombre <strong>Config</strong></p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-804b-9f2b-fd66fad704f3" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-8068-815f-c86b85b572f7" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%2016.png"><img style="width:681.96875px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%2016.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8099-8503-d683359b65d5" class="">Dentro de este archivo pegaremos el texto anterior del TPS, y debemos guardar cambios.</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8066-9f0d-e1d46bf817ba" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-80c5-80bf-dba2e571ac25" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%2017.png"><img style="width:681.96875px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%2017.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-802d-8153-e8bcf1105642" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80a1-8a8d-ce8975723d27" class="">Luego de esto debemos Proceder a Ejecutar el <strong>Drone</strong> como Administrador </p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8095-9572-fd7a94311149" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-806e-a6a1-e8b8b1ab9961" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%2018.png"><img style="width:682px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%2018.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80a5-9385-c808531710a0" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8084-93e0-c967f71cd6cb" class="">Deberá Ejecutarse el TPS con normalidad y se deberán ver los documentos de impresión en las colas de las impresoras y en TRM no deberán verse las mesas con el icono de <strong>IMPRESORA EN ROJO </strong>y el<strong> Avión </strong>ya pasará a<strong> </strong>estabilizarse en <strong>Verde con X.</strong></p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8019-b112-f23686c5d02b" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-8093-8eeb-fd81f4dd48b4" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%2019.png"><img style="width:681.96875px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%2019.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80b3-9a42-db0e8b83e569" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-80da-a733-d03080a55eec" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%2020.png"><img style="width:681.984375px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%2020.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-8065-915d-d435ef786ce8" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2de39073-1e23-80bd-a4db-eddeb60fd297" class="image"><a href="Temario%20Soporte%20Dunkin%E2%80%99/image%2021.png"><img style="width:681.984375px" src="Temario%20Soporte%20Dunkin%E2%80%99/image%2021.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80ed-a6c8-ed643d9ef325" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-809d-959e-d0c3c79ee227" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2de39073-1e23-80c0-a3ab-c49d9d53af7b" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="2ff39073-1e23-80b6-abbd-f3a54ac0ddc1" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2ff39073-1e23-809b-a324-c103433e5775"/></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">🆕 Refuerzo Preventivo - Febrero 2026</summary><div class="indented"><div style="display:contents" dir="auto"><p id="2ff39073-1e23-8051-b6fa-ea3f18ee37f4" class="">Por instrucción de Luciano, implementaremos un plan de estabilización de 14 días para <strong>Dunkin’</strong>. El foco es anticiparnos a la apertura y asegurar la operatividad antes que el soporte propio de Dunkin’. </p></div><div style="display:contents" dir="auto"><p id="2ff39073-1e23-8008-9b23-db2cad37fc2e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2ff39073-1e23-80a1-948b-ee0dc0948e03" class=""><strong>Acciones Obligatorias (entre 7 y 8 AM):</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="30039073-1e23-8047-9deb-c8d9d322e965" class="numbered-list" start="1"><li><strong>Priorización:</strong> Iniciar por los locales con apertura más temprana (ver <a href="Temario%20Soporte%20Dunkin%E2%80%99%202b4390731e2381ee98dde4159d38c341.html">horarios en Notion</a>).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30039073-1e23-80f0-8ad8-d80ae0a3cabf" class="numbered-list" start="2"><li><strong>Conexión y Estado:</strong> Ingresar vía remoto. Si el equipo está <strong>apagado</strong>, reportar en la planilla.<div style="display:contents" dir="auto"><ul id="30039073-1e23-8096-a170-cf138e60fd2b" class="bulleted-list"><li style="list-style-type:disc"><em>Nota:</em> Los equipos deben estar encendidos al menos <strong>15 min antes</strong> de su apertura. Si es antes de ese margen, esperar; si persiste apagado cerca de la hora, se reporta.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30039073-1e23-80d6-ab56-fcf727a60262" class="numbered-list" start="3"><li><strong>Comunicación (Bloc de Notas):</strong> Abrir un <em>Notepad</em> en la pantalla del remoto para avisar al personal que SAC está verificando el sistema.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30039073-1e23-80db-940e-c56a6e76ed0f" class="numbered-list" start="4"><li><strong>Ejecución:</strong> Reiniciar TPS y lanzar <strong>comandas de prueba</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30039073-1e23-8035-af35-c5dfdbc00837" class="numbered-list" start="5"><li><strong>Cierre y Registro:</strong> Pedir confirmación al local por el bloc de notas, tomar <strong>pantallazo</strong> y subirlo a la tabla de control.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ff39073-1e23-80e2-bc88-d60bc4b1ead2" class="numbered-list" start="6"><li>Registrar la verificación diaria 👇🏻 acá abajo.<div style="display:contents" dir="ltr"><figure id="2ff39073-1e23-80fb-aba2-e1652c8b4eb0" class="link-to-page"><a href="Temario%20Soporte%20Dunkin%E2%80%99/Verificaci%C3%B3n%20diaria%202ff390731e2380fbaba2e1652c8b4eb0.html">Verificación diaria </a></figure></div></li></ol></div><div style="display:contents" dir="auto"><p id="2ff39073-1e23-8073-a003-d777574a29e5" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="2ff39073-1e23-8090-802c-f1614596dc90" class="toggle"><li><details open=""><summary><strong>Horarios locales</strong></summary><div style="display:contents" dir="auto"><div id="30039073-1e23-80bb-9f5f-c0b6e748ea04" class="column-list"><div style="display:contents" dir="auto"><div id="30039073-1e23-8089-bbf3-efbb2cb088ad" style="width:37.5%" class="column"><div style="display:contents" dir="ltr"><table id="2ff39073-1e23-802b-800d-e7d67fc1a4c9" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80ac-893e-df41320c3d2c"><td id="l^}A" class="" style="width:110px"><strong>Local</strong></td><td id="Xac\" class="" style="width:116px"><strong>LUNES A VIERNES</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80a4-bc6c-f5fdbb2fe1e2"><td id="l^}A" class="" style="width:110px"><strong>PUMAY</strong></td><td id="Xac\" class="" style="width:116px">07:00-21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8012-a6be-e5736aa5179b"><td id="l^}A" class="" style="width:110px"><strong>CENIT VITACURA</strong></td><td id="Xac\" class="" style="width:116px">07:30 a 21:30</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80e4-950e-cce7bdfc5977"><td id="l^}A" class="" style="width:110px"><strong>LAS BELLOTAS</strong></td><td id="Xac\" class="" style="width:116px">07:30 a 22:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80ac-ab66-ecdf4ec548e6"><td id="l^}A" class="" style="width:110px"><strong>MANUEL MONTT</strong></td><td id="Xac\" class="" style="width:116px">07:30 a 22:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8075-bf85-f0d01ae0d60c"><td id="l^}A" class="" style="width:110px"><strong>HUERFANOS</strong></td><td id="Xac\" class="" style="width:116px">07:30 a 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-802f-96c9-ea07136cdb07"><td id="l^}A" class="" style="width:110px"><strong>TAMARUGO</strong></td><td id="Xac\" class="" style="width:116px">07.30 a 21.00</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-807c-ab06-dbe39150760a"><td id="l^}A" class="" style="width:110px"><strong>VITACURA</strong></td><td id="Xac\" class="" style="width:116px">07.30 a 21.00</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8096-8302-c49e064cef79"><td id="l^}A" class="" style="width:110px"><strong>TOESCA</strong></td><td id="Xac\" class="" style="width:116px">07:30 a 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80ee-abfc-fc6014cbf040"><td id="l^}A" class="" style="width:110px"><strong>ESTADO</strong></td><td id="Xac\" class="" style="width:116px">07:30 a 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8041-af1e-eacd1a14f84c"><td id="l^}A" class="" style="width:110px"><strong>MIRAFLORES</strong></td><td id="Xac\" class="" style="width:116px">07:30 a 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-803c-9849-ce7c287c4b56"><td id="l^}A" class="" style="width:110px"><strong>AGUAS CLARAS</strong></td><td id="Xac\" class="" style="width:116px">08:00 - 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80b8-98d5-f2f483bb04a2"><td id="l^}A" class="" style="width:110px"><strong>COSTANERA CENTER MÓDULO</strong></td><td id="Xac\" class="" style="width:116px">08:00 a 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80f7-b021-f8dc10c6224f"><td id="l^}A" class="" style="width:110px"><strong>COSTANERA CENTER LOCAL</strong></td><td id="Xac\" class="" style="width:116px">08:00 a 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-809a-9a65-f12606729c8b"><td id="l^}A" class="" style="width:110px"><strong>OSSANDON</strong></td><td id="Xac\" class="" style="width:116px">08:30 - 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8082-846e-e8fcb6dc0c19"><td id="l^}A" class="" style="width:110px"><strong>MELIPILLA</strong></td><td id="Xac\" class="" style="width:116px">09:30 a 20:00</td></tr></div></tbody></table></div></div></div><div style="display:contents" dir="auto"><div id="30039073-1e23-80fc-9f72-fae5055fde98" style="width:62.5%" class="column"><div style="display:contents" dir="auto"><div id="30139073-1e23-8009-850d-cc0f5f26f9f5" class="column-list"><div style="display:contents" dir="auto"><div id="30139073-1e23-8098-a0ef-ce763507207c" style="width:50%" class="column"><div style="display:contents" dir="ltr"><table id="30039073-1e23-8090-b064-dd5a3c71dbf6" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="30039073-1e23-804a-846e-f6513e3d0648"><td id="l^}A" class="" style="width:111.75px"><strong>Local</strong></td><td id="Qq@|" class="" style="width:113.75px"><strong>SÁBADO</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-80b8-8df2-d2db23522df7"><td id="l^}A" class="" style="width:111.75px"><strong>LAS BELLOTAS</strong></td><td id="Qq@|" class="" style="width:113.75px">07:30 a 22:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-80fc-af49-f1f27a7dc1ce"><td id="l^}A" class="" style="width:111.75px"><strong>MANUEL MONTT</strong></td><td id="Qq@|" class="" style="width:113.75px">07:30 a 22:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-80d8-aa63-f8a183695068"><td id="l^}A" class="" style="width:111.75px"><strong>HUERFANOS</strong></td><td id="Qq@|" class="" style="width:113.75px">07:30 a 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-80ee-a4e8-f480789cc6eb"><td id="l^}A" class="" style="width:111.75px"><strong>TOESCA</strong></td><td id="Qq@|" class="" style="width:113.75px">07:30 a 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-80ca-b5a1-f6d6fd8eb56d"><td id="l^}A" class="" style="width:111.75px"><strong>ESTADO</strong></td><td id="Qq@|" class="" style="width:113.75px">07:30 a 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-807d-8d89-ef1fa88e6304"><td id="l^}A" class="" style="width:111.75px"><strong>MIRAFLORES</strong></td><td id="Qq@|" class="" style="width:113.75px">07:30 a 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-8040-b426-e175f5baafba"><td id="l^}A" class="" style="width:111.75px"><strong>PUMAY</strong></td><td id="Qq@|" class="" style="width:113.75px">8:00-20:30</td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-8060-be92-eb2c679787bc"><td id="l^}A" class="" style="width:111.75px"><strong>TAMARUGO</strong></td><td id="Qq@|" class="" style="width:113.75px">08.00 a 21.00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-8055-862e-e0d6c9b9dc0c"><td id="l^}A" class="" style="width:111.75px"><strong>VITACURA</strong></td><td id="Qq@|" class="" style="width:113.75px">08.00 a 21.00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-809a-a46d-c2795547bfc0"><td id="l^}A" class="" style="width:111.75px"><strong>AGUAS CLARAS</strong></td><td id="Qq@|" class="" style="width:113.75px">8:00 - 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-809f-9fb9-d4b46ac8bce7"><td id="l^}A" class="" style="width:111.75px"><strong>COSTANERA CENTER MÓDULO</strong></td><td id="Qq@|" class="" style="width:113.75px">08:00 a 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-80c8-bd66-cd31b56c5a4e"><td id="l^}A" class="" style="width:111.75px"><strong>COSTANERA CENTER LOCAL</strong></td><td id="Qq@|" class="" style="width:113.75px">08:00 a 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-809f-aeb0-eac6cc1cbf15"><td id="l^}A" class="" style="width:111.75px"><strong>OSSANDON</strong></td><td id="Qq@|" class="" style="width:113.75px">8:30 - 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-8066-ad58-fa1aeaae6a85"><td id="l^}A" class="" style="width:111.75px"><strong>CENIT VITACURA</strong></td><td id="Qq@|" class="" style="width:113.75px">09:00 a 19:30</td></tr></div><div style="display:contents" dir="ltr"><tr id="30039073-1e23-8045-b2cd-d370c4b1f372"><td id="l^}A" class="" style="width:111.75px"><strong>MELIPILLA</strong></td><td id="Qq@|" class="" style="width:113.75px">09:30 a 20:00</td></tr></div></tbody></table></div></div></div><div style="display:contents" dir="auto"><div id="30139073-1e23-8000-8cab-de32d5508918" style="width:50.000000000000014%" class="column"><div style="display:contents" dir="ltr"><table id="30139073-1e23-803b-b0b3-c3abf7e079b5" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="30139073-1e23-809a-8de7-eef4d7793025"><td id="l^}A" class="" style="width:109.75px"><strong>Local</strong></td><td id="nXJu" class="" style="width:111.75px"><strong>DOMINGOS Y FESTIVOS</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-8023-a1ac-ec93b64812bb"><td id="l^}A" class="" style="width:109.75px"><strong>MANUEL MONTT</strong></td><td id="nXJu" class="" style="width:111.75px">07:30 a 22:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-8012-b5c9-d61007ab7e68"><td id="l^}A" class="" style="width:109.75px"><strong>TAMARUGO</strong></td><td id="nXJu" class="" style="width:111.75px">08.00 a 21.00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-80a3-85d1-d83b4fbb1c6d"><td id="l^}A" class="" style="width:109.75px"><strong>VITACURA</strong></td><td id="nXJu" class="" style="width:111.75px">08.00 a 21.00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-8065-aed6-d474c75146c7"><td id="l^}A" class="" style="width:109.75px"><strong>HUERFANOS</strong></td><td id="nXJu" class="" style="width:111.75px">8:30 - 20:30</td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-80c3-bde5-c6f373988b1e"><td id="l^}A" class="" style="width:109.75px"><strong>TOESCA</strong></td><td id="nXJu" class="" style="width:111.75px">8:30 - 20:30</td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-80a8-b1e8-f44f837c2bb7"><td id="l^}A" class="" style="width:109.75px"><strong>ESTADO</strong></td><td id="nXJu" class="" style="width:111.75px">8:30 - 20:30</td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-80f2-a758-d5ee8d9d0b10"><td id="l^}A" class="" style="width:109.75px"><strong>MIRAFLORES</strong></td><td id="nXJu" class="" style="width:111.75px">8:30 - 20:30</td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-800d-96d6-f3bbc9bd13b3"><td id="l^}A" class="" style="width:109.75px"><strong>PUMAY</strong></td><td id="nXJu" class="" style="width:111.75px">8:30-20:30</td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-808d-b078-fba4b8257d5d"><td id="l^}A" class="" style="width:109.75px"><strong>LAS BELLOTAS</strong></td><td id="nXJu" class="" style="width:111.75px">09:00 a 22:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-80c0-b19c-c69a7f00d10d"><td id="l^}A" class="" style="width:109.75px"><strong>AGUAS CLARAS</strong></td><td id="nXJu" class="" style="width:111.75px">9:00 - 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-8032-ac63-f2e93ad10ef6"><td id="l^}A" class="" style="width:109.75px"><strong>COSTANERA CENTER MÓDULO</strong></td><td id="nXJu" class="" style="width:111.75px">09:00 a 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-8008-832b-eefbe1886ef3"><td id="l^}A" class="" style="width:109.75px"><strong>COSTANERA CENTER LOCAL</strong></td><td id="nXJu" class="" style="width:111.75px">09:00 a 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-80ae-a5fb-ee69dcddfc27"><td id="l^}A" class="" style="width:109.75px"><strong>OSSANDON</strong></td><td id="nXJu" class="" style="width:111.75px">9:00 - 21:00</td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-80b1-9b03-d76dd16d46cc"><td id="l^}A" class="" style="width:109.75px"><strong>CENIT VITACURA</strong></td><td id="nXJu" class="" style="width:111.75px">09:00 A 19:30</td></tr></div><div style="display:contents" dir="ltr"><tr id="30139073-1e23-80a9-bf88-df08d95bdb70"><td id="l^}A" class="" style="width:109.75px"><strong>MELIPILLA</strong></td><td id="nXJu" class="" style="width:111.75px">11:00 a 20:00</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="30839073-1e23-801b-be1a-ce51a2156044" class="">
+</p></div></div></div></div></div></div></div></div></div><div style="display:contents" dir="auto"><p id="2ff39073-1e23-8000-8148-eba6ba12f72a" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="2ff39073-1e23-80a8-8bd4-c4cfdbeebbe9" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><p id="2b539073-1e23-80f6-bbf7-cbb930388de8" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2b539073-1e23-8059-ad7b-d6f2828a1561" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2b539073-1e23-806c-9031-c4562ba9e181" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2b539073-1e23-8016-bc9f-e6b9a00d0158" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2b539073-1e23-807d-a98f-c950f28a51fa" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2b439073-1e23-81fe-b1dd-df0f903c4a49" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

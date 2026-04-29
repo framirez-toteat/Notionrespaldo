@@ -338,6 +338,7 @@ function buildTree(list, searchMode = false) {
       if (page.title === 'Procesos') return { icon: '⚙️', label: 'Procesos', desc: 'Flujos y documentación técnica' };
       if (page.title === 'Tareas')   return { icon: '✅', label: 'Tareas', desc: 'Gestión de tareas del equipo' };
       if (page.title === 'Sodexo')   return { icon: '🏢', label: 'Sodexo', desc: 'Proyecto cliente Sodexo' };
+      if (page.title === 'SAC')      return { icon: '🎧', label: 'SAC', desc: 'Manuales, formación y acuerdos SAC' };
       if (page.title === 'Proyectos' && page.path.includes('ac0ae8ce')) return { icon: '💼', label: 'Proyectos Equipo', desc: 'Proyectos del equipo SAC' };
       if (page.title === 'Proyectos' && page.path.includes('405bb8e9')) return { icon: '🛠️', label: 'Mis Proyectos', desc: 'Proyectos personales' };
       return { icon: '📄', label: page.title, desc: '' };

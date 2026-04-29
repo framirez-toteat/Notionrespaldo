@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Toma de pedidos</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1e139073-1e23-80ac-8437-eadd40217193" class="page sans"><header><h1 class="page-title" dir="auto">Toma de pedidos</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Matías - 16 Feb</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>9 Marzo</th><td><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Analyst</th><td><div class="checkbox checkbox-off"></div></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Senior</th><td><div class="checkbox checkbox-off"></div></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Coordinador</th><td><div class="checkbox checkbox-on"></div></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>ítem principal</th><td><a href="M%C3%B3dulo%205%20-%20TRM%20%E2%86%92%20Operaciones%20305390731e23802cb19add44271a3086.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/iterate_yellow.svg"/>Módulo 5 - TRM → Operaciones</a></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="1e139073-1e23-80fd-835d-caece3fbbfcd" class="">    <mark class="highlight-red_background">Iconos del sistema en la toma de pedidos </mark></h2></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-808c-a8a4-c2ac7512a07f" class="">      Vista de mesa</p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-802d-bfc9-c5f47b4f3af0" class="image"><a href="Toma%20de%20pedidos/image.png"><img style="width:59.984375px" src="Toma%20de%20pedidos/image.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-804e-b292-f2eaffdbd761"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80dd-8f10-cba23222e423" class="">                  Vista de detalle</p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-803f-bb8d-cf14eead0396" class="image"><a href="Toma%20de%20pedidos/image%201.png"><img style="width:53.9921875px" src="Toma%20de%20pedidos/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-80f1-912f-f94912504791"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-8035-982e-f943ef4e52ff" class="">                   Vista de lista</p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-803d-87fa-cf71db27f05d" class="image"><a href="Toma%20de%20pedidos/image%202.png"><img style="width:53.9921875px" src="Toma%20de%20pedidos/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8049-bdb8-e6b755658f04"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-8035-be05-d270ca414741" class=""> Vista de órdenes de delivery (integraciones, Toteat shop y pedidos al local) y pick up (integraciones, Toteat shop y pedidos al local).</p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-8076-8d05-c1976e92a5e5" class="image"><a href="Toma%20de%20pedidos/image%203.png"><img style="width:51.9921875px" src="Toma%20de%20pedidos/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8034-8ae5-fd5974fc1fd7"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80d0-98e6-c17defa96dfc" class="">Notificación de nuevo pedido recibido: Toteat App (Delivery, Pick up, Check in, Totem) </p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-80c4-970c-cf846172e3a7" class="image"><a href="Toma%20de%20pedidos/image%204.png"><img style="width:199.984375px" src="Toma%20de%20pedidos/image%204.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-80a5-bad7-c4a7dbd15355" class="image"><a href="data:image/png;base64,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"><img src="data:image/png;base64,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"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8065-b779-feb63fa15782"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80cd-af2c-c041db1d55a4" class="">Mesa física: Mesas para pedidos realizados en mesas físicas del restaurant, atendidos por meseros o por la funcionalidad check-in de Toteat Shop. </p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-802d-ba2c-c22b4bf20383" class="image"><a href="Toma%20de%20pedidos/image%205.png"><img style="width:109.984375px" src="Toma%20de%20pedidos/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-80a5-a814-e15ddb38e96c"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-808c-905c-dff9c8157a23" class="">Mesa virtual: Mesas para pedidos realizados bajo modalidad take away, sin la vista take away. </p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-80ed-a9ba-d15d5e3ee87c" class="image"><a href="Toma%20de%20pedidos/image%206.png"><img style="width:77.9921875px" src="Toma%20de%20pedidos/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8080-b592-f33f0cd6e77f"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80f9-b90a-e7ca9bb58f5c" class="">Mesa virtual abierta en vista take away (el número en el que inician depende de la caja abierta). </p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-8016-9150-ef7325d95e12" class="image"><a href="Toma%20de%20pedidos/image%207.png"><img style="width:171.984375px" src="Toma%20de%20pedidos/image%207.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-805c-9d2c-c1f2f1c568d0"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-801c-9fda-cac5b3681333" class="">Mesa abierta por un pedido de Toteat Shop (delivery, pick up, totem/kiosko (para servir o llevar), excepto check-in). </p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-8016-b91e-fbd0f0fc4e89" class="image"><a href="Toma%20de%20pedidos/image%208.png"><img style="width:135.984375px" src="Toma%20de%20pedidos/image%208.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-80a0-8d9e-e3ddc0cb4770"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80c2-bb05-e47a57e826b6" class="">Mesas que se abren para pedidos realizados por el botón de delivery en el home de TRM (cliente llama al local), ya sea para delivery o pick up. </p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-803b-9564-cd8c146523c6" class="image"><a href="Toma%20de%20pedidos/image%209.png"><img style="width:107.984375px" src="Toma%20de%20pedidos/image%209.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8077-90e4-e1161975b088"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-8083-ad07-f3fceeaa7db1" class="">Mesa abierta por un pedido de integraciones --&gt; los pedidos pueden ser para delivery o pick up. </p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-80e2-ae22-d0f6d45200d5" class="image"><a href="Toma%20de%20pedidos/image%2010.png"><img style="width:149.984375px" src="Toma%20de%20pedidos/image%2010.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8051-97de-d5599ce80ae2"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-800a-a606-c12e30e17a5a" class="">Mesas unidas </p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-8033-8440-cc2bba556067" class="image"><a href="Toma%20de%20pedidos/image%2011.png"><img style="width:161.984375px" src="Toma%20de%20pedidos/image%2011.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8077-b460-e4bab2cf4f37"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80e5-91d4-c93f54b183a3" class="">Mesa (física) disponible </p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-8039-abf8-cbcb5e716a27" class="image"><a href="Toma%20de%20pedidos/image%2012.png"><img style="width:123.984375px" src="Toma%20de%20pedidos/image%2012.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-80c0-b558-e5482c183911"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80a4-ab79-eac5ba0e027b" class="">Mesa reservada </p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-8049-b978-ffe715028ab3" class="image"><a href="Toma%20de%20pedidos/image%2013.png"><img style="width:133.96875px" src="Toma%20de%20pedidos/image%2013.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-80ec-8d3e-f106a0944d34"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-8007-b776-db01aa825232" class="">Mesa abierta </p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-8019-a161-d045b9abc185" class="image"><a href="Toma%20de%20pedidos/image%2014.png"><img style="width:85.984375px" src="Toma%20de%20pedidos/image%2014.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-80b6-946a-e64b8042df31"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-8013-96f0-c6a078eaef6e" class="">Mesa abierta para pedido delivery realizado a través de integraciones (delivery o pick-up), Toteat Shop o pedido al local. </p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-80bb-afcb-ea81ae670948" class="image"><a href="Toma%20de%20pedidos/image%2015.png"><img style="width:105.984375px" src="Toma%20de%20pedidos/image%2015.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-80aa-9505-f2c53eac8b1f"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80ea-a215-ebf140a6963f" class="">Mesa abierta para pedido pick up realizado a través de Toteat Shop o pedido al local. </p></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-80d9-ba3c-ec44d56f5688" class="image"><a href="Toma%20de%20pedidos/image%2016.png"><img style="width:123.984375px" src="Toma%20de%20pedidos/image%2016.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-80e2-8e43-fc70ffe86943"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-8002-8b53-ee8a30cd321e" class="">Estado: Pedido nuevo, pedido impreso en cocina, pedido en preparación. </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-801e-b911-e4eb27251f03" class="image"><a href="Toma%20de%20pedidos/image%2017.png"><img style="width:277.453125px" src="Toma%20de%20pedidos/image%2017.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8084-b4fd-ec1c40143447"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-806e-8511-db6d3874a96c" class="">Estado: Terminado de preparar </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80c4-9432-e5f84d96f7a6" class="image"><a href="Toma%20de%20pedidos/image%2018.png"><img style="width:277.484375px" src="Toma%20de%20pedidos/image%2018.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8008-9e27-f12089ae30db"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-8029-a157-c6eebf5694d2" class="">Estado: En reparto </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8008-b603-ffae24b8ccfe" class="image"><a href="Toma%20de%20pedidos/image%2019.png"><img style="width:277.4765625px" src="Toma%20de%20pedidos/image%2019.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8089-a32d-f754023f1292"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80c1-81b6-eda7619d2c6b" class="">Estado: Entregado al cliente. </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-806c-968d-c34300880cf9" class="image"><a href="Toma%20de%20pedidos/image%2020.png"><img style="width:143.984375px" src="Toma%20de%20pedidos/image%2020.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8052-8c25-ee6ff576a524"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-803a-8ea3-dd2d3b7e16da" class="">Estado: Anulado por cliente, Anulado, No recibido por cliente </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8083-9ae5-f41a3fdab222" class="image"><a href="Toma%20de%20pedidos/image%2021.png"><img style="width:159.984375px" src="Toma%20de%20pedidos/image%2021.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-80c0-8010-ff8511298c1d"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80fa-8318-d3ad93125ac6" class="">Estado: Recaudación recibida en local </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80de-8fbd-db6bf3b987a7" class="image"><a href="Toma%20de%20pedidos/image%2022.png"><img style="width:145.984375px" src="Toma%20de%20pedidos/image%2022.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-801b-ae81-e75d7f6f85a4"/></div><div style="display:contents" dir="auto"><div><div style="display:contents" dir="auto"><p id="1e139073-1e23-801e-9e3b-d16d597c288b" class="">Pedido con retiro en local </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8068-a880-c78e7eb7003b" class="image"><a href="Toma%20de%20pedidos/image%2023.png"><img style="width:115.984375px" src="Toma%20de%20pedidos/image%2023.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-803e-b651-f0af6f059226"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80e4-a270-fccdaee17349" class="">Estado en KDS </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80c9-a9de-d83c369e26b4" class="image"><a href="Toma%20de%20pedidos/image%2024.png"><img style="width:119.984375px" src="Toma%20de%20pedidos/image%2024.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-80e8-9865-da89e01a67f5"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80c1-99fc-cd87a17501e2" class="">Sin pago pendiente, lista para liberar. </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8054-921b-e7e95f57dce0" class="image"><a href="Toma%20de%20pedidos/image%2025.png"><img style="width:117.96875px" src="Toma%20de%20pedidos/image%2025.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-80bd-9f54-c153a1c6886a"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80d3-883e-e5e2ca83fc79" class="">&quot;Problema de impresión&quot;</p></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80f1-97cd-f19333235482" class="">No se envió a cola de impresión --&gt; problema con TPS. </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80c5-b3a1-f43f0532c594" class="image"><a href="Toma%20de%20pedidos/image%2026.png"><img style="width:115.96875px" src="Toma%20de%20pedidos/image%2026.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8045-8614-db0c96e7d4fc"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80dd-916f-c20165398704" class="">Problema de impresión </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-801e-b6f6-e2dc1240d621" class="image"><a href="Toma%20de%20pedidos/image%2027.png"><img style="width:127.984375px" src="Toma%20de%20pedidos/image%2027.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-80cf-a94b-d388bdf8090f"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-808b-a9b7-d1da43fe5b99" class="">Pedido con al menos 1 pago realizado. Deja de visualizarse cuando se agrega un nuevo producto a la orden. </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-804b-a182-f58fe14370a8" class="image"><a href="Toma%20de%20pedidos/image%2028.png"><img style="width:112px" src="Toma%20de%20pedidos/image%2028.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8023-a23d-f72313766ae4"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-8090-98e0-d29fbcbf3b32" class="">Orden con comentario </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80b8-9d1d-eee88e1a6ef7" class="image"><a href="Toma%20de%20pedidos/image%2029.png"><img style="width:71.984375px" src="Toma%20de%20pedidos/image%2029.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8074-afeb-ee7e36600762"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-807b-9366-da29c1a2de6b" class="">Orden con producto en espera (se comanda en pausa, así el producto se imprime a cocina hasta que se despausa).</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8095-b5a8-ec20ad45e33d" class="image"><a href="Toma%20de%20pedidos/image%2030.png"><img style="width:125.984375px" src="Toma%20de%20pedidos/image%2030.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-8011-911a-f9a34f70d34d"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80f9-aba4-f90ba08d026e" class="">Mesa abierta previamente reservada </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8096-bfbf-e6df4f4b70ee" class="image"><a href="Toma%20de%20pedidos/image%2031.png"><img style="width:112px" src="Toma%20de%20pedidos/image%2031.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e139073-1e23-80c8-a936-c44885bd4af5"/></div><div style="display:contents" dir="auto"><p id="1e139073-1e23-80f1-9049-cb373ccc7b9f" class="">Por definir: </p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8013-a3de-e862942ceb3b" class="image"><a href="Toma%20de%20pedidos/image%2032.png"><img style="width:125.9921875px" src="Toma%20de%20pedidos/image%2032.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="1e239073-1e23-80e9-9e2f-cda0d44c248f"/></div><div style="display:contents" dir="ltr"><figure id="1e139073-1e23-800d-9280-dba79e238612"><div class="source"><a href="Toma%20de%20pedidos/Toma_de_pedidos_(Iconos_del_Home)_-_Hoja_1.pdf">Toma de pedidos (Iconos del Home) - Hoja 1.pdf</a></div></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

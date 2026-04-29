@@ -1,0 +1,755 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Presentación Reu de Líderes</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2fd39073-1e23-8011-a257-e34f49296bdf" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🧮</span></div><h1 class="page-title" dir="auto">Presentación Reu de Líderes</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="2fd39073-1e23-804a-9b76-caebd112474e" class=""><strong>Reporte de Indicadores</strong></h2></div><div style="display:contents" dir="ltr"><table id="2fd39073-1e23-8072-9749-d2b8eb288519" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="2fd39073-1e23-80f4-91a5-ecfa1328d85e"><td id="nD}=" class=""><strong>VERSION</strong></td><td id="o[c;" class=""><strong>LEGACY</strong></td><td id="|TM{" class=""><strong>NEW</strong></td><td id="g]l]" class=""><strong>Acumulado fin de Enero</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2fd39073-1e23-806c-96ee-e3febb602b9c"><td id="nD}=" class=""><strong>CANT CHATS</strong></td><td id="o[c;" class="">15.002</td><td id="|TM{" class="">8.530</td><td id="g]l]" class="">23.532 (+5.072)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2fd39073-1e23-80b3-81f5-e2afc7fc8a01"><td id="nD}=" class=""><strong>TMO</strong></td><td id="o[c;" class="">14m 17s</td><td id="|TM{" class="">16m 49s</td><td id="g]l]" class="">15m 11s (+16s)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2fd39073-1e23-80f0-b7b5-eddb2e442075"><td id="nD}=" class=""><strong>TME</strong></td><td id="o[c;" class="">16s</td><td id="|TM{" class="">17s</td><td id="g]l]" class="">16s (-1s)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2fd39073-1e23-8072-b0b8-cb35f4aa86d5"><td id="nD}=" class=""><strong>CSAT</strong></td><td id="o[c;" class="">97.9%</td><td id="|TM{" class="">96.4%</td><td id="g]l]" class="">97.4% (+0.6)</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><table id="2fd39073-1e23-80be-bd72-fe08c7114465" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="2fd39073-1e23-804c-8ee7-e08190031c7b"><td id="v`j`" class=""><strong>CSAT</strong></td><td id="`p;z" class=""><strong>Perfil A</strong></td><td id="Eu`a" class=""><strong>Perfil B</strong></td><td id="nIbt" class=""><strong>Total</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2fd39073-1e23-8031-9ca6-e4a9ef7ccf72"><td id="v`j`" class=""></td><td id="`p;z" class="">97.1% (+0.5)</td><td id="Eu`a" class="">97.8% (+0.7)</td><td id="nIbt" class="">97.4%</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><table id="2fd39073-1e23-806d-a481-c7b72d7043c1" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="2fd39073-1e23-8032-97df-f404e63efedd"><td id="}[~?" class=""><strong>CX Score</strong></td><td id="lvNM" class=""><strong>Perfil A</strong></td><td id="SzDg" class=""><strong>Perfil B</strong></td><td id="bJE;" class=""><strong>Total</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2fd39073-1e23-80f9-84f8-d80de0f2b843"><td id="}[~?" class=""></td><td id="lvNM" class="">68.6% (2.7)</td><td id="SzDg" class="">68.7% (+3.2)</td><td id="bJE;" class="">68% (+3.2) </td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="2fd39073-1e23-80d4-bce2-f1a4c70aeefc" class=""><br/>El <strong>CX Score</strong> usa <strong>aprendizaje automático</strong> para evaluar la experiencia del cliente a partir de conversaciones reales. Analiza señales positivas y negativas considerando la calidad de las respuestas (IA y agentes humanos), el esfuerzo del cliente, las emociones expresadas y los comentarios sobre productos, servicios y políticas.</p></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-805d-b2b1-de0b94dcee8f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-80a8-adc2-ca5bba3cf437" class=""><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/admin/8891328/conversation/215472892817240?view=List">CX Score 4</a></p></div><div style="display:contents" dir="auto"><blockquote id="2fe39073-1e23-80f4-93c2-d729c4c19a34" class=""><em>El cliente experimentó problemas con la función de ingreso masivo de mesas, mostrando frustración por copias incorrectas y mesas repetidas. El teammate proporcionó una explicación clara y útil que resolvió las dudas del cliente.</em></blockquote></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-8041-a18d-e8ba1f4a4c4f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-80cb-9a4d-debd83f2eeb0" class=""><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/admin/8891328/conversation/215472893248999?view=List">CX Score 2</a></p></div><div style="display:contents" dir="auto"><blockquote id="2fe39073-1e23-8025-bb84-c4cdf8900ec5" class=""><em>El cliente expresó frustración por la falta de respuesta a un error reportado y tuvo que insistir sin obtener solución, recibiendo solo un cierre de caso sin resolución.</em></blockquote></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-802e-b70e-e3347c92f7c0" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-80fd-94f4-c57179551f6f" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2fe39073-1e23-8011-b23a-da75ff41a42e"/></div><div style="display:contents" dir="auto"><h2 id="2fe39073-1e23-803b-81ea-f8ac97496c35" class="">Gestión SAC Basada en Datos</h2></div><div style="display:contents" dir="ltr"><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="2fe39073-1e23-8058-8ec8-f1f37fec4453"><div style="font-size:1.5em"><span class="icon">🧮</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2fe39073-1e23-8058-a6a1-c0f85dad51e5" class="">Utilizando Gemini PRO, analizamos <mark class="highlight-teal_background"><strong>44.470 conversaciones</strong></mark> del período Dic ‘25 - Ene ‘26 con el objetivo de <strong>priorizar acciones concretas</strong> sobre la calidad de atención y reducción de fricción en clientes clave.</p></div></div></figure></div><div style="display:contents" dir="auto"><h3 id="2fe39073-1e23-802e-bd69-dd0bb0b342cb" class="">Analizamos los motivos de contacto en diferentes dimensiones:</h3></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-8098-b3e1-d973a36196d4" class="bulleted-list"><li style="list-style-type:disc">CX Score</li></ul></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-8011-a075-e141b2006edc" class="bulleted-list"><li style="list-style-type:disc">CSAT</li></ul></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-80e1-ab44-f69b14b58539" class="bulleted-list"><li style="list-style-type:disc">TMO</li></ul></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-80c9-bbc2-d4d2d6609cf3" class="bulleted-list"><li style="list-style-type:disc">NPS</li></ul></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-80fa-b9cf-d1da894b37ea" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2fe39073-1e23-80b1-a656-caee830c5889" class=""><strong>¿Qué información logramos extraer?</strong></h3></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-8020-aa4d-ef08d7be1781" class="bulleted-list"><li style="list-style-type:disc"><strong>El &quot;Punto Ciego&quot; Operativo<br/></strong>Identificamos que las consultas de <strong>Información General</strong> drenan la capacidad del equipo con un TMO de <strong>93.82 minutos</strong> y un CX Score de apenas <strong>59.1%</strong>.<br/></li></ul></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-8017-ab5f-e29e6b2423c4" class="bulleted-list"><li style="list-style-type:disc"><strong>Brecha de Expectativas<br/></strong>Mientras el equipo es excelente &quot;reiniciando TPS&quot;, el <strong>Perfil A</strong> nos otorgó un <strong>NPS de 3</strong>, indicando que falta profundidad técnica y empatía en temas estratégicos como <strong>Reportes</strong>.<br/></li></ul></div><div style="display:contents" dir="auto"><h3 id="2fe39073-1e23-8085-94be-e8c8a21fa972" class="">¿Cómo accionamos esta data?</h3></div><div style="display:contents" dir="auto"><ol type="1" id="2fe39073-1e23-8024-8512-fa84724a5c72" class="numbered-list" start="1"><li><strong>Estrategia de Talleres Dirigidos<br/></strong>Definimos prioridades de capacitación basadas en ROI de tiempo:<div style="display:contents" dir="auto"><ul id="2fe39073-1e23-80ad-bab5-e5afa026cf08" class="bulleted-list"><li style="list-style-type:disc">Reinicio TPS</li></ul></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-80c3-bd51-fd20ce6cd80e" class="bulleted-list"><li style="list-style-type:disc">Impresoras - RED o USB</li></ul></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-8098-91f0-e1c3d4beac1e" class="bulleted-list"><li style="list-style-type:disc">Reportes</li></ul></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-80d5-8164-e80c5b013793" class="bulleted-list"><li style="list-style-type:disc">Gestión Mesas</li></ul></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-801d-9748-de968a791fa9" class=""><br/>Cada taller se desarrollará en ciclos de 4 semanas, donde se reforzarán:</p></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-80db-b4f3-c434255dc391" class="bulleted-list"><li style="list-style-type:disc">La importancia de entregar una atención completa, clara y amable.</li></ul></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-8051-8bf9-da253aad3521" class="bulleted-list"><li style="list-style-type:disc">Conocer el funcionamiento y configuración estándar de cada tema.</li></ul></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-805a-a24f-f7f5ce9b994d" class="bulleted-list"><li style="list-style-type:disc">Repasar los problemas más comunes y cómo los presentan los clientes.</li></ul></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-80e0-85d4-ce6d554f3e11" class="bulleted-list"><li style="list-style-type:disc">Checklists para diagnósticos más certeros.</li></ul></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-80bf-879f-eb53c9369df7" class=""><br/></p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2fe39073-1e23-8072-bfe0-ec7bc86c41b8" class="numbered-list" start="2"><li><strong>Feedback ágil<br/></strong>Generamos <strong>Tarjetas de Desempeño Individuales</strong> para todo el equipo SAC. Por primera vez, cada agente recibió sus fortalezas y debilidades con <strong>IDs de conversaciones reales</strong> para corregir conductas específicas en el acto.<br/><div style="display:contents" dir="ltr"><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="2fe39073-1e23-80f3-821d-de9bc72a5b30"><div style="font-size:1.5em"><span class="icon">🧮</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h3 id="2fe39073-1e23-80ad-98ff-e983c5dfb075" class="">👤 Lorena Ramos (SAC)</h3></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-80d1-87e6-c118eaf771fe" class=""><strong>Evolución CX Score:</strong> Nov: 78.3% | Dic: 72.5% | Ene: 75.7%</p></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-805e-9c24-e217338369f4" class="bulleted-list"><li style="list-style-type:disc"><strong>Fortalezas (Eficiencia en Soporte Crítico):</strong> Sobresale en la rapidez para solucionar fallas de hardware y cierres de turno, generando un alto índice de gratitud por parte del cliente al restaurar la operatividad de forma inmediata.<div style="display:contents" dir="auto"><ul id="2fe39073-1e23-8014-a2cb-d87efe63e779" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472595408730</li></ul></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-8044-b0ba-c130fa3570a4" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472595386075</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-80cb-9397-cb7e1014d1c8" class="bulleted-list"><li style="list-style-type:disc"><strong>Oportunidades (Optimización del Diagnóstico):</strong> Oportunidad en reducir la cantidad de pasos en diagnósticos de inventario, evitando que el usuario perciba un esfuerzo excesivo para obtener un resultado que a veces se reporta como parcial.<div style="display:contents" dir="auto"><ul id="2fe39073-1e23-80bb-a82b-ef01077328a1" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 1 (ID):</strong> 215472595360002</li></ul></div><div style="display:contents" dir="auto"><ul id="2fe39073-1e23-80c0-b8e0-d3e0900de436" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo 2 (ID):</strong> 215472595247112</li></ul></div></li></ul></div></div></figure></div></li></ol></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-8072-bcf0-ddcfdc9e7fb1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-8075-9844-eebe4eed38d8" class="">La expectativa es que la próxima entrega (trimestral) tenga un espacio de 1:1 con los coordinadores SAC.</p></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-8069-be4b-f250512f5683" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2fe39073-1e23-80fa-a987-e9fb9f772a6d"/></div><div style="display:contents" dir="auto"><h3 id="2fe39073-1e23-807f-9c50-c7f0ef374902" class="">(Gonza) Tema 3: análisis de la carga por hora para mantener la calidad de servicio .</h3></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-80eb-b248-f2df14f7b5e4" class="">hemos comenzaod a incorporar la observación de la carga por semana lo que nos permite tener un indicador rápido de la capacidad del euqipo. </p></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-8078-9e70-def913f47b9c" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-8002-8e8e-d69f0464c009" class="">(agregar datos)</p></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-8091-8fe7-c390ba1fddb1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-8059-8925-f1a82a0ea6bd" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2fe39073-1e23-8050-98ee-e950a45a8248"/></div><div style="display:contents" dir="auto"><h3 id="2fd39073-1e23-8006-bc6f-c5537f78cb95" class="">(Andrew) Tema 4: Proyectos e Iniciativas</h3></div><div style="display:contents" dir="auto"><p id="2fd39073-1e23-80e9-bf9c-dd69a728a17e" class=""><strong>Agentes Senior: </strong>Proyecto piloto que incluye 6 agentes del equipo SAC (Jaime Medalla, Cristian Llanos, Nicolas Díaz, Felipe Rincón, Diego Martín y Brandón Villamil) en el cual buscamos implementar el rol/cargo de Senior para un mejor apoyo al equipo de Soporte, manejo de clientes VIP o complicados que requieran un manejo más especial. Adicionalmente, poder empezar a generar un plan carrera para el equipo, detectar necesidades y profesionalizar el servicio de soporte. En este momento trabajando la figura de “Acting as”. </p></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-809f-bad1-d163e4f58955" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2fe39073-1e23-8097-b2d2-eb43d147a81f" class=""><strong><br/>Talleres/Capacitaciones</strong></p></div><div style="display:contents" dir="auto"><p id="2fd39073-1e23-80a6-949a-c3eb6fd4b3b3" class="">A partir del cruce de métricas, análisis de conversaciones y comentarios por parte de personas claves en el área (Kams+Man Ops+Sac Tech) se definen los temas para realizar las capacitaciones y/o talleres de refuerzo para el equipo. Estos serán diseñados y realizados por una persona experta en el tema y acompañados por un agente Senior, con el fin de empoderar y que puedan brindar la información a sus compañeros de una forma más entendible según la trabajan en el chat diariamente.<br/><br/></p></div><div style="display:contents" dir="auto"><ul id="2ff39073-1e23-8007-a32c-c8cbf70be253" class="toggle"><li><details open=""><summary>Sac Tech Enero 2025</summary><div style="display:contents" dir="auto"><h3 id="2ff39073-1e23-80fd-bb0d-e1cea7352e9f" class="">392 casos activos durante enero </h3></div><div style="display:contents" dir="ltr"><table id="2ff39073-1e23-80cd-9109-d5dd1e5d26f0" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80f7-b332-ed574453e9cf"><th id="MyLU" class="simple-table-header-color simple-table-header">Responsable</th><th id="inEb" class="simple-table-header-color simple-table-header">Casos ene</th><th id="Zh|&gt;" class="simple-table-header-color simple-table-header">Abiertos</th><th id="fQ&lt;\" class="simple-table-header-color simple-table-header">Cerrados</th><th id="{JzD" class="simple-table-header-color simple-table-header">% cierre</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8034-9180-d31824dd364c"><td id="MyLU" class=""><strong>Jeremy Araujo</strong></td><td id="inEb" class="">116</td><td id="Zh|&gt;" class="">47</td><td id="fQ&lt;\" class="">69</td><td id="{JzD" class="">59,5%</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8071-b541-f62e80834e6d"><td id="MyLU" class=""><strong>Coordinadores SAC</strong></td><td id="inEb" class="">80</td><td id="Zh|&gt;" class="">16</td><td id="fQ&lt;\" class="">64</td><td id="{JzD" class="">80,0%</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8044-bfdb-dd8664dccdb1"><td id="MyLU" class=""><strong>Sergio Muñoz</strong></td><td id="inEb" class="">59</td><td id="Zh|&gt;" class="">31</td><td id="fQ&lt;\" class="">28</td><td id="{JzD" class="">47,5%</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80f0-9c68-f0270d72fe3e"><td id="MyLU" class=""><strong>Nicolas Alvarez</strong></td><td id="inEb" class="">47</td><td id="Zh|&gt;" class="">6</td><td id="fQ&lt;\" class="">41</td><td id="{JzD" class="">87,2%</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80cb-ac66-fdf0b48cc338"><td id="MyLU" class=""><strong>Lorena Moreno</strong></td><td id="inEb" class="">38</td><td id="Zh|&gt;" class="">6</td><td id="fQ&lt;\" class="">32</td><td id="{JzD" class="">84,2%</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-809f-9788-c4fccc3a74c7"><td id="MyLU" class=""><strong>Doymar Raga</strong></td><td id="inEb" class="">22</td><td id="Zh|&gt;" class="">4</td><td id="fQ&lt;\" class="">18</td><td id="{JzD" class="">81,8%</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8096-b84f-ff98fdb29574"><td id="MyLU" class=""><strong>Andrea Ruiz</strong></td><td id="inEb" class="">15</td><td id="Zh|&gt;" class="">3</td><td id="fQ&lt;\" class="">12</td><td id="{JzD" class="">80,0%</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-803e-a7e8-e59c5a810770"><td id="MyLU" class=""><strong>Instalaciones Tech</strong></td><td id="inEb" class="">12</td><td id="Zh|&gt;" class="">0</td><td id="fQ&lt;\" class="">12</td><td id="{JzD" class="">100%</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80ec-8ccb-d83b5e031ac7"><td id="MyLU" class=""><strong>DTE SACTECH</strong></td><td id="inEb" class="">1</td><td id="Zh|&gt;" class="">1</td><td id="fQ&lt;\" class="">0</td><td id="{JzD" class="">0%</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80c4-a8b1-eb3e45f0939e"><td id="MyLU" class=""><strong>Francisco Ramirez</strong></td><td id="inEb" class="">1</td><td id="Zh|&gt;" class="">1</td><td id="fQ&lt;\" class="">0</td><td id="{JzD" class="">0%</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8048-ad7a-efeec73ff9b2"><td id="MyLU" class=""><strong>Israel Berme</strong></td><td id="inEb" class="">1</td><td id="Zh|&gt;" class="">1</td><td id="fQ&lt;\" class="">0</td><td id="{JzD" class="">0%</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8024-bab5-f8d9a6f32d49"><td id="MyLU" class=""><strong>Integraciones SACTECH</strong></td><td id="inEb" class="">0</td><td id="Zh|&gt;" class="">0</td><td id="fQ&lt;\" class="">0</td><td id="{JzD" class="">—</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><table id="2ff39073-1e23-80f8-8f82-fa15be50f3f1" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80e4-b50f-d7902c54fcf2"><th id="=E|N" class="simple-table-header-color simple-table-header">Número</th><th id="kEcs" class="simple-table-header-color simple-table-header">Qué representa</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80c7-98be-f86eba2c08a1"><td id="=E|N" class=""><strong>392</strong></td><td id="kEcs" class="">Carga nueva que entra en enero</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80d3-8924-e389d9762617"><td id="=E|N" class=""><strong>98</strong></td><td id="kEcs" class="">Backlog heredado que sigue abierto</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8021-8e3e-d9248011dae8"><td id="=E|N" class=""><strong>214</strong></td><td id="kEcs" class="">Backlog activo  (actual)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80c3-a536-d3ef49c61f37"><td id="=E|N" class=""><strong>490</strong></td><td id="kEcs" class=""><strong>Universo total de casos que el equipo tuvo “sobre la mesa” en enero</strong></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="2ff39073-1e23-8034-8ca2-e3baf048a075" class=""><strong>TOTAL:</strong> 392 casos → <strong>116 abiertos</strong> / <strong>276 cerrados</strong> (<strong>70,4% cierre</strong>) <br/></p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2ff39073-1e23-8000-bc3b-fe4788980c03"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ff39073-1e23-80a0-bb6c-cbd10ed80665" class="">En el histórico la tasa de cierre es ~85%</p></div></div></figure></div><div style="display:contents" dir="auto"><ul id="2ff39073-1e23-805c-9e7d-ea1bbac06eb4" class="toggle"><li><details open=""><summary>Casos Cerrados</summary><div style="display:contents" dir="auto"><ol type="1" id="2ff39073-1e23-80ab-8038-cfc08241febe" class="numbered-list" start="1"><li><strong>Tiempo promedio casos cerrados</strong><div style="display:contents" dir="ltr"><table id="2ff39073-1e23-80cd-945c-f6a298f90ba6" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8048-b6ef-cd45e4ef1bd9"><th id="E}bf" class="simple-table-header-color simple-table-header">Tipo de caso</th><th id="NV|c" class="simple-table-header-color simple-table-header">Casos cerrados</th><th id="~G\h" class="simple-table-header-color simple-table-header">% del total cerrado</th><th id="=Yg?" class="simple-table-header-color simple-table-header">Tiempo promedio de cierre</th><th id="_cPf" class="simple-table-header-color simple-table-header">Mediana</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80f6-971e-d697dcdcf5b8"><td id="E}bf" class=""><strong>NO escalados (autónomos)</strong></td><td id="NV|c" class=""><strong>261</strong></td><td id="~G\h" class=""><strong>94,6%</strong></td><td id="=Yg?" class="">4,0 días</td><td id="_cPf" class="">2,0 días</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80c6-8198-d8beb55f2bf6"><td id="E}bf" class=""><strong>Escalados a Ingeniería</strong></td><td id="NV|c" class=""><strong>15</strong></td><td id="~G\h" class=""><strong>5,4%</strong></td><td id="=Yg?" class="">6,9 días</td><td id="_cPf" class="">6,9 días</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80ef-9ff7-efbb8a24a92e"><td id="E}bf" class=""><strong>TOTAL</strong></td><td id="NV|c" class=""><strong>276</strong></td><td id="~G\h" class=""><strong>100%</strong></td><td id="=Yg?" class="">—</td><td id="_cPf" class="">—</td></tr></div></tbody></table></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ff39073-1e23-8044-8b7a-f69c15a6df17" class="numbered-list" start="2"><li><strong>Tiempo promedio por Responsable para casos cerrados </strong><div style="display:contents" dir="ltr"><table id="2ff39073-1e23-8000-a296-c81361d32bb8" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80c5-9f11-fa3f1383f254"><th id="f:y?" class="simple-table-header-color simple-table-header">Responsable</th><th id="d;]h" class="simple-table-header-color simple-table-header">Tipo de caso</th><th id=";Sa&lt;" class="simple-table-header-color simple-table-header">Casos cerrados</th><th id="~@{D" class="simple-table-header-color simple-table-header">Tiempo promedio (días)</th><th id="Ao=o" class="simple-table-header-color simple-table-header">Mediana (días)</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80ef-8b39-c371f4c7d614"><td id="f:y?" class=""><strong>Jeremy Araujo</strong></td><td id="d;]h" class="">No escalados</td><td id=";Sa&lt;" class="">66</td><td id="~@{D" class="">2,9</td><td id="Ao=o" class="">0,9</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-804e-807d-f444c9c193a7"><td id="f:y?" class=""></td><td id="d;]h" class="">Escalados</td><td id=";Sa&lt;" class="">3</td><td id="~@{D" class="">1,1</td><td id="Ao=o" class="">1,2</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80dd-8bbf-e559db878d7f"><td id="f:y?" class=""><strong>Sergio Muñoz</strong></td><td id="d;]h" class="">No escalados</td><td id=";Sa&lt;" class="">20</td><td id="~@{D" class="">6,4</td><td id="Ao=o" class="">5,5</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8099-b8b6-d79bf2278789"><td id="f:y?" class=""></td><td id="d;]h" class="">Escalados</td><td id=";Sa&lt;" class="">8</td><td id="~@{D" class="">10,1</td><td id="Ao=o" class="">11,0</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80e6-9bbe-ec29eb04368c"><td id="f:y?" class=""><strong>Lorena Moreno</strong></td><td id="d;]h" class="">No escalados</td><td id=";Sa&lt;" class="">32</td><td id="~@{D" class="">1,3</td><td id="Ao=o" class="">0,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8034-b7ae-fb364af8233c"><td id="f:y?" class=""></td><td id="d;]h" class="">Escalados</td><td id=";Sa&lt;" class="">0</td><td id="~@{D" class="">—</td><td id="Ao=o" class="">—</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80eb-8d81-ce479b63318f"><td id="f:y?" class=""><strong>Nicolas Alvarez</strong></td><td id="d;]h" class="">No escalados</td><td id=";Sa&lt;" class="">40</td><td id="~@{D" class="">1,8</td><td id="Ao=o" class="">0,9</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8004-9725-f1d6709eed12"><td id="f:y?" class=""></td><td id="d;]h" class="">Escalados</td><td id=";Sa&lt;" class="">1</td><td id="~@{D" class="">0,7</td><td id="Ao=o" class="">0,7</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80a8-9454-f9dd0214e159"><td id="f:y?" class=""><strong>Andrea Ruiz</strong></td><td id="d;]h" class="">No escalados</td><td id=";Sa&lt;" class="">11</td><td id="~@{D" class="">1,2</td><td id="Ao=o" class="">0,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-809e-aa3f-d8fb66e9b3f6"><td id="f:y?" class=""></td><td id="d;]h" class="">Escalados</td><td id=";Sa&lt;" class="">1</td><td id="~@{D" class="">3,3</td><td id="Ao=o" class="">3,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-804e-916b-d41d4c3f38a3"><td id="f:y?" class=""><strong>Doymar Raga</strong></td><td id="d;]h" class="">No escalados</td><td id=";Sa&lt;" class="">17</td><td id="~@{D" class="">3,8</td><td id="Ao=o" class="">2,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8009-ba44-dd07addb29e8"><td id="f:y?" class=""></td><td id="d;]h" class="">Escalados</td><td id=";Sa&lt;" class="">1</td><td id="~@{D" class="">6,9</td><td id="Ao=o" class="">6,9</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80df-81ba-f373ae820eb0"><td id="f:y?" class=""><strong>Coordinadores SAC</strong></td><td id="d;]h" class="">No escalados</td><td id=";Sa&lt;" class="">63</td><td id="~@{D" class="">6,6</td><td id="Ao=o" class="">6,9</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8046-bf4e-d410f3479daa"><td id="f:y?" class=""></td><td id="d;]h" class="">Escalados</td><td id=";Sa&lt;" class="">1</td><td id="~@{D" class="">7,7</td><td id="Ao=o" class="">7,7</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8030-966d-c5c22d622697"><td id="f:y?" class=""><strong>Instalaciones Tech</strong></td><td id="d;]h" class="">No escalados</td><td id=";Sa&lt;" class="">12</td><td id="~@{D" class="">10,8</td><td id="Ao=o" class="">11,0</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8054-b069-ea856430a57a"><td id="f:y?" class=""></td><td id="d;]h" class="">Escalados</td><td id=";Sa&lt;" class="">0</td><td id="~@{D" class="">—</td><td id="Ao=o" class="">—</td></tr></div></tbody></table></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ff39073-1e23-80d4-8a8d-ec70e3ed710d" class="numbered-list" start="3"><li><strong>Casos cerrados por país</strong><div style="display:contents" dir="ltr"><table id="2ff39073-1e23-800f-a242-cdea412d1daf" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-801f-a6ac-e5f68808ddaf"><th id="}B^V" class="simple-table-header-color simple-table-header">País</th><th id="dxXM" class="simple-table-header-color simple-table-header">Tipo de caso</th><th id="y=DZ" class="simple-table-header-color simple-table-header">Casos cerrados</th><th id="X~bs" class="simple-table-header-color simple-table-header">Tiempo promedio (días)</th><th id="Pb[_" class="simple-table-header-color simple-table-header">Mediana (días)</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8035-8f5d-ca7f8f89b049"><td id="}B^V" class=""><strong>Argentina</strong></td><td id="dxXM" class="">No escalados</td><td id="y=DZ" class="">10</td><td id="X~bs" class="">6,3</td><td id="Pb[_" class="">1,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-804f-bb01-d907e11101aa"><td id="}B^V" class=""><strong>Chile</strong></td><td id="dxXM" class="">No escalados</td><td id="y=DZ" class="">157</td><td id="X~bs" class="">4,3</td><td id="Pb[_" class="">2,7</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-807b-957e-d9a174e2e5d5"><td id="}B^V" class=""></td><td id="dxXM" class="">Escalados</td><td id="y=DZ" class="">11</td><td id="X~bs" class="">6,9</td><td id="Pb[_" class="">6,9</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-800f-ad4b-e0bd5f835858"><td id="}B^V" class=""><strong>Colombia</strong></td><td id="dxXM" class="">No escalados</td><td id="y=DZ" class="">61</td><td id="X~bs" class="">3,2</td><td id="Pb[_" class="">1,0</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8018-b68b-ead0e5e0a4bc"><td id="}B^V" class=""></td><td id="dxXM" class="">Escalados</td><td id="y=DZ" class="">2</td><td id="X~bs" class="">6,6</td><td id="Pb[_" class="">6,6</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-807b-a7fe-c8cf940b0f4d"><td id="}B^V" class=""><strong>Costa Rica</strong></td><td id="dxXM" class="">No escalados</td><td id="y=DZ" class="">1</td><td id="X~bs" class="">1,8</td><td id="Pb[_" class="">1,8</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-808f-85d2-fb6d80f5f969"><td id="}B^V" class=""><strong>México</strong></td><td id="dxXM" class="">No escalados</td><td id="y=DZ" class="">31</td><td id="X~bs" class="">3,4</td><td id="Pb[_" class="">2,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-803a-abbb-ed21cd856108"><td id="}B^V" class=""></td><td id="dxXM" class="">Escalados</td><td id="y=DZ" class="">2</td><td id="X~bs" class="">7,0</td><td id="Pb[_" class="">7,0</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8002-9d96-d4b0d437df7f"><td id="}B^V" class=""><strong>Perú</strong></td><td id="dxXM" class="">No escalados</td><td id="y=DZ" class="">1</td><td id="X~bs" class="">11,0</td><td id="Pb[_" class="">11,0</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2ff39073-1e23-804f-84ee-e25d6028071e"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ff39073-1e23-808f-832b-ce24274db194" class="">Hay un número de casos ya resueltos informados en el caso, a la espera de confirmación por parte del solicitante (Operaciones) para cerrar el caso. Revisar siempre las notificaciones en Salesforce y las publicaciones/actividad del caso</p></div></div></figure></div></li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2ff39073-1e23-803a-98d5-e0f8417856b7" class="toggle"><li><details open=""><summary>Casos Activos actualmente (214)</summary><div style="display:contents" dir="auto"><ol type="1" id="2ff39073-1e23-80b8-906e-d1aef1f86bd2" class="numbered-list" start="1"><li><strong>Distribución por Nivel</strong><div style="display:contents" dir="ltr"><table id="2ff39073-1e23-8012-8d26-e36b14de785d" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8018-a836-c51a49c8a228"><th id="W]J\" class="simple-table-header-color simple-table-header">Nivel 1</th><th id="iUYf" class="simple-table-header-color simple-table-header" style="width:75px">Casos activos</th><th id="i?HV" class="simple-table-header-color simple-table-header" style="width:92px">Escalados a Ing.</th><th id="MzkT" class="simple-table-header-color simple-table-header" style="width:86px">No escalados</th><th id="bMdA" class="simple-table-header-color simple-table-header">Promedio días abiertos</th><th id="hYeW" class="simple-table-header-color simple-table-header">Mediana días abiertos</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8051-8acc-e54208f21943"><td id="W]J\" class=""><strong>TRM</strong></td><td id="iUYf" class="" style="width:75px"><strong>129</strong></td><td id="i?HV" class="" style="width:92px"><strong>98</strong></td><td id="MzkT" class="" style="width:86px">31</td><td id="bMdA" class="">37,5</td><td id="hYeW" class="">30,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80b7-9b48-ffa389f42a50"><td id="W]J\" class=""><strong>INVENTARIO</strong></td><td id="iUYf" class="" style="width:75px">34</td><td id="i?HV" class="" style="width:92px">18</td><td id="MzkT" class="" style="width:86px">16</td><td id="bMdA" class="">24,3</td><td id="hYeW" class="">18,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-805c-9232-c5893c63eedb"><td id="W]J\" class=""><strong>DTE</strong></td><td id="iUYf" class="" style="width:75px">18</td><td id="i?HV" class="" style="width:92px"><strong>16</strong></td><td id="MzkT" class="" style="width:86px">2</td><td id="bMdA" class="">46,2</td><td id="hYeW" class="">36,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-804e-bc9b-e671f80dd81d"><td id="W]J\" class=""><strong>INTEGRACIONES</strong></td><td id="iUYf" class="" style="width:75px">17</td><td id="i?HV" class="" style="width:92px"><strong>15</strong></td><td id="MzkT" class="" style="width:86px">2</td><td id="bMdA" class="">42,7</td><td id="hYeW" class="">8,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-801f-98ae-cb2e75c28ae7"><td id="W]J\" class=""><strong>RE-INSTALACION LOCAL</strong></td><td id="iUYf" class="" style="width:75px">14</td><td id="i?HV" class="" style="width:92px"><strong>12</strong></td><td id="MzkT" class="" style="width:86px">2</td><td id="bMdA" class="">31,8</td><td id="hYeW" class="">28,5</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8043-827f-c31d0ce1214d"><td id="W]J\" class=""><strong>TOTAL</strong></td><td id="iUYf" class="" style="width:75px"><strong>214</strong></td><td id="i?HV" class="" style="width:92px"><strong>159 (74,3%)</strong></td><td id="MzkT" class="" style="width:86px"><strong>55 (25,7%)</strong></td><td id="bMdA" class="">—</td><td id="hYeW" class="">—</td></tr></div></tbody></table></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ff39073-1e23-802c-9453-e18339cd44bd" class="numbered-list" start="2"><li><strong>Distribución por país</strong><div style="display:contents" dir="ltr"><table id="2ff39073-1e23-80d5-9a24-ffa8f967cd77" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-804b-bffb-da248ba5a383"><th id="rkoQ" class="simple-table-header-color simple-table-header">País</th><th id="vVag" class="simple-table-header-color simple-table-header">Casos activos</th><th id="^r?P" class="simple-table-header-color simple-table-header">Escalados a Ing.</th><th id="L[ds" class="simple-table-header-color simple-table-header">No escalados</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80e7-a4b4-e524ef6e8c3f"><td id="rkoQ" class=""><strong>Chile</strong></td><td id="vVag" class=""><strong>142</strong></td><td id="^r?P" class=""><strong>114</strong></td><td id="L[ds" class="">28</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80c1-9adc-f04186c5a0ae"><td id="rkoQ" class=""><strong>Colombia</strong></td><td id="vVag" class=""><strong>49</strong></td><td id="^r?P" class=""><strong>28</strong></td><td id="L[ds" class="">21</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-802b-b02b-f56b1b3bfa31"><td id="rkoQ" class=""><strong>México</strong></td><td id="vVag" class="">12</td><td id="^r?P" class="">7</td><td id="L[ds" class="">5</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80bd-b048-e9d39d6ee123"><td id="rkoQ" class=""><strong>Argentina</strong></td><td id="vVag" class="">9</td><td id="^r?P" class="">8</td><td id="L[ds" class="">1</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-800a-a05f-f4a2d40a0b15"><td id="rkoQ" class=""><strong>Costa Rica</strong></td><td id="vVag" class="">1</td><td id="^r?P" class="">1</td><td id="L[ds" class="">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-808b-9452-c484b2a3ba43"><td id="rkoQ" class=""><strong>Perú</strong></td><td id="vVag" class="">1</td><td id="^r?P" class="">1</td><td id="L[ds" class="">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8023-b555-d5040b5c9da6"><td id="rkoQ" class=""><strong>TOTAL</strong></td><td id="vVag" class=""><strong>214</strong></td><td id="^r?P" class=""><strong>159</strong></td><td id="L[ds" class=""><strong>55</strong></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="2ff39073-1e23-802b-b967-db6df2d16ea8" class="">De los 55 casos no escalados, 21 son casos nuevos (72 horas o menos)</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ff39073-1e23-8009-b4c5-ffc22c11dc05" class="numbered-list" start="3"><li><strong>Carga por responsable activa</strong><div style="display:contents" dir="ltr"><table id="2ff39073-1e23-8055-8075-db2ce3269a8e" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-806e-b778-d6c047106b17"><th id="mp`V" class="simple-table-header-color simple-table-header">Responsable</th><th id="HwfP" class="simple-table-header-color simple-table-header">Casos activos</th><th id="T[C~" class="simple-table-header-color simple-table-header">Promedio días abiertos</th><th id="eZTw" class="simple-table-header-color simple-table-header">Mediana días abiertos</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-801a-9f05-c65ca0745fbe"><td id="mp`V" class=""><strong>Jeremy Araujo</strong></td><td id="HwfP" class=""><strong>104</strong></td><td id="T[C~" class="">39,4</td><td id="eZTw" class=""><strong>37,4</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80a3-b177-f929af2a519b"><td id="mp`V" class=""><strong>Sergio Muñoz</strong></td><td id="HwfP" class=""><strong>48</strong></td><td id="T[C~" class="">29,5</td><td id="eZTw" class=""><strong>23,4</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80f9-a381-cb82736122fa"><td id="mp`V" class=""><strong>Coordinadores SAC</strong></td><td id="HwfP" class="">17</td><td id="T[C~" class="">11,5</td><td id="eZTw" class="">9,5</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80c2-b479-f720238ea026"><td id="mp`V" class=""><strong>Doymar Raga</strong></td><td id="HwfP" class="">14</td><td id="T[C~" class="">47,3</td><td id="eZTw" class=""><strong>58,3</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80e5-872b-c9e2f7596e1e"><td id="mp`V" class=""><strong>Lorena Moreno</strong></td><td id="HwfP" class="">13</td><td id="T[C~" class="">48,4</td><td id="eZTw" class=""><strong>36,5</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8052-9b60-ed7f4e06c201"><td id="mp`V" class=""><strong>Nicolas Alvarez</strong></td><td id="HwfP" class="">8</td><td id="T[C~" class="">28,0</td><td id="eZTw" class="">7,7</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80c5-876f-e8a3b11ea92c"><td id="mp`V" class=""><strong>Andrea Ruiz</strong></td><td id="HwfP" class="">7</td><td id="T[C~" class="">68,5</td><td id="eZTw" class=""><strong>79,1</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-80d4-9087-d345d3e57d0a"><td id="mp`V" class="">DTE SACTECH</td><td id="HwfP" class="">1</td><td id="T[C~" class="">3,4</td><td id="eZTw" class="">3,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-8074-814c-fbc7206a4e33"><td id="mp`V" class="">Francisco Ramirez</td><td id="HwfP" class="">1</td><td id="T[C~" class="">16,4</td><td id="eZTw" class="">16,4</td></tr></div><div style="display:contents" dir="ltr"><tr id="2ff39073-1e23-808b-a3bd-c1a16e57b17f"><td id="mp`V" class="">Israel Berme</td><td id="HwfP" class="">1</td><td id="T[C~" class="">24,5</td><td id="eZTw" class="">24,5</td></tr></div></tbody></table></div></li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="2ff39073-1e23-8012-8927-c3bc64e7184f" class="">
+</p></div></details></li></ul></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

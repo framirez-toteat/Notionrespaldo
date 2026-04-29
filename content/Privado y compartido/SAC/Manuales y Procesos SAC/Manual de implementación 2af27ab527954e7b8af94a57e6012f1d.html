@@ -1,0 +1,751 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Manual de implementación</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2af27ab5-2795-4e7b-8af9-4a57e6012f1d" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📳</span></div><h1 class="page-title" dir="auto">Manual de implementación</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/person-masculine_gray.svg" style="width:14px;height:14px;display:block"/></span>Creado Por:</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">P</span></span>Pao Rodríguez</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td><span class="selected-value select-value-color-brown">Manuales y procesos</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Creación</th><td><time>01/09/2022</time></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>F. edición</th><td><time>14/01/2024</time></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="76dea835-e179-48a7-a409-053e2b2e4e5a"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Propósito:</strong> Este manual está diseñado para realizar el proceso completo y adecuado de implementación, desde el agendamiento hasta la despedida del cliente.</div></figure></div><div style="display:contents" dir="ltr"><nav id="14e95a84-fba6-4297-9453-61e9215e435c" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#89140a6b-4b74-405b-8f2a-bc1d0a0c09c0">1. Descripción</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#cb25c7e0-4d71-42c6-b9e4-cee44233c88e"><mark class="highlight-orange">2. Alcance</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#875399f2-4bb8-486b-9003-c8abc8be68a7"><mark class="highlight-orange">3. Entrada</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b3b4cd71-834f-4e3e-9806-6b70cb7d1366"><mark class="highlight-orange">4. Condiciones</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8705fd85-2efe-4bf1-8e05-d4907a7956fb"><mark class="highlight-orange">5. Procedimiento </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8ceba6b4-5f68-4fd4-908b-23999d8f04a5"><mark class="highlight-orange">6. Salida</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#90c38106-5ac9-4965-8cda-aba27d9f8ebc"><mark class="highlight-orange">7. Excepciones del flujo</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#167811a1-4098-4c39-8376-f8fba4804c6f"><mark class="highlight-orange">8. Puntos de control </mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9c0a0766-5c79-4b6d-9882-5d89544cf3bf"><mark class="highlight-orange">9. Control actualizaciones</mark></a></div></nav></div><div style="display:contents" dir="auto"><h3 id="89140a6b-4b74-405b-8f2a-bc1d0a0c09c0" class="block-color-orange">1. Descripción</h3></div><div style="display:contents" dir="auto"><p id="ed9fab6b-95bf-4d20-847a-44b5ec4036d1" class="">Se realiza la implementación a los clientes que han contratado Toteat, posterior al proceso realizado por el área de Onboarding.</p></div><div style="display:contents" dir="auto"><h3 id="cb25c7e0-4d71-42c6-b9e4-cee44233c88e" class=""><mark class="highlight-orange">2. Alcance</mark></h3></div><div style="display:contents" dir="auto"><p id="fbb4e843-9b21-447b-83ad-41f7dc23f581" class="">Proceso establecido luego de haber pasado por el proceso de Onboarding</p></div><div style="display:contents" dir="auto"><h3 id="875399f2-4bb8-486b-9003-c8abc8be68a7" class=""><mark class="highlight-orange">3. Entrada</mark></h3></div><div style="display:contents" dir="auto"><p id="63bb172c-f179-42e8-bad1-db9f5d4e50d6" class="">Solicitud de implementación y asignación agenda realizada por Onboarding</p></div><div style="display:contents" dir="auto"><h3 id="b3b4cd71-834f-4e3e-9806-6b70cb7d1366" class=""><mark class="highlight-orange">4. Condiciones</mark></h3></div><div style="display:contents" dir="auto"><ul id="cc6fda4d-2272-4220-a546-ac5d39a63407" class="toggle"><li><details open=""><summary><strong>La persona que realice el agendamiento, debe tener en cuenta:</strong></summary><div style="display:contents" dir="auto"><ul id="50c8f160-f0fb-4a0c-b5af-5c4075bc5171" class="bulleted-list"><li style="list-style-type:disc">Horario de implementación: 08:00 - 21:00 hora chile</li></ul></div><div style="display:contents" dir="auto"><ul id="40ea33c3-37e2-4692-b090-87dd4a9b2987" class="bulleted-list"><li style="list-style-type:disc">Incluir datos en el formulario: https://docs.google.com/forms/d/1Ihl3OMZDqDNKaHV4I5ZyVg7U8WSutAXejEhlVFkUCto/edit?ts=65940e4b</li></ul></div><div style="display:contents" dir="auto"><ul id="56c9f7d1-cb75-4174-abac-1d0f9bdf6f81" class="bulleted-list"><li style="list-style-type:disc">Además siempre se debe verificar e incluir en el calendario: <a href="https://calendar.google.com/calendar/u/1?cid=dG90ZWF0LmNvbV9kM2c3aGVyajJoMDQ2Y2ZzMGJncnA0cHBrNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t">https://calendar.google.com/calendar/u/1?cid=dG90ZWF0LmNvbV9kM2c3aGVyajJoMDQ2Y2ZzMGJncnA0cHBrNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t</a></li></ul></div><div style="display:contents" dir="auto"><ul id="15ab8548-478f-4778-80bd-ae73fcf690e4" class="bulleted-list"><li style="list-style-type:disc">Realizar la agenda de manera correcta:<div style="display:contents" dir="auto"><ul id="64cf43d5-597e-4d8f-8269-66a1f9d5ebd0" class="bulleted-list"><li style="list-style-type:circle"><strong>Asunto:</strong> INSTALACIÓN / OFFLINE + RESTAURANTE + PAÍS</li></ul></div><div style="display:contents" dir="auto"><ul id="e44416af-8f10-4664-afa7-cd7a002af6df" class="bulleted-list"><li style="list-style-type:circle">En el calendario debe ir la siguiente información:</li></ul></div></li></ul></div><div style="display:contents" dir="ltr"><figure id="ceed2edf-48cc-4f53-bc94-38e86eeea89f" class="image" style="text-align:center"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_1.png"><img style="width:398px" src="Manual%20de%20implementaci%C3%B3n/Imagen_1.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="8705fd85-2efe-4bf1-8e05-d4907a7956fb" class=""><mark class="highlight-orange">5. Procedimiento </mark></h3></div><div style="display:contents" dir="auto"><ul id="d7203190-c049-475a-8b79-68b0d14c0232" class="toggle"><li><details open=""><summary><strong>Paso 1:</strong> Verificación agenda</summary><div style="display:contents" dir="auto"><ul id="83edf780-faa0-44a7-be73-cc62170c9454" class="bulleted-list"><li style="list-style-type:disc">Verificar la cita de la agenda, los datos ingresados previos por el agente de OB.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="996140a4-7619-4dc8-805a-774e041f9c66" class="toggle"><li><details open=""><summary><strong>Paso 2: </strong>Contactar al cliente</summary><div style="display:contents" dir="auto"><ul id="e5936991-d512-4879-b95f-70cd760ba21f" class="bulleted-list"><li style="list-style-type:disc">Contactar al cliente por Wp al número del cliente informado:</li></ul></div><div style="display:contents" dir="auto"><p id="91f62071-940c-40f0-9143-a263481defd1" class=""><em><mark class="highlight-orange_background">“Estimado buen día, mi nombre es xxxx xxxx, agente de Toteat, lo estoy contactando  para realizar  la implementación coordinada para hoy, a las xx:xx del local xxxx, ¿Está usted en el local para comenzar la instalación? “</mark></em></p></div><div style="display:contents" dir="auto"><ul id="82c100c4-4f21-44ce-9e19-d54fbd06c447" class="bulleted-list"><li style="list-style-type:disc">Si el cliente está listo, , se debe conectar al PC con el código de remote proporcionado por el ejecutivo y avanzar al manual.</li></ul></div><div style="display:contents" dir="auto"><ul id="82514bf1-c12d-4366-835f-359478c0b160" class="bulleted-list"><li style="list-style-type:disc">De lo contrario se le dará un tiempo max ce de <strong><span style="border-bottom:0.05em solid">30 min</span></strong>, si el cliente responde después de este tiempo,  se debe informar al cliente que la implementación se  deberá reagendar:</li></ul></div><div style="display:contents" dir="auto"><p id="67d68221-ee1b-4b9c-bd55-6eed4793bc3e" class=""><em><mark class="highlight-orange_background">“Buen día, estimado cliente, le informó que debido a que la agenda estaba para las xx:xx y teniendo en cuenta que la  implementación tiene una duración apróx de una hora y tenemos agendados otros clientes,  es necesario que reagendemos de acuerdo a su disponibilidad. De acuerdo a lo anterior, procederemos a avisarle a su ejecutivo para que lo contacte y se genere el reagendamiento. Agradecemos su comprensión y estaremos atentos para su implementación”.</mark></em></p></div><div style="display:contents" dir="auto"><ul id="7eb1e8ce-1292-4dc1-9f91-ca235191c94d" class="bulleted-list"><li style="list-style-type:disc">Se debe avisar al ejecutivo por Slack en el canal correspondiente y etiquetarlo,</li></ul></div><div style="display:contents" dir="auto"><p id="abbfd661-c51b-4740-baab-985d2a6d5b40" class="">para que esté enterado que debe reagendar al cliente y el motivo.</p></div><div style="display:contents" dir="auto"><p id="37962311-ea65-4a79-9c83-f48c3db6c541" class="">
+</p></div><div style="display:contents" dir="auto"><p id="41b977c1-2d13-4f8d-812e-cc1fe45ce367" class=""><strong>Nota:</strong> Siempre confirmar con el cliente que el PC al que se conectaron efectivamente</p></div><div style="display:contents" dir="auto"><p id="1308cc85-a345-42f5-8428-5f991d3ef932" class="">es el servidor, adicionalmente, asegurarse de preguntar primero; cuántas impresoras</p></div><div style="display:contents" dir="auto"><p id="df8cf9c7-25b5-45cc-b4ae-07bed210fe45" class="">son y cómo están conectadas, ya que según esto, será la configuración a realizar.</p></div><div style="display:contents" dir="auto"><hr id="9d87e6a5-0111-4056-bdbb-b77e92806efc"/></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="80bd805c-b3c6-441d-908a-a845792964b8" class="toggle"><li><details open=""><summary><strong>Paso 3: </strong>Remote</summary><div style="display:contents" dir="auto"><p id="3e4e7de1-01f4-49da-86b6-1a4886cc4bb8" class="">Conectarse al escritorio del cliente usando Toteat Remote desde el Tab Support.</p></div><div style="display:contents" dir="ltr"><figure id="bfac3c27-576b-4950-88b3-1e0bab0570d8" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_2.png"><img style="width:681.9765625px" src="Manual%20de%20implementaci%C3%B3n/Imagen_2.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="cd90bd66-c3d5-46da-a933-cafdec852cef" class="toggle"><li><details open=""><summary><strong>Paso 4: </strong>Instalación impresora</summary><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Preguntar si es una impresora USB o de RED:</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="d90cf9fb-dc70-4864-806c-7e471d7dc575" class="bulleted-list"><li style="list-style-type:disc">Win+R+control printers</li></ul></div><div style="display:contents" dir="ltr"><figure id="621cdfbc-1620-4aa3-bee2-a55e4def3429" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_3.png"><img style="width:500px" src="Manual%20de%20implementaci%C3%B3n/Imagen_3.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="4e56e713-56b9-4673-8689-700fa2b6c9b7" class="bulleted-list"><li style="list-style-type:disc">Si hay una impresora instalada, mantener el nombre de la misma.</li></ul></div><div style="display:contents" dir="auto"><ul id="3f9f3e0a-b34a-40b2-b0ed-8e7e19eae06f" class="bulleted-list"><li style="list-style-type:disc">Seleccionar agregar una impresora:</li></ul></div><div style="display:contents" dir="ltr"><figure id="16d421d5-0671-4299-b650-17d5f5b65359" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_4.png"><img style="width:464px" src="Manual%20de%20implementaci%C3%B3n/Imagen_4.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="24f25623-868e-4a14-8331-c6baf67e35dd" class="bulleted-list"><li style="list-style-type:disc">Seleccionar “La impresora que quiero no está en la lista”.</li></ul></div><div style="display:contents" dir="ltr"><figure id="92c841dd-d8c0-4182-957e-13ff294055b4" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_5.png"><img style="width:566px" src="Manual%20de%20implementaci%C3%B3n/Imagen_5.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="80c6c3fb-9859-417a-bc05-81cf3c191709" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Impresora USB:</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="be91a827-dc56-4775-a496-9155e9e74859" class="bulleted-list"><li style="list-style-type:disc">Seleccionar la opción: “Agregar una impresora local o de red con configuración manual.”</li></ul></div><div style="display:contents" dir="ltr"><figure id="ebbf6efc-ff72-482e-953e-9b02c01a037d" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_6.png"><img style="width:455.9765625px" src="Manual%20de%20implementaci%C3%B3n/Imagen_6.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="8a965850-d21b-4cda-877e-d85b65fc2cd1" class="bulleted-list"><li style="list-style-type:disc">Escribir el nombre de la impresora: Ej. “Caja”</li></ul></div><div style="display:contents" dir="ltr"><figure id="4facd531-28c0-4312-b4c3-1757de2d7d64" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_7.png"><img style="width:400px" src="Manual%20de%20implementaci%C3%B3n/Imagen_7.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="69e02cf5-3baf-4aba-9f77-6315417e028d" class="bulleted-list"><li style="list-style-type:disc">Verificar la impresora instalada:</li></ul></div><div style="display:contents" dir="ltr"><figure id="bfedd5a7-23d0-41e8-8bc8-0580427dd04a" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_8.png"><img style="width:465.95703125px" src="Manual%20de%20implementaci%C3%B3n/Imagen_8.png"/></a></figure></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Impresora de Red:</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="97b347f6-a6b2-4ece-95a7-61f621663076" class="bulleted-list"><li style="list-style-type:disc">Seleccionar la opción: “Agregar una impresora con una dirección IP o un nombre de host”.</li></ul></div><div style="display:contents" dir="ltr"><figure id="5b567f18-afdd-4e5e-8983-13c333b21baa" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_9.png"><img style="width:496px" src="Manual%20de%20implementaci%C3%B3n/Imagen_9.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="9a9020d2-4ef7-48c9-9574-5249a047a0f0" class="bulleted-list"><li style="list-style-type:disc">Verificar IP de la máquina del cliente: Win+R → cmd→ ipconfig</li></ul></div><div style="display:contents" dir="ltr"><figure id="de31ac89-9c4d-4b03-a1a8-d10492be47ed" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_10.png"><img style="width:575.9874877929688px" src="Manual%20de%20implementaci%C3%B3n/Imagen_10.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="9e22263d-bda2-4c49-adbc-c6d203c65761" class="bulleted-list"><li style="list-style-type:disc">Verificar la IP de Impresora:<div style="display:contents" dir="auto"><ul id="cdef459f-4964-4727-b9b2-9e235d42aeb6" class="bulleted-list"><li style="list-style-type:circle">Apagar la impresora</li></ul></div><div style="display:contents" dir="auto"><ul id="7e7cea8d-a2bd-49d1-be57-9e2ff5836279" class="bulleted-list"><li style="list-style-type:circle">Presionar el botón Feed</li></ul></div><div style="display:contents" dir="auto"><ul id="8527494e-c016-42e4-9b2d-d9dee944d4cc" class="bulleted-list"><li style="list-style-type:circle">(Sin dejar de presionar el botón feed), prender la impresora, luego soltar el botón de Feed y acto seguido presionar de nuevo.</li></ul></div><div style="display:contents" dir="auto"><ul id="0d68c2c0-ef26-493f-bc97-1f7420914dea" class="bulleted-list"><li style="list-style-type:circle">Si se siguen los pasos correctos, saldrá un papel con la configuración “ethernet” de la impresora y apenas salga, presionar el botón Feed.Verificar la IP de Impresora:</li></ul></div><div style="display:contents" dir="ltr"><figure id="c135d87d-e7f6-408c-91ed-7551490eac25" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_11.png"><img style="width:467.9750061035156px" src="Manual%20de%20implementaci%C3%B3n/Imagen_11.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="9b378de9-bdc7-4931-9b86-163a8c7d378b" class="bulleted-list"><li style="list-style-type:disc">Verificar la IP de Impresora: Se debe verificar que en qué controlador de red está la impresora conectada, si está en el puerto ethernet (directa o a través de un router), o al controlador WAN, ya que es en este controlador donde realizaremos la configuración de IP en el caso de necesitar una subred, en este caso, la impresora está conectada directamente al puerto Ethernet directo al PC, por lo qué, dejaremos una IP en el segmento de la impresora para tener conexión con ella:</li></ul></div><div style="display:contents" dir="ltr"><figure id="686bcba8-bf6c-4c5f-8dff-7219ecb9cea3" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_12.png"><img style="width:611.9874877929688px" src="Manual%20de%20implementaci%C3%B3n/Imagen_12.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="17a95188-3766-44b7-a326-6b838cb0f441" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_13.png"><img style="width:653.96875px" src="Manual%20de%20implementaci%C3%B3n/Imagen_13.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="0eb0d2f6-d3b6-43e9-b99d-31236fe3fe5f" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_1%201.png"><img style="width:653.984375px" src="Manual%20de%20implementaci%C3%B3n/Imagen_1%201.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="fe08f922-174b-4f7f-ab3e-242c02d1add1" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_2%201.png"><img style="width:653.953125px" src="Manual%20de%20implementaci%C3%B3n/Imagen_2%201.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1ee2cfeb-5bbd-466b-8ed6-3fb610deed59" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_3%201.png"><img style="width:627.9874877929688px" src="Manual%20de%20implementaci%C3%B3n/Imagen_3%201.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="9c4a9e1f-63e5-4111-ad4a-6affffe904b0" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_4%201.png"><img style="width:653.984375px" src="Manual%20de%20implementaci%C3%B3n/Imagen_4%201.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1ce3a2ec-59b6-4eba-a613-017c918abd49" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_5%201.png"><img style="width:653.984375px" src="Manual%20de%20implementaci%C3%B3n/Imagen_5%201.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="725e31be-a9fb-43a3-b30d-b4b24dc927f3" class="bulleted-list"><li style="list-style-type:disc">Impresora conectada a router</li></ul></div><div style="display:contents" dir="ltr"><figure id="7c9b946f-63a0-4f41-b213-9a30dcb90986" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_6%201.png"><img style="width:653.984375px" src="Manual%20de%20implementaci%C3%B3n/Imagen_6%201.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="9570d60f-6f61-4efd-b1a2-03c4b9b3d6c0" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_7%201.png"><img style="width:653.984375px" src="Manual%20de%20implementaci%C3%B3n/Imagen_7%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="5b78bb95-1f73-46ab-9dcf-65e157b64cf9" class="">
+</p></div></div></details></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2abebde7-a11f-4fd0-b50f-0ca7ffd94ec1" class="toggle"><li><details open=""><summary><strong>Paso 5: </strong>Desactivar Firewall</summary><div style="display:contents" dir="auto"><p id="7e01af6a-8ab5-47da-8e99-d87953953777" class="">Para acceder de forma rápida usar los siguientes comandos:</p></div><div style="display:contents" dir="auto"><ul id="6d551afe-6f7b-464a-a256-554203a0d81b" class="bulleted-list"><li style="list-style-type:disc">Comando wf.msc</li></ul></div><div style="display:contents" dir="auto"><ul id="d18a251e-f8e7-4e9d-bc7b-49762f03961c" class="bulleted-list"><li style="list-style-type:disc">etsh advfirewall set allprofiles state off</li></ul></div><div style="display:contents" dir="ltr"><figure id="61600bf7-9d69-4ee0-b2ad-8e50f140fcb3" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_8%201.png"><img style="width:340px" src="Manual%20de%20implementaci%C3%B3n/Imagen_8%201.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="8f5765bb-d3cd-4174-88ab-61ad35408f26" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_9%201.png"><img style="width:336px" src="Manual%20de%20implementaci%C3%B3n/Imagen_9%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="9a217f62-bac9-4555-9c1e-588c1d1626a7" class="">o bien por:</p></div><div style="display:contents" dir="auto"><ul id="0e061b32-1019-43dd-94a8-d5cf25087aae" class="bulleted-list"><li style="list-style-type:disc">Ingresar al Panel de Control → Sistema y Seguridad→ Firewall de Windows Defender</li></ul></div><div style="display:contents" dir="ltr"><figure id="db7bb8ce-ce4a-4e9a-8ca8-1d423df65118" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_10%201.png"><img style="width:681.9921875px" src="Manual%20de%20implementaci%C3%B3n/Imagen_10%201.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="70763b68-2afb-4208-9049-4c4c1d6a8d42" class="bulleted-list"><li style="list-style-type:disc">Seleccionar Seguridad Avanzada→ Propiedades de Firewall de Windows Defender e inactivar el Firewall en los tres perfiles (Dominio, privado y público).</li></ul></div><div style="display:contents" dir="ltr"><figure id="7759e95e-3a96-48b1-8092-d22ca2c7a8e0" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_11%201.png"><img style="width:681.984375px" src="Manual%20de%20implementaci%C3%B3n/Imagen_11%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="eb57d105-8717-468b-a2b3-b4df37787c9f" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="f98b77dc-9c88-4634-bf06-c930610a3987" class="toggle"><li><details open=""><summary><strong>Paso 6:</strong> Verificar el sistema operativo </summary><div style="display:contents" dir="auto"><p id="59a436e2-7db4-4b66-ad07-2d418b5445e7" class="">Para acceder de forma rápida usar el siguiente comando:</p></div><div style="display:contents" dir="auto"><ul id="2834732d-bca2-4d1e-ba7b-fc96e303f8e8" class="bulleted-list"><li style="list-style-type:disc">En ejecutar ===== &gt;&gt;&gt;&gt;&gt; dxdiag</li></ul></div><div style="display:contents" dir="ltr"><figure id="0a2f6716-cd46-4355-9b67-5483df0567d7" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_12%201.png"><img style="width:368px" src="Manual%20de%20implementaci%C3%B3n/Imagen_12%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="cc305535-52a7-4efa-ad36-8656f0ab6b43" class="">o bien:</p></div><div style="display:contents" dir="auto"><ul id="4e6a04c8-f996-4244-97b5-ff51909a0250" class="bulleted-list"><li style="list-style-type:disc">Panel de Control→ Sistema y Seguridad→ Sistema</li></ul></div><div style="display:contents" dir="ltr"><figure id="c5a3102b-e637-43ab-95de-29aa5b51a8a5" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_14.png"><img style="width:681.9921875px" src="Manual%20de%20implementaci%C3%B3n/Imagen_14.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="5eb00ecf-093e-4884-bf99-0fdda02126df" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="eef4e71b-c497-4f63-915d-961153b1303a" class="toggle"><li><details open=""><summary><strong>Paso 7: </strong>Ambiente</summary><div style="display:contents" dir="auto"><ul id="4b414ea7-ff65-42c2-8669-002116c9f8fb" class="bulleted-list"><li style="list-style-type:disc">Activar el permiso al ambiente del restaurante.</li></ul></div><div style="display:contents" dir="auto"><ul id="56182f57-823a-4188-9212-f9c92cd4ee7d" class="bulleted-list"><li style="list-style-type:disc">Revisar que el ID sea el correcto al momento de ingresar a través del administrador de Toteat, verificar ID de restaurante e ID de local.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="85d61220-92a7-4b6c-8a97-3385c4bccb59" class="toggle"><li><details open=""><summary><strong>Paso 8:</strong> Instalación TPS</summary><div style="display:contents" dir="auto"><ul id="6f09b80c-9ee5-4f7d-ac76-ade080a3021a" class="bulleted-list"><li style="list-style-type:disc">Descargar el TPS correspondiente desde el ambiente del cliente: Configuración→ Print Server y API<div style="display:contents" dir="auto"><p id="b65e22cd-cb3d-4b00-9b79-26d514d5d78c" class=""><mark class="highlight-gray"><strong>Nota:</strong></mark> Las opciones de descargas aparecerán una vez que nos demos permisos de admin→ Escribir en la consola: RS.luces.admin=1). Se debe realizar sobre la configuración del Navegador en la consola desarrollador.</p></div></li></ul></div><div style="display:contents" dir="ltr"><figure id="2c19c9c6-5a5a-4b63-ae96-2cef38565503" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_15.png"><img style="width:681.9765625px" src="Manual%20de%20implementaci%C3%B3n/Imagen_15.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="02766f0e-1dea-499e-8370-61b2a5d784d0" class="bulleted-list"><li style="list-style-type:disc">Ejecutar el TPS descargado para instalar el TPS.</li></ul></div><div style="display:contents" dir="ltr"><figure id="21bd6970-886f-49a4-9a00-6186fb2d1300" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_16.png"><img style="width:681.984375px" src="Manual%20de%20implementaci%C3%B3n/Imagen_16.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="b688926e-6567-4462-b491-323730abadea" class="bulleted-list"><li style="list-style-type:disc">Continuar con la instalación con todos la configuración predeterminada:</li></ul></div><div style="display:contents" dir="ltr"><figure id="b33b70e4-1fd1-46f5-bc99-74e23a9ef89e" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_17.png"><img style="width:404px" src="Manual%20de%20implementaci%C3%B3n/Imagen_17.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="d338a72b-03da-4bed-86b1-81377c19a4fa" class="">Hasta que se complete la instalación</p></div><div style="display:contents" dir="ltr"><figure id="0421cdd7-f6ee-4ccc-8bfb-623a6382a545" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_18.png"><img style="width:384px" src="Manual%20de%20implementaci%C3%B3n/Imagen_18.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="dbc76c6e-3a9c-4f14-acbf-db377930c469" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="5013b5a5-afef-4b52-a0b2-480126d02557" class="toggle"><li><details open=""><summary><strong>Paso 9:</strong> Permiso a la carpeta TPS</summary><div style="display:contents" dir="auto"><ul id="c95bdb30-54c1-4415-b123-a6ee783dfce2" class="bulleted-list"><li style="list-style-type:disc">Buscar la carpeta creada, hacer click derecho→ Propiedades → Seguridad.</li></ul></div><div style="display:contents" dir="ltr"><figure id="21060b99-1e15-431b-b7b7-522b9b40e31e" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_19.png"><img style="width:681.96875px" src="Manual%20de%20implementaci%C3%B3n/Imagen_19.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="2872cd20-17b6-4ca6-b089-28660dced58e" class="bulleted-list"><li style="list-style-type:disc">Dar permisos de Control Total a todos los usuarios:</li></ul></div><div style="display:contents" dir="ltr"><figure id="4da6c1c8-7955-496a-8d93-8fb113bb1cd0" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_21.png"><img style="width:682px" src="Manual%20de%20implementaci%C3%B3n/Imagen_21.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="936902f3-f885-4f9c-a5e8-3a097dca8322" class="bulleted-list"><li style="list-style-type:disc">Verificar que Totear Print Server haya quedado activo</li></ul></div><div style="display:contents" dir="ltr"><figure id="8dddb4e5-180c-4315-b821-746669fc764b" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_22.png"><img style="width:544px" src="Manual%20de%20implementaci%C3%B3n/Imagen_22.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="075622b4-4599-4a5b-a3ce-455a9991d6b5" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="7bfe45ca-a5b5-4741-9a87-78b66adb441d" class="toggle"><li><details open=""><summary><strong>Paso 10:</strong> Acceso remoto temporal de Toteat</summary><div style="display:contents" dir="auto"><ul id="32b1c0bd-58bf-4700-9925-56e2c3873583" class="bulleted-list"><li style="list-style-type:disc">Proceso de verificación de la disponibilidad del PC- Servidor del Cliente para la instalación.</li></ul></div><div style="display:contents" dir="auto"><ul id="ec7a9375-989d-4507-bfd0-c870a39ca903" class="bulleted-list"><li style="list-style-type:disc">Se busca por palabra clave el Local de la Instalación</li></ul></div><div style="display:contents" dir="ltr"><figure id="63548e45-28ff-4459-9957-a2bafbe509f2" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_25.png"><img style="width:590px" src="Manual%20de%20implementaci%C3%B3n/Imagen_25.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="a3987d3d-ee36-4948-ab54-9ba220f9ba45" class="toggle"><li><details open=""><summary><strong>Paso 11:</strong> Acceso directo de Toteat</summary><div style="display:contents" dir="ltr"><figure id="87c18e43-e4de-4299-a210-ad4054a8a372" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_35.png"><img style="width:884px" src="Manual%20de%20implementaci%C3%B3n/Imagen_35.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="0b5e6f19-0a09-44fc-9e9d-528d6a27634e" class="toggle"><li><details open=""><summary><strong>Paso 12: </strong>Acceso definitivo de remote</summary><div style="display:contents" dir="auto"><ul id="ebb41dbe-1319-4479-a8b2-6d2f1305433c" class="bulleted-list"><li style="list-style-type:disc">Seleccionar el Tab Access y luego Build + Completar los datos del acceso y copiar el URL.</li></ul></div><div style="display:contents" dir="ltr"><figure id="f655b389-1110-4ca2-9bc4-da32165bc20c" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_26.png"><img style="width:681.984375px" src="Manual%20de%20implementaci%C3%B3n/Imagen_26.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="81706e6c-45ea-4300-a554-64564b2f21f5" class="bulleted-list"><li style="list-style-type:disc">Copiar el enlace en el navegador del cliente</li></ul></div><div style="display:contents" dir="ltr"><figure id="2c5a36cf-d0e8-4520-bd6d-7ceb92904ee6" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_27.png"><img style="width:681.921875px" src="Manual%20de%20implementaci%C3%B3n/Imagen_27.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="32fa0b0f-bf5a-4b50-9d5e-59ce0434fe9d" class="bulleted-list"><li style="list-style-type:disc">Ejecutar:</li></ul></div><div style="display:contents" dir="ltr"><figure id="3b4d4459-81f5-4acc-a4a0-f440c6c4f993" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_28.png"><img style="width:456px" src="Manual%20de%20implementaci%C3%B3n/Imagen_28.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="1307b0ab-4a96-4218-937b-1c3e2bf64aea" class="bulleted-list"><li style="list-style-type:disc">En caso de que falle, buscar el archivo en descargas y ejecutarlo como administrador.</li></ul></div><div style="display:contents" dir="ltr"><figure id="8f63ed20-62cd-4d04-bef7-4748ebc31c73" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_29.png"><img style="width:416px" src="Manual%20de%20implementaci%C3%B3n/Imagen_29.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="fe691a17-b12d-4e71-96d9-e1a945dd78eb" class="toggle"><li><details open=""><summary><strong>Paso 13: </strong>Configurar impresora en ambiente Toteat </summary><div style="display:contents" dir="auto"><ul id="7f4d9785-2e04-47f8-a85c-c3e6e27f04ce" class="bulleted-list"><li style="list-style-type:disc">Configurar impresoras:</li></ul></div><div style="display:contents" dir="ltr"><figure id="cc02ee22-5296-4e94-8c2d-20c3424c1755" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_30.png"><img style="width:681.984375px" src="Manual%20de%20implementaci%C3%B3n/Imagen_30.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="88e41fea-8bbf-4481-99ec-ba4bd2d7c5a6" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_32.png"><img style="width:672px" src="Manual%20de%20implementaci%C3%B3n/Imagen_32.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="46c6a798-7942-4b0f-b360-2ae1ce34e224" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_33.png"><img style="width:681.96875px" src="Manual%20de%20implementaci%C3%B3n/Imagen_33.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="22192eee-3d50-4513-88d6-73d00a1755b8" class="toggle"><li><details open=""><summary><strong>Paso 14:</strong> Configurar caja</summary><div style="display:contents" dir="ltr"><figure id="9074ef02-0942-43b3-aafe-2a1b85a2d921" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_36.png"><img style="width:884px" src="Manual%20de%20implementaci%C3%B3n/Imagen_36.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="6a0f2566-bb6d-4d87-90f6-b63e56b13df4" class="toggle"><li><details open=""><summary><strong>Paso 15:</strong> Imprimir pruebas en cada caja</summary><div style="display:contents" dir="auto"><ul id="9ddf4f85-f554-440e-bf53-0a0ec7e40b06" class="bulleted-list"><li style="list-style-type:disc">Para realizar este proceso se debe previamente haber abierto turno, abierto caja, y tener una configuración de menú.</li></ul></div><div style="display:contents" dir="ltr"><figure id="d0e3695d-aa88-43b6-b694-9f3188f21293" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_37.png"><img style="width:681.96875px" src="Manual%20de%20implementaci%C3%B3n/Imagen_37.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="f1be6062-b9e6-4be6-b855-5a39b1abe676" class="bulleted-list"><li style="list-style-type:disc">Finalizado este proceso se deben cerrar los mismos elementos que se abrieron. Y habiendo realizado las anulaciones de los productos facturados.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="338baba2-d8e3-4b5c-b21b-add6d7676dbd" class="toggle"><li><details open=""><summary><strong>Paso 16: </strong>Configurar archivo Host (Offline)</summary><div style="display:contents" dir="auto"><ul id="ba1f24ab-ac7b-42e0-9cd6-00207eb4b985" class="bulleted-list"><li style="list-style-type:disc">Dejaremos en el archivo Host de Windows, la dirección que verificamos anteriormente (IP + Toteat.net) para poder establecer comunicaciones locales seguras con SSL en caso de cortes de Internet si expira el caché del DNS local en ese momento.</li></ul></div><div style="display:contents" dir="auto"><ul id="4ceeefd8-e5d4-4fe3-a6cc-353fda6e56e1" class="bulleted-list"><li style="list-style-type:disc">Para llegar al archivo host, iremos al Explorador de Windows (win + e) e iremos al Disco C: (o donde tenga el cliente instalado el sistema), una vez aquí iremos a la carpeta WINDOWS.</li></ul></div><div style="display:contents" dir="auto"><ul id="f3810a0f-2e4d-484e-917a-5a32df3dcfba" class="bulleted-list"><li style="list-style-type:disc">Dentro de esa dirección iremos a la siguiente ruta la carpeta System32 &gt; drivers &gt; etc.</li></ul></div><div style="display:contents" dir="ltr"><figure id="e43c72c5-4a9c-4176-b74b-60282c69603e" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_38.png"><img style="width:681.953125px" src="Manual%20de%20implementaci%C3%B3n/Imagen_38.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="f862f4c6-b5f1-4c1f-a80c-cf3cedba2ca1" class="bulleted-list"><li style="list-style-type:disc">Se abre el archivo Host como block de notas (algunos dispositivos puede que no lo abran directamente por permisos del sistema, para esto recomendamos copiar el archivo host en el escritorio, abrirlo y modificarlo ahí, para posteriormente copiarlo en la carpeta de la ruta).</li></ul></div><div style="display:contents" dir="auto"><ul id="17980f1c-705e-447a-a497-8af73a064bec" class="bulleted-list"><li style="list-style-type:disc">Con el archivo abierto, en la parte inferior añadiremos la IP y dirección correspondiente, para nuestro ejemplo ‘192.168.1.9 192-168-1-9.toteat.net’<div style="display:contents" dir="auto"><p id="bf51caea-4b82-4d22-a136-7c9ac757907a" class="">192-168-1-9.toteat.net.</p></div></li></ul></div><div style="display:contents" dir="ltr"><figure id="bd9fd398-aacf-469a-954f-f32f9ca9c9f1" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_39.png"><img style="width:681.984375px" src="Manual%20de%20implementaci%C3%B3n/Imagen_39.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="57593313-690f-4f01-b1d2-bf9b5428ce95" class="bulleted-list"><li style="list-style-type:disc">Si la IP está resuelta correctamente, significa que debemos avanzar de forma inmediata al siguiente paso<strong>.</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="0f65cff6-e88d-41a8-9788-1bde256a4d0f" class="bulleted-list"><li style="list-style-type:disc">Si la IP no resuelve, significa que esa IP no está permitida, para corregir esto, usaremos el archivo ‘IPs disponibles en toteat.net’, ubicado en el Drive de soporte donde buscaremos el rango de la IP no válida, se verifica y gestiona una que sí esté disponible.<div style="display:contents" dir="auto"><p id="329c6cba-b5d5-4b87-a6cb-3fa587146f06" class="">También recomendamos añadir la dirección de localhost</p></div><div style="display:contents" dir="auto"><p id="6637a665-9bfc-4ba9-b3ad-c295d50816f2" class="">127.0.0.1    127-0-0-1.toteat.net</p></div><div style="display:contents" dir="auto"><p id="1b2181a7-a91b-447e-ad41-571686a9be48" class="">127.0.0.1    localhost.toteat.net</p></div><div style="display:contents" dir="ltr"><figure id="f759dfec-d1f6-4252-93da-d8abc564fed2" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_40.png"><img style="width:653.984375px" src="Manual%20de%20implementaci%C3%B3n/Imagen_40.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="dbfb57ba-c940-4494-a20a-848b30e8a35d" class="bulleted-list"><li style="list-style-type:disc">Luego de esto, grabamos el archivo y si lo copiamos en el escritorio, lo devolvemos a la carpeta correspondiente, renombrando el archivo anterior bajo el mismo nombre.</li></ul></div><div style="display:contents" dir="auto"><ul id="ca7afac4-509a-43e1-8dcf-93c4c7338496" class="bulleted-list"><li style="list-style-type:disc">Sí hacemos estos pasos correctamente, deberíamos tener el avión sin X en el PC servidor, listo para trabajar en offline, además, podemos verificarlo en TRM en menú lateral &gt; operaciones &gt; offline donde veremos si está accesible o no.</li></ul></div><div style="display:contents" dir="ltr"><figure id="ca345292-fae0-4b27-8b66-0d8054b41a56" class="image"><a href="Manual%20de%20implementaci%C3%B3n/Imagen_41.png"><img style="width:681.96875px" src="Manual%20de%20implementaci%C3%B3n/Imagen_41.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="b01b0bde-8bbb-44fa-a26c-f155aad2f020" class="bulleted-list"><li style="list-style-type:disc">Sin embargo, esto es solo para el PC servidor, hay que tener en consideración el resto de los dispositivos que trabajarán con el Offline directamente, para esto, no es necesario hacer ninguna configuración adicional en ningún dispositivo que no sea el computador principal, pero todos estos dispositivos deben estar en la misma red local que el principal, También, deben todos los dispositivos tener el avión sin X a su costado superior izquierdo.</li></ul></div><div style="display:contents" dir="auto"><ul id="10c3826a-5b6e-4dca-8872-7de192ea21ef" class="toggle"><li><details open=""><summary></summary></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="f83c7de6-4952-4eef-b0a2-78db5b11c18a" class="toggle"><li><details open=""><summary><strong>Paso 17: </strong>Despedida</summary><div style="display:contents" dir="auto"><ul id="02bde480-3ac0-42fc-aa93-0cef2715b8cf" class="bulleted-list"><li style="list-style-type:disc">Mantener SIEMPRE comunicación con el cliente durante la implementación, consultando sobre las pruebas enviadas van saliendo o no en la instalación y en la configuración de reglas.</li></ul></div><div style="display:contents" dir="auto"><ul id="fcb5c5f6-fc72-4e13-b994-dc29c1fffa71" class="bulleted-list"><li style="list-style-type:disc">Se deben tener pruebas de las impresiones de todos los puntos.</li></ul></div><div style="display:contents" dir="auto"><ul id="ba99da5c-6e45-4684-b8d4-f706528a6780" class="bulleted-list"><li style="list-style-type:disc">Con todas las pruebas ya realizadas nos despediremos del cliente.</li></ul></div><div style="display:contents" dir="auto"><p id="8c093f86-90ba-4fa8-ba30-46e0191fa4f8" class=""><em><mark class="highlight-orange_background">“Estimado, con estas pruebas damos por terminado el proceso de implementación, recuerde que todo dispositivo ajeno al servidor para utilizar Toteat debe ingresar desde el navegador a res3.toteat.com o res4.toteat.com, para take away, le avisaremos al ejecutivo que la implementación está finalizada, para que puedan continuar con  el proceso, ya sea configuración de ambiente, ajustes de carta y capacitaciones coordinadas, que tenga un buen día y nos alegra mucho poder ser un aliado en su negocio”</mark></em></p></div><div style="display:contents" dir="auto"><ul id="5e6bc1e3-fa0a-4164-bf4d-de6452fb1e64" class="bulleted-list"><li style="list-style-type:disc">Se deben anular las pruebas realizadas y ya con esto ir al Slack de OB-SAC y confirmar al ejecutivo etiquetando y dejando en el hilo las fotos de las pruebas de impresión otorgadas por el cliente (siempre solicitar fotos y respaldos de todas las pruebas realizadas)</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="8ceba6b4-5f68-4fd4-908b-23999d8f04a5" class=""><mark class="highlight-orange">6. Salida</mark></h3></div><div style="display:contents" dir="auto"><ul id="c0c81098-5273-43df-bdf8-98b4166f38fd" class="bulleted-list"><li style="list-style-type:disc">Impresoras instaladas y configuradas</li></ul></div><div style="display:contents" dir="auto"><ul id="1bca0951-c81a-489d-b9fd-37cac5486e8a" class="bulleted-list"><li style="list-style-type:disc">Offline configurado</li></ul></div><div style="display:contents" dir="auto"><h3 id="90c38106-5ac9-4965-8cda-aba27d9f8ebc" class=""><mark class="highlight-orange">7. Excepciones del flujo</mark></h3></div><div style="display:contents" dir="auto"><ul id="908fd1cd-afed-423e-b136-ba3061856fe9" class="bulleted-list"><li style="list-style-type:disc">N/A</li></ul></div><div style="display:contents" dir="auto"><h3 id="167811a1-4098-4c39-8376-f8fba4804c6f" class=""><mark class="highlight-orange">8. Puntos de control </mark></h3></div><div style="display:contents" dir="auto"><ul id="11bbdc47-9790-4cb0-9e7a-c8a4bb47d55a" class="bulleted-list"><li style="list-style-type:disc">Impresiones realizadas en las pruebas</li></ul></div><div style="display:contents" dir="auto"><h3 id="9c0a0766-5c79-4b6d-9882-5d89544cf3bf" class=""><mark class="highlight-orange">9. Control actualizaciones</mark></h3></div><div style="display:contents" dir="ltr"><table id="9db84c77-2772-4e8f-98c9-5804484888a6" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="ecf3c467-d861-463f-aeb9-60d20174b257"><th id="nU|h" class="simple-table-header-color simple-table-header"><strong>Fecha actualización </strong></th><th id="WwCq" class="simple-table-header-color simple-table-header"><strong>Actualizado Por </strong></th><th id="i;pn" class="simple-table-header-color simple-table-header"><strong>Aprobado Por</strong></th><th id="q^a=" class="simple-table-header-color simple-table-header"><strong>Versión </strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="f68c0499-1825-4168-99fa-503e6705eaba"><td id="nU|h" class="">14/01/2024</td><td id="WwCq" class="">Francisco Ramírez</td><td id="i;pn" class="">Paola Rodríguez</td><td id="q^a=" class="">1-1001.1</td></tr></div><div style="display:contents" dir="ltr"><tr id="156e0100-ae37-4669-9e0f-9c6940621a35"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div><div style="display:contents" dir="ltr"><tr id="c183d0c0-440f-43ac-8eb9-70b32d02133f"><td id="nU|h" class=""></td><td id="WwCq" class=""></td><td id="i;pn" class=""></td><td id="q^a=" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="a7ccec8d-17bb-4cae-9ffb-787af69a00dd" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,748 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Registro de feedback</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2cc39073-1e23-80f9-8754-ec3456aca8ab" class="page sans"><header><h1 class="page-title" dir="auto">Registro de feedback</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado Feedback</th><td><span class="selected-value select-value-color-brown">Entregado</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha próximo feedback</th><td><time>6 de abril de 2026</time></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Nombre</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Rol</th><td><span class="selected-value select-value-color-gray">Agente Assistant</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-802d-ba8c-e6a822ac83ce" class="toggle"><li><details open=""><summary>Entrega de <time>@22 de diciembre de 2025</time> - Entregado por <span class="user">@Gonzalo Soffia</span> </summary><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2cc39073-1e23-8004-b2f6-fbfc091ae05b"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h3 id="2cc39073-1e23-808a-94fb-f8a6576e09da" class=""><strong>Sensación general a la fecha y dinámica con el equipo</strong></h3></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-802b-b496-cf0a4f5a9c86" class="">Mejora la sensación de comodidad con el rol al paso de las semanas, cada vez más. Siente mayor seguridad para resolver y tiene buena sensación. Hay buena interacción con el equipo, buena disposición a aprender. Resalta el rol de los compañeros. </p></div></div></figure></div><div style="display:contents" dir="auto"><p id="2d139073-1e23-805b-ab24-c6efbf3d325e" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2cc39073-1e23-80f7-b9b7-e98806898c27"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h3 id="2cc39073-1e23-8062-a622-e364c9aee81c" class=""><strong>Indicadores a la fecha </strong>(solo datos)</h3></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-803f-afb0-d82a01a39eb5" class=""><strong>CSAT: 96,1% 👍🏻</strong><div class="indented"><div style="display:contents" dir="auto"><p id="2ce39073-1e23-809b-ae6c-d77a302233b5" class="">promedio equipo: 96,5 %</p></div><div style="display:contents" dir="auto"><p id="2ce39073-1e23-808e-8b6a-da9da87da3b9" class="">promedio ingresos: 94,2 %</p></div></div></p></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-8067-a090-e7a30868156e" class=""><strong><br/>TME (30’’): Logrado en 200 conversaciones - 44% cumplimiento</strong><div class="indented"><div style="display:contents" dir="auto"><p id="2d139073-1e23-8010-b03b-e5abb3669cd2" class="">promedio equipo: -</p></div><div style="display:contents" dir="auto"><p id="2d139073-1e23-8006-ba4c-d4fdbfff2c2e" class="">promedio ingresos: 208	conv. - 48% cumplimiento.<br/><br/>O<strong>bservación:</strong> el computador podría estar impactando en la velocidad de carga de los chat</p></div></div></p></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-80bc-819d-d68f3f99b44d" class=""><br/><strong>TMO (25’): Logrado en 254 conversaciones - 56% cumplimiento</strong><div class="indented"><div style="display:contents" dir="auto"><p id="2d139073-1e23-803d-9d17-dea64b4a0713" class="">promedio equipo: -</p></div><div style="display:contents" dir="auto"><p id="2d139073-1e23-8016-8d82-e75b3cc46304" class="">promedio ingresos: 271 conv. - 61% cumplimiento.</p></div><div style="display:contents" dir="auto"><p id="2d139073-1e23-80db-87a9-cad8e18ef78b" class=""><strong>Observación: </strong>varios casos necesitan esperar respuesta de apoyo de parte del equipo. </p></div></div></p></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-8036-b12c-f780adb99658" class=""><br/><strong>CX Score:</strong> 4,1 de 5 👍🏻</p></div><div style="display:contents" dir="auto"><p id="2d139073-1e23-80be-9062-ca7977fee45c" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-8046-af07-e2c2b458c0bb" class="">Conversaciones: 452 👍🏻<div class="indented"><div style="display:contents" dir="auto"><p id="2ce39073-1e23-804e-a84b-c23bc794cac1" class="">promedio equipo: 1.120 </p></div><div style="display:contents" dir="auto"><p id="2ce39073-1e23-808f-b1f3-ee459893ff8b" class="">promedio ingresos: 420</p></div></div></p></div><div style="display:contents" dir="auto"><p id="2ce39073-1e23-80df-afa0-f3ec3b822a5c" class=""><br/>Última evaluación de conocimientos: ranking 12 /19 👍🏻</p></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2cc39073-1e23-80c1-9ef1-ef0d85524dc1"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h3 id="2cc39073-1e23-80ca-ad33-d8b1d6f48269" class=""><strong>Cumplimiento de responsabilidades</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-80d1-9f22-c0d01ae8b523" class="bulleted-list"><li style="list-style-type:disc">Conexiones: <div style="display:contents" dir="auto"><ul id="2ce39073-1e23-808b-b916-cc2471ab7f58" class="toggle"><li><details open=""><summary>9 de diciembre: 60min + 15min + 15min</summary><div style="display:contents" dir="auto"><ul id="2ce39073-1e23-8028-8fec-c9bc64c5d00b" class="bulleted-list"><li style="list-style-type:disc">+ 50mins</li></ul></div><div style="display:contents" dir="auto"><ul id="2ce39073-1e23-80c7-aba9-c87afeab3170" class="bulleted-list"><li style="list-style-type:disc">+ 30mins</li></ul></div><div style="display:contents" dir="auto"><ul id="2ce39073-1e23-80f4-9710-dba4168b3400" class="bulleted-list"><li style="list-style-type:disc">+ 21mins</li></ul></div><div style="display:contents" dir="auto"><ul id="2ce39073-1e23-805d-8e61-c911f009d94b" class="bulleted-list"><li style="list-style-type:disc">+ 20 mins</li></ul></div><div style="display:contents" dir="auto"><p id="2ce39073-1e23-80ba-aee2-e649ceb69cc2" class="">= 2 horas en away extra a lunch y break. </p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2ce39073-1e23-808e-b43f-e7e932e6489f" class="bulleted-list"><li style="list-style-type:circle">Acuerdo actual: 5 chats para ponerse <em>away. No debería anunciarse.</em></li></ul></div><div style="display:contents" dir="auto"><ul id="2ce39073-1e23-802a-a291-efd18625b668" class="bulleted-list"><li style="list-style-type:circle">Actualización: Debe reactivase cuando tenga 2 (primer mes) y 3 (segundo mes).</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-8057-812c-d8f82cfdfa5b" class="bulleted-list"><li style="list-style-type:disc">Hallazgos de casos auditados<div style="display:contents" dir="auto"><ul id="2ce39073-1e23-804c-bebb-e494a25364d6" class="bulleted-list"><li style="list-style-type:circle">En general buena apertura de chats, buena comunicación escrita y amabilidad. </li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-80a7-9038-e2eaa65f624d" class="bulleted-list"><li style="list-style-type:circle"><strong>Fortalezas</strong>: Sobresale la atención de consultas sobre procesos de facturación y gestión de mesas, donde proporciona instrucciones paso a paso muy claras. Los clientes valoran positivamente responder a dudas significados de funciones específicas.</li></ul></div><div style="display:contents" dir="auto"><ul id="2cc39073-1e23-8068-8af7-e18e1eba3c0b" class="bulleted-list"><li style="list-style-type:circle"><strong>Áreas de mejora:</strong> Confirmar soluciones remotas antes de cerrar chat.</li></ul></div><div style="display:contents" dir="auto"><ul id="2ce39073-1e23-8000-8d81-eb40e4612f66" class="toggle"><li><details open=""><summary>Detalle de casos</summary><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-8029-832f-eb2e690e83cb" class="numbered-list" start="1"><li><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215472246679390?view=List">Carga de folios</a>, todo bien.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-801c-b2f9-ec78fab271e1" class="numbered-list" start="2"><li><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215472243927778?view=List">Carga de folios, cierre anticipado.</a></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-8065-ad37-fcd66d420ee6" class="numbered-list" start="3"><li><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215472125239221?view=List">Carga de folios, favorecer tono cercano (evitar usted)</a> cierre anticipado.<br/>&gt; <em>No hemos recibido respuesta tuya nuevamente, por lo que cerraré el chat </em><del><em>por temas de tiempos</em></del><em>.</em><em> Sin embargo, quedamos muy atentos y felices de asistirte en cuando lo necesites. ¡Que tengas un excelente día! 😉</em></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-807a-bc54-dc4b6c536df2" class="numbered-list" start="4"><li><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215472211825056?view=List">Precios por turno, cierre anticipado (de otro chat)</a></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-80ba-92c7-c09ba87643c8" class="numbered-list" start="5"><li><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215472171428722?view=List">Reportes de Jerarquía</a>. Faltó preguntar más detalles como ¿con qué reportes tiene problema?, ¿tiene algún error?. Finalmente, no hay registro de la gestión realizada.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-80b2-a032-f59632b637f2" class="numbered-list" start="6"><li><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215472020808174?view=List">Anular un pago de más de 7 días</a>. Está bien. De todos modos, aprovechando la instancia: a la fecha este caso habría podido resolverse con un flujo de escalamiento a SAC Tech. </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-80f4-8445-e2a6fc678ea5" class="numbered-list" start="7"><li><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215472199447554?view=List">Reporte de ventas</a>. Bien, solo faltó confirmar si era del mismo día.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-809a-98d8-d31bb1cf2072" class="numbered-list" start="8"><li><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215472107308867?view=List">Abrir turno</a>. Bien se validó información correcta. </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ce39073-1e23-80c0-b565-cc765ad9f979" class="numbered-list" start="9"><li><a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215472312808650?view=List">Problema con integración Justo</a>. Faltó preguntar más detalles; preguntar en Slack; escalar a SAC Tech (integraciones) en lugar de KAM. </li></ol></div><div style="display:contents" dir="auto"><p id="2ce39073-1e23-8074-bf3a-f94f5ae3d943" class=""><br/></p></div></details></li></ul></div></li></ul></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2cc39073-1e23-801f-a958-cd24edf30aff"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h3 id="2cc39073-1e23-805a-9ce3-ec394cb2b960" class=""><strong>Compromisos y acuerdo de metas a revisar en 2 semanas.</strong></h3></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-808a-9bdf-e815697b769c" class="">Propuestas:</p></div><div style="display:contents" dir="auto"><ul id="2ce39073-1e23-807e-b1f3-ca52cbe351a8" class="bulleted-list"><li style="list-style-type:disc">Cierres de conversación en estructura 8’ + 8’ (auditados 9)</li></ul></div><div style="display:contents" dir="auto"><ul id="2d139073-1e23-8011-8e93-cfe26e38fd69" class="bulleted-list"><li style="list-style-type:disc">Pedir más detalles del problema (auditados 9)</li></ul></div><div style="display:contents" dir="auto"><ul id="2ce39073-1e23-8017-aca6-cdc89f821a95" class="bulleted-list"><li style="list-style-type:disc">TMO - 62%</li></ul></div></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d239073-1e23-800e-9cf0-caab23737d63" class="toggle"><li><details open=""><summary>Entrega de <time>@5 de enero de 2026</time> - Entregará <span class="user">@Gonzalo Soffia</span> </summary><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2d239073-1e23-8061-a0fe-e074e5a4ce57"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h3 id="2d239073-1e23-80b0-a48c-c63d5dd6f86a" class="">Acuerdos a revisar:</h3></div><div style="display:contents" dir="auto"><p id="2df39073-1e23-8093-bd4f-d2bb53a21899" class="">📅 Período del 22 Dic a 05 Enero.</p></div><div style="display:contents" dir="auto"><ul id="2d239073-1e23-80e9-a5f4-febd65dd49cb" class="bulleted-list"><li style="list-style-type:disc">Cierres de conversación en estructura 8’ + 8’ (auditados 9)<div style="display:contents" dir="auto"><ul id="2df39073-1e23-80ab-9b7d-c0310e2c5c24" class="bulleted-list"><li style="list-style-type:circle">4 de 9 casos no fue perfecto, se reforzó.</li></ul></div><div style="display:contents" dir="auto"><ul id="2df39073-1e23-809c-a697-c91370fc7654" class="bulleted-list"><li style="list-style-type:circle">En los demás si se cumplió.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2d239073-1e23-8091-91e3-f36301f54d72" class="bulleted-list"><li style="list-style-type:disc">Pedir más detalles del problema (auditados 9)<div style="display:contents" dir="auto"><ul id="2df39073-1e23-8014-8acf-c99f209ee9a1" class="bulleted-list"><li style="list-style-type:circle">Si se cumplió.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2d239073-1e23-80db-b46d-c2bdb23a9ae5" class="bulleted-list"><li style="list-style-type:disc">TMO - 62%<div style="display:contents" dir="auto"><ul id="2df39073-1e23-8055-a3e7-e7d72a2c5b5e" class="bulleted-list"><li style="list-style-type:circle">Logrado. Alcanzó 70,4%.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="2d239073-1e23-802f-a6e8-f13e4f5cc88e" class="">
+</p></div></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="2d239073-1e23-804a-a9f0-cd5f0204ff60" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2cc39073-1e23-8034-82ba-fcd9f09a7169" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

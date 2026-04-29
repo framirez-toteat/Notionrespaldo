@@ -1,0 +1,48 @@
+﻿Módulo TRM,Acción,Administrador de Sistemas,Bodeguero,Cajero,Cajeros Avanzado y Delivery,Contabilidad,"Dueño /
+
+Creador",Garzón - Avanzado,Garzón - Básico,Garzón Pago Integraciones,Gerente/Administrador,Jefe de Bodega,Jefe de Sala,Pedidos Delivery,Recepcionista,Repartidor Delivery,Reportes
+Operaciones,Tomar pedido,,,Yes,Yes,No,,Yes,Yes,Yes,Yes,,Yes,,No,❌,No
+Operaciones,Imprimir cuenta de la mesa,,,No,No,No,,Yes,Yes,Yes,No,,Yes,,No,❌,No
+Operaciones,Eliminar productos de una mesa.,,,No,No,No,,No,No,No,No,,No,,No,❌,No
+Operaciones,Imprimir precuenta,,,Yes,Yes,No,,No,No,No,Yes,,No,,No,❌,No
+Operaciones,"Abrir turno, cerrar turno.",,,Yes,Yes,No,,No,No,No,Yes,,No,,No,❌,No
+Operaciones,"Abrir caja, cerrar caja.",,,Yes,Yes,No,,No,No,Yes,Yes,,Yes,,No,❌,No
+Operaciones,Aplicar descuentos,,,Yes,Yes,No,,No,No,No,Yes,,No,,No,❌,No
+Operaciones,Aceptar o rechazar pedidos Toteat App.,,,Yes,Yes,No,,No,No,No,Yes,,No,,No,❌,No
+Operaciones,Tomar pedidos mesa virtuales.,,,Yes,Yes,No,,No,No,No,Yes,,No,,No,❌,No
+Operaciones,Tomar pedidos delivery.,,,Yes,Yes,No,,No,No,No,Yes,,No,,No,❌,No
+Operaciones,Transferir productos de una mesa a otra.,,,Yes,Yes,No,,No,No,No,No,,Yes,,No,❌,No
+Operaciones,Juntar mesas.,,,Yes,Yes,No,,Yes,No,Yes,Yes,,Yes,,Yes,❌,No
+Operaciones,Aceptar o rechazar pedidos de mesas Check in,,,No,Yes,No,,No,No,No,Yes,,No,,No,,No
+Operaciones,"Cerrar mesas, cobrar y liberar",,,Yes,Yes,No,,No,No,Yes,Yes,,Yes,,No,❌,No
+Reservas,Abrir mesas reservadas.,,,No,No,No,,Yes,No,Yes,No,,Yes,,No,❌,No
+Operaciones,Anular productos.,,,Yes,Yes,No,,No,No,No,Yes,,Yes,,No,❌,No
+Operaciones,Transferir mesas.,,,Yes,Yes,No,,Yes,No,Yes,Yes,,Yes,,Yes,❌,No
+Reservas,Transferir mesas reservadas.,,,No,No,No,,No,No,No,No,,Yes,,Yes,❌,No
+Reservas,Asignar mesa reservada,,,No,No,No,,No,No,No,No,,No,,Yes,,No
+Reservas,"Ver, crear y modificar las reservas.",,,Yes,Yes,No,,No,No,No,Yes,,No,,Yes,❌,No
+Reservas,Editar información de reservas.,,,No,No,No,,No,No,No,No,,Yes,,No,❌,No
+Clientes,Editar información de clientes,,,No,No,No,,No,No,No,No,,No,,Yes,❌,No
+Caja,Realizar egresos o ingresos de dinero de caja.,,,Yes,Yes,No,,No,No,No,Yes,,No,,No,❌,No
+Clientes,Crear Clientes y editar su información.,,,Yes,Yes,No,,No,No,No,Yes,,No,,No,❌,No
+Restaurant,Configuraciones generales del sistema.,,,No,No,No,,No,No,No,No,,No,,No,❌,No
+Restaurant,Ver opciones en Restaurants,,,No,No,Yes,,No,No,No,No,,No,,No,,No
+Reportes,Ver historial de clientes.,,,Yes,Yes,No,,No,No,No,No,,No,,No,❌,No
+Reportes,Ver reportes delivery.,,,Yes,Yes,No,,No,No,No,No,,No,,No,❌,Yes
+Reportes,Puede ver un reporte (Efectivo en Caja) al tener cierre ciego no podrá verlo.,,,Yes,Yes,No,,No,No,No,No,,No,,No,❌,No
+Reportes,Exportar reportes,,,No,No,Yes,,No,No,No,No,,No,,No,,Yes
+Reportes,Ver reportes.,,,No,No,Yes,,No,No,No,No,,No,,No,❌,Yes
+Productos,Ver productos,,,No,Yes,Yes,,No,No,No,Yes,,No,,No,,No
+Productos,Modificar productos,,,No,Yes,Yes,,No,No,No,Yes,,No,,No,,No
+Productos,Agregar productos,,,No,Yes,No,,No,No,No,Yes,,No,,No,,No
+Productos,"Cargar, editar imagenes",,,No,No,No,,No,No,No,Yes,,No,,No,,No
+Productos,"Ver, crear y modificar extras",,,No,Yes,No,,No,No,No,Yes,,No,,No,,No
+Productos,"Ver, crear y modificar jerarquías",,,No,Yes,No,,No,No,No,Yes,,No,,No,,No
+Productos,Modificar y crear precios por lista.,,,No,Yes,No,,No,No,No,Yes,,No,,No,,No
+Productos,Eliminar productos,,,No,No,No,,No,No,No,No,,No,,No,,No
+Productos,Modificar y crear precios por turno.,,,No,Yes,No,,No,No,No,Yes,,No,,No,,No
+Proveedores,"Agregar, ver y modificar información de proveedores.",,,No,Yes,No,,No,No,No,Yes,,No,,No,,No
+Proveedores,"Ver, modificar y agregar proveedores.",,,No,No,Yes,,No,No,No,No,,No,,No,,No
+Stock Control,Modificar stock del inventario en linea.,,,No,Yes,No,,No,No,No,Yes,,No,,No,,No
+Contabilidad,Ver y agregar movimientos en registro contable.,,,No,No,Yes,,No,No,No,Yes,,No,,No,,No
+Contabilidad,Ver jerarquía en contabilidad.,,,No,No,Yes,,No,No,No,No,,No,,No,,No

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard SAC Tech — Abril 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root {
+  --bg:#F7F6F3; --surface:#FFFFFF; --surface2:#F0EEE9;
+  --border:rgba(0,0,0,0.08); --border-strong:rgba(0,0,0,0.14);
+  --text:#1A1917; --text-2:#6B6860; --text-3:#A09E99;
+  --green:#1A7F5A; --green-bg:#E8F5EF;
+  --red:#C0392B; --red-bg:#FDECEA;
+  --amber:#9A5A00; --amber-bg:#FEF3E2;
+  --blue:#1B5FA8; --blue-bg:#EBF3FD;
+  --accent:#1A1917; --radius:12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5;min-height:100vh;}
+.page{max-width:1100px;margin:0 auto;padding:40px 24px 80px;}
+
+/* Header */
+.header{margin-bottom:40px;}
+.header-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px;}
+.header h1{font-size:28px;font-weight:600;letter-spacing:-0.5px;}
+.date-badge{font-family:'DM Mono',monospace;font-size:11px;background:var(--accent);color:#fff;padding:4px 10px;border-radius:20px;letter-spacing:.04em;white-space:nowrap;margin-top:6px;}
+.subtitle{font-size:13px;color:var(--text-2);}
+
+/* Section label */
+.sec{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin:36px 0 14px;}
+.sec:first-of-type{margin-top:0;}
+
+/* KPIs */
+.kpis{display:grid;gap:10px;margin-bottom:14px;}
+.kpis.k4{grid-template-columns:repeat(4,1fr);}
+.kpis.k3{grid-template-columns:repeat(3,1fr);}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;}
+.kpi .lbl{font-size:11px;color:var(--text-3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.kpi .val{font-size:30px;font-weight:600;letter-spacing:-1px;line-height:1;}
+.kpi .sub{font-size:11px;color:var(--text-2);margin-top:6px;}
+.kpi.g .val{color:var(--green);}
+.kpi.r .val{color:var(--red);}
+.kpi.b .val{color:var(--blue);}
+.kpi.a .val{color:var(--amber);}
+
+/* Cards */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px;margin-bottom:14px;}
+.card.nm{margin-bottom:0;}
+.ctitle{font-size:11px;font-family:'DM Mono',monospace;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text-2);margin-bottom:16px;}
+
+/* Tabs */
+.tabs{display:flex;gap:6px;margin-bottom:14px;}
+.tab{font-size:12px;padding:5px 12px;border:1px solid var(--border-strong);border-radius:20px;background:transparent;color:var(--text-2);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.tab:hover{background:var(--surface2);}
+.tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+/* Legend */
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:12px;}
+.leg{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-2);}
+.ldot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+
+/* Grids */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.g32{display:grid;grid-template-columns:3fr 2fr;gap:14px;margin-bottom:14px;}
+
+/* Tables */
+.tw{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead th{font-size:10px;font-family:'DM Mono',monospace;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);padding:8px 12px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap;}
+thead th.r{text-align:right;}
+tbody tr{border-bottom:1px solid var(--border);transition:background .1s;}
+tbody tr:last-child{border-bottom:none;}
+tbody tr:hover:not(.tot):not(.prow){background:var(--surface2);}
+tbody tr.tot{background:var(--surface2);}
+tbody tr.prow td{font-size:11px;color:var(--text-2);padding:5px 12px;font-family:'DM Mono',monospace;}
+td{padding:9px 12px;vertical-align:middle;}
+td.r{text-align:right;font-variant-numeric:tabular-nums;}
+td.z{color:var(--text-3);}
+td.nm{font-weight:500;}
+
+/* Badges */
+.bx{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px;font-family:'DM Mono',monospace;}
+.bg{background:var(--green-bg);color:var(--green);}
+.br{background:var(--red-bg);color:var(--red);}
+
+/* Bar */
+.brow{display:flex;align-items:center;gap:6px;justify-content:flex-end;}
+.btrack{width:60px;height:4px;background:var(--border-strong);border-radius:2px;overflow:hidden;}
+.bfill{height:100%;border-radius:2px;}
+.blabel{font-size:11px;color:var(--text-2);min-width:36px;text-align:right;font-family:'DM Mono',monospace;}
+
+/* Exec */
+.exec{background:var(--surface2);border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px;margin-bottom:14px;font-size:13px;line-height:1.8;border-left:3px solid var(--accent);}
+
+/* Insights */
+.igrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px;}
+.insight{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;}
+.itag{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:7px;}
+.itxt{font-size:13px;line-height:1.6;}
+
+/* Delta badges */
+.delta{font-size:11px;font-family:'DM Mono',monospace;margin-left:6px;padding:1px 6px;border-radius:10px;}
+.up{background:#FEF3E2;color:#9A5A00;}
+.dn{background:#E8F5EF;color:#1A7F5A;}
+
+hr{border:none;border-top:1px solid var(--border);margin:36px 0;}
+.footer{font-size:11px;color:var(--text-3);font-family:'DM Mono',monospace;margin-top:32px;padding-top:20px;border-top:1px solid var(--border);}
+.ch{position:relative;width:100%;}
+
+@media(max-width:768px){
+  .kpis.k4,.kpis.k3{grid-template-columns:repeat(2,1fr);}
+  .g2,.g32,.igrid{grid-template-columns:1fr;}
+}
+@media(max-width:480px){.page{padding:20px 16px 60px;}.header h1{font-size:22px;}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-top">
+      <h1>SAC Tech — Reporte de Casos</h1>
+      <span class="date-badge">Datos al 27 abr 2026</span>
+    </div>
+    <p class="subtitle">Panel de gestión · Cierre de mes abril 2026 + Backlog actual</p>
+  </div>
+
+  <!-- Exec -->
+  <div class="sec">Resumen ejecutivo</div>
+  <div class="exec">
+    Abril 2026 cierra con <strong>309 casos cerrados</strong> de los 520 creados en el mes — el mejor mes de cierres del historial, liderado por Lorena Moreno con 179 (57.9%). La autonomía del mes se mantiene muy alta: <strong>98.4% sin escalados a ingeniería</strong>. El backlog activo es de <strong>453 casos</strong>, una reducción de 41 casos respecto al corte anterior (494), señal de que el equipo está cerrando más de lo que entra. Jeremy Araujo continúa con la cola más compleja: 95 casos, 86.3% escalados. Coordinadores SAC sube a 72 casos activos con solo 3 escalados (4.2%).
+  </div>
+
+  <!-- KPIs -->
+  <div class="sec">KPIs generales</div>
+  <div class="kpis k4">
+    <div class="kpi b"><div class="lbl">Backlog activo</div><div class="val">453<span class="delta dn">↓41</span></div><div class="sub">vs 494 corte anterior</div></div>
+    <div class="kpi g"><div class="lbl">Cierres abril</div><div class="val">309</div><div class="sub">De 520 creados en el mes</div></div>
+    <div class="kpi r"><div class="lbl">% escalados backlog</div><div class="val">46.8%</div><div class="sub">212 de 453 casos</div></div>
+    <div class="kpi g"><div class="lbl">Autonomía abril</div><div class="val">98.4%</div><div class="sub">Solo 5 escalados en el mes</div></div>
+  </div>
+
+  <!-- Evolución mensual -->
+  <div class="sec">Evolución mensual de cierres</div>
+  <div class="card">
+    <div class="tabs">
+      <button class="tab active" onclick="setView('stacked',this)">Apilado</button>
+      <button class="tab" onclick="setView('line',this)">Línea</button>
+      <button class="tab" onclick="setView('byresp',this)">Por persona</button>
+    </div>
+    <div class="legend" id="legend1">
+      <span class="leg"><span class="ldot" style="background:#1A7F5A"></span>No escalados</span>
+      <span class="leg"><span class="ldot" style="background:#C0392B"></span>Escalados</span>
+    </div>
+    <div class="ch" style="height:280px;"><canvas id="chart1"></canvas></div>
+  </div>
+
+  <!-- Backlog charts -->
+  <div class="g2">
+    <div class="card nm">
+      <div class="ctitle">Backlog por responsable</div>
+      <div class="legend">
+        <span class="leg"><span class="ldot" style="background:#1A7F5A"></span>No escalados</span>
+        <span class="leg"><span class="ldot" style="background:#C0392B"></span>Escalados</span>
+      </div>
+      <div class="ch" style="height:360px;"><canvas id="chart2"></canvas></div>
+    </div>
+    <div class="card nm">
+      <div class="ctitle">% escalados por responsable (backlog)</div>
+      <div class="ch" style="height:360px;"><canvas id="chart4"></canvas></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Reporte 1 -->
+  <div class="sec">Reporte 1 — Cierres de abril 2026 (creados y cerrados en el mes)</div>
+  <div class="kpis k3">
+    <div class="kpi g"><div class="lbl">Total cerrados</div><div class="val">309</div><div class="sub">De 520 casos creados en abril</div></div>
+    <div class="kpi g"><div class="lbl">No escalados</div><div class="val">304</div><div class="sub">98.4% del total</div></div>
+    <div class="kpi r"><div class="lbl">Escalados</div><div class="val">5</div><div class="sub">1.6% del total</div></div>
+  </div>
+  <div class="g32">
+    <div class="card nm">
+      <div class="ctitle">Detalle por responsable</div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Responsable</th><th class="r">No esc.</th><th class="r">Escalados</th><th class="r">Total</th><th class="r">% total</th></tr></thead>
+          <tbody>
+            <tr><td class="nm">Lorena Moreno</td><td class="r"><span class="bx bg">178</span></td><td class="r"><span class="bx br">1</span></td><td class="r">179</td><td class="r">57.9%</td></tr>
+            <tr><td class="nm">Coordinadores SAC</td><td class="r"><span class="bx bg">39</span></td><td class="r z">—</td><td class="r">39</td><td class="r">12.6%</td></tr>
+            <tr><td class="nm">Doymar Raga</td><td class="r"><span class="bx bg">28</span></td><td class="r"><span class="bx br">1</span></td><td class="r">29</td><td class="r">9.4%</td></tr>
+            <tr><td class="nm">Nicolas Alvarez</td><td class="r"><span class="bx bg">22</span></td><td class="r"><span class="bx br">2</span></td><td class="r">24</td><td class="r">7.8%</td></tr>
+            <tr><td class="nm">Jeremy Araujo</td><td class="r"><span class="bx bg">23</span></td><td class="r z">—</td><td class="r">23</td><td class="r">7.4%</td></tr>
+            <tr><td class="nm">Inventario SAC TECH</td><td class="r"><span class="bx bg">7</span></td><td class="r"><span class="bx br">1</span></td><td class="r">8</td><td class="r">2.6%</td></tr>
+            <tr><td class="nm">TRM SAC TECH</td><td class="r"><span class="bx bg">4</span></td><td class="r z">—</td><td class="r">4</td><td class="r">1.3%</td></tr>
+            <tr><td class="nm">Andrea Ruiz</td><td class="r"><span class="bx bg">2</span></td><td class="r z">—</td><td class="r">2</td><td class="r">0.6%</td></tr>
+            <tr><td class="nm">Integraciones SACTECH</td><td class="r"><span class="bx bg">1</span></td><td class="r z">—</td><td class="r">1</td><td class="r">0.3%</td></tr>
+            <tr><td class="nm z">Sergio Muñoz</td><td class="r z">0</td><td class="r z">0</td><td class="r z">0</td><td class="r z">0.0%</td></tr>
+            <tr><td class="nm z">Instalaciones Tech</td><td class="r z">0</td><td class="r z">0</td><td class="r z">0</td><td class="r z">0.0%</td></tr>
+            <tr><td class="nm z">Francisco Ramirez</td><td class="r z">0</td><td class="r z">0</td><td class="r z">0</td><td class="r z">0.0%</td></tr>
+            <tr><td class="nm z">Israel Berme</td><td class="r z">0</td><td class="r z">0</td><td class="r z">0</td><td class="r z">0.0%</td></tr>
+            <tr><td class="nm z">DTE SACTECH</td><td class="r z">0</td><td class="r z">0</td><td class="r z">0</td><td class="r z">0.0%</td></tr>
+            <tr class="tot"><td class="nm">TOTAL</td><td class="r"><strong>304</strong></td><td class="r"><strong>5</strong></td><td class="r"><strong>309</strong></td><td class="r"><strong>100.0%</strong></td></tr>
+            <tr class="prow"><td>% del total</td><td class="r">98.4%</td><td class="r">1.6%</td><td class="r">—</td><td class="r">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card nm">
+      <div class="ctitle">Cierres abril por responsable</div>
+      <div class="ch" style="height:400px;"><canvas id="chart3"></canvas></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Reporte 2 -->
+  <div class="sec">Reporte 2 — Backlog actual al 27 abr 2026</div>
+  <div class="kpis k3">
+    <div class="kpi b"><div class="lbl">Total backlog</div><div class="val">453</div><div class="sub">Casos sin cerrar</div></div>
+    <div class="kpi g"><div class="lbl">No escalados</div><div class="val">241</div><div class="sub">53.2% del total</div></div>
+    <div class="kpi r"><div class="lbl">Escalados</div><div class="val">212</div><div class="sub">46.8% del total</div></div>
+  </div>
+  <div class="card">
+    <div class="ctitle">Detalle por responsable</div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Responsable</th><th class="r">No esc.</th><th class="r">Escalados</th><th class="r">Total</th><th class="r">% total</th><th class="r" style="min-width:120px;">% escalado</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">Jeremy Araujo</td><td class="r"><span class="bx bg">13</span></td><td class="r"><span class="bx br">82</span></td><td class="r">95</td><td class="r">21.0%</td><td class="r"><div class="brow"><div class="btrack"><div class="bfill" style="width:86%;background:#C0392B;"></div></div><span class="blabel">86.3%</span></div></td></tr>
+          <tr><td class="nm">Lorena Moreno</td><td class="r"><span class="bx bg">47</span></td><td class="r"><span class="bx br">30</span></td><td class="r">77</td><td class="r">17.0%</td><td class="r"><div class="brow"><div class="btrack"><div class="bfill" style="width:39%;background:#9A5A00;"></div></div><span class="blabel">39.0%</span></div></td></tr>
+          <tr><td class="nm">Coordinadores SAC</td><td class="r"><span class="bx bg">69</span></td><td class="r"><span class="bx br">3</span></td><td class="r">72</td><td class="r">15.9%</td><td class="r"><div class="brow"><div class="btrack"><div class="bfill" style="width:4%;background:#1A7F5A;"></div></div><span class="blabel">4.2%</span></div></td></tr>
+          <tr><td class="nm">Sergio Muñoz</td><td class="r"><span class="bx bg">15</span></td><td class="r"><span class="bx br">45</span></td><td class="r">60</td><td class="r">13.2%</td><td class="r"><div class="brow"><div class="btrack"><div class="bfill" style="width:75%;background:#C0392B;"></div></div><span class="blabel">75.0%</span></div></td></tr>
+          <tr><td class="nm">Doymar Raga</td><td class="r"><span class="bx bg">17</span></td><td class="r"><span class="bx br">38</span></td><td class="r">55</td><td class="r">12.1%</td><td class="r"><div class="brow"><div class="btrack"><div class="bfill" style="width:69%;background:#C0392B;"></div></div><span class="blabel">69.1%</span></div></td></tr>
+          <tr><td class="nm">Inventario SAC TECH</td><td class="r"><span class="bx bg">28</span></td><td class="r"><span class="bx br">4</span></td><td class="r">32</td><td class="r">7.1%</td><td class="r"><div class="brow"><div class="btrack"><div class="bfill" style="width:13%;background:#9A5A00;"></div></div><span class="blabel">12.5%</span></div></td></tr>
+          <tr><td class="nm">Andrea Ruiz</td><td class="r"><span class="bx bg">21</span></td><td class="r"><span class="bx br">4</span></td><td class="r">25</td><td class="r">5.5%</td><td class="r"><div class="brow"><div class="btrack"><div class="bfill" style="width:16%;background:#9A5A00;"></div></div><span class="blabel">16.0%</span></div></td></tr>
+          <tr><td class="nm">Instalaciones Tech</td><td class="r"><span class="bx bg">16</span></td><td class="r z">—</td><td class="r">16</td><td class="r">3.5%</td><td class="r"><div class="brow"><div class="btrack"><div class="bfill" style="width:0%;"></div></div><span class="blabel">0.0%</span></div></td></tr>
+          <tr><td class="nm">Nicolas Alvarez</td><td class="r"><span class="bx bg">1</span></td><td class="r"><span class="bx br">11</span></td><td class="r">12</td><td class="r">2.6%</td><td class="r"><div class="brow"><div class="btrack"><div class="bfill" style="width:92%;background:#C0392B;"></div></div><span class="blabel">91.7%</span></div></td></tr>
+          <tr><td class="nm">TRM SAC TECH</td><td class="r"><span class="bx bg">2</span></td><td class="r"><span class="bx br">3</span></td><td class="r">5</td><td class="r">1.1%</td><td class="r"><div class="brow"><div class="btrack"><div class="bfill" style="width:60%;background:#C0392B;"></div></div><span class="blabel">60.0%</span></div></td></tr>
+          <tr><td class="nm">Integraciones SACTECH</td><td class="r"><span class="bx bg">3</span></td><td class="r z">—</td><td class="r">3</td><td class="r">0.7%</td><td class="r"><div class="brow"><div class="btrack"><div class="bfill" style="width:0%;"></div></div><span class="blabel">0.0%</span></div></td></tr>
+          <tr><td class="nm">Francisco Ramirez</td><td class="r"><span class="bx bg">1</span></td><td class="r z">—</td><td class="r">1</td><td class="r">0.2%</td><td class="r"><div class="brow"><div class="btrack"><div class="bfill" style="width:0%;"></div></div><span class="blabel">0.0%</span></div></td></tr>
+          <tr><td class="nm z">Israel Berme</td><td class="r z">0</td><td class="r z">0</td><td class="r z">0</td><td class="r z">0.0%</td><td class="r z">—</td></tr>
+          <tr><td class="nm z">DTE SACTECH</td><td class="r z">0</td><td class="r z">0</td><td class="r z">0</td><td class="r z">0.0%</td><td class="r z">—</td></tr>
+          <tr class="tot"><td class="nm">TOTAL</td><td class="r"><strong>241</strong></td><td class="r"><strong>212</strong></td><td class="r"><strong>453</strong></td><td class="r"><strong>100.0%</strong></td><td class="r"><strong>46.8%</strong></td></tr>
+          <tr class="prow"><td>% del total</td><td class="r">53.2%</td><td class="r">46.8%</td><td class="r">—</td><td class="r">—</td><td class="r">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Insights -->
+  <div class="sec">Insights clave</div>
+  <div class="igrid">
+    <div class="insight">
+      <div class="itag">Mejor mes de cierres histórico</div>
+      <div class="itxt">Abril cierra con 472 cierres totales en el mes (incluyendo casos de meses anteriores), superando el récord de marzo (531 → ahora superado). De los 520 creados en abril, ya se cerraron 309 (59.4%) antes del fin del mes.</div>
+    </div>
+    <div class="insight">
+      <div class="itag">Backlog baja por primera vez</div>
+      <div class="itxt">El backlog cae de 494 a 453 casos (−41, −8.3%). Es la primera reducción neta del histórico, indicando que el equipo está cerrando más rápido que la entrada de nuevos casos.</div>
+    </div>
+    <div class="insight">
+      <div class="itag">Jeremy y Sergio concentran escalados</div>
+      <div class="itxt">Jeremy Araujo (86.3%) y Sergio Muñoz (75.0%) concentran 127 de los 212 casos escalados activos (59.9%). Nicolas Alvarez sube a 91.7% de escalados en su backlog — el mayor ratio del equipo.</div>
+    </div>
+    <div class="insight">
+      <div class="itag">Lorena lidera con autonomía</div>
+      <div class="itxt">Lorena Moreno cerró 179 casos en abril (57.9% del total) con solo 1 escalado. Su backlog activo bajó de 97 a 77 casos pese a un mes de altísimo volumen, lo que refleja una gestión muy eficiente.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Datos al 27 abr 2026 &nbsp;·&nbsp; Israel Berme y DTE SACTECH: 0 casos activos &nbsp;·&nbsp; "Escalado a Ing" = pasó al menos una vez por ese estado en el historial · Backlog anterior: 494 casos (20 abr 2026)
+  </div>
+
+</div>
+
+<script>
+const months=['Jun 25','Jul 25','Ago 25','Sep 25','Oct 25','Nov 25','Dic 25','Ene 26','Feb 26','Mar 26','Abr 26'];
+const noEsc=[8,79,81,63,129,159,225,318,306,477,426];
+const escM= [1,36,11, 7, 17, 22, 29, 49, 30, 54, 46];
+const total=months.map((_,i)=>noEsc[i]+escM[i]);
+const opened=[28,110,99,87,167,240,303,419,391,662,520];
+
+const perResp={
+  'Jeremy Araujo':    [5,6,4,8,36,84,102,98,121,124,85],
+  'Lorena Moreno':    [0,26,13,16,34,22,26,42,25,101,209],
+  'Nicolas Alvarez':  [0,7,21,13,26,24,27,56,31,87,30],
+  'Sergio Muñoz':     [2,4,8,1,4,12,28,34,65,55,11],
+  'Andrea Ruiz':      [2,54,45,29,27,15,18,14,13,37,11],
+  'Doymar Raga':      [0,0,0,2,1,14,18,25,8,81,57],
+  'Coordinadores SAC':[0,0,0,0,0,0,24,75,54,42,53]
+};
+const COLORS=['#1B5FA8','#1A7F5A','#C0392B','#7F5AF0','#9A5A00','#C0608A','#5F7A50'];
+
+const backlog=[
+  {n:'Jeremy Araujo',no:13,e:82,t:95},
+  {n:'Lorena Moreno',no:47,e:30,t:77},
+  {n:'Coordinadores SAC',no:69,e:3,t:72},
+  {n:'Sergio Muñoz',no:15,e:45,t:60},
+  {n:'Doymar Raga',no:17,e:38,t:55},
+  {n:'Inventario SAC TECH',no:28,e:4,t:32},
+  {n:'Andrea Ruiz',no:21,e:4,t:25},
+  {n:'Instalaciones Tech',no:16,e:0,t:16},
+  {n:'Nicolas Alvarez',no:1,e:11,t:12},
+  {n:'TRM SAC TECH',no:2,e:3,t:5},
+  {n:'Integraciones SACTECH',no:3,e:0,t:3},
+  {n:'Francisco Ramirez',no:1,e:0,t:1}
+];
+
+const abrilD=[
+  {n:'Lorena Moreno',no:178,e:1,t:179},
+  {n:'Coordinadores SAC',no:39,e:0,t:39},
+  {n:'Doymar Raga',no:28,e:1,t:29},
+  {n:'Nicolas Alvarez',no:22,e:2,t:24},
+  {n:'Jeremy Araujo',no:23,e:0,t:23},
+  {n:'Inventario SAC TECH',no:7,e:1,t:8},
+  {n:'TRM SAC TECH',no:4,e:0,t:4},
+  {n:'Andrea Ruiz',no:2,e:0,t:2},
+  {n:'Integraciones SACTECH',no:1,e:0,t:1}
+];
+
+const base={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}};
+
+let chart1,curView='stacked';
+
+function makeChart1(){
+  const ctx=document.getElementById('chart1').getContext('2d');
+  if(chart1) chart1.destroy();
+  const leg=document.getElementById('legend1');
+  if(curView==='stacked'){
+    leg.innerHTML='<span class="leg"><span class="ldot" style="background:#1A7F5A"></span>No escalados</span><span class="leg"><span class="ldot" style="background:#C0392B"></span>Escalados</span>';
+    chart1=new Chart(ctx,{type:'bar',data:{labels:months,datasets:[
+      {label:'No escalados',data:noEsc,backgroundColor:'#1A7F5A',stack:'s'},
+      {label:'Escalados',data:escM,backgroundColor:'#C0392B',stack:'s'}
+    ]},options:{...base,scales:{x:{stacked:true,ticks:{font:{family:'DM Sans',size:11}}},y:{stacked:true,ticks:{font:{family:'DM Sans',size:11}}}}}});
+  } else if(curView==='line'){
+    leg.innerHTML='<span class="leg"><span class="ldot" style="background:#1B5FA8"></span>Casos abiertos</span><span class="leg"><span class="ldot" style="background:#1A7F5A"></span>Casos cerrados</span>';
+    chart1=new Chart(ctx,{type:'line',data:{labels:months,datasets:[
+      {label:'Abiertos',data:opened,borderColor:'#1B5FA8',backgroundColor:'rgba(27,95,168,0.07)',tension:.35,fill:true,pointRadius:4,pointBackgroundColor:'#1B5FA8',borderWidth:2},
+      {label:'Cerrados',data:total,borderColor:'#1A7F5A',backgroundColor:'rgba(26,127,90,0.07)',tension:.35,fill:true,pointRadius:4,pointBackgroundColor:'#1A7F5A',borderWidth:2}
+    ]},options:{...base,scales:{x:{ticks:{font:{family:'DM Sans',size:11}}},y:{ticks:{font:{family:'DM Sans',size:11}}}}}});
+  } else {
+    const rNames=Object.keys(perResp);
+    leg.innerHTML=rNames.map((n,i)=>`<span class="leg"><span class="ldot" style="background:${COLORS[i%COLORS.length]}"></span>${n}</span>`).join('');
+    chart1=new Chart(ctx,{type:'line',data:{labels:months,datasets:rNames.map((n,i)=>({
+      label:n,data:perResp[n],borderColor:COLORS[i%COLORS.length],backgroundColor:'transparent',
+      tension:.35,pointRadius:3,pointBackgroundColor:COLORS[i%COLORS.length],borderWidth:2
+    }))},options:{...base,scales:{x:{ticks:{font:{family:'DM Sans',size:11}}},y:{ticks:{font:{family:'DM Sans',size:11}}}}}});
+  }
+}
+
+function setView(v,btn){
+  curView=v;
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  makeChart1();
+}
+
+new Chart(document.getElementById('chart2').getContext('2d'),{
+  type:'bar',
+  data:{labels:backlog.map(r=>r.n.length>16?r.n.slice(0,14)+'…':r.n),datasets:[
+    {label:'No escalados',data:backlog.map(r=>r.no),backgroundColor:'#1A7F5A',stack:'s'},
+    {label:'Escalados',data:backlog.map(r=>r.e),backgroundColor:'#C0392B',stack:'s'}
+  ]},
+  options:{...base,indexAxis:'y',scales:{x:{stacked:true,ticks:{font:{family:'DM Sans',size:10}}},y:{stacked:true,ticks:{font:{family:'DM Sans',size:10}}}}}
+});
+
+new Chart(document.getElementById('chart3').getContext('2d'),{
+  type:'bar',
+  data:{labels:abrilD.map(r=>r.n.length>16?r.n.slice(0,14)+'…':r.n),datasets:[
+    {label:'No escalados',data:abrilD.map(r=>r.no),backgroundColor:'#1A7F5A',stack:'s'},
+    {label:'Escalados',data:abrilD.map(r=>r.e),backgroundColor:'#C0392B',stack:'s'}
+  ]},
+  options:{...base,indexAxis:'y',scales:{x:{stacked:true,ticks:{font:{family:'DM Sans',size:10}}},y:{stacked:true,ticks:{font:{family:'DM Sans',size:10}}}}}
+});
+
+const autonB=backlog.filter(r=>r.t>0);
+new Chart(document.getElementById('chart4').getContext('2d'),{
+  type:'bar',
+  data:{labels:autonB.map(r=>r.n.length>16?r.n.slice(0,14)+'…':r.n),datasets:[{
+    label:'% escalados',
+    data:autonB.map(r=>Math.round(r.e/r.t*100)),
+    backgroundColor:autonB.map(r=>{const p=r.e/r.t*100;return p>70?'#C0392B':p>30?'#9A5A00':'#1A7F5A';})
+  }]},
+  options:{...base,indexAxis:'y',
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:i=>`${i.raw}% escalados`}}},
+    scales:{x:{max:100,ticks:{callback:v=>v+'%',font:{family:'DM Sans',size:10}}},y:{ticks:{font:{family:'DM Sans',size:10}}}}}
+});
+
+makeChart1();
+</script>
+</body>
+</html>

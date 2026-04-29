@@ -1,0 +1,748 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Contingencias</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="30439073-1e23-8087-a2fc-c6c9c29d2a53" class="page sans"><header><h1 class="page-title" dir="auto"><mark class="highlight-orange_background"><strong>Contingencias</strong></mark></h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/person-masculine_gray.svg" style="width:14px;height:14px;display:block"/></span>Creado Por:</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Gonzalo Soffia</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h3 id="30439073-1e23-80ab-a982-deb3d560c1c0" class=""><mark class="highlight-orange">1. Descripción</mark></h3></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-8047-9a73-f334dedb6ad9" class="toggle"><li><details open=""><summary><strong>Contingencia 1: </strong>“Problemas de internet”</summary><div style="display:contents" dir="auto"><ul id="30439073-1e23-8072-b3ce-cb97b9f8a671" class="bulleted-list"><li style="list-style-type:disc">En caso de problemas de caída de Internet, se debe tener en consideración:</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8028-be80-d21037f228cc" class="numbered-list" start="1"><li>Verificar configuración de Offline realizada; para ello, se debe revisar de manera preventiva que el módulo esté en ON. (Menú lateral &gt; Restaurante &gt; Ajustes generales &gt; General)</li></ol></div><div style="display:contents" dir="auto"><p id="30439073-1e23-80cb-9fc0-ff19d89f1920" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="30439073-1e23-8040-baea-e7354aabdee4" class="image"><a href="Contingencias/Untitled.png"><img style="width:576px" src="Contingencias/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="30439073-1e23-8014-b501-c5e7f5f51f1c" class="">
+</p></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8086-8f30-e15b079b1b89" class="numbered-list" start="2"><li>Verificar el estado del indicador “Avión” en la esquina superior izquierda</li></ol></div><div style="display:contents" dir="auto"><p id="30439073-1e23-80eb-9347-c70c4664e3fc" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="30439073-1e23-80ea-a5c4-d470fda8fa94" class="image"><a href="Contingencias/Untitled%201.png"><img style="width:336px" src="Contingencias/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="30439073-1e23-80ef-bace-d46fac7f5953" class="">Si el avión está con una <mark class="highlight-red">X</mark>, significa que no está disponible para trabajar en Offline, en este caso, se debe verificar directamente con la mesa de ayuda  para validar estado del TPS.</p></div><div style="display:contents" dir="auto"><p id="30439073-1e23-80f8-80cf-f6eeabe0acfb" class="">Toteat está trabajando en offline correctamente cuando no hay internet en el punto de venta, y el indicador “Avión” está completamente en rojo.  El cambio de “verde” a “rojo” post caída de internet, debiese durar entre 20 a 60 segundos, este periodo de tiempo <strong>se debe esperar a que el avión cambie completamente de color</strong>, una vez esté listo, se puede utilizar sin problemas.</p></div><div style="display:contents" dir="ltr"><figure id="30439073-1e23-801c-9431-e313c5af7971" class="image"><a href="Contingencias/Untitled%202.png"><img style="width:343px" src="Contingencias/Untitled%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="30439073-1e23-80fa-84c6-c0fa6b417d17" class=""><strong>Nota</strong>: El offline tiene actualmente ciertas restricciones que se deben cumplir para su correcto uso :</p></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-80ab-9ef5-ef115af02e69" class="numbered-list" start="1"><li>La reportería de TRM no funcionará en estado OFFLINE, ya que toda la información la extrae de la nube.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8061-aa5d-c10a49cb31b5" class="numbered-list" start="2"><li>Deben tener Turno, Caja y las sesiones de usuario, iniciadas antes de pasarse a OFFLINE, si el local no tiene internet antes de abrir turno  o abrir caja, se puedo compartir internet al PC servidor para que puedan realizar estas pruebas de forma efectiva.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8036-a40e-dfe13a8debba" class="numbered-list" start="3"><li>Si el cliente tiene un DTE configurado, no podrá emitir documentos electrónicos, por ende, no podrá liberar las mesas (a menos que desactive los documentos electrónicos estando Online). No aplica a México.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8089-821b-f2109215c8e4" class="numbered-list" start="4"><li>El modo OFFLINE es solo de emergencia, no está diseñado para trabajo continuo.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8036-b6e9-dec312271fbe" class="numbered-list" start="5"><li>Al momento de pasar de OFFLINE a ONLINE, habrá un tiempo de demora en que actualice la información, se debe tener cuidado de no comandar en estas mesas que aún no actualizan para no duplicar órdenes. No aplica a Take away.</li></ol></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-8039-b1d9-ea2831804a88" class="bulleted-list"><li style="list-style-type:disc"><strong>Recomendaciones</strong></li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8001-bf06-e0ffb84162f9" class="numbered-list" start="1"><li>Se debe tener la red local <strong>separada</strong> del dispositivo que da internet al local, para así, no afectar en caso de cambio de red. Switch independiente del Módem/Router.<div style="display:contents" dir="auto"><p id="30439073-1e23-8085-bc39-c7f6512a3200" class="">Tipo de Switch depende de la cantidad de dispositivos ethernet conectados.</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8014-9d34-e322d27f5ec4" class="numbered-list" start="2"><li>Tener línea de internet <strong>secundaria</strong>, idealmente un router/switch dual que “switchee” entre las líneas de internet detectando o no señal en la línea principal, para ello necesitan que la red local esté separada del dispositivo que les da internet.  </li></ol></div><div style="display:contents" dir="auto"><p id="30439073-1e23-80a3-a25a-e86d60fc1e0b" class="">Se recomienda:</p></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-8007-ac37-e8ff4272250d" class="bulleted-list"><li style="list-style-type:disc"><strong>TP-Link TL-R470T+</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-807e-b24f-c1883ed03ad5" class="bulleted-list"><li style="list-style-type:disc">Ubiquiti ER-XSiempre se deberá tener una contingencia alterna por parte del cliente que no dependa del sistema y que </li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8070-bc40-c87c7d8b4667" class="numbered-list" start="3"><li>Siempre se deberá tener una contingencia <strong>alterna</strong> por parte del cliente que no dependa del sistema  y que la misma sea socializada con todo el equipo de trabajo.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-80fb-a4f6-d4d9d3cf93c1" class="numbered-list" start="4"><li><strong>Compartir</strong> internet al servidor a través de un dispositivo móvil (celular o BAM), realizar la acción por puerto <strong>USB</strong> para así no afectar la red local en el puerto Ethernet del PC servidor.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-80a9-9d26-c8f394e9f71d" class="numbered-list" start="5"><li><strong>No se debe refrescar</strong> la ventana con Toteat abierto una vez esté la función de Offline activa.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-800e-99d3-e04f97f28ef3" class="numbered-list" start="6"><li>Siempre tener <strong>lápiz y papel</strong> en caso que alguno de los puntos anteriores no se ejecute correctamente.</li></ol></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80fe-8688-d76b360f4032" class="toggle"><li><details open=""><summary><strong>Contingencia 2: </strong>“Problemas con impresora”</summary><div style="display:contents" dir="auto"><ul id="30439073-1e23-8058-bbfa-f47954cee944" class="bulleted-list"><li style="list-style-type:disc">Si una impresora en particular está con problemas verificar el estado de su conexión. <div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-80de-ad78-ffb7b0a2f993" class="numbered-list" start="1"><li>Si la impresora es <strong>USB</strong>: </li></ol></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-8019-b3d7-f577b6357886" class="bulleted-list"><li style="list-style-type:circle">Verificar que la impresora esté encendida, con papel y la tapa bien cerrada.</li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80ec-9bd5-f93222bb7f59" class="bulleted-list"><li style="list-style-type:circle">Verificar el estado de la conexión en el panel “dispositivos e impresoras” de Windows.</li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-8067-958c-c8b5a8940af4" class="bulleted-list"><li style="list-style-type:circle">Si la impresora aparece en error o sin conexión; Apagar la impresora, desconectar el cable USB por ambos extremos por 30 segundos, luego reconectarla, encenderla y validar. Si no, Verificar que esté en el puerto USB correspondiente, conectarla en diferentes puertos USB del PC para identificar el correcto.</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-802f-a3de-f39701638aa8" class="numbered-list" start="2"><li>Si la impresora es <strong>Ethernet</strong>:</li></ol></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-802a-9aed-f9318088fca4" class="bulleted-list"><li style="list-style-type:circle">Verificar que la impresora esté encendida, con papel y la tapa bien cerrada.</li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-8027-8eb9-ef06864100e7" class="bulleted-list"><li style="list-style-type:circle">Verificar el estado de la conexión en el panel “dispositivos e impresoras” de Windows.</li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-8065-9bf3-d454aa5848ec" class="bulleted-list"><li style="list-style-type:circle">Si la impresora aparece en error o sin conexión; Apagar la impresora, desconectar el cable Ethernet por ambos extremos por 30 segundos, luego reconectarla, encenderla y validar. </li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80e1-9aff-f187db5b551c" class="bulleted-list"><li style="list-style-type:circle">Validar la IP de la impresora con un selftest: </li></ul></div><div style="display:contents" dir="auto"><p id="30439073-1e23-80af-8b64-f8a433a93468" class=""><mark class="highlight-default">2.1. Apagar impresora.</mark></p></div><div style="display:contents" dir="auto"><p id="30439073-1e23-8073-a5b0-c4435dc37309" class=""><mark class="highlight-default">2.2. Apretar botón </mark><em><mark class="highlight-default">feed</mark></em><mark class="highlight-default">.</mark></p></div><div style="display:contents" dir="auto"><p id="30439073-1e23-8010-b134-d4f59197e00a" class=""><mark class="highlight-default">2.3. Encender impresora manteniendo botón </mark><em><mark class="highlight-default">feed </mark></em><mark class="highlight-default">pulsado.</mark></p></div><div style="display:contents" dir="auto"><p id="30439073-1e23-803e-9457-d0003bcf2242" class=""><mark class="highlight-default">2.4. En cuanto salga el “</mark><em><mark class="highlight-default">Selftest”, </mark></em><mark class="highlight-default">dejar de presionar el botón </mark><em><mark class="highlight-default">feed.</mark></em></p></div><div style="display:contents" dir="auto"><p id="30439073-1e23-80f0-b130-d45d40548806" class=""><mark class="highlight-default">2.5. Presionar el botón </mark><em><mark class="highlight-default">feed </mark></em><mark class="highlight-default">nuevamente un segundo, dejando salir papel en blanco y asegurándonos que no esté trabada.</mark></p></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80bf-9a4d-cbd4c63afd0c" class="bulleted-list"><li style="list-style-type:circle">En la impresión que dará la impresora, verificar el apartado “<em>IP Address</em>”</li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80f2-9198-d98888c86392" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-default">Verificar IP en </mark><em><mark class="highlight-default">Windows </mark></em><mark class="highlight-default">en Propiedades de Impresora:</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80c9-93d8-efbd7319c5ef" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-default">Ir al Panel de dispositivos de impresoras (Tecla </mark><em><mark class="highlight-default">win </mark></em><mark class="highlight-default">+ “R” Comando: </mark><em><mark class="highlight-default">Control printers</mark></em><mark class="highlight-default">) </mark></li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80bb-8163-c873d8b4c724" class="bulleted-list"><li style="list-style-type:circle"><em><mark class="highlight-default">Click </mark></em><mark class="highlight-default">derecho en la impresora correspondiente &gt; Propiedades de la impresora</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-8041-80e2-d03d670d4227" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-default">Pestaña “Puertos”, y aquí verificar si la IP es la misma que en el </mark><em><mark class="highlight-default">selftest</mark></em><mark class="highlight-default">. </mark></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="30439073-1e23-80a5-b6c7-ffc19b27ee05" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="30439073-1e23-80fc-9bf3-e9995bd30f6b" class="image"><a href="Contingencias/Untitled%203.png"><img style="width:336px" src="Contingencias/Untitled%203.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80b9-9011-d02c4944fbb8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Si la IP </mark><mark class="highlight-default"><strong>no coincide</strong></mark><mark class="highlight-default">  se debe hacer coincidir cambiándole la IP a la impresora, o desde la configuración de W</mark><em><mark class="highlight-default">indows</mark></em><mark class="highlight-default">.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-803f-be42-c39f4a47f02f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Si la IP </mark><mark class="highlight-default"><strong>si coincide </strong></mark><mark class="highlight-default">se debe validar que estén dentro de la misma red y validaciones físicas de conexión, cables, puertos, conectores, etc.</mark></li></ul></div><div style="display:contents" dir="auto"><p id="30439073-1e23-8036-8b34-fea624b3cb05" class=""><mark class="highlight-default"><strong>Punto de control</strong></mark><mark class="highlight-default">: Imprimir página de prueba de </mark><em><mark class="highlight-default">Windows </mark></em><mark class="highlight-default">en la impresora, si esta no sale sigue siendo error de conexión, verificar/cambiar cable, puerto, conectores, etc. Si la página de prueba de </mark><em><mark class="highlight-default">Windows </mark></em><mark class="highlight-default">sale, debiese estar corregido el error.</mark></p></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-8013-8bf9-ed997452ed1b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Colocar la IP de la impresora en el comentario de la impresora si es que hubo cambios.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80ab-83c3-dd93cd7439dc" class="bulleted-list"><li style="list-style-type:disc">Limpiar cola de impresión en Windows.</li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80a6-a50f-e4e32f281ab2" class="bulleted-list"><li style="list-style-type:disc">Realizar mantenciones correspondientes.</li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80ef-ba58-d83bf24074b8" class="bulleted-list"><li style="list-style-type:square">Si es necesario cambiar físicamente una impresora, debido a mantención o problemas en ella, es <strong>muy importante</strong> que al momento de configurarla en Windows <strong>mantenga el nombre que la impresora a la que está reemplazando. </strong>El TPS reconoce el nombre de la impresora en la cola de Windows del equipo en el que está conectado, puede cambiar la IP en la configuración, pero el nombre debe mantenerse.</li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-8016-a227-c173a8a0078f" class="bulleted-list"><li style="list-style-type:disc">La impresora debe cumplir siempre con:</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8073-a38c-cff71cc8ebfb" class="numbered-list" start="1"><li>Debe ser una impresora térmica.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-80b1-b298-f50cde495e9b" class="numbered-list" start="2"><li>Debe ser tipo ESC/POS. </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8029-a6cf-e96d571ff0d8" class="numbered-list" start="3"><li>Debe ser de 80mm</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8045-894d-e9da1e3df594" class="numbered-list" start="4"><li>Se recomiendan las impresoras Epson (modelos TM-T20III, TM-T88V) o Bixolon (Modelo SRP-350IIPlus), de ser otra marca, que cumpla los requisitos previos.</li></ol></div><div style="display:contents" dir="auto"><p id="30439073-1e23-8014-92cd-f1fbca5b63c5" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="30439073-1e23-801d-ab49-eb32e62b0c1e"/></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-8000-9b36-d050aef13961" class="toggle"><li><details open=""><summary><strong>Contingencia 3: </strong>“Problemas con TPS”</summary><div style="display:contents" dir="auto"><ul id="30439073-1e23-80e2-9a61-efa6a6e5415f" class="bulleted-list"><li style="list-style-type:disc">Si ninguna impresora está trabajando correctamente, verificar que Toteat Print Server (TPS) esté ejecutándose correctamente. <div style="display:contents" dir="auto"><p id="30439073-1e23-80fe-b119-c7398eb43c09" class="">Verificar en el menú inferior derecho de Windows si está el ícono de TPS, </p></div><div style="display:contents" dir="ltr"><figure id="30439073-1e23-8053-955a-ef66288fb192" class="image"><a href="Contingencias/Untitled%204.png"><img style="width:336px" src="Contingencias/Untitled%204.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="30439073-1e23-8082-bdf2-df2d7df28a30" class="">Reiniciarlo en caso de ser necesario, Click derecho sobre el ícono &gt; Restart.</p></div><div style="display:contents" dir="ltr"><figure id="30439073-1e23-802f-b50c-ceb67634d788" class="image"><a href="Contingencias/Untitled%205.png"><img style="width:336px" src="Contingencias/Untitled%205.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80cf-a223-f1df1e4b6057" class="bulleted-list"><li style="list-style-type:disc">Se puede validar la guía <a href="https://ayuda.toteat.com/toteat/es/articles/3033483-que-hacer-si-no-se-imprimen-comandas-revision-de-tps">https://ayuda.toteat.com/toteat/es/articles/3033483-que-hacer-si-no-se-imprimen-comandas-revision-de-tps</a></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80be-8021-d3377885c0a9" class="toggle"><li><details open=""><summary><strong>Contingencia 4: </strong>“Problemas con KDS”</summary><div style="display:contents" dir="auto"><ul id="30439073-1e23-80dc-8e64-ed21c598cb17" class="bulleted-list"><li style="list-style-type:disc">Verificar conexión de KDS al puerto Ethernet o Wifi correspondiente.</li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-808f-bf5f-c08733d782c8" class="bulleted-list"><li style="list-style-type:disc">En caso de cambiar el KDS por problema físico, el nuevo se debe reconfigurar seleccionando el ID de KDS correspondiente. </li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-80ed-9335-fcc509445937" class="numbered-list" start="1"><li>Ir en el dispositivo nuevo a kds.toteat.com</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8014-bcb1-d54b68a5c977" class="numbered-list" start="2"><li>Iniciar sesión en el dispositivo.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8045-977a-ed207e7ee28d" class="numbered-list" start="3"><li>Validar estar en el ambiente correcto.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8082-a62a-cc4e7bc0f14d" class="numbered-list" start="4"><li>Ir a menú lateral &gt; Configurar KDS </li></ol></div><div style="display:contents" dir="ltr"><figure id="30439073-1e23-80cd-a82e-c8d8b58a5f5f" class="image"><a href="Contingencias/Untitled%206.png"><img style="width:288px" src="Contingencias/Untitled%206.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-80e0-9ad3-c08dd0caae0b" class="numbered-list" start="5"><li>Seleccionar el KDS Correspondiente a ese dispositivo y presionar ‘Activar’</li></ol></div><div style="display:contents" dir="ltr"><figure id="30439073-1e23-80fd-b6a1-f7ef8970814e" class="image"><a href="Contingencias/Untitled%207.png"><img style="width:384px" src="Contingencias/Untitled%207.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8033-9ada-f96cf7a9d75c" class="numbered-list" start="6"><li>Una vez diga (Activado) al costado del KDS, presionar el botón “Cerrar sesión y usar KDS”</li></ol></div><div style="display:contents" dir="ltr"><figure id="30439073-1e23-804c-90a2-c267c5141cc4" class="image"><a href="Contingencias/Untitled%208.png"><img style="width:384px" src="Contingencias/Untitled%208.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-806e-94fc-db4a57ea2cbd" class="bulleted-list"><li style="list-style-type:disc">Se recomienda el KDS siempre tener al menos las siguientes características:<div style="display:contents" dir="auto"><p id="30439073-1e23-807d-b20e-d56fe08cff74" class="">Pantalla mínima 8&quot;<br/>Resolución mínima 1024 x 768 DPI<br/>Android 7 o superior<br/>Navegador Google Chrome o Safari instalado<br/>2Gb RAM, Quad Core de 1,5 Ghz preferible<br/>Octa Core para mejorar rendimiento<br/>Memoria SSD de 16 Gb min<br/>Marcas recomendadas: Samsung,<br/>Lenovo, HP de gama media y alta,<br/>Ipad con iOS 11 o superior.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80a0-97b5-cda3fb57c91b" class="bulleted-list"><li style="list-style-type:disc">En caso de no tener un KDS para reemplazar el anterior, si es un KDS de comandas, se puede utilizar una impresora para utilizar Comandas impresas, si es un KDS para armado de pedidos, se puede configurar una impresora con la función “Armado de pedidos”. Contactar chat de soporte para configuración de Armado.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-8010-b0a1-c495f1a863a4" class="toggle"><li><details open=""><summary><strong>Contingencia 5: </strong>“Problemas con Tótem”</summary><div style="display:contents" dir="auto"><ul id="30439073-1e23-8001-85e0-efad7c599426" class="bulleted-list"><li style="list-style-type:disc">En caso de problemas de impresión con el Tótem:</li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8082-b41f-edd509f2f53b" class="numbered-list" start="1"><li>Verificar estado del papel de la impresora interna.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-803b-8428-c4f7272136ed" class="numbered-list" start="2"><li>Verificar conexión del Tótem a la red del local, estado del cable Ethernet o Wifi correspondiente.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8051-9b1e-c563c5413904" class="numbered-list" start="3"><li>Reiniciar el Tótem.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-80ed-8022-ecb37a7581fb" class="numbered-list" start="4"><li>Si el dispositivo es IMIN, validar actualizaciones de Software “<em>Imin Printer Plugin</em>”.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-80c5-a905-cb7c3e0de913" class="numbered-list" start="5"><li>Si el equipo no es IMIN, verificar el estado de la impresora ethernet según parámetro de impresoras.</li></ol></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80e3-b470-ef00af09ff02" class="bulleted-list"><li style="list-style-type:disc">En caso de cambiar el Tótem:<div style="display:contents" dir="auto"><p id="30439073-1e23-806e-aaca-f328c39f8c39" class="">Se debe sincronizar el Tótem nuevo al ambiente correspondiente, en el Tótem realizar:</p></div></li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8013-be35-cde583204d94" class="numbered-list" start="1"><li>Entrar a kiosk.toteat.app </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-801f-8d3e-f752a3f58554" class="numbered-list" start="2"><li>En caso de ser un Tótem reutilizado de otro local, eliminar memoria caché del URL desde las opciones del navegador.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8035-9f7e-daeb96ec9fe4" class="numbered-list" start="3"><li>Sincronizar el Tótem con el ambiente actual, Dar al ícono generar.</li></ol></div><div style="display:contents" dir="ltr"><figure id="30439073-1e23-8096-bc61-e3ace4b78b49" class="image"><a href="Contingencias/Untitled%209.png"><img style="width:288px" src="Contingencias/Untitled%209.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-8016-9d77-e3d36b5ee278" class="numbered-list" start="4"><li>El número que este otorgue, ingresarlo en el dispositivo correspondiente en el ambiente, en menú lateral &gt; configuración&gt; Kiosko autoatención&gt; Dispositivos.</li></ol></div><div style="display:contents" dir="ltr"><figure id="30439073-1e23-801e-ae7e-e8bbf7c58cdc" class="image"><a href="Contingencias/Untitled%2010.png"><img style="width:680px" src="Contingencias/Untitled%2010.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="30439073-1e23-80ee-9db3-e8dafb1a21a1" class="numbered-list" start="5"><li>Seleccionar el Dispositivo correspondiente y darle a “editar”</li></ol></div><div style="display:contents" dir="ltr"><figure id="30439073-1e23-8054-bb9a-efe006b2c5ac" class="image"><a href="Contingencias/Untitled%2011.png"><img style="width:672px" src="Contingencias/Untitled%2011.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="30439073-1e23-80f1-8e87-e9ddb643fded" class="">6.  En el campo “Sincronizar” ingresar el código que el Tótem muestra</p></div><div style="display:contents" dir="ltr"><figure id="30439073-1e23-80d1-8311-cb7d723e3407" class="image"><a href="Contingencias/Untitled%2012.png"><img style="width:528px" src="Contingencias/Untitled%2012.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-8080-8156-c02c09e18d8b" class="toggle"><li><details open=""><summary><strong>Contingencia 6: </strong>“Problemas con Servidor”</summary><div style="display:contents" dir="auto"><ul id="30439073-1e23-80d0-8ae3-e4fe0ca9eb29" class="bulleted-list"><li style="list-style-type:disc">En caso de contingencias con PC servidor la recomendación es siempre tener un equipo <em>Backup</em> en el local o cercano.</li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-800f-9a9b-c8d552c85fb5" class="bulleted-list"><li style="list-style-type:disc">Para agilizar el cambio, este equipo <em>Backup</em> debe tener las impresoras instaladas con la IP correspondiente al local que se utilizará. El proceso de instalación de impresoras generalmente es lo más demoroso en la reinstalación, si esto ya está listo, lo siguiente es mucho más rápido.</li></ul></div><div style="display:contents" dir="auto"><ul id="30439073-1e23-80be-baaf-fa7b02a9daf7" class="bulleted-list"><li style="list-style-type:disc">Se debe ingresar al chat de soporte indicando que es un equipo nuevo que reemplazará al anterior e indicar el nombre del ambiente al que corresponde el cambio, para la instalación de TPS en él.</li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="30439073-1e23-80c6-a277-cd6247a95ca5" class=""></h3></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

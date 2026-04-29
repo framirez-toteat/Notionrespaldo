@@ -1,0 +1,768 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Repositorio SAC</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="19739073-1e23-8048-ad99-c585fdebd743" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/nasa_ibm_type_704.jpg" style="object-position:center 19.999999999999996%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🤓</span></div><h1 class="page-title" dir="auto">Repositorio SAC</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="31a39073-1e23-80dd-a7d4-ce85c5eaf63b" class="">Acá podrás encontrar respuestas a las preguntas más frecuentes que se dan por parte de nuestros clientes. </p></div><div style="display:contents" dir="ltr"><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="31a39073-1e23-8079-99be-f16ff6ac2191"><div style="font-size:1.5em"><span class="icon">📓</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="31a39073-1e23-809c-aa48-e5c6050c2489" class="">Si consideras que hay información desactualizada o faltante, ¡no dudes en informarnos dejando un comentario directamente en el contenido!</p></div></div></figure></div><div style="display:contents" dir="auto"><div id="1b439073-1e23-80b3-8972-e301e0429886" class="column-list"><div style="display:contents" dir="auto"><div id="1b439073-1e23-80ab-9679-ffdd457a21ba" style="width:60.00000000000001%" class="column"><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">TPS</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1b439073-1e23-804f-83c7-e9cf292ea4aa" class="toggle"><li><details open=""><summary><em><mark class="highlight-orange"><mark class="highlight-default_background">No se imprimen las facturas, boletas o precuentas</mark></mark></em></summary><div style="display:contents" dir="auto"><ul id="1b539073-1e23-8087-b198-c9dbe82006cc" class="bulleted-list"><li style="list-style-type:disc">Lo primero que se debe realizar es reiniciar el Toteat Print Server y validar si la impresora está funcional, enviando una página de prueba de Windows. Si el problema continúa:</li></ul></div><div style="display:contents" dir="auto"><p id="1b539073-1e23-80b0-a4b1-c856462c07d8" class="">Se debe verificar en el menú lateral → Configuraciones → Impresoras, que la regla de impresión de cuentas y precuentas tenga asignada la impresora y que esté seleccionado el modelo correcto. Se recomienda Bixolon SRP 350, aunque podría variar según el modelo. También debemos validar una configuración importante: el tamaño de la fuente debe ser de 11 px / 38 caracteres, ya que este es el tamaño correcto para la impresión de facturas, boletas y precuentas.</p></div><div style="display:contents" dir="ltr"><figure id="1b539073-1e23-8094-837b-c3131151c8a7" class="image"><a href="Repositorio%20SAC/image_(4).png"><img style="width:129.53125px" src="Repositorio%20SAC/image_(4).png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c739073-1e23-80a8-b5a9-e1f945df911c" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Me aparece una ventana negra en el pc y no imprime</mark></summary><div style="display:contents" dir="auto"><p id="1c739073-1e23-8099-9c2e-c402bef50b58" class="">Esto es por la ejecución del TPS, se debe ingresar al pc y lo recomendable es usar el comando en la consola del pc;</p></div><div style="display:contents" dir="auto"><p id="9497b271-57b1-4655-baa3-48927ad805ea" class=""><code>TASKKILL /F /IM drone.exe</code></p></div><div style="display:contents" dir="auto"><p id="53994c4b-6c36-42d1-af7e-519d313bfd1d" class=""><code>netsh advfirewall set allprofiles state off</code></p></div><div style="display:contents" dir="auto"><p id="31eb8e23-f517-438a-a073-354ccdd15d17" class="">cd &quot;C:\ToteatPrintServer\data&quot;</p></div><div style="display:contents" dir="auto"><p id="30b5dc8d-2137-4442-9b7b-477655146018" class="">del /F /S /Q *.lang *.conf *.db *.db-journal</p></div><div style="display:contents" dir="auto"><p id="d263617d-1cc7-4b69-9756-3ae38583c0f6" class="">@echo off</p></div><div style="display:contents" dir="auto"><p id="bb1b359b-0797-4062-a6bf-44d9efeed9a5" class="">C:</p></div><div style="display:contents" dir="auto"><p id="2620a3aa-fc71-48c7-bbcd-b1bdab02f2d8" class="">cd \ToteatPrintServer</p></div><div style="display:contents" dir="auto"><p id="f611598a-75f0-4556-82c1-e371e048319d" class="">start Drone.exe</p></div><div style="display:contents" dir="auto"><p id="23c60fa9-3240-443f-9622-cdb8123bda86" class="">exit</p></div><div style="display:contents" dir="auto"><p id="1c739073-1e23-80bf-9326-e0f99d88b49e" class="">Con eso debería solucionarse si no se soluciona hay que reinstalar</p></div><div style="display:contents" dir="ltr"><figure id="1c739073-1e23-8050-85a2-ece27a3d7fd3" class="image"><a href="Repositorio%20SAC/image.png"><img style="width:129.53125px" src="Repositorio%20SAC/image.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-8084-9429-cb4d67ff52bc" class="toggle"><li><details open=""><summary><mark class="highlight-orange"><mark class="highlight-default_background">No se imprimen comandas, precuentas, tickets y facturas (REINICIO TPS)</mark></mark></summary><div style="display:contents" dir="auto"><ul id="1b539073-1e23-8029-a8af-e55ac15f85d3" class="bulleted-list"><li style="list-style-type:disc">Se debe ingresar al pc y lo primero que se realiza es el reinicio desde la barra de tareas del TPS, dandole clic derecho restart</li></ul></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-8055-8ca9-cd6334ae55ac" class="bulleted-list"><li style="list-style-type:disc">Si no funciona se debe realizar el reinicio del TPS con el siguiente comando en la consola (cmd) abriendola como administrador; </li></ul></div><div style="display:contents" dir="auto"><p id="1b539073-1e23-80f9-ac6b-e296c77c32b2" class=""><code>TASKKILL /F /IM drone.exe</code><br/>netsh advfirewall set allprofiles state off<br/>cd &quot;C:\ToteatPrintServer\data&quot;<br/>del /F /S /Q *.lang *.conf *.db *.db-journal<br/>@echo off<br/>C:<br/>cd \ToteatPrintServer	<br/>start Drone.exe<br/>exit</p></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-8088-a619-dc269f0d5b24" class="bulleted-list"><li style="list-style-type:disc">Otra posible solución es salir del TPS dandole clic derecho sobre el icono y Exit, luego ir a la carpeta del TPS (C:\ToteatPrintServer) verificar los permisos y por ultimo dentro de la carpeta en la carpeta data eliminar todos los archivos señalados y cambiar el que se llama ops por ops1, salir de la carpeta data y ejecutar el TPS desde el ejecutable como administrador.</li></ul></div><div style="display:contents" dir="ltr"><figure id="1b539073-1e23-80f1-8393-f58561521e5c" class="image"><a href="Repositorio%20SAC/Screenshot_1.png"><img style="width:184.203125px" src="Repositorio%20SAC/Screenshot_1.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-807d-a814-d26da5439e9c" class="bulleted-list"><li style="list-style-type:disc">Por ultimo si no funciona ninguna de las soluciones anteriores se prueba reinstalando el TPS</li></ul></div></details></li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Inicio de sesión</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1b539073-1e23-805d-a482-fa957ac95403" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Sesión Caducada o inválida</mark></summary><div style="display:contents" dir="ltr"><figure id="1b539073-1e23-80c1-8206-dbd23e0caa31" class="image"><a href="Repositorio%20SAC/image%201.png"><img style="width:306.046875px" src="Repositorio%20SAC/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1b539073-1e23-80ea-9a48-d5bb3b78f712" class=""><em>Esto ocurre por realizar  iniciar múltiples sesiones en toteat para solucionarlo se debe:</em></p></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-80a4-a428-f667a5f6d274" class="bulleted-list"><li style="list-style-type:disc">Cerrar todas las pestañas sesiones abiertas del navegador o acceso directo </li></ul></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-80a1-8e03-cacecc91ab96" class="bulleted-list"><li style="list-style-type:disc">Borrar datos locales en toteat</li></ul></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-808a-96f3-fff50fee66b5" class="bulleted-list"><li style="list-style-type:disc">Abrir solo una sesión por dominio (res1, res2….) y una sola pestaña, </li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-80c9-9e3a-db0b75fb9210" class="toggle"><li><details open=""><summary><mark class="highlight-orange">No puedo iniciar sesión en toteat (ingreso correo, clave y no inicia)</mark></summary><div style="display:contents" dir="auto"><ul id="1b539073-1e23-8094-9d84-d17be542a686" class="bulleted-list"><li style="list-style-type:disc">Se debe verificar que el correo con el que está ingresando efectivamente sea parte del staff del local.</li></ul></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-8048-a358-e2727bfa6c81" class="bulleted-list"><li style="list-style-type:disc">Validar si le arroja algún mensaje de error como que la contraseña no es correcta. De ser el caso deben recuperarla ya sea si ingresan por google o por toteat login </li></ul></div><div style="display:contents" dir="auto"><p id="1b539073-1e23-8070-8f60-c2da1870a967" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-8057-916d-fd4f57b317b1" class="toggle"><li><details open=""><summary><mark class="highlight-orange">No puedo iniciar sesion, al iniciar con Google no me deja seleccionar mi correo y vuelve a la pantalla de inicio de sesion</mark></summary><div style="display:contents" dir="auto"><p id="1c339073-1e23-8009-a558-dfdfa83a8711" class="">Esto es por la sincronización de el navegador Google Chrome con la cuenta de Google </p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-80e0-8e9a-e6d3e066a513" class="image"><a href="Repositorio%20SAC/sincronizacion.png"><img style="width:190.671875px" src="Repositorio%20SAC/sincronizacion.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-802a-a1b4-ea66ca30b645" class="">Se debe revisar que la Sincronización este desactivada desde los ajustes del navegador</p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-80ce-ac42-e4c898a5aa13" class="image"><a href="Repositorio%20SAC/sincronizacion1.png"><img style="width:264.515625px" src="Repositorio%20SAC/sincronizacion1.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1c339073-1e23-800c-9d1a-f992cc5257ed" class="">y tambien debe estar desactivada la siguiente opción para que cuando quieran iniciar sesion los deje escoger la cuenta que deseen </p></div><div style="display:contents" dir="ltr"><figure id="1c339073-1e23-80e9-beed-f10ee6c33238" class="image"><a href="Repositorio%20SAC/image%202.png"><img style="width:264.515625px" src="Repositorio%20SAC/image%202.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1d639073-1e23-8022-9420-c79e1ded97f9" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Ajustes generales</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1b439073-1e23-80c2-8cdb-ec56114ca02d" class="toggle"><li><details open=""><summary><mark class="highlight-orange">El turno ha estado abierto mas de “x” horas, se debe cerrar el turno actual y abrir uno nuevo.</mark></summary><div style="display:contents" dir="auto"><p id="1b539073-1e23-8020-9dd6-fad138150f3e" class=""><em>Como indica el mensaje, el turno ha alcanzado el máximo de horas configuradas. Para solucionarlo: </em></p></div><div style="display:contents" dir="auto"><p id="1b539073-1e23-8057-a7b9-ee1b1209ad48" class="">El perfil dueño idealmente ya que debe modificar la cantidad máxima de horas permitidas con el turno abierto. Esta configuración genera una alerta para evitar que se olvide cerrar el turno y que no se mezclen ventas de diferentes días. Esta modificación se realiza en Menú lateral→Restaurants→ajustes generales→pestaña General</p></div><div style="display:contents" dir="ltr"><figure id="1b539073-1e23-80bd-9e2a-cc58f4c5a7ad" class="image"><a href="Repositorio%20SAC/image%203.png"><img style="width:306.0625px" src="Repositorio%20SAC/image%203.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c739073-1e23-8052-bd6e-f22dd49f4c69" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Quiero configurar los impuestos para diferentes productos o jerarquias</mark></summary><div style="display:contents" dir="auto"><p id="1c739073-1e23-80d1-86d9-c49c4a674e0f" class="">Para esto deben dirigirse a Menu Lateral→ Restaurants→ Ajustes Generales, Pestaña de Impuestos, en este lugar pueden agregar los impuestos que deseen y configurarlos para las jerarquias que quieran se puede seguir esta guia</p></div><div style="display:contents" dir="auto"><p id="1c739073-1e23-80a1-9038-f78566b495bf" class=""><mark class="highlight-blue"><a href="https://ayuda.toteat.com/toteat/es/articles/2906603-configuracion-interna-impuestos">https://ayuda.toteat.com/toteat/es/articles/2906603-configuracion-interna-impuestos</a></mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c739073-1e23-8097-a04c-c3e21f7f054f" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Quiero agregar comentarios a las anulaciones, o a los productos ejemplo; (Sin Sal, Sin vegetales, Etc.)</mark></summary><div style="display:contents" dir="auto"><p id="1c739073-1e23-806c-b7a0-d942bf713238" class="">Esto se debe realizar en Menu Lateral→ Restaurants→ Ajustes Generales, Pestaña de Comentarios, en esa seccion se pueden agregar comentarios para lo que desea como anulaciones, Descuentos, o directamente para cocina en los productos, ejemplo:</p></div><div style="display:contents" dir="ltr"><figure id="1c739073-1e23-8071-8170-d4254e6b7824" class="image"><a href="Repositorio%20SAC/image%204.png"><img style="width:136.671875px" src="Repositorio%20SAC/image%204.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c739073-1e23-8018-a2cf-f1fe1b7ff6f4" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Quiero Activar el modulo de inventario En linea, o Stock Control</mark></summary><div style="display:contents" dir="auto"><p id="1c739073-1e23-804d-971a-d8eca7a20574" class="">Se puede activar el inventario en Linea desde Menu Lateral→ Restaurants→ Ajustes Generales, Pestaña de Inventarios y se activan las siguientes opciones</p></div><div style="display:contents" dir="ltr"><figure id="1c739073-1e23-80c2-8407-e7844e15f06b" class="image"><a href="Repositorio%20SAC/image%205.png"><img style="width:136.65625px" src="Repositorio%20SAC/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1c739073-1e23-80c2-8f2c-d75296b195b3" class="">Para activar el modulo de stock control debe escribirse directamente al correo de <a href="mailto:clientes@toteat.com">clientes@toteat.com</a> dado a que lo configura el área de customer success</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c739073-1e23-8052-90f1-cebeddf76a70" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Me aparece error al imprimir “fallo token o error al imprimir Boleta”</mark></summary><div style="display:contents" dir="auto"><p id="1c739073-1e23-803b-a9a2-ec4da1d348da" class="">Se debe verificar en Menu Lateral→ Restaurants→ Ajustes Generales, Pestaña de Impresoras, si el proveedor es Bsale, debe enviarse con ellos para que le ayuden a revisar que error tienen, si es DTE Toteat debe revisarse si hay algun error con el proveedor de facturación o si tiene configurado algo mal de esta seccion como la impresion de la factura con DTE o la impresion automatica</p></div><div style="display:contents" dir="ltr"><figure id="1c739073-1e23-80d2-a6f5-d4bc2bcdd371" class="image"><a href="Repositorio%20SAC/image%206.png"><img style="width:136.65625px" src="Repositorio%20SAC/image%206.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c739073-1e23-80ac-83ee-e2b42bb7144b" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Quiero cambiar la información que aparece en la factura, como Direccion, Razón social, etc.</mark></summary><div style="display:contents" dir="auto"><p id="1c739073-1e23-808e-b95c-e8a8060e91e2" class="">Debe ir a Menu lateral→ Restaurants→ Ajustes Generales, Pestaña de Impresoras, y puede cambiar la información en este apartado </p></div><div style="display:contents" dir="ltr"><figure id="1c739073-1e23-8037-aed6-dbc7cfd21f67" class="image"><a href="Repositorio%20SAC/image%207.png"><img style="width:976px" src="Repositorio%20SAC/image%207.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c739073-1e23-8017-8542-fbd12295d9b3" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Quiero cambiar la información de la precuenta, y agregarle un QR</mark></summary><div style="display:contents" dir="auto"><p id="1c739073-1e23-80cb-b9b4-c1d6fd9728c7" class="">Debe hacerlo en Menu Lateral-Restaurants-Ajustes Generales, Pestaña de Impresoras, y la ultima seccion puede agregar información a la precuenta, y agregar el URL del QR que deseen </p></div><div style="display:contents" dir="ltr"><figure id="1c739073-1e23-80b6-820f-d470cee8852d" class="image"><a href="Repositorio%20SAC/image%208.png"><img style="width:263.59375px" src="Repositorio%20SAC/image%208.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c739073-1e23-80b6-bdef-efebc4d13e74" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Quiero Crear nuevas formas de pago</mark></summary><div style="display:contents" dir="auto"><p id="1c739073-1e23-8028-ae18-dbf07ba29025" class="">Debe ir a Menu Lateral→ Restaurants→ Ajustes Generales, Pestaña de Forma de pago, al darle al boton señalado desplega varias formas de pago personalizadas, o la ultima que aparece es Custom y pueden cambiarle el nombre como deseen </p></div><div style="display:contents" dir="ltr"><figure id="1c739073-1e23-8077-9b72-d1f8c3685fbc" class="image"><a href="Repositorio%20SAC/image%209.png"><img style="width:1180px" src="Repositorio%20SAC/image%209.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c739073-1e23-808b-b75a-fb66de20200b" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Quiero crear una forma de pago que no genere factura</mark></summary><div style="display:contents" dir="auto"><p id="1c739073-1e23-808d-8a84-f5eedb5b8108" class="">Menu Lateral→ Restaurants→ Ajustes Generales, Pestaña de Forma de pago, ingresa a la forma de pago con el lapiz y debe dejar la opción señalada marcada, ejemplo: </p></div><div style="display:contents" dir="ltr"><figure id="1c739073-1e23-8015-8820-cbbf771eb7a4" class="image"><a href="Repositorio%20SAC/image%2010.png"><img style="width:831px" src="Repositorio%20SAC/image%2010.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1c739073-1e23-8057-8880-e19a632835db" class="">esto porque el sistema toma la configuración al reves, es decir si esta marcada o activada NO EMITE comprobante fiscal (Factura o Boleta), Si la opción está desmarcada o desactivada SI EMITE comprobante fiscal (Factura o Boleta), esto solo debe configurarlo el usuario por protocolos de seguridad</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c739073-1e23-80ff-9350-fc76d0dbb553" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Quiero configurar permisos a mi personal, agregar o quitar permisos</mark></summary><div style="display:contents" dir="auto"><p id="1c739073-1e23-8060-beeb-d96d7d6080f9" class="">Deben hacerlo desde Menu Lateral→ Restaurants→ Ajustes Generales, Pestaña de Seguridad, en este apartado deben revisar cual es el permiso que desean agregar o quitar, se debe tener en cuenta que si agrega el permiso para alguien o para un perfil solo dicho usuario o dicho perfil tendra el permiso, Ejemplo:</p></div><div style="display:contents" dir="ltr"><figure id="1c739073-1e23-801a-add5-d94c6a379384" class="image"><a href="Repositorio%20SAC/image%2011.png"><img style="width:263.53125px" src="Repositorio%20SAC/image%2011.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1c739073-1e23-801d-aa79-f5726f3e57dc" class="">Si los usuarios o perfiles aparecen en rojo quiere decir que a esos usuarios o perfiles no se les permite hacer dichos movimientos, pero a los demás que tengan permisos de hacerlo por su perfil si, ejemplo: </p></div><div style="display:contents" dir="ltr"><figure id="1c739073-1e23-8023-aea8-c95b035a2993" class="image"><a href="Repositorio%20SAC/image%2012.png"><img style="width:263.5px" src="Repositorio%20SAC/image%2012.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1c739073-1e23-80ae-ac42-cf86ed22f03a" class="">Y si se pone NADIE en el campo, quiere decir que ningún usuario podra hacer cambios en lo que se configure, solo el perfil Dueño/Creador, ejemplo:</p></div><div style="display:contents" dir="ltr"><figure id="1c739073-1e23-8077-9fe7-db40d0e032a8" class="image"><a href="Repositorio%20SAC/image%2013.png"><img style="width:136.65625px" src="Repositorio%20SAC/image%2013.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1d339073-1e23-8039-b7c1-e49a4b7db438" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Necesito que se imprima ticket para mis pedidos  delivery, donde se visualicen los productos y la información del cliente, como nombre, dirección, teléfono…</mark></summary><div style="display:contents" dir="auto"><p id="1d339073-1e23-80ac-95bc-f3b5b541bdf1" class="">Para activar la copia de Despacho, dirígete al menú lateral y selecciona <strong>Restaurants</strong> → <strong>Ajustes Generales</strong>. En la pestaña <strong>General</strong>, desliza hacia abajo hasta encontrar la opción <strong>Copia de Despacho</strong>. Actívala y luego configura la impresora donde se imprimirá, así como la cantidad de copias necesarias.</p></div><div style="display:contents" dir="ltr"><figure id="1d339073-1e23-80ec-8b6e-cb661eb0df8e" class="image"><a href="Repositorio%20SAC/image%2014.png"><img style="width:1901px" src="Repositorio%20SAC/image%2014.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1d339073-1e23-80dd-8639-c5526c1614be" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1d339073-1e23-8041-a110-e81a4f120040" class="image"><a href="Repositorio%20SAC/image%2015.png"><img style="width:291.5px" src="Repositorio%20SAC/image%2015.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1d339073-1e23-8050-b1aa-eb51313bba71" class=""><em>En esta copia despacho no se refleja el precio o total a pagar, solo datos del cliente, previamente seleccionados al configurar y el detalle de los productos o extras.</em></p></div><div style="display:contents" dir="ltr"><figure id="1d339073-1e23-8041-9251-d518504dde4c" class="image"><a href="Repositorio%20SAC/image%2016.png"><img style="width:1413px" src="Repositorio%20SAC/image%2016.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1d339073-1e23-80e9-b456-d7ee268f5556" class="image"><a href="Repositorio%20SAC/image%2017.png"><img style="width:291.59375px" src="Repositorio%20SAC/image%2017.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1d339073-1e23-80cc-8c1a-cb8bef4badce" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1d339073-1e23-80bf-a155-d883520a6b16" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Necesito que se imprima ticket para mis pedidos  delivery, donde se visualicen los productos y la información del cliente, como nombre, dirección, teléfono,  </mark><mark class="highlight-orange"><mark class="highlight-red_background"><strong>pero además el costo de los productos y extras y el total a pagar</strong></mark></mark></summary><div style="display:contents" dir="auto"><p id="1d339073-1e23-80c8-8a4f-f468e53de33c" class="">Para activar la copia Caja, dirígete al menú lateral y selecciona <strong>Restaurants</strong> → <strong>Ajustes Generales</strong>. En la pestaña <strong>General</strong>, desliza hacia abajo hasta encontrar la opción <strong>Copia Caja</strong>. Actívala y luego configura la impresora donde se imprimirá, así como la cantidad de copias necesarias.</p></div><div style="display:contents" dir="ltr"><figure id="1d339073-1e23-80f8-b818-d031b5e1fe04" class="image"><a href="Repositorio%20SAC/image%2014.png"><img style="width:1901px" src="Repositorio%20SAC/image%2014.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1d339073-1e23-8091-b215-e58e3132d5ed" class="image"><a href="Repositorio%20SAC/image%2018.png"><img style="width:263.515625px" src="Repositorio%20SAC/image%2018.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1d339073-1e23-8078-8d3f-c2c1b6ae3b83" class="image"><a href="Repositorio%20SAC/image%2019.png"><img style="width:263.59375px" src="Repositorio%20SAC/image%2019.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1d339073-1e23-802d-9265-ce837cd2ce34" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Turnos</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1b439073-1e23-8034-9b92-fe7024a297cf" class="toggle"><li><details open=""><summary><mark class="highlight-orange">No permite abrir turno </mark></summary><div style="display:contents" dir="auto"><p id="1b539073-1e23-804b-a9db-fd14126358c5" class=""><em>En ocasiones no les permite abrir turno porque están mal configurados, cómo por ejemplo que el día no este seleccionado.</em></p></div><div style="display:contents" dir="ltr"><figure id="1b539073-1e23-80fb-b264-eb7e8a517830" class="image"><a href="Repositorio%20SAC/dia_no_selecciona.png"><img style="width:161.734375px" src="Repositorio%20SAC/dia_no_selecciona.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1b539073-1e23-805d-9659-d0ed5b3b4978" class="">En ese caso tendrían que ir a Menú Lateral→Restaurante→Config. Turnos y realizar la configuración de cada turno que necesiten, si es más de uno, se recomienda usar esta guía; </p></div><div style="display:contents" dir="auto"><p id="1b539073-1e23-80b4-ba6e-e0c651e8d7d1" class=""><a href="https://ayuda.toteat.com/toteat/es/articles/919514-como-crear-y-modificar-un-turno">https://ayuda.toteat.com/toteat/es/articles/919514-como-crear-y-modificar-un-turno</a> </p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-80e9-b897-c01b0fd5d606" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Cerraron el turno y no les permite abrirlo de nuevo</mark></summary><div style="display:contents" dir="auto"><p id="1b539073-1e23-808b-ae3c-cc0b6da33f45" class=""><em>Muchas veces cierran el turno creyendo que pueden abrir algún otro turno o cierran el turno por error y en ese caso solo se puede reabrir.</em></p></div><div style="display:contents" dir="auto"><p id="1b539073-1e23-804d-88f2-ddcee7eb1be8" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-8018-a706-f876abcb54a3" class="bulleted-list"><li style="list-style-type:disc">Primero que todo debe irse a verificar si tienen más de un turno creado, si solo tienen un turno creado pueden reabrirlo o el usuario Dueño/Creador, también puede reabrirlo Menú Lateral→Operaciones→Reabrir Turno</li></ul></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-8093-996f-ee85ad2cbb02" class="bulleted-list"><li style="list-style-type:disc">En caso que tengan más de un turno en la configuración deberán preguntarle al cliente que turno van a usar y verificar muy bien el turno que el sistema deja reabrir y los turnos que tienen configurados, los pueden visualizar y diferenciar con el numero del turno, siempre estar seguros de cúal es el turno que el cliente quiere abrir detallando los id de cada turno como se muestra, para que no hayan errores.</li></ul></div><div style="display:contents" dir="ltr"><figure id="1b539073-1e23-8036-863b-f89b25c0d398" class="image"><a href="Repositorio%20SAC/turnos.png"><img style="width:189.71875px" src="Repositorio%20SAC/turnos.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1b539073-1e23-8067-ae3c-c024c14e79e5" class="image"><a href="Repositorio%20SAC/reabrir_turno.png"><img style="width:189.71875px" src="Repositorio%20SAC/reabrir_turno.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-8008-84d3-e11a9e12db47" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Mi tienda de uber aparece cerrada y tengo el turno abierto en toteat</mark></summary><div style="display:contents" dir="auto"><ul id="1c239073-1e23-80b1-a6b3-f393b46776d1" class="bulleted-list"><li style="list-style-type:disc">Verificar que el horario de uber esté configurado como sub-turno del turno principal que tenga abierto</li></ul></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-80d9-b90f-ca04871a3316" class="bulleted-list"><li style="list-style-type:disc">El sub-turno de uber debe tener seleccionado el chek en la letra D (Delivery) </li></ul></div><div style="display:contents" dir="auto"><p id="1c239073-1e23-8031-b4ab-d146b895d51f" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-8010-b418-fe5b5bac3813" class="image"><a href="Repositorio%20SAC/image%2020.png"><img style="width:1882px" src="Repositorio%20SAC/image%2020.png"/></a></figure></div></details></li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Sectores</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1b439073-1e23-801c-9ec1-c3f94a614d54" class="toggle"><li><details open=""><summary></summary><div style="display:contents" dir="auto"><p id="1b539073-1e23-80b8-9deb-f772ce35cdbc" class="">
+</p></div></details></li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Mesas</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1b539073-1e23-8093-b77b-f162cb8d8c47" class="toggle"><li><details open=""><summary><mark class="highlight-orange">No puedo descarga el archivo CSV de mesas , ni agregar mesas nuevas</mark></summary><div style="display:contents" dir="auto"><p id="1b539073-1e23-8087-ad09-d8f80f6ad71a" class=""><em>Esto ocurre cuando eliminan un sector estando asignadas mesas en él:</em></p></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-8090-bef1-d2b3405ab4ac" class="bulleted-list"><li style="list-style-type:disc">Se debe verificar que sectores asignados tienen las mesas  en menú lateral→ Restaurants→ Mesas (ejemplo)</li></ul></div><div style="display:contents" dir="ltr"><figure id="1b539073-1e23-8036-9c79-df8eea836a6d" class="image"><a href="Repositorio%20SAC/image%2021.png"><img style="width:334.046875px" src="Repositorio%20SAC/image%2021.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-8073-b4ca-cf4c33a82dc2" class="bulleted-list"><li style="list-style-type:disc">Comparar que los sectores que tengan asignadas las mesas efectivamente estén creados en menú lateral → Restaurants → Sectores (El sector 70 no existe) lo eliminaron y esto causa el error en las mesas.</li></ul></div><div style="display:contents" dir="ltr"><figure id="1b539073-1e23-8014-a7d6-c11333de07e6" class="image"><a href="Repositorio%20SAC/image%2022.png"><img style="width:175.8625030517578px" src="Repositorio%20SAC/image%2022.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="1b539073-1e23-805a-b4eb-ecb78f98e1fa" class="bulleted-list"><li style="list-style-type:disc">Se debe crear nuevamente el sector 70 para que reaparezcan las mesas asignadas a ese sector. Después de esto, será posible agregar más mesas y descargar el archivo CSV.</li></ul></div><div style="display:contents" dir="auto"><p id="1b539073-1e23-80ad-81dd-d773af99786b" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1b539073-1e23-8015-a471-f67b9b0f30e3" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-8069-bf4d-fd2378298c59" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Los nombres de mis mesas no se muestran en su totalidad</mark></summary><div style="display:contents" dir="auto"><p id="1c239073-1e23-80b3-8e36-fa27bb4ba88d" class=""><em>Esto sucede porque el nombre de las mesas no debe super el máximo de 5 caracteres incluyendo espacios</em></p></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-80e5-af3d-ef70aadb1911" class="image"><a href="Repositorio%20SAC/image%2023.png"><img style="width:306.015625px" src="Repositorio%20SAC/image%2023.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-8068-992b-fac65b563426" class="image"><a href="Repositorio%20SAC/image%2024.png"><img style="width:1879px" src="Repositorio%20SAC/image%2024.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c739073-1e23-800d-a037-daef4498e1ed" class="toggle"><li><details open=""><summary><mark class="highlight-orange">No me deja agregar más mesas, me aparece un letrero que dice que me debo contactar con el área comercial</mark></summary><div style="display:contents" dir="auto"><p id="1c739073-1e23-80c4-ab1a-eddef1e7e842" class="">Esto es porque el plan que maneja ya no deja agregar más mesas, para esto debe pagar para poder agregar más, indicarle que debe escribir al correo de <a href="mailto:clientes@toteat.com">clientes@toteat.com</a> solicitando la creación de más mesas en el correo le indicaran tema de costos y demás información</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c739073-1e23-8003-83fe-e54118ae1bd0" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Como anular productos de una mesa</mark></summary><div style="display:contents" dir="auto"><p id="0d87437b-0df8-4896-ab39-a396f58e3256" class="">Para eliminar producto de una mesa, para esto en la mesa deberia aparecerte un boton de una basurita algo así</p></div><div style="display:contents" dir="ltr"><figure id="77c55f5f-deb5-4851-a43c-b2cbff6ddeb4" class="image"><a href="https://downloads.intercomcdn.com/i/o/nry7bg4q/1450813481/7bb00a58361d608604de40953c2f/image.png?expires=1743438600&amp;signature=13bb3e654bed9738db32b5117a5c8254f0c59ea1fd56296ab0c0b5f484595749&amp;req=dSQiFsF%2FnoVXWPMW1HO4zc23KFRIXDOKcwlQXU6eEsxyew%3D%3D%0A&amp;resize=516x"><img style="width:516px" src="https://downloads.intercomcdn.com/i/o/nry7bg4q/1450813481/7bb00a58361d608604de40953c2f/image.png?expires=1743438600&amp;signature=13bb3e654bed9738db32b5117a5c8254f0c59ea1fd56296ab0c0b5f484595749&amp;req=dSQiFsF%2FnoVXWPMW1HO4zc23KFRIXDOKcwlQXU6eEsxyew%3D%3D%0A&amp;resize=516x"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e914134-4459-4fb7-8387-b881fa487efe" class="">Al darle clic te saldra un cuadro en el cual debes escribir un comentario y darle a anular</p></div><div style="display:contents" dir="auto"><p id="e375ec6d-b94e-48d5-88a6-3d2e2ffae4a5" class="">Cuando el producto este de color rojo le debes dar a confirmar en la parte de abajo</p></div><div style="display:contents" dir="auto"><p id="1c739073-1e23-8040-b565-c878e4bd119c" class="">ya cuando esten anulados todos los productos en la mesa te aparece “Liberar Mesa”</p></div><div style="display:contents" dir="ltr"><figure id="1c739073-1e23-80e8-9c07-f38afaa27506" class="image"><a href="Repositorio%20SAC/image%2025.png"><img style="width:136.671875px" src="Repositorio%20SAC/image%2025.png"/></a></figure></div></details></li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Cajas</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1b539073-1e23-80ce-aea0-dde786b3801b" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Al intentar cerrar la caja, no se pueden visualizar las opciones de pago necesarias para completar el cierre </mark></summary><div style="display:contents" dir="auto"><p id="1c239073-1e23-80e8-a9f9-db0906711b9c" class=""><em>Verificar el tipo de cierre configurado en la caja, ya que, si está configurado como cierre ciego, solo debe ingresarse el monto en efectivo disponible en el momento del cierre de caja.</em></p></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-802c-baa7-c0c70216e9ad" class="image"><a href="Repositorio%20SAC/image%2026.png"><img style="width:334.0625px" src="Repositorio%20SAC/image%2026.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-80b0-9280-c92ab607592f" class="image"><a href="Repositorio%20SAC/image%2027.png"><img style="width:1218px" src="Repositorio%20SAC/image%2027.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-802e-a641-c3933934e77c" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Necesito reabrir mi caja, pero no encuentro la opción disponible</mark></summary><div style="display:contents" dir="auto"><ul id="1c239073-1e23-8089-a264-dce10e0f15c3" class="bulleted-list"><li style="list-style-type:disc">Es necesario verificar que se esté intentando reabrir la caja con el mismo usuario con el que se estaba operando previamente</li></ul></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-8066-bf23-e83cce3516a5" class="bulleted-list"><li style="list-style-type:disc">Hay que validar si cuenta con los permisos correspondientes en el apartado de seguridad para poder realizar la reapertura de la caja</li></ul></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-8010-8d63-ec19e68fccb8" class="image"><a href="Repositorio%20SAC/image%2028.png"><img style="width:1913px" src="Repositorio%20SAC/image%2028.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-80ac-a1c6-f95a357003f5" class="image"><a href="Repositorio%20SAC/image%2029.png"><img style="width:1387px" src="Repositorio%20SAC/image%2029.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-8089-80d7-ddc90bc82847" class="toggle"><li><details open=""><summary><mark class="highlight-orange">No logro visualizar mi caja, para poder hacer el cierre de la misma</mark></summary><div style="display:contents" dir="auto"><p id="1c239073-1e23-80c4-80f4-eff4de3f598d" class="">Para ello debes ir a menú lateral→Restaurants→Cajas y verificar que la caja esté activa </p></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-8073-afea-c855bd4a2154" class="image"><a href="Repositorio%20SAC/image%2030.png"><img style="width:212.609375px" src="Repositorio%20SAC/image%2030.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1c239073-1e23-809e-abea-dd9c9dec0d92" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c739073-1e23-80a0-82e8-e91af421b011" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Quiero que los cajeros no vean los montos de cada forma de pago al cerrar su caja</mark></summary><div style="display:contents" dir="auto"><p id="1c739073-1e23-809a-8f1f-c39c50457b4d" class="">En ese caso deben dirigirse a Menu Lateral→ Restaurants→ Cajas, ingresar a la caja deseada con el lapiz y modificar la opción señalada como se ve </p></div><div style="display:contents" dir="ltr"><figure id="1c739073-1e23-80ee-b01e-d33e4626a22e" class="image"><a href="Repositorio%20SAC/image%2031.png"><img style="width:136.671875px" src="Repositorio%20SAC/image%2031.png"/></a></figure></div></details></li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Personal</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1b439073-1e23-804e-879c-c5d478b72fc7" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Cambié a un usuario de perfil pero no tiene acceso a las funciones del nuevo perfil asignado</mark></summary><div style="display:contents" dir="auto"><ul id="1bc39073-1e23-8029-98de-e2a75e751dfc" class="bulleted-list"><li style="list-style-type:disc">Se debe verificar que efectivamente se haya realizado el cambió del usuario al nuevo perfil</li></ul></div><div style="display:contents" dir="auto"><ul id="1bc39073-1e23-80e9-82ea-edf57741afe2" class="bulleted-list"><li style="list-style-type:disc">De ser positivo el cambio, debe cerrar sesión y borrar datos locales, para que se efectúe el cambio </li></ul></div><div style="display:contents" dir="ltr"><figure id="1bc39073-1e23-8025-a80d-d173c3a4d483" class="image"><a href="Repositorio%20SAC/image%2032.png"><img style="width:306.0625px" src="Repositorio%20SAC/image%2032.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1bc39073-1e23-80f8-b8ae-d64d55b19ae0" class="image"><a href="Repositorio%20SAC/image%2033.png"><img style="width:306.0625px" src="Repositorio%20SAC/image%2033.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c739073-1e23-8003-b269-c28cc8403b16" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Cree un usuario pero al intentar ingresar no me permite</mark></summary><div style="display:contents" dir="auto"><p id="1c739073-1e23-8028-825a-e2239d7f22f6" class="">Debe revisarse en Menu Lateral→ Restaurants→ Personal que el usuario no este como pendiente, si aparece pendiente es porque no abrio el link que le llego al correo con el que se creo el usuario, ejemplo: </p></div><div style="display:contents" dir="ltr"><figure id="1c739073-1e23-80f3-9b5e-cc99d0054f65" class="image"><a href="Repositorio%20SAC/image%2034.png"><img style="width:136.625px" src="Repositorio%20SAC/image%2034.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1c739073-1e23-8097-8c7a-f268c4f680f3" class="">Si no está pendiente y esta activo deben revisar como estan iniciando sesion y revisar si la sincronización esta afectando en el inicio de sesion del nuevo usuario</p></div><div style="display:contents" dir="auto"><p id="1d639073-1e23-80a1-b211-ec69594a99f8" class="">La invitacion dura 48 horas, por lo que si fue enviada en un tiempo mayor, se debe eliminar el usuario y volver a crear, para que le llegue una invitacion nueva</p></div></details></li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Contabilidad</summary><div class="indented"><div style="display:contents" dir="auto"><p id="1b439073-1e23-80c9-b36a-c411ef664792" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Imágenes</summary><div class="indented"><div style="display:contents" dir="auto"><p id="1b439073-1e23-80a3-8e65-d77adaae3275" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1c239073-1e23-80cb-aac3-d9ad8afd32da" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1bc39073-1e23-80be-8656-ccb2405ff8e0" class="">
+</p></div></div></details></div></div></div><div style="display:contents" dir="auto"><div id="1b439073-1e23-80ff-8952-eaca4ffea2a9" style="width:57.50000000000001%" class="column"><div style="display:contents" dir="auto"><h3 id="1b439073-1e23-807e-9075-ef9ff3d4778c" class="">Productos</h3></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Jerarquía de menú</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1b539073-1e23-80e0-accd-d53a7bab9c45" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Cree una jerarquía de menú, pero no se ve para comandar en la mesa</mark></summary><div style="display:contents" dir="auto"><p id="1c239073-1e23-8075-a96b-ec405e4f1a21" class=""><em>Para que una jerarquía de menú pueda visualizarse en la carta para comandar , es necesario que:</em></p></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-80c5-8b08-d4f1a49c8c2e" class="bulleted-list"><li style="list-style-type:disc">Que tenga producto activos, asignados y con precio base</li></ul></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-8085-9ea0-fc9ec0c0a202" class="bulleted-list"><li style="list-style-type:disc">Jerarquía de Extras</li></ul></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-8021-a98b-c26e938c1d60" class="image"><a href="Repositorio%20SAC/image%2035.png"><img style="width:166.21250915527344px" src="Repositorio%20SAC/image%2035.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-8072-8fb3-cd2cd193a9d1" class="toggle"><li><details open=""><summary><mark class="highlight-orange">La Jerarquía de menú no se ve en mi carta virtual (Toteat Shop)</mark></summary><div style="display:contents" dir="auto"><ul id="1c239073-1e23-802a-b31d-cb61a64a9745" class="bulleted-list"><li style="list-style-type:disc">Verificaremos que, en el menú lateral → Productos → Productos → Jerarquías de menú, la jerarquía tenga marcado el check de &#x27;Visible para clientes”</li></ul></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-802f-b51c-db0addaaaa16" class="image"><a href="Repositorio%20SAC/image%2036.png"><img style="width:1504px" src="Repositorio%20SAC/image%2036.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-80e8-8e43-f0b189cf7c16" class="bulleted-list"><li style="list-style-type:disc">Si la jerarquía de menú sigue sin visualizarse en la Toteat Shop, es necesario validar si los productos de dicha jerarquía tienen algún bloqueo para su visualización. Para ello ingresamos en menú lateral → Productos → Productos, seleccionamos el lápiz de edición.</li></ul></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-8081-afdb-eff34bac99c5" class="image"><a href="Repositorio%20SAC/image%2037.png"><img style="width:1634px" src="Repositorio%20SAC/image%2037.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-80de-872e-c1917cf3f7d0" class="bulleted-list"><li style="list-style-type:disc">En la pestaña que dice Toteat App/Delivery, observamos que el check de No mostrar en la toteat App, NO esté seleccionado. Si está seleccionado, quitamos el check , luego confirmamos en el botón en la parte de abajo y presionamos guardar productos.</li></ul></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-80d4-8171-f5e1e189ae8d" class="image"><a href="Repositorio%20SAC/image%2038.png"><img style="width:1406px" src="Repositorio%20SAC/image%2038.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-8028-a8e6-fefd284008c9" class="image"><a href="Repositorio%20SAC/image%2039.png"><img style="width:250.28125px" src="Repositorio%20SAC/image%2039.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-809b-8b4b-f585be9adb45" class="image"><a href="Repositorio%20SAC/image%2040.png"><img style="width:250.28125px" src="Repositorio%20SAC/image%2040.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-80d2-9e43-c69062d24902" class="toggle"><li><details open=""><summary></summary></details></li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Extras</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1ca39073-1e23-806f-bb13-c69fc1bf6d6e" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Cómo creo opciones para los productos</mark></summary><div style="display:contents" dir="auto"><p id="1ca39073-1e23-8028-ab39-cbae3f0fea1e" class="">Debes primero que todo crear la jerarquia de extras, Menu Lateral→ Productos→ Jerarquia de extras, en ese apartado se crea la categoria donde van a estar las opciones o extras, se debe llenar el ID nodo, el nombre, y en Min debe elegir el minimo de opciones que podra elegir y en Max el maximo de opciones que podra elegir</p></div><div style="display:contents" dir="ltr"><figure id="1ca39073-1e23-80d6-93d8-f759668c0849" class="image"><a href="Repositorio%20SAC/image%2041.png"><img style="width:128.640625px" src="Repositorio%20SAC/image%2041.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1ca39073-1e23-8032-b290-c243c9ce553d" class="">luego de crear dicha jerarquia debe crear los extras que iran a la categoria antes creada en Menu lateral→ Productos→ Extras, debe crear los extras con normalidad igual que como se crean los productos, y el extra debe tener precio base aunque sea un 0</p></div><div style="display:contents" dir="ltr"><figure id="1ca39073-1e23-8076-be83-ee4c33f2442b" class="image"><a href="Repositorio%20SAC/image%2042.png"><img style="width:128.625px" src="Repositorio%20SAC/image%2042.png"/></a></figure></div></details></li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Precios</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1ca39073-1e23-80ee-a0b5-e19d5a3bcfb3" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Como modifico los precios de los productos</mark></summary><div style="display:contents" dir="auto"><p id="1ca39073-1e23-8068-8999-d4b2801d62cc" class="">Debes dirigirte a Menu Lateral→ Productos→ Productos y debes modificar directamente el campo que dice Precio Base</p></div><div style="display:contents" dir="ltr"><figure id="1ca39073-1e23-80d7-a035-da7fec341bfe" class="image"><a href="Repositorio%20SAC/image%2043.png"><img style="width:1350px" src="Repositorio%20SAC/image%2043.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1ca39073-1e23-8019-81d6-eafcdf88c631" class="">Luego de cambiar el precio recuerda grabar cambios.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1ca39073-1e23-80b7-8768-faa1738a9ece" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Quiero cambiar el precio del producto y no me permite, no hace nada.</mark></summary><div style="display:contents" dir="auto"><p id="1ca39073-1e23-80de-b536-f9e7df660368" class="">Cuando no cambie el precio del producto es recomendable que cambie el precio y al nombre del producto le ponga algun espacio o un punto al final, para que se edite el maestro de productos y el sistema tome el punto como un cambio.</p></div></details></li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Precios por turno</summary></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Precios por lista</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1c239073-1e23-80d7-9b36-de041055c110" class="toggle"><li><details open=""><summary><mark class="highlight-orange">No está el producto o extra en el precio por lista</mark></summary><div style="display:contents" dir="auto"><ul id="1c239073-1e23-8033-88c9-e5b11ece35d9" class="bulleted-list"><li style="list-style-type:disc">Debemos ingresar al menú lateral → Productos → Precio por lista, y seleccionar el precio por lista que deseamos visualizar. Si estamos buscando un producto, seleccionamos la categoría &#x27;Productos y platos</li></ul></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-80bf-b52b-dc2dbf5b9b0c" class="image"><a href="Repositorio%20SAC/image%2044.png"><img style="width:1918px" src="Repositorio%20SAC/image%2044.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-806a-aabf-e4d5cbaa3762" class="bulleted-list"><li style="list-style-type:disc">Escribimos el Id  o nombre del producto y seleccionamos la casilla que dice bloqueado.</li></ul></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-8054-bc7c-e01098b3871c" class="image"><a href="Repositorio%20SAC/image%2045.png"><img style="width:1466px" src="Repositorio%20SAC/image%2045.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-80a8-bd4c-f0cc614f15ee" class="image"><a href="Repositorio%20SAC/image%2046.png"><img style="width:1566px" src="Repositorio%20SAC/image%2046.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-8057-8593-d7602ff24680" class="bulleted-list"><li style="list-style-type:disc">Para buscar un extra, se sigue el mismo proceso, pero la diferencia es que debemos seleccionar la categoría &#x27;Todos los extras, complementos y agregados</li></ul></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-8079-bf9c-eaa647641ac4" class="image"><a href="Repositorio%20SAC/image%2047.png"><img style="width:250.28125px" src="Repositorio%20SAC/image%2047.png"/></a></figure></div></details></li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Imágenes</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1c239073-1e23-8035-96e2-fd5edb5d5e2d" class="toggle"><li><details open=""><summary><mark class="highlight-orange">No se ven las imágenes de productos en vista take away </mark></summary><div style="display:contents" dir="auto"><ul id="1c239073-1e23-8096-9500-e45f69407a09" class="bulleted-list"><li style="list-style-type:disc">Validar si efectivamente tiene activa la vista take away</li></ul></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-8041-b380-fc8e5e11e52c" class="bulleted-list"><li style="list-style-type:disc">verificar si efectivamente hay imágenes asignas a las jerarquías de menú  y/o productos según sea el caso.</li></ul></div><div style="display:contents" dir="auto"><ul id="1c239073-1e23-803b-b87c-dee3d21422f2" class="bulleted-list"><li style="list-style-type:disc">Se debe activar una configuración en menú lateral→ configuración→ ajustes personales, activamos la opción de Mostrar Imagenes en Take Away y guardamos.</li></ul></div><div style="display:contents" dir="auto"><p id="1c239073-1e23-8020-b39f-ecfb833f2fc0" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1c239073-1e23-80fb-a25e-d9b4b11371d1" class="image"><a href="Repositorio%20SAC/image%2048.png"><img style="width:1505px" src="Repositorio%20SAC/image%2048.png"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1c239073-1e23-8009-8707-c6f6f34f02b1" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Impresoras</strong></summary><div class="indented"><div style="display:contents" dir="ltr"><figure id="1d539073-1e23-804a-b7e3-db37f84848bf" class="link-to-page"><a href="Repositorio%20SAC/Gu%C3%ADa%20de%20Verificaci%C3%B3n%20de%20Conexi%C3%B3n%20de%20Impresoras%20por%201d5390731e23804ab7e3db37f84848bf.html"><span class="icon">🖨️</span>Guía de Verificación de Conexión de Impresoras por Red (LAN)</a></figure></div><div style="display:contents" dir="ltr"><figure id="22539073-1e23-8091-99cd-f9c66e4b22db" class="link-to-page"><a href="Repositorio%20SAC/C%C3%B3mo%20detener%20una%20impresora%20t%C3%A9rmica%20que%20imprime%20inf%20225390731e23809199cdf9c66e4b22db.html"><span class="icon">🛠️</span>Cómo detener una impresora térmica que imprime infinitamente desde Toteat (error en Windows)</a></figure></div><div style="display:contents" dir="ltr"><figure id="1ee39073-1e23-809d-b5fc-feef9a79a601" class="image"><a href="Repositorio%20SAC/image%2049.png"><img style="width:336px" src="Repositorio%20SAC/image%2049.png"/></a></figure></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Inventario</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-807d-bb03-dcf30a2dedab" class="toggle"><li><details open=""><summary>¿Se puede corregir una transferencia entre bodegas?</summary><div style="display:contents" dir="auto"><p id="2fc39073-1e23-806b-9284-f373394edf3a" class=""><a href="https://toteat-espacio.slack.com/archives/C047GS75V9U/p1770139614935719?thread_ts=1770138784.076999&amp;cid=C047GS75V9U">Caso de referencia</a> </p></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-8038-90c6-c45b0ce7897f" class="">Si es una TRANSFERENCIA ENTRE BODEGAS, solo debe ingresar a Stock Control - Inventarios - Históricos - Ahí deberá buscar la transferencia entre bodegas, ingresar a ella desde el icono del lápiz y reversarla. Al reversarla quedara en estado CREADO y podrá ingresar nuevamente a editarla para posteriormente APROBARLA. Con eso se corregirá la transferencia.</p></div><div style="display:contents" dir="auto"><p id="2fc39073-1e23-800d-bcc3-c2e4686f1e6c" class="">Si es una TRANSFERENCIA ENTRE LOCALES y aun no recepcionaron la mercadería en el otro local, lo que puede hacer es en el panel de RECEPCION poner las 79 y no las 80, con eso quedara registro en el sistema de que en la transferencia fijaron 80 pero realmente se ingresaron al inventario 79. En caso de que ya hayan confirmado y recepcionado la transferencia, no hay nada que hacer a nivel de esa transferencia, dado que fue despachada y recepcionada.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="20f39073-1e23-809e-a1b2-e23550bd47bd" class="">
+</p></div></div></details></div></div></div><div style="display:contents" dir="auto"><div id="1b439073-1e23-80b4-a77f-db08b3d54d33" style="width:75%" class="column"><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Configuración</summary></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">KDS</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1ca39073-1e23-80be-a869-cd346323c7f7" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Como se activa y configura un KDS</mark></summary><div style="display:contents" dir="auto"><p id="1ca39073-1e23-8094-b9fa-e636ce4deed0" class="">Lo recomendable es que nosotros configuremos el KDS dado a que a los clientes no les deja generar el Token de acceso, Menu Lateral→ Configuración→ Kitchen Display System, se activa y se va a la pestaña de Tipos de KDS y se le da a Agregar tipo de KDS</p></div><div style="display:contents" dir="ltr"><figure id="1ca39073-1e23-801e-aa10-c4174413cbd3" class="image"><a href="Repositorio%20SAC/image%2050.png"><img style="width:189.1875px" src="Repositorio%20SAC/image%2050.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1ca39073-1e23-8098-8787-f8115ffee5f8" class="">Luego de haberlo configurado debe indicarsele al cliente que configure el KDS, ingresando con perfil Dueño/Creador, se le puede enviar la siguiente guia para que sea mucho más rapido y entendible para el cliente</p></div><div style="display:contents" dir="auto"><p id="1ca39073-1e23-8019-a9f3-c72123bf15b7" class=""><a href="https://ayuda.toteat.com/toteat/es/articles/5436867-como-activar-kds-en-un-equipo">https://ayuda.toteat.com/toteat/es/articles/5436867-como-activar-kds-en-un-equipo</a></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-8008-85e6-e8bc62a65b2b" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Configurar KDS en local Migrado</mark></summary><div style="display:contents" dir="auto"><p id="1d539073-1e23-8037-9836-d26d8730e9fb" class="">Lo recomendable es que nosotros configuremos el KDS dado a que a los clientes no les deja generar el Token de acceso, Menu Lateral→ Configuración→ Kitchen Display System, se activa y se va a la pestaña de Tipos de KDS y se le da a Agregar tipo de KDS.</p></div><div style="display:contents" dir="ltr"><figure id="1d539073-1e23-80c7-9163-e7ca6053f65b" class="image"><a href="Repositorio%20SAC/image%2050.png"><img style="width:189.1875px" src="Repositorio%20SAC/image%2050.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1d539073-1e23-80bd-89af-ec2b25e79f69" class="">Luego de haberlo configurado debe indicarsele al cliente que configure el KDS, ingresando con perfil Dueño/Creador, debe ser con perfil de Dueño/Creador si o si porque es el unico que lo puede configurar y debe hacerlo desde, puede funcionar la misma guia que este en el paso anterior pero cambiando el link por el que se indica</p></div><div style="display:contents" dir="auto"><p id="1d539073-1e23-80d8-8dbc-de0974069ba7" class=""><a href="https://kitchendisplay.toteat.com/">https://kitchendisplay.toteat.com/</a></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-8043-b95b-fa222a8e21dd" class="toggle"><li><details open=""><summary><mark class="highlight-orange">Que hacer cuando no deja activar el KDS en un equipo a un usuario</mark></summary><div style="display:contents" dir="auto"><ul id="1d539073-1e23-80cd-9e97-cf1720900e30" class="bulleted-list"><li style="list-style-type:disc">Primero se debe verificar que lo este haciendo el usuario Dueño/Creador, si no lo esta haciendo el usuario mencionado no lo va a poder configurar nadie más.</li></ul></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-80c5-828d-e25a1b512f80" class="bulleted-list"><li style="list-style-type:disc">Otro punto a revisar es que se elimine cache de la aplicacion en el Menú Lateral aparece la opción, y luego de eso regenerar el Access Token y que intente activarlo de nuevo</li></ul></div><div style="display:contents" dir="ltr"><figure id="1d539073-1e23-80aa-90ef-c68dc830757b" class="image"><a href="Repositorio%20SAC/image%2051.png"><img style="width:184.84375px" src="Repositorio%20SAC/image%2051.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-8090-bd99-fc89d228921d" class="bulleted-list"><li style="list-style-type:disc">por ultimo podria usar otro dominio como <a href="https://kds1.toteat.com/">https://kds1.toteat.com/</a>  o <a href="https://kds2.toteat.com/">https://kds2.toteat.com/</a>  </li></ul></div><div style="display:contents" dir="auto"><ul id="1d539073-1e23-802d-81e1-f51a547ea8d4" class="bulleted-list"><li style="list-style-type:disc">Recuerden que el KDS se usa con la sesion cerrada si inician sesion en el KDS se daña la configuración y lo tienen que volver a activar</li></ul></div></details></li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Ajustes de equipo</summary></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Ajustes personales</summary></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Toteat Shop</summary><div class="indented"><div style="display:contents" dir="auto"><ul id="1f639073-1e23-80ff-b206-e9b8298ff1b5" class="toggle"><li><details open=""><summary>Clientes no pueden realizar el pago </summary><div style="display:contents" dir="auto"><p id="1f639073-1e23-80d7-ab9b-e34db5040491" class="">Se debe verificar </p></div><div style="display:contents" dir="auto"><ol type="1" id="1f639073-1e23-807f-a860-e232e6fa2458" class="numbered-list" start="1"><li>Si el cliente tiene configurado en la toteat shop-→  Pagos/Pedidos, la opción de pago web obligatorio.</li></ol></div><div style="display:contents" dir="auto"><p id="1fb39073-1e23-802b-8da2-d4a61e16aa80" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1f639073-1e23-80e1-9015-d9f924e0c82d" class="">Se debe verificar </p></div><div style="display:contents" dir="auto"><ol type="1" id="1f639073-1e23-809e-bfe9-cbe0782b6d88" class="numbered-list" start="2"><li>Si el cliente tiene configurado en la toteat shop-→  Pagos/Pedidos, la opción de pago web obligatorio</li></ol></div><div style="display:contents" dir="ltr"><figure id="1f639073-1e23-8042-9eb3-e9b32b73ebff" class="image"><a href="Repositorio%20SAC/image%2052.png"><img style="width:343.515625px" src="Repositorio%20SAC/image%2052.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1f639073-1e23-8035-8849-e8c6b28ab99d" class="">De estar activo:</p></div><div style="display:contents" dir="auto"><ol type="1" id="1f639073-1e23-806f-9882-c96dd2a92739" class="numbered-list" start="3"><li>Debemos verificar si en la integración de mercado , el token no está vencido.</li></ol></div><div style="display:contents" dir="ltr"><figure id="1f639073-1e23-8070-9f1b-d95474757df7" class="image"><a href="Repositorio%20SAC/image%2053.png"><img style="width:343.515625px" src="Repositorio%20SAC/image%2053.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1f639073-1e23-80a5-a47c-dddc8c535de5" class="">Al estar vencido, y al tener configurado en la toteat shop pago obligatorio web, no le paermitirá realizar pago. En ayuda toteat hay un paso a paso de como realizar la reconexión de MP: <strong>Reconexión a MercadoPago - Token vencido</strong></p></div></details></li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Dunkin</summary><div class="indented"><div style="display:contents" dir="ltr"><figure id="1ed39073-1e23-8064-ae4c-cdbe4adca336" class="link-to-page"><a href="Repositorio%20SAC/Check%20list%20Apertura%201ed390731e238064ae4ccdbe4adca336.html"><span class="icon">🔑</span>Check list Apertura</a></figure></div><div style="display:contents" dir="ltr"><figure id="1ed39073-1e23-8040-9e14-ed9d29d35d47" class="link-to-page"><a href="Repositorio%20SAC/Configuraci%C3%B3n%20TPS%201ed390731e2380409e14ed9d29d35d47.html"><img class="icon" src="Repositorio%20SAC/Configuraci%C3%B3n%20TPS/TPS.png"/>Configuración TPS</a></figure></div><div style="display:contents" dir="ltr"><figure id="1ed39073-1e23-80b2-9d02-e498dcd8b6f2" class="link-to-page"><a href="Repositorio%20SAC/Operaci%C3%B3n%20y%20Flujo%20de%20ventas%20(promociones)%201ed390731e2380b29d02e498dcd8b6f2.html"><span class="icon">⚙️</span>Operación y Flujo de ventas (promociones)</a></figure></div><div style="display:contents" dir="ltr"><figure id="1ed39073-1e23-80cb-b0c0-f41737a76028" class="link-to-page"><a href="Repositorio%20SAC/Totems%20-%20Errores%20comunes%201ed390731e2380cbb0c0f41737a76028.html"><img class="icon" src="Onboarding%20SAC/Recurso_51.png"/>Totems - Errores comunes</a></figure></div><div style="display:contents" dir="ltr"><figure id="1ed39073-1e23-8011-a249-e8817374946d" class="link-to-page"><a href="Repositorio%20SAC/Facturaci%C3%B3n%20-%20E-bill%201ed390731e238011a249e8817374946d.html"><span class="icon">📄</span>Facturación - E-bill</a></figure></div><div style="display:contents" dir="ltr"><figure id="1ed39073-1e23-800b-9adf-c476f68ddcac" class="link-to-page"><a href="Repositorio%20SAC/Anulaciones%20de%20ventas%20y%20Boletas%201ed390731e23800b9adfc476f68ddcac.html"><span class="icon">📄</span>Anulaciones de ventas y Boletas</a></figure></div><div style="display:contents" dir="ltr"><figure id="1ed39073-1e23-808b-9419-f685a4821463" class="link-to-page"><a href="Repositorio%20SAC/Redelcom%201ed390731e23808b9419f685a4821463.html"><span class="icon">🔩</span>Redelcom</a></figure></div></div></details></div><div style="display:contents" dir="auto"><p id="1ff39073-1e23-8035-b400-d47f6fe1f36b" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="1b439073-1e23-80ab-bb03-f366fb0d4b65" style="width:65%" class="column"><div style="display:contents" dir="auto"><p id="1b439073-1e23-80df-94a6-c080d9c98329" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1d739073-1e23-804d-ad66-e16223637bac" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="1b439073-1e23-804c-b839-d80b79a692b1" style="width:2.5000000000000187%" class="column"><div style="display:contents" dir="auto"><p id="1b439073-1e23-80b5-8270-f1eed9bc9084" class="">
+</p></div></div></div></div></div><div style="display:contents" dir="auto"><p id="1b439073-1e23-80a4-a3d2-c4e84efc15ac" class="">
+</p></div><div style="display:contents" dir="auto"><p id="22c39073-1e23-80b6-9a9e-f28e7831fe21" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,757 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Creación de una promoción</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2a039073-1e23-81eb-b6ae-e33e401bc9d0" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">💎</span></div><h1 class="page-title" dir="auto">Creación de una promoción</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2a039073-1e23-81c9-a742-d49c8a3ab501" class="">En el proceso de creación de una nueva promoción podrás definir las reglas y especificaciones de los beneficios que se ofrecen a los clientes del restaurante.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8180-abde-c630a0a0d9c9" class="">👀 Te dejo un cheat sheet para que puedas entender como se estructuran las promociones en Toteat</p></div><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-81a7-8c82-e82a361ae979" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/46f867fa-559e-4b2a-93d8-79e945ed8bdd.png"><img style="width:720px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/46f867fa-559e-4b2a-93d8-79e945ed8bdd.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8114-a504-fe5733c65161" class=""> La creación de una promoción se compone de varias partes:</p></div><div style="display:contents" dir="auto"><h1 id="2a039073-1e23-8123-ac79-ccba83c3c753" class=""><strong>I. Datos generales</strong></h1></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-810e-a894-e52183ecab7b" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-810b-b356-edaef8a1ddbd" style="width:50%" class="column"><div style="display:contents" dir="auto"><ol type="1" id="2a039073-1e23-8107-903e-e3ebdfe0fee2" class="numbered-list" start="1"><li>Nombre del beneficio</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2a039073-1e23-819f-95ae-c3c7c0bb068a" class="numbered-list" start="2"><li>Fecha de inicio y término: indica el rango de vigencia de la promoción</li></ol></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-81f1-9630-c4a83a795cf1" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-812d-a165-f7984b486685" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-81d4-a953-fcf2399e7569" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image.png"><img style="width:709.9765625px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-8155-a911-da8aabd01029" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%201.png"><img style="width:317.96875px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%201.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><h1 id="2a039073-1e23-810f-b8d3-c3d8b3ef296b" class=""><strong>II. Audiencia</strong></h1></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-817b-8c06-d2692db2bd8e" class="">La promoción que estás configurando puede estar asociada a 3 tipos de audiencias:</p></div><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-81f1-b981-e418674cbac5" class="image" style="text-align:center"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%202.png"><img style="width:432px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="2a039073-1e23-8113-b39d-e615f221939f" class=""><strong>1. Grupo de cliente</strong>:</h2></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-81ae-9095-d12753550398" class="">Tu promoción puede quedar asociada a un grupo de clientes de tu restaurante.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-811f-bbdc-f64e17155170" class="">Al seleccionar esta opción, se desplegará una lista con todos los grupos de clientes del restaurante. Podrás elegir un grupo de clientes. </p></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81b9-8204-fe54baddfb0e" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-8153-87a8-eeee61e80d31" style="width:56.25%" class="column"><div style="display:contents" dir="auto"><p id="2a039073-1e23-8118-b47f-d2100553b301" class="">Tus clientes podrán canjear la promoción a través de su <mark class="highlight-red"><strong><a href="Canje%20de%20promociones%202a0390731e23810fb885d98870b3e056.html">ID de cliente</a></strong></mark><strong>,</strong> tanto en el punto de venta (atención a mesa o take away) como en el totem de auto-atención. </p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-812f-a23b-ed89d4bcd96a" class="">El ID de cliente es un código alfanumérico de 6 caracteres que podrán encontrar iniciando sesión en <mark class="highlight-red"><strong>Toteat Shop</strong></mark> y dirigiéndose a <mark class="highlight-red"><strong>Ver perfil —&gt; Datos personales</strong></mark>.</p></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-8191-91ca-df0f51208be0" style="width:43.75%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-811d-ad8a-eb3920775805" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/abf47598-96a0-4731-a8c0-1120e8963fe5.png"><img style="width:192px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/abf47598-96a0-4731-a8c0-1120e8963fe5.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><h2 id="2a039073-1e23-8134-a74a-fae98576905c" class=""><strong>2. Segmento:</strong></h2></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-8175-bd93-df80f732947e" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-810c-9601-c6c0f0920ba8" style="width:50%" class="column"><div style="display:contents" dir="auto"><p id="2a039073-1e23-81a6-b4a3-f1b96c7264d1" class="">Si el usuario selecciona que desea asociar su promoción a un segmento, entonces se desplegará una lista con todos los segmentos del restaurante (previamente creados).</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8125-a2ad-c873b2031ea4" class="">Al igual que en el caso anterior, este tipo de promoción podrá ser canjeada haciendo uso del <mark class="highlight-red"><strong>ID de cliente</strong></mark></p></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-815a-ad69-d0ab100e5692" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-81c5-b20d-e883a09ce01a" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%203.png"><img style="width:384px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%203.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><h2 id="2a039073-1e23-81db-ab70-d710d6e56704" class=""><strong>3. Todos los clientes del restaurante / No vincular:</strong></h2></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8199-87ad-d9891811168f" class="">En caso de que quieras que tu promoción esté disponible para todos los clientes del restaurante, debes seleccionar la opción <mark class="highlight-red"><strong>No vincular</strong></mark><strong> </strong>a audiencia.</p></div><div style="display:contents" dir="auto"><h1 id="2a039073-1e23-8137-9263-fbae047876bd" class="">III. Especificaciones</h1></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-81a6-8b7d-fcf39f0dd916" class="">Caracteriza a tu promoción configurando el tipo de beneficio para tus clientes y que tan controlado será su uso.</p></div><div style="display:contents" dir="auto"><h2 id="2a039073-1e23-814b-a2f8-e8c12199655e" class=""><strong>1. Uso de cupón</strong></h2></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8187-a674-fe72a43170fe" class="">Para las <mark class="highlight-red"><strong>promociones de tipo No vincular</strong></mark> (es decir, para las promociones que están disponibles para todos los comensales del restaurante) es posible configurar la funcionalidad de uso de cupón.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-819b-bf38-cc8409f6f404" class="">Al activar esta funcionalidad el comensal debe hacer uso de un <mark class="highlight-red"><strong>ID de cupón</strong></mark><mark class="highlight-red"> </mark>para canjear la promoción. Lo anterior significa que si bien la promoción está disponible para cualquier cliente del restaurante, este debe presentar o ingresar un cupón para ejercerla.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8164-b76f-c5784c44844e" class="">Esta es una forma de poder restringir una promoción sin hacer uso de una audiencia en específico.</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2a039073-1e23-8127-b6b3-e8b2dad8d9f3"><div style="font-size:1.5em"><span class="icon">🔑</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2a039073-1e23-81eb-a526-c36daed7ea85" class="">Las promociones con uso de cupón tienen funcionalidades adicionales asociadas, puedes revisarlas <mark class="highlight-red"><strong><a href="Acciones%20disponibles%20para%20promociones%20con%20uso%20de%20c%202a0390731e2381f0ba80ecffe70022df.html">acá</a></strong></mark></p></div></div></figure></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8112-a1ac-fd87c9798ffd" class="">Existen 2 tipos de cupones:</p></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81aa-9163-ecbf63499f8a" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-8131-8ffb-d950a3f618ed" style="width:100%" class="column"><div style="display:contents" dir="auto"><h3 id="2a039073-1e23-8110-bac7-ffebe93f552b" class="">a. Cupones aleatorios</h3></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8190-ad62-e3bb0d213005" class="">Al activar esta funcionalidad se generan <mark class="highlight-red"><strong>cupones únicos</strong></mark>. Esto permite controlar su uso y tener un seguimiento de su canje.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-81d5-84a4-fa5cbc0683f8" class="">Para configurar esta funcionalidad debes <mark class="highlight-red"><strong>ingresar la cantidad de cupones</strong></mark> (ID de cupones) que tendrá disponible la promoción. </p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8114-a85a-fcec8724fa6b" class="">Al terminar la configuración de la promoción se crearán aleatoriamente la cantidad ingresada de <mark class="highlight-red"><strong>códigos alfanuméricos únicos de 8 dígitos</strong></mark>. Cada uno de estos códigos serán cupones que el restaurante podrá disponibilizar a sus clientes para que puedan canjear promociones.</p></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81b5-9e99-df694cdd97e8" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-815f-95e5-d07c6a84ff10" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%204.png"><img style="width:384px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%204.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2a039073-1e23-81e8-a379-d25b1fe9b2a1"><div style="font-size:1.5em"><span class="icon">☝🏽</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2a039073-1e23-81bc-a524-e15050a8c48e" class="">Importante: cada ID de cupón aleatorio puede ser canjeado solo 1 vez</p></div></div></figure></div></div></div></div></div><div style="display:contents" dir="auto"><ul id="2a039073-1e23-81b5-8f52-e903328d565b" class="bulleted-list"><li style="list-style-type:disc"><strong>Carga de cupones externo para cupones aleatorios</strong><div style="display:contents" dir="auto"><div id="2a039073-1e23-818a-a61b-c7051d3e3a7f" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-812a-ac39-c6d4194671a8" style="width:100%" class="column"><div style="display:contents" dir="auto"><p id="2a039073-1e23-815c-994a-fb0bdf37175b" class="">Cuando activas la funcionalidad de uso de cupón aleatorio tendrás disponible la opción de cargar cupones externos.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-81fb-ade7-d8d6fe3383a0" class="">La carga de cupones externos está especialmente pensada para los restaurantes que están<mark class="highlight-red"><strong> </strong></mark><mark class="highlight-default">comenzando a ser clientes de Toteat</mark>, pudiendo tener <mark class="highlight-red"><strong>promociones activas en su POS anterior</strong></mark>.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-81b4-9957-ce5f08bc634f" class="">Estos clientes podrán cargar los códigos promociones asociados a su POS anterior, asociándolos a los ID de cupones de cara a Toteat (👀 <mark class="highlight-red"><strong><a href="Acciones%20disponibles%20para%20promociones%20con%20uso%20de%20c%202a0390731e2381f0ba80ecffe70022df.html">acá</a></strong></mark><mark class="highlight-red"><strong> </strong></mark>te contamos como podrás visualizarlos).</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-818b-9600-fbf977f17981" class="">La carga de cupones externos se realiza a través de la <mark class="highlight-red"><strong>subida de un archivo Excel </strong></mark>(.xls o .xlsx) que <mark class="highlight-red"><strong>debe tener la misma cantidad de IDs externos que la cantidad de cupones configurada</strong></mark>. En caso de necesitarlo, podrás descargar el formato de subida del archivo de cupones externos.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8191-a0b8-c7d9ec5a9a61" class="">El comensal podrá <mark class="highlight-red"><strong>hacer uso del ID de cupón Toteat o del ID de cupón externo</strong></mark> al momento del canje de la promoción, tanto en el POS (atención a mesa o take away) como en el totem de auto-atención</p></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81ff-9740-f6bb0fbd7ba6" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-8121-a4bf-d4ead2473fac" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%205.png"><img style="width:192px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-818f-aefc-e197e503a4c2" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2a039073-1e23-816a-beed-f7ed6f344671"><div style="font-size:1.5em"><span class="icon">🍤</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2a039073-1e23-8126-8999-de979d0792bb" class="">La carga de cupones externos es una funcionalidad opcional, solo para los restaurantes que lo necesiten</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8102-b5db-fe4eefb10abd" class="">
+</p></div></div></div></div></div></li></ul></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81e6-a568-f4745491d4f6" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-81c6-a2b6-de90630f0d70" style="width:100%" class="column"><div style="display:contents" dir="auto"><h3 id="2a039073-1e23-8116-8d96-e17699352f68" class="">b. Cupones globales</h3></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8105-9799-f9b71582ae7c" class="">Al activar esta funcionalidad se crean cupones de acuerdo al ID de cupón ingresado. Cada cupón puede ser <mark class="highlight-red"><strong>usado muchas veces</strong></mark>, de acuerdo al máximo configurado.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-817d-94e8-e3cb6e85fab3" class="">Es posible crear<mark class="highlight-red"><strong> muchos ID de cupón para una misma promoción</strong></mark>, donde para cada ID se define su máxima cantidad de usos.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8186-837c-dd92e275cac2" class="">El comensal podrá <mark class="highlight-red"><strong>ingresar este ID</strong></mark> en el flujo de pago (atención a mesas, take away y totem) para poder canjear la promoción asociada.</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2a039073-1e23-81c5-9aab-ce55fec5a318"><div style="font-size:1.5em"><span class="icon">🎫</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2a039073-1e23-81e3-870d-d637779e45ec" class="">Los casos típicos de cupones globales son de tipos <strong>campaña masiva</strong> (HOLAVERANO, BACKTOSCHOOL, etc) y los <strong>BINs</strong> de tarjetas bancarias asociadas a la promoción</p></div></div></figure></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-815e-82f4-f7615d8c606f" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-8143-89c9-d0f49f26319b" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%206.png"><img style="width:336px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%206.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><h2 id="2a039073-1e23-8131-af84-ebaf62ec96ae" class=""><strong>2. Tipo de beneficio</strong></h2></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8191-b771-f06cfee3f2d3" class="">Existen tres tipos de promociones en el nuevo módulo de CRM. Te contamos de que se trata cada una:</p></div><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-81b1-a5ee-ff66a5a58214" class="image" style="text-align:center"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%207.png"><img style="width:432px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%207.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="a" id="2a039073-1e23-81ef-a1bc-fe3bd4a0264f" class="numbered-list" start="1"><li><strong>Porcentaje de descuento</strong><div style="display:contents" dir="auto"><p id="2a039073-1e23-8189-93c4-dda3f364f25b" class="">Se realiza un porcentaje de descuento en la compra del comensal. A su vez, este tipo de promoción tiene dos variantes:</p></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81d3-a2c6-eb3946704cc6" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-814d-b3a6-dde3dd23cf37" style="width:50%" class="column"><div style="display:contents" dir="auto"><ul id="2a039073-1e23-8150-9c83-fb4b7ff4a243" class="bulleted-list"><li style="list-style-type:disc"><strong>Por productos</strong><div style="display:contents" dir="auto"><p id="2a039073-1e23-81d1-bfcf-eb6f54a4e019" class="">El porcentaje de descuento se realiza en ciertos productos, previamente configurados por el restaurante.</p></div></li></ul></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-812a-832f-c60ff4020136" style="width:50%" class="column"><div style="display:contents" dir="auto"><ul id="2a039073-1e23-8192-9875-e20f233d283c" class="bulleted-list"><li style="list-style-type:disc"><strong>Por método de pago</strong><div style="display:contents" dir="auto"><p id="2a039073-1e23-8114-8b87-f3f53d262207" class="">El porcentaje de descuento se realiza en los pagos realizados con ciertos métodos de pago, previamente configurados por el restaurante.</p></div></li></ul></div></div></div></div></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8126-b634-ff4657ceeddb" class="">Para configurar este tipo de promoción (tanto descuentos por productos como por métodos de pagos) se debe configurar el <mark class="highlight-red"><strong>porcentaje de descuento a efectuar</strong></mark>.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-815f-9a55-dd3519ee5070" class="">Luego, de acuerdo al tipo de porcentaje de descuento, podrás seleccionar el/los productos o métodos de pago que aplican para la promoción. </p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-815f-9a84-d1f241fd5cba" class="">Por ejemplo: <mark class="highlight-red"><strong>20% de descuento para pagos realizados con efectivo</strong></mark> o <mark class="highlight-red"><strong>40% de descuento en la categoría Pizzas</strong></mark></p></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-8137-9dee-dd85a317d55c" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-81dd-8b4b-e351a95c9a20" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-818d-99ae-e9917f6dab59" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%208.png"><img style="width:384px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%208.png"/></a><figcaption>Porcentaje de descuento por método de pago efectivo</figcaption></figure></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81fe-82f4-c8da95e986eb" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-811f-afe0-d9058dc3820d" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%209.png"><img style="width:336px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%209.png"/></a><figcaption>Porcentaje de descuento por categoría de producto Pizzas</figcaption></figure></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8106-a241-ca4de35c2699" class="">Adicionalmente, para los porcentajes de descuento por productos es posible activar esta opción que permite aplicar el descuento para los extras asociados al producto principal</p></div><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-8160-86c3-da0cbaf2ba6b" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2010.png"><img style="width:426.9921875px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2010.png"/></a></figure></div></div></div></div></div></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="2a039073-1e23-8125-821c-e831024a450a" class="numbered-list" start="2"><li><strong> Producto gratis por combinación</strong><div style="display:contents" dir="auto"><div id="2a039073-1e23-81fd-af2e-c0da936d707e" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-813c-b104-eac4ce63954b" style="width:50%" class="column"><div style="display:contents" dir="auto"><p id="2a039073-1e23-817c-861f-fac6eb7367f3" class="">Son las promociones de tipo <mark class="highlight-red"><strong>2x1, 3x2 o 6x5</strong></mark>.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-81ef-b399-ca28e2cc8668" class="">Para este tipo de promociones debes <mark class="highlight-red"><strong>elegir los productos</strong></mark> que son parte de ella y el <mark class="highlight-red"><strong>tipo de combinación</strong></mark>. El comensal siempre tendrá gratis el producto de menor valor</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-813b-adb3-ee845cecd09e" class="">Puedes usar la <mark class="highlight-red"><strong>lista desplegable de categorías</strong></mark> o el <mark class="highlight-red"><strong>buscador de productos </strong></mark>para encontrar fácilmente los productos a incluir dentro de la promoción.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-819d-91ea-f45885f29baf" class="">Por ejemplo, podrás configurar una promoción <mark class="highlight-red"><strong>2x1 para la limonadas</strong></mark> (limonada y limonada jengibre). Al momento del canje de la promoción el comensal podrá llevar 2 limonadas pagando solo la de mayor valor.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8119-8f01-c90a03cd1125" class="">Al igual que en las promociones de porcentaje de descuento por producto, podrás <mark class="highlight-red"><strong>configurar si es que los extras de tu producto son parte de la promoción o se pagan aparte</strong></mark> (en caso de tener precio).</p></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81ce-bba7-f467de6c223b" style="width:49.99999999999999%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-810f-9eb9-d3826ac9a25b" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2011.png"><img style="width:384px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2011.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-81f8-949a-d7b2c9b5c9d0" class="">
+</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="2a039073-1e23-81ad-9714-e8f1352ab3e3" class="numbered-list" start="3"><li><strong>Monto de descuento</strong><div style="display:contents" dir="auto"><div id="2a039073-1e23-8148-be8d-c404bd05fa27" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-81fd-8efc-c2e866b9f03e" style="width:100%" class="column"><div style="display:contents" dir="auto"><p id="2a039073-1e23-8142-8783-ebb14cd39d14" class="">Podrás configurar un <mark class="highlight-red"><strong>monto de descuento</strong></mark> para tus clientes. Solo debes ingresar el monto desea en el input disponible.</p></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81ca-aa0e-dba3cc8ff358" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-81ac-95b3-f39fca36bb25" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2012.png"><img style="width:426.984375px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2012.png"/></a></figure></div></div></div></div></div></li></ol></div><div style="display:contents" dir="auto"><h1 id="2a039073-1e23-814e-88b6-e29f813f5afb" class=""><strong>IV. Restricciones</strong></h1></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-81bb-af79-dabe85ae5db6" class="">Existen de dos tipos: restricciones generales y restricciones específicas por cada tipo de promoción. Te contamos de que se trata cada una de ellas</p></div><div style="display:contents" dir="auto"><h2 id="2a039073-1e23-8199-b2b3-cb4a7ffaac3d" class=""><strong>1. Restricciones generales:</strong></h2></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-8131-9c6c-d97cfce78b51" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-81cd-9d4c-cc6958a7c6c8" style="width:100%" class="column"><div style="display:contents" dir="auto"><ul id="2a039073-1e23-8118-8425-e0084b00f3d8" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="border-bottom:0.05em solid">Restricción por grupo de sucursales</span></strong></li></ul></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-81d9-aee2-d4888bb1e600" class="">Podrás restringir el canje de las promociones a un <mark class="highlight-red"><strong>grupo de sucursales</strong></mark> (previamente creado en el módulo <a href="https://www.notion.so/Multisucursal-1a1390731e2380e7acabd8d8a75711aa?pvs=21"><span class="icon">🏘️</span>Multisucursal</a>) o configurar que esté disponible para todas las sucursales del restaurante.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-817d-915f-f917b18be4d8" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-813d-b1ba-e5ffd3c77902" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-816f-81dc-d213fbc4af1e" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-81bb-a3a6-e42c5a9121a4" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2013.png"><img style="width:441px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2013.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-8188-94a9-c59024ffa4c3" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-8193-8c1d-cf91f879dfd5" style="width:70.83333333333333%" class="column"><div style="display:contents" dir="auto"><ul id="2a039073-1e23-81b5-a529-fb26add1773d" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="border-bottom:0.05em solid">Restricción por BIN</span></strong><div style="display:contents" dir="auto"><p id="2a039073-1e23-810e-a461-f6cbf6e444f2" class="">Podrás agregar los <mark class="highlight-red"><strong>BIN (numero de identificación bancaria) que aplican</strong></mark> para tu promoción.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8130-8a47-c5595afa2ee4" class="">Al ingresar el/los BIN de tu promoción, al momento del canje el cajero podrá corroborar visualmente si la tarjeta del comensal </p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-812d-a718-eee22494a8a3" class="">
+</p></div></li></ul></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-8177-84db-f5901cbcebc8" style="width:41.666666666666664%" class="column"><div style="display:contents" dir="auto"><p id="2a039073-1e23-8159-a2f5-da9468c3e41e" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-8152-935f-eb67df4cef85" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2014.png"><img style="width:288px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2014.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8137-a439-ec1f445ccdc8" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-8131-a784-f2b0e9153c78" style="width:41.66666666666668%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-81ac-9c53-d4293468f8af" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2015.png"><img style="width:192px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2015.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-8185-ae33-c5133647e38f" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-81cb-8305-ce984d4a5ec9" style="width:100%" class="column"><div style="display:contents" dir="auto"><ul id="2a039073-1e23-81dd-8808-c450eeb45610" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="border-bottom:0.05em solid">Restricciones de día y horario</span></strong><div style="display:contents" dir="auto"><p id="2a039073-1e23-8144-8030-c25b810a76d5" class="">Si bien en los datos generales de la promoción se puede setear cuales son las fechas de vigencia de esta, además es posible configurar <mark class="highlight-red"><strong>días y horarios específicos</strong></mark> en los cuales (durante el rango de vigencia) estará activa la promoción.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-811b-b099-f8b69fd1aec9" class="">Por ejemplo, es posible configurar que una promoción esté activa solo los días lunes y martes, desde las 9 am hasta las 12 del medio día.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8187-820b-e30bd9262cb0" class="">
+</p></div></li></ul></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81e3-acf4-dc355d74e46a" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-8179-be60-c2fa93724019" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2016.png"><img style="width:448.484375px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2016.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-817a-b06d-fe52aca57815" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-8171-9d56-fcaf7f8d8fa4" style="width:100%" class="column"><div style="display:contents" dir="auto"><ul id="2a039073-1e23-8142-8279-d422c2240dc8" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="border-bottom:0.05em solid">Venta corporativa</span></strong><div style="display:contents" dir="auto"><p id="2a039073-1e23-8175-90f1-c8dc8c59fd9c" class="">Si la promoción que está siendo creada es para algún <mark class="highlight-red"><strong>cliente corporativo del restaurante</strong></mark>, es decir la promoción se está desarrollando en alianza con otra organización y existe la necesidad de facturarla, es posible agregar el número identificador fiscal del cliente (RUT, NIT, NIF, RUC u otro). </p></div></li></ul></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-815d-a895-dd7293d23ca3" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-817d-8612-c05c79fbf1a4" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-81bc-bdc9-e149e45e20f7" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2017.png"><img style="width:666.4765625px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2017.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2a039073-1e23-8192-8123-c38fb0bdb278"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2a039073-1e23-8141-b1d2-f7d5ae0ddea2" class="">Esta funcionalidad está especialmente pensada para casos en que el restaurante cuente con un ERP</p></div></div></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8112-a755-d2048bda34c7" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2a039073-1e23-811e-a1eb-f909c6580ba1" class=""><strong>2. Restricciones por tipo de promoción</strong></h2></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-81b0-a9f5-f99eedc8a6d5" class="">De acuerdo a las características de cada tipo de promoción, existen restricciones específicas:</p></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-8163-8fa5-e152624368ae" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-81cb-9c67-d424a4193013" style="width:100%" class="column"><div style="display:contents" dir="auto"><h3 id="2a039073-1e23-8199-946b-ebffede60b56" class=""><strong><span style="border-bottom:0.05em solid">Porcentaje de descuento por producto</span></strong></h3></div><div style="display:contents" dir="auto"><ul id="2a039073-1e23-813d-bdea-c7f22617574a" class="bulleted-list"><li style="list-style-type:disc"><strong>Monto máximo de descuento</strong><div style="display:contents" dir="auto"><p id="2a039073-1e23-8184-8c5b-c3a07309a2b3" class="">Es el máximo posible descuento aplicado a la orden, restringiendo el porcentaje configurado de acuerdo al total de la orden.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2a039073-1e23-81f3-8c17-d0ee533eaf7d" class="bulleted-list"><li style="list-style-type:disc"><strong>Descuento por compras sobre monto mínimo</strong><div style="display:contents" dir="auto"><p id="2a039073-1e23-813f-bee9-f132120d73cf" class="">Si el precio total de la orden es menor al configurado, entonces la promoción no es aplicada.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2a039073-1e23-81f5-a852-d590b2a6696f" class="bulleted-list"><li style="list-style-type:disc"><strong>Máxima cantidad de productos con descuento por orden</strong><div style="display:contents" dir="auto"><p id="2a039073-1e23-8181-86a1-fb62fa4ad730" class="">Es la máxima cantidad de productos a los cuales se les aplicará el descuento.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-81f6-995c-e0d5659b166d" class="">En el caso de la imagen: si el comensal compra 4 productos, 3 de ellos tendrán descuento y 1 tendrá precio normal</p></div></li></ul></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81ec-93ec-ec451686578b" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-815a-aefa-e661e90fde39" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2018.png"><img style="width:462.484375px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2018.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-8194-b439-daa8c416fd37" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-81a9-a6ab-d164cda8eedd" style="width:100%" class="column"><div style="display:contents" dir="auto"><h3 id="2a039073-1e23-812a-99b4-c2a82abbb973" class=""><strong><span style="border-bottom:0.05em solid">Porcentaje de descuento por método de pago</span></strong></h3></div><div style="display:contents" dir="auto"><ul id="2a039073-1e23-81a7-861d-ed66304d45e2" class="bulleted-list"><li style="list-style-type:disc"><strong>Monto máximo de descuento</strong><div style="display:contents" dir="auto"><p id="2a039073-1e23-811f-af4e-c2de45a6d4fb" class="">Es el máximo posible descuento aplicado a la orden, restringiendo el porcentaje configurado de acuerdo al total de la orden.</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2a039073-1e23-8167-818c-cd5efd63b073" class="bulleted-list"><li style="list-style-type:disc"><strong>Descuento por compras sobre monto mínimo</strong><div style="display:contents" dir="auto"><p id="2a039073-1e23-818c-8315-dfa89d7fbab9" class="">Si el precio total de la orden es menor al configurado, entonces la promoción no es aplicada.</p></div></li></ul></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81ab-b67a-e345e5ae275c" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-811a-be90-deb025e82528" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2019.png"><img style="width:462.4921875px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2019.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81e1-a92b-e0a1fa937dec" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-81df-b743-e9c64c4dced7" style="width:100%" class="column"><div style="display:contents" dir="auto"><h3 id="2a039073-1e23-81e7-a55f-cabb22fc2df3" class=""><strong><span style="border-bottom:0.05em solid">Producto gratis por combinación</span></strong></h3></div><div style="display:contents" dir="auto"><ul id="2a039073-1e23-81ec-be24-e3b053826dd4" class="bulleted-list"><li style="list-style-type:disc"><strong>Máxima cantidad de productos con descuento por orden</strong><div style="display:contents" dir="auto"><p id="2a039073-1e23-81c9-9de3-d1bdacfceea5" class="">Es la máxima cantidad de productos a los cuales se les aplicará el descuento.</p></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-81d1-91b1-ce406ef7d74a" class="">En el caso de la imagen: si el comensal compra 4 productos, 3 de ellos tendrán descuento y 1 tendrá precio normal</p></div></li></ul></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81bf-8bc1-e5426cb8b4c4" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-81e0-ab0a-cd411ca9f5ba" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2020.png"><img style="width:240px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2020.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-81d8-b2ee-e2532687f8e9" class="column-list"><div style="display:contents" dir="auto"><div id="2a039073-1e23-810e-9200-ddc118e8de5a" style="width:100%" class="column"><div style="display:contents" dir="auto"><h3 id="2a039073-1e23-81ba-8d7a-fe940fabbe92" class=""><strong><span style="border-bottom:0.05em solid">Monto de descuento</span></strong></h3></div><div style="display:contents" dir="auto"><ul id="2a039073-1e23-810b-ba66-e58425dcc732" class="bulleted-list"><li style="list-style-type:disc"><strong>Descuento por compras sobre monto mínimo</strong><div style="display:contents" dir="auto"><p id="2a039073-1e23-81bd-9737-ce815a6def67" class="">Si el precio total de la orden es mejor al configurado, entonces la promoción no es aplicada.</p></div></li></ul></div></div></div><div style="display:contents" dir="auto"><div id="2a039073-1e23-8130-a803-e2e6bd2c8908" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="2a039073-1e23-8134-aed9-cf90bc6ec261" class="image"><a href="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2021.png"><img style="width:240px" src="Creaci%C3%B3n%20de%20una%20promoci%C3%B3n/image%2021.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8108-a2d0-f127dec73af8" class="">
+</p></div></div></div></div></div><div style="display:contents" dir="auto"><p id="2a039073-1e23-8143-9f81-feb179ba4d6d" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

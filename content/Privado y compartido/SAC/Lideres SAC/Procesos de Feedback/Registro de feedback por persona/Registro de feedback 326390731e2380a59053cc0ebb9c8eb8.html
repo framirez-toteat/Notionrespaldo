@@ -1,0 +1,751 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Registro de feedback</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="32639073-1e23-80a5-9053-cc0ebb9c8eb8" class="page sans"><header><h1 class="page-title" dir="auto">Registro de feedback</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado Feedback</th><td><span class="selected-value select-value-color-brown">Entregado</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha próximo feedback</th><td><time>18 de marzo de 2026</time></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Nombre</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Rol</th><td><span class="selected-value select-value-color-blue">Agente Senior</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><ul id="32639073-1e23-80c4-b5ef-ec76f8626fce" class="toggle"><li><details open=""><summary>Entrega de <time>@18 de marzo de 2026</time> - Entregado por <span class="user">@Gonzalo Soffia</span> </summary><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="32639073-1e23-800d-9f7b-c71952195475"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="32639073-1e23-80d6-982b-e97065c965f9" class=""><strong>Sensación general a la fecha del compañero</strong></p></div><div style="display:contents" dir="auto"><p id="32739073-1e23-8015-9e78-e2f32187c770" class="">Siente un <strong>grado de desmotivación por el ánimo / ambiente que lleva el equipo en el último tiempo</strong>, donde la comunicación se siente tensa y sesgada. Exceso de drama sobre temas como el uso o no de <em><strong>away. </strong></em>En conversación, manifesté que esto nos desafía a aprender a cuidar nuestra paz sin perder el compromiso por el esfuerzo del grupo / empresa; como sumo y elevo la vara. Para esto, y todos los temas en realidad, existe un equipo de coordinación muy dispuesto a prestar apoyo. </p></div><div style="display:contents" dir="auto"><p id="32639073-1e23-805e-8945-d45107915c8f" class="">Diego comparte <strong>cierta saturación por ser receptor privado de conflictos de terceros</strong>. Piensa que hay compañeros que lo buscan porque ven en él receptividad, sin embargo no siempre le es indiferente recibir todo eso. </p></div><div style="display:contents" dir="auto"><p id="32739073-1e23-80c4-875a-f13f916ac6da" class="">Reconoce que <strong>le ha costado trabajo cambiar cierta mentalidad adquirida desde que llegó a Toteat</strong>, en que el lineamiento era muy marcado en priorizar resolver por sobre las formas (Antiguo Toteat). Esto es parte de lo que también Andrew le ha manifestado a modo de feedback.</p></div><div style="display:contents" dir="auto"><p id="32739073-1e23-8054-a486-e73e5bb90cfd" class=""><strong>Reconoce también que existe espacio para trabajar la empatía y el mantener la calma durante la asistencia a clientes</strong>. En conversación, traté de animarlo a reconocer que el desafío no es menor pero que se hace más abordable cuando se trabaja con apoyo. Lo invité a buscar <span style="border-bottom:0.05em solid">técnicas de des escalamiento.</span></p></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="32639073-1e23-804a-88ca-edbd1f80d43d"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="32639073-1e23-8018-ada2-cc694d27718b" class=""><strong>Indicadores de las últimas </strong><strong><span style="border-bottom:0.05em solid">8 semanas</span></strong></p></div><div style="display:contents" dir="auto"><p id="32639073-1e23-8005-9c26-cdd9344e535a" class=""><strong>CSAT: 99,2 %</strong></p></div><div style="display:contents" dir="auto"><p id="32639073-1e23-80b0-bd80-f2952339905f" class="">promedio equipo: 97%</p></div><div style="display:contents" dir="auto"><p id="32739073-1e23-80c4-98fe-d19c86f5ddca" class="">promedio seniors: 96%</p></div><div style="display:contents" dir="auto"><p id="32739073-1e23-809d-89b6-f1693e4865d1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="32639073-1e23-80ea-8216-ec54758abb9e" class=""><strong>CX Score: 58,2%</strong></p></div><div style="display:contents" dir="auto"><p id="32639073-1e23-80ab-8aff-c337a2d646d1" class="">promedio equipo: 66,6%</p></div><div style="display:contents" dir="auto"><p id="32739073-1e23-8090-8076-e68aeb500c1e" class="">promedio seniors: 69,6%</p></div><div style="display:contents" dir="auto"><p id="32639073-1e23-8048-ae94-ce47dfa83106" class=""><br/><strong>TME: 23 s</strong></p></div><div style="display:contents" dir="auto"><p id="32639073-1e23-805d-9115-ef72fbba6338" class="">promedio equipo:  16 s</p></div><div style="display:contents" dir="auto"><p id="32639073-1e23-80f8-988c-ca22e25a0d57" class="">promedio seniors: 16 s</p></div><div style="display:contents" dir="auto"><p id="32739073-1e23-8094-87c1-d2f51d20e3e6" class="">
+</p></div><div style="display:contents" dir="auto"><p id="32639073-1e23-8087-814f-c8af8c85faf9" class=""><strong>TMO: 20,0 m</strong></p></div><div style="display:contents" dir="auto"><p id="32639073-1e23-8044-98f8-d77cef02c69d" class="">promedio equipo: 15,5 m<br/>promedio seniors: 13,3 m</p></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="32639073-1e23-8035-8c5b-e9ff89a47be3"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="32639073-1e23-80e7-a014-c885a27511ba" class=""><strong>Participación y cumplimiento de responsabilidades</strong></p></div><div style="display:contents" dir="auto"><ul id="32739073-1e23-80f3-aed5-cdae727427a9" class="bulleted-list"><li style="list-style-type:disc">Ha llamado la atención la baja en desempeño del último tiempo y cómo equipo de coordinación nos preocupa saber si hay algo más que esté degradando la calidad de Diego. Queremos asegurarnos que existe el apoyo necesario.</li></ul></div><div style="display:contents" dir="auto"><ul id="32739073-1e23-80d9-bbd1-fab1aeb80ede" class="bulleted-list"><li style="list-style-type:disc">El equipo y los nuevos han dado buena referencia sobre la disposición de Diego, y personalmente opino igual. Siempre respuestas positivas ante solicitudes. </li></ul></div><div style="display:contents" dir="auto"><ul id="32739073-1e23-8046-a973-f19ca0f8457a" class="toggle"><li><details open=""><summary>Hallazgos de casos auditados</summary><div style="display:contents" dir="auto"><ul id="32639073-1e23-8027-b495-e1c680d0f99e" class="bulleted-list"><li style="list-style-type:disc">En varias conversaciones, Diego utiliza una macro de cierre automático apenas el cliente deja de responder por unos minutos, o incluso cuando el cliente está realizando las pruebas que él mismo solicitó.<div style="display:contents" dir="auto"><ul id="32739073-1e23-8067-b8a2-fc877def5e74" class="bulleted-list"><li style="list-style-type:circle">CX 4 <a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215473447934847">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215473447934847</a></li></ul></div><div style="display:contents" dir="auto"><ul id="32739073-1e23-8009-8c76-d5005c8958fa" class="bulleted-list"><li style="list-style-type:circle">CX 3 <a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215473523725569">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215473523725569</a></li></ul></div><div style="display:contents" dir="auto"><ul id="32739073-1e23-80d5-b2b4-fa18fd37d26f" class="bulleted-list"><li style="list-style-type:circle">CX 2 <a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215473430707258">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215473430707258</a></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="32639073-1e23-80c1-88be-c016186d5040" class="bulleted-list"><li style="list-style-type:disc">Diego usa mucho la instrucción <em>&quot;Actualiza dando click en el logo de Toteat&quot;</em>. Si bien es una herramienta válida, falta una breve referencia de qué se hizo (acción resolutiva) o bien qué se encontró (diagnóstico), pues ahí existe una opción de educar al cliente &gt;&gt; que no vuelva al chat:<div style="display:contents" dir="auto"><ul id="32739073-1e23-806b-99e9-f75dccdfe819" class="bulleted-list"><li style="list-style-type:circle">CX 4 <a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215473483462463">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215473483462463</a></li></ul></div><div style="display:contents" dir="auto"><ul id="32739073-1e23-808c-8d53-f6d6117ee18a" class="bulleted-list"><li style="list-style-type:circle">CX 5 <a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215473474163091">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215473474163091</a></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="32639073-1e23-80a0-b550-e0ed606e941c" class="bulleted-list"><li style="list-style-type:disc">Como Senior, Diego debería asegurar la resolución o el escalamiento correcto:<div style="display:contents" dir="auto"><ul id="32739073-1e23-800d-bab1-f7712eec287e" class="bulleted-list"><li style="list-style-type:circle">CX 2 <a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215473447857603">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215473447857603</a></li></ul></div><div style="display:contents" dir="auto"><ul id="32739073-1e23-802b-9cdf-fe09b9799f3e" class="bulleted-list"><li style="list-style-type:circle">CX 2 <a href="https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215473463797899">https://app.intercom.com/a/inbox/nry7bg4q/inbox/conversation/215473463797899</a><div style="display:contents" dir="auto"><ul id="32739073-1e23-801c-a85b-ee04e728bf54" class="bulleted-list"><li style="list-style-type:square">Nos llegó un reclamo por este. </li></ul></div><div style="display:contents" dir="auto"><ul id="32739073-1e23-8045-943f-fbab7e355564" class="bulleted-list"><li style="list-style-type:square">Evidencia el desafío de desescalar conflictos con la mayor transparencia posible.<br/></li></ul></div></li></ul></div></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="32739073-1e23-8074-a8bb-d6dee3ac4c5b" class="bulleted-list"><li style="list-style-type:disc">Hay espacio, para que como Senior, sea un claro referente del concepto de “<strong>calidad sobre cantidad</strong>” donde no buscamos limpiar la cola, si no asegurar <span style="border-bottom:0.05em solid">que el cliente no vuelva a escribir</span>.</li></ul></div><div style="display:contents" dir="auto"><p id="32639073-1e23-806b-a0d7-d74ab5aac9e1" class="">
+</p></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="32639073-1e23-8013-8958-d5e4836d7ef6"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="32639073-1e23-80ea-b5ef-f95bcf0671eb" class=""><strong>Compromisos y acuerdo de metas</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="32639073-1e23-80e3-b44c-da21dc0af384" class="numbered-list" start="1"><li>Revisar estados de cierre: </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="32639073-1e23-80ee-9670-f1e57406f6f2" class="numbered-list" start="2"><li><strong>Paciencia en el Cierre:</strong> Mejorar el protocolo de cierre, confirmación (hasta 15 min) y uso de macros por inactividad.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="32739073-1e23-80e2-80d5-e8afa2333b21" class="numbered-list" start="3"><li>Buscar pautas o sugerencias de cómo desarrollar más la habilidad de resolver de manera empática y <strong>técnicas de des escalamiento.</strong></li></ol></div></div></figure></div><div style="display:contents" dir="auto"><p id="34439073-1e23-803a-bacf-c02e7a0687df" class="">
+</p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-805e-84cc-f534a804da7d" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="34439073-1e23-80bf-a80f-d513290cbf11" class="toggle"><li><details open=""><summary>Entrega de <time>@16 de abril de 2026</time> - Entregado por <span class="user">@Valeria García Arce</span> y <span class="user">@Gonzalo Soffia</span>  </summary><div style="display:contents" dir="auto"><p id="34439073-1e23-80c9-9658-db8bae188898" class="">
+</p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-80a1-b243-e693fd256951" class="">Datos obtenidos de Panel de Indicadores <a href="https://app.intercom.com/a/apps/nry7bg4q/reports/custom-reports/report/20034262">https://app.intercom.com/a/apps/nry7bg4q/reports/custom-reports/report/20034262</a></p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-80a5-8b3b-c03c36a45992" class="">Ultimas 4 semanas, excluyendo “motivo: falla masiva”</p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-80c1-8b65-f126ee841d49" class=""><strong>TME: 26s     </strong>↗️ <mark class="highlight-orange">3s</mark></p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-8015-ad3e-d7e467b5da3d" class=""><strong>TMO: 20m 25s   </strong><mark class="highlight-yellow">mantiene</mark></p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-801c-a073-c7c143466549" class=""><strong>CSAT: 96.8%</strong> ↘️ <mark class="highlight-orange">2.4% (casi en la meta)</mark></p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-80b4-b3af-e9f9cbe7d3a6" class=""><strong>CX: 60.9%</strong>  ↗️ <mark class="highlight-teal">1,7%</mark></p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-8034-9220-d249363d38e9" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="34439073-1e23-802e-9744-fc0072e667d6"><div style="font-size:1.5em"><span class="icon">📓</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="34439073-1e23-805e-ae1c-f270e6d93b3b" class=""><strong>Sensación general a la fecha</strong></p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-809d-919e-e64d54a335c2" class="">Diego refiere que los consejos entregados en la instancia anterior le ha permitido tener mejor manejo en los casos desafiantes, ayudando a tener más calma y acompañamiento más cercano a los clientes, evitando cierres prematuros.</p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-80a9-a2e1-ca4b12f46a1d" class="">Los ejemplos que se entregaron fueron de utilidad para revisar el manejo de los casos, por lo que sería positivo repetir para futuras instancias. </p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-80cc-8c8a-cb80d94953eb" class="">Diego valora tener espacios de feedback, porque le permiten ver mejor dónde está comparado con los compañeros y a tener presente hacia dónde se debe poner más atención.</p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-80bb-a35a-c051bb248f95" class="">Desde coordinación nos deja una buena sensación este seguimiento, porque confirma que los esfuerzos se encuentran alineados y empiezan a resonar en el desempeño de Diego, tanto en lo que son indicadores como en la actitud de trabajo. </p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-80fe-93cf-f47071925fb4" class="">Diego comparte que le gusta su rol y los desafíos técnicos que conlleva, aunque reconoce que aún le genera algo de conflicto interno las dinámicas dentro del equipo. Existe a veces la sensación de que todo está muy denso y presionando donde no corresponde. </p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-80e8-9a2f-f57b905d8568" class="">Compartimos con Diego que esa sensación es verdadera, y no es solo él que lo percibe sin no varios compañeros y en coordinación. Entendemos su preocupación y sensación. Lo invitamos a verlo como un desafío más en el crecimiento profesional, que requiere trabajo y compañía, la que se le ofrece para recorrer ese camino en donde es posible establecer límites internos por higiene mental. </p></div><div style="display:contents" dir="auto"><p id="34439073-1e23-8022-b6dd-ffc55f6a905b" class="">Comprometimos una sesión de seguimiento en cuatro semanas más. </p></div></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="32639073-1e23-80bf-9b4f-e927cc297184" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

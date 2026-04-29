@@ -1,0 +1,754 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Weekly Líderes SAC</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2fc39073-1e23-81e3-9a25-dea5ff4179b7" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="Weekly%20L%C3%ADderes%20SAC/Captura_de_pantalla_2024-09-23_a_la(s)_16.09.15.webp"/></div><h1 class="page-title" dir="auto">Weekly Líderes SAC</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Creado</th><td><time>3 de febrero de 2026 6:02</time></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr class="property-row property-row-formula"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/formula_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha</th><td>9 febrero</td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h3 id="b0639073-1e23-82ba-b768-8127098a5050" class="">1.  Inicio y Semáforo (5 min)</h3></div><div style="display:contents" dir="auto"><p id="86b39073-1e23-82b9-96a9-8131c6d4941b" class=""><div class="indented"><div style="display:contents" dir="auto"><p id="1d839073-1e23-821a-bb3e-812ef2b3c2d3" class="">🥵 Rojo = estoy con alta carga / no me siento bien / necesito compartir algo importante.</p></div><div style="display:contents" dir="auto"><p id="33639073-1e23-821f-83fe-81ac47b6c3d1" class="">😅 Amarillo = he logrado avanzar en las dificultades / necesito solucionar algo.</p></div><div style="display:contents" dir="auto"><p id="32739073-1e23-827a-a78c-81c63ea8a024" class="">🥬 Verde = llevo buen ritmo / estoy como lechuga, fresco / puedo apoyar a otros.</p></div></div></p></div><div style="display:contents" dir="auto"><p id="23439073-1e23-83ae-be1c-01c9214f3c1c" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="0d039073-1e23-82b2-b017-81f658785a34" class="">2. Resumen funnel / Personas (5 min)</h3></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-808a-98c9-fac99d915f2f" class="bulleted-list"><li style="list-style-type:disc">Trabajo remoto Gonzalo - lunes 16 a viernes 20 (vacaciones niños)</li></ul></div><div style="display:contents" dir="auto"><ul id="fc439073-1e23-8357-bf49-81cd4843d51b" class="bulleted-list"><li style="list-style-type:disc">Nuevo ingreso SAC - próximo Lunes 16: Matías Carvacho<div style="display:contents" dir="auto"><ul id="30239073-1e23-8054-b9cd-dded1859a7ab" class="bulleted-list"><li style="list-style-type:circle">Onboarding no está listo &gt; Jaime y Diego. </li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-8009-8332-ed4780711d75" class="bulleted-list"><li style="list-style-type:disc">Vacaciones Gonzalo - Lunes 23 a viernes 27 Febrero.</li></ul></div><div style="display:contents" dir="auto"><ul id="ffb39073-1e23-832b-8de1-815d4569e1aa" class="bulleted-list"><li style="list-style-type:disc"><span class="user">@Francisco Ramirez</span>: Vacaciones Jere/Doy Vuelven el 16 (menos capacidad para instalaciones/revisiones TRM casos) Vacaciones Nico 16/02 - 28/02 </li></ul></div><div style="display:contents" dir="auto"><ul id="d9039073-1e23-825b-a7a5-81278c38709b" class="bulleted-list"><li style="list-style-type:disc">Cristian Llanos aceptó oferta para Implementador Colombia (marzo)</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-807f-bb3f-f10b286a700f" class="bulleted-list"><li style="list-style-type:disc">Jaime Medalla aceptó oferta para Onboarding (última de febrero)<div style="display:contents" dir="auto"><ul id="30239073-1e23-8023-9015-f90acbdb05cc" class="bulleted-list"><li style="list-style-type:circle">Tendrá período de prueba de 1 mes para evaluar afinidad con el rol</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="cb339073-1e23-821b-9b1e-019866cb2dde" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="4e539073-1e23-8331-a8bd-81559881c336" class="">3. Revisión de Indicadores y tareas (10 min)</h3></div><div style="display:contents" dir="auto"><p id="87739073-1e23-83f0-9f42-811290a3be63" class="">
+</p></div><div style="display:contents" dir="ltr"><table id="30239073-1e23-804b-909c-d756040576a2" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80b3-9e17-e46eb4366168"><th id="c`zj" class="block-color-blue_background simple-table-header" style="width:174.52999877929688px"><strong>VERSION</strong></th><td id="cd[e" class=""><strong>LEGACY</strong></td><td id="cdf_" class=""><strong>NEW</strong></td><td id="J\br" class=""><strong>Acumulado</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-800a-8701-caebd1d0e0eb"><th id="c`zj" class="block-color-blue_background simple-table-header" style="width:174.52999877929688px"><strong>CANT CHATS</strong></th><td id="cd[e" class="">3.235 (19.2 S /24.2 C/56.4 In)</td><td id="cdf_" class="">1.859 (17.3 S/ 35.6C /47 Inc</td><td id="J\br" class="">5.743</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80ba-af17-cb0b6e78006b"><th id="c`zj" class="block-color-blue_background simple-table-header" style="width:174.52999877929688px"><strong>TMO</strong></th><td id="cd[e" class="">14m 39s</td><td id="cdf_" class="">16m 57s</td><td id="J\br" class="">15m 20s</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80f7-ad34-ef8abb1c5db8"><th id="c`zj" class="block-color-blue_background simple-table-header" style="width:174.52999877929688px"><strong>TME</strong></th><td id="cd[e" class="">16s</td><td id="cdf_" class="">16s</td><td id="J\br" class="">16s</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80bb-823d-f9f6dbb66c7d"><th id="c`zj" class="block-color-blue_background simple-table-header" style="width:174.52999877929688px"><strong>CSAT</strong></th><td id="cd[e" class="">97.8%</td><td id="cdf_" class="">97.4%</td><td id="J\br" class="">97.7%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-809b-a4ce-c34545a84f76"><th id="c`zj" class="block-color-blue_background simple-table-header" style="width:174.52999877929688px"><strong>% CALIFICADOS</strong></th><td id="cd[e" class="">20% </td><td id="cdf_" class="">14%</td><td id="J\br" class="">17.3%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-808b-a56d-c9d0a74e8060"><th id="c`zj" class="block-color-blue_background simple-table-header" style="width:174.52999877929688px"><strong>% Real CALIFICADOS</strong></th><td id="cd[e" class="">41.9% (645/1.541)</td><td id="cdf_" class="">37.7% (269/713)</td><td id="J\br" class="">40.5%</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><table id="30239073-1e23-801a-a192-d946a8826609" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="30239073-1e23-804f-b8d7-dc6efb76ab93"><th id="MfzB" class="block-color-blue_background simple-table-header"><strong>CX Score (% acumulado)</strong></th><td id="t~{e" class="" style="width:192px"><strong>Perfil A</strong></td><td id="HqOH" class="" style="width:181px"><strong>Perfil B</strong></td><td id="=AXo" class=""><strong>Total</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80bc-8f81-fd6e8c19faf0"><th id="MfzB" class="block-color-blue_background simple-table-header">Sin Fin AI</th><td id="t~{e" class="" style="width:192px">65.9%</td><td id="HqOH" class="" style="width:181px">68.7%</td><td id="=AXo" class="">68%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8001-8b26-e88a7487dc86"><th id="MfzB" class="block-color-blue_background simple-table-header">Con Fin AI</th><td id="t~{e" class="" style="width:192px">66.8%</td><td id="HqOH" class="" style="width:181px">68.7%</td><td id="=AXo" class="">67.6%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80ad-9cf7-ea698e3bdef3"><th id="MfzB" class="block-color-blue_background simple-table-header">Sólo Fin AI</th><td id="t~{e" class="" style="width:192px">0</td><td id="HqOH" class="" style="width:181px">33.3%</td><td id="=AXo" class="">33.3%</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><table id="30239073-1e23-80a0-bf5d-cb9d8895b1fc" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8093-8edb-ec240f4ac4e9"><th id="AP[e" class="block-color-blue_background simple-table-header" style="width:174px"><strong>CSAT</strong></th><td id="{fY&lt;" class="" style="width:194px"><strong>Perfil A</strong></td><td id="LDyT" class="" style="width:179px"><strong>Perfil B</strong></td><td id="fbTP" class=""><strong>Total</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80f8-ad2f-ea4c94b4d6a9"><th id="AP[e" class="block-color-blue_background simple-table-header" style="width:174px">Sin Fin AI</th><td id="{fY&lt;" class="" style="width:194px">97.9%</td><td id="LDyT" class="" style="width:179px">99.4%</td><td id="fbTP" class="">98.5%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8034-ad80-fc8d70c8e085"><th id="AP[e" class="block-color-blue_background simple-table-header" style="width:174px">Con Fin AI</th><td id="{fY&lt;" class="" style="width:194px">NA%</td><td id="LDyT" class="" style="width:179px">96.8%</td><td id="fbTP" class="">96.8%</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="30239073-1e23-8005-9737-e494c5a4e495" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="30239073-1e23-80e1-9129-e7e369cd09e2" class="image"><a href="Weekly%20L%C3%ADderes%20SAC%202fc3-79b7/Captura_de_pantalla_2026-02-09_a_la(s)_13.43.01.png"><img style="width:568.9921875px" src="Weekly%20L%C3%ADderes%20SAC%202fc3-79b7/Captura_de_pantalla_2026-02-09_a_la(s)_13.43.01.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="30239073-1e23-80af-97e0-c566a2d8e0ba" class="">
+</p></div><div style="display:contents" dir="auto"><p id="30239073-1e23-804f-8c6e-d371d13d3d37" class="">
+</p></div><div style="display:contents" dir="auto"><p id="30239073-1e23-802b-8cda-d370d8059748" class="">TECH:</p></div><div style="display:contents" dir="auto"><h2 id="30239073-1e23-80b5-a4be-fb5ba9efa872" class="">📊 Productividad por responsable — <strong>Enero + Febrero (a la fecha)</strong></h2></div><div style="display:contents" dir="ltr"><table id="30239073-1e23-80ff-a2ec-ff522e6589fd" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8048-813a-cd74f745ccfe"><th id="b&lt;t&gt;" class="simple-table-header-color simple-table-header">Responsable</th><th id="OQzX" class="simple-table-header-color simple-table-header">Casos recibidos</th><th id="?{I&lt;" class="simple-table-header-color simple-table-header">Abiertos</th><th id="fum;" class="simple-table-header-color simple-table-header">Cerrados</th><th id="Sn&lt;;" class="simple-table-header-color simple-table-header">% Cierre</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="30239073-1e23-807f-9340-ffbd9384c485"><td id="b&lt;t&gt;" class=""><strong>Jeremy Araujo</strong></td><td id="OQzX" class=""><strong>116</strong></td><td id="?{I&lt;" class="">47</td><td id="fum;" class="">69</td><td id="Sn&lt;;" class="">59,5%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80c8-a6e1-eb9bfbc207ae"><td id="b&lt;t&gt;" class=""><strong>Coordinadores SAC</strong></td><td id="OQzX" class="">80</td><td id="?{I&lt;" class="">16</td><td id="fum;" class="">64</td><td id="Sn&lt;;" class="">80,0%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-809f-9e34-e9385147a8f1"><td id="b&lt;t&gt;" class=""><strong>Sergio Muñoz</strong></td><td id="OQzX" class="">59</td><td id="?{I&lt;" class="">31</td><td id="fum;" class="">28</td><td id="Sn&lt;;" class="">47,5%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8077-aea0-de09115eb7ed"><td id="b&lt;t&gt;" class=""><strong>Nicolas Alvarez</strong></td><td id="OQzX" class="">47</td><td id="?{I&lt;" class="">6</td><td id="fum;" class="">41</td><td id="Sn&lt;;" class="">87,2%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-805e-89ef-d266a147bbaf"><td id="b&lt;t&gt;" class=""><strong>Lorena Moreno</strong></td><td id="OQzX" class="">38</td><td id="?{I&lt;" class="">6</td><td id="fum;" class="">32</td><td id="Sn&lt;;" class="">84,2%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8037-b36c-d43b360c13c8"><td id="b&lt;t&gt;" class=""><strong>Doymar Raga</strong></td><td id="OQzX" class="">22</td><td id="?{I&lt;" class="">4</td><td id="fum;" class="">18</td><td id="Sn&lt;;" class="">81,8%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80fb-9e74-c715435c8296"><td id="b&lt;t&gt;" class=""><strong>Andrea Ruiz</strong></td><td id="OQzX" class="">15</td><td id="?{I&lt;" class="">3</td><td id="fum;" class="">12</td><td id="Sn&lt;;" class="">80,0%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80f7-9dc7-fd73ae779a1f"><td id="b&lt;t&gt;" class=""><strong>Instalaciones Tech</strong></td><td id="OQzX" class="">12</td><td id="?{I&lt;" class="">0</td><td id="fum;" class="">12</td><td id="Sn&lt;;" class=""><strong>100%</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8012-8ca8-f576da8aa715"><td id="b&lt;t&gt;" class=""><strong>Francisco Ramirez</strong></td><td id="OQzX" class="">1</td><td id="?{I&lt;" class="">1</td><td id="fum;" class="">0</td><td id="Sn&lt;;" class="">0%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-808e-908e-fd8019c18c1d"><td id="b&lt;t&gt;" class=""><strong>Israel Berme</strong></td><td id="OQzX" class="">1</td><td id="?{I&lt;" class="">1</td><td id="fum;" class="">0</td><td id="Sn&lt;;" class="">0%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-806e-96e1-cfa143c28033"><td id="b&lt;t&gt;" class=""><strong>DTE SACTECH</strong></td><td id="OQzX" class="">1</td><td id="?{I&lt;" class="">1</td><td id="fum;" class="">0</td><td id="Sn&lt;;" class="">0%</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="30239073-1e23-80d1-bf1a-eed5459213e7" class="">⏱️ Tiempos de cierre por responsable (ene–feb)</h2></div><div style="display:contents" dir="ltr"><table id="30239073-1e23-806b-a7dc-d353941b2d6b" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80aa-8c52-dbbb73632191"><th id="gibl" class="simple-table-header-color simple-table-header">Responsable</th><th id="=Wdo" class="simple-table-header-color simple-table-header">Tipo de caso</th><th id="uAwP" class="simple-table-header-color simple-table-header">Casos cerrados</th><th id="&lt;O[V" class="simple-table-header-color simple-table-header">Promedio días cierre</th><th id="_CSb" class="simple-table-header-color simple-table-header">Mediana días</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="30239073-1e23-805a-8e14-d16c5ed6bf05"><td id="gibl" class=""><strong>Jeremy Araujo</strong></td><td id="=Wdo" class="">No escalados</td><td id="uAwP" class="">66</td><td id="&lt;O[V" class="">2,9</td><td id="_CSb" class="">1,0</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80ac-b608-d31c8bbe7662"><td id="gibl" class=""></td><td id="=Wdo" class="">Escalados</td><td id="uAwP" class="">3</td><td id="&lt;O[V" class="">1,1</td><td id="_CSb" class="">0,9</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80ef-b692-db4ed6c903d5"><td id="gibl" class=""><strong>Sergio Muñoz</strong></td><td id="=Wdo" class="">No escalados</td><td id="uAwP" class="">20</td><td id="&lt;O[V" class="">6,4</td><td id="_CSb" class="">5,3</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80af-87a2-ecdaa5e15d6a"><td id="gibl" class=""></td><td id="=Wdo" class="">Escalados</td><td id="uAwP" class=""><strong>8</strong></td><td id="&lt;O[V" class=""><strong>10,1</strong></td><td id="_CSb" class=""><strong>10,1</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80b5-9b2e-dc48967049fb"><td id="gibl" class=""><strong>Nicolas Alvarez</strong></td><td id="=Wdo" class="">No escalados</td><td id="uAwP" class="">41</td><td id="&lt;O[V" class="">2,3</td><td id="_CSb" class="">1,8</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8033-ac9b-d2475b6edf2c"><td id="gibl" class=""><strong>Lorena Moreno</strong></td><td id="=Wdo" class="">No escalados</td><td id="uAwP" class="">32</td><td id="&lt;O[V" class="">3,1</td><td id="_CSb" class="">2,1</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8087-82eb-c96bea5f04c5"><td id="gibl" class=""><strong>Coordinadores SAC</strong></td><td id="=Wdo" class="">No escalados</td><td id="uAwP" class="">64</td><td id="&lt;O[V" class="">3,8</td><td id="_CSb" class="">2,0</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80cb-9aa7-eaf403d509a4"><td id="gibl" class=""><strong>Doymar Raga</strong></td><td id="=Wdo" class="">No escalados</td><td id="uAwP" class="">18</td><td id="&lt;O[V" class="">4,1</td><td id="_CSb" class="">2,7</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80fa-9fb0-c7bc0dab5763"><td id="gibl" class=""><strong>Andrea Ruiz</strong></td><td id="=Wdo" class="">No escalados</td><td id="uAwP" class="">12</td><td id="&lt;O[V" class="">3,5</td><td id="_CSb" class="">2,0</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8039-ab08-e8deddcd6fb5"><td id="gibl" class=""><strong>Instalaciones Tech</strong></td><td id="=Wdo" class="">No escalados</td><td id="uAwP" class="">12</td><td id="&lt;O[V" class="">2,2</td><td id="_CSb" class="">1,5</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="30239073-1e23-80f3-be36-fb993bd0719d" class="">⏳ Casos activos históricos — por responsable </h2></div><div style="display:contents" dir="ltr"><table id="30239073-1e23-80b9-98a8-d1218a68b384" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80a6-a83d-df6e96093651"><th id="EYPY" class="simple-table-header-color simple-table-header">Responsable</th><th id="|tYC" class="simple-table-header-color simple-table-header">Abiertos NO escalados</th><th id="hffj" class="simple-table-header-color simple-table-header">Abiertos escalados</th><th id="LHYx" class="simple-table-header-color simple-table-header">Total activos</th><th id="=bE\" class="simple-table-header-color simple-table-header">% del total</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="30239073-1e23-802f-b517-f6b4cf137d35"><td id="EYPY" class=""><strong>Jeremy Araujo</strong></td><td id="|tYC" class="">11</td><td id="hffj" class=""><strong>93</strong></td><td id="LHYx" class=""><strong>104</strong></td><td id="=bE\" class=""><strong>48,6%</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8035-83a4-d0831770eea7"><td id="EYPY" class=""><strong>Sergio Muñoz</strong></td><td id="|tYC" class="">15</td><td id="hffj" class=""><strong>33</strong></td><td id="LHYx" class=""><strong>48</strong></td><td id="=bE\" class=""><strong>22,4%</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8075-8081-ed17628e6004"><td id="EYPY" class=""><strong>Doymar Raga</strong></td><td id="|tYC" class="">0</td><td id="hffj" class=""><strong>14</strong></td><td id="LHYx" class=""><strong>14</strong></td><td id="=bE\" class=""><strong>6,5%</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-809f-b633-c9b01ce5bd90"><td id="EYPY" class=""><strong>Lorena Moreno</strong></td><td id="|tYC" class="">3</td><td id="hffj" class=""><strong>10</strong></td><td id="LHYx" class=""><strong>13</strong></td><td id="=bE\" class=""><strong>6,1%</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80c0-bd38-d1f217b22326"><td id="EYPY" class=""><strong>Coordinadores SAC</strong></td><td id="|tYC" class=""><strong>16</strong></td><td id="hffj" class="">1</td><td id="LHYx" class="">17</td><td id="=bE\" class=""><strong>7,9%</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-801d-bddd-e406e9bf69b7"><td id="EYPY" class=""><strong>Nicolas Alvarez</strong></td><td id="|tYC" class="">4</td><td id="hffj" class="">4</td><td id="LHYx" class="">8</td><td id="=bE\" class="">3,7%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8017-87a2-f370a31c09d9"><td id="EYPY" class=""><strong>Andrea Ruiz</strong></td><td id="|tYC" class="">3</td><td id="hffj" class="">4</td><td id="LHYx" class="">7</td><td id="=bE\" class="">3,3%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80f9-b056-ef8cb0792c75"><td id="EYPY" class=""><strong>DTE SACTECH</strong></td><td id="|tYC" class="">1</td><td id="hffj" class="">0</td><td id="LHYx" class="">1</td><td id="=bE\" class="">0,5%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-80db-b4c9-d3bdbc3b60d5"><td id="EYPY" class=""><strong>Francisco Ramirez</strong></td><td id="|tYC" class="">1</td><td id="hffj" class="">0</td><td id="LHYx" class="">1</td><td id="=bE\" class="">0,5%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8011-b01d-f4974961653e"><td id="EYPY" class=""><strong>Israel Berme</strong></td><td id="|tYC" class="">1</td><td id="hffj" class="">0</td><td id="LHYx" class="">1</td><td id="=bE\" class="">0,5%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8032-86a7-f46e495774cf"><td id="EYPY" class=""><strong>Instalaciones Tech</strong></td><td id="|tYC" class="">0</td><td id="hffj" class="">0</td><td id="LHYx" class="">0</td><td id="=bE\" class="">0,0%</td></tr></div><div style="display:contents" dir="ltr"><tr id="30239073-1e23-8046-8818-e1da7719d592"><td id="EYPY" class=""><strong>TOTAL</strong></td><td id="|tYC" class=""><strong>55 (25,7%)</strong></td><td id="hffj" class=""><strong>159 (74,3%)</strong></td><td id="LHYx" class=""><strong>214</strong></td><td id="=bE\" class=""><strong>100%</strong></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="fdd39073-1e23-83f4-bb27-8109dceaf133" class="">Compromisos</p></div><div style="display:contents" dir="auto"><ul id="80939073-1e23-8372-9490-818fc0ede5af" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"></span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="0d839073-1e23-8352-9dea-81ff289a8fa0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"></span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="86c39073-1e23-83e4-b5b6-810b1c5aaa23" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"></span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><p id="a8f39073-1e23-8225-89c9-013355587e3b" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="0e939073-1e23-8304-8ae5-81a7de39f2cc" class="">4. Temas críticos y desafíos (35 min)</h3></div><div style="display:contents" dir="auto"><ul id="b9739073-1e23-8306-8206-014f4869622d" class="bulleted-list"><li style="list-style-type:disc">Proyectos estratégicos y avances<div style="display:contents" dir="auto"><ul id="61339073-1e23-822f-80e2-01f878ed1542" class="bulleted-list"><li style="list-style-type:circle">Habilitación de endpoint para que Fin pueda manejar el desbloqueo de clientes que no estén en lista negra.</li></ul></div><div style="display:contents" dir="auto"><ul id="6f539073-1e23-82bc-842f-01d402d6e073" class="bulleted-list"><li style="list-style-type:circle"></li></ul></div><div style="display:contents" dir="auto"><ul id="4f939073-1e23-822d-8e2b-01d86e2ac8a9" class="bulleted-list"><li style="list-style-type:circle"></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="24b39073-1e23-83a0-85b5-01aa538d2d73" class="bulleted-list"><li style="list-style-type:disc">Contingencias y preocupaciones<div style="display:contents" dir="auto"><ul id="30239073-1e23-80d0-bd0e-cbadb672e209" class="bulleted-list"><li style="list-style-type:circle">Preocupante capacidad próximos meses<div style="display:contents" dir="auto"><ul id="30239073-1e23-8063-99b8-eb205ed6f424" class="toggle"><li><details open=""><summary>Horas extras</summary><div style="display:contents" dir="auto"><p id="30239073-1e23-803b-82a6-fdcac76b8f88" class="">Para esta semana (16):</p></div><div style="display:contents" dir="auto"><p id="30239073-1e23-80db-85dd-ce369b461ddd" class="">Para la próxima (108):</p></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-8044-8256-e715be65ea55" class="bulleted-list"><li style="list-style-type:disc">Lunes 16, 4 horas. De 11 a 15 hrs CL (2 cupos)</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-8045-bef7-e9c287790501" class="bulleted-list"><li style="list-style-type:disc">Lunes 16, 2 horas. De 19 a 21 hrs CL</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-80dd-8b5a-d7ede84ab56b" class="bulleted-list"><li style="list-style-type:disc">Martes 17, 3 horas. De 10 a 13 hrs CL (2 cupos)</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-8035-a581-e4f63b477690" class="bulleted-list"><li style="list-style-type:disc">Martes 17, 3 horas. De 13 a 16 hrs CL (2 cupos)</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-8065-83f3-fd7495869c64" class="bulleted-list"><li style="list-style-type:disc">Martes 17, 3 horas. De 16 a 19 hrs CL (2 cupos)</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-800a-bf01-cb35d2896f84" class="bulleted-list"><li style="list-style-type:disc">Martes 17, 3 horas. De 20 a 23 hrs CL</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-8070-9a48-c495c5766479" class="bulleted-list"><li style="list-style-type:disc">Miércoles 18, 3 horas. De 08 a 10 hrs CL</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-8059-80c6-cb98e8cdde7e" class="bulleted-list"><li style="list-style-type:disc">Miércoles 18, 4 horas. De 11 a 15 hrs CL (3 cupos)</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-801c-b62e-c0aed2ca6ac0" class="bulleted-list"><li style="list-style-type:disc">Miércoles 18, 3 horas. De 15 a 18 hrs CL</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-8032-be18-e6956d0db884" class="bulleted-list"><li style="list-style-type:disc">Miércoles 18, 3 horas. De 18 a 21 hrs CL</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-80c7-a142-f51be14fa32b" class="bulleted-list"><li style="list-style-type:disc">Jueves 19, 3 horas. De 09 a 12 hrs CL</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-8094-9e1b-d5963528dba7" class="bulleted-list"><li style="list-style-type:disc">Jueves 19, 3 horas. De 12 a 15 hrs CL (4 cupos)</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-8097-8828-dcb98ba2de2d" class="bulleted-list"><li style="list-style-type:disc">Jueves 19, 3 horas. De 15 a 18 hrs CL</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-80cd-ab52-c06e255868d8" class="bulleted-list"><li style="list-style-type:disc">Jueves 19, 3 horas. De 18 a 21 hrs CL</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-80f0-a2b4-fafa2e011668" class="bulleted-list"><li style="list-style-type:disc">Viernes 20, 4 horas. De 11 a 15 hrs CL (3 cupos)</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-803f-b827-cdd142202f61" class="bulleted-list"><li style="list-style-type:disc">Viernes 20, 3 horas. De 17 a 20 hrs CL</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-804a-8fbf-e706957860e0" class="bulleted-list"><li style="list-style-type:disc">Viernes 20, 3 horas. De 20 a 23 hrs CL</li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-80f1-a8a8-ef9dc73e584b" class="bulleted-list"><li style="list-style-type:disc">Hay para sábado y domingo, no las he puesto.</li></ul></div></details></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="e7a39073-1e23-8295-8ac9-01f1981b04e7" class="bulleted-list"><li style="list-style-type:circle"><strong>Horas Extras - Marco legal en COL</strong><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80da-8282-e857ba3b0b37" class="bulleted-list"><li style="list-style-type:square">Preocupación de Coordinación SAC (no hay quejas ni amenazas).</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-80ce-8b21-c17bb37f2675" class="bulleted-list"><li style="list-style-type:square">Hemos estado otorgando (no exigiendo) horas extras por 3 y 4 horas con cierta regularidad.</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-800e-a6b7-dd89a6960868" class="bulleted-list"><li style="list-style-type:square">La Ley en Colombia:<div style="display:contents" dir="auto"><ul id="2fc39073-1e23-803c-8fe6-d866f38b433c" class="bulleted-list"><li style="list-style-type:disc">Máximo 2 diarias, sin importar si es día de descanso o hay un descanso de varias horas antes de su turno.</li></ul></div><div style="display:contents" dir="auto"><ul id="2fc39073-1e23-804d-8983-e7ec6eda6804" class="bulleted-list"><li style="list-style-type:disc">Máximo 12 semanales.</li></ul></div></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-80aa-a6e2-dda6c4efc8db" class="bulleted-list"><li style="list-style-type:circle">Se tomó contacto y sesión con Sebastián Pino para asesoría en temas de Intercom<div style="display:contents" dir="auto"><ol type="1" id="30239073-1e23-8087-ab18-fe800c28fce8" class="numbered-list" start="1"><li>Revisión de flujos actuales &gt; dejar lo necesario, y más consistente. </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30239073-1e23-8079-8a19-ff1a283e14aa" class="numbered-list" start="2"><li>Optimizar flujo para asignación senior.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30239073-1e23-80ed-9818-e97529f6fb53" class="numbered-list" start="3"><li>Optimizar flujo para reasignación en lunch.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30239073-1e23-80ca-9c27-c268f503b770" class="numbered-list" start="4"><li>Optimizar bot fuera de horario. </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30239073-1e23-8023-b5ec-f4a975fa74c4" class="numbered-list" start="5"><li>Segmentar conocimiento.</li></ol></div></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="30239073-1e23-80c1-94b3-fa584656ca34" class="bulleted-list"><li style="list-style-type:disc"></li></ul></div><div style="display:contents" dir="auto"><p id="2c139073-1e23-8325-a7a0-816a92fb0fe1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="79239073-1e23-8234-af0a-0168b1d5f39b" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="70e39073-1e23-831a-99a0-01fbdd10c9a5" class="">5. Cierre y compromisos (5 min)</h3></div><div style="display:contents" dir="auto"><ul id="5f539073-1e23-82bd-8217-81f074c88c34" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><em><mark class="highlight-gray">Tarea / Compromiso </mark></em></span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="e3439073-1e23-82e8-bb1c-017228c2ba82" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><em><mark class="highlight-gray">Tarea / Compromiso </mark></em></span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="57239073-1e23-827d-b63e-01777d281789" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><em><mark class="highlight-gray">Tarea / Compromiso </mark></em></span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="0b439073-1e23-8351-8554-01d0ea33628f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><em><mark class="highlight-gray">Tarea / Compromiso</mark></em></span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><p id="23f39073-1e23-8341-968c-014d5ecb2ffd" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="a9e39073-1e23-8260-bf57-8129f3752ff5"/></div><div style="display:contents" dir="auto"><h3 id="8cd39073-1e23-829c-b13f-01aab490e704" class="">Notas de Gemini</h3></div><div style="display:contents" dir="auto"><div style="display:contents" dir="auto"><div><div style="display:contents" dir="auto"><ul id="27139073-1e23-80da-bf60-e9fdf0115939" class="toggle"><li><details open=""><summary>👴🏻 Temas antiguos / resueltos</summary><div style="display:contents" dir="auto"><ul id="27639073-1e23-8013-98d9-cdf13271227a" class="bulleted-list"><li style="list-style-type:disc">Se informa al equipo la fecha máxima para realizar el curso de Inventario Avanzado. (31 de octubre).  Hasta ahora sólo hay 2 inscritos y 1 finalizado.</li></ul></div><div style="display:contents" dir="auto"><p id="29939073-1e23-80b1-8878-f6ba2f36491a" class="">
+</p></div></details></li></ul></div></div></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

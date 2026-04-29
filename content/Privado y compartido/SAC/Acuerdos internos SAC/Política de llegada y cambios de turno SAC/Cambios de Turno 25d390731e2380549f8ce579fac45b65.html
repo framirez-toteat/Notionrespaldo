@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Cambios de Turno</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="25d39073-1e23-8054-9f8c-e579fac45b65" class="page sans"><header><h1 class="page-title" dir="auto">Cambios de Turno</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Propietario</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Etiquetas</th><td></td></tr></tbody></table></header><div class="page-body"><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Solicitud</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/user-circle_gray.svg" style="width:14px;height:14px;display:block"/></span>Solicitante</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Con quién es el cambio</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha del Cambio</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha de Reposición </th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/cursor-button_gray.svg" style="width:14px;height:14px;display:block"/></span>Aprobación</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/cursor-button_gray.svg" style="width:14px;height:14px;display:block"/></span>Rechazo</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Casilla</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Fecha de creación</th></tr></thead><tbody><tr id="25d39073-1e23-810b-a4ef-d55679a0fe88"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de@Andr%C3%A9s%20Vanegas%2025d390731e23810ba4efd55679a0fe88.html"> Nueva Solicitud de Cambio de@Andrés Vanegas</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">V</span></span>Veronica Lopez</span></td><td class="cell-OUOi"><time>29 de agosto de 2025</time></td><td class="cell-DO[E"><time>1 de septiembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>28 de agosto de 2025 16:03</time></td></tr><tr id="25e39073-1e23-81f0-b1e8-f8ff9b8a763d"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%2025e390731e2381f0b1e8f8ff9b8a763d.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLBG04NgGimAbc6IvQEOjjPlLzAj-TW4h_GNqRkXOw17X1_HA=s100" class="icon user-icon"/>Stefi Andrewartha Maulén</span></td><td class="cell-OUOi"><time>7 de septiembre de 2025</time></td><td class="cell-DO[E"><time>3 de septiembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>29 de agosto de 2025 15:13</time></td></tr><tr id="26239073-1e23-81c1-b8be-c174f160eab7"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Emmanuel%20Ramirez%20Gon%20262390731e2381c1b8bec174f160eab7.html"> Nueva Solicitud de Cambio de @Emmanuel Ramirez Gonzalez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-OUOi"><time>17 de septiembre de 2025</time></td><td class="cell-DO[E"><time>21 de septiembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>1 de septiembre de 2025 19:40</time></td></tr><tr id="26239073-1e23-81d6-83e8-caeef8d1e15b"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Emmanuel%20Ramirez%20Gon%20262390731e2381d683e8caeef8d1e15b.html"> Nueva Solicitud de Cambio de @Emmanuel Ramirez Gonzalez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-OUOi"><time>23 de septiembre de 2025</time></td><td class="cell-DO[E"><time>26 de septiembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>1 de septiembre de 2025 19:41</time></td></tr><tr id="26239073-1e23-8170-ba2a-e18ce70d7a23"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Emmanuel%20Ramirez%20Gon%20262390731e238170ba2ae18ce70d7a23.html"> Nueva Solicitud de Cambio de @Emmanuel Ramirez Gonzalez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Johana Vasquez</span></td><td class="cell-OUOi"><time>24 de septiembre de 2025</time></td><td class="cell-DO[E"><time>22 de septiembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>1 de septiembre de 2025 19:42</time></td></tr><tr id="25e39073-1e23-8122-9be7-ef841c71c865"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%2025e390731e2381229be7ef841c71c865.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">A</span></span>Andrés Felipe Rincón Moyano</span></td><td class="cell-OUOi"><time>25 de septiembre de 2025</time></td><td class="cell-DO[E"><time>26 de septiembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>29 de agosto de 2025 15:14</time></td></tr><tr id="27a39073-1e23-81f3-a733-d27e3deecb76"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Diego%20Alejandro%20Mart%2027a390731e2381f3a733d27e3deecb76.html"> Nueva Solicitud de Cambio de @Diego Alejandro Martin Clavijo</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">D</span></span>Dominique Ulloa Mora</span></td><td class="cell-OUOi"><time>27 de septiembre de 2025</time></td><td class="cell-DO[E"><time>27 de septiembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>26 de septiembre de 2025 12:05</time></td></tr><tr id="27839073-1e23-814b-a850-fbae4ccc896a"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Stefi%20Andrewartha%20Ma%20278390731e23814ba850fbae4ccc896a.html"> Nueva Solicitud de Cambio de @Stefi Andrewartha Maulén</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLBG04NgGimAbc6IvQEOjjPlLzAj-TW4h_GNqRkXOw17X1_HA=s100" class="icon user-icon"/>Stefi Andrewartha Maulén</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-OUOi"><time>27 de septiembre de 2025</time></td><td class="cell-DO[E"><time>27 de septiembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>24 de septiembre de 2025 16:40</time></td></tr><tr id="27739073-1e23-812f-96ac-f5c2aa6fdc98"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Johana%20Vasquez%20277390731e23812f96acf5c2aa6fdc98.html"> Nueva Solicitud de Cambio de @Johana Vasquez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Johana Vasquez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-OUOi"><time>2 de octubre de 2025</time></td><td class="cell-DO[E"><time>2 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>23 de septiembre de 2025 15:52</time></td></tr><tr id="27839073-1e23-816e-b2c8-c85b05550821"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%20278390731e23816eb2c8c85b05550821.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-OUOi"><time>3 de octubre de 2025</time></td><td class="cell-DO[E"><time>3 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>24 de septiembre de 2025 16:05</time></td></tr><tr id="28039073-1e23-81dc-87a3-fb20a1bbccb5"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%20280390731e2381dc87a3fb20a1bbccb5.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">A</span></span>Andrés Felipe Rincón Moyano</span></td><td class="cell-OUOi"><time>4 de octubre de 2025</time></td><td class="cell-DO[E"><time>5 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>2 de octubre de 2025 15:24</time></td></tr><tr id="28439073-1e23-8134-af0f-c427389adebe"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Lorena%20Ramos%20284390731e238134af0fc427389adebe.html"> Nueva Solicitud de Cambio de @Lorena Ramos</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-OUOi"><time>12 de octubre de 2025</time></td><td class="cell-DO[E"><time>10 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>6 de octubre de 2025 16:41</time></td></tr><tr id="28439073-1e23-81df-8e5e-d1fd32b00946"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Diego%20Alejandro%20Mart%20284390731e2381df8e5ed1fd32b00946.html"> Nueva Solicitud de Cambio de @Diego Alejandro Martin Clavijo</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-OUOi"><time>13 de octubre de 2025</time></td><td class="cell-DO[E"><time>15 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>6 de octubre de 2025 16:04</time></td></tr><tr id="28039073-1e23-81d1-aa4d-e2cb276e1103"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Stefi%20Andrewartha%20Ma%20280390731e2381d1aa4de2cb276e1103.html"> Nueva Solicitud de Cambio de @Stefi Andrewartha Maulén</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLBG04NgGimAbc6IvQEOjjPlLzAj-TW4h_GNqRkXOw17X1_HA=s100" class="icon user-icon"/>Stefi Andrewartha Maulén</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-OUOi"><time>13 de octubre de 2025</time></td><td class="cell-DO[E"><time>14 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>2 de octubre de 2025 16:27</time></td></tr><tr id="28639073-1e23-81f9-9853-f891d8491e64"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Johana%20Vasquez%20286390731e2381f99853f891d8491e64.html"> Nueva Solicitud de Cambio de @Johana Vasquez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Johana Vasquez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLijedQMAsnMrlCnGEMqRG5dbiWf8YtyXNJ0Vh3d6Aw7v_tinI=s100" class="icon user-icon"/>Cristian David Llanos Murcia</span></td><td class="cell-OUOi"><time>16 de octubre de 2025</time></td><td class="cell-DO[E"><time>18 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>8 de octubre de 2025 11:31</time></td></tr><tr id="28339073-1e23-819a-a8b8-eeadc1945b99"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%20283390731e23819aa8b8eeadc1945b99.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><img src="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%202833-5b99/WhatsApp_Image_2023-11-03_at_6.26.25_PM.jpeg" class="icon user-icon"/>Andres Arias</span></td><td class="cell-OUOi"><time>16 de octubre de 2025</time></td><td class="cell-DO[E"><time>19 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>5 de octubre de 2025 16:13</time></td></tr><tr id="28b39073-1e23-8186-ab7f-f748dcaeef3b"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Diego%20Alejandro%20Mart%2028b390731e238186ab7ff748dcaeef3b.html"> Nueva Solicitud de Cambio de @Diego Alejandro Martin Clavijo</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-OUOi"><time>17 de octubre de 2025</time></td><td class="cell-DO[E"><time>17 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>13 de octubre de 2025 15:04</time></td></tr><tr id="28139073-1e23-81c9-a0e3-fd599a75142e"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Andr%C3%A9s%20Felipe%20Rinc%C3%B3n%20281390731e2381c9a0e3fd599a75142e.html"> Nueva Solicitud de Cambio de @Andrés Felipe Rincón Moyano</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">A</span></span>Andrés Felipe Rincón Moyano</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLijedQMAsnMrlCnGEMqRG5dbiWf8YtyXNJ0Vh3d6Aw7v_tinI=s100" class="icon user-icon"/>Cristian David Llanos Murcia</span></td><td class="cell-OUOi"><time>17 de octubre de 2025</time></td><td class="cell-DO[E"><time>19 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>2 de octubre de 2025 20:12</time></td></tr><tr id="28039073-1e23-81a8-8e4b-e7675bc0e09b"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%20280390731e2381a88e4be7675bc0e09b.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-OUOi"><time>21 de octubre de 2025</time></td><td class="cell-DO[E"><time>25 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>2 de octubre de 2025 15:47</time></td></tr><tr id="28039073-1e23-8148-bcb9-da5874380573"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%20280390731e238148bcb9da5874380573.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-OUOi"><time>22 de octubre de 2025</time></td><td class="cell-DO[E"><time>26 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>2 de octubre de 2025 15:50</time></td></tr><tr id="28539073-1e23-81a3-bec9-d3706d8ab655"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Lorena%20Ramos%20285390731e2381a3bec9d3706d8ab655.html"> Nueva Solicitud de Cambio de @Lorena Ramos</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">V</span></span>Veronica Lopez</span></td><td class="cell-OUOi"><time>24 de octubre de 2025</time></td><td class="cell-DO[E"><time>23 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>7 de octubre de 2025 16:45</time></td></tr><tr id="29439073-1e23-81e8-ab2f-defb0b2778c3"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Veronica%20Lopez%20294390731e2381e8ab2fdefb0b2778c3.html"> Nueva Solicitud de Cambio de @Veronica Lopez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">V</span></span>Veronica Lopez</span></td><td class="cell-=Ykw"><span class="user"><img src="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%202833-5b99/WhatsApp_Image_2023-11-03_at_6.26.25_PM.jpeg" class="icon user-icon"/>Andres Arias</span></td><td class="cell-OUOi"><time>30 de octubre de 2025</time></td><td class="cell-DO[E"><time>2 de noviembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Rechazado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>22 de octubre de 2025 18:43</time></td></tr><tr id="28039073-1e23-8188-8069-e0a29aa7adcf"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%20280390731e2381888069e0a29aa7adcf.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLBG04NgGimAbc6IvQEOjjPlLzAj-TW4h_GNqRkXOw17X1_HA=s100" class="icon user-icon"/>Stefi Andrewartha Maulén</span></td><td class="cell-OUOi"><time>30 de octubre de 2025</time></td><td class="cell-DO[E"><time>2 de noviembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>2 de octubre de 2025 15:52</time></td></tr><tr id="29739073-1e23-8173-928f-d97e7dbb00b4"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Veronica%20Lopez%20297390731e238173928fd97e7dbb00b4.html"> Nueva Solicitud de Cambio de @Veronica Lopez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">V</span></span>Veronica Lopez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-OUOi"><time>31 de octubre de 2025</time></td><td class="cell-DO[E"><time>31 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>25 de octubre de 2025 15:17</time></td></tr><tr id="29d39073-1e23-81fa-aca1-e76073f34aed"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%2029d390731e2381faaca1e76073f34aed.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-OUOi"><time>1 de noviembre de 2025</time></td><td class="cell-DO[E"><time>1 de noviembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>31 de octubre de 2025 9:26</time></td></tr><tr id="29839073-1e23-81a2-94e0-c18022877193"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Cristian%20David%20Llano%20298390731e2381a294e0c18022877193.html"> Nueva Solicitud de Cambio de @Cristian David Llanos Murcia</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLijedQMAsnMrlCnGEMqRG5dbiWf8YtyXNJ0Vh3d6Aw7v_tinI=s100" class="icon user-icon"/>Cristian David Llanos Murcia</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">A</span></span>Andrés Felipe Rincón Moyano</span></td><td class="cell-OUOi"><time>2 de noviembre de 2025</time></td><td class="cell-DO[E"><time>31 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>26 de octubre de 2025 10:10</time></td></tr><tr id="29f39073-1e23-813e-96e1-d8612a9c066d"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Cristian%20David%20Llano%2029f390731e23813e96e1d8612a9c066d.html"> Nueva Solicitud de Cambio de @Cristian David Llanos Murcia</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLijedQMAsnMrlCnGEMqRG5dbiWf8YtyXNJ0Vh3d6Aw7v_tinI=s100" class="icon user-icon"/>Cristian David Llanos Murcia</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Johana Vasquez</span></td><td class="cell-OUOi"><time>3 de noviembre de 2025</time></td><td class="cell-DO[E"><time>3 de noviembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>2 de noviembre de 2025 9:26</time></td></tr><tr id="29939073-1e23-81f7-bec2-ce9a911ac2b9"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Nicolas%20Andres%20Diaz%20%20299390731e2381f7bec2ce9a911ac2b9.html"> Nueva Solicitud de Cambio de @Nicolas Andres Diaz Ramirez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-OUOi"><time>3 de noviembre de 2025</time></td><td class="cell-DO[E"><time>8 de noviembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>27 de octubre de 2025 16:31</time></td></tr><tr id="29d39073-1e23-815e-b255-e19d416d60ec"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Lorena%20Ramos%2029d390731e23815eb255e19d416d60ec.html"> Nueva Solicitud de Cambio de @Lorena Ramos</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Johana Vasquez</span></td><td class="cell-OUOi"><time>4 de noviembre de 2025</time></td><td class="cell-DO[E"><time>4 de octubre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Rechazado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>31 de octubre de 2025 17:21</time></td></tr><tr id="29c39073-1e23-810b-b29d-ec83cb2844ff"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Lorena%20Ramos%2029c390731e23810bb29dec83cb2844ff.html"> Nueva Solicitud de Cambio de @Lorena Ramos</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Johana Vasquez</span></td><td class="cell-OUOi"><time>4 de noviembre de 2025</time></td><td class="cell-DO[E"><time>4 de noviembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>29 de octubre de 2025 19:27</time></td></tr><tr id="2a939073-1e23-818b-8d75-f63f91724351"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%202a9390731e23818b8d75f63f91724351.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-OUOi"><time>18 de noviembre de 2025</time></td><td class="cell-DO[E"><time>18 de noviembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>12 de noviembre de 2025 16:33</time></td></tr><tr id="2a839073-1e23-81a0-b2fe-fcfa087e00d2"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%202a8390731e2381a0b2fefcfa087e00d2.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLl7R90s5joKJH_iRXqn9aik1pb-JHODyLlto_wF7ml3FQDuA=s100" class="icon user-icon"/>Carlos Caro Umbarila</span></td><td class="cell-OUOi"><time>24 de noviembre de 2025</time></td><td class="cell-DO[E"><time>29 de noviembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>10 de noviembre de 2025 19:47</time></td></tr><tr id="2a839073-1e23-816d-93b8-e3d7e6950992"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%202a8390731e23816d93b8e3d7e6950992.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLl7R90s5joKJH_iRXqn9aik1pb-JHODyLlto_wF7ml3FQDuA=s100" class="icon user-icon"/>Carlos Caro Umbarila</span></td><td class="cell-OUOi"><time>25 de noviembre de 2025</time></td><td class="cell-DO[E"><time>30 de noviembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>10 de noviembre de 2025 19:48</time></td></tr><tr id="2b639073-1e23-811e-8eb5-da57150f1748"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Emmanuel%20Ramirez%20Gon%202b6390731e23811e8eb5da57150f1748.html"> Nueva Solicitud de Cambio de @Emmanuel Ramirez Gonzalez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-OUOi"><time>29 de noviembre de 2025</time></td><td class="cell-DO[E"><time>29 de noviembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>25 de noviembre de 2025 16:24</time></td></tr><tr id="2b639073-1e23-81f6-bb75-f3b72c588fc9"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Emmanuel%20Ramirez%20Gon%202b6390731e2381f6bb75f3b72c588fc9.html"> Nueva Solicitud de Cambio de @Emmanuel Ramirez Gonzalez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-OUOi"><time>29 de noviembre de 2025</time></td><td class="cell-DO[E"><time>29 de noviembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Rechazado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>25 de noviembre de 2025 16:23</time></td></tr><tr id="2bc39073-1e23-81b2-a969-f92aed091c50"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Carlos%20Caro%20Umbarila%202bc390731e2381b2a969f92aed091c50.html"> Nueva Solicitud de Cambio de @Carlos Caro Umbarila</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLl7R90s5joKJH_iRXqn9aik1pb-JHODyLlto_wF7ml3FQDuA=s100" class="icon user-icon"/>Carlos Caro Umbarila</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Camila Velásquez</span></td><td class="cell-OUOi"><time>7 de diciembre de 2025</time></td><td class="cell-DO[E"><time>6 de diciembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>1 de diciembre de 2025 12:32</time></td></tr><tr id="2be39073-1e23-81c9-aa06-d2ad969645f0"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%202be390731e2381c9aa06d2ad969645f0.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-OUOi"><time>11 de diciembre de 2025</time></td><td class="cell-DO[E"><time>11 de diciembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-orange"><div class="status-dot status-dot-color-orange"></div>Cancelado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>3 de diciembre de 2025 11:02</time></td></tr><tr id="2b739073-1e23-817b-bde3-fa4cec780301"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Lorena%20Ramos%202b7390731e23817bbde3fa4cec780301.html"> Nueva Solicitud de Cambio de @Lorena Ramos</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-OUOi"><time>14 de diciembre de 2025</time></td><td class="cell-DO[E"><time>12 de diciembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>26 de noviembre de 2025 16:21</time></td></tr><tr id="2c839073-1e23-81bb-bc52-e2274f160447"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%202c8390731e2381bbbc52e2274f160447.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-OUOi"><time>16 de diciembre de 2025</time></td><td class="cell-DO[E"><time>18 de diciembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>13 de diciembre de 2025 15:51</time></td></tr><tr id="2bd39073-1e23-8114-be84-e587b61ba198"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Lorena%20Ramos%202bd390731e238114be84e587b61ba198.html"> Nueva Solicitud de Cambio de @Lorena Ramos</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-OUOi"><time>16 de diciembre de 2025</time></td><td class="cell-DO[E"><time>20 de diciembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>2 de diciembre de 2025 13:16</time></td></tr><tr id="2cb39073-1e23-8113-932d-f1cc6e345d5f"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Diego%20Alejandro%20Mart%202cb390731e238113932df1cc6e345d5f.html"> Nueva Solicitud de Cambio de @Diego Alejandro Martin Clavijo</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-OUOi"><time>17 de diciembre de 2025</time></td><td class="cell-DO[E"><time>17 de diciembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>16 de diciembre de 2025 11:10</time></td></tr><tr id="2c839073-1e23-81e4-a6bb-e8bc3a988fa4"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Johana%20Vasquez%202c8390731e2381e4a6bbe8bc3a988fa4.html"> Nueva Solicitud de Cambio de @Johana Vasquez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Johana Vasquez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-OUOi"><time>17 de diciembre de 2025</time></td><td class="cell-DO[E"><time>19 de diciembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>13 de diciembre de 2025 12:10</time></td></tr><tr id="2c639073-1e23-81a8-aaa7-d8eb556ccab9"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%202c6390731e2381a8aaa7d8eb556ccab9.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Camila Velásquez</span></td><td class="cell-OUOi"><time>17 de diciembre de 2025</time></td><td class="cell-DO[E"><time>21 de diciembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Rechazado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>10 de diciembre de 2025 23:34</time></td></tr><tr id="2c339073-1e23-8163-ae1f-dec315543532"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Bernal%202c3390731e238163ae1fdec315543532.html"> Nueva Solicitud de Cambio de @Daniela Bernal</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">D</span></span>Daniela Bernal</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Camila Velásquez</span></td><td class="cell-OUOi"><time>17 de diciembre de 2025</time></td><td class="cell-DO[E"><time>19 de diciembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>7 de diciembre de 2025 23:16</time></td></tr><tr id="2d039073-1e23-8143-8bc8-d62f0dca2a39"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Jhonatan%20Valenzuela%202d0390731e2381438bc8d62f0dca2a39.html"> Nueva Solicitud de Cambio de @Jhonatan Valenzuela</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jhonatan Valenzuela</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">A</span></span>Andrés Felipe Rincón Moyano</span></td><td class="cell-OUOi"><time>22 de diciembre de 2025</time></td><td class="cell-DO[E"><time>24 de diciembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>21 de diciembre de 2025 16:44</time></td></tr><tr id="2d039073-1e23-81d9-9f4a-dcb13ca95dcb"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Nicolas%20Andres%20Diaz%20%202d0390731e2381d99f4adcb13ca95dcb.html"> Nueva Solicitud de Cambio de @Nicolas Andres Diaz Ramirez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-OUOi"><time>23 de diciembre de 2025</time></td><td class="cell-DO[E"><time>23 de diciembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>21 de diciembre de 2025 10:25</time></td></tr><tr id="2c939073-1e23-813b-a561-c5e0ba7c2a7c"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Jhonatan%20Valenzuela%202c9390731e23813ba561c5e0ba7c2a7c.html"> Nueva Solicitud de Cambio de @Jhonatan Valenzuela</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jhonatan Valenzuela</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">D</span></span>Daniela Bernal</span></td><td class="cell-OUOi"><time>27 de diciembre de 2025</time></td><td class="cell-DO[E"><time>27 de diciembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>14 de diciembre de 2025 11:33</time></td></tr><tr id="2d139073-1e23-814c-95e8-d786d02f7a1e"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Bernal%202d1390731e23814c95e8d786d02f7a1e.html"> Nueva Solicitud de Cambio de @Daniela Bernal</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">D</span></span>Daniela Bernal</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-OUOi"><time>30 de diciembre de 2025</time></td><td class="cell-DO[E"><time>29 de diciembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>21 de diciembre de 2025 20:08</time></td></tr><tr id="2d539073-1e23-8135-8839-c4f4943b3263"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Mar%C3%ADa%20Camila%20Vel%C3%A1squ%202d5390731e2381358839c4f4943b3263.html"> Nueva Solicitud de Cambio de @María Camila Velásquez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Camila Velásquez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jhonatan Valenzuela</span></td><td class="cell-OUOi"><time>4 de enero de 2026</time></td><td class="cell-DO[E"><time>31 de diciembre de 2025</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>26 de diciembre de 2025 15:06</time></td></tr><tr id="2de39073-1e23-815f-8d0d-d273f0cab5bb"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Emmanuel%20Ramirez%20Gon%202de390731e23815f8d0dd273f0cab5bb.html"> Nueva Solicitud de Cambio de @Emmanuel Ramirez Gonzalez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">E</span></span>Emmanuel Ramirez Gonzalez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">D</span></span>Daniela Bernal</span></td><td class="cell-OUOi"><time>7 de enero de 2026</time></td><td class="cell-DO[E"><time>9 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>4 de enero de 2026 16:35</time></td></tr><tr id="2e039073-1e23-8109-aa7f-cd79c737c86e"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Nicolas%20Andres%20Diaz%20%202e0390731e238109aa7fcd79c737c86e.html"> Nueva Solicitud de Cambio de @Nicolas Andres Diaz Ramirez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-OUOi"><time>10 de enero de 2026</time></td><td class="cell-DO[E"><time>10 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>6 de enero de 2026 17:42</time></td></tr><tr id="2dc39073-1e23-8163-9f42-fe51e348e1a3"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Lorena%20Ramos%202dc390731e2381639f42fe51e348e1a3.html"> Nueva Solicitud de Cambio de @Lorena Ramos</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-OUOi"><time>10 de enero de 2026</time></td><td class="cell-DO[E"><time>8 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>2 de enero de 2026 13:49</time></td></tr><tr id="2dd39073-1e23-8145-bbf6-fb78662da828"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Diego%20Alejandro%20Mart%202dd390731e238145bbf6fb78662da828.html"> Nueva Solicitud de Cambio de @Diego Alejandro Martin Clavijo</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-OUOi"><time>13 de enero de 2026</time></td><td class="cell-DO[E"><time>13 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>3 de enero de 2026 17:41</time></td></tr><tr id="2ea39073-1e23-8153-8810-fa5d27464771"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Marisela%20Carrrasco%202ea390731e2381538810fa5d27464771.html"> Nueva Solicitud de Cambio de @Marisela Carrrasco</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJCTfELGdvkKOD18v5gWTCXCSCqgWgNi5yzWWdLYftKen2eZA=s100" class="icon user-icon"/>Marisela Carrrasco</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-OUOi"><time>17 de enero de 2026</time></td><td class="cell-DO[E"><time>17 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>16 de enero de 2026 10:03</time></td></tr><tr id="2e039073-1e23-81b1-963e-f4dd08e670f0"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Nicolas%20Andres%20Diaz%20%202e0390731e2381b1963ef4dd08e670f0.html"> Nueva Solicitud de Cambio de @Nicolas Andres Diaz Ramirez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJCTfELGdvkKOD18v5gWTCXCSCqgWgNi5yzWWdLYftKen2eZA=s100" class="icon user-icon"/>Marisela Carrrasco</span></td><td class="cell-OUOi"><time>17 de enero de 2026</time></td><td class="cell-DO[E"><time>15 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>6 de enero de 2026 17:13</time></td></tr><tr id="2d339073-1e23-813e-b5d6-d7ab54286bd1"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Andres%20Arias%202d3390731e23813eb5d6d7ab54286bd1.html"> Nueva Solicitud de Cambio de @Andres Arias</a></td><td class="cell-@o[|"><span class="user"><img src="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%202833-5b99/WhatsApp_Image_2023-11-03_at_6.26.25_PM.jpeg" class="icon user-icon"/>Andres Arias</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-OUOi"><time>18 de enero de 2026</time></td><td class="cell-DO[E"><time>12 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>24 de diciembre de 2025 11:32</time></td></tr><tr id="2ea39073-1e23-813c-a70e-c7e2bdb173df"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Mariel%20Garc%C3%ADa%202ea390731e23813ca70ec7e2bdb173df.html"> Nueva Solicitud de Cambio de @Mariel García</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">D</span></span>Daniela Bernal</span></td><td class="cell-OUOi"><time>21 de enero de 2026</time></td><td class="cell-DO[E"><time>21 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>16 de enero de 2026 15:59</time></td></tr><tr id="2de39073-1e23-81fc-9fb3-cf0fd6e284df"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Nicolas%20Andres%20Diaz%20%202de390731e2381fc9fb3cf0fd6e284df.html"> Nueva Solicitud de Cambio de @Nicolas Andres Diaz Ramirez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKvMfOges0sz-hJn7a7OoM2Rke06wYUT0B7mzcvWRE6ckrkWA=s100" class="icon user-icon"/>Brandon Villamil</span></td><td class="cell-OUOi"><time>22 de enero de 2026</time></td><td class="cell-DO[E"><time>22 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>4 de enero de 2026 17:47</time></td></tr><tr id="2e939073-1e23-819a-892f-e81b2716a849"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Johana%20Vasquez%202e9390731e23819a892fe81b2716a849.html"> Nueva Solicitud de Cambio de @Johana Vasquez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Johana Vasquez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">V</span></span>Veronica Lopez</span></td><td class="cell-OUOi"><time>25 de enero de 2026</time></td><td class="cell-DO[E"><time>25 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>15 de enero de 2026 13:21</time></td></tr><tr id="2f339073-1e23-81e5-b443-f50a43c8c668"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Cristian%20David%20Llano%202f3390731e2381e5b443f50a43c8c668.html"> Nueva Solicitud de Cambio de @Cristian David Llanos Murcia</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLijedQMAsnMrlCnGEMqRG5dbiWf8YtyXNJ0Vh3d6Aw7v_tinI=s100" class="icon user-icon"/>Cristian David Llanos Murcia</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-OUOi"><time>26 de enero de 2026</time></td><td class="cell-DO[E"><time>26 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>25 de enero de 2026 18:50</time></td></tr><tr id="2f339073-1e23-8120-bff9-d1a8aa37a2c9"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Diego%20Alejandro%20Mart%202f3390731e238120bff9d1a8aa37a2c9.html"> Nueva Solicitud de Cambio de @Diego Alejandro Martin Clavijo</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-OUOi"><time>28 de enero de 2026</time></td><td class="cell-DO[E"><time>27 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>25 de enero de 2026 18:10</time></td></tr><tr id="2f739073-1e23-8118-9a20-c5000bcbf5eb"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Diego%20Alejandro%20Mart%202f7390731e2381189a20c5000bcbf5eb.html"> Nueva Solicitud de Cambio de @Diego Alejandro Martin Clavijo</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLijedQMAsnMrlCnGEMqRG5dbiWf8YtyXNJ0Vh3d6Aw7v_tinI=s100" class="icon user-icon"/>Cristian David Llanos Murcia</span></td><td class="cell-OUOi"><time>30 de enero de 2026</time></td><td class="cell-DO[E"><time>30 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>28 de enero de 2026 20:27</time></td></tr><tr id="2f639073-1e23-81e5-b73e-c4df57e25138"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Mariel%20Garc%C3%ADa%202f6390731e2381e5b73ec4df57e25138.html"> Nueva Solicitud de Cambio de @Mariel García</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLijedQMAsnMrlCnGEMqRG5dbiWf8YtyXNJ0Vh3d6Aw7v_tinI=s100" class="icon user-icon"/>Cristian David Llanos Murcia</span></td><td class="cell-OUOi"><time>31 de enero de 2026</time></td><td class="cell-DO[E"><time>31 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>28 de enero de 2026 10:02</time></td></tr><tr id="2f939073-1e23-8105-8216-e9733f3f9868"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Bernal%202f9390731e2381058216e9733f3f9868.html"> Nueva Solicitud de Cambio de @Daniela Bernal</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">D</span></span>Daniela Bernal</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-OUOi"><time>1 de febrero de 2026</time></td><td class="cell-DO[E"><time>1 de febrero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>31 de enero de 2026 14:05</time></td></tr><tr id="2ea39073-1e23-815f-8a16-fe7efb55c65c"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Lorena%20Ramos%202ea390731e23815f8a16fe7efb55c65c.html"> Nueva Solicitud de Cambio de @Lorena Ramos</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Camila Velásquez</span></td><td class="cell-OUOi"><time>1 de febrero de 2026</time></td><td class="cell-DO[E"><time>26 de enero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>16 de enero de 2026 11:43</time></td></tr><tr id="2f439073-1e23-81cd-9000-c3d56e8634ae"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Carlos%20Caro%20Umbarila%202f4390731e2381cd9000c3d56e8634ae.html"> Nueva Solicitud de Cambio de @Carlos Caro Umbarila</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLl7R90s5joKJH_iRXqn9aik1pb-JHODyLlto_wF7ml3FQDuA=s100" class="icon user-icon"/>Carlos Caro Umbarila</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-OUOi"><time>3 de febrero de 2026</time></td><td class="cell-DO[E"><time>3 de febrero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>26 de enero de 2026 16:42</time></td></tr><tr id="2f839073-1e23-815f-a7b4-f18ab14ef830"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Johana%20Vasquez%202f8390731e23815fa7b4f18ab14ef830.html"> Nueva Solicitud de Cambio de @Johana Vasquez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Johana Vasquez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-OUOi"><time>7 de febrero de 2026</time></td><td class="cell-DO[E"><time>7 de febrero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Rechazado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>30 de enero de 2026 16:13</time></td></tr><tr id="2fe39073-1e23-8142-95f5-f8c2fde06f2f"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Jhonatan%20Valenzuela%202fe390731e23814295f5f8c2fde06f2f.html"> Nueva Solicitud de Cambio de @Jhonatan Valenzuela</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jhonatan Valenzuela</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJecpPWhQMOGkPp09SpMsKu9HJcKe3lQEnRgSK-oKjzqSQLoQ=s100" class="icon user-icon"/>Jaime Medalla</span></td><td class="cell-OUOi"><time>10 de febrero de 2026</time></td><td class="cell-DO[E"><time>15 de febrero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>5 de febrero de 2026 18:08</time></td></tr><tr id="30439073-1e23-8180-9362-e4fae0222d60"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Gonzalo%20Soffia%20304390731e2381809362e4fae0222d60.html"> Nueva Solicitud de Cambio de @Gonzalo Soffia</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Gonzalo Soffia</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJNcWyt8KBIR-GAFTRm1IuYPsLh7PHHN7ecR049iDhVZ3-too4=s100" class="icon user-icon"/>Andrés Vanegas</span></td><td class="cell-OUOi"><time>12 de febrero de 2026</time></td><td class="cell-DO[E"><time>13 de febrero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>11 de febrero de 2026 16:19</time></td></tr><tr id="30539073-1e23-8100-a89d-e639935ef315"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Diego%20Alejandro%20Mart%20305390731e238100a89de639935ef315.html"> Nueva Solicitud de Cambio de @Diego Alejandro Martin Clavijo</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-OUOi"><time>13 de febrero de 2026</time></td><td class="cell-DO[E"><time>13 de febrero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>12 de febrero de 2026 14:17</time></td></tr><tr id="30039073-1e23-810d-926d-c8d9f07d0e89"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Mariel%20Garc%C3%ADa%20300390731e23810d926dc8d9f07d0e89.html"> Nueva Solicitud de Cambio de @Mariel García</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-OUOi"><time>15 de febrero de 2026</time></td><td class="cell-DO[E"><time>13 de febrero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>7 de febrero de 2026 7:59</time></td></tr><tr id="30a39073-1e23-819e-9fb1-ff7dbef06730"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%2030a390731e23819e9fb1ff7dbef06730.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">A</span></span>Andrés Felipe Rincón Moyano</span></td><td class="cell-OUOi"><time>19 de febrero de 2026</time></td><td class="cell-DO[E"><time>21 de febrero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>17 de febrero de 2026 7:06</time></td></tr><tr id="31139073-1e23-8115-ac46-dd111f25feb5"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Diego%20Alejandro%20Mart%20311390731e238115ac46dd111f25feb5.html"> Nueva Solicitud de Cambio de @Diego Alejandro Martin Clavijo</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">D</span></span>Daniela Bernal</span></td><td class="cell-OUOi"><time>25 de febrero de 2026</time></td><td class="cell-DO[E"><time>25 de febrero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>24 de febrero de 2026 12:28</time></td></tr><tr id="31139073-1e23-8132-a2c9-ebdcccd33db5"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Mar%C3%ADa%20Camila%20Vel%C3%A1squ%20311390731e238132a2c9ebdcccd33db5.html"> Nueva Solicitud de Cambio de @María Camila Velásquez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Camila Velásquez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-OUOi"><time>27 de febrero de 2026</time></td><td class="cell-DO[E"><time>28 de febrero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>24 de febrero de 2026 16:28</time></td></tr><tr id="30a39073-1e23-81b7-b329-f086bafe8b7a"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Mariel%20Garc%C3%ADa%2030a390731e2381b7b329f086bafe8b7a.html"> Nueva Solicitud de Cambio de @Mariel García</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJecpPWhQMOGkPp09SpMsKu9HJcKe3lQEnRgSK-oKjzqSQLoQ=s100" class="icon user-icon"/>Jaime Medalla</span></td><td class="cell-OUOi"><time>27 de febrero de 2026</time></td><td class="cell-DO[E"><time>27 de febrero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>17 de febrero de 2026 8:29</time></td></tr><tr id="31139073-1e23-812f-ae1e-f745ce40215a"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Veronica%20Lopez%20311390731e23812fae1ef745ce40215a.html"> Nueva Solicitud de Cambio de @Veronica Lopez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">V</span></span>Veronica Lopez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLl7R90s5joKJH_iRXqn9aik1pb-JHODyLlto_wF7ml3FQDuA=s100" class="icon user-icon"/>Carlos Caro Umbarila</span></td><td class="cell-OUOi"><time>28 de febrero de 2026</time></td><td class="cell-DO[E"><time>28 de febrero de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>24 de febrero de 2026 17:04</time></td></tr><tr id="31339073-1e23-819f-afac-f06b6bce8064"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Andres%20Arias%20313390731e23819fafacf06b6bce8064.html"> Nueva Solicitud de Cambio de @Andres Arias</a></td><td class="cell-@o[|"><span class="user"><img src="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%202833-5b99/WhatsApp_Image_2023-11-03_at_6.26.25_PM.jpeg" class="icon user-icon"/>Andres Arias</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-OUOi"><time>2 de marzo de 2026</time></td><td class="cell-DO[E"><time>8 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>26 de febrero de 2026 15:51</time></td></tr><tr id="31039073-1e23-81a9-8732-f4c378b19f4b"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%20310390731e2381a98732f4c378b19f4b.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">A</span></span>Andrés Felipe Rincón Moyano</span></td><td class="cell-OUOi"><time>2 de marzo de 2026</time></td><td class="cell-DO[E"><time>2 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>23 de febrero de 2026 15:08</time></td></tr><tr id="31b39073-1e23-816e-a523-ea2d11be9b78"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Jhonatan%20Valenzuela%2031b390731e23816ea523ea2d11be9b78.html"> Nueva Solicitud de Cambio de @Jhonatan Valenzuela</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jhonatan Valenzuela</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-OUOi"><time>12 de marzo de 2026</time></td><td class="cell-DO[E"><time>15 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Rechazado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>6 de marzo de 2026 14:15</time></td></tr><tr id="31839073-1e23-81ff-beba-e3ff13ac3e3f"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Bernal%20318390731e2381ffbebae3ff13ac3e3f.html"> Nueva Solicitud de Cambio de @Daniela Bernal</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">D</span></span>Daniela Bernal</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Johana Vasquez</span></td><td class="cell-OUOi"><time>12 de marzo de 2026</time></td><td class="cell-DO[E"><time>12 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>3 de marzo de 2026 9:58</time></td></tr><tr id="31f39073-1e23-8197-b491-d1832303b561"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%2031f390731e238197b491d1832303b561.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKvMfOges0sz-hJn7a7OoM2Rke06wYUT0B7mzcvWRE6ckrkWA=s100" class="icon user-icon"/>Brandon Villamil</span></td><td class="cell-OUOi"><time>13 de marzo de 2026</time></td><td class="cell-DO[E"><time>11 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>10 de marzo de 2026 11:00</time></td></tr><tr id="31939073-1e23-81cf-b42c-e924488175b8"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Jhonatan%20Valenzuela%20319390731e2381cfb42ce924488175b8.html"> Nueva Solicitud de Cambio de @Jhonatan Valenzuela</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jhonatan Valenzuela</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-OUOi"><time>13 de marzo de 2026</time></td><td class="cell-DO[E"><time>15 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Rechazado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>4 de marzo de 2026 8:59</time></td></tr><tr id="31a39073-1e23-81ce-98f0-dfc199c6e2ce"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Andres%20Arias%2031a390731e2381ce98f0dfc199c6e2ce.html"> Nueva Solicitud de Cambio de @Andres Arias</a></td><td class="cell-@o[|"><span class="user"><img src="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%202833-5b99/WhatsApp_Image_2023-11-03_at_6.26.25_PM.jpeg" class="icon user-icon"/>Andres Arias</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-OUOi"><time>14 de marzo de 2026</time></td><td class="cell-DO[E"><time>15 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>5 de marzo de 2026 17:20</time></td></tr><tr id="31039073-1e23-810e-bcc2-c59005725686"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Lorena%20Ramos%20310390731e23810ebcc2c59005725686.html"> Nueva Solicitud de Cambio de @Lorena Ramos</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">V</span></span>Veronica Lopez</span></td><td class="cell-OUOi"><time>14 de marzo de 2026</time></td><td class="cell-DO[E"><time>12 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>23 de febrero de 2026 18:39</time></td></tr><tr id="31b39073-1e23-8139-9187-d8113302e92b"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Mariel%20Garc%C3%ADa%2031b390731e2381399187d8113302e92b.html"> Nueva Solicitud de Cambio de @Mariel García</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-OUOi"><time>15 de marzo de 2026</time></td><td class="cell-DO[E"><time>13 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>6 de marzo de 2026 13:02</time></td></tr><tr id="32239073-1e23-81c1-beda-ce53a48e6c0a"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Nicolas%20Andres%20Diaz%20%20322390731e2381c1bedace53a48e6c0a.html"> Nueva Solicitud de Cambio de @Nicolas Andres Diaz Ramirez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Johana Vasquez</span></td><td class="cell-OUOi"><time>17 de marzo de 2026</time></td><td class="cell-DO[E"><time>22 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>13 de marzo de 2026 8:03</time></td></tr><tr id="32639073-1e23-8122-8417-e1e5893ad00c"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Diego%20Alejandro%20Mart%20326390731e2381228417e1e5893ad00c.html"> Nueva Solicitud de Cambio de @Diego Alejandro Martin Clavijo</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Camila Velásquez</span></td><td class="cell-OUOi"><time>18 de marzo de 2026</time></td><td class="cell-DO[E"><time>18 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>16 de marzo de 2026 21:20</time></td></tr><tr id="32239073-1e23-81f2-b052-e79893e5e21b"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Johana%20Vasquez%20322390731e2381f2b052e79893e5e21b.html"> Nueva Solicitud de Cambio de @Johana Vasquez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Johana Vasquez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKvMfOges0sz-hJn7a7OoM2Rke06wYUT0B7mzcvWRE6ckrkWA=s100" class="icon user-icon"/>Brandon Villamil</span></td><td class="cell-OUOi"><time>20 de marzo de 2026</time></td><td class="cell-DO[E"><time>22 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>13 de marzo de 2026 11:21</time></td></tr><tr id="32939073-1e23-81cf-ba4a-dc59fa1c6f1f"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Mariel%20Garc%C3%ADa%20329390731e2381cfba4adc59fa1c6f1f.html"> Nueva Solicitud de Cambio de @Mariel García</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jhonatan Valenzuela</span></td><td class="cell-OUOi"><time>23 de marzo de 2026</time></td><td class="cell-DO[E"><time>23 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-orange"><div class="status-dot status-dot-color-orange"></div>Cancelado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>20 de marzo de 2026 11:02</time></td></tr><tr id="32939073-1e23-8176-a82d-cfacabb70f14"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Mariel%20Garc%C3%ADa%20329390731e238176a82dcfacabb70f14.html"> Nueva Solicitud de Cambio de @Mariel García</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jhonatan Valenzuela</span></td><td class="cell-OUOi"><time>24 de marzo de 2026</time></td><td class="cell-DO[E"><time>24 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>20 de marzo de 2026 11:04</time></td></tr><tr id="32d39073-1e23-81d0-afa2-d8cd66500541"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Jessica%20Gonzalez%2032d390731e2381d0afa2d8cd66500541.html"> Nueva Solicitud de Cambio de @Jessica Gonzalez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-OUOi"><time>25 de marzo de 2026</time></td><td class="cell-DO[E"><time>29 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>24 de marzo de 2026 13:09</time></td></tr><tr id="32939073-1e23-81e8-936d-e705d3cdca43"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Mariel%20Garc%C3%ADa%20329390731e2381e8936de705d3cdca43.html"> Nueva Solicitud de Cambio de @Mariel García</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jhonatan Valenzuela</span></td><td class="cell-OUOi"><time>26 de marzo de 2026</time></td><td class="cell-DO[E"><time>26 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-orange"><div class="status-dot status-dot-color-orange"></div>Cancelado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>20 de marzo de 2026 11:03</time></td></tr><tr id="32939073-1e23-8174-a56e-d7024a47217d"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Mariel%20Garc%C3%ADa%20329390731e238174a56ed7024a47217d.html"> Nueva Solicitud de Cambio de @Mariel García</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jhonatan Valenzuela</span></td><td class="cell-OUOi"><time>27 de marzo de 2026</time></td><td class="cell-DO[E"><time>27 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>20 de marzo de 2026 11:05</time></td></tr><tr id="33039073-1e23-81fa-a4cb-fd6847cc5e4d"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Mariel%20Garc%C3%ADa%20330390731e2381faa4cbfd6847cc5e4d.html"> Nueva Solicitud de Cambio de @Mariel García</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-OUOi"><time>28 de marzo de 2026</time></td><td class="cell-DO[E"><time>28 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-red"><div class="status-dot status-dot-color-red"></div>Rechazado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>27 de marzo de 2026 6:41</time></td></tr><tr id="32939073-1e23-811e-ac75-c86aff7d8ca2"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Bernal%20329390731e23811eac75c86aff7d8ca2.html"> Nueva Solicitud de Cambio de @Daniela Bernal</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">D</span></span>Daniela Bernal</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-OUOi"><time>29 de marzo de 2026</time></td><td class="cell-DO[E"><time>26 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>20 de marzo de 2026 11:11</time></td></tr><tr id="32d39073-1e23-8117-938d-e14a5f7b73d3"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Lorena%20Ramos%2032d390731e238117938de14a5f7b73d3.html"> Nueva Solicitud de Cambio de @Lorena Ramos</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-OUOi"><time>31 de marzo de 2026</time></td><td class="cell-DO[E"><time>31 de marzo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>24 de marzo de 2026 12:25</time></td></tr><tr id="32c39073-1e23-817f-9758-d89fc7991b0a"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Nicolas%20Andres%20Diaz%20%2032c390731e23817f9758d89fc7991b0a.html"> Nueva Solicitud de Cambio de @Nicolas Andres Diaz Ramirez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-OUOi"><time>31 de marzo de 2026</time></td><td class="cell-DO[E"><time>3 de abril de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>23 de marzo de 2026 13:22</time></td></tr><tr id="32f39073-1e23-81c5-9fc4-e805e0afefd3"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Mar%C3%ADa%20Camila%20Vel%C3%A1squ%2032f390731e2381c59fc4e805e0afefd3.html"> Nueva Solicitud de Cambio de @María Camila Velásquez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Camila Velásquez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>Mariel García</span></td><td class="cell-OUOi"><time>4 de abril de 2026</time></td><td class="cell-DO[E"><time>5 de abril de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>26 de marzo de 2026 13:20</time></td></tr><tr id="32d39073-1e23-81f6-8a4d-d93dcfa65bdc"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%2032d390731e2381f68a4dd93dcfa65bdc.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">D</span></span>Daniela Bernal</span></td><td class="cell-OUOi"><time>5 de abril de 2026</time></td><td class="cell-DO[E"><time>1 de abril de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>24 de marzo de 2026 13:49</time></td></tr><tr id="33839073-1e23-81eb-bc73-d1398a3e3ba5"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Nicolas%20Andres%20Diaz%20%20338390731e2381ebbc73d1398a3e3ba5.html"> Nueva Solicitud de Cambio de @Nicolas Andres Diaz Ramirez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jhonatan Valenzuela</span></td><td class="cell-OUOi"><time>6 de abril de 2026</time></td><td class="cell-DO[E"><time>9 de abril de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>4 de abril de 2026 10:43</time></td></tr><tr id="33839073-1e23-810a-a90a-ea700983f617"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Nicolas%20Andres%20Diaz%20%20338390731e23810aa90aea700983f617.html"> Nueva Solicitud de Cambio de @Nicolas Andres Diaz Ramirez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Johana Vasquez</span></td><td class="cell-OUOi"><time>6 de abril de 2026</time></td><td class="cell-DO[E"><time>9 de abril de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-orange"><div class="status-dot status-dot-color-orange"></div>Cancelado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>4 de abril de 2026 10:32</time></td></tr><tr id="33639073-1e23-81b3-9780-e9de187b46f2"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Lorena%20Ramos%20336390731e2381b39780e9de187b46f2.html"> Nueva Solicitud de Cambio de @Lorena Ramos</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJfvNlOyEjLzWs6kgZeZz3FusI8gSBKENNQQ9PVW3bN-vh3JDs=s100" class="icon user-icon"/>Lorena Ramos</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLl7R90s5joKJH_iRXqn9aik1pb-JHODyLlto_wF7ml3FQDuA=s100" class="icon user-icon"/>Carlos Caro Umbarila</span></td><td class="cell-OUOi"><time>6 de abril de 2026</time></td><td class="cell-DO[E"><time>6 de abril de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>1 de abril de 2026 20:09</time></td></tr><tr id="33a39073-1e23-8119-8f33-c9553d520c9d"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Diego%20Alejandro%20Mart%2033a390731e2381198f33c9553d520c9d.html"> Nueva Solicitud de Cambio de @Diego Alejandro Martin Clavijo</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIh8ClaSp_d9xkuGpH68xKlEpGZBS5LAcN_ipcQZ9uTZ_COxA=s100" class="icon user-icon"/>Jessica Gonzalez</span></td><td class="cell-OUOi"><time>8 de abril de 2026</time></td><td class="cell-DO[E"><time>8 de abril de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>6 de abril de 2026 10:18</time></td></tr><tr id="33b39073-1e23-8183-94bb-d9d91738b6f9"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Daniela%20Ram%C3%ADrez%2033b390731e23818394bbd9d91738b6f9.html"> Nueva Solicitud de Cambio de @Daniela Ramírez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Camila Velásquez</span></td><td class="cell-OUOi"><time>11 de abril de 2026</time></td><td class="cell-DO[E"><time>11 de abril de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>7 de abril de 2026 14:07</time></td></tr><tr id="33639073-1e23-8123-93a2-da13753bf6d4"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Nicolas%20Andres%20Diaz%20%20336390731e23812393a2da13753bf6d4.html"> Nueva Solicitud de Cambio de @Nicolas Andres Diaz Ramirez</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLd1CemMi8K7Gp5q0bOWCt42V2-gF1JSYb4cuUgTAkGqVcXFHc=s100" class="icon user-icon"/>Nicolas Andres Diaz Ramirez</span></td><td class="cell-=Ykw"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jhonatan Valenzuela</span></td><td class="cell-OUOi"><time>11 de abril de 2026</time></td><td class="cell-DO[E"><time>11 de abril de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>2 de abril de 2026 14:15</time></td></tr><tr id="33c39073-1e23-8102-96b8-e92c709c8eb9"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Johana%20Vasquez%2033c390731e23810296b8e92c709c8eb9.html"> Nueva Solicitud de Cambio de @Johana Vasquez</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Johana Vasquez</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-OUOi"><time>14 de abril de 2026</time></td><td class="cell-DO[E"><time>14 de abril de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>8 de abril de 2026 15:33</time></td></tr><tr id="34339073-1e23-81b8-93b7-ffdb1042cafc"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Carlos%20Caro%20Umbarila%20343390731e2381b893b7ffdb1042cafc.html"> Nueva Solicitud de Cambio de @Carlos Caro Umbarila</a></td><td class="cell-@o[|"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocLl7R90s5joKJH_iRXqn9aik1pb-JHODyLlto_wF7ml3FQDuA=s100" class="icon user-icon"/>Carlos Caro Umbarila</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKWc2RymRWS8j6WNOCPVLSaRsGtB6AUh6SyZiZIl4N12ZciKg=s100" class="icon user-icon"/>Daniela Ramírez</span></td><td class="cell-OUOi"><time>26 de abril de 2026</time></td><td class="cell-DO[E"><time>23 de abril de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>15 de abril de 2026 17:01</time></td></tr><tr id="34b39073-1e23-8147-9824-c73f69224231"><td class="cell-title"><a href="Cambios%20de%20Turno/Nueva%20Solicitud%20de%20Cambio%20de%20@Jhonatan%20Valenzuela%2034b390731e2381479824c73f69224231.html"> Nueva Solicitud de Cambio de @Jhonatan Valenzuela</a></td><td class="cell-@o[|"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jhonatan Valenzuela</span></td><td class="cell-=Ykw"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocILGAJ502iy34y80DVPN2XnPUkYIa_8pZweiOA-Yix4x8zQwQ=s100" class="icon user-icon"/>Diego Alejandro Martin Clavijo</span></td><td class="cell-OUOi"><time>30 de abril de 2026</time></td><td class="cell-DO[E"><time>3 de mayo de 2026</time></td><td class="cell-^w`U"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Aprobado</span></td><td class="cell-}TMW"></td><td class="cell-RN|o"></td><td class="cell-K_Tb"><div class="checkbox checkbox-off"></div></td><td class="cell-wf;m"><time>23 de abril de 2026 10:51</time></td></tr></tbody></table></div><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

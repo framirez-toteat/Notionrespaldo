@@ -1,0 +1,757 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>DTE </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="17639073-1e23-819f-87e4-f3c8c02fab28" class="page sans"><header><h1 class="page-title" dir="auto"><mark class="highlight-default"><mark class="highlight-orange_background"><strong>DTE </strong></mark></mark></h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable</th><td><span class="user"><img src="DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Matías - 16 Feb</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Listo</span></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>9 Marzo</th><td><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Analyst</th><td><div class="checkbox checkbox-on"></div></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Senior</th><td><div class="checkbox checkbox-on"></div></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/checkmark-square_gray.svg" style="width:14px;height:14px;display:block"/></span>Coordinador</th><td><div class="checkbox checkbox-on"></div></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>ítem principal</th><td><a href="Integraciones%20de%20pago%20(Payments)%2031b390731e238032b47fc89a6907ab4c.html">Integraciones de pago (Payments)</a></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="30439073-1e23-80f7-92f1-ccffb3486839" class=""><a href="https://ayuda.toteat.com/es/collections/2685152-documentos-tributarios-electronicos">https://ayuda.toteat.com/es/collections/2685152-documentos-tributarios-electronicos</a></p></div><div style="display:contents" dir="auto"><ul id="1e339073-1e23-8015-b717-fb72368b43de" class="toggle"><li><details open=""><summary><mark class="highlight-orange"><strong>Paso a paso para acceder a DTEadmin/facturación.</strong></mark></summary><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-8047-9940-ebcfab89ad3a" class="numbered-list" start="1"><li>Ingresar al ambiente o a cualquier ambiente, asegurándose de estar como dueño creador en el local desde el que se va a acceder a Dteadmin <a href="https://dteadmin.toteat.com/companyVer">https://dteadmin.toteat.com</a> (legacy) - Facturación <a href="https://facturacion.toteat.com/login">https://facturacion.toteat.com</a> (New).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-80d6-b22b-ebe33ac6fbb0" class="numbered-list" start="2"><li>Ir a reportes → Libro de ventas → <div style="display:contents" dir="ltr"><figure id="1e339073-1e23-808d-bb19-d777d180435a" class="image" style="text-align:center"><a href="DTE/image.png"><img style="width:132px" src="DTE/image.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-8076-8aa5-f87d1b2e2cfa" class="numbered-list" start="3"><li>Se dirigirá a la página de DTE y ahí abrirá sesión con Google (correo de usuario).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-8008-a540-c47adcb4b7e7" class="numbered-list" start="4"><li>Al ingresar no se verán los botones en la esquina superior izquierda; solo debes darle doble clic al botón de →<div style="display:contents" dir="ltr"><figure id="1e339073-1e23-8036-bc8e-d679741341ec" class="image" style="text-align:center"><a href="DTE/image%201.png"><img style="width:72px" src="DTE/image%201.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-80f3-9851-eda729382d8c" class="numbered-list" start="5"><li>Al aparecer los botones, debes ir al botón de configuración → Empresas → Buscar x id local.</li></ol></div><div style="display:contents" dir="ltr"><figure id="1e339073-1e23-80cb-896f-e0144386b5cb"><div class="source"><a href="DTE/Grabacion_de_pantalla_2025-04-27_a_la(s)_20.41.49.mov">attachment:bfe90d0b-42b7-44a3-9ba0-784cfe07d50e:Grabacion_de_pantalla_2025-04-27_a_la(s)_20.41.49.mov</a></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1e239073-1e23-8011-a283-ef5932ff1b31" class="toggle"><li><details open=""><summary><mark class="highlight-orange"><mark class="highlight-default_background"><strong>Carga de folios en Chile</strong></mark></mark></summary><div style="display:contents" dir="auto"><p id="1e239073-1e23-80d6-a77c-d12cbd9db82c" class="">Este manual estará encargado de determinar el paso a paso para hacer una carga de folios para <strong>DTE TOTEAT CHILE;</strong> se hará el ejemplo con una petición de factura electrónica, sin embargo, es el mismo proceso para el resto de documentos.</p></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80ac-a9c5-e2f5e8cbbe7e" class="">Siempre que un cliente realice una solicitud de folios, se debe cumplir este paso a paso. En el caso de que ejecutando el mismo aparezca un cartel o aviso<strong> diferente a lo mencionado</strong>, por favor, <strong>consultar directamente con el encargado</strong> para verificar si es necesario realizar un procedimiento diferente o si directamente no es posible realizar la carga.</p></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-8040-a000-e6372dd2d94a" class="">Es importante que este procedimiento actualmente solo lo pueden hacer con Windows; si tienen un equipo de S.O. diferente, deberán solicitar ayuda a un compañero/encargado para realizarlo lo antes posible.</p></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8021-8198-c6b15eb64930" class="numbered-list" start="1"><li>El primer paso para realizar la carga es, primero que todo, identificar qué es lo que el cliente necesita, por lo que, si el cliente llega con un error o solicitud de folios, la primera pregunta que se le debe hacer es <strong>qué folios necesita, </strong>si son boletas, facturas, notas de crédito, etc.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8076-9cec-db866b8ab9cf" class="numbered-list" start="2"><li>Ya con esto definido, obtendremos el ID del restaurante más el ID del local (ID en formato completo) e iremos a <strong>dteadmin.toteat.com</strong>. Aquí debemos iniciar sesión con nuestro usuario e ir al botón de <strong>‘Configuración’</strong>.</li></ol></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-800e-bebb-f0a2ce74d7bc" class="">En el caso de que el botón no aparezca, pueden darle al botón ‘Perfil’ un par de veces hasta que aparezca, o directamente loguearse en un ambiente cualquiera que tenga DTE Toteat activado.</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8059-b6c4-e226a260bc9c" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXelLRdLBrMr0pbwb6lWOJ6RICyDMKIO_CwhbjHigcCGOZP9Mfc5XIeiuvd-YNwQP95P6gvcYIPWESD5Hw8han0M4ckDJtx3DtOJ0SQXxiL_qD01UC1YoKsts8GOHoK9plG3clRrR9VSZAeU-l7Jpak8GTT5?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:700px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXelLRdLBrMr0pbwb6lWOJ6RICyDMKIO_CwhbjHigcCGOZP9Mfc5XIeiuvd-YNwQP95P6gvcYIPWESD5Hw8han0M4ckDJtx3DtOJ0SQXxiL_qD01UC1YoKsts8GOHoK9plG3clRrR9VSZAeU-l7Jpak8GTT5?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-8068-8122-c849d8083090" class="">En este menú, debemos ir a <strong>‘Empresas’</strong> y aquí usar el buscador. Podemos usar el buscador con diferentes datos: token, RUT, ID de restaurante y local o por país. En este caso será por el ID del local (que lo obtendrán de Intercom en el chat abierto por el caso).</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80d0-b202-d17d7c7ff2af" class="image"><a href="DTE/image%202.png"><img style="width:709.9750366210938px" src="DTE/image%202.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-807c-966d-c5cbd7a4e134" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfyz0QX9JBom_WXTeHBFq4dxzovA3nZafrT_fxMf_f5APMcEICKrZ79jILARlsKrN-rw4xBloL-JkG6wXv-Bti3Sb4x8WrNsXKaBSOysX7UmWDPVj2GnwEJpc9hHdWNdezaVNX5izOht16vQ0tY5kaGy_UO?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:685px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfyz0QX9JBom_WXTeHBFq4dxzovA3nZafrT_fxMf_f5APMcEICKrZ79jILARlsKrN-rw4xBloL-JkG6wXv-Bti3Sb4x8WrNsXKaBSOysX7UmWDPVj2GnwEJpc9hHdWNdezaVNX5izOht16vQ0tY5kaGy_UO?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-801a-b0b9-c2b358bb5537" class="numbered-list" start="1"><li>Una vez hecha la búsqueda, debemos instalar el certificado digital en nuestro equipo para poder acceder al portal del SII a nombre de esta empresa; para ello, iremos al botón <strong>‘Cer’</strong>.</li></ol></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80a9-b96c-ffe4839f75bd" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfUbLHiPWIRKqF6G9NtPKRGepxGCsm20PHqWrZIkHuvv5tCtjebNY_20e4SrGylRTk-t4kaPyuO6aWMCLA9ZiL61OF0Dt4vGViHK7Fjk8wfDdN_wntOtpc4wAzJXhPn9i47lHk51DD8NRhZIhtIkxwTv4I?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfUbLHiPWIRKqF6G9NtPKRGepxGCsm20PHqWrZIkHuvv5tCtjebNY_20e4SrGylRTk-t4kaPyuO6aWMCLA9ZiL61OF0Dt4vGViHK7Fjk8wfDdN_wntOtpc4wAzJXhPn9i47lHk51DD8NRhZIhtIkxwTv4I?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-805c-a250-d77c5f8b3774" class="">En este apartado vamos al botón ‘Down’, donde comenzará la descarga del certificado digital. Una vez esté descargado, debemos instalarlo en nuestro equipo.</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8066-bdf8-c81df3556026" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdIS-mNBkGD4rOZ4192F3ODq5cd8GGt9iEqmVQwKZvlRPGGTm66OSptHAoidN7B3OCcEac1NbynXpcMWIZFB4292C4milqbGJT2GcqNTKmSYh5h1pIEQeqK5QRaUFtiYxc0LfYNI3T5bNPNYjHWt_pJg5A?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdIS-mNBkGD4rOZ4192F3ODq5cd8GGt9iEqmVQwKZvlRPGGTm66OSptHAoidN7B3OCcEac1NbynXpcMWIZFB4292C4milqbGJT2GcqNTKmSYh5h1pIEQeqK5QRaUFtiYxc0LfYNI3T5bNPNYjHWt_pJg5A?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80f7-8d65-ce8ef08dd52c" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfa6ozqdj3N7fIrkySwFSB5ml6jQiAnUVtDSz-rThQHuLNnNao25hFU62uQWWBkaFMib7LmGMf5bTARDgY9p8iYIUQ787T4kwdOjjpe0qCGNcKqG_YKdBw0Dg-5fHF_GiA-c7n5QtfBmBKGwIq9yS5efpdn?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfa6ozqdj3N7fIrkySwFSB5ml6jQiAnUVtDSz-rThQHuLNnNao25hFU62uQWWBkaFMib7LmGMf5bTARDgY9p8iYIUQ787T4kwdOjjpe0qCGNcKqG_YKdBw0Dg-5fHF_GiA-c7n5QtfBmBKGwIq9yS5efpdn?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-8099-8df3-f8e713c5c714" class="">Cuando instalemos el certificado digital, se nos abrirá una ventana en la que debemos avanzar de la siguiente manera:</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80af-bca2-f84727e238b8" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdfXO6ZkmgLwQjQD51k6nfx_PQiTOsWSyPeric4l1n8TfQOHfNWdlie_EhBoq-Z_rKpY2xWG1UeZqM-g-_Dzi5THXFCRvNoMI83gZKxtDnUHNdlbqoYmw4YDGQY6SipJ4lIQ2xOoLhxv6mxkp9OvB43AOk?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:424px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdfXO6ZkmgLwQjQD51k6nfx_PQiTOsWSyPeric4l1n8TfQOHfNWdlie_EhBoq-Z_rKpY2xWG1UeZqM-g-_Dzi5THXFCRvNoMI83gZKxtDnUHNdlbqoYmw4YDGQY6SipJ4lIQ2xOoLhxv6mxkp9OvB43AOk?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-805c-8f76-e46afbc9a551" class="">En la siguiente ventana, es importante que llenen bien la contraseña del certificado; está detallada en el portal DTEAdmin, por lo que es aquí donde deben obtenerla. En el caso de que el cliente tenga más de una contraseña, deben colocar la que esté en <strong>Status 1.</strong></p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80c7-9e63-d88054400b2e" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcicxJ63uco-mzl6XJteR0Po_7fElnx5SSfwMiAq2G8Utje-nAxFbeh_k_rKNepx1i4fUu42onF_sST-5bm_NUWeadUm2U2FE1jTFWDimpF6CHorsdqT7xulVETePZ-6V8Di8FYjKZ2zABlv5juGKV3VLBb?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcicxJ63uco-mzl6XJteR0Po_7fElnx5SSfwMiAq2G8Utje-nAxFbeh_k_rKNepx1i4fUu42onF_sST-5bm_NUWeadUm2U2FE1jTFWDimpF6CHorsdqT7xulVETePZ-6V8Di8FYjKZ2zABlv5juGKV3VLBb?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-806f-83c7-fcfe5b03710b" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdwNn9Z5zfjkeSNj0uW7kbQO7EI4Hf_XOxAV2sGGt5qHehM88uzVh1dWIYSp0-XIehpwfRtclbr8AzfXiRhaX3netoSeUDE5WHZvTWOD8FhvWQvSDYIIRolZ8fpRrV2NdOExXkF6ktAq4v5xh4JXPN-y-4r?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:342px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdwNn9Z5zfjkeSNj0uW7kbQO7EI4Hf_XOxAV2sGGt5qHehM88uzVh1dWIYSp0-XIehpwfRtclbr8AzfXiRhaX3netoSeUDE5WHZvTWOD8FhvWQvSDYIIRolZ8fpRrV2NdOExXkF6ktAq4v5xh4JXPN-y-4r?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8019-82f7-ce059ac6dcd1" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeHb00u7pFG5luuQHMSJ3eYJuqtkoH98uKnPRkrHcLfKNRPSMUkgwkZmWLLRrvBVWUKpIWX0JCwW6JTRL1OMiD3DklAiXmu2Jm76Eyb7uN_gmO8SjwipDc1GFtoF5khEt4yXwGMC15N2WSvgCoZVFRdSE47?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:236px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeHb00u7pFG5luuQHMSJ3eYJuqtkoH98uKnPRkrHcLfKNRPSMUkgwkZmWLLRrvBVWUKpIWX0JCwW6JTRL1OMiD3DklAiXmu2Jm76Eyb7uN_gmO8SjwipDc1GFtoF5khEt4yXwGMC15N2WSvgCoZVFRdSE47?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80b0-9591-d7bd7bc77dd7" class="">Con esto, el certificado digital ya está instalado en nuestro equipo.</p></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80ec-977a-f32297d95218" class=""><strong>Nota: Este documento es de suma importancia para el cliente, por lo que está estrictamente prohibido realizar otros procedimientos fuera de los que Toteat requiere con él.</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80df-bd75-cace33122180" class="numbered-list" start="1"><li>Para el paso siguiente, recomendamos <strong>siempre utilizar una ventana incógnita</strong>, ya que, si no lo hacemos de esta manera, siempre querrá ingresar con el último certificado digital utilizado. Ingresamos a la página del Servicio de Impuestos Internos o homer.sii.cl y aquí iniciaremos sesión con el certificado digital correspondiente.</li></ol></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80b1-b031-eb9112eb3864" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfsMTh8eHLAQf2jfSv1acAOkPan_3Y1hI1bk4VjrtXMKH3GttsyZnW8znzbHKLXUafANdTF9MhNwJTcXY3IhewFCFQBgLrQtBgBz167a7N-b6hceBTQ7C6cwVbJ9_7HAAC1v2IngAN50ndN7jUKXjXp10HG?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfsMTh8eHLAQf2jfSv1acAOkPan_3Y1hI1bk4VjrtXMKH3GttsyZnW8znzbHKLXUafANdTF9MhNwJTcXY3IhewFCFQBgLrQtBgBz167a7N-b6hceBTQ7C6cwVbJ9_7HAAC1v2IngAN50ndN7jUKXjXp10HG?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80ab-bca6-db2f6834bc65" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdccFiU0LkqGB0UAoKQzRXe8vp3nv3JiSQCECmzc4e96a_XhoDpNWAqSUbyQo3k7TQCF1FrwnJTQi7dx9zlHonMjDTZrW-4etI9cOaiBvYpXqEFtmQGlNXQc93oh2j6b92MNjW7OSoBiChc5YpJrtOeKSlN?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdccFiU0LkqGB0UAoKQzRXe8vp3nv3JiSQCECmzc4e96a_XhoDpNWAqSUbyQo3k7TQCF1FrwnJTQi7dx9zlHonMjDTZrW-4etI9cOaiBvYpXqEFtmQGlNXQc93oh2j6b92MNjW7OSoBiChc5YpJrtOeKSlN?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8017-9058-e9d1b067b325" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcIygUmFnizEP0Rvyc1shfhjDX9EX87gUERQnyh4Sf6SmQQFSD3cT8--1NOB3u9CwXKbWGVxpODvxH7NtRYYNZ1sH4gIq5BA8SLmWhtrXVnimbTubnJbLoi7EHRWnLypXLHVvv0piY7RMqCVZBCNzgamTn-?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcIygUmFnizEP0Rvyc1shfhjDX9EX87gUERQnyh4Sf6SmQQFSD3cT8--1NOB3u9CwXKbWGVxpODvxH7NtRYYNZ1sH4gIq5BA8SLmWhtrXVnimbTubnJbLoi7EHRWnLypXLHVvv0piY7RMqCVZBCNzgamTn-?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-8014-9a9d-e6984aefa2ac" class="">Aquí es muy importante seleccionar el certificado digital correspondiente a este cliente; debe coincidir con el que está asociado en el portal dteadmin.</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8067-91e1-d1dff410cbd3" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdaE6qT3rjuc9PPIByPIrJ4_Wsonyhcc4eIRhs5OKJiz4xh3bNz0hipzVsUjjBKaSVMmxNd9I0JAmpw8_mDoaGyh2axfmPpLdBU7mOH8XJDciAZNT6IzTTTik31XNEpd7_NYWyKUH8FVwiNb2eZ3WVfSCY5?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdaE6qT3rjuc9PPIByPIrJ4_Wsonyhcc4eIRhs5OKJiz4xh3bNz0hipzVsUjjBKaSVMmxNd9I0JAmpw8_mDoaGyh2axfmPpLdBU7mOH8XJDciAZNT6IzTTTik31XNEpd7_NYWyKUH8FVwiNb2eZ3WVfSCY5?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-8039-9f5c-cfc27d23343b" class="numbered-list" start="1"><li>Ahora se debe ir a la siguiente ruta: Servicios Online &gt; Boletas de venta y servicios electrónicas &gt; Boleta electrónica de mercado.</li></ol></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80ce-a25a-eb655b75edfe" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdFlkO6sI05RhtAvR1baESLsvz0IfAGKqNll2CO9wzR69bngb_sx-u-_MQapl7eD4xQsZI3k66jkQHMz9cpIJiNwG2JDpxfb3no8tmsjjHWIGXsVWTYmb4PiRxge7uZzk2aMYRzv07FvTuP-Pe58iRQYqQ?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdFlkO6sI05RhtAvR1baESLsvz0IfAGKqNll2CO9wzR69bngb_sx-u-_MQapl7eD4xQsZI3k66jkQHMz9cpIJiNwG2JDpxfb3no8tmsjjHWIGXsVWTYmb4PiRxge7uZzk2aMYRzv07FvTuP-Pe58iRQYqQ?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80ee-84d2-f69698b05e89" class="">Ahora se debe ir al apartado Timbraje electrónico &gt; Solicitar timbraje electrónico.</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80b1-a095-e1281b557ec0" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXekLXKDN1uiR6OLVo3h4Qa24uKoiwP2mOAaxtdTPRi_wVHCMNH6MaA24XoR5zapsb9W4zADQvBU0Z8hw8sWnZd-Ik9FNjC3_hAU1VTG-7IF6LeWLxMfHEi0fRUP7eUZVvHeBCQESO3ZbhuZ-EXmSYd65_m9?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXekLXKDN1uiR6OLVo3h4Qa24uKoiwP2mOAaxtdTPRi_wVHCMNH6MaA24XoR5zapsb9W4zADQvBU0Z8hw8sWnZd-Ik9FNjC3_hAU1VTG-7IF6LeWLxMfHEi0fRUP7eUZVvHeBCQESO3ZbhuZ-EXmSYd65_m9?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-809d-8c24-fcd61404bf8f" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcfgiajHk4dZ8uxnudfABzlM5CyJy5RKnLTWP0_VI6pbGHwwtJOa9uhaiI72DoIvTBBvIn2d7MpiT9OQuhnIG_5aI5ygA8ZGxOp1Xg-h7Si57xvPeNaWRDJyPHafCFA6v21z1a4DM2D1qByJXSmo2q_AhE?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcfgiajHk4dZ8uxnudfABzlM5CyJy5RKnLTWP0_VI6pbGHwwtJOa9uhaiI72DoIvTBBvIn2d7MpiT9OQuhnIG_5aI5ygA8ZGxOp1Xg-h7Si57xvPeNaWRDJyPHafCFA6v21z1a4DM2D1qByJXSmo2q_AhE?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-801f-aafc-fc11a4a93c46" class="">Ahora, debemos llenar con los datos de la empresa que también están en dteadmin; recordar que el dígito verificador (número luego del guión) va separado.</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80ab-b231-f12b29b500d3" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcPNHKelA4DCKLm2g4xFCQeTzecI_xzxP_2M491Xan2t6hOL9V6_njNNYwvZKQGcVhveoe_d7ozQbrapSWxKkEo0aDaECMiLIfdzTTIBLHW5A3WnhCG83tzp5jIZSbJozfWhn0_LwzX129kr4yuu1PzTr7C?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcPNHKelA4DCKLm2g4xFCQeTzecI_xzxP_2M491Xan2t6hOL9V6_njNNYwvZKQGcVhveoe_d7ozQbrapSWxKkEo0aDaECMiLIfdzTTIBLHW5A3WnhCG83tzp5jIZSbJozfWhn0_LwzX129kr4yuu1PzTr7C?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80d5-8e2c-f2a0f654877d" class="">Y aquí es donde nos preguntará qué documento es el que requerimos; debemos seleccionar el que el cliente necesita en este momento.</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-800f-9918-dd790aee1852" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXczZTrphDf32NrUJtgyZHeQYD-VZs84AxBX7RpCG8MBUJ6gCf7DQaNbcGUjKI5eFqjiek1s0RsUZFRIq7EXwTEHZLhmXcxYrFn6-yCeKDe64ZcPjxWvgb-epE1bdKD4GLVir34TwY1mCALZ8YRXnu7rtC6Q?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXczZTrphDf32NrUJtgyZHeQYD-VZs84AxBX7RpCG8MBUJ6gCf7DQaNbcGUjKI5eFqjiek1s0RsUZFRIq7EXwTEHZLhmXcxYrFn6-yCeKDe64ZcPjxWvgb-epE1bdKD4GLVir34TwY1mCALZ8YRXnu7rtC6Q?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-8043-89d6-f217b25b4e23" class="">Si no están seguros, confirmar con el cliente.</p></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80df-8b11-f58ba6b3173f" class="">En este momento nos consultará cuántos documentos necesitamos; aquí es importante saber que <strong>no se le pueden dar más documentos del rango que tiene autorizado realizar. Es</strong> por esto que debemos fijarnos primero en esa casilla, para posteriormente llenar los documentos a timbrar o solicitar con un número <strong>igual o menor</strong> al mencionado.</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-802d-8d7d-d22e11831bd0" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXf1fRpjflLcasXxtQxYvli9ETbZcD11Ta8bNM-WAjV-4PAZOMVMjNrU1-2VkZp6k_tiQVqTJIkNpkLJL9IMflG9g41aZgEAW8_bNA868KgyXb6FLo_x7dza2P9JMUtUamWZfAw09uqEBLI-DG_6vPVk1hGO?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXf1fRpjflLcasXxtQxYvli9ETbZcD11Ta8bNM-WAjV-4PAZOMVMjNrU1-2VkZp6k_tiQVqTJIkNpkLJL9IMflG9g41aZgEAW8_bNA868KgyXb6FLo_x7dza2P9JMUtUamWZfAw09uqEBLI-DG_6vPVk1hGO?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-809a-9845-fb41c867fc64" class="">De hacer lo contrario, les saldrá un aviso de error para que intenten nuevamente con un número no mayor al rango habilitado.</p></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80b8-987b-ca2d9fe7a359" class="">Si avanzaron correctamente, podría llegar a salirles un aviso de que el cliente posee situaciones pendientes con el SII. Es importante darle esta información al cliente para que evite cualquier tipo de sanción de esta entidad y así tengan la posibilidad de emitir más documentos.</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-801d-9c4d-dde80e0f2ef6" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfNYizfL2PFpnxEjSYELtXrRH94OuX7bWEd_H9X2wqSTAhq-VNpT9GrnYmLpmYPy94wO0zkgPs7lZFwd16DvCkNGWWE60N9m3Con4neUrpM8_vK2seXBjCYJFyMseSdF-8ezhV-X1N62dGFGe06_1Ndhsus?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfNYizfL2PFpnxEjSYELtXrRH94OuX7bWEd_H9X2wqSTAhq-VNpT9GrnYmLpmYPy94wO0zkgPs7lZFwd16DvCkNGWWE60N9m3Con4neUrpM8_vK2seXBjCYJFyMseSdF-8ezhV-X1N62dGFGe06_1Ndhsus?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80a7-a6d8-c2ed90b7c1af" class="">Aquí le daremos a solicitar numeración y luego a obtener folios.</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80ab-a7ad-d3fea87d223d" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeUBr4mjBgGu6dzuY1jZFzJLzOhyIXz5WV8fd6c91zXBZJiKYVmcwNe9tClUrqThZ7rrw29CjSnZkm2Q4rf0BpvqjltV128mzjdsqBtZMyKRrSHYQqO16OnHR9ryGa8YAFVpgdd_ob7aUv3oDZfeqdmu8LM?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeUBr4mjBgGu6dzuY1jZFzJLzOhyIXz5WV8fd6c91zXBZJiKYVmcwNe9tClUrqThZ7rrw29CjSnZkm2Q4rf0BpvqjltV128mzjdsqBtZMyKRrSHYQqO16OnHR9ryGa8YAFVpgdd_ob7aUv3oDZfeqdmu8LM?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-8014-ba7a-db5043e03b84" class="">Y finalmente el SII nos descargará el documento XML con los folios solicitados para este local.</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8089-94f9-fee9c0d1f724" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeTu6q_QN5_2kEbdXmHqlbGHAQd_vvdP_yEIm0ufw9iwmYgwFSYNYCDT7BOXcBVLZ_gDt4AbyFgPUSuCTcet61BGKhxUXTyCfM4s4wj8ItKpft0rG308RQ_TLJKahRHFVtH_VXTTaj6ced8YFsSnig3xC4?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeTu6q_QN5_2kEbdXmHqlbGHAQd_vvdP_yEIm0ufw9iwmYgwFSYNYCDT7BOXcBVLZ_gDt4AbyFgPUSuCTcet61BGKhxUXTyCfM4s4wj8ItKpft0rG308RQ_TLJKahRHFVtH_VXTTaj6ced8YFsSnig3xC4?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="1e239073-1e23-80af-9300-cb9dcd3ac2f2" class="numbered-list" start="1"><li>Con esto, estamos en condiciones de subir el XML (archivo con los folios) al portal; para esto, iremos al botón ‘CAF’.</li></ol></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-806e-b322-f97d17cd5773" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXeicVRAINbKeWxu2fFOk8O3PmCygeIJkF30tDMiePqjv9qLVD_m3yuHZvFW49UkdbwYRYOMrlp_f96lrpVreAjNXjSaD3tcg8MFqrnDAUSIDrB2GAf6o7luiIA-NdL5mVIuJC8WvriqvQCvNyV0chNBHXoA?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeicVRAINbKeWxu2fFOk8O3PmCygeIJkF30tDMiePqjv9qLVD_m3yuHZvFW49UkdbwYRYOMrlp_f96lrpVreAjNXjSaD3tcg8MFqrnDAUSIDrB2GAf6o7luiIA-NdL5mVIuJC8WvriqvQCvNyV0chNBHXoA?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80c1-98f5-f5782f41273f" class="">Aquí vamos al botón ‘subir folios’ y arrastraremos el archivo descargado al cuadro en pantalla, donde le daremos a cargar.</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8089-a930-e6554b53d892" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcZMySqMEsvaOcX3qgl2Myur7_r77_xgtIlIeYou485-F3o-WmUqwjFNrUPhbTdr7Vqxa98U2CQwZwm9NvclzbjMSXTFvY64PP-MUq9Pl1dhvgFn8lQA6t1AJeXTSIAg0_7GYM3QTgUaQXqUEifGxlzkoo?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcZMySqMEsvaOcX3qgl2Myur7_r77_xgtIlIeYou485-F3o-WmUqwjFNrUPhbTdr7Vqxa98U2CQwZwm9NvclzbjMSXTFvY64PP-MUq9Pl1dhvgFn8lQA6t1AJeXTSIAg0_7GYM3QTgUaQXqUEifGxlzkoo?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8072-9c0b-f67b9a344794" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXdCTpfQbhzlNm24mGK0X8bu7w2LQeHY590it61ka1LhatnNEP9ARMwFaVrynaliOTCLO0fcM4X89xfTnefkjxQdvqLDGq6V88Rzd4py6xaTA29eFYiAlc6g_4AMQDxWcIeAXt4yJqoqSKUn7xZoUl8J-_19?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdCTpfQbhzlNm24mGK0X8bu7w2LQeHY590it61ka1LhatnNEP9ARMwFaVrynaliOTCLO0fcM4X89xfTnefkjxQdvqLDGq6V88Rzd4py6xaTA29eFYiAlc6g_4AMQDxWcIeAXt4yJqoqSKUn7xZoUl8J-_19?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8056-998c-c6a7f63ac8df" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcg2atZRMtUAWO8avdbUEiRau1iLSf_YSfxfYZSpGSqSlPrpsjQkwO5g5DwGcsQJ0r28qGK35iELhCxZMjcmLeB7j0xUSy8CiDMhh7mdnE7BZSXN8UctUz-Ao-5TcCF6uhV4Si2oO2fFxvHN0iHJw-9AXci?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcg2atZRMtUAWO8avdbUEiRau1iLSf_YSfxfYZSpGSqSlPrpsjQkwO5g5DwGcsQJ0r28qGK35iELhCxZMjcmLeB7j0xUSy8CiDMhh7mdnE7BZSXN8UctUz-Ao-5TcCF6uhV4Si2oO2fFxvHN0iHJw-9AXci?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80f1-9605-db9d84e783f1" class="">Si el proceso fue correcto, aparecerá un mensaje de confirmación indicando que los folios se subieron correctamente.</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80f2-b0a6-c28e334777e5" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXc2kFaBmOig1a8RYwpqD-W_ufDUihAB83epDSZSJWwOGTJ3nDXt3rXckQljUQDSRAfs9dKXhv3Pl9UrdSlAxjDcxGZJVeajjrswzpKV6fBKAtn-ZIRvS6alahW4U9gxpZ0J4XRzlCvdAQloNlm7W2Rkkl5H?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXc2kFaBmOig1a8RYwpqD-W_ufDUihAB83epDSZSJWwOGTJ3nDXt3rXckQljUQDSRAfs9dKXhv3Pl9UrdSlAxjDcxGZJVeajjrswzpKV6fBKAtn-ZIRvS6alahW4U9gxpZ0J4XRzlCvdAQloNlm7W2Rkkl5H?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-80c2-9077-de94d45c7946" class="">Para finalizar, se le indicará al cliente que intente realizar el documento y ya no debiese darle ningún error al momento de emitir; sin embargo, podemos comprobar la carga del documento en el botón ‘Ver folios’ y aquí podemos identificar el folio activo y con el correlativo correspondiente.</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-8018-bb1f-d93a4c1fca16" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXcXsnnj6LEUgFC8E-HcPk5MY6XQEkTYQ5OyxvFswnlNNP6fCXOB-YheU-b7GBFriruLAw6cUBNSZrBEYil0u8Uh69QLNx-H0TBcuXo3BbEhwgX3hVQPh7YuCuNSjGNcQX1vzymMuV264n-0-zHogFx59myI?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXcXsnnj6LEUgFC8E-HcPk5MY6XQEkTYQ5OyxvFswnlNNP6fCXOB-YheU-b7GBFriruLAw6cUBNSZrBEYil0u8Uh69QLNx-H0TBcuXo3BbEhwgX3hVQPh7YuCuNSjGNcQX1vzymMuV264n-0-zHogFx59myI?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-8022-83ae-ea39db6b6c73" class="">Todo caso diferente a los mostrados en este documento debe ser consultado con el encargado y/o área DTE para su validación.</p></div><div style="display:contents" dir="auto"><p id="1e239073-1e23-8012-a330-cae830eaca6a" class=""><strong>Nota</strong>: Si un mismo RUT está asociado a más de un ambiente, esta carga de folios se hará para ‘todos’ porque realmente es a la empresa del RUT a la que se está subiendo, no al local en particular, por lo que no es necesario hacer una carga por local en estos casos. En algunos casos particulares es necesario hacer carga por sucursal debido a la configuración de la misma (folios separados para mantener correlativo por sucursal). En este caso, debemos completar el ID del restaurante-local al momento de subir folios para añadirlos a la sucursal correcta; si no, nos dará un aviso de que esta empresa requiere folios por sucursal.</p></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-803e-8bd3-ea8c3c22528b" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfId6HMLnm7eBiYLF-LY80MSZqhwrwmWO9rmQRPtprZG4bGbQasM41hoOnj_rCewjYCWzMVLibzRC2EknmjqBK9SmtvAD4dMk6Nl7czFyVtKtc_a_AbrD4-ohbKw-tGCtLcLVEIONlqD86zMk_N16Tiiys?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:602px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfId6HMLnm7eBiYLF-LY80MSZqhwrwmWO9rmQRPtprZG4bGbQasM41hoOnj_rCewjYCWzMVLibzRC2EknmjqBK9SmtvAD4dMk6Nl7czFyVtKtc_a_AbrD4-ohbKw-tGCtLcLVEIONlqD86zMk_N16Tiiys?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1e239073-1e23-80f8-bfc9-e7aaa1ab928c" class="image"><a href="https://lh7-us.googleusercontent.com/docsz/AD_4nXfblWpw_J0sIa2fAgSnlfCb04Rnah6mWYItzLL15NOJrg9RLUOB8tbxupVLnrKeskxqoOSRpuKCoeiV5x1CqMFbYoVuDswVI3jLSiL2mlAOVzvbAxW_ES80OspS2OSm4zlwz-7otM28S3UQTraxfE4GlLU?key=qfnasEfzuqUqYpJdkDEJSw"><img style="width:236px" src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfblWpw_J0sIa2fAgSnlfCb04Rnah6mWYItzLL15NOJrg9RLUOB8tbxupVLnrKeskxqoOSRpuKCoeiV5x1CqMFbYoVuDswVI3jLSiL2mlAOVzvbAxW_ES80OspS2OSm4zlwz-7otM28S3UQTraxfE4GlLU?key=qfnasEfzuqUqYpJdkDEJSw"/></a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1e339073-1e23-8057-8596-dfff54564fd4" class="toggle"><li><details open=""><summary><mark class="highlight-orange"><strong>Traducción de errores DTE en TRM</strong></mark></summary><div style="display:contents" dir="auto"><h1 id="1e339073-1e23-80af-a674-f14fd3beda7c" class="">Traducción Errores Argentina</h1></div><div style="display:contents" dir="ltr"><table id="1e339073-1e23-804f-b804-da0cebb55691" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-804e-9aae-da3d46fc6c3d"><th id="Gqlm" class="simple-table-header-color simple-table-header" style="width:725px"><strong>ERROR</strong></th><th id="dx]J" class="simple-table-header-color simple-table-header"><strong>ENTIDAD</strong></th><th id="]Hoa" class="simple-table-header-color simple-table-header" style="width:157px"><strong>POSIBILIDAD</strong></th><th id="[[jK" class="simple-table-header-color simple-table-header" style="width:183px">SOLUCION</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8088-9dac-c515d80cd514"><td id="Gqlm" class="" style="width:725px">ExternalSoftwareld&quot; 21&quot;Code&quot; &quot;7192482415274311719248241527531: Primary true)].&quot;Tributes&quot; null &quot;Modifications&quot; null, &quot;Attributes&quot; null, &quot;FiscalAssociations null &quot;OtherAssociations&quot; null), &quot;Items&quot; a [[Quantity 300,&quot;Category null, &quot;Modifications null &quot;ItemAttributes&quot; null, &quot;Code&quot; null &quot;Name&quot;:&quot;Producto sin Nombre &quot;Description&quot; &quot;Menu 02: MeasureUnit 1&quot;VAT&quot; 7,&quot;Price&quot; (&quot;UnitPrice&quot; 15289.26,&quot;PriceType&quot; 1&quot;Name&quot;:&quot;Producto sin Nombre&quot;],&quot;Categories&quot;:null,&quot;Decision&quot; (&quot;Para el producto emitido Nombre =NULL, se asume lxb4Producto sin Nombre?xb4 Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse &quot;Para el item con descripcixf3n Producto sin Nombre Se setea PriceType a 1 por no informarse&quot;]]. (Quantity 3.00, &quot;Category&quot;:null, &quot;Modifications&quot; null, &quot;ItemAttributes&quot;:null,&quot;Code&quot; null, &quot;Name&quot; &quot;Producto sin Nombre Description Menu OT &quot;MeasureUnit 1&quot;VAT&quot; 7&quot;Price&quot; (&quot;UnitPrice 12314.05. &quot;PriceType&quot;:1,&quot;Name&quot;:&quot;Producto sin Nombre&quot;). &quot;Categories null. &quot;Decision&quot; [&quot;Para el producto emitido Nombre NULL, se asume lxb4 Producto sin Nombre?xb4&quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse Para el item con descripcilxf3n Producto sin Nombre Se setea PriceType a 1 por no informarse&quot;]). [Quantity 100,&quot;Category&quot; null, &quot;Modifications&quot; null, &quot;ItemAttributes&quot;:null,&quot;Code&quot; null, &quot;Name&quot; &quot;Producto sin Nombre &quot;Description&quot; &quot;Nicasia Cabernet frac: MeasureUnit 1&quot;VAT&quot; 7&quot;Price&quot; [UnitPrice&quot; 11404. 96,&quot;PriceType&quot; 1&quot;Name&quot;:&quot;Producto sin Nombre&quot;], &quot;Categories&quot; null, &quot;Decision&quot; [&quot;Para el producto emitido Nombre = NULL, se asume lxb4Producto sin Nombre?xb4&quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse &quot;Para el item con descripcixf3n Producto sin Nombre Se setea PriceType a 1 por no informarse&quot;]]. (&quot;Quantity 100,&quot;Category&quot; null &quot;Modifications&quot; null, &quot;ItemAttributes&quot;:null,&quot;Code&quot; null, &quot;Name&quot; Producto sin Nombre: Description &quot;Propina exenta &quot;MeasureUnit 1&quot;VAT&quot; 7&quot;Price&quot;: (&quot;UnitPrice&quot; 11400.00. &quot;PriceType&quot; 1&quot;Name&quot; &quot;Producto sin Nombre&quot;],&quot;Categories null Decision [Para el producto emitido Nombre- NULL, se asume 1xb4Producto sin Nombre?xb4 &quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse &quot;Para el item con descripcixf3n Producto sin Nombre Se setea PriceType a 1 por no informarse &quot;111&quot;ContingencyDetail [].&quot;Decision&quot; [&quot;No se informa Good, se setea 1 Se asume Currency ARS y CurrencyValue 1 por no estar informado, No se enviaron condiciones de Venta Se setea condicixf3n de Venta al Contado No se enviaron Fechas. Se setean segixtan Good con la fecha de 24/6/2024 0:00 00: Countryid se asume 1 debido a que no fue informado Para el producto emitido Nombre = NULL, se asume 1xb4Producto sin Nombre?xb4: Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse Para el item con descripcllxf3n Producto sin Nombre Se setea PriceType a 1 por no informarse Para el producto emitido Nombre- NULL, se asume 1xb4Producto sin Nombre?xb4 Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse Para et item con descripcilxt3n Producto sin Nombre Se setea PriceType a 1 por no informarse &quot;Para el producto emitido Nombre- NULL se asume lxb4Producto sin Nombre?xb4 Para el Producto con Name Producto sin Nombre se setea Unidad de Medida por no informarse &quot;Para el item con descripcilxf3n Producto sin Nombre Se setes PriceType a 1 por no informarse &quot;Para el producto emitido Nombre- NULL se asume lxb4Producto sin Nombre?bb4: Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse Para el item con descripcixf3n Producto sin Nombre Se setea PriceType a 1 por no informarse 1]]], u&#x27;companyid 2280768, u&#x27;importResuit None, u&#x27;documentidentifications [[uexternalSoftware Juid 21 u&#x27;name uToteat), uidentification u71924824152745117192482415275311], uaccessData (upaturiTkChange None, u&#x27;qrUrl u&#x27;<a href="http://sync/">http://sync</a> <a href="http://facturante.com/Provision">facturante.com/Provision</a>? id=2f0j825J0h339FWGjk7luwUFydBc2xxZvzy.11W0wos85in PfeBinkSvW6GIMhFYUDOJSK 08wigimT11358ugtZcOkZj+1TLsmcA2RIBUKTROX/tNL/kQ/kk2yOnWF2 GNPIEGfoaj upaturf None. ufiscalOrurf None), ustate (ustate:UUNAUTHORIZED und 4) ucomments None, u&#x27;dateTimes: [u&#x27;type uFecha de Comprobante, udated tudateTime u24/06/2024 12:00:00]] uelectronicDocumentPos (uprefox u00005. uid: 3111), ucurrency (ucode uARS uname u Peso Argentino, u&#x27;country (u phonePrefox: 54, uid tuname uArgentina), u&#x27;symbol us ugovernmentCode UPES, uvalue 0.0. uid 1). uidentifications [uexternalld u7192482415274311719248241527551 u&#x27;internaild 17517393) udeliveryDetails None u&#x27;document Type [u&#x27;typeid: 1 u generalTypeid 1 ugeneralType:uFactura u type: UA, ugeneralTypeinitial uFA) UcreationDate 2024-06-24T16:05:32 745551 utiscalData (usnortFullNumber: None, udocumentTypeid None ugovernmentMessage u 10069-Campo DocNro no puede ser igual al del emisor 110069-Campo Doctro no puede ser igual al del emisor | 10069-Campo DocNro no puede ser igual al del emisor 110069 Campo DocNro no puede ser igual al del emisor u&#x27;posid None, u&#x27;fullNumber None. Unational AuthorizationCode None ulongFuliNumber None u&#x27;number: 0, upos None generalDocumentType None ugeneralDocumentTypeld None udocumentType None, unationalAuthorizationCodeExpires: None ufiscalAuthorizationMode: None ushortCode&#x27; None) u_internal_state Justate uProcessed und 5) receiver JudocumentTypeid tu taxTreatmentid: u&#x27;businessName Mondow SA, udocumentNumber u30715883372 uldocumentType uCUIT, utaxTreatment UTVA Responsable inscripto]]] u&#x27;contingencyDate None u&#x27;pageSize: 3.utotalDocuments 1 u totalPages tucurrentPage 1).ucommunication Msg uSuccess) No se ha podido generar el documento Comuniquese con Soporte (TOTEAT OTE)</td><td id="dx]J" class="">AFIP</td><td id="]Hoa" class="" style="width:157px">Intermitencias en el servicio</td><td id="[[jK" class="" style="width:183px">1. Eliminar el pago para volver a pagar nuevamente y revisar si la intermitencia era parcial.<br/><br/>2. Contactar servicio al cliente de facturante (<a href="mailto:soporte@facturante.com">soporte@facturante.com</a>) Solicitando información sobre el servicio de la AFIP </td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8039-ba70-f7eb06c83310"><td id="Gqlm" class="" style="width:725px">ERROR [u&#x27;communicationStatus: 400. u&#x27;errors: [[u&#x27;message&#x27; u 10035-Error de Entidad Gubernamental Afip con codigo 10035 y el Mensaje Por resolucilxf3n de AFIP al superar e $95812. se debe identificar al receptor de este documento electrixf3nico. u&#x27;code&#x27;: 9000]], u&#x27;communicationMsg: u&#x27;Error] No se ha podido generar el documento Comuniquese (TOTEAT DTE)</td><td id="dx]J" class="">AFIP</td><td id="]Hoa" class="" style="width:157px">para emitir la Factura B la AFIP dispone que si el método de pago es en efectivo y supera los 95.812 debe informarse el cliente, si el pago es electrónico y pasa 191.624 se debe informar el cliente</td><td id="[[jK" class="" style="width:183px">El cliente debe informar los datos del consumidor para poder emitir el documento</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8032-b42f-e070d4bd09a4"><td id="Gqlm" class="" style="width:725px">ERROR: error conexion facturante - Token .No se ha podido generar el documento * Comuniquese con Soporte (TOTEAT DTE)</td><td id="dx]J" class="">FACTURANTE</td><td id="]Hoa" class="" style="width:157px">Error de conexión facturante</td><td id="[[jK" class="" style="width:183px">Contactar servicio al cliente de facturante (<a href="mailto:soporte@facturante.com">soporte@facturante.com</a>) Solicitando información sobre el servicio de Facturante</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-802d-855d-eb5c1fa415b5"><td id="Gqlm" class="" style="width:725px">ERROR: No se informa Good, se setea 1 || Se asume Currency ARS y CurrencyValue 1 por no estar informado || No se enviaron condiciones de Venta. Se setea condición de Venta al Contado || No se enviaron Fechas. Se setean según Good, con la fecha de 25/6/2024 0:00:00 || CountryId se asume 1 debido a que no fue informado || Para el producto emitido Nombre = NULL, se asume ´Producto sin Nombre?´ || Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse || Para el item con descripción Producto sin Nombre Se setea PriceType a 1 por no informarse. || Para el producto emitido Nombre = NULL, se asume ´Producto sin Nombre?´ || Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse || Para el item con descripción Producto sin Nombre Se setea PriceType a 1 por no informarse. || Para el producto emitido Nombre = NULL, se asume ´Producto sin Nombre?´ || Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse || Para el item con descripción Producto sin Nombre Se setea PriceType a 1 por no informarse. || Para el producto emitido Nombre = NULL, se asume ´Producto sin Nombre?´ || Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse || Para el item con descripción Producto sin Nombre Se setea PriceType a 1 por no informarse. || Para ciudad HXO se decide utilizar localidad otra al no ser encontrada. Se agregará al complemento. Verificar EndPoint de Localidades || Para CodigoPostal Q8300, se decidió utilizar vacío por no coincidir con la lista de códigos postales. Consulte el EndPoint. Se utilizará como Complemento de la Dirección .No se ha podido generar el documento * Comuniquese con Soporte (TOTEAT DTE)</td><td id="dx]J" class="">FACTURANTE</td><td id="]Hoa" class="" style="width:157px">Creación del cliente con información dudosa (localidad - codigo postal)</td><td id="[[jK" class="" style="width:183px">El cliente debe revisar la información del cliente que esta registrando</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8007-9db6-de7b10cd23ba"><td id="Gqlm" class="" style="width:725px">ERROR: Jemarks: None communicationStatus: 200 errors: None, u&#x27;response:documents: total: 16399 9922 uloge: [{type: &#x27;RequestWebApi, description: Header DocumentType&quot;:&quot;DocumentGeneralType&quot; &quot;Address&quot; null Detail (&quot;Good&quot; &quot;SellCondition&quot; &quot;ConditionType&quot; &quot;Amount&quot;:0,&quot;nstalments Electronic Payment Decision null] Dates 05:00: Decision null CurencySettings Currency ARS: CurrencyValue&quot;:10,&quot;Decision null. Comments: 171832649228894-1718326492657014- &quot;Pos 1995. FiscalAuthorizationCode&quot; null AuthorizedNumber Contingency Reason&quot; null, &quot;Settings&quot; null Receiver null &quot;dentification Repor&quot;:&quot;Ambure&quot;: (). &quot;Country (&quot;Government (&quot;GovernmentEntityCountry GovernmentEntityules&quot;:[&quot;DovernmentEntityRuleParameter &quot;GovernmentEnuevalue&quot;). &quot;Code&quot;:&quot;Street&quot; &quot;CityStreet&quot; &quot;Address&quot; &quot;Emar &quot;Phone&quot; (&quot;Person&quot; &quot;Persona PersonCountry PersonCountryConfiguration ResellerConfiguration &quot;PersonCountryState&quot; &quot;PersonAddress&quot; &quot;PersonCountryBusinessName&quot; &quot;PersonPhone &quot;Personation PersonCountryRelationConfiguration PersonelationName&quot; Personationmar PersonationPhone&quot; &quot;PersonationAddress&quot; &quot;PersonelationTaxTreatment (&quot;Name&quot;dentifications identicationfaxTreatment&quot; &quot;Electronic Document&quot; &quot;User&quot; &quot;Role&quot; &quot;P&quot; &quot;AuthorizationStaticCode &quot;cat&quot; &quot;PosLogica. &quot;Posse PersonUser&quot; [&quot;Book&quot; &quot;PendingDocumentbook&quot; &quot;AssociatedDocument(&quot;Other Association DectronicDocumentGovernment&quot; &quot;Documente DocumentCurrency DocumentDate&quot; &quot;Document DeliverDetail&quot; &quot;DocumentDeliverState&quot; &quot;DocumentFiscalDetail&quot; &quot;DocumentinternalState&quot; &quot;DocumentFiscalitate&quot; &quot;DocumentLog&quot; &quot;Documente Concept DocumentSetCondition DocumentTribute&quot; &quot;DocumentTotar DocumentModification em &quot;DocumentAddress(&quot;Remmer Receiver DeModificationemAttribute temDescription identification &quot;UnitPrice&quot;:&quot;&quot;,&quot;Product&quot; &quot;ProductCode&quot;:&quot;ProductPerson&quot;:&quot;Poder Patemplate&quot;:&quot;Product&quot; &quot;ProductPrice&quot;:&quot;Productidentifier&quot;: &quot;ProductidentifierExternalSoftware &quot;ProductDescription&quot;:&quot;Subsidary&quot;: &quot;Subsidiary Status&quot;:&quot;Subsidiary Emar&quot; (&quot;SubsidiaryPhone&quot; &quot;SellCondition&quot; &quot;Currency &quot;Exterowane DocumentExternal&quot;:&quot;&quot;,&quot;integration Account&quot; &quot;IntegrationAccountTransaction integrationAccount TransactionMessage &quot;IntegrationAccounTransactionParam&quot;: &quot;IntegrationAccounTransactionParamName&quot;:&quot;IntegrationAccounTransactionStatus Emaransaction&quot;:&quot;EmaansactionReceiver EmaansactionStatus&quot;:&quot;EmailType&quot;:&quot;mainder&quot; &quot;Emaemplate&quot;:&quot;PersonCountry/EmailSender&quot;: &quot;ProspectRepository&quot; &quot;ProspectTypeRepository&quot;: &quot;ProspectAttributeRepository: ProspectAttributeValueRepository ProspectumeRepository ProspectStateDescriptionRepository null ProspectStateRepository null, &quot;SubsidiaryParamvalue&quot;:&quot;IntegrationAccountUserRepository. ProductsPersonType&quot;:&quot;ProductPersonNote CategoryName&quot; Category:Categoryidentifier&quot;:&quot;Category/Tree&quot;:[],&quot;Category TreeOwner&quot; &quot;ProductCategory&quot; 00 ExternalSoftware 21 &quot;Code&quot;:&quot;1718326492288941718326490657014 Primary true &quot;Tributes null &quot;Modifications&quot; null Atributes TiscalAssociations null Other Associations&quot; null, &quot;es&quot;: [Quantity 2:00 &quot;Category&quot; null Modifications nullemAttributes&quot; null &quot;Code&quot; null &quot;Name Producto sin Nombre Description&quot;:&quot;Torta de Crepes Japonesa &quot;MeasureUnitPrice&quot; (UnPrice 595041,&quot;PriceType&quot;:1,&quot;Name&quot;:&quot;Producto sin Nombre Categories&quot; null Decision&quot;:&quot;Para el producto emitido Nombre NULL, se asume Products NombreuxbPara el Producto con Name Producto sin Nombre se ste Medida 1 por descripon Producto sin Nombre Se sete PriceType a 1 por no informarse &quot;ContingencyDetail&quot; &quot;Decision No se informa Good se setea 1:&quot;Se asume Currency ARS y CurrencyValue 1 por no estar informado No se enviaron condiciones de Venta. Se second de Venta Contado. No se enviaron Fechas. Se setean segan Good, con la fecha de 13/6/20240:00:00 SeseteAddress-Direccin de la Sucursal del POS por no estar informado Receiver se interpreta Consumidor Final Deco porno estar informado Para el producto emitido Nombre NULL se asume ductos Nombre: &quot;Par Producto con Name Producto sin Nombre se stea Unidad de Medida porno informarse Precon descript3nProducto sin Nombre este PriceType 1 porno informarse company: 1024740impresult: None, document fications: [{u/externalSoftware (id:21 name: Tott) defication 83264902889417183264265014]]ccess upchange None gutsync facturante.com/Provision id-TUTOYZYJE-19888C8CMAAYOQm2/3PXjutsPwNS-608vpvxvvPxH2w1625ysuperum None uticalorum None statute TO AUTHORIZE comments None, udateTimes Type Fecha de Comprobante udated tudatime 13/06/2004 12:000011 electronicDocumentos prefix 00005 und 1995), ucurrency code RS, uname Peso Argentino country phonePrefix: 54 uid tuname urgentina), symbor us. governmentCode UPES. value 00d identifications extemad 171832648228894718326480657014, unternal 1725538) deliveryDetails None, documentType type generalTyped: 1 ugeneralType factura, type u ugenerallypeinitial FB) creationDate: 2006-06-15722-1707794588, uscata shortfulNumber: None uidocumentTypeld: 3 governmentMessage usin observaciones, upsid 1995 tuumber: None nationalAuthorizationCode: None longfulNumber: None number: 40347upos: 00005 ugeneralDocumentType: Factura, generalDocumentTypelditudocumentType Documento B nationalAuthorizationCodeExpires: None TiscalAuthorization Mode CAE shonCode FB)_internal_state state waiting for Async with 2 ueceiver documentTyped: taxTreatment &amp; businessName Consumidor Final documenNumber:documentType:urutaTreatment Consumidor Final contingencyData: None upageiautotalDocuments totalPages: uburentPage: communicationMagosha podido generar el documento Comuniquese con Soporte (TOTEATOTE)																									</td><td id="dx]J" class="">AFIP</td><td id="]Hoa" class="" style="width:157px">Intermitencias en el servicio de la AFIP</td><td id="[[jK" class="" style="width:183px">1. Eliminar el pago para volver a pagar nuevamente y revisar si la intermitencia era parcial.<br/><br/>2. Contactar servicio al cliente de facturante (<a href="mailto:soporte@facturante.com">soporte@facturante.com</a>) Solicitando información sobre el servicio de la AFIP </td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8054-83e9-d3feebbb1069"><td id="Gqlm" class="" style="width:725px">ERROR: {u&#x27;remarks: None, u&#x27;communicationStatus: 200, u&#x27;errors: None, u&#x27;response&#x27;: [u&#x27;documents&#x27;: [{u&#x27;total: 36140.0017, u&#x27;logs&#x27;: [ [u&#x27;type&#x27;: u&#x27;RequestWebApi&#x27;, u&#x27;description&#x27;: u&#x27;[[&quot;Header&quot;:[&quot;DocumentType&quot;:3,&quot;DocumentGeneralType&quot;:-1,&quot;Address&quot;:null,&quot;Detail&quot;:{&quot;Good&quot;:1,&quot;SellCondition&quot;: [[&quot;ConditionType&quot;:1,&quot;Amount&quot;:0.0,&quot;Installments&quot;:1,&quot;Electronic Payment&quot;:0,&quot;Decision&quot;:null}],&quot;Dates&quot;: [[&quot;DateType&quot;:1,&quot;DateTime&quot;:&quot;2024-06-13T00:00:00-03:00&quot;,&quot;Decision&quot;:null}],&quot;CurrencySettings&quot;:[&quot;Currency&quot;:&quot;ARS&quot;,&quot;CurrencyValue&quot;:10,&quot;Decision&quot;:null},&quot;Comments&quot;:&quot;Id: 171828952265698- 1718289522013604-Pos&quot;:2471,&quot;Fiscal AuthorizationCode&quot;:null,&quot;AuthorizedNumber&quot;:0,&quot;ContingencyReason&quot;:null},&quot;Settings&quot;:null,&quot;Receiver&quot;:null,&quot;Identification&quot;:[{&quot;Repo&quot;: {&quot;Attribute&quot;:[],&quot;Country&quot;:[],&quot;GovernmentEntity&quot;:[],&quot;GovernmentEntityCountry&quot;:[}.&quot;GovernmentEntityRules&quot;: [],&quot;GovernmentEntityRuleParameter&quot;:[],&quot;GovernmentEntityRuleValue&quot;:[],&quot;State&quot;:{},&quot;City&quot;:[],&quot;CityZipCode&quot;:[],&quot;Street&quot;:[],&quot;CityStreet&quot;:{},&quot;Address&quot;:[],&quot;Email&quot;:{},&quot;Phone&quot;: {}, &quot;Person&quot;:[],&quot;PersonEmail&quot;:[],&quot;PersonCountry&quot;:[],&quot;PersonCountryConfiguration&quot;:{},&quot;ResellerConfiguration&quot;: {].&quot;PersonCountryState&quot;: {}, &quot;PersonAddress&quot;:{},&quot;PersonCountryBusinessName&quot;:{},&quot;PersonPhone&quot;:[],&quot;PersonRelation&quot;:{},&quot;PersonCountryRelationConfiguration&quot;:{},&quot;PersonRelationName&quot;:[],&quot;PersonRelationEmail&quot;:{},&quot;PersonRelationPhone&quot;:[],&quot;PersonRelationAddress&quot;: [],&quot;PersonRelationTaxTreatment&quot;:{},&quot;Name&quot;: [], &quot;Identifications&quot;: [], &quot;IdentificationTaxTreatment&quot;:[],&quot;Electronic Document&quot;: [], &quot;User&quot;: [], &quot;Role&quot;:{},&quot;Pos&quot;:[],&quot;AuthorizationStaticCode&quot;: {}, &quot;PosFiscalStatus&quot;:{},&quot;PosLogicalStatus&quot;:{},&quot;PosUser&quot;:{},&quot;PersonUser&quot;:{},&quot;Book&quot;:{},&quot;Pending DocumentBook&quot;: [],&quot;AssociatedDocument&quot;: [], &quot;OtherAssociation&quot;:{},&quot;ElectronicDocumentGovernment&quot;:{},&quot;DocumentAttribute&quot;:{},&quot;DocumentCurrency&quot;:{},&quot;DocumentDate&quot;:[],&quot;DocumentDeliverDetail&quot;: [], &quot;DocumentDeliverState&quot;:{},&quot;DocumentFiscalDetail&quot;:{},&quot;DocumentInternalState&quot;:[],&quot;DocumentFiscalState&quot;: {},&quot;DocumentLog&quot;:[],&quot;DocumentSellConcept&quot;:{},&quot;DocumentSellCondition&quot;: {}, &quot;DocumentTribute&quot;:[],&quot;DocumentTotal&quot;:{},&quot;DocumentModification&quot;:[],&quot;item&quot;:{},&quot;DocumentAddress&quot;: {}, &quot;Remitter&quot;:[],&quot;Receiver&quot;:[],&quot;ItemModification&quot;:[],&quot;ItemAttribute&quot;: {}, &quot;ItemDescription&quot;: [], &quot;ItemIdentification&quot;: [],&quot;ItemUnitPrice&quot;:[],&quot;ItemVat&quot;:{},&quot;Product&quot;:[],&quot;ProductCode&quot;:[],&quot;ProductPerson&quot;: {}, &quot;PdfModel&quot;:{},&quot;Pdf Template&quot;:[],&quot;Product Vat&quot;:[],&quot;ProductPrice&quot;:{},&quot;ProductIdentifier&quot;:{},&quot;ProductidentifierExternalSoftware&quot;:[],&quot;ProductDescription&quot;: [], &quot;Subsidiary&quot;:{},&quot;SubsidiaryStatus&quot;:{},&quot;SubsidiaryEmail&quot;: [],&quot;SubsidiaryPhone&quot;:[],&quot;SellCondition&quot;:{},&quot;Currency&quot;:{},&quot;ExternalSoftware&quot;:{},&quot;DocumentExternalld&quot;:[],&quot;Tribute&quot;:[],&quot;IntegrationAccount&quot;:[],&quot;IntegrationAccountTransaction&quot;: [], &quot;IntegrationAccountTransactionMessage&quot;:[],&quot;IntegrationAccounTransactionParam&quot;: [],&quot;IntegrationAccounTransactionParamName&quot;: [], &quot;IntegrationAccounTransactionStatus&quot;: [], &quot;EmailTransaction&quot;:{},&quot;Email TransactionReceiver&quot;:[],&quot;Email TransactionStatus&quot;:[],&quot;EmailType&quot;:[],&quot;EmailSender&quot;:{},&quot;Email Template&quot;:{},&quot;PersonCountryEmailSender&quot;:{},&quot;ProspectRepository&quot;:<br/>-C<br/>+ Propinas.<br/>[],&quot;Prospect TypeRepository&quot;:[],&quot;ProspectAttributeRepository&quot;:{},&quot;ProspectAttributeValueRepository&quot;:{},&quot;ProspectAttributeNameRepository&quot;:[],&quot;ProspectStateDescriptionRepository&quot;:null,&quot;ProspectStateRepository&quot;:null,&quot;SubsidiaryParamValue&quot;:[],&quot;IntegrationAccountUserRepository&quot;: [],&quot;ProductPersonType&quot;: {}, &quot;ProductPersonNote&quot;:[],&quot;CategoryName&quot;:[],&quot;Category&quot;:{},&quot;Categoryldentifier&quot;:[],&quot;CategoryTree&quot;:{},&quot;CategoryTreeOwner&quot;:{},&quot;ProductCategory&quot;:<br/>{]},&quot;ExternalSoftwareld&quot;:21,&quot;Code&quot;:&quot;1718289522656981718289522013604&quot;, &quot;Primary&quot;:true}],&quot;Tributes&quot;:null,&quot;Modifications&quot;:null,&quot;Attributes&quot;:null, &quot;FiscalAssociations&quot;:null, &quot;OtherAssociations&quot;:null}, &quot;Items&quot;: [[&quot;Quantity&quot;:100,&quot;Category&quot;:null,&quot;Modifications&quot;: null, &quot;ItemAttributes&quot;:null,&quot;Code&quot;:null,&quot;Name&quot;:&quot;Producto sin Nombre&quot;:&quot;Description&quot;:&quot;Tentacion de Chocolate&quot;:&quot;Measure Unit&quot;:1,&quot;VAT&quot;:7,&quot;Price&quot;:&quot;UnitPrice&quot;:3719.01,&quot;PriceType&quot;:1,&quot;Name&quot;:&quot;Producto sin Nombre&quot;],&quot;Categories&quot;:null,&quot;Decision&quot;:[&quot;Para el producto emitido Nombre = NULL, se asume lxb4Producto sin Nombre?\xb4&quot;, &quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse&quot;, &quot;Para el item con descripcilxf3n Producto sin Nombre Se setea Price Type a 1 por no informarse.&quot;]}, {&quot;Quantity&quot;:100,&quot;Category&quot;:null,&quot;Modifications&quot;:null,&quot;ItemAttributes&quot;:null,&quot;Code&quot;:null,&quot;Name&quot;:&quot;Producto sin Nombre&quot;,&quot;Description&quot;:&quot;Key Lime Pie &quot;Measure Unit&quot;:1,&quot;VAT&quot;:7,&quot;Price&quot;:{&quot;UnitPrice&quot;:4876.03,&quot;PriceType&quot;:1,&quot;Name&quot;:&quot;Producto sin Nombre&quot;],&quot;Categories&quot;:null,&quot;Decision&quot;:[&quot;Para el producto emitido Nombre = NULL, se asume lxb4Producto sin Nombre?\xb4&quot;&quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse&quot;:&quot;Para el item con descripcilxf3n Producto sin Nombre Se setea PriceType a 1 por no informarse.&quot;]}, {&quot;Quantity&quot;:100,&quot;Category&quot;:null,&quot;Modifications&quot;:null,&quot;ItemAttributes&quot;:null,&quot;Code&quot;:null,&quot;Name&quot;:&quot;Producto sin Nombre&quot;,&quot;Description&quot;:&quot;Agua de Mango-Naranja y Jengibre&quot;:&quot;MeasureUnit&quot;:1,&quot;VAT&quot;:7,&quot;Price&quot;:{&quot;UnitPrice&quot;:1818.18,&quot;PriceType&quot;:1,&quot;Name&quot;:&quot;Producto sin Nombre&quot;). &quot;Categories&quot;:null,&quot;Decision&quot;: [&quot;Para el producto emitido Nombre = NULL, se asume lxb4Producto sin Nombre?\xb4&quot;,&quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse&quot;, &quot;Para el item con descripci\xf3n Producto sin Nombre Se setea PriceType a 1 por no informarse.&quot;]]. (&quot;Quantity&quot;:100,&quot;Category&quot;:null,&quot;Modifications&quot;:null,&quot;ItemAttributes&quot;:null,&quot;Code&quot;:null,&quot;Name&quot;:&quot;Producto sin Nombre&quot;,&quot;Description&quot;:&quot;Wrap de Pollo&quot;,&quot;MeasureUnit&quot;:1,&quot;VAT&quot;:7,&quot;Price&quot;:&quot;UnitPrice&quot;:7685.95,&quot;PriceType&quot;:1,&quot;Name&quot;:&quot;Producto sin Nombre&quot;],&quot;Categories&quot;:null, &quot;Decision&quot;:[&quot;Para el producto emitido Nombre = NULL, se asume lxb4Producto sin Nombre?\xb4&quot;,&quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse&quot;:&quot;Para el item con descripcilxf3n Producto sin Nombre Se setea PriceType a 1 por no informarse.&quot;]]. (&quot;Quantity&quot;:100,&quot;Category&quot;:null,&quot;Modifications&quot;:null,&quot;ItemAttributes&quot;:null,&quot;Code&quot;:null,&quot;Name&quot;:&quot;Producto sin Nombre&quot;,&quot;Description&quot;:&quot;20-Off en 2 Mac - Cheese&quot;, &quot;MeasureUnit&quot;:1,&quot;VAT&quot;:7,&quot;Price&quot;:{&quot;UnitPrice&quot;:11768.60,&quot;PriceType&quot;:1,&quot;Name&quot;:&quot;Producto sin Nombre&quot;},&quot;Categories&quot;:null,&quot;Decision&quot;:[&quot;Para el producto emitido Nombre = NULL, se asume lxb4Producto sin Nombre?\xb4&quot;, &quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse&quot;, &quot;Para el item con descripcilxf3n Producto sin Nombre Se setea PriceType a 1 por no informarse.&quot;]}],&quot;ContingencyDetail&quot;: [],&quot;Decision&quot;:[&quot;No se informa Good, se setea 1&quot;,&quot;Se asume Currency ARS y CurrencyValue 1 por no estar informado&quot;,&quot;No se enviaron condiciones de Venta. Se setea condici\xf3n de Venta al Contado&quot;,&quot;No se enviaron Fechas. Se setean seglxfan Good, con la fecha de 13/6/2024 0:00:00 &quot;Se setea Address -Direccilxf3n de la Sucursal del POS por no estar informado&quot;, &quot;Receiver se interpreta Consumidor Final Genlxe9rico por no estar informado&quot;, &quot;Para el producto emitido Nombre = NULL, se asume lxb4Producto sin Nombre?\xb4&quot;&quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse&quot;, &quot;Para el item con descripcilxf3n Producto sin Nombre Se setea PriceType a 1 por no informarse.&quot;&quot;Para el producto emitido Nombre = NULL, se asume lxb4Producto sin Nombre?\xb4&quot;&quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse&quot;:&quot;Para el item con descripcilxf3n Producto sin Nombre Se setea PriceType a 1 por no informarse.&quot;Para el producto emitido Nombre = NULL, se asume \xb4Producto sin Nombre?\xb4&quot;, &quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse&quot;:&quot;Para el item con descripci\xf3n Producto sin Nombre Se setea PriceType a 1 por no informarse.&quot;, &quot;Para el producto emitido Nombre = NULL, se asume lxb4Producto sin Nombre?\xb4&quot;, &quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse&quot;, &quot;Para el item con descripcilxf3n Producto sin Nombre Se setea PriceType a 1 por no informarse.&quot;; &quot;Para el producto emitido Nombre = NULL, se asume lxb4Producto sin Nombre?\xb4&quot;,&quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse&quot;:&quot;Para el item con descripcilxf3n Producto sin Nombre Se setea Price Type a 1 por no informarse.&quot;]}]}], u&#x27;companyld: 1588636, u&#x27;importResult: None, u&#x27;documentIdentifications: [u&#x27;externalSoftware&#x27;: {u&#x27;id&#x27;: 21, u&#x27;name&#x27;: u&#x27;Toteat), u&#x27;identification&#x27;: u&#x27;1718289522656981718289522013604&quot;}], u&#x27;accessData&#x27;: [u&#x27;pdfUrlTkChange&#x27;: None. u&#x27;qrUrl: &#x27;http://sync.facturante.com/Provision?id=daMIWFqSW7+Yqov0cLASHXZD3lktqtVP0D0e71AGzGgTsYpFOdzJGMTPV+JSMURIgswZRYRCA/NCXt3GMHW3102GAREKSpwhplUCqUQYpGzRXTVB3peeQ4PUf.x5e810UVu&#x27;, u&#x27;pdfUrl: None, u&#x27;fiscalQrUrt: None), u&#x27;state&#x27;: [u&#x27;state&#x27;: u&#x27;TO AUTHORIZE&quot;. u&#x27;id&#x27;:1}, u&#x27;comments&#x27;: None, u&#x27;dateTimes&#x27;: [[u&#x27;type&#x27;: u&#x27;Fecha de Comprobante&#x27;, u&#x27;dateld: 1, u&#x27;dateTime&#x27;: u&#x27;13/06/2024 12:00:00&#x27;)], u&#x27;electronic DocumentPos&#x27;: {u&#x27;prefix&#x27;: u&#x27;00022&#x27;, u&#x27;id&#x27;: 2471), u&#x27;currency: [u&#x27;code&#x27;: U&#x27;ARS&#x27;, u&#x27;name&#x27;: u&#x27;Peso Argentino&#x27;, u&#x27;country&#x27;: [u&#x27;phonePrefix: 54, u&#x27;id&#x27;:1, u&#x27;name&#x27;: u&#x27;Argentina&quot;}, u&#x27;symbol: u$, u&#x27;governmentCode&#x27;: u&#x27;PES&quot;, u&#x27;value&#x27;: 0.0, u&#x27;id&#x27;:1}, u&#x27;identifications: {u&#x27;externalld&#x27;: u&#x27;1718289522656981718289522013604, u&#x27;internalld: 17091802), u&#x27;deliveryDetails&#x27;: None, u&#x27;documentType&#x27;: [u&#x27;typeld: 3, u&#x27;generalTypeld: 1, u&#x27;generalType&#x27;: u&#x27;Factura&#x27;, u&#x27;type&#x27;: u&#x27;B&#x27;. u&#x27;generalTypelnitial: u&#x27;FB&#x27;), u&#x27;creationDate&#x27;: u&#x27;2024-06-13T11:40:04.020958&#x27;, u&#x27;fiscalData&#x27;: {u&#x27;shortFullNumber: None, u&#x27;documentTypeld&quot;: 3, u&#x27;governmentMessage&#x27;: None, u&#x27;posid&#x27;: 2471, u&#x27;fullNumber: None, u&#x27;nationalAuthorizationCode: None, u&#x27;longFullNumber&#x27;: None, u&#x27;number&#x27;: 0, &#x27;pos&#x27;: u&#x27;00022. u&#x27;generalDocument Type&#x27;: u&#x27;Factura&#x27;, u&#x27;generalDocumentTypeld: 1, u&#x27;documentType&#x27;: u&#x27;Documento B&#x27;, u&#x27;nationalAuthorizationCodeExpires: None, u&#x27;fiscalAuthorizationMode&#x27;: u&#x27;CAE&#x27;, u&#x27;shortCode&#x27;: u&#x27;FB&#x27;), u_internal_state&#x27;: {u&#x27;state&#x27;: u&#x27;Waiting for Governmental Entity&#x27;, u&#x27;id&#x27;: 3), u&#x27;receiver&quot;: {u&#x27;documentTypeld: 6, u&#x27;taxTreatmentld: 4, u&#x27;businessName&#x27;: &#x27;Consumidor Final&#x27;, u&#x27;documentNumber&#x27;: &#x27;0&#x27;, u&#x27;documentType&#x27;: u&#x27;Otro&#x27;, u&#x27;taxTreatment&#x27;: u&#x27;Consumidor Final&#x27;}}], u&#x27;contingencyData&#x27;: None, u&#x27;pageSize&quot;: 1, u&#x27;totalDocuments&#x27;: 1, u&#x27;totalPages: 1, u&#x27;currentPage&#x27;: 1), u&#x27;communicationMsg&quot;: U&#x27;Success&#x27;] No se ha podido generar el documento Comuniquese con Soporte (TOTEAT DTE)</td><td id="dx]J" class="">AFIP</td><td id="]Hoa" class="" style="width:157px">Intermitencias en el servicio de la AFIP</td><td id="[[jK" class="" style="width:183px">1. Eliminar el pago para volver a pagar nuevamente y revisar si la intermitencia era parcial.<br/><br/>2. Contactar servicio al cliente de facturante (<a href="mailto:soporte@facturante.com">soporte@facturante.com</a>) Solicitando información sobre el servicio de la AFIP </td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-806d-9a55-d969d3969203"><td id="Gqlm" class="" style="width:725px">ERROR: {u&#x27;communicationStatus&#x27;: 401, u&#x27;errors&#x27;: [{u&#x27;message&#x27;: u&#x27;Unauthorized access. Insufficient privileges. Info: El usuario no esta habilitado para realizar esta X accion. Favor revise sus permisos y habilitaciones. Detalle: Whoops! Your company did not complete the delegation process. Please send an email to soporte@facturante.com.&#x27;, u&#x27;code&#x27;: 401}], u&#x27;communicationMsg&#x27;: u&#x27;Error&#x27;] .No se ha podido generar el documento * Comuniquese con Soporte (TOTEAT DTE)</td><td id="dx]J" class="">FACTURANTE</td><td id="]Hoa" class="" style="width:157px">Problemas con la delegación a Facturante</td><td id="[[jK" class="" style="width:183px">Solicitar al cliente la delegación a Facturante y enviarla al correo <a href="mailto:soporte@facturante.com">soporte@facturante.com</a> para que validen la integración</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8042-b738-c96fee3e1d15"><td id="Gqlm" class="" style="width:725px">[{&quot;Quantity&quot;:1.00,&quot;Category&quot;:null,&quot;Modifications&quot;:null,&quot;ItemAttributes&quot;:null,&quot;Code&quot;:null,&quot;Name&quot;:&quot;Producto sin Nombre&quot;,&quot;Description&quot;:&quot;Flat White&quot;,&quot;MeasureUnit&quot;:1,&quot;VAT&quot;:7,&quot;Price&quot;:{&quot;UnitPrice&quot;:2561.98,&quot;PriceType&quot;:1,&quot;Name&quot;:&quot;Producto sin Nombre&quot;},&quot;Categories&quot;:null,&quot;Decision&quot;:[&quot;Para el producto emitido Nombre = NULL, se asume \xb4Producto sin Nombre?\xb4&quot;,&quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse&quot;, &quot;Para el item con descripci\xf3n Producto sin Nombre Se setea PriceType a 1 por no informarse.&quot;]}, {&quot;Quantity&quot;:1.00, &quot;Category&quot;:null,&quot;Modifications&quot;:null,&quot;ItemAttributes&quot;:null,&quot;Code&quot;:null,&quot;Name&quot;:&quot;Producto sin Nombre&quot;,&quot;Description&quot;:&quot;Cortado&quot;,&quot;MeasureUnit&quot;:1,&quot;VAT&quot;:7,&quot;Price&quot;:{&quot;UnitPrice&quot;:1983.47,&quot;PriceType&quot;:1,&quot;Name&quot;:&quot;Producto sin Nombre&quot;},&quot;Categories&quot;:null,&quot;Decision&quot;:[&quot;Para el producto emitido Nombre = NULL, se asume \xb4Producto sin Nombre?\xb4&quot;,&quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse&quot;, &quot;Para el item con descripci\xf3n Producto sin Nombre Se setea Price Type a 1 por no informarse.&quot;]}],&quot;ContingencyDetail&quot;:[],&quot;Decision&quot;:[&quot;No se informa Good, se setea 1&quot;,&quot;Se asume Currency N ARS y CurrencyValue 1 por no estar informado&quot;,&quot;No se enviaron condiciones de Venta. Se setea condici\xf3n de Venta al Contado&quot;,&quot;No se enviaron Fechas. Se setean seg\xfan Good, con la fecha de 3/6/2024 0:00:00&quot;,&quot;Se setea Address = Direcci\xf3n de la Sucursal del POS por no estar informado&quot;,&quot;Receiver se interpreta Consumidor Final Gen\xe9rico por no estar informado&quot;,&quot;Para el producto emitido Nombre = NULL, se asume \xb4Producto sin Nombre?\xb4&quot;,&quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse&quot;, &quot;Para el item con descripci\xf3n Producto sin Nombre Se setea PriceType a 1 por no informarse.&quot;, &quot;Para el producto emitido Nombre = NULL, se asume \xb4Producto sin Nombre?\xb4&quot;,&quot;Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse&quot;, &quot;Para el item con descripci\xf3n Producto sin Nombre Se setea PriceType a 1 por no informarse.&quot;]}]&quot;}], u&#x27;companyId&#x27;: 2280768, u&#x27;importResult&#x27;: None, u&#x27;documentidentifications&#x27;: [{u&#x27;externalSoftware&quot;: {u&#x27;id&#x27;: 21, u&#x27;name&#x27;: u&#x27;Toteat&quot;}, u&#x27;identification&quot;: u&#x27;7174256129474221717425612947522&#x27;}], u&#x27;accessData&#x27;: {u&#x27;qrUrl&#x27;: u&#x27;http://sync.facturante.com/Provision?<br/>ΤΟ<br/>u&#x27;pdfUrl&#x27;: u&#x27;http://sync.facturante.com/PDF?<br/>X<br/>id=csxCLUeTuDVr8cqTC+QeXapewZ8Sc1vZPeP9vgXo3bWjXXA5LH7YNgGxAEf8VG13/GPaaZKACVPJOsLHy+qQiAYngqh|Ra5hA9JXLEpZyQBclAE+KRscH/Q id=csxCLUeTuDVr8cqTC+QeXapewZ85c1vZPeP9vgXo3bWjXXA5LH7YNgGxAEf8VG13/GPaaZKACVPJOsLHy+qQiAYngqh|Ra5hA9JXLEpZyQBclAE+KRscH/Q u&#x27;fiscalQrUrl&#x27;: None), u&#x27;state&#x27;: {u&#x27;state&#x27;: u&#x27;TO AUTHORIZE&#x27;, u&#x27;id&quot;: 1}, u&#x27;comments&#x27;: None, u&#x27;dateTimes&#x27;: [{u&#x27;type&#x27;: u&#x27;Fecha de Comprobante&#x27;, u&#x27;dateld&#x27;: 1, u&#x27;dateTime&#x27;: u&#x27;03/06/2024 12:00:00&quot;}, {u&#x27;type&#x27;: u&#x27;Fecha de Comprobante&#x27;, u&#x27;dateld&#x27;: 1, u&#x27;dateTime&#x27;: u&#x27;03/06/2024 12:00:00&#x27;}] u&#x27;electronicDocumentPos&#x27;: {u&#x27;prefix&#x27;: u&#x27;00009&#x27;, u&#x27;id&#x27;: 4123), u&#x27;currency&#x27;: {u&#x27;code&#x27;: u&#x27;ARS&#x27;, u&#x27;name&#x27;: u&#x27;Peso Argentino&#x27;, u&#x27;country&quot;: {u&#x27;phonePrefix&quot;: 54, u&#x27;id&#x27;: 1, u&#x27;name&#x27;: u&#x27;Argentina&#x27;}, u&#x27;symbol&#x27;: u&#x27;$&#x27;, u&#x27;governmentCode&#x27;: u&#x27;PES&#x27;, u&#x27;value&#x27;: 0.0, u&#x27;id&#x27;: 1}, u&#x27;identifications&#x27;: {u&#x27;externalld&#x27;: u&#x27;7174256129474221717425612947522&#x27;, u&#x27;internalld&quot;: 16739507), u&#x27;deliveryDetails&#x27;: None, u&#x27;documentType&#x27;: {u&#x27;typeld&#x27;: 3, u&#x27;generalTypeid&#x27;: 1, u&#x27;generalType&#x27;: u&#x27;Factura&#x27;, u&#x27;type&#x27;: u&#x27;B&#x27;, u&#x27;generalTypeInitial&#x27;: u&#x27;FB&#x27;}, u&#x27;creationDate&#x27;: u&#x27;2024-06-03T12:37:49.259681&#x27;, u&#x27;fiscalData&#x27;: {u&#x27;shortFullNumber&#x27;: None, u&#x27;documentTypeld&quot;: 3, u&#x27;governmentMessage&#x27;: u&#x27;Sin observaciones&#x27;, u&#x27;posid&#x27;: 4123, u&#x27;fullNumber&#x27;: None, u&#x27;nationalAuthorizationCode&#x27;: None, u&#x27;longFullNumber&#x27;: None, u&#x27;number&#x27;: 7244, u&#x27;pos&#x27;: u&#x27;00009&#x27;, u&#x27;generalDocumentType&#x27;: u&#x27;Factura&#x27;, u&#x27;generalDocumentTypeid&#x27;: 1, u&#x27;documentType&#x27;: u&#x27;Documento B&#x27;, u&#x27;nationalAuthorizationCodeExpires&#x27;: None, u&#x27;fiscalAuthorizationMode&#x27;: u&#x27;CAE&#x27;, u&#x27;shortCode&#x27;: u&#x27;FB&#x27;}, u&#x27;_internal_state&#x27;: {u&#x27;state&#x27;: u&#x27;ToReview&#x27;, u&#x27;id&#x27;: 6}, u&#x27;receiver&#x27;: {u&#x27;documentTypeld&#x27;: 6, u&#x27;taxTreatmentId&quot;: 4, u&#x27;businessName&#x27;: u&#x27;Consumidor Final&#x27;, u&#x27;documentNumber&#x27;: u&#x27;0&#x27;, u&#x27;documentType&#x27;: u&#x27;Otro&#x27;, u&#x27;taxTreatment&#x27;: u&#x27;Consumidor Final&#x27;}}]. u&#x27;contingencyData&#x27;: None, u&#x27;pageSize&#x27;: 1, u&#x27;totalDocuments&#x27;: 1, u&#x27;totalPages&#x27;: 1, u&#x27;currentPage&quot;: 1}, u&#x27;communicationMsg&#x27;: u&#x27;Success&quot;}.No se ha podido generar el documento * Comuniquese con Soporte (TOTEAT DTE)</td><td id="dx]J" class="">AFIP</td><td id="]Hoa" class="" style="width:157px">Intermitencias en el servicio de la AFIP</td><td id="[[jK" class="" style="width:183px">1. Eliminar el pago para volver a pagar nuevamente y revisar si la intermitencia era parcial.<br/><br/>2. Contactar servicio al cliente de facturante (<a href="mailto:soporte@facturante.com">soporte@facturante.com</a>) Solicitando información sobre el servicio de la AFIP </td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80fb-ab4e-e82d9162e53c"><td id="Gqlm" class="" style="width:725px">ERROR: No se informa Good, se setea 1 || Se asume Currency ARS y CurrencyValue 1 por no estar informado || No se enviaron Fechas. Se setean según Good, con la fecha de 3/7/2024 0:00:00 || Se setea Address = Dirección de la Sucursal del POS por no estar informado || Receiver se interpreta Consumidor Final Genérico por no estar informado || Para el producto emitido Nombre = NULL, se asume ´Producto sin Nombre?´ || Para el Producto con Name Producto sin Nombre se setea Unidad de Medida 1 por no informarse || Para el item con descripción Producto sin Nombre Se setea PriceType a 1 por no informarse. .No se ha podido generar el documento * Comuniquese con Soporte (TOTEAT DTE)</td><td id="dx]J" class="">FACTURANTE</td><td id="]Hoa" class="" style="width:157px">Turno y fechas no corresponden al del día </td><td id="[[jK" class="" style="width:183px">Solicitar al cliente cerrar el turno que no corresponde a la fecha actual para cerrar la orden con normalidad</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h1 id="1e339073-1e23-8007-bf37-e41920fe6a2c" class="">Traducción Errores Chile DTE </h1></div><div style="display:contents" dir="ltr"><table id="1e339073-1e23-80a1-8101-f053488790ed" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80c4-aa61-da438ce3442d"><th id="eMBU" class="simple-table-header-color simple-table-header" style="width:592px">Error</th><th id=";S=C" class="simple-table-header-color simple-table-header">Entidad</th><th id="N~^K" class="simple-table-header-color simple-table-header" style="width:159px">Posibilidad</th><th id="W{\&gt;" class="simple-table-header-color simple-table-header" style="width:162px">Solución</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8084-a6f8-ff869c7773ad"><td id="eMBU" class="" style="width:592px">No se pudo asignar folio</td><td id=";S=C" class="">DTE</td><td id="N~^K" class="" style="width:159px">Empresa sin folios disponibles</td><td id="W{\&gt;" class="" style="width:162px">Cargar folios (lo puede hacer el cliente o Soporte)</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8084-96c6-fde2d1b4c5b9"><td id="eMBU" class="" style="width:592px">ERROR: Empresa no tiene certificado-Reintente impresión. No se ha podido generar el documento Comuníquese con Soporte (TOTEAT DTE)</td><td id=";S=C" class="">DTE</td><td id="N~^K" class="" style="width:159px">Empresa sin certificado vigente o con problemas con el certificado</td><td id="W{\&gt;" class="" style="width:162px">El cliente puede cargar el certificado Digital o enviarlo al correo dte@toteat.com</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80ec-9b25-ef44e3e270d9"><td id="eMBU" class="" style="width:592px">Emisión de Documentos Electrónicos no configurada para este establecimiento. Contacte a Soporte.</td><td id=";S=C" class="">TRM</td><td id="N~^K" class="" style="width:159px">La empresa no esta vinculada al servicio de DTE o no tiene activa la emisión de facturas electrónicas</td><td id="W{\&gt;" class="" style="width:162px">El cliente debe solicitar la activación al correo clientes@toteat.com</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8040-b760-f19ff5d8096c"><td id="eMBU" class="" style="width:592px">ERROR: Empresa no esta activada. No se ha podido generar el documento * Cominiquese con Soporte (TOTEAT DTE)</td><td id=";S=C" class="">DTE</td><td id="N~^K" class="" style="width:159px">Empresa desactivada en DTE<br/><br/>Certificado digital vencido  </td><td id="W{\&gt;" class="" style="width:162px">Si el cliente desea reactivación debe enviar correo a clientes@toteat.com<br/><br/>Solicitar el certificado digital renovado</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80e2-9b7c-fbbbd8a214b1"><td id="eMBU" class="" style="width:592px">ERROR: Empresa no habilitada para el tipo de documento .No se ha podido generar el documento * Comuniquese con Soporte (TOTEAT DTE)</td><td id=";S=C" class="">DTE</td><td id="N~^K" class="" style="width:159px">La empresa no tiene activo ese tipo de documento </td><td id="W{\&gt;" class="" style="width:162px">El cliente debe solicitar la activación al correo clientes@toteat.com</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8008-bcf8-ca69964b0781"><td id="eMBU" class="" style="width:592px">ERROR: El token y el id del local No coinciden-Ver con soporte Dte .No se ha podido generar el documento * Comuníquese con Soporte (TOTEAT DTE)</td><td id=";S=C" class="">TRM</td><td id="N~^K" class="" style="width:159px">EL Token no coincide entre DTE y Versiones</td><td id="W{\&gt;" class="" style="width:162px">Soporte revisa la información de Token en DTEadmin y Versiones</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-808f-b5a7-e6d2094abe03"><td id="eMBU" class="" style="width:592px">ERROR GRAVE: El R.U.T configura es distinto al R.U.T configurado para impresión. No se puede imprimir el documento. Por favor corrija esto o comuníquese con Soporte   </td><td id=";S=C" class="">TRM</td><td id="N~^K" class="" style="width:159px">El RUT en DTE es distinto al de TRM</td><td id="W{\&gt;" class="" style="width:162px">Se debe validar el RUT de la empresa en DTEadmin y corregir la información en impresoras de TRM</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80c8-bf32-e52e794c75da"><td id="eMBU" class="" style="width:592px">Error al generar Timbre (Ted)</td><td id=";S=C" class="">DTE</td><td id="N~^K" class="" style="width:159px">Caracteres especiales en el documento (Receptor, Ítems, descripción)</td><td id="W{\&gt;" class="" style="width:162px">Quitar los caracteres especiales que pueda contener el documento </td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h1 id="1e339073-1e23-80a9-9706-e8fe98c3fdbe" class="">Traducción Errores Chile Nubox</h1></div><div style="display:contents" dir="ltr"><table id="1e339073-1e23-8037-b730-ee3506744324" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8005-9759-f977fe519c29"><th id="D\Yi" class="simple-table-header-color simple-table-header" style="width:579px">Error</th><th id="{;mY" class="simple-table-header-color simple-table-header">Entidad</th><th id="ZWAg" class="simple-table-header-color simple-table-header" style="width:147px">Posibilidad</th><th id="^ano" class="simple-table-header-color simple-table-header" style="width:169px">Solución</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80fb-a9d8-d5a4cac5c49b"><td id="D\Yi" class="" style="width:579px">Error en llamada a Nubox al buscar token, intente nuevamente. Si el error persiste contacte a Nubox o pida apoyo a Soporte Toteat</td><td id="{;mY" class="">NUBOX</td><td id="ZWAg" class="" style="width:147px">Intermitencia en el servicio de Nubox</td><td id="^ano" class="" style="width:169px">Enviar correo a <a href="mailto:soporte@nubox.com">soporte@nubox.com</a> Solicitando información sobre el servicio</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h1 id="1e339073-1e23-80f2-b995-f120949941f7" class="">Traducción Errores Chile Bsale</h1></div><div style="display:contents" dir="ltr"><table id="1e339073-1e23-807e-8518-d22904ca53a7" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8004-8795-ef4e91222d39"><th id="D\Yi" class="simple-table-header-color simple-table-header" style="width:579px">Error</th><th id="{;mY" class="simple-table-header-color simple-table-header">Entidad</th><th id="ZWAg" class="simple-table-header-color simple-table-header" style="width:147px">Posibilidad</th><th id="^ano" class="simple-table-header-color simple-table-header" style="width:169px">Solución</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-808f-b082-d6aac80f1fc9"><td id="D\Yi" class="" style="width:579px">Error al generar Boleta / Factura Electronica. Por favor inténtelo nuevamente</td><td id="{;mY" class="">Bsale</td><td id="ZWAg" class="" style="width:147px">1. Revisa el monto de la boleta o factura, (mínimo debe ser de 180- no hay máximo)<br/>2. Cuando es Factura, revisar que el cliente este bien creado con Giro<br/>3. Revisar la Razón social (mínimo 4 caracteres)<br/>4. Revisar que no existan mas de 20 líneas de productos en el documento<br/>5. Intermitencia en el Servicio de Bsale</td><td id="^ano" class="" style="width:169px">1. Corregir l situación interna que se presente<br/>2.Enviar correo a ayuda@bsale.app Solicitando información sobre el servicio</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-807a-9859-d8ac5f9b9a9e"><td id="D\Yi" class="" style="width:579px"></td><td id="{;mY" class=""></td><td id="ZWAg" class="" style="width:147px"></td><td id="^ano" class="" style="width:169px"></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h1 id="1e339073-1e23-803b-b858-c05847cede95" class="">Traducción Errores Chile Blueline</h1></div><div style="display:contents" dir="ltr"><table id="1e339073-1e23-8016-b3fb-e8d40d087297" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80c7-a64c-fd22ad0a3720"><th id="_NeX" class="simple-table-header-color simple-table-header" style="width:587px">Error</th><th id="C]:`" class="simple-table-header-color simple-table-header">Entidad</th><th id="Ohjg" class="simple-table-header-color simple-table-header" style="width:151px">Posibilidad</th><th id="rIc{" class="simple-table-header-color simple-table-header" style="width:154px">Solución</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8082-8285-cb3fab5abdca"><td id="_NeX" class="" style="width:587px">ERROR: Blueline Error al firmar el documento: Error al validar esquema: [Error] :41:13: cvc-complex-type.2.4.b: The content of element Documento&#x27; is not complete. One of &#x27;[&quot;http://www.sii.cl/SiiDte&quot;: Detalle, &quot;http://www.sii.cl/SiiDte&quot;:SubTotinfo, &quot;http://www.sii.cl/SiiDte&quot;:DscRcgGlobal, X &quot;http://www.sii.cl/SiiDte&quot;:Referencia, &quot;http://www.sii.cl/SiiDte&quot;:Comisiones, &quot;http://www.sii.cl/SiiDte&quot;:TED)&quot; is expected. [Error]:42:7: cvc-complex-type.2.4.b: The content of element &#x27;DTE&#x27; is not complete. One of &#x27;{&quot;http://www.w3.org/2000/09/xmldsig#&quot;:Signature}&quot; is expected. .No se ha podido generar el documento * Comuniquese con Soporte (TOTEAT DTE)</td><td id="C]:`" class="">BLUELINE</td><td id="Ohjg" class="" style="width:151px">Error de firma Blueline</td><td id="rIc{" class="" style="width:154px">Enviar correo a <a href="mailto:soporte@blueline.cl">soporte@blueline.cl</a> Solicitando información</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80ba-b388-c2b5821ceaf4"><td id="_NeX" class="" style="width:587px">ERROR: Blueline HTTP Error 403: Forbidden. No se ha podido generar el documento * Comuniquese con Soporte (TOTEAT DTE)</td><td id="C]:`" class="">BLUELINE</td><td id="Ohjg" class="" style="width:151px">Error por servidor</td><td id="rIc{" class="" style="width:154px">Enviar correo a <a href="mailto:soporte@blueline.cl">soporte@blueline.cl</a> Solicitando información</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h1 id="1e339073-1e23-8061-8f27-c2e640e90304" class="">Traducción Errores Chile GDExpress</h1></div><div style="display:contents" dir="ltr"><table id="1e339073-1e23-805f-8922-c93526ab0cca" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-803d-a0c0-f2da10b0e4fd"><th id="_NeX" class="simple-table-header-color simple-table-header" style="width:587px">Error</th><th id="C]:`" class="simple-table-header-color simple-table-header">Entidad</th><th id="Ohjg" class="simple-table-header-color simple-table-header" style="width:151px">Posibilidad</th><th id="rIc{" class="simple-table-header-color simple-table-header" style="width:154px">Solución</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8006-8741-d65296f615d5"><td id="_NeX" class="" style="width:587px">ERROR: GDExpress No hay folios  disponibles en este momento para el RUT y tipo de documento 39.</td><td id="C]:`" class="">GDExpress</td><td id="Ohjg" class="" style="width:151px">No hay Folios Disponibles<br/>39 (Boletas)<br/>33 (Facturas)</td><td id="rIc{" class="" style="width:154px">El cliente debera solcitar a GDExpress la carga de folios</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h1 id="1e339073-1e23-8097-b4c2-c8c8583a2532" class="">Traducción Errores Chile Contaline</h1></div><div style="display:contents" dir="ltr"><table id="1e339073-1e23-804e-b76f-c83c5f909c65" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-805f-8b32-d9b862ddc7f6"><th id="WR}s" class="simple-table-header-color simple-table-header" style="width:585px">Error</th><th id="VzEZ" class="simple-table-header-color simple-table-header">Entidad</th><th id="Notc" class="simple-table-header-color simple-table-header" style="width:147px">Posibilidad</th><th id="zHn\" class="simple-table-header-color simple-table-header" style="width:160px">Solución</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80f4-9f46-cbfee8e04924"><td id="WR}s" class="" style="width:585px">ERROR: Contaline can only concatenate str (not &quot;NoneType&quot;) to str. No se ha podido generar el documento * Comuniquese con Soporte (TOTEAT DTE)</td><td id="VzEZ" class="">CONTALINE</td><td id="Notc" class="" style="width:147px">Intermitencias Contaline</td><td id="zHn\" class="" style="width:160px">Enviar correo a  <a href="mailto:soporte@contaline.net">soporte@contaline.net</a> Solicitando información</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80c7-8b67-f1fbf917a24a"><td id="WR}s" class="" style="width:585px"></td><td id="VzEZ" class=""></td><td id="Notc" class="" style="width:147px"></td><td id="zHn\" class="" style="width:160px"></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h1 id="1e339073-1e23-8019-9855-d8cceafa3182" class="">Traducción Errores Colombia</h1></div><div style="display:contents" dir="ltr"><table id="1e339073-1e23-802a-aeee-c0dc46733aed" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80ea-b9bd-f3204386fe21"><th id=";^pK" class="simple-table-header-color simple-table-header" style="width:589px">Error</th><th id="txDJ" class="simple-table-header-color simple-table-header">Entidad</th><th id="{m{|" class="simple-table-header-color simple-table-header" style="width:148px">Posibilidad</th><th id="eYKm" class="simple-table-header-color simple-table-header" style="width:156px">Solución</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80b2-a6d0-ebe766cc0b04"><td id=";^pK" class="" style="width:589px">Fecha documento es mayor a la fecha actual </td><td id="txDJ" class="">FACTURA 1</td><td id="{m{|" class="" style="width:148px">Intermitencias en el servicio de Factura 1</td><td id="eYKm" class="" style="width:156px">Enviar correo a <a href="mailto:soporte@factura1.com.co">soporte@factura1.com.co</a> solicitando información</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80ee-a99e-c7cb0a71c4d1"><td id=";^pK" class="" style="width:589px">ERROR: No se pudo asignar folio. No se ha podido generar el documento * Comuniquese con Soporte (TOTEAT DTE)</td><td id="txDJ" class="">DTE</td><td id="{m{|" class="" style="width:148px">Empresa no tiene resolución activa</td><td id="eYKm" class="" style="width:156px">Solicitar al cliente envio de resolución nueva</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80ab-8fa2-ec4622ba2546"><td id=";^pK" class="" style="width:589px">Emisión de Documentos Electrónicos no configurada para este establecimiento. Contacte a Soporte.</td><td id="txDJ" class="">DTE</td><td id="{m{|" class="" style="width:148px">Empresa no cuenta con la emisión del tipo de documentos que desean emitir</td><td id="eYKm" class="" style="width:156px">El cliente debe solicitar la activación al correo clientes@toteat.com</td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8080-9319-c52f94723e13"><td id=";^pK" class="" style="width:589px">ERROR: error desconocido .No se ha podido generar el documento * Comuniquese con Soporte (TOTEAT<br/>DTE)</td><td id="txDJ" class="">TRM</td><td id="{m{|" class="" style="width:148px">Demora en la respuesta F1-DIAN</td><td id="eYKm" class="" style="width:156px">Reintentar varias veces la emisión </td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-8017-9940-e61901315438"><td id=";^pK" class="" style="width:589px">ERROR No se encuentra ninguna resolución con numero de resolución y prefijo </td><td id="txDJ" class="">FACTURA 1</td><td id="{m{|" class="" style="width:148px">La resolución no se encuentra activa con F1</td><td id="eYKm" class="" style="width:156px">Solicitar a F1 asociar la resolución Enviar correo a <a href="mailto:soporte@factura1.com.co">soporte@factura1.com.co</a></td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80ea-bda7-d00cf2397a38"><td id=";^pK" class="" style="width:589px">ERROR: El token y el id del local No coinciden-Ver con soporte Dte .No se ha podido generar el documento * Comuniquese con Soporte (TOTEAT DTE)</td><td id="txDJ" class="">TRM</td><td id="{m{|" class="" style="width:148px">EL Token no coincide entre DTE y Versiones</td><td id="eYKm" class="" style="width:156px">Soporte revisa la información de Token en DTEAdmin y Versiones</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h1 id="1e339073-1e23-803f-ae3d-ee397e63d7d6" class="">Traducción Errores Perú</h1></div><div style="display:contents" dir="ltr"><table id="1e339073-1e23-80fa-9b80-d6c3d8f714b8" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-809b-abd7-c3c6acce4a86"><th id="|&gt;:E" class="simple-table-header-color simple-table-header" style="width:589px">Error</th><th id="zbIc" class="simple-table-header-color simple-table-header" style="width:125px">Entidad</th><th id="^oRR" class="simple-table-header-color simple-table-header" style="width:145px">Posibilidad</th><th id="`uZF" class="simple-table-header-color simple-table-header" style="width:160px">Solución</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80d2-9d6c-d69152e9f3d2"><td id="|&gt;:E" class="" style="width:589px">Error al generar Boleta / Factura Electrónica, Por favor inténtalo nuevamente </td><td id="zbIc" class="" style="width:125px">BSALE</td><td id="^oRR" class="" style="width:145px">1. Se revisa información de integración<br/>2.  Se revisa información de fechas (turno abierto debe corresponder al día de emisión) <br/>3. Revisar que los impuestos esten bien configurados<br/>4. Generalmente es por intermitencias en la conexión de Bsale </td><td id="`uZF" class="" style="width:160px">1. Se revisa información de integración<br/>2.  Se revisa información de fechas (turno abierto debe corresponder al día de emisión)<br/>3. Solicitar información sobre el estado del servicio a <a href="mailto:ayuda@bsale.com.pe">ayuda@bsale.com.pe</a> </td></tr></div><div style="display:contents" dir="ltr"><tr id="1e339073-1e23-80b0-a087-c3af8a147567"><td id="|&gt;:E" class="" style="width:589px">Emisión de Documentos Electrónicos no configurada para este establecimiento. Contacte a Soporte</td><td id="zbIc" class="" style="width:125px">TRM</td><td id="^oRR" class="" style="width:145px">El cliente no cuenta con la emisión de documentos configurada</td><td id="`uZF" class="" style="width:160px">Revisar con el equipo de Activaciones el estado del cliente</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-8037-8b6b-d723fab9d6db" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-8011-af1b-e20693c1a2b5" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-8065-9f6a-fbcd4a262496" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-80d2-9efc-f4fddcc3278d" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1e339073-1e23-8026-869c-fd068a40cdc5" class="toggle"><li><details open=""><summary><mark class="highlight-orange"><strong>Revisión de documentos en dteadmin/facturación</strong></mark></summary><div style="display:contents" dir="auto"><ul id="1e339073-1e23-805d-b9b3-df582357f5fe" class="toggle"><li><details open=""><summary><mark class="highlight-default"><strong>Botones de clientes</strong></mark><mark class="highlight-orange"><strong> 🇨🇱 </strong></mark></summary><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-8034-9dab-dc7227808b0b" class="numbered-list" start="1"><li><mark class="highlight-orange"><strong>Con el botón EDI</strong></mark>. → Podemos ver qué tipos de documentos tiene habilitados el cliente con TOTEAT desde el botón de “DOC HABILITADO”.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-803b-88a7-f01a5e75c563" class="numbered-list" start="2"><li><mark class="highlight-orange"><strong>Con el botón de CAF</strong></mark>. → Podemos revisar los folios que tiene disponible el cliente.</li></ol></div><div style="display:contents" dir="auto"><ul id="1e339073-1e23-803b-be40-e694e7266671" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal"><mark class="highlight-teal_background"><code><strong>Verde</strong></code></mark></mark> significa activos.</li></ul></div><div style="display:contents" dir="auto"><ul id="1e339073-1e23-80a3-90de-fcdd99e9b8df" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow"><mark class="highlight-yellow_background"><code><strong>Amarillo</strong></code></mark></mark> significa inactivos/agotados/vencidos.</li></ul></div><div style="display:contents" dir="auto"><ul id="1e339073-1e23-80ce-93c2-c40122750447" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-orange"><strong>Tipos de documentos: </strong></mark><mark class="highlight-default">en DTE solo nos muestra el código; en esta lista podemos saber qué tipo es cada uno según el número.</mark><div style="display:contents" dir="ltr"><figure id="1e339073-1e23-8009-a1b0-d8b7ccb8b7b1" class="image" style="text-align:center"><a href="DTE/image%203.png"><img style="width:384px" src="DTE/image%203.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-80c0-80f8-d5b7f05dd06b" class="numbered-list" start="3"><li><mark class="highlight-orange"><strong>Con el botón CER: </strong></mark><mark class="highlight-default"><strong>Podemos revisar y descargar el certificado del cliente; si está vencido o inactivo, estará en 0, que lo podemos confirmar con la fecha para saber si es inactivo vigente o inactivo por vencimiento, 1 para activo vigente.</strong></mark></li></ol></div><div style="display:contents" dir="auto"><ul id="1e339073-1e23-80bc-8911-e121fab10eb7" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-orange"><strong>DOWN: </strong></mark><mark class="highlight-default">Descargamos el certificado y, para activarlo en el PC, nos aseguramos de copiar la clave del vigente.</mark></li></ul></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-8090-91e4-dd8b6120c10e" class=""><div class="indented"><div style="display:contents" dir="auto"><p id="1e339073-1e23-807c-9f1f-c36072a5e349" class="">
+</p></div></div></p></div><div style="display:contents" dir="ltr"><figure id="1e339073-1e23-8008-9a9d-e5e154e03a54"><div class="source"><a href="DTE/Grabacion_de_pantalla_2025-04-27_a_la(s)_21.05.38.mov">attachment:6968f56d-f914-49ff-a019-d39b4a54f677:Grabacion_de_pantalla_2025-04-27_a_la(s)_21.05.38.mov</a></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1e339073-1e23-8042-9e10-df4f2b4483bb" class="toggle"><li><details open=""><summary><strong>Cómo revisar documentos en DTE 🇨🇱</strong></summary><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-8095-8a84-fc0ac270b141" class="numbered-list" start="1"><li>Podemos acceder a DTE desde cualquier local y luego cambiarnos al local que necesitamos revisar si ya sabemos que somos parte del staff del local como dueño creador; si no, tendremos que agregarlos al local y acceder desde dicho local.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-804d-97a7-d82258fbf485" class="numbered-list" start="2"><li>Vamos a emitidos, filtramos en la fecha que queremos revisar, idealmente no un rango mayor a 6 meses y puede que 3 meses si es que el local genera muchos documentos, ya que al filtrar en un rango muy grande no muestra la data.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-80ea-9a2a-d7920f17e5c1" class="numbered-list" start="3"><li>Podemos filtrar por los documentos emitidos, por los que nos emiten, que son los recepcionados, por las guías de despacho, en generar, para generar directamente DTE documentos (por el momento esto solo es posible para 🇨🇱).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-80e5-87f5-df6d293ed432" class="numbered-list" start="4"><li>Podemos revisar el estado de los documentos con el botón de <mark class="highlight-yellow"><mark class="highlight-yellow_background"><code><strong>&gt;</strong></code></mark></mark><mark class="highlight-default"><mark class="highlight-default_background"> para poder verificar en el caso de que este sea rechazado por el SII.</mark></mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-80e3-bb1e-d45cd597ea38" class="numbered-list" start="5"><li>Podemos generar NC desde la misma visual del documento con el botón de nota de crédito (según la resolución de pantalla o el zoom del navegador, deberemos bajar el zoom para poder ver este botón).</li></ol></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-804b-999d-f3b04675e539" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-80e0-85af-f9ed017cf2a8" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1e339073-1e23-805b-8f8e-c1172f3d5fb4"><div class="source"><a href="DTE/Grabacion_de_pantalla_2025-04-27_a_la(s)_21.41.44.mov">attachment:8ce1c592-a8de-4426-a589-1134429b4cc7:Grabacion_de_pantalla_2025-04-27_a_la(s)_21.41.44.mov</a></div></figure></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-80b4-91f0-dd766c9c4308" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-80f7-9793-ca2d86772c07" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1e339073-1e23-8009-9620-f09f211fb434"><div class="source"><a href="DTE/Grabacion_de_pantalla_2025-04-27_a_la(s)_22.37.20.mov">attachment:a0af9ed6-5810-4ed8-9f33-801a62e938b3:Grabacion_de_pantalla_2025-04-27_a_la(s)_22.37.20.mov</a></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1e339073-1e23-8041-a706-d9e7d1ccfd74" class="toggle"><li><details open=""><summary><strong>Botones de clientes 🇨🇴 </strong></summary><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-8077-84b3-d84dc22405ad" class="numbered-list" start="1"><li>…</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-80fc-bc3c-cd51ef3b7441" class="numbered-list" start="2"><li>…</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-807f-82f6-cd56eb83a9c1" class="numbered-list" start="3"><li>…</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-808f-bc8b-ccadc189b006" class="numbered-list" start="4"><li>…</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-80d2-95c7-f326f94d0969" class="numbered-list" start="5"><li>…</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1e339073-1e23-804c-91ad-c0bc6119527b" class="numbered-list" start="6"><li>…</li></ol></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-801c-9c42-ec5a63c0002f" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="1e339073-1e23-8094-a703-e4279b702d51"><div class="source"><a href="DTE/Grabacion_de_pantalla_2025-04-27_a_la(s)_22.50.05.mov">attachment:34c10c99-96fd-4b7c-8f72-6209d402a133:Grabacion_de_pantalla_2025-04-27_a_la(s)_22.50.05.mov</a></div></figure></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-80b9-a2f0-caabda97d8d2" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-8050-b6a6-e00c47fd054f" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1e339073-1e23-800b-acbd-ea270bd4d210" class="toggle"><li><details open=""><summary><strong>Botones de clientes 🇲🇽 </strong></summary></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1e339073-1e23-8053-8b9c-f5f6183cef21" class="toggle"><li><details open=""><summary><strong>Botones de clientes de otros países e integrados📄 </strong></summary></details></li></ul></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-80b7-8e57-dfcba77b3693" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1e339073-1e23-8002-8c4f-e619c9478407" class="">
+</p></div></details></li></ul></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

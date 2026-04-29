@@ -1,0 +1,756 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Talleres de reforzamiento</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2f039073-1e23-8060-b103-e13fbf3220ec" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">💪🏻</span></div><h1 class="page-title" dir="auto">Talleres de reforzamiento</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Responsable (R)</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Gonzalo Soffia</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Aprobador</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIeXJP50n2oNMn3ITT9go-fZiu3cEmUJ2PVqjWjUJ5KVVbCe8M=s100" class="icon user-icon"/>Valeria García Arce</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Colaboradores</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">T</span></span>Tomás Manriquez</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKvMfOges0sz-hJn7a7OoM2Rke06wYUT0B7mzcvWRE6ckrkWA=s100" class="icon user-icon"/>Brandon Villamil</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Descripción</th><td>Crear 3 talleres de reforzamiento en temáticas de donde existan brechas y que impactan indicadores CSAT y TMO. Establecer las bases para una estrategia de capacitación continua.</td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Estado</th><td><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>En curso</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Fechas</th><td><time>22 de enero de 2026 → 26 de febrero de 2026</time></td></tr><tr class="property-row property-row-formula"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/formula_gray.svg" style="width:14px;height:14px;display:block"/></span>Progreso (%)</th><td>25 %</td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-northeast_gray.svg" style="width:14px;height:14px;display:block"/></span>Hitos</th><td><a href="../Hitos/Definir%20tem%C3%A1tica%20de%20talleres%20y%20su%20orden%20de%20priorid%202f0390731e23803fba05ff689872d8ee.html">Definir temática de talleres y su orden de prioridad.</a>, <a href="../Hitos/Definir%20un%20formato%20general%202f0390731e238076a0fccf17cfd9d9e3.html">Definir un formato general.</a>, <a href="../Hitos/Asignar%20responsables%20de%20cada%20taller%202f0390731e23805689dec846c23c412a.html">Asignar responsables de cada taller</a>, <a href="../Hitos/Definir%20fechas%20l%C3%ADmites%202f0390731e238066a3e8f3d55cdb247e.html">Definir fechas límites.</a>, <a href="../Hitos/Reunir%20material%20existente%20e%20identificar%20su%20ubicaci%202f0390731e23808eabdaf625eaadc350.html">Reunir material existente e identificar su ubicación</a>, <a href="../Hitos/Crear%20cada%20taller%20y%20actualizar%20materiales%20existent%202f0390731e2380f7a0c4d458dca02bdf.html">Crear cada taller y actualizar materiales existentes.</a>, <a href="../Hitos/Ejecutar%20los%20talleres,%20con%20control%20de%20asistencia%20y%202f0390731e23804f9b4eff134a3a857c.html">Ejecutar los talleres, con control de asistencia y solicitud de feedback al cierre.</a>, <a href="../Hitos/Reuni%C3%B3n%20de%20retroalimentaci%C3%B3n,%20aprendizajes%20y%20defin%202f0390731e2380f98b54e3157dead89e.html">Reunión de retroalimentación, aprendizajes y definición de estrategias continuas.</a></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Última actualización</th><td><time>11 de marzo de 2026 14:10</time></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="2f039073-1e23-80a0-b445-f82e17998ab9"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h2 id="2f039073-1e23-8048-9c70-e339602fa99e" class="">🎯 Propósito del proyecto</h2></div><div style="display:contents" dir="auto"><ul id="2f039073-1e23-803b-8b71-f2ab5df240be" class="bulleted-list"><li style="list-style-type:disc">Crear 3 talleres de reforzamiento para agentes SAC activos en temáticas donde se hayan detectado brechas en el desempeño.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f039073-1e23-803f-aa62-fb40f1c18b29" class="bulleted-list"><li style="list-style-type:disc">Aumentar la capacidad y autonomía de los agentes para manejar casos básicos y de mediana complejidad.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f039073-1e23-802e-b6fc-d1850c19ea98" class="bulleted-list"><li style="list-style-type:disc">Establecer un precedente para definir estrategias de capacitación continua en SAC.</li></ul></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="2f039073-1e23-808e-b531-db58b6a4aca1"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h2 id="2f039073-1e23-8043-8915-edd8a79cafef" class="">🧩 Enfoque y metodología</h2></div><div style="display:contents" dir="auto"><ul id="2f039073-1e23-80c3-8451-d7101fd8850b" class="bulleted-list"><li style="list-style-type:disc">A partir del feedback de personas claves en el área de Soporte (<span class="user">@Francisco Ramirez</span>, Coordinadores, Agentes Senior) + el cruce de métricas de calidad de servicio, se definirán los talleres a crear y su prioridad de implementación.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f039073-1e23-80b5-ae65-c2bd30281056" class="bulleted-list"><li style="list-style-type:disc">Al mismo tiempo se dejará establecido el estado inicial (KPIs) de los indicadores de calidad de servicio, CSAT (New y Legacy) y TMO.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f039073-1e23-8044-ab99-fd91255c0e43" class="bulleted-list"><li style="list-style-type:disc">Existirán responsables para cada crear y entregar cada taller.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f039073-1e23-80fc-b42c-ee81a2c183bb" class="bulleted-list"><li style="list-style-type:disc">No hay límite de manos ayudando a crear/entregar cada taller.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f039073-1e23-8047-b020-cd497f8a2e20" class="bulleted-list"><li style="list-style-type:disc">El responsable del proyecto, <span class="user">@Gonzalo Soffia</span> estará a cargo del avance de cada etapa.</li></ul></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2f039073-1e23-8053-b273-cb16bbcc4514"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h2 id="2f039073-1e23-80b5-803d-c1f52ff911bc" class="">🗓️ Hitos</h2></div><div style="display:contents" dir="auto"><ol type="1" id="2f039073-1e23-80dd-9f24-e5170a5cc4de" class="numbered-list" start="1"><li>Definir temática de talleres y su orden de prioridad. </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f039073-1e23-8059-b4fc-d6cc93f2cf50" class="numbered-list" start="2"><li>Definir un formato general.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f039073-1e23-80ac-94b9-c8eb32762baf" class="numbered-list" start="3"><li>Asignar responsables de cada taller.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f039073-1e23-8097-bfa0-d2e05dfc69a1" class="numbered-list" start="4"><li>Definir fechas límites.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f039073-1e23-80fc-917a-d77fff15aa34" class="numbered-list" start="5"><li>Reunir material existente e identificar su ubicación</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f039073-1e23-802c-8cf5-ca985fe7ef96" class="numbered-list" start="6"><li>Crear cada taller y actualizar materiales existentes.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f039073-1e23-8040-b83b-d049d0b977aa" class="numbered-list" start="7"><li>Ejecutar los talleres, con control de asistencia y solicitud de feedback al cierre.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f039073-1e23-80dd-adeb-e53e0b8687eb" class="numbered-list" start="8"><li>Reunión de retroalimentación, aprendizajes y definición de estrategias continuas.</li></ol></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="2f039073-1e23-802a-b3b8-f2d307916746"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><h2 id="2f039073-1e23-80bb-ba27-d32574584d4a" class="">📊 Apuesta de impacto</h2></div><div style="display:contents" dir="auto"><ul id="2f039073-1e23-803c-a3bd-dd53be9cf98b" class="bulleted-list"><li style="list-style-type:disc">Disminuir el TMO y aumentar el CSAT</li></ul></div><div style="display:contents" dir="auto"><ul id="2f039073-1e23-803a-ab17-fe295d3ef716" class="bulleted-list"><li style="list-style-type:disc">Tras haber completado los primeros 3 talleres, esperamos mejorar el CSAT New</li></ul></div></div></figure></div><div style="display:contents" dir="auto"><p id="2f039073-1e23-8044-af6c-d293f277e5fe" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="2f039073-1e23-80f4-a4c6-d7e14a8362b8" class="">📘 Documentación del proyecto</h1></div><div style="display:contents" dir="ltr"><nav id="2f539073-1e23-8074-b008-fae2bf296606" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2f039073-1e23-8048-9c70-e339602fa99e">🎯 Propósito del proyecto</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2f039073-1e23-8043-8915-edd8a79cafef">🧩 Enfoque y metodología</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2f039073-1e23-80b5-803d-c1f52ff911bc">🗓️ Hitos</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2f039073-1e23-80bb-ba27-d32574584d4a">📊 Apuesta de impacto</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2f039073-1e23-80f4-a4c6-d7e14a8362b8">📘 Documentación del proyecto</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2f539073-1e23-807e-a5df-cf02911779ae">Estado del arte</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2f539073-1e23-80b4-b061-e93b9a9a7efa">Análisis según los tipos de conversación y motivos de contacto.</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2f539073-1e23-8052-b3e1-d8d82119e37e">Análisis del tipo 5 de motivos de contacto a partir del <strong>CX Score.</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2f539073-1e23-8007-ba96-db2111b8ad9d">Análisis del tipo 5 de motivos de contacto a partir del <strong>CSAT</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2f539073-1e23-80a3-921b-cf65e72a0861">Análisis del tipo 5 de motivos de contacto a partir del <strong>TMO.</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2f539073-1e23-80c8-92cb-c7f27673987a">NPS de Noviembre y Diciembre 2025</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2f839073-1e23-8071-9c09-e0631678b1e1">Priorización de temas a tratar en talleres</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2f539073-1e23-801b-8a2f-d1f34db90018">Temas y acciones generales a tratar en los talleres</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2f839073-1e23-80bb-996b-d51e260d6ac8">Formato de los talleres</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2f839073-1e23-8049-9a91-c032962ed254">Responsables y fechas límite</a></div></nav></div><div style="display:contents" dir="auto"><h2 id="2f539073-1e23-807e-a5df-cf02911779ae" class="">Estado del arte</h2></div><div style="display:contents" dir="auto"><p id="2f539073-1e23-8065-a53a-f1583ecdfc34" class="">Se presentan diferentes análisis para determinar el punto de partida sobre la calidad de servicio con el fin de medir el impacto logrado con los talleres. Se presentan:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2f539073-1e23-80ef-a5d9-d513131c0105" class="numbered-list" start="1"><li>Análisis según los tipos de conversación y motivos de contacto.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f539073-1e23-80be-9d09-e967b5d00bcb" class="numbered-list" start="2"><li>Análisis del tipo 5 de motivos de contacto a partir del <strong>CX Score.</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f539073-1e23-8010-8948-f92a4ee19fc9" class="numbered-list" start="3"><li>Análisis del tipo 5 de motivos de contacto a partir del <strong>CSAT.</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f539073-1e23-800a-9236-ce656b116a6c" class="numbered-list" start="4"><li>Análisis del tipo 5 de motivos de contacto a partir del <strong>TMO.</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f539073-1e23-80c6-b2d2-d7ddb519e7d7" class="numbered-list" start="5"><li>NPS de Noviembre y Diciembre 2025</li></ol></div><div style="display:contents" dir="auto"><hr id="2f539073-1e23-8029-addf-db905dfaa51b"/></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Análisis según los tipos de conversación y motivos de contacto.</summary><div class="indented"><div style="display:contents" dir="auto"><p id="2f539073-1e23-8065-883c-f0a09e36bf06" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2f039073-1e23-8049-ac68-f71d6e7f910f" class="">Tipo de conversaciones entre Noviembre 2025 y Enero 2026:</p></div><div style="display:contents" dir="ltr"><table id="2f539073-1e23-80df-a1fa-fd3b2eb11291" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-805b-85fe-c2e8a8cc18ba"><th id="FT=&lt;" class="simple-table-header-color simple-table-header"></th><th id="yC}U" class="simple-table-header-color simple-table-header">Consultas</th><th id="Bv&lt;N" class="simple-table-header-color simple-table-header">Incidencias</th><th id=":sbI" class="simple-table-header-color simple-table-header">Solicitudes</th><th id="hVNV" class="simple-table-header-color simple-table-header">Unknown</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80fd-b6f4-dbbd92aed203"><td id="FT=&lt;" class=""><strong>Resumen</strong></td><td id="yC}U" class=""><strong>22,585</strong></td><td id="Bv&lt;N" class=""><strong>23,298</strong></td><td id=":sbI" class=""><strong>11,188</strong></td><td id="hVNV" class=""><strong>41</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80fa-89cd-fe695a1b2352"><td id="FT=&lt;" class="">Jan</td><td id="yC}U" class="">6,775</td><td id="Bv&lt;N" class="">8,521</td><td id=":sbI" class="">3,768</td><td id="hVNV" class="">8</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8028-a951-ef5b4ef876ae"><td id="FT=&lt;" class="">Dec</td><td id="yC}U" class="">6,863</td><td id="Bv&lt;N" class="">8,048</td><td id=":sbI" class="">3,862</td><td id="hVNV" class="">8</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80df-807f-c56508bee406"><td id="FT=&lt;" class="">Nov</td><td id="yC}U" class="">8,947</td><td id="Bv&lt;N" class="">6,729</td><td id=":sbI" class="">3,558</td><td id="hVNV" class="">25</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="2f539073-1e23-80b7-a299-d5620728c15c"><div style="font-size:1.5em"><span class="icon">🧮</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2f539073-1e23-805c-b53e-cbdd7ef461e8" class="">Los tipos de contacto <strong>Consultas</strong> e <strong>Incidencias</strong> representan el 80% de los tickets</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="2f539073-1e23-807e-b5e3-cf448b84dc2a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2f539073-1e23-80c2-83b8-e3642b50c94a" class="">Motivos de contacto para Consultas e Incidencias en el mismo período (universo de 45,883)</p></div><div style="display:contents" dir="ltr"><table id="2f539073-1e23-80c9-9430-e3abaf05153c" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-803b-aa56-f899518b583f"><th id="[dbl" class="simple-table-header-color simple-table-header" style="width:120px"></th><th id="]KfU" class="simple-table-header-color simple-table-header"></th><th id="B?vT" class="simple-table-header-color simple-table-header"></th><th id="PV;j" class="simple-table-header-color simple-table-header"></th><th id="iHA`" class="simple-table-header-color simple-table-header"></th><th id="etT\" class="simple-table-header-color simple-table-header"></th><th id="Gjdh" class="simple-table-header-color simple-table-header"></th><th id="yu{~" class="simple-table-header-color simple-table-header"></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8091-9b16-f237a1688b05"><td id="[dbl" class="block-color-blue_background" style="width:120px">Reinicio TPS</td><td id="]KfU" class="block-color-blue_background">17,530</td><td id="B?vT" class="block-color-blue_background">0</td><td id="PV;j" class="block-color-blue_background">0</td><td id="iHA`" class="block-color-blue_background">0</td><td id="etT\" class="block-color-blue_background">0</td><td id="Gjdh" class="block-color-blue_background">0</td><td id="yu{~" class="block-color-blue_background">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-803e-b997-dad77fd676db"><td id="[dbl" class="block-color-blue_background" style="width:120px">Impresoras - RED o USB</td><td id="]KfU" class="block-color-blue_background">0</td><td id="B?vT" class="block-color-blue_background">5,478</td><td id="PV;j" class="block-color-blue_background">0</td><td id="iHA`" class="block-color-blue_background">0</td><td id="etT\" class="block-color-blue_background">0</td><td id="Gjdh" class="block-color-blue_background">0</td><td id="yu{~" class="block-color-blue_background">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8007-a96c-e3b89138cb32"><td id="[dbl" class="block-color-blue_background" style="width:120px">Información General - uso y otros</td><td id="]KfU" class="block-color-blue_background">0</td><td id="B?vT" class="block-color-blue_background">0</td><td id="PV;j" class="block-color-blue_background">5,102</td><td id="iHA`" class="block-color-blue_background">0</td><td id="etT\" class="block-color-blue_background">0</td><td id="Gjdh" class="block-color-blue_background">0</td><td id="yu{~" class="block-color-blue_background">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8061-b272-c923cfa47ad4"><td id="[dbl" class="block-color-blue_background" style="width:120px">Gestión Mesas</td><td id="]KfU" class="block-color-blue_background">0</td><td id="B?vT" class="block-color-blue_background">0</td><td id="PV;j" class="block-color-blue_background">0</td><td id="iHA`" class="block-color-blue_background">3,094</td><td id="etT\" class="block-color-blue_background">0</td><td id="Gjdh" class="block-color-blue_background">0</td><td id="yu{~" class="block-color-blue_background">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80c3-83a3-cce5c95c43db"><td id="[dbl" class="block-color-blue_background" style="width:120px">Reportes</td><td id="]KfU" class="block-color-blue_background">0</td><td id="B?vT" class="block-color-blue_background">0</td><td id="PV;j" class="block-color-blue_background">0</td><td id="iHA`" class="block-color-blue_background">0</td><td id="etT\" class="block-color-blue_background">2,541</td><td id="Gjdh" class="block-color-blue_background">0</td><td id="yu{~" class="block-color-blue_background">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80c8-b7b8-e1408bbb43f4"><td id="[dbl" class="block-color-blue_background" style="width:120px">Cliente No presenta Error</td><td id="]KfU" class="block-color-blue_background">0</td><td id="B?vT" class="block-color-blue_background">0</td><td id="PV;j" class="block-color-blue_background">0</td><td id="iHA`" class="block-color-blue_background">0</td><td id="etT\" class="block-color-blue_background">0</td><td id="Gjdh" class="block-color-blue_background">2,376</td><td id="yu{~" class="block-color-blue_background">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8040-bcf0-ebd5a8cb86b4"><td id="[dbl" class="" style="width:120px">Reglas Impresión</td><td id="]KfU" class="">0</td><td id="B?vT" class="">0</td><td id="PV;j" class="">0</td><td id="iHA`" class="">0</td><td id="etT\" class="">0</td><td id="Gjdh" class="">0</td><td id="yu{~" class="">2,187</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8057-96b7-ef9e019a9d4f"><td id="[dbl" class="" style="width:120px">Desbloqueo por pagos de Servicios</td><td id="]KfU" class="">0</td><td id="B?vT" class="">0</td><td id="PV;j" class="">0</td><td id="iHA`" class="">0</td><td id="etT\" class="">0</td><td id="Gjdh" class="">0</td><td id="yu{~" class="">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-804f-af3e-c8de1ef20c97"><td id="[dbl" class="" style="width:120px">Gestión Menú/Carta</td><td id="]KfU" class="">0</td><td id="B?vT" class="">0</td><td id="PV;j" class="">0</td><td id="iHA`" class="">0</td><td id="etT\" class="">0</td><td id="Gjdh" class="">0</td><td id="yu{~" class="">0</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80a1-927a-deaa1ce02e9f"><td id="[dbl" class="" style="width:120px">TOTEAT DTE - Carga de Folios</td><td id="]KfU" class="">0</td><td id="B?vT" class="">0</td><td id="PV;j" class="">0</td><td id="iHA`" class="">0</td><td id="etT\" class="">0</td><td id="Gjdh" class="">0</td><td id="yu{~" class="">0</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="2f539073-1e23-805f-b037-f45ebdf086be"><div style="font-size:1.5em"><span class="icon">🧮</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2f539073-1e23-800e-b342-ebeebaa82afa" class="">Desde el punto de vista de la frecuencia, los 5 temas más relevantes donde el equipo debe estar bien preparado son:</p></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8064-bbcb-e6251a1cdbc9" class="bulleted-list"><li style="list-style-type:disc">Manejo del TPS → <strong>38%</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-80c1-90a7-cc490970f4ab" class="bulleted-list"><li style="list-style-type:disc">Manejo de impresoras y redes →<strong> 12%</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-80fd-bf1b-f7fc634f6931" class="bulleted-list"><li style="list-style-type:disc">Información general → <strong>11%</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8009-9f5b-dbcea0732b2e" class="bulleted-list"><li style="list-style-type:disc">Gestión de mesas → <strong>7%</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8096-b9e5-cfe784d5829a" class="bulleted-list"><li style="list-style-type:disc">Reportes → <strong>6%</strong></li></ul></div></div></figure></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Análisis del tipo 5 de motivos de contacto a partir del <strong>CX Score.</strong></summary><div class="indented"><div style="display:contents" dir="ltr"><table id="2f539073-1e23-804f-8461-ffa2bd4c73dc" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80d0-94a1-e8b84e0c9325"><td id="WzQw" class="">Motivo de contacto</td><td id="rcp&gt;" class="" style="width:64px">CX 1</td><td id="Rg[M" class="" style="width:58px">CX 2</td><td id="CWt=" class="" style="width:67px">CX 3</td><td id="G_M_" class="" style="width:79px">CX 4</td><td id="aBwb" class="" style="width:86px">CX 5</td><td id="&gt;DIv" class="" style="width:112px">desconocido</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80da-a6c1-f92656f3076d"><td id="WzQw" class="">Reinicio TPS</td><td id="rcp&gt;" class="" style="width:64px">104</td><td id="Rg[M" class="" style="width:58px">2,321</td><td id="CWt=" class="" style="width:67px">1,333</td><td id="G_M_" class="" style="width:79px">2,968</td><td id="aBwb" class="" style="width:86px">9,909</td><td id="&gt;DIv" class="" style="width:112px">895</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8037-9f60-ef4d47ea02a6"><td id="WzQw" class="">Impresoras - RED o USB</td><td id="rcp&gt;" class="" style="width:64px">51</td><td id="Rg[M" class="" style="width:58px">1,482</td><td id="CWt=" class="" style="width:67px">648</td><td id="G_M_" class="" style="width:79px">1,295</td><td id="aBwb" class="" style="width:86px">1,739</td><td id="&gt;DIv" class="" style="width:112px">263</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8072-b611-f47c7483e307"><td id="WzQw" class="">Información General - uso y otros</td><td id="rcp&gt;" class="" style="width:64px">66</td><td id="Rg[M" class="" style="width:58px">1,161</td><td id="CWt=" class="" style="width:67px">605</td><td id="G_M_" class="" style="width:79px">1,238</td><td id="aBwb" class="" style="width:86px">1,411</td><td id="&gt;DIv" class="" style="width:112px">621</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8034-9177-e5420664a387"><td id="WzQw" class="">Gestión Mesas</td><td id="rcp&gt;" class="" style="width:64px">36</td><td id="Rg[M" class="" style="width:58px">670</td><td id="CWt=" class="" style="width:67px">342</td><td id="G_M_" class="" style="width:79px">955</td><td id="aBwb" class="" style="width:86px">925</td><td id="&gt;DIv" class="" style="width:112px">166</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80b5-81d2-c7ef22940b30"><td id="WzQw" class="">Reportes</td><td id="rcp&gt;" class="" style="width:64px">18</td><td id="Rg[M" class="" style="width:58px">506</td><td id="CWt=" class="" style="width:67px">294</td><td id="G_M_" class="" style="width:79px">651</td><td id="aBwb" class="" style="width:86px">980</td><td id="&gt;DIv" class="" style="width:112px">92</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80c8-983d-f1caee004b40"><td id="WzQw" class="">Cliente No presenta Error</td><td id="rcp&gt;" class="" style="width:64px">99</td><td id="Rg[M" class="" style="width:58px">443</td><td id="CWt=" class="" style="width:67px">153</td><td id="G_M_" class="" style="width:79px">156</td><td id="aBwb" class="" style="width:86px">293</td><td id="&gt;DIv" class="" style="width:112px">1,232</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80d5-bc08-eeeb97d87ae9"><td id="WzQw" class="">Reglas Impresión</td><td id="rcp&gt;" class="" style="width:64px">16</td><td id="Rg[M" class="" style="width:58px">426</td><td id="CWt=" class="" style="width:67px">197</td><td id="G_M_" class="" style="width:79px">558</td><td id="aBwb" class="" style="width:86px">925</td><td id="&gt;DIv" class="" style="width:112px">65</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8039-b5af-f759fd7149dc"><td id="WzQw" class="">Desbloqueo por pagos de Servicios</td><td id="rcp&gt;" class="" style="width:64px">19</td><td id="Rg[M" class="" style="width:58px">318</td><td id="CWt=" class="" style="width:67px">222</td><td id="G_M_" class="" style="width:79px">459</td><td id="aBwb" class="" style="width:86px">986</td><td id="&gt;DIv" class="" style="width:112px">96</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80a2-ae4e-fb512e70142b"><td id="WzQw" class="">Gestión Menú/Carta</td><td id="rcp&gt;" class="" style="width:64px">20</td><td id="Rg[M" class="" style="width:58px">388</td><td id="CWt=" class="" style="width:67px">248</td><td id="G_M_" class="" style="width:79px">584</td><td id="aBwb" class="" style="width:86px">586</td><td id="&gt;DIv" class="" style="width:112px">105</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8058-9b94-c4b709b65781"><td id="WzQw" class="">TOTEAT DTE - Carga de Folios</td><td id="rcp&gt;" class="" style="width:64px">7</td><td id="Rg[M" class="" style="width:58px">167</td><td id="CWt=" class="" style="width:67px">118</td><td id="G_M_" class="" style="width:79px">302</td><td id="aBwb" class="" style="width:86px">776</td><td id="&gt;DIv" class="" style="width:112px">47</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="2f539073-1e23-800d-b239-cdeaad5ed02b"><div style="font-size:1.5em"><span class="icon">🧮</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2f539073-1e23-80c9-952a-f5f40527e23f" class="">Desde el punto de vista del CX Score, el top 5 de motivos de contacto tienen la siguiente performance:</p></div><div style="display:contents" dir="ltr"><table id="2f539073-1e23-8072-b16b-f122a23b7452" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-808d-b690-ef34b98f6a68"><td id=";fP&gt;" class=""><strong>Motivo de Contacto</strong></td><td id="|sLQ" class="" style="width:231.015625px"><strong>Calificaciones Positivas (4 y 5)</strong></td><td id=":Z?:" class=""><strong>Total Respuestas Válidas</strong></td><td id="Pkvn" class="block-color-blue_background"><strong>CX Score</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80b5-8910-d7aa0dba46df"><td id=";fP&gt;" class=""><strong>Reinicio TPS</strong></td><td id="|sLQ" class="" style="width:231.015625px">12,877</td><td id=":Z?:" class="">16,635</td><td id="Pkvn" class="block-color-blue_background"><strong>77.4%</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8012-989a-dd348ef20fe9"><td id=";fP&gt;" class=""><strong>Impresoras - RED o USB</strong></td><td id="|sLQ" class="" style="width:231.015625px">3,034</td><td id=":Z?:" class="">5,215</td><td id="Pkvn" class="block-color-blue_background"><strong>58.2%</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80ea-878b-d4b5e5fc9cd5"><td id=";fP&gt;" class=""><strong>Información General</strong></td><td id="|sLQ" class="" style="width:231.015625px">2,649</td><td id=":Z?:" class="">4,481</td><td id="Pkvn" class="block-color-blue_background"><strong>59.1%</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-809a-9b1e-eb62619bbd48"><td id=";fP&gt;" class=""><strong>Gestión Mesas</strong></td><td id="|sLQ" class="" style="width:231.015625px">1,880</td><td id=":Z?:" class="">2,928</td><td id="Pkvn" class="block-color-blue_background"><strong>64.2%</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-808a-b830-da5c866457f7"><td id=";fP&gt;" class=""><strong>Reportes</strong></td><td id="|sLQ" class="" style="width:231.015625px">1,631</td><td id=":Z?:" class="">2,449</td><td id="Pkvn" class="block-color-blue_background"><strong>66.6%</strong></td></tr></div></tbody></table></div></div></figure></div><div style="display:contents" dir="auto"><p id="2f539073-1e23-80e3-ba7f-f8337ba3d792" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2f539073-1e23-8044-85bc-f2cbe5109d02" class="">Desde lo cualitativo se destaca que:</p></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-80ec-850e-d76b40c65c6d" class="bulleted-list"><li style="list-style-type:disc"><strong>Reinicio TPS (77.4%):</strong> Este proceso destaca por su excelencia operativa. Los usuarios reportan una resolución efectiva y rápida de sus solicitudes, subrayando el tono amable y profesional de los agentes, lo que genera una experiencia de servicio muy positiva.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8064-9ba6-c4bee4882384" class="bulleted-list"><li style="list-style-type:disc"><strong>Impresoras - RED o USB (58.2%):</strong> Representa un punto crítico de frustración. Las explicaciones indican que los usuarios perciben las soluciones como parciales o poco útiles, enfrentando múltiples intentos fallidos que derivan en bajas calificaciones de satisfacción.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8056-b89b-faeb91138c2c" class="bulleted-list"><li style="list-style-type:disc"><strong>Información General - uso y otros (59.1%):</strong> Se percibe como un servicio con limitaciones. Aunque se valora el esfuerzo por ayudar, el análisis cualitativo sugiere que las respuestas o evaluaciones enviadas suelen ser insuficientes o incompletas para cumplir con las expectativas iniciales del cliente.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8032-867d-d744c8afdc5e" class="bulleted-list"><li style="list-style-type:disc"><strong>Gestión Mesas (64.2%):</strong> Presenta una experiencia agridulce. Si bien se proporcionan recursos útiles (como enlaces), la satisfacción general se ve afectada por la falta de respuesta continua y el cierre prematuro de las sesiones de chat por inactividad.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8037-a4f9-ef3a0f106e13" class="bulleted-list"><li style="list-style-type:disc"><strong>Reportes (66.6%):</strong> Los usuarios manifiestan niveles de confusión significativos. El análisis revela una falta de claridad en la información entregada y una percepción de poca empatía durante la interacción, lo que dificulta la comunicación y la resolución definitiva del problema.</li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Análisis del tipo 5 de motivos de contacto a partir del <strong>CSAT</strong></summary><div class="indented"><div style="display:contents" dir="auto"><p id="2f539073-1e23-8084-b6eb-da494884e564" class="">En términos de ambiente, el resultado del CSAT entre New y Legacy es bien similar, siendo aún mejor Legacy (Versiones)</p></div><div style="display:contents" dir="ltr"><table id="2f539073-1e23-807d-9059-ddbbef828c00" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80b3-ab8f-ed6e0fe8106e"><th id="W?N&lt;" class="simple-table-header-color simple-table-header">Ambiente</th><th id="a|c|" class="simple-table-header-color simple-table-header">CSAT</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80ea-baac-df3ac80e4e24"><td id="W?N&lt;" class="">Legacy (Versiones)</td><td id="a|c|" class="">96.8% (6,207/6,414)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8077-b13c-d349ab5a0daf"><td id="W?N&lt;" class="block-color-blue_background">New (Backoffice)</td><td id="a|c|" class="block-color-blue_background"><strong>95.5% (3,563/3,730)</strong></td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><table id="2f539073-1e23-8047-81cb-c8e2c39b9e52" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-803b-a7f8-e7244b28cd47"><td id="Hsdg" class="" style="width:41px"><strong>#</strong></td><td id="TKab" class=""><strong>Motivo de Contacto</strong></td><td id="yHf&gt;" class=""><strong>Puntuación CSAT</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80ef-a952-caa1a7b029dc"><td id="Hsdg" class="" style="width:41px">1</td><td id="TKab" class=""><strong>Reinicio TPS</strong></td><td id="yHf&gt;" class="">98% (4,357/4,444)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-803e-b0d1-e4ecea53a9e3"><td id="Hsdg" class="" style="width:41px">2</td><td id="TKab" class=""><strong>Impresoras - RED o USB</strong></td><td id="yHf&gt;" class="">97.2% (893/919)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80fb-99e9-e4ef1deb7d8b"><td id="Hsdg" class="" style="width:41px">3</td><td id="TKab" class=""><strong>Reglas Impresión</strong></td><td id="yHf&gt;" class="">97% (417/430)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80b6-8100-e23e00f924fe"><td id="Hsdg" class="" style="width:41px">4</td><td id="TKab" class=""><strong>Reinstalación TPS</strong></td><td id="yHf&gt;" class="">97.6% (371/380)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8064-9d12-c2d11de4154e"><td id="Hsdg" class="" style="width:41px">5</td><td id="TKab" class=""><strong>Desbloqueo por pagos de Servicios</strong></td><td id="yHf&gt;" class="">96% (316/329)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-801c-8580-ef2f1acf3369"><td id="Hsdg" class="" style="width:41px">6</td><td id="TKab" class=""><strong>TOTEAT DTE - Carga de Folios</strong></td><td id="yHf&gt;" class="">97.4% (304/312)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80bd-b88f-ffda05ffafdc"><td id="Hsdg" class="" style="width:41px">7</td><td id="TKab" class=""><strong>Error en Mesas</strong></td><td id="yHf&gt;" class="">98.5% (133/135)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-808d-9e57-cb2b5dd1ac25"><td id="Hsdg" class="" style="width:41px">8</td><td id="TKab" class=""><strong>Gestión Ajustes Generales</strong></td><td id="yHf&gt;" class="">97.1% (100/103)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8029-81e4-e940cb729938"><td id="Hsdg" class="" style="width:41px">9</td><td id="TKab" class=""><strong>Implementación desde Chat</strong></td><td id="yHf&gt;" class="">97.4% (76/78)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80b5-a729-e0e6cf15477d"><td id="Hsdg" class="" style="width:41px">10</td><td id="TKab" class=""><strong>KDS Consultas/Configuración</strong></td><td id="yHf&gt;" class="">97.8% (44/45)</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8009-a770-cc3bc8d5ae5a" class="bulleted-list"><li style="list-style-type:disc"><strong>Reinicio TPS</strong> → <strong>98%<br/></strong>Este resultado es significativamente superior a su CX Score (77.4%), lo que sugiere que, aunque hay fricciones operativas, la atención percibida tras el contacto es excelente.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8059-85fa-f0b5db0554c3" class="bulleted-list"><li style="list-style-type:disc"><strong>Impresoras - RED o USB →</strong> <strong>97.2%<br/></strong>Llama la atención la brecha respecto a su bajo CX Score (58.2%), indicando que la gestión del agente logra revertir la frustración técnica inicial del usuario.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8087-a78b-dfde38a0811a" class="bulleted-list"><li style="list-style-type:disc"><strong>Reglas Impresión → 97%<br/></strong>Al estar ligado al soporte de impresoras, refuerza que el acompañamiento técnico en esta área es altamente valorado por los clientes.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8095-90d7-ed23b0341708" class="bulleted-list"><li style="list-style-type:disc"><strong>Reinstalación TPS</strong> → <strong>97.6%<br/></strong>Al igual que el reinicio, los procesos de recuperación del sistema TPS demuestran una alta efectividad en la resolución y satisfacción del usuario final.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8037-b0c3-e7d616a98bd2" class="bulleted-list"><li style="list-style-type:disc"><strong>Desbloqueo por pagos de Servicios → 96%<br/></strong>A pesar de ser un tema administrativo/crítico, la gestión de soporte es percibida de manera muy positiva por el cliente.</li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Análisis del tipo 5 de motivos de contacto a partir del <strong>TMO.</strong></summary><div class="indented"><div style="display:contents" dir="ltr"><table id="2f539073-1e23-80a3-9f28-f9b075633819" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-801a-979e-c3c3c39108e5"><td id="moYm" class="" style="width:50px"><strong>#</strong></td><td id="&lt;aYJ" class=""><strong>Motivo de Contacto</strong></td><td id="&lt;Mq~" class=""><strong>TMO (Minutos)</strong></td><td id="fLHU" class=""><strong>Volumen de Casos</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-801e-be33-c2690b9d30af"><td id="moYm" class="block-color-blue_background" style="width:50px">1</td><td id="&lt;aYJ" class="block-color-blue_background">Reinicio TPS</td><td id="&lt;Mq~" class="block-color-blue_background"><strong>13.78</strong></td><td id="fLHU" class="block-color-blue_background">18,057</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8095-bc00-ccee5a2a77db"><td id="moYm" class="block-color-blue_background" style="width:50px">2</td><td id="&lt;aYJ" class="block-color-blue_background">Impresoras - RED o USB</td><td id="&lt;Mq~" class="block-color-blue_background"><strong>26.93</strong></td><td id="fLHU" class="block-color-blue_background">5,741</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80e6-a758-eeec29b47980"><td id="moYm" class="block-color-blue_background" style="width:50px">3</td><td id="&lt;aYJ" class="block-color-blue_background">Información General - uso y otros</td><td id="&lt;Mq~" class="block-color-blue_background"><strong>93.82</strong></td><td id="fLHU" class="block-color-blue_background">5,279</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80b8-a1af-c07dd39d2dec"><td id="moYm" class="block-color-blue_background" style="width:50px">4</td><td id="&lt;aYJ" class="block-color-blue_background">Gestión Mesas</td><td id="&lt;Mq~" class="block-color-blue_background"><strong>19.76</strong></td><td id="fLHU" class="block-color-blue_background">3,153</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-809b-a88a-f72bd0c4d6ba"><td id="moYm" class="block-color-blue_background" style="width:50px">5</td><td id="&lt;aYJ" class="block-color-blue_background">Reportes</td><td id="&lt;Mq~" class="block-color-blue_background"><strong>20.61</strong></td><td id="fLHU" class="block-color-blue_background">2,604</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80f1-a824-c8d253d82092"><td id="moYm" class="" style="width:50px">6</td><td id="&lt;aYJ" class="">Cliente No presenta Error</td><td id="&lt;Mq~" class=""><strong>22.66</strong></td><td id="fLHU" class="">2,444</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8004-b451-f9b1b04b062e"><td id="moYm" class="" style="width:50px">7</td><td id="&lt;aYJ" class="">Reglas Impresión</td><td id="&lt;Mq~" class=""><strong>28.96</strong></td><td id="fLHU" class="">2,326</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-8003-9fd3-f943efcf62c9"><td id="moYm" class="" style="width:50px">8</td><td id="&lt;aYJ" class="">Desbloqueo por pagos de Servicios</td><td id="&lt;Mq~" class=""><strong>15.47</strong></td><td id="fLHU" class="">2,218</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80d5-99d1-e438159a8594"><td id="moYm" class="" style="width:50px">9</td><td id="&lt;aYJ" class="">Gestión Menú/Carta</td><td id="&lt;Mq~" class=""><strong>27.93</strong></td><td id="fLHU" class="">1,988</td></tr></div><div style="display:contents" dir="ltr"><tr id="2f539073-1e23-80b7-ae40-eb87f655499b"><td id="moYm" class="" style="width:50px">10</td><td id="&lt;aYJ" class="">Reinstalación TPS</td><td id="&lt;Mq~" class=""><strong>30.77</strong></td><td id="fLHU" class="">1,471</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8045-a7eb-dac319be7254" class="bulleted-list"><li style="list-style-type:disc"><strong>Reinicio TPS:</strong> Es el motivo más frecuente y presenta el <strong>TMO más bajo</strong> del Top 5 (13.78 minutos). Esto refuerza el análisis previo de eficiencia: es un proceso estandarizado que se resuelve con rapidez a pesar de su alto volumen.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8067-8c29-c7f0a101c2bf" class="bulleted-list"><li style="list-style-type:disc"><strong>Impresoras - RED o USB:</strong> Con un TMO de <strong>26.93 minutos</strong>, duplica el tiempo de resolución del Reinicio TPS. Este tiempo prolongado, sumado a su bajo CX Score, confirma que los problemas de hardware requieren mayor esfuerzo técnico y generan mayor fricción con el usuario.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-80cc-ba65-cf17d570133f" class="bulleted-list"><li style="list-style-type:disc"><strong>Información General - uso y otros:</strong> Presenta un TMO atípico y extremadamente alto de <strong>93.82 minutos</strong>. Esto sugiere que las consultas bajo este rótulo son complejas, inespecíficas o quedan abiertas por largos periodos, lo que explicaría su baja calificación cualitativa de respuestas &quot;insuficientes&quot;.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8074-b3f5-e226eb026c61" class="bulleted-list"><li style="list-style-type:disc"><strong>Gestión Mesas:</strong> Mantiene un tiempo operativo saludable de <strong>19.76 minutos</strong>. Es un proceso relativamente ágil, aunque el análisis cualitativo previo indicaba que el cierre prematuro del chat por inactividad podría estar &quot;inflando&quot; positivamente esta métrica al no concluir siempre la ayuda.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8046-8eb5-f67206a3ad48" class="bulleted-list"><li style="list-style-type:disc"><strong>Reportes:</strong> Registra un TMO de <strong>20.61 minutos</strong>. Aunque el tiempo es similar al de Gestión Mesas, la percepción de confusión del cliente sugiere que el tiempo se invierte en explicaciones que no siempre logran claridad inmediata.</li></ul></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">NPS de Noviembre y Diciembre 2025</summary><div class="indented"><div style="display:contents" dir="auto"><p id="2f539073-1e23-801b-936e-e77a416d0063" class="">Centraré este análisis en los clientes de perfil A ya que como empresa consideramos que es el perfil más en el cual es más trascendente de seguir pues son quienes toman decisiones. </p></div><div style="display:contents" dir="auto"><p id="2f539073-1e23-800d-96fb-e2d2ed9bcb5b" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2f539073-1e23-8072-ac2f-dd1ead4638f6" class="image"><a href="Talleres%20de%20reforzamiento/Captura_de_pantalla_2026-01-27_a_la(s)_11.35.43.png"><img style="width:681.96875px" src="Talleres%20de%20reforzamiento/Captura_de_pantalla_2026-01-27_a_la(s)_11.35.43.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8065-897e-ffe75128b789" class="bulleted-list"><li style="list-style-type:disc"><strong>Estado Crítico del Segmento Clave:</strong> Un puntaje de <strong>3</strong> se sitúa en la zona de <strong>detractores</strong>, lo cual es alarmante tratándose del perfil &quot;A&quot;, que concentra el poder de decisión y la trascendencia estratégica para la empresa.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8014-888f-f55d08c82590" class="bulleted-list"><li style="list-style-type:disc"><strong>Riesgo de Churn (Fuga):</strong> Al ser este perfil el más influyente, un NPS tan bajo indica una insatisfacción profunda que podría derivar en la pérdida de cuentas clave o en una comunicación negativa hacia otros niveles de la organización.</li></ul></div></div></details></div><div style="display:contents" dir="auto"><p id="2f839073-1e23-8059-82fc-c59a87e4ecc1" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2f839073-1e23-8071-9c09-e0631678b1e1" class="">Priorización de temas a tratar en talleres</h2></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Temas y acciones generales a tratar en los talleres</summary><div class="indented"><div style="display:contents" dir="auto"><p id="2f539073-1e23-8027-ac7c-e2f338cabf3b" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="2f839073-1e23-80fe-9ad7-f1f4f1442409"><div style="font-size:1.5em"><span class="icon">🧮</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2f539073-1e23-80ce-9f59-efacd3282ad4" class="">A pesar de sus buenos indicadores, el <strong>Reinicio TPS</strong> debe ser una prioridad.</p></div><div style="display:contents" dir="auto"><p id="2f539073-1e23-80ee-a9d7-e9f60bf92bf9" class="">Al ser el motivo con mayor volumen, invertir recursos de capacitación aquí es consolidar los procesos de diagnóstico que puedan dar lugar a automatizaciones con IA. </p></div></div></figure></div><div style="display:contents" dir="auto"><h3 id="2f539073-1e23-8019-912f-e613b522e400" class="">1. Información General - uso y otros → Cómo diagnosticar.</h3></div><div style="display:contents" dir="auto"><h3 id="2f639073-1e23-8037-8bd2-d33f1ccb8b2d" class="">2. Reinicio TPS</h3></div><div style="display:contents" dir="auto"><h3 id="2f539073-1e23-80e1-89af-e508eb849807" class="">3. Impresoras - RED o USB</h3></div><div style="display:contents" dir="auto"><h3 id="2f539073-1e23-801f-87ed-e35616b5a7a4" class="">4. Reportes</h3></div><div style="display:contents" dir="auto"><h3 id="2f539073-1e23-80dd-8cb5-f35469df6be4" class="">5. Gestión Mesas</h3></div><div style="display:contents" dir="auto"><p id="2f839073-1e23-80f1-a588-d31c4dd3a400" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2f839073-1e23-80cc-98d8-d26e6c44c4a2"/></div><div style="display:contents" dir="auto"><h3 id="2f539073-1e23-801e-9b4d-cf92097a173d" class="">1. Información General - uso y otros</h3></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8034-a926-d058de0d8ad8" class="bulleted-list"><li style="list-style-type:disc"><strong>Métricas Críticas:</strong> TMO de <strong>93.82 minutos</strong> (el más alto) y CX Score bajo de <strong>59.1%</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-80a1-a824-d110335b3343" class="bulleted-list"><li style="list-style-type:disc">3 areas críticas: <div style="display:contents" dir="auto"><ol type="1" id="2f539073-1e23-80f2-baa7-c7adf314bd9b" class="numbered-list" start="1"><li><strong>Profundidad y Resolución en la Primera Respuesta.<br/></strong>El problema: las respuestas del equipo son percibidas como &quot;insuficientes&quot; o &quot;incompletas&quot;</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f539073-1e23-800c-8c9b-c279c775674a" class="numbered-list" start="2"><li><strong>Gestión de Expectativas y Seguimiento.<br/></strong>El problema: Aunque el equipo intenta ayudar, existe una percepción de que <span style="border-bottom:0.05em solid">no existe un buen diagnóstico</span> de los problemas.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f539073-1e23-80c5-b9cf-efe431c10b06" class="numbered-list" start="3"><li><strong>Calidad de la Documentación y Recursos Enviados</strong><br/>Actualmente, el equipo entrega datos, pero no resuelve la duda de uso de manera integral.</li></ol></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="2f539073-1e23-800a-85c7-e0cc5378158a" class="">2. Impresoras - RED o USB</h3></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8089-9c7a-fa46cf65e985" class="bulleted-list"><li style="list-style-type:disc"><strong>Métricas Críticas:</strong> El CX Score más bajo (<strong>58.2%</strong>) y un TMO elevado de <strong>26.93 minutos</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-80c0-a0f2-ebdf3bf0d745" class="bulleted-list"><li style="list-style-type:disc"><strong>Acción de Entrenamiento:</strong> Capacitación técnica avanzada en resolución de hardware. Los clientes perciben soluciones &quot;parciales&quot;, lo que indica que el equipo sabe &quot;parchar&quot; el problema pero no resolver la causa raíz, generando frustración recurrente.</li></ul></div><div style="display:contents" dir="auto"><h3 id="2f539073-1e23-8008-bdbc-c4fa54ff46c8" class="">3. Reportes</h3></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8031-be05-e64830040cad" class="bulleted-list"><li style="list-style-type:disc"><strong>Métricas Críticas:</strong> CX Score de <strong>66.6%</strong> y retroalimentación de <strong>&quot;falta de empatía y claridad&quot;</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-800a-8f73-e31d8aa12c11" class="bulleted-list"><li style="list-style-type:disc"><strong>Acción de Entrenamiento:</strong> <em>Soft Skills</em> y comunicación asertiva. Es el motivo con mayor oportunidad de mejora en el &quot;trato&quot;. Dado que los clientes de <strong>Perfil A</strong> (quienes toman decisiones) suelen consumir reportes, mejorar la claridad y la empatía aquí es vital para elevar ese <strong>NPS de 3</strong>.<div style="display:contents" dir="auto"><ul id="30239073-1e23-8059-b24b-e6b115a481d1" class="bulleted-list"><li style="list-style-type:circle">Primera versión para el taller. Creada en Febrero ‘26 con IA por Mati Demian</li></ul></div><div style="display:contents" dir="ltr"><figure id="30239073-1e23-80a1-b6de-d6811f574eea"><div class="source"><a href="Talleres%20de%20reforzamiento/Reportes_Mas_Alla_del_Soporte.pdf">Reportes_Más_Allá_del_Soporte.pdf</a></div></figure></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="2f539073-1e23-8096-b041-f107cd096909" class="">4. Gestión Mesas</h3></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-8057-934d-f38ebd59ea89" class="bulleted-list"><li style="list-style-type:disc"><strong>Métricas Críticas:</strong> CX Score de <strong>64.2%</strong> y problemas detectados de <strong>&quot;cierres prematuros de chat&quot;</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f539073-1e23-80ae-8165-cba99839be2c" class="bulleted-list"><li style="list-style-type:disc"><strong>Acción de Entrenamiento:</strong> Protocolo de seguimiento y cierre de casos. El equipo necesita entrenamiento en cómo mantener el hilo de la conversación y asegurar la resolución total antes de finalizar la interacción por inactividad.</li></ul></div></div></details></div><div style="display:contents" dir="auto"><p id="2f839073-1e23-80d9-9e05-ea8dddb00175" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2f839073-1e23-80bb-996b-d51e260d6ac8" class="">Formato de los talleres</h2></div><div style="display:contents" dir="auto"><p id="2f839073-1e23-80f5-b0bd-e3d79039a8d5" class="">Se ha propuesto lo siguiente.</p></div><div style="display:contents" dir="auto"><ul id="2f839073-1e23-801a-920e-f2a1d6cf6592" class="bulleted-list"><li style="list-style-type:disc">Ciclos de 4 semanas para cada temática.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f839073-1e23-8014-b0e0-c76e1fc3922d" class="bulleted-list"><li style="list-style-type:disc">1 o 2 sesiones teóricas para cada tema. Idealmente solo 1 para facilitar la entrega. Siempre grabadas y esa grabación debe quedar en 2 lugares, (1) el drive de SAC y (2) Notion de SAC.</li></ul></div><div style="display:contents" dir="auto"><ul id="2f839073-1e23-80d1-9468-e9d33bf7d454" class="bulleted-list"><li style="list-style-type:disc">2 sesiones de preguntas y respuestas &gt; SAC Tech</li></ul></div><div style="display:contents" dir="auto"><p id="2f839073-1e23-8036-9e7d-c8251b11bf68" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2f839073-1e23-80b0-83bf-d2a596bc9764" class="">Formato para presentar las sesiones teóricas:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2f839073-1e23-8085-84ee-f86e5cc82c35" class="numbered-list" start="1"><li>12 min - Proceso estándar del tema (comunicación efectiva / configuración / instalación / accesos)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f839073-1e23-80b3-8f7a-d95f5f03c9f8" class="numbered-list" start="2"><li>18 min - Problemas más comunes que requieren soporte y cómo los presentan los clientes.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f839073-1e23-80b5-a599-ca76bfbf787f" class="numbered-list" start="3"><li>12 min - Checklist para realizar un correcto diagnóstico.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f839073-1e23-80f2-ad5c-fc1d76a50e5d" class="numbered-list" start="4"><li>6 min - Consejos de comunicación efectiva.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2f839073-1e23-8041-8372-f35fc5ec34bc" class="numbered-list" start="5"><li>6 min - Casos poco frecuentes</li></ol></div><div style="display:contents" dir="auto"><p id="2f839073-1e23-8058-b736-c0662b5ff287" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2f839073-1e23-801b-b414-e6a5ec412934" class="">Checklist de tareas para cada taller:</p></div><div style="display:contents" dir="auto"><ul id="2f839073-1e23-801a-a76e-d39e73e5ff31" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Incluye procesos y/o condiciones estándar de funcionamiento/configuración</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2f839073-1e23-800a-871f-d32f512e8193" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Menciona los problemas más comunes y cómo los presentan los clientes.</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2f839073-1e23-80fd-a225-d6398a941f90" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Incluye checklist para diagnóstico.</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2f839073-1e23-802c-a710-d7d1494534ef" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Grabación de taller está disponible en Drive SAC</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2f839073-1e23-80ee-b440-cf3fca1da941" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Acceso a la grabación de taller dentro de Notion.</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><p id="2f839073-1e23-806b-8416-f936c04901c6" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2f839073-1e23-8049-9a91-c032962ed254" class="">Responsables y fechas límite</h2></div><div style="display:contents" dir="ltr"><div id="2f839073-1e23-807d-9c52-ff2bd799f76f" class="collection-content"><h4 class="collection-title"></h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Taller</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Titulares</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/friends_gray.svg" style="width:14px;height:14px;display:block"/></span>Q&amp;A</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Kick off</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar-day_gray.svg" style="width:14px;height:14px;display:block"/></span>Dead line</th></tr></thead><tbody><tr id="2f839073-1e23-80ce-aacd-d4029e448be2"><td class="cell-title"><a href="Talleres%20de%20reforzamiento/Sin%20t%C3%ADtulo/Reinicio%20TPS%202f8390731e2380ceaacdd4029e448be2.html">Reinicio TPS
+</a></td><td class="cell-TLGG"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">A</span></span>Andrés Felipe Rincón Moyano</span><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-LFiZ"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">F</span></span>Francisco Ramirez</span></td><td class="cell-:@&lt;p"><time>14 de enero de 2026</time></td><td class="cell-`TVL"><time>27 de febrero de 2026</time></td></tr><tr id="2f839073-1e23-8005-8ef3-ecf0a154a6a9"><td class="cell-title"><a href="Talleres%20de%20reforzamiento/Sin%20t%C3%ADtulo/Impresoras%20-%20RED%20o%20USB%202f8390731e2380058ef3ecf0a154a6a9.html">Impresoras - RED o USB</a></td><td class="cell-TLGG"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKvMfOges0sz-hJn7a7OoM2Rke06wYUT0B7mzcvWRE6ckrkWA=s100" class="icon user-icon"/>Brandon Villamil</span></td><td class="cell-LFiZ"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>Jeremy Araujo</span></td><td class="cell-:@&lt;p"><time>1 de abril de 2026</time></td><td class="cell-`TVL"><time>30 de abril de 2026</time></td></tr><tr id="2f839073-1e23-808b-bf51-c3839af0d805"><td class="cell-title"><a href="Talleres%20de%20reforzamiento/Sin%20t%C3%ADtulo/Reporter%C3%ADa%202f8390731e23808bbf51c3839af0d805.html">Reportería</a></td><td class="cell-TLGG"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">J</span></span>José Matías </span></td><td class="cell-LFiZ"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIfdmQa1sU9RSIBpwRErslZNIx8VnartZED4-xTi-itsXoFpu8=s100" class="icon user-icon"/>Sergio Muñoz</span><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKuoMOnCVzrOiY71uvjDZs2bhdcBEC0Tejgn6n-vXj__MKDtME=s100" class="icon user-icon"/>Doymar Raga Flores</span></td><td class="cell-:@&lt;p"><time>1 de mayo de 2026</time></td><td class="cell-`TVL"><time>31 de mayo de 2026</time></td></tr><tr id="2f839073-1e23-809d-a074-c4217efb4b19"><td class="cell-title"><a href="Talleres%20de%20reforzamiento/Sin%20t%C3%ADtulo/Reglas%20de%20impresi%C3%B3n,%20Gesti%C3%B3n%20Mesas%20y%20multisucursal%202f8390731e23809da074c4217efb4b19.html">Reglas de impresión, Gestión Mesas y multisucursal</a></td><td class="cell-TLGG"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">M</span></span>María Teresa Martinez</span></td><td class="cell-LFiZ"></td><td class="cell-:@&lt;p"><time>1 de junio de 2026</time></td><td class="cell-`TVL"><time>30 de junio de 2026</time></td></tr><tr id="31e39073-1e23-805f-806b-f7effc9cc394"><td class="cell-title"><a href="Talleres%20de%20reforzamiento/Sin%20t%C3%ADtulo/Inventario%20y%20%C2%BFmultisucursal%2031e390731e23805f806bf7effc9cc394.html">Inventario y ¿multisucursal?</a></td><td class="cell-TLGG"></td><td class="cell-LFiZ"><span class="user"><img src="https://lh3.googleusercontent.com/a/AGNmyxY7PuKviqCqP_yYd5WlZ9iULlNGiKdhluPMEnqW=s100" class="icon user-icon"/>Alexander Forero</span><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocIfdmQa1sU9RSIBpwRErslZNIx8VnartZED4-xTi-itsXoFpu8=s100" class="icon user-icon"/>Sergio Muñoz</span></td><td class="cell-:@&lt;p"><time>1 de julio de 2026</time></td><td class="cell-`TVL"><time>31 de julio de 2026</time></td></tr><tr id="31e39073-1e23-80b8-b5aa-cfc7e674b2c7"><td class="cell-title"><a href="Talleres%20de%20reforzamiento/Sin%20t%C3%ADtulo/Integraciones%2031e390731e2380b8b5aacfc7e674b2c7.html">Integraciones</a></td><td class="cell-TLGG"></td><td class="cell-LFiZ"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">N</span></span>Nicolás Álvarez</span></td><td class="cell-:@&lt;p"><time>1 de agosto de 2026</time></td><td class="cell-`TVL"><time>31 de agosto de 2026</time></td></tr><tr id="31e39073-1e23-809c-af43-fcee83447d97"><td class="cell-title"><a href="Talleres%20de%20reforzamiento/Sin%20t%C3%ADtulo/Payments%2031e390731e23809caf43fcee83447d97.html">Payments</a></td><td class="cell-TLGG"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKuoMOnCVzrOiY71uvjDZs2bhdcBEC0Tejgn6n-vXj__MKDtME=s100" class="icon user-icon"/>Doymar Raga Flores</span></td><td class="cell-LFiZ"><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocJ-aAxvg4mdk-f7UIUEadlaMqvhm6RlJ1JMLIquvqiJ9ZBb=s100" class="icon user-icon"/>Víctor Núñez</span></td><td class="cell-:@&lt;p"><time>1 de septiembre de 2026</time></td><td class="cell-`TVL"><time>30 de septiembre de 2026</time></td></tr><tr id="31e39073-1e23-80b1-b83f-d748dab7811b"><td class="cell-title"><a href="Talleres%20de%20reforzamiento/Sin%20t%C3%ADtulo/DTE%2031e390731e2380b1b83fd748dab7811b.html">DTE</a></td><td class="cell-TLGG"></td><td class="cell-LFiZ"><span class="user"><img src="../../../Formaci%C3%B3n%20SAC/Onboarding%20SAC/Cronograma%20Base/DTE/unnamed_(1).jpg" class="icon user-icon"/>Lorena Moreno</span></td><td class="cell-:@&lt;p"><time>1 de octubre de 2026</time></td><td class="cell-`TVL"><time>31 de octubre de 2026</time></td></tr><tr id="31e39073-1e23-80aa-aa0d-dce6aaea322c"><td class="cell-title"><a href="Talleres%20de%20reforzamiento/Sin%20t%C3%ADtulo/Dinners%20(Toteatshop,%20KDS,%20Totem)%2031e390731e2380aaaa0ddce6aaea322c.html">Dinners (Toteatshop, KDS, Totem)</a></td><td class="cell-TLGG"></td><td class="cell-LFiZ"></td><td class="cell-:@&lt;p"><time>1 de noviembre de 2026</time></td><td class="cell-`TVL"><time>30 de noviembre de 2026</time></td></tr><tr id="31e39073-1e23-8086-921f-c9b30891f95d"><td class="cell-title"><a href="Talleres%20de%20reforzamiento/Sin%20t%C3%ADtulo/RECAP%2031e390731e238086921fc9b30891f95d.html">RECAP</a></td><td class="cell-TLGG"></td><td class="cell-LFiZ"></td><td class="cell-:@&lt;p"><time>1 de diciembre de 2026</time></td><td class="cell-`TVL"><time>31 de diciembre de 2026</time></td></tr></tbody></table></div><br/><br/></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
