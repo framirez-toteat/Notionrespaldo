@@ -183,7 +183,8 @@
     font-size: 11px; padding: 3px 8px; border-radius: 10px;
     font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
   }
-  #role-badge.admin  { background: #e8411c; color: #fff; }
+  #role-badge.admin   { background: #e8411c; color: #fff; }
+  #role-badge.lider   { background: #4a6fa5; color: #fff; }
   #role-badge.general { background: #e8ddd0; color: #1a1a1a; }
 
   #content-frame {
@@ -268,15 +269,37 @@
 </div>
 
 <script>
-const PASSWORD_TEAM  = "SACTECH2025";
-const PASSWORD_ADMIN = "AdminSACTECH2025";
+// ── Configuración de roles ──────────────────────────────────────────────────
+// Para agregar un rol: añadir entrada con su contraseña, nombre, tipo y
+// las carpetas restringidas que puede ver ('*' = todo).
+const ROLES = {
+  'SACTECH2025':       { name: 'Agentes',        type: 'general', folders: [] },
+  'AdminSAC2025':      { name: 'Lider SAC',       type: 'lider',   folders: ['Lideres SAC'] },
+  'AdminSACTECH2025':  { name: 'Lider SAC Tech',  type: 'lider',   folders: ['Lideres SAC', 'Proyectos'] },
+  'Administrador2025': { name: 'Admin',            type: 'admin',   folders: ['*'] },
+};
 
-let accessLevel = 0; // 0 = sin acceso, 1 = equipo, 2 = admin
+// Carpetas restringidas (no visibles para Agentes).
+// El orden importa: poner prefijos más específicos primero.
+const RESTRICTED = ['Lideres SAC', 'Proyectos'];
+
+function canAccess(page) {
+  if (!currentRole) return false;
+  const role = ROLES[currentRole];
+  if (role.folders.includes('*')) return true;
+  for (const r of RESTRICTED) {
+    if (page.path.includes(r)) return role.folders.includes(r);
+  }
+  return true;
+}
+// ────────────────────────────────────────────────────────────────────────────
+
+let currentRole = null;
 
 (function checkAuth() {
-  const stored = sessionStorage.getItem('sac_level');
-  if (stored === '1' || stored === '2') {
-    accessLevel = parseInt(stored);
+  const stored = sessionStorage.getItem('sac_role');
+  if (stored && ROLES[stored]) {
+    currentRole = stored;
     document.getElementById('login-screen').style.display = 'none';
     return;
   }
@@ -284,14 +307,10 @@ let accessLevel = 0; // 0 = sin acceso, 1 = equipo, 2 = admin
   const input = document.getElementById('login-input');
   const error = document.getElementById('login-error');
   function attempt() {
-    if (input.value === PASSWORD_ADMIN) {
-      accessLevel = 2;
-      sessionStorage.setItem('sac_level', '2');
-      document.getElementById('login-screen').style.display = 'none';
-      init();
-    } else if (input.value === PASSWORD_TEAM) {
-      accessLevel = 1;
-      sessionStorage.setItem('sac_level', '1');
+    const pw = input.value;
+    if (ROLES[pw]) {
+      currentRole = pw;
+      sessionStorage.setItem('sac_role', pw);
       document.getElementById('login-screen').style.display = 'none';
       init();
     } else {
@@ -309,14 +328,13 @@ let currentPath = null;
 
 function init() {
   const all = window.PAGES || [];
-  pages = accessLevel === 2
-    ? all
-    : all.filter(p => !p.folder.includes('Proyectos') && !p.path.includes('Proyectos') && !p.path.includes('Lideres SAC'));
+  pages = all.filter(canAccess);
   document.getElementById('page-count').textContent = `${pages.length} páginas disponibles`;
   buildTree(pages);
+  const role  = ROLES[currentRole];
   const badge = document.getElementById('role-badge');
-  if (accessLevel === 2) { badge.textContent = 'Admin'; badge.className = 'admin'; }
-  else { badge.textContent = 'General'; badge.className = 'general'; }
+  badge.textContent = role.name;
+  badge.className   = role.type;
 }
 
 function buildTree(list, searchMode = false) {
@@ -483,7 +501,7 @@ function injectMediaFallbacks(frame) {
 }
 
 function loadPage(path, title, folder) {
-  if (accessLevel < 2 && path.includes('Lideres SAC')) return;
+  if (!canAccess({ path })) return;
   currentPath = path;
   document.getElementById('welcome').style.display = 'none';
   const frame = document.getElementById('content-frame');
@@ -519,7 +537,7 @@ function goBack() {
 }
 
 function logout() {
-  sessionStorage.removeItem('sac_level');
+  sessionStorage.removeItem('sac_role');
   location.reload();
 }
 
