@@ -483,6 +483,7 @@ function injectMediaFallbacks(frame) {
 }
 
 function loadPage(path, title, folder) {
+  if (accessLevel < 2 && path.includes('Lideres SAC')) return;
   currentPath = path;
   document.getElementById('welcome').style.display = 'none';
   const frame = document.getElementById('content-frame');
