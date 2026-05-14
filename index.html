@@ -537,13 +537,16 @@ function openInNewTab() {
 
 function printPage() {
   const frame = document.getElementById('content-frame');
-  if (!frame || frame.style.display === 'none' || !frame.src) return;
-  const win = window.open(frame.src, '_blank');
-  if (!win) { alert('Permite popups para este sitio y vuelve a intentarlo.'); return; }
-  win.addEventListener('load', () => {
-    win.document.querySelectorAll('details').forEach(d => { d.open = true; });
-    setTimeout(() => { win.print(); }, 800);
-  });
+  if (!frame || frame.style.display === 'none') return;
+  try {
+    // Expandir todos los desplegables dentro del iframe
+    frame.contentDocument.querySelectorAll('details').forEach(d => { d.open = true; });
+    // Imprimir solo el contenido del iframe
+    setTimeout(() => { frame.contentWindow.print(); }, 400);
+  } catch(e) {
+    // Fallback si hay problema de acceso al iframe
+    window.open(frame.src, '_blank');
+  }
 }
 
 function goBack() {
