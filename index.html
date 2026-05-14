@@ -157,13 +157,14 @@
   #breadcrumb { font-size: 13px; color: var(--text-light); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   #breadcrumb span { color: var(--text); font-weight: 500; }
 
-  #open-btn {
+  #open-btn, #pdf-btn {
     font-size: 12px; padding: 5px 12px;
     background: none; border: 1px solid var(--border); border-radius: 5px;
     cursor: pointer; color: var(--text-light);
     white-space: nowrap;
   }
   #open-btn:hover { border-color: var(--accent); color: var(--accent); }
+  #pdf-btn:hover  { border-color: #e85d04; color: #e85d04; }
 
   #back-btn {
     font-size: 12px; padding: 5px 12px;
@@ -255,6 +256,7 @@
       <div id="breadcrumb">Selecciona una página</div>
       <button id="back-btn" style="display:none" onclick="goBack()">← Volver</button>
       <button id="open-btn" style="display:none" onclick="openInNewTab()">Abrir en nueva pestaña ↗</button>
+      <button id="pdf-btn"  style="display:none" onclick="printPage()">🖨️ PDF</button>
       <span id="role-badge"></span>
       <button id="logout-btn" onclick="logout()" title="Cerrar sesión">🔒 Salir</button>
     </div>
@@ -516,6 +518,7 @@ function loadPage(path, title, folder) {
   bc.innerHTML = parts.map(p => `${p}`).join(' / ') + (parts.length ? ' / ' : '') + `<span>${title}</span>`;
 
   document.getElementById('open-btn').style.display = 'inline-block';
+  document.getElementById('pdf-btn').style.display  = 'inline-block';
   document.getElementById('back-btn').style.display = 'inline-block';
 
   // Update active link
@@ -530,6 +533,17 @@ function loadPage(path, title, folder) {
 
 function openInNewTab() {
   if (currentPath) window.open(currentPath, '_blank');
+}
+
+function printPage() {
+  if (!currentPath) return;
+  const win = window.open(currentPath, '_blank');
+  win.addEventListener('load', () => {
+    // Expandir todos los bloques toggle/details de Notion
+    win.document.querySelectorAll('details').forEach(d => { d.open = true; });
+    // Pequeña espera para que carguen imágenes, luego imprimir
+    setTimeout(() => { win.print(); }, 800);
+  });
 }
 
 function goBack() {
