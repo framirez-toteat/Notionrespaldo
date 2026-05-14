@@ -536,12 +536,12 @@ function openInNewTab() {
 }
 
 function printPage() {
-  if (!currentPath) return;
-  const win = window.open(currentPath, '_blank');
+  const frame = document.getElementById('content-frame');
+  if (!frame || frame.style.display === 'none' || !frame.src) return;
+  const win = window.open(frame.src, '_blank');
+  if (!win) { alert('Permite popups para este sitio y vuelve a intentarlo.'); return; }
   win.addEventListener('load', () => {
-    // Expandir todos los bloques toggle/details de Notion
     win.document.querySelectorAll('details').forEach(d => { d.open = true; });
-    // Pequeña espera para que carguen imágenes, luego imprimir
     setTimeout(() => { win.print(); }, 800);
   });
 }
