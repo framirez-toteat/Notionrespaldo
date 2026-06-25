@@ -1,0 +1,754 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Documentación integraciones Deliveries</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="30a39073-1e23-80ca-9281-fe070d94912e" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?ixlib=rb-4.1.0&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📓</span></div><h1 class="page-title" dir="auto">Documentación integraciones Deliveries</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="30a39073-1e23-80e5-a234-f6f614a91701" class="">Guía de Integraciones de Delivery</h1></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8073-95cb-d14ed02704e8" class=""><strong>Última actualización:</strong> 17 de febrero de 2026</p></div><div style="display:contents" dir="ltr"><nav id="30b39073-1e23-80f1-92bf-d6ee0e0e1061" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#30a39073-1e23-80e5-a234-f6f614a91701">Guía de Integraciones de Delivery</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#30a39073-1e23-80a2-8f4b-e33b2317c634">📌 Introducción Rápida</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#30a39073-1e23-8010-976b-e7157c6a17a5">🎯 ¿Donde puedo configurar qué plataforma?</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#30a39073-1e23-8049-a807-fb5f0283f866">Tabla Comparativa Rápida</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#30a39073-1e23-80fc-b128-fd904b529c05">📋 Resumen de Capacidades</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#30a39073-1e23-8091-8759-f7890535fd0c">📚 Guías por Plataforma</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#30a39073-1e23-8043-8499-e12498cc0fae">🐞 Troubleshooting General</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#30a39073-1e23-80bf-b8fb-fe1d218c6415">➕ Adicional - Última milla</a></div></nav></div><div style="display:contents" dir="auto"><p id="31839073-1e23-8061-ad7f-e102d3123d30" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="30a39073-1e23-8018-8123-ee42f2ca8e31"/></div><div style="display:contents" dir="auto"><h2 id="30a39073-1e23-80a2-8f4b-e33b2317c634" class="">📌 Introducción Rápida</h2></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8091-ba05-dde20c54ab23" class="">Toteat se integra con <strong>6 plataformas de delivery</strong> para que los restaurantes puedan:</p></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80b1-98f5-e4b20a666b00" class="bulleted-list"><li style="list-style-type:disc">📱 Recibir órdenes automáticamente</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-802c-b220-c79eb2af0449" class="bulleted-list"><li style="list-style-type:disc">📋 Sincronizar menú y precios</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80c7-9c4b-de082081aefb" class="bulleted-list"><li style="list-style-type:disc">📊 Gestionar disponibilidad de tienda</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8019-9a63-ffc683597adc" class="bulleted-list"><li style="list-style-type:disc">✅ Autoaceptación y rechazar órdenes</li></ul></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-805c-b8ef-c8c857d5dec0" class="">Cada plataforma tiene características diferentes y niveles distintos de integración.</p></div><div style="display:contents" dir="auto"><p id="30b39073-1e23-80b8-a8f4-fc1a104e8567" class="">Si necesitas referirte a qué es una integración y detalles nivel soporte ⇒ <a href="https://app.notion.com/p/Flujo-Capacitaci-n-6e225a31f9b947d09cdc85e9ec7a448e?pvs=21"><img class="icon notion-static-icon" src="https://app.notion.com/icons/arrow-right_green.svg"/>Flujo Capacitación</a> </p></div><div style="display:contents" dir="auto"><hr id="30a39073-1e23-807c-9c3b-f0e621e2dfdc"/></div><div style="display:contents" dir="auto"><h2 id="30a39073-1e23-8010-976b-e7157c6a17a5" class="">🎯 ¿Donde puedo configurar qué plataforma?</h2></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8049-a807-fb5f0283f866" class="">Tabla Comparativa Rápida</h3></div><div style="display:contents" dir="ltr"><table id="30a39073-1e23-8049-a0eb-efd0af4a4a6f" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80e8-a6a0-f416d275f0e7"><th id="F==L" class="simple-table-header-color simple-table-header"><strong>Plataforma</strong></th><th id="N=xf" class="simple-table-header-color simple-table-header"><strong>Dónde se configura</strong></th><th id="dBFM" class="simple-table-header-color simple-table-header">GAE o New</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-8086-b459-db4057929179"><td id="F==L" class=""><strong>Rappi</strong></td><td id="N=xf" class="">TRM → Integraciones → Rappi</td><td id="dBFM" class="">🟢 Ambos</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80f5-9996-e6575c021508"><td id="F==L" class=""><strong>Uber Eats</strong></td><td id="N=xf" class="">TRM → Integraciones → Uber Eats</td><td id="dBFM" class="">🟢 Ambos</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80f4-b94d-cb30be050fbe"><td id="F==L" class=""><strong>Pedidos Ya</strong></td><td id="N=xf" class="">TRM → Integraciones → Pedidos Ya</td><td id="dBFM" class="">🟢 Ambos</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80dc-a153-d2e8e5801834"><td id="F==L" class=""><strong>Justo</strong></td><td id="N=xf" class="">TRM → Integraciones → Justo</td><td id="dBFM" class="">🟢 Ambos</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80e0-991c-ce3c150abf22"><td id="F==L" class=""><strong>DiDi Food</strong></td><td id="N=xf" class="">TRM → Integraciones → DiDi</td><td id="dBFM" class="">🟢 Ambos</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-8040-9129-e7da48ee9cdf"><td id="F==L" class=""><strong>Mercado Pago Delivery</strong></td><td id="N=xf" class="">TRM → Integraciones → MP Delivery</td><td id="dBFM" class="">🟢 Ambos</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="30a39073-1e23-805f-a60d-c89bedf25950"/></div><div style="display:contents" dir="auto"><h2 id="30a39073-1e23-80fc-b128-fd904b529c05" class="">📋 Resumen de Capacidades</h2></div><div style="display:contents" dir="ltr"><div id="30a39073-1e23-80fd-88f1-e56c40d96da4" class="collection-content"><h4 class="collection-title"></h4><div class="collection-content-wrapper"><table class="collection-content"><colgroup><col style="width:25.233644859813083%"/><col style="width:12.461059190031152%"/><col style="width:12.461059190031152%"/><col style="width:12.461059190031152%"/><col style="width:12.461059190031152%"/><col style="width:12.461059190031152%"/><col style="width:12.461059190031165%"/></colgroup><thead><tr><th><span class="icon property-icon"><img src="https://app.notion.com/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Capacidad</th><th><span class="icon property-icon"><img src="https://app.notion.com/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Rappi</th><th><span class="icon property-icon"><img src="https://app.notion.com/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>DiDi</th><th><span class="icon property-icon"><img src="https://app.notion.com/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Uber</th><th><span class="icon property-icon"><img src="https://app.notion.com/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>PYA</th><th><span class="icon property-icon"><img src="https://app.notion.com/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Justo</th><th><span class="icon property-icon"><img src="https://app.notion.com/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Mercado Pago Delivery</th></tr></thead><tbody><tr id="32739073-1e23-80c2-9e14-fa7b04c71ec2"><td class="cell-title"><a href="Sin%20t%C3%ADtulo%20327390731e2380c29e14fa7b04c71ec2.html">Sin título</a></td><td class="cell-&lt;u_R"></td><td class="cell-Qt}W"></td><td class="cell-;@DF"></td><td class="cell-ZNM@"></td><td class="cell-BGn^"></td><td class="cell-Ypx^"></td></tr><tr id="32739073-1e23-8082-b3fb-d77993b8f4ed"><td class="cell-title"><a href="Sin%20t%C3%ADtulo%20327390731e238082b3fbd77993b8f4ed.html">Sin título</a></td><td class="cell-&lt;u_R"></td><td class="cell-Qt}W"></td><td class="cell-;@DF"></td><td class="cell-ZNM@"></td><td class="cell-BGn^"></td><td class="cell-Ypx^"></td></tr><tr id="30a39073-1e23-80c6-a390-ca5aead5c4d8"><td class="cell-title"><a href="Recibir%20%C3%B3rdenes%2030a390731e2380c6a390ca5aead5c4d8.html">Recibir órdenes</a></td><td class="cell-&lt;u_R">✅</td><td class="cell-Qt}W">✅</td><td class="cell-;@DF">✅</td><td class="cell-ZNM@">✅</td><td class="cell-BGn^">✅</td><td class="cell-Ypx^">✅</td></tr><tr id="30a39073-1e23-806a-9336-f760ac6974a7"><td class="cell-title"><a href="Sincronizar%20men%C3%BA%2030a390731e23806a9336f760ac6974a7.html">Sincronizar menú</a></td><td class="cell-&lt;u_R">✅</td><td class="cell-Qt}W">✅</td><td class="cell-;@DF">✅</td><td class="cell-ZNM@">✅</td><td class="cell-BGn^">✅</td><td class="cell-Ypx^">✅</td></tr><tr id="30a39073-1e23-8098-99f6-f6d2b09044f2"><td class="cell-title"><a href="Actualizar%20precios%2030a390731e23809899f6f6d2b09044f2.html">Actualizar precios</a></td><td class="cell-&lt;u_R">✅</td><td class="cell-Qt}W">✅</td><td class="cell-;@DF">✅</td><td class="cell-ZNM@">✅</td><td class="cell-BGn^">✅</td><td class="cell-Ypx^">✅</td></tr><tr id="30a39073-1e23-80aa-b8ff-d512c54d45b3"><td class="cell-title"><a href="Abrir%20Cerrar%20tienda%2030a390731e2380aab8ffd512c54d45b3.html">Abrir/Cerrar tienda</a></td><td class="cell-&lt;u_R">❌</td><td class="cell-Qt}W">✅</td><td class="cell-;@DF">✅</td><td class="cell-ZNM@">✅</td><td class="cell-BGn^">✅</td><td class="cell-Ypx^">✅</td></tr><tr id="30a39073-1e23-8074-9f88-cb102b894ffe"><td class="cell-title"><a href="Autoaceptar%20Cancelar%2030a390731e2380749f88cb102b894ffe.html">Autoaceptar / Cancelar</a></td><td class="cell-&lt;u_R">✅</td><td class="cell-Qt}W">✅</td><td class="cell-;@DF">✅</td><td class="cell-ZNM@">✅</td><td class="cell-BGn^">✅</td><td class="cell-Ypx^">✅</td></tr><tr id="32639073-1e23-80ad-8370-f0ee05b76bef"><td class="cell-title"><a href="Aviso%20de%20terminado%20de%20preparar%20(manual)%20326390731e2380ad8370f0ee05b76bef.html">Aviso de terminado de preparar (manual)</a></td><td class="cell-&lt;u_R">✅</td><td class="cell-Qt}W">❌</td><td class="cell-;@DF">✅</td><td class="cell-ZNM@">✅</td><td class="cell-BGn^">✅</td><td class="cell-Ypx^">❌</td></tr><tr id="32639073-1e23-8029-834f-e56721ee6484"><td class="cell-title"><a href="Aviso%20de%20en%20reparto%20para%20cliente%20final%20(manual)%20326390731e238029834fe56721ee6484.html">Aviso de en reparto para cliente final (manual)</a></td><td class="cell-&lt;u_R">❌</td><td class="cell-Qt}W">✅</td><td class="cell-;@DF">❌</td><td class="cell-ZNM@">✅</td><td class="cell-BGn^">✅</td><td class="cell-Ypx^">❌</td></tr><tr id="32639073-1e23-8088-baa3-f66af81f5164"><td class="cell-title"><a href="KDS%20aviso%20terminado%20de%20preparar%20(autom%C3%A1tico)%20326390731e238088baa3f66af81f5164.html">KDS aviso terminado de preparar (automático)</a></td><td class="cell-&lt;u_R">✅</td><td class="cell-Qt}W">✅</td><td class="cell-;@DF">✅</td><td class="cell-ZNM@">✅</td><td class="cell-BGn^">✅</td><td class="cell-Ypx^">❌</td></tr><tr id="30a39073-1e23-800c-a817-ee12a49e5551"><td class="cell-title"><a href="Stock%20de%20items%20(Activo%20Inactivo)%2030a390731e23800ca817ee12a49e5551.html">Stock de items (Activo/Inactivo)</a></td><td class="cell-&lt;u_R">❌</td><td class="cell-Qt}W">❌</td><td class="cell-;@DF">❌</td><td class="cell-ZNM@">✅ (con multisucursal)</td><td class="cell-BGn^">❌</td><td class="cell-Ypx^">❌</td></tr><tr id="30a39073-1e23-80af-9331-ccefa6637aaf"><td class="cell-title"><a href="Tiendas%20madre%20hijas%2030a390731e2380af9331ccefa6637aaf.html">Tiendas madre/hijas</a></td><td class="cell-&lt;u_R">❌</td><td class="cell-Qt}W">❌</td><td class="cell-;@DF">❌</td><td class="cell-ZNM@">✅</td><td class="cell-BGn^">❌</td><td class="cell-Ypx^">❌</td></tr><tr id="30a39073-1e23-801b-9dd5-f6e64f72a820"><td class="cell-title"><a href="Precios%20referenciales%2030a390731e23801b9dd5f6e64f72a820.html">Precios referenciales</a></td><td class="cell-&lt;u_R">❌</td><td class="cell-Qt}W">❌</td><td class="cell-;@DF">❌</td><td class="cell-ZNM@">❌</td><td class="cell-BGn^">✅</td><td class="cell-Ypx^">✅</td></tr><tr id="30a39073-1e23-8061-a109-d7adf7371787"><td class="cell-title"><a href="Precios%20de%20lista%2030a390731e238061a109d7adf7371787.html">Precios de lista</a></td><td class="cell-&lt;u_R">✅</td><td class="cell-Qt}W">✅</td><td class="cell-;@DF">✅</td><td class="cell-ZNM@">✅</td><td class="cell-BGn^">✅</td><td class="cell-Ypx^">✅</td></tr><tr id="30a39073-1e23-8058-954e-fae09d5a8f49"><td class="cell-title"><a href="Precios%20por%20turno%2030a390731e238058954efae09d5a8f49.html">Precios por turno</a></td><td class="cell-&lt;u_R">❌</td><td class="cell-Qt}W">❌</td><td class="cell-;@DF">✅</td><td class="cell-ZNM@">✅</td><td class="cell-BGn^">✅</td><td class="cell-Ypx^">❌</td></tr><tr id="30a39073-1e23-80c2-97e8-fe6a6dbecf98"><td class="cell-title"><a href="Pa%C3%ADses%2030a390731e2380c297e8fe6a6dbecf98.html">Países</a></td><td class="cell-&lt;u_R">CL,CO,MX,PE,AR</td><td class="cell-Qt}W">MX,CL,CO</td><td class="cell-;@DF">US,CL,ES,AR,PE,MX</td><td class="cell-ZNM@">CL,AR,PE</td><td class="cell-BGn^">CL,CO,MX,PE,CR</td><td class="cell-Ypx^">AR</td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-803b-8425-ce89ff0b8a03" class=""><strong>Leyenda:</strong> ✅ = Funciona | ❌ = No soportado | ⏳ = En desarrollo | ❓ = Requiere verificación</p></div><div style="display:contents" dir="auto"><hr id="30a39073-1e23-80ca-b1d8-f342b4823edf"/></div><div style="display:contents" dir="auto"><h2 id="30a39073-1e23-8091-8759-f7890535fd0c" class="">📚 Guías por Plataforma</h2></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8012-acf9-f0e42797742c" class="toggle"><li><details open=""><summary>Rappi</summary><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80f7-bc4a-d9fb2767f1db" class="">1️⃣ RAPPI</h3></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8056-93fd-f9838befef1b" class="">Visión General</h3></div><div style="display:contents" dir="auto"><h1 id="30b39073-1e23-80fe-87cf-c579ac14b197" class=""></h1></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8013-8daa-e234d31a7ef8" class="bulleted-list"><li style="list-style-type:disc">✅ <strong>Más fácil de configurar</strong></li></ul></div><div style="display:contents" dir="auto"><p id="32839073-1e23-80ae-b2ac-f6ed2fc121cf" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80de-8716-c6dfcc9a9c0a" class="bulleted-list"><li style="list-style-type:disc">✅ Recibe órdenes en tiempo real</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-802d-a12f-d1ecc2209821" class="bulleted-list"><li style="list-style-type:disc">✅ Sincroniza menú completo</li></ul></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8093-a25f-c368e9be7aa8" class="">¿Dónde se configura?</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8069-be0f-dd1c0e455494" class=""><strong>Ruta en TRM:</strong> <code>Integraciones → Rappi → [Tienda]</code></p></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80cc-bafa-c97f95926bab" class="">Paso a Paso: Configuración Inicial</h3></div><div style="display:contents" dir="auto"><p id="30b39073-1e23-805a-9a79-e59904196416" class=""><a href="https://app.notion.com/p/5-2-Proceso-de-activaci-n-Rappi-06ee4138ca1b488da1bc37b6a9a8f4bc?pvs=21"><span class="icon">📗</span>5.2. Proceso de activación Rappi</a> </p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80cf-8373-ec442885df27" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80ff-9432-cfe2fef090b3" class="">¿Qué se sincroniza automáticamente?</h3></div><div style="display:contents" dir="ltr"><table id="30a39073-1e23-807d-be28-e727cb48fc0e" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80cf-9196-e3e1d73f4691"><th id="=rxl" class="simple-table-header-color simple-table-header">Elemento</th><th id="&gt;ofq" class="simple-table-header-color simple-table-header">¿Se sincroniza?</th><th id="Z=Wx" class="simple-table-header-color simple-table-header">Notas</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-8050-90e1-eee4e7d61eee"><td id="=rxl" class="">📋 Menú completo</td><td id="&gt;ofq" class="">✅ Sí</td><td id="Z=Wx" class="">Cuando cambias el menú en TRM</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-8085-86a3-cfdd1d976218"><td id="=rxl" class="">💲 Precios</td><td id="&gt;ofq" class="">✅ Sí</td><td id="Z=Wx" class="">Se actualizan con el menú</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-807a-9134-f72105ab594f"><td id="=rxl" class="">⏰ Horarios</td><td id="&gt;ofq" class="">❌ No</td><td id="Z=Wx" class="">Se configura en Rappi directamente</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80d3-8d37-cf9ce988c41b"><td id="=rxl" class="">📦 Stock disponible</td><td id="&gt;ofq" class="">✅ Sí</td><td id="Z=Wx" class="">Si marcas productos como &quot;no disponibles&quot;</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80d6-8680-f2d1f87626ca"><td id="=rxl" class="">🏪 Abrir/Cerrar tienda</td><td id="&gt;ofq" class="">✅ Sí</td><td id="Z=Wx" class="">Botón manual en TRM</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8071-9c91-c95b65353adc" class="">Problemas Comunes</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8054-ad6f-ed703d77eeb9" class=""><strong>P: &quot;No veo la tienda en Rappi&quot;</strong></p></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80cd-843e-e17d334960cc" class="bulleted-list"><li style="list-style-type:disc">✅ Verifica que esté activada (botón verde)</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8055-8212-f23fe728e9e6" class="bulleted-list"><li style="list-style-type:disc">✅ Espera 5-10 minutos para que se sincronice</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-805f-bdcf-d4d9f4a9012a" class="bulleted-list"><li style="list-style-type:disc">✅ Revisa que la API Key sea correcta</li></ul></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-802b-a47b-d68d8b36e4f0" class=""><strong>P: &quot;Rappi muestra precio diferente&quot;</strong></p></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8079-8e0d-ca5824fc2a2a" class="bulleted-list"><li style="list-style-type:disc">✅ Sube nuevamente el menú en TRM (Save &amp; send hook)</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80e3-9863-f8f7f970c409" class="bulleted-list"><li style="list-style-type:disc">✅ Espera unos minutos</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80d3-b27f-dfafd77f4498" class="bulleted-list"><li style="list-style-type:disc">✅ Revisa en el backoffice (o versiones si es GAE) que todo haya quedado ok</li></ul></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-809a-8c5a-ebd73831f542" class="">Documentación Oficial</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8019-b28e-fc097b59da2d" class="">📖 <a href="https://partners.rappi.com/">Rappi Partners - Centro de Soporte</a></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8066-9db5-c28ffa3bb461" class="toggle"><li><details open=""><summary>Uber Eats</summary><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-805f-8393-f2cb5fb6bb53" class="">2️⃣ UBER EATS</h3></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-808c-835d-e92f0221c2cb" class="">Visión General</h3></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8093-9038-d87473a3dc95" class="bulleted-list"><li style="list-style-type:disc">✅ Integración robusta</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80b2-9026-d5fbedafa26b" class="bulleted-list"><li style="list-style-type:disc">✅ Recibe órdenes en tiempo real</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80ce-a657-d146e472fb78" class="bulleted-list"><li style="list-style-type:disc">✅ Sincroniza menú completo</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8041-9a9f-f2f5546c0c0a" class="bulleted-list"><li style="list-style-type:disc">✅ Permite aceptar/rechazar órdenes</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80c8-93f8-f4e34748b81b" class="bulleted-list"><li style="list-style-type:disc">⚠️ Algunas características NO disponibles en Toteat</li></ul></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80ea-b3ff-f41d00abc4b5" class="">¿Qué SÍ tiene Uber Eats que Toteat NO integra?</h3></div><div style="display:contents" dir="ltr"><table id="30a39073-1e23-8044-b9fd-d3ed8cadd028" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-802d-8f32-caf2227d799c"><th id="OWQm" class="simple-table-header-color simple-table-header">Característica</th><th id="AZrR" class="simple-table-header-color simple-table-header">Uber Eats</th><th id="ObIv" class="simple-table-header-color simple-table-header">Toteat</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-808a-9fe9-d139ea580a84"><td id="OWQm" class=""><strong>Promociones en app</strong></td><td id="AZrR" class="">✅ Sí</td><td id="ObIv" class="">❌ No</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-8020-93ce-c151151c031e"><td id="OWQm" class=""><strong>Programación de menú</strong></td><td id="AZrR" class="">✅ Sí</td><td id="ObIv" class="">❌ No</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80a2-96dc-eb09e94f2601"><td id="OWQm" class=""><strong>Estimar tiempo de entrega</strong></td><td id="AZrR" class="">✅ Sí</td><td id="ObIv" class="">❌ No</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8081-88a3-c5c1e2510fde" class="">¿Dónde se configura?</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8050-bd77-d65a77585d6d" class=""><strong>Ruta en TRM:</strong> <code>Integraciones → Uber Eats → [Tienda]</code></p></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8083-8001-c267b7783165" class="">Paso a Paso: Configuración Inicial</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80ce-b538-f011334317c7" class=""><a href="https://app.notion.com/p/4-2-Proceso-de-activaci-n-Uber-d2f5d173b4dd4f62b6ae03a496f4e437?pvs=21"><span class="icon">📗</span>4.2. Proceso de activación Uber</a> </p></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8077-a4c8-e4838d1df2d6" class="">¿Qué se sincroniza automáticamente?</h3></div><div style="display:contents" dir="ltr"><table id="30a39073-1e23-808f-96ec-c0c78365cf08" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80cc-bdc7-dc4ee279e34c"><th id="xlrY" class="simple-table-header-color simple-table-header">Elemento</th><th id="aJ\[" class="simple-table-header-color simple-table-header">¿Se sincroniza?</th><th id="jPgL" class="simple-table-header-color simple-table-header">Notas</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80cc-b5dd-fd4318a21e8f"><td id="xlrY" class="">📋 Menú completo</td><td id="aJ\[" class="">✅ Sí</td><td id="jPgL" class="">Cuando haces click en &quot;Enviar&quot;</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-8019-8548-e6fd818da092"><td id="xlrY" class="">💲 Precios</td><td id="aJ\[" class="">✅ Sí</td><td id="jPgL" class="">Se actualizan con el menú</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-808b-bb48-eab5a79ac68d"><td id="xlrY" class="">⏰ Horarios</td><td id="aJ\[" class="">❌ No*</td><td id="jPgL" class="">*Se configura en Uber Eats app</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80bf-9679-f9afaa34b0f4"><td id="xlrY" class="">📸 Fotos de productos</td><td id="aJ\[" class="">✅ Sí</td><td id="jPgL" class="">Se envían automáticamente</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-8049-96f8-ddd4d642ab54"><td id="xlrY" class="">📝 Descripción productos</td><td id="aJ\[" class="">✅ Sí</td><td id="jPgL" class="">Se envía al subir menú</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80cd-a31d-c018160957c9"><td id="xlrY" class="">🎯 Categorías/Extras</td><td id="aJ\[" class="">✅ Sí</td><td id="jPgL" class="">Mantiene la estructura</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8026-bda0-fcc567fc5e5a" class="">Flujo de Órdenes</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8017-a87b-c3c3bb3ddef6" class=""><strong>Cuando llega una orden:</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-80b7-8420-d350be3b6010" class="numbered-list" start="1"><li>Uber Eats → Toteat</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-8025-b65b-d4761f61d0e6" class="numbered-list" start="2"><li>Aparece en tu pantalla de órdenes (autoaceptación)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-8052-8ca0-f94018c3659e" class="numbered-list" start="3"><li>Uber Eats se entera automáticamente</li></ol></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8039-abda-f6d660e219f2" class=""><strong>Si la rechazas:</strong></p></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-800e-a987-c4e29d86bff3" class="bulleted-list"><li style="list-style-type:disc">Debes indicar motivo (Ocupado, Sin stock, etc.)</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80ff-be4e-d236b4f019b1" class="bulleted-list"><li style="list-style-type:disc">Uber Eats notifica al cliente</li></ul></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80e7-a658-c01b0105d1d9" class="">Problemas Comunes</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8019-96b2-c1e4bc18d6c8" class=""><strong>P: &quot;Error 401 - Usuario no autorizado&quot;</strong></p></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80bc-a696-d27919c4a1ef" class="bulleted-list"><li style="list-style-type:disc">✅ Significa que la conexión expiró</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80ed-baf6-d9f728d08482" class="bulleted-list"><li style="list-style-type:disc">✅ Solución: Reconectar desde TRM (botón &quot;Reconectar&quot;)</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8077-afc3-e1f936f7728a" class="bulleted-list"><li style="list-style-type:disc">✅ Verifica que el usuario en Uber tenga permisos</li></ul></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8084-b840-e2cba81a23e7" class=""><strong>P: &quot;El menú no se sincroniza&quot;</strong></p></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80f7-85fd-d89d5a0dfb56" class="bulleted-list"><li style="list-style-type:disc">✅ Verifica que NO haya productos con MULTI activo (genera error)</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8013-a366-edf8ea439231" class="bulleted-list"><li style="list-style-type:disc">✅ Desactiva MULTI temporalmente, sincroniza, reactiva</li></ul></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80cf-b0ae-e4410b7874ec" class=""><strong>P: &quot;Falta categoría o producto en Uber&quot;</strong></p></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80fd-ac0b-f24cc2e7dfa5" class="bulleted-list"><li style="list-style-type:disc">✅ Vuelve a enviar menú desde TRM</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80e4-8ff7-ee6642e29034" class="bulleted-list"><li style="list-style-type:disc">✅ Verifica que el producto esté activo en TRM</li></ul></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-804b-a51b-ed247235d3c0" class="">Documentación Oficial</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-805d-abde-e15fca96b6b2" class="">📖 <a href="https://developer.uber.com/docs/eats/introduction">Uber Eats para Restaurantes - Guía de Integración</a></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80af-b456-df8c6b0e829e" class="toggle"><li><details open=""><summary>Pedidos Ya</summary><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8080-9d35-c5be6537d8be" class="">3️⃣ PEDIDOS YA</h3></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8080-83db-dae9b3a94e6c" class="">Visión General</h3></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80e9-881e-f650f13c0326" class="bulleted-list"><li style="list-style-type:disc">✅ Menú muy completo</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8024-ab94-d6b14f10667d" class="bulleted-list"><li style="list-style-type:disc">✅ Soporte para horarios por turno</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-806e-a323-cff126603788" class="bulleted-list"><li style="list-style-type:disc">✅ Soporte para tiendas madre/hijas</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80c4-a26a-e53cfea0a820" class="bulleted-list"><li style="list-style-type:disc">⚠️ Más configuración = más puntos de fallo</li></ul></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80fc-98aa-c71a1ffdf0e8" class="">¿Dónde se configura?</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80cd-a9dc-f1c07e8298e7" class=""><strong>Ruta en TRM:</strong> <code>Integraciones → Pedidos Ya → [Tienda]</code></p></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8011-a080-d13d6bbfa1d8" class="">Paso a Paso: Configuración Inicial</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-801f-b714-de65b68197cf" class=""><a href="https://app.notion.com/p/6-2-Proceso-de-activaci-n-Peya-1ccf8145347c45459cac4d546f4b3177?pvs=21"><span class="icon">📗</span>6.2. Proceso de activación Peya</a> </p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80c3-a797-df7fcd95358c" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8017-9e90-f484792e2cb5" class="">Características Especiales de Pedidos Ya</h3></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80a9-9342-cca738ab376b" class="">A. Tiendas Madre/Hijas (Multi-sucursal)</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80af-bed5-c635a4cd4826" class="">Si tu restaurante tiene <strong>varias sucursales</strong>, PYA permite:</p></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80de-b058-c99843bbdb01" class="bulleted-list"><li style="list-style-type:disc">Una tienda &quot;madre&quot; sube el menú una sola vez</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-808c-80fc-f05cace7a011" class="bulleted-list"><li style="list-style-type:disc">Se replica automáticamente a todas las &quot;hijas&quot;</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80fc-9077-f32aea60b9e8" class="bulleted-list"><li style="list-style-type:disc">Las órdenes van a cada sucursal</li></ul></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80c0-8112-e95be3e48d9c" class=""><strong>Cómo configurar:</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-8081-bce5-f5d41afb127f" class="numbered-list" start="1"><li>Crear tienda madre en PYA</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-807b-8a62-ca91e2644a7a" class="numbered-list" start="2"><li>En TRM, marcar como &quot;Tienda madre&quot;</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-80de-8a03-c2e71baca0c3" class="numbered-list" start="3"><li>Crear tiendas hijas</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-8084-a556-c9dcad6fbd81" class="numbered-list" start="4"><li>Vincularlas a la madre</li></ol></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80d5-afe6-c92e8561c212" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-808c-aaee-dae95d0bb424" class="">B. Apertura de tienda en PeYa según turno abierto en Toteat</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80ac-bd4f-eed431085a7e" class="">La integración con PeYa permite prender/cerrar la tienda dependiendo de si el turno está abierto o no en Toteat:</p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-803a-a788-d17c890673ed" class=""><strong>Cómo configurar:</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-8038-8e8f-f70903e3cc2d" class="numbered-list" start="1"><li>Ir a Restaurant ⇒ Config turnos</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-807b-a448-cf829ead465f" class="numbered-list" start="2"><li>Definir turnos por día en PeYa</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-80c5-98d0-e28dcf98a14a" class="numbered-list" start="3"><li>Ingresar a la configuración de API de PeYa</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30b39073-1e23-80f6-b407-d5c66530eb45" class="numbered-list" start="4"><li>Asociar los turnos disponibles en la pestaña Productos</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30b39073-1e23-80fc-87e9-c2a10739d2db" class="numbered-list" start="5"><li>Si la tienda debiese estar abierta en PeYa según la config, pero el turno no está abierto en Toteat ⇒ se cierra la tienda en PeYA.<div style="display:contents" dir="auto"><ol type="a" id="30b39073-1e23-808c-aefe-cce27c131977" class="numbered-list" start="1"><li>Si se realizó lo anterior y luego se abre el turno en Toteat, vamos a abrir la tienda en Peya.</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-802b-88da-c05e227f6b9e" class="">Documentación Oficial</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8098-9fde-d5e567e5194f" class="">📖 <a href="https://partners.pedidosya.com/">Pedidos Ya - Centro de Partners</a></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-808f-941e-c21ea1ad6990" class="toggle"><li><details open=""><summary>Justo</summary><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80a9-bea6-d85e856e37fb" class="">4️⃣ JUSTO</h3></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8043-98a3-e83735be3678" class="">Visión General</h3></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80d0-84c2-ef83011f604a" class="bulleted-list"><li style="list-style-type:disc">✅ Más simple que otras</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80e1-9e43-d28f352cebef" class="bulleted-list"><li style="list-style-type:disc">✅ Recibe órdenes en tiempo real</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80e9-9f01-c060efcc6b07" class="bulleted-list"><li style="list-style-type:disc">✅ Sincroniza menú</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8089-8011-ff34b5648e82" class="bulleted-list"><li style="list-style-type:disc">⚠️ Algunas limitaciones</li></ul></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-804b-842a-d849ed31feb4" class="">¿Dónde se configura?</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8065-a7f1-ed0e94304c08" class=""><strong>Ruta en TRM:</strong> <code>Integraciones → Justo → [Tienda]</code></p></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8006-bffd-ea14d8d93605" class="">Paso a Paso: Configuración Inicial</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-806a-b46d-e81dba678ca2" class=""><a href="https://app.notion.com/p/7-2-Proceso-de-activaci-n-Justo-560509316a0748e18b6aa69f67d70e1a?pvs=21"><span class="icon">📗</span>7.2. Proceso de activación Justo</a> </p></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8001-b9cf-ec5fd9c9a715" class="">¿Qué se sincroniza?</h3></div><div style="display:contents" dir="ltr"><table id="30a39073-1e23-80c5-8be9-ef06e40b640e" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-8034-92bb-fa7dbf7b9011"><th id="ffIT" class="simple-table-header-color simple-table-header">Elemento</th><th id="q^zV" class="simple-table-header-color simple-table-header">¿Se sincroniza?</th><th id="[=KZ" class="simple-table-header-color simple-table-header">Notas</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80d6-94a2-d16f7445f5ff"><td id="ffIT" class="">📋 Menú</td><td id="q^zV" class="">✅ Sí</td><td id="[=KZ" class="">Estructura simple</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-805e-98e7-cb88dae1cd2b"><td id="ffIT" class="">💲 Precios</td><td id="q^zV" class="">✅ Sí</td><td id="[=KZ" class="">Se actualizan</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80ce-97dc-dc4076691b20"><td id="ffIT" class="">⏰ Horarios</td><td id="q^zV" class="">❌ No</td><td id="[=KZ" class="">Se configura en Justo</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80df-a48f-d2003f6d6cba"><td id="ffIT" class="">📦 Stock</td><td id="q^zV" class="">✅ Sí</td><td id="[=KZ" class="">Productos &quot;no disponibles&quot;</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-8000-a29c-db4fe0d457a3"><td id="ffIT" class="">🎯 Extras</td><td id="q^zV" class="">✅ Sí</td><td id="[=KZ" class="">Grupos de modificadores</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-805a-8287-d640a8d5269a" class="">Documentación Oficial</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8034-90f5-ef9c3da40b53" class="">📖 <a href="https://developers.getjusto.com/">Justo Developers Portal</a></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8015-80ca-c3d76f4a1151" class="toggle"><li><details open=""><summary>Didi Food</summary><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80b3-90ce-f0390af486e7" class="">5️⃣ DIDI FOOD</h3></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8087-bc93-e1cc7c0022d9" class="">Visión General</h3></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80b9-a394-c3e56a802d9f" class="bulleted-list"><li style="list-style-type:disc">✅ Recibe órdenes en tiempo real</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8082-af7d-ecd1652d7d3c" class="bulleted-list"><li style="list-style-type:disc">✅ Sincroniza menú</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80fb-9e5d-fe8c4e88f766" class="bulleted-list"><li style="list-style-type:disc">⚠️ Autenticación puede expirar</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80b3-ba1d-f412cce57fb0" class="bulleted-list"><li style="list-style-type:disc">⚠️ Menos común en Latam</li></ul></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80d7-afb6-e2006efa67e2" class="">¿Dónde se configura?</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8026-8671-f779cf5c009c" class=""><strong>Ruta en TRM:</strong> <code>Integraciones → DiDi → [Tienda]</code></p></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8020-9ae2-d1af41c8fe3c" class="">Paso a Paso: Configuración Inicial</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8046-8889-eb1df3d02677" class=""><a href="https://app.notion.com/p/8-2-Proceso-de-activaci-n-Didi-6914296dccb2452c817c19638abfbc29?pvs=21"><span class="icon">📗</span>8.2. Proceso de activación Didi</a> </p></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8058-b1d1-fd0b172a8134" class="">Problemas Comunes</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80e9-85db-d8e6a0e2b846" class=""><strong>P: &quot;Dice &#x27;No conectada&#x27; pero autoricé&quot;</strong></p></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80aa-8e14-c9c302f677b7" class="bulleted-list"><li style="list-style-type:disc">⚠️ Problema conocido (Issue #405)</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-806f-8d41-f7bd469a1988" class="bulleted-list"><li style="list-style-type:disc">✅ Si desconectas desde portal DiDi, TRM no lo detecta</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80ec-90dd-cab7bdb292d1" class="bulleted-list"><li style="list-style-type:disc">✅ Solución: Eliminar la integración y recrearla</li></ul></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80cf-8891-cff61f2c0fac" class=""><strong>P: &quot;Menú no se sincroniza&quot;</strong></p></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80ef-b947-eb26dcbfaa31" class="bulleted-list"><li style="list-style-type:disc">✅ Verifica que esté conectada</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80a1-baff-c3e7b5b8c179" class="bulleted-list"><li style="list-style-type:disc">✅ Vuelve a intentar en 5 minutos</li></ul></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80f8-85d5-e4a9b1de2fb3" class="">Documentación Oficial</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80df-ab1f-d4c634627e77" class="">📖 <a href="https://developer.didi-food.com/en-US/home">DiDi Food - Centro de Desarrollo</a></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80b9-8595-f51c898f2dab" class="toggle"><li><details open=""><summary>Mercado Pago Delivery</summary><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8027-a052-c0253d8747fd" class="">6️⃣ MERCADO PAGO DELIVERY</h3></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8004-8a9c-f34a55ad9882" class="">⚠️ <strong>Recientemente desarrollado - En Pruebas con Jaka</strong></h3></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80e2-8122-d05bda0f36db" class="">¿Dónde se configura?</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80ac-beb7-f16c4ee3bdc1" class=""><strong>Ruta en TRM:</strong> <code>Integraciones → Mercado Pago Delivery → [Tienda]</code></p></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8068-9a8d-c799b08c6179" class="">Paso a Paso: Configuración Inicial</h3></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-8077-92a0-eab30759bb56" class="numbered-list" start="1"><li>MP Delivery nos debe entregar el Seller ID y el Local ID. Con estos valores vamos a poder configurar la tienda en la API Config de MP Delivery</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30b39073-1e23-80c7-93bb-c4d66634659e" class="numbered-list" start="2"><li>Seller ID ⇒ Merchant ID en la config API</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30b39073-1e23-8005-a8a1-f2fb3adbffbc" class="numbered-list" start="3"><li>Local ID ⇒ ID Externa Restaurante en la config API</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30b39073-1e23-802c-b049-c4b9cc56a542" class="numbered-list" start="4"><li>El resto de configuraciones ya es completamente parecido a Rappi (configurar lista de precio, sector de pedidos, emisión automática de boleta, etc)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30b39073-1e23-8086-b12a-d379faaf6228" class="numbered-list" start="5"><li>Luego al darle click a Grabar por abajo se va a crear un ID de tienda en la pasarela.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30b39073-1e23-8034-a5da-df42eb4360fb" class="numbered-list" start="6"><li>Si vuelves a entrar de nuevo a la API, va a aparecer un botón de Configurar en Gateway, lo que permitirá que el dueño de la cuenta de MP Delivery ingrese a Toteat, le haga click al botón y se le redirija a MP delivery con su cuenta a aceptar la integración.<div style="display:contents" dir="auto"><ol type="a" id="31839073-1e23-80d0-ae2d-d9ff1140b86a" class="numbered-list" start="1"><li>Es completamente obligatorio que esa “aceptación” de la integración la tiene que hacer el dueño de la cuenta de MP delivery. Y por ende, se le tiene que habilitar un acceso a esa persona al ambiente en Toteat como owner.</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30b39073-1e23-80d5-b466-d246232ec3f8" class="numbered-list" start="7"><li>Al volver a Toteat saldrá un mensaje de éxito, el cual al volver a la API Config verás el estado “Conectado” en vez del Botón de Configurar en Gateway.</li></ol></div><div style="display:contents" dir="auto"><p id="31839073-1e23-804e-8829-ddecea422d9f" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="31839073-1e23-804c-bb47-e0fdc3424ecb" class="">Troubleshooting</h3></div><div style="display:contents" dir="auto"><ol type="1" id="31839073-1e23-8043-87d9-c8d4d8188e67" class="numbered-list" start="1"><li>Si necesitas ver como quedó el menú de la tienda luego de actualizarlo, puedes entrar a: </li></ol></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="31839073-1e23-806e-8b59-eee72a7af0e1" class="code code-wrap"><code class="language-markdown" style="white-space:pre-wrap;word-break:break-all">https://www.mercadopago.com.ar/delivery/listing?store=XXXXXXXX#from-section=menu</code></pre></div><div style="display:contents" dir="auto"><p id="31839073-1e23-80be-8cd5-c011cd31e385" class="">(reemplazando el store=XXXXXX por el Merchant ID del paso a paso de la configuración)</p></div><div style="display:contents" dir="auto"><ol type="1" id="31839073-1e23-8010-8ab7-db0e4037b45a" class="numbered-list" start="2"><li>Si necesitas ayuda de soporte de MP Delivery, nuestro contacto es Lautaro: <a href="mailto:lautaro.ortiz@mercadolibre.com">lautaro.ortiz@mercadolibre.com</a></li></ol></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80d7-9e1e-eb4b45ab08f1" class="">Documentación Oficial</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8011-a1f0-f6e794bc1d80" class="">📖 <a href="https://www.mercadopago.com.ar/developers/en">Mercado Pago - Developers</a></p></div></details></li></ul></div><div style="display:contents" dir="auto"><hr id="30a39073-1e23-808e-9049-fb8ede1f0c5b"/></div><div style="display:contents" dir="auto"><h2 id="30a39073-1e23-8043-8499-e12498cc0fae" class="">🐞 Troubleshooting General</h2></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-803b-8d34-d0b594ef98b4" class="toggle"><li><details open=""><summary>Troubleshooting General</summary><div style="display:contents" dir="auto"><h2 id="30a39073-1e23-807a-9c23-ff357bcb3709" class="">🔧 Troubleshooting General</h2></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8083-b88c-ff757ce8d3e0" class="">Problema: &quot;No llegan órdenes&quot;</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8026-a995-ebbb3baecb5e" class=""><strong>Checklist de diagnóstico (ver en la configuración de la API)</strong></p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80c9-91d8-fc608e3495c2" class="">□ ¿Está la integración ACTIVA? (switch inicial) </p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-806a-baa2-f112d9d15c47" class="">□ ¿Está la disponibilidad en la plataforma ACTIVA? (segundo switch) </p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8042-96d4-c53ad03ffe93" class="">□ ¿Está el estado de la integración OK? (hacer click en “Ver estado Int externa”) </p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80ee-a79a-efedb31a8c77" class="">□ ¿El menú está sincronizado? </p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8031-91d4-c8428d277cb2" class="">□ ¿Pasaron al menos 5 minutos desde la configuración? </p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80e7-9a93-e23e2a861fed" class="">□ ¿Revisaste en backoffice si la sync de menú se hizo correctamente?</p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80ee-8919-d8202298816e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80a4-aa73-d4a1affb5af7" class=""><strong>Pasos para resolver:</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-80b2-98b9-c5fd7f056d2c" class="numbered-list" start="1"><li><strong>Re-sincronizar menú:</strong><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8057-907b-cd991f52003b" class="bulleted-list"><li style="list-style-type:disc">Ir a Menú</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-806f-add8-f7ed0f0af708" class="bulleted-list"><li style="list-style-type:disc">Click en &quot;Grabar &amp; Send Hook&quot;</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-805d-90a7-c1833b7de575" class="numbered-list" start="2"><li><strong>Verificar en app del delivery:</strong><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80dc-b636-f191477b5d67" class="bulleted-list"><li style="list-style-type:disc">Abre app del delivery (Rappi, Uber, etc.)</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80dd-b558-eb9f09d5e961" class="bulleted-list"><li style="list-style-type:disc">Busca el restaurante</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-803d-9425-e8ec5ea91774" class="bulleted-list"><li style="list-style-type:disc">Verifica que esté abierto</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-8077-b348-f53aeb85c6bb" class="numbered-list" start="3"><li><strong>Si sigue sin funcionar:</strong><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80bb-8f42-c81c3f2ac148" class="bulleted-list"><li style="list-style-type:disc">Reportar a tech con:<div style="display:contents" dir="auto"><ul id="30a39073-1e23-80cc-8961-fa09432391c0" class="bulleted-list"><li style="list-style-type:circle">¿Qué plataforma?</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8087-b3f8-f7559b01408e" class="bulleted-list"><li style="list-style-type:circle">¿Cuál tienda?</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80f6-a808-ceb6bb3ef16e" class="bulleted-list"><li style="list-style-type:circle">¿Cuándo fue el último intento?</li></ul></div></li></ul></div></li></ol></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80c2-b04c-c68f8fb56d77" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-80e3-ba95-ff8951e1b8a3" class="">Problema: &quot;Menú desactualizado en plataforma delivery&quot;</h3></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80e6-95ab-e9347de4d76e" class=""><strong>Checklist de diagnóstico (ver en la configuración de la API)</strong></p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-805e-a20b-ccafe9e8d0fa" class="">□ ¿Está el estado de la integración OK? (hacer click en “Ver estado Int externa”) </p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8033-ae64-c4bdab0421da" class="">□ ¿El menú está actualizado y validado en Toteat? </p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8045-9d14-c040aa04c468" class="">□ ¿Pasaron al menos 5 minutos desde la configuración? </p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-80a7-b159-cab4fca27d20" class="">□ ¿Revisaste en backoffice si la sync de menú se hizo correctamente?</p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8067-b770-e3834f1ccc54" class="">
+</p></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-800f-88e8-e0ec8f624cfb" class=""><strong>Pasos para resolver:</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-80ad-a595-fba7dc99f706" class="numbered-list" start="1"><li><strong>Re-sincronizar menú:</strong><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80c3-abdc-edfe81416c1f" class="bulleted-list"><li style="list-style-type:disc">Ir a Menú</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8065-986a-c99d66d5164d" class="bulleted-list"><li style="list-style-type:disc">Click en &quot;Grabar &amp; Send Hook&quot;</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-805a-a720-f1f53c2d44f1" class="numbered-list" start="2"><li>Valida en Backoffice<div style="display:contents" dir="auto"><ol type="a" id="30a39073-1e23-80b1-84c6-feb94a3eca6e" class="numbered-list" start="1"><li>Espera 3-5 min e ingresa al apartado de Deliveries en el backoffice</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="30a39073-1e23-801b-8db3-dec3d7046001" class="numbered-list" start="2"><li>Revisa que la sync de menú para ese local haya quedado correcta</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-803b-8b7a-fd3d7e6f0b34" class="numbered-list" start="3"><li><strong>Verificar en app del delivery:</strong><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8028-9cc5-e4f560605842" class="bulleted-list"><li style="list-style-type:disc">Abre app del delivery (Rappi, Uber, etc.)</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8063-b3c4-d7dae271313f" class="bulleted-list"><li style="list-style-type:disc">Busca el restaurante</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8045-8e18-d56e0a656668" class="bulleted-list"><li style="list-style-type:disc">Verifica que esté abierto y que menú impactó correctamente</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-80bd-9eb9-e1c5dbdd3ccf" class="numbered-list" start="4"><li><strong>Si sigue sin funcionar:</strong><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8047-a644-e1c60cfd8a95" class="bulleted-list"><li style="list-style-type:disc">Reportar a tech con:<div style="display:contents" dir="auto"><ul id="30a39073-1e23-8047-9d62-f3bea1040fd5" class="bulleted-list"><li style="list-style-type:circle">¿Qué plataforma?</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-806c-9943-e8b936aff124" class="bulleted-list"><li style="list-style-type:circle">¿Cuál tienda?</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-807f-9e90-ea966407b729" class="bulleted-list"><li style="list-style-type:circle">¿Cuándo fue el último intento?</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80c4-b207-da5465438383" class="bulleted-list"><li style="list-style-type:circle">Copiar JSON de error de backoffice para esa subida</li></ul></div></li></ul></div></li></ol></div><div style="display:contents" dir="auto"><hr id="30a39073-1e23-80f7-b8e0-d99f4dc87461"/></div><div style="display:contents" dir="auto"><h2 id="30a39073-1e23-80d0-8613-f4e94d086db6" class="">📞 Cuándo Escalar a Tech</h2></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-804f-a73f-fd4bbb188f70" class="">Reportar a <strong>equipo técnico</strong> cuando:</p></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-805b-92ce-ee0a4fe29f33" class="numbered-list" start="1"><li>✅ Error persistente después de reintentar 3 veces</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-803e-9aee-fa918ccc88f9" class="numbered-list" start="2"><li>✅ Menú rechazado con error (mostrar código de backoffice) </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-80a1-b3a3-e70f08c25ac5" class="numbered-list" start="3"><li>✅ Órdenes no llegan desde la plataforma</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-8066-b7a8-d88b8b81eae4" class="numbered-list" start="4"><li>✅ Diferencia de montos en órdenes</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-80f0-b33b-cefbf7494a96" class="numbered-list" start="5"><li>✅ Integración conectada pero no recibe órdenes</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30a39073-1e23-80c4-8fa8-f2f65fea428f" class="numbered-list" start="6"><li>✅ Cliente reporta que montos calculados en pedidos inyectados a TRM desde deliveries son discordantes a los subidos</li></ol></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-805c-8046-c3507488c1f7" class=""><strong>Información a proporcionar:</strong></p></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8027-9249-dde057acb401" class="bulleted-list"><li style="list-style-type:disc">¿Qué plataforma? (Rappi, Uber, etc.)</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8066-b180-edd612671fd4" class="bulleted-list"><li style="list-style-type:disc">¿Cuál tienda? (nombre y ID)</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-80cd-8135-e80f9127ae82" class="bulleted-list"><li style="list-style-type:disc">¿Cuándo empezó el problema?</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-808f-90c2-df8e8f95187e" class="bulleted-list"><li style="list-style-type:disc">¿Qué error muestra? (screenshot si es posible)</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-802d-ac39-cd7caca15b18" class="bulleted-list"><li style="list-style-type:disc">¿Qué ya intentaste?</li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8059-89eb-da6f92cb154c" class="bulleted-list"><li style="list-style-type:disc">¿Funciona en otras plataformas?</li></ul></div><div style="display:contents" dir="auto"><p id="30a39073-1e23-8012-84af-c338d3146b85" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="30a39073-1e23-803c-9f97-cced5d673c9d"/></div><div style="display:contents" dir="auto"><h2 id="30a39073-1e23-8006-bfc6-e120697126d1" class="">📚 Referencias Rápidas</h2></div><div style="display:contents" dir="auto"><h3 id="30a39073-1e23-8053-a8f8-e53282a5e223" class="">Links Oficiales de Cada Delivery</h3></div><div style="display:contents" dir="ltr"><table id="30a39073-1e23-80ea-bc51-f20e946d2413" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-8021-8989-d0f9e33ccbdd"><th id="CcE`" class="simple-table-header-color simple-table-header">Plataforma</th><th id="MPAD" class="simple-table-header-color simple-table-header">Link</th><th id="`eRc" class="simple-table-header-color simple-table-header">Tipo</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-8020-a5b7-e319dccc46b6"><td id="CcE`" class=""><strong>Rappi</strong></td><td id="MPAD" class=""><a href="https://partners.rappi.com/">https://partners.rappi.com/</a></td><td id="`eRc" class="">Centro de Partners</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-8077-9583-d71a257a98fb"><td id="CcE`" class=""><strong>Uber Eats</strong></td><td id="MPAD" class=""><a href="https://developer.uber.com/docs/eats">https://developer.uber.com/docs/eats</a></td><td id="`eRc" class="">API Docs</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80fc-9db1-c4229129a821"><td id="CcE`" class=""><strong>Pedidos Ya</strong></td><td id="MPAD" class=""><a href="https://partners.pedidosya.com/">https://partners.pedidosya.com/</a></td><td id="`eRc" class="">Centro de Partners</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80d7-83a5-d0b6d7b4512d"><td id="CcE`" class=""><strong>Justo</strong></td><td id="MPAD" class=""><a href="https://developers.getjusto.com/">https://developers.getjusto.com/</a></td><td id="`eRc" class="">Portal Developers</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-80c3-a5d1-e09e972fd64f"><td id="CcE`" class=""><strong>DiDi</strong></td><td id="MPAD" class=""><a href="https://developer.didi-food.com/">https://developer.didi-food.com/</a></td><td id="`eRc" class="">Centro de Desarrollo</td></tr></div><div style="display:contents" dir="ltr"><tr id="30a39073-1e23-8056-89da-d039334cba97"><td id="CcE`" class=""><strong>MP Delivery</strong></td><td id="MPAD" class=""><a href="https://www.mercadopago.com.ar/developers/">https://www.mercadopago.com.ar/developers/</a></td><td id="`eRc" class="">Developers</td></tr></div></tbody></table></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="30b39073-1e23-80b4-93f7-ea046acaae8b" class="toggle"><li><details open=""><summary>Incidencias comunes</summary><div style="display:contents" dir="auto"><p id="30b39073-1e23-80c4-98b1-c3767b53613e" class=""><a href="https://docs.google.com/spreadsheets/d/1FCWumXuMKWrSkFS2TrUwEVGDQqML9QYev8l_4iWcXz4/edit?gid=1115712933#gid=1115712933">https://docs.google.com/spreadsheets/d/1FCWumXuMKWrSkFS2TrUwEVGDQqML9QYev8l_4iWcXz4/edit?gid=1115712933#gid=1115712933</a></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-804f-a8f1-cd4c60e28760" class="toggle"><li><details open=""><summary>Necesitas delivery en un país en el que no se encuentra habilitado actualmente?</summary><div style="display:contents" dir="auto"><p id="30a39073-1e23-806b-9e69-dce1370f250a" class="">Contactar a <span class="user">@Jorge Cabané</span> para validar factibilidad</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="30b39073-1e23-80dd-9576-dbfa3e95af50" class="toggle"><li><details open=""><summary>Si quieres hacer pruebas en ambientes de desarrollo</summary><div style="display:contents" dir="auto"><p id="30b39073-1e23-80fb-822f-dcb3b7fb2c68" class=""> </p></div></details></li></ul></div><div style="display:contents" dir="auto"><hr id="30b39073-1e23-801f-9800-e8820b6ff1c7"/></div><div style="display:contents" dir="auto"><h2 id="30a39073-1e23-80bf-b8fb-fe1d218c6415" class="">➕ Adicional - Última milla</h2></div><div style="display:contents" dir="auto"><ul id="30a39073-1e23-8019-bcc6-c79bb74175bb" class="toggle"><li><details open=""><summary>Integración última milla - UberDirect</summary><div style="display:contents" dir="ltr"><figure id="30a39073-1e23-8000-9fc2-f08894f925e0" class="link-to-page"><a href="Documentaci%C3%B3n%20Uber%20Direct%2030a390731e2380009fc2f08894f925e0.html"><span class="icon">🚗</span>Documentación Uber Direct</a></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="30b39073-1e23-8014-b35f-c54da10524bb" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

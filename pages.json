@@ -96,6 +96,12 @@
     "is_index": true
   },
   {
+    "title": "Documentación integraciones Deliveries",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries 30a390731e2380ca9281fe070d94912e.html",
+    "folder": "Privado y compartido/Procesos",
+    "is_index": true
+  },
+  {
     "title": "DTE Argentina",
     "path": "content/Privado y compartido/Procesos/DTE Argentina 58cea41fb86740eba63b773d1b565d92.html",
     "folder": "Privado y compartido/Procesos",
@@ -369,6 +375,108 @@
     "title": "Uber",
     "path": "content/Privado y compartido/Procesos/Documentación actualizada/Guía de Configuración de Integraciones Delivery/Uber 2f7390731e23809ea468d3be5e661835.html",
     "folder": "Privado y compartido/Procesos/Documentación actualizada/Guía de Configuración de Integraciones Delivery",
+    "is_index": false
+  },
+  {
+    "title": "Abrir Cerrar tienda",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Abrir Cerrar tienda 30a390731e2380aab8ffd512c54d45b3.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Actualizar precios",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Actualizar precios 30a390731e23809899f6f6d2b09044f2.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Autoaceptar Cancelar",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Autoaceptar Cancelar 30a390731e2380749f88cb102b894ffe.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Aviso de en reparto para cliente final (manual)",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Aviso de en reparto para cliente final (manual) 326390731e238029834fe56721ee6484.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Aviso de terminado de preparar (manual)",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Aviso de terminado de preparar (manual) 326390731e2380ad8370f0ee05b76bef.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Documentaci+¦n Uber Direct",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Documentaci+¦n Uber Direct 30a390731e2380009fc2f08894f925e0.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "KDS aviso terminado de preparar (autom+ítico)",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/KDS aviso terminado de preparar (autom+ítico) 326390731e238088baa3f66af81f5164.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Pa+¡ses",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Pa+¡ses 30a390731e2380c297e8fe6a6dbecf98.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Precios de lista",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Precios de lista 30a390731e238061a109d7adf7371787.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Precios por turno",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Precios por turno 30a390731e238058954efae09d5a8f49.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Precios referenciales",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Precios referenciales 30a390731e23801b9dd5f6e64f72a820.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Recibir +¦rdenes",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Recibir +¦rdenes 30a390731e2380c6a390ca5aead5c4d8.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Sin t+¡tulo",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Sin t+¡tulo 327390731e238082b3fbd77993b8f4ed.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Sin t+¡tulo",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Sin t+¡tulo 327390731e2380c29e14fa7b04c71ec2.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Sincronizar men+¦",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Sincronizar men+¦ 30a390731e23806a9336f760ac6974a7.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Stock de items (Activo Inactivo)",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Stock de items (Activo Inactivo) 30a390731e23800ca817ee12a49e5551.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
+    "is_index": false
+  },
+  {
+    "title": "Tiendas madre hijas",
+    "path": "content/Privado y compartido/Procesos/Documentación integraciones Deliveries/Tiendas madre hijas 30a390731e2380af9331ccefa6637aaf.html",
+    "folder": "Privado y compartido/Procesos/Documentación integraciones Deliveries",
     "is_index": false
   },
   {

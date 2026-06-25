@@ -1,0 +1,17 @@
+﻿Capacidad,DiDi,Justo,Mercado Pago Delivery,PYA,Rappi,Uber
+Stock de items (Activo/Inactivo),❌,❌,❌,✅ (con multisucursal),❌,❌
+Precios de lista,✅,✅,✅,✅,✅,✅
+Sincronizar menú,✅,✅,✅,✅,✅,✅
+Autoaceptar / Cancelar,✅,✅,✅,✅,✅,✅
+Actualizar precios,✅,✅,✅,✅,✅,✅
+Abrir/Cerrar tienda,✅,✅,✅,✅,❌,✅
+Recibir órdenes,✅,✅,✅,✅,✅,✅
+Tiendas madre/hijas,❌,❌,❌,✅,❌,❌
+Precios referenciales,❌,✅,✅,❌,❌,❌
+Precios por turno,❌,✅,❌,✅,❌,✅
+Países,"MX,CL,CO","CL,CO,MX,PE,CR",AR,"CL,AR,PE","CL,CO,MX,PE,AR","US,CL,ES,AR,PE,MX"
+Aviso de terminado de preparar (manual),❌,✅,❌,✅,✅,✅
+KDS aviso terminado de preparar (automático),✅,✅,❌,✅,✅,✅
+Aviso de en reparto para cliente final (manual),✅,✅,❌,✅,❌,❌
+,,,,,,
+,,,,,,
