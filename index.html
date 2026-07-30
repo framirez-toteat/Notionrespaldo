@@ -277,13 +277,14 @@
 const ROLES = {
   'SACTECH2025':       { name: 'Agentes',        type: 'general', folders: [] },
   'AdminSAC2025':      { name: 'Lider SAC',       type: 'lider',   folders: ['Lideres SAC'] },
-  'AdminSACTECH2025':  { name: 'Lider SAC Tech',  type: 'lider',   folders: ['Proyectos'] },
+  'AdminSACTECH2025':  { name: 'Lider SAC Tech',  type: 'lider',   folders: ['405bb8e9'] },
   'Administrador2025': { name: 'Admin',            type: 'admin',   folders: ['*'] },
 };
 
 // Carpetas restringidas (no visibles para Agentes).
 // El orden importa: poner prefijos más específicos primero.
-const RESTRICTED = ['Lideres SAC', 'Proyectos'];
+// '405bb8e9' = Mis Proyectos (privado); Proyectos Equipo (ac0ae8ce) es público.
+const RESTRICTED = ['Lideres SAC', '405bb8e9'];
 
 function canAccess(page) {
   if (!currentRole) return false;
